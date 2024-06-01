@@ -309,30 +309,44 @@ button:hover {
 .popup-content .progress-bar {
     height: 10px;
     text-align: center;
-    color: white;
     font-weight: bolder;
     line-height: 10px;
     font-size: 0.7rem;
     transition: width 0.2s ease-in-out;
+    color: rgb(255, 255, 255);
 }
 
+.popup-content .progress-bar.yellow {
+    height: 10px;
+    text-align: center;
+    font-weight: bolder;
+    line-height: 10px;
+    font-size: 0.7rem;
+    transition: width 0.2s ease-in-out;
+    color: black; 
+}
 .popup-content .close-btn {
     border: 1px solid #080808;
     border-radius: 4px;
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 3rem;
+    width: 30px;
+    height: 30px;
+    font-size: 2rem; 
     color: #961010;
     cursor: pointer;
     transition: color 0.2s ease-in-out;
-    
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; /* Ensure padding and borders are included in the dimensions */
 }
 
 .popup-content .close-btn:hover {
     background: red;
     color: rgb(255, 255, 255);
-    
 }
 
 @media (max-width: 768px) {
