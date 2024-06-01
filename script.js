@@ -273,6 +273,7 @@ function hideLoadingIndicator() {
 function getProgressBarHtml(score, totalMark) {
     const percentage = (parseFloat(score) / totalMark) * 100;
     let color;
+    let additionalClass = '';
     if (percentage >= 95) {
         color = 'indigo';
     } else if (percentage >= 90) {
@@ -281,6 +282,7 @@ function getProgressBarHtml(score, totalMark) {
         color = 'green';
     } else if (percentage >= 70) {
         color = 'yellow';
+        additionalClass = 'yellow'; // Add this class for yellow bars
     } else if (percentage >= 34) {
         color = 'orange';
     } else {
@@ -288,12 +290,13 @@ function getProgressBarHtml(score, totalMark) {
     }
     return `
         <div class="progress-bar-container">
-            <div class="progress-bar" style="background-color: ${color}; width: ${percentage}%;">
+            <div class="progress-bar ${additionalClass}" style="background-color: ${color}; width: ${percentage}%;">
                 ${percentage.toFixed(2)}%
             </div>
         </div>
     `;
 }
+
 
 function showIndividualResult(roll, year, group) {
     const fileName = `data_${year}_${group.toLowerCase()}_individual.txt`;
