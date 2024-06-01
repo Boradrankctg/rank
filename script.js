@@ -47,7 +47,7 @@ function loadGroup(year, group) {
                 <tr>
                     <th>Serial</th>
                     <th>Name</th>
-                    <th>SSC Roll</th>
+                    <th>Roll</th>
                     <th>GPA</th>
                     <th>Total</th>
                     <th>Institution</th>
