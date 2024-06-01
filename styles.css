@@ -309,13 +309,15 @@ button:hover {
 .popup-content .close-btn:hover {
     background: red;
     color: rgb(255, 255, 255);
-    transform: scale(2);
+    
 }
 
 @media (max-width: 768px) {
     body {
         font-size: 0.8rem;
         user-select: none; /* Prevent text copying */
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
     h1 {
