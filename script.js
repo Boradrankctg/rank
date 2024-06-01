@@ -1,3 +1,4 @@
+
 const contentDiv = document.getElementById('content');
 const currentYear = document.getElementById('currentYear');
 const currentGroup = document.getElementById('currentGroup');
@@ -65,7 +66,7 @@ function loadGroup(year, group) {
 
 let allData = [];
 let filteredData = [];
-const studentsPerPage = 50;
+const studentsPerPage = 500;
 let currentPage = 1;
 const schoolSet = new Set();
 
@@ -119,7 +120,6 @@ function updateTableData() {
     document.getElementById('paginationInfo').textContent = `Showing ${startIndex + 1}-${endIndex} of ${filteredData.length} students`;
     updatePaginationButtons();
 }
-
 
 function filterBySchool(schoolName = null, fromTable = false) {
     const schoolDropdown = document.getElementById('schoolDropdown');
@@ -219,7 +219,9 @@ function hideLoadingIndicator() {
 function getProgressBarHtml(score, totalMark) {
     const percentage = (parseFloat(score) / totalMark) * 100;
     let color;
-    if (percentage >= 90) {
+    if (percentage >= 95) {
+        color = 'indigo';
+    } else if (percentage >= 90) {
         color = 'blue';
     } else if (percentage >= 80) {
         color = 'green';
@@ -255,8 +257,7 @@ function showIndividualResult(roll, year, group) {
                     const student = filteredData.find(student => student.roll === parseInt(roll));
                     popupContent = `
                         <div class="popup-content">
-                                <span class="close-btn" onclick="closePopup()">&times;</span>
-
+                            <span class="close-btn" onclick="closePopup()">&times;</span>
                             <p>Name: ${student.name}</p>
                             <p>School: ${student.school}</p>
                             <p>Roll: ${roll}</p>
@@ -285,6 +286,7 @@ function showIndividualResult(roll, year, group) {
             popup.classList.add('popup');
             popup.innerHTML = popupContent;
             document.body.appendChild(popup);
+            document.body.classList.add('locked'); // Lock the background
         })
         .catch(error => {
             console.error('Error loading individual data:', error);
@@ -292,6 +294,7 @@ function showIndividualResult(roll, year, group) {
             popup.classList.add('popup');
             popup.innerHTML = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
             document.body.appendChild(popup);
+            document.body.classList.add('locked'); // Lock the background
         });
 }
 
@@ -299,6 +302,28 @@ function closePopup() {
     const popup = document.querySelector('.popup');
     if (popup) {
         popup.remove();
+        document.body.classList.remove('locked'); // Unlock the background
     }
 }
 
+function handleSearchInput() {
+    const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+    const rollSearchTerm = document.getElementById('searchRollInput').value.trim();
+    const selectedSchool = document.getElementById('schoolDropdown').value;
+    filteredData = allData.filter(student => {
+        const matchesName = student.name.toLowerCase().includes(searchTerm);
+        const matchesRoll = student.roll.toString().includes(rollSearchTerm);
+        const matchesSchool = selectedSchool ? student.school === selectedSchool : true;
+        return matchesName && matchesRoll && matchesSchool;
+    });
+    currentPage = 1;
+    updatePage();
+}
+
+function handleRollSearchInput() {
+    handleSearchInput();
+}
+
+function filterBySchool() {
+    handleSearchInput();
+}
