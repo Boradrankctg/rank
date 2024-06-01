@@ -7,7 +7,7 @@ const yearDropdown = document.getElementById('yearDropdown');
 
 function loadYear(year) {
     if (year) {
-        currentYear.textContent = `SSC ${year}`;
+        currentYear.textContent = ` ${year}`;
         currentGroup.style.display = 'none';
         noDataMessage.style.display = 'none';
         contentDiv.innerHTML = `
@@ -37,8 +37,8 @@ function loadGroup(year, group) {
             <input type="text" id="searchRollInput" placeholder="Enter roll number accurately..." oninput="debounce(handleRollSearchInput, 300)()">
         </div>
         <div class="search-container">
-            <label for="schoolDropdown">Select School:</label>
-            <select id="schoolDropdown" onchange="filterBySchool()"></select>
+            <label for="InstituationDropdown">Select Instituation:</label>
+            <select id="InstituationDropdown" onchange="filterByInstituation()"></select>
         </div>
         <button id="resetFilterBtn" style="display: none;" onclick="resetFilter()">Reset Filter</button>
         <div class="loading-spinner" id="loadingSpinner" style="display: none;"></div>
@@ -50,7 +50,7 @@ function loadGroup(year, group) {
                     <th>SSC Roll</th>
                     <th>GPA</th>
                     <th>Total</th>
-                    <th>School</th>
+                    <th>Institution</th>
                 </tr>
             </thead>
             <tbody id="studentTableBody"></tbody>
@@ -68,7 +68,7 @@ let allData = [];
 let filteredData = [];
 const studentsPerPage = 500;
 let currentPage = 1;
-const schoolSet = new Set();
+const InstituationSet = new Set();
 
 function fetchData(year, group) {
     showLoadingIndicator();
@@ -76,7 +76,7 @@ function fetchData(year, group) {
         .then(response => response.text())
         .then(data => {
             processData(data);
-            populateSchoolDropdown();
+            populateInstituationDropdown();
             hideLoadingIndicator();
         })
         .catch(error => {
@@ -89,9 +89,9 @@ function fetchData(year, group) {
 function processData(data) {
     const rows = data.trim().split('\n').slice(1);
     allData = rows.map(row => {
-        const [serial, name, roll, gpa, total, school] = row.split('\t');
-        schoolSet.add(school);
-        return { serial: parseInt(serial), name, roll: parseInt(roll), gpa: parseFloat(gpa), total: parseInt(total), school };
+        const [serial, name, roll, gpa, total, Instituation] = row.split('\t');
+        InstituationSet.add(Instituation);
+        return { serial: parseInt(serial), name, roll: parseInt(roll), gpa: parseFloat(gpa), total: parseInt(total), Instituation };
     });
     allData = allData.filter(student => !isNaN(student.gpa) && !isNaN(student.total));
     allData.sort((a, b) => a.serial - b.serial);
@@ -113,7 +113,7 @@ function updateTableData() {
             <td style="cursor: pointer; color: blue;" onclick="showIndividualResult(${student.roll}, '${currentYear.textContent.split(' ')[1]}', '${currentGroup.textContent.split(' ')[0]}')">${student.roll}</td>
             <td>${student.gpa}</td>
             <td>${student.total}</td>
-            <td>${student.school}</td>
+            <td>${student.Instituation}</td>
         `;
         tableBody.appendChild(row);
     });
@@ -121,18 +121,18 @@ function updateTableData() {
     updatePaginationButtons();
 }
 
-function filterBySchool(schoolName = null, fromTable = false) {
-    const schoolDropdown = document.getElementById('schoolDropdown');
+function filterByInstituation(InstituationName = null, fromTable = false) {
+    const InstituationDropdown = document.getElementById('InstituationDropdown');
     if (fromTable) {
-        schoolDropdown.value = schoolName;
+        InstituationDropdown.value = InstituationName;
         const event = new Event('change');
-        schoolDropdown.dispatchEvent(event);
+        InstituationDropdown.dispatchEvent(event);
     } else {
-        schoolName = schoolDropdown.value;
+        InstituationName = InstituationDropdown.value;
     }
 
-    if (schoolName) {
-        filteredData = allData.filter(student => student.school === schoolName);
+    if (InstituationName) {
+        filteredData = allData.filter(student => student.Instituation === InstituationName);
         document.getElementById('resetFilterBtn').style.display = 'block';
     } else {
         resetFilter();
@@ -197,14 +197,14 @@ function debounce(func, delay) {
     };
 }
 
-function populateSchoolDropdown() {
-    const schoolDropdown = document.getElementById('schoolDropdown');
-    schoolDropdown.innerHTML = '<option value="">Select School</option>';
-    schoolSet.forEach(school => {
+function populateInstituationDropdown() {
+    const InstituationDropdown = document.getElementById('InstituationDropdown');
+    InstituationDropdown.innerHTML = '<option value="">Select Instituation</option>';
+    InstituationSet.forEach(Instituation => {
         const option = document.createElement('option');
-        option.value = school;
-        option.textContent = school;
-        schoolDropdown.appendChild(option);
+        option.value = Instituation;
+        option.textContent = Instituation;
+        InstituationDropdown.appendChild(option);
     });
 }
 
@@ -242,7 +242,10 @@ function getProgressBarHtml(score, totalMark) {
 }
 
 function showIndividualResult(roll, year, group) {
-    fetch(`data_${year}_${group.toLowerCase()}_individual.txt`)
+    const fileName = `data_${year}_${group.toLowerCase()}_individual.txt`;
+    const isHSC = fileName.includes("hsc");
+
+    fetch(fileName)
         .then(response => response.text())
         .then(data => {
             const rows = data.trim().split('\n');
@@ -250,34 +253,61 @@ function showIndividualResult(roll, year, group) {
             let popupContent;
             if (individualData) {
                 const parts = individualData.split('\t');
-                if (parts.length < 13) {
-                    popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
+                if (isHSC) {
+                    if (parts.length < 8) {
+                        popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
+                    } else {
+                        const [roll, bangla, english, ICT, physics, chemistry, compulsory, optional] = parts;
+                        const student = filteredData.find(student => student.roll === parseInt(roll));
+                        popupContent = `
+                            <div class="popup-content">
+                                <span class="close-btn" onclick="closePopup()">&times;</span>
+                                <p>Name: ${student.name}</p>
+                                <p>Instituation: ${student.Instituation}</p>
+                                <p>Roll: ${roll}</p>
+                                <p>GPA: ${student.gpa}</p>
+                                <p>Board Rank: ${student.serial}</p>
+                                <p>Bangla: ${bangla} ${getProgressBarHtml(bangla, 200)}</p>
+                                <p>English: ${english} ${getProgressBarHtml(english, 200)}</p>
+                                <p>ICT: ${ICT} ${getProgressBarHtml(ICT, 100)}</p>
+                                <p>Physics: ${physics} ${getProgressBarHtml(physics, 200)}</p>
+                                <p>Chemistry: ${chemistry} ${getProgressBarHtml(chemistry, 200)}</p>
+                                <p>Compulsory: ${compulsory} ${getProgressBarHtml(compulsory, 200)}</p>
+                                <p>Optional: ${optional} ${getProgressBarHtml(optional, 200)}</p>
+                                <button class="back-button" onclick="closePopup()">Back</button>
+                            </div>
+                        `;
+                    }
                 } else {
-                    const [roll, bangla, english, math, bgs, religion, physics, chemistry, Compulsory, ICT, Optional, Physical, Career] = parts;
-                    const student = filteredData.find(student => student.roll === parseInt(roll));
-                    popupContent = `
-                        <div class="popup-content">
-                            <span class="close-btn" onclick="closePopup()">&times;</span>
-                            <p>Name: ${student.name}</p>
-                            <p>School: ${student.school}</p>
-                            <p>Roll: ${roll}</p>
-                            <p>GPA: ${student.gpa}</p>
-                            <p>Board Rank: ${student.serial}</p>
-                            <p>Bangla: ${bangla} ${getProgressBarHtml(bangla, 200)}</p>
-                            <p>English: ${english} ${getProgressBarHtml(english, 200)}</p>
-                            <p>Mathematics: ${math} ${getProgressBarHtml(math, 100)}</p>
-                            <p>BGS: ${bgs} ${getProgressBarHtml(bgs, 100)}</p>
-                            <p>Religion: ${religion} ${getProgressBarHtml(religion, 100)}</p>
-                            <p>Physics: ${physics} ${getProgressBarHtml(physics, 100)}</p>
-                            <p>Chemistry: ${chemistry} ${getProgressBarHtml(chemistry, 100)}</p>
-                            <p>Compulsory: ${Compulsory} ${getProgressBarHtml(Compulsory, 100)}</p>
-                            <p>ICT: ${ICT} ${getProgressBarHtml(ICT, 50)}</p>
-                            <p>Optional: ${Optional} ${getProgressBarHtml(Optional, 100)}</p>
-                            <p>Physical: ${Physical} ${getProgressBarHtml(Physical, 100)}</p>
-                            <p>Career: ${Career} ${getProgressBarHtml(Career, 50)}</p>
-                            <button class="back-button" onclick="closePopup()">Back</button>
-                        </div>
-                    `;
+                    if (parts.length < 13) {
+                        popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
+                    } else {
+                        const [roll, bangla, english, math, bgs, religion, physics, chemistry, Compulsory, ICT, Optional, Physical, Career] = parts;
+                        const student = filteredData.find(student => student.roll === parseInt(roll));
+                        popupContent = `
+                            <div class="popup-content">
+                                <span class="close-btn" onclick="closePopup()">&times;</span>
+                                <p>Name: ${student.name}</p>
+                                <p>Instituation: ${student.Instituation}</p>
+                                <p>Roll: ${roll}</p>
+                                <p>GPA: ${student.gpa}</p>
+                                <p>Board Rank: ${student.serial}</p>
+                                <p>Bangla: ${bangla} ${getProgressBarHtml(bangla, 200)}</p>
+                                <p>English: ${english} ${getProgressBarHtml(english, 200)}</p>
+                                <p>Mathematics: ${math} ${getProgressBarHtml(math, 100)}</p>
+                                <p>BGS: ${bgs} ${getProgressBarHtml(bgs, 100)}</p>
+                                <p>Religion: ${religion} ${getProgressBarHtml(religion, 100)}</p>
+                                <p>Physics: ${physics} ${getProgressBarHtml(physics, 100)}</p>
+                                <p>Chemistry: ${chemistry} ${getProgressBarHtml(chemistry, 100)}</p>
+                                <p>Compulsory: ${Compulsory} ${getProgressBarHtml(Compulsory, 100)}</p>
+                                <p>ICT: ${ICT} ${getProgressBarHtml(ICT, 50)}</p>
+                                <p>Optional: ${Optional} ${getProgressBarHtml(Optional, 100)}</p>
+                                <p>Physical: ${Physical} ${getProgressBarHtml(Physical, 100)}</p>
+                                <p>Career: ${Career} ${getProgressBarHtml(Career, 50)}</p>
+                                <button class="back-button" onclick="closePopup()">Back</button>
+                            </div>
+                        `;
+                    }
                 }
             } else {
                 popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
@@ -286,7 +316,7 @@ function showIndividualResult(roll, year, group) {
             popup.classList.add('popup');
             popup.innerHTML = popupContent;
             document.body.appendChild(popup);
-            document.body.classList.add('locked'); // Lock the background
+            document.body.classList.add('locked');
         })
         .catch(error => {
             console.error('Error loading individual data:', error);
@@ -294,27 +324,28 @@ function showIndividualResult(roll, year, group) {
             popup.classList.add('popup');
             popup.innerHTML = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
             document.body.appendChild(popup);
-            document.body.classList.add('locked'); // Lock the background
+            document.body.classList.add('locked'); 
         });
 }
+
 
 function closePopup() {
     const popup = document.querySelector('.popup');
     if (popup) {
         popup.remove();
-        document.body.classList.remove('locked'); // Unlock the background
+        document.body.classList.remove('locked'); 
     }
 }
 
 function handleSearchInput() {
     const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
     const rollSearchTerm = document.getElementById('searchRollInput').value.trim();
-    const selectedSchool = document.getElementById('schoolDropdown').value;
+    const selectedInstituation = document.getElementById('InstituationDropdown').value;
     filteredData = allData.filter(student => {
         const matchesName = student.name.toLowerCase().includes(searchTerm);
         const matchesRoll = student.roll.toString().includes(rollSearchTerm);
-        const matchesSchool = selectedSchool ? student.school === selectedSchool : true;
-        return matchesName && matchesRoll && matchesSchool;
+        const matchesInstituation = selectedInstituation ? student.Instituation === selectedInstituation : true;
+        return matchesName && matchesRoll && matchesInstituation;
     });
     currentPage = 1;
     updatePage();
@@ -324,6 +355,6 @@ function handleRollSearchInput() {
     handleSearchInput();
 }
 
-function filterBySchool() {
+function filterByInstituation() {
     handleSearchInput();
 }
