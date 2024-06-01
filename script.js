@@ -312,15 +312,16 @@ function showIndividualResult(roll, year, group) {
                         popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
                     } else {
                         const [roll, bangla, english, ICT, physics, chemistry, compulsory, optional] = parts;
-                        const student = filteredData.find(student => student.roll === parseInt(roll));
+                        const student = allData.find(student => student.roll === parseInt(roll));
+                        const combinedRank = allData.findIndex(student => student.roll === parseInt(roll)) + 1;
                         popupContent = `
                             <div class="popup-content">
                                 <span class="close-btn" onclick="closePopup()">&times;</span>
                                 <p>Name: ${student.name}</p>
-                                <p>Instituation: ${student.Instituation}</p>
+                                <p>Institution: ${student.Instituation}</p>
                                 <p>Roll: ${roll}</p>
                                 <p>GPA: ${student.gpa}</p>
-                                <p>Board Rank: ${student.serial}</p>
+                                <p>Board Rank: ${combinedRank}</p>
                                 <p>Bangla: ${bangla} ${getProgressBarHtml(bangla, 200)}</p>
                                 <p>English: ${english} ${getProgressBarHtml(english, 200)}</p>
                                 <p>ICT: ${ICT} ${getProgressBarHtml(ICT, 100)}</p>
@@ -337,15 +338,16 @@ function showIndividualResult(roll, year, group) {
                         popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
                     } else {
                         const [roll, bangla, english, math, bgs, religion, physics, chemistry, Compulsory, ICT, Optional, Physical, Career] = parts;
-                        const student = filteredData.find(student => student.roll === parseInt(roll));
+                        const student = allData.find(student => student.roll === parseInt(roll));
+                        const combinedRank = allData.findIndex(student => student.roll === parseInt(roll)) + 1;
                         popupContent = `
                             <div class="popup-content">
                                 <span class="close-btn" onclick="closePopup()">&times;</span>
                                 <p>Name: ${student.name}</p>
-                                <p>Instituation: ${student.Instituation}</p>
+                                <p>Institution: ${student.Instituation}</p>
                                 <p>Roll: ${roll}</p>
                                 <p>GPA: ${student.gpa}</p>
-                                <p>Board Rank: ${student.serial}</p>
+                                <p>Board Rank: ${combinedRank}</p>
                                 <p>Bangla: ${bangla} ${getProgressBarHtml(bangla, 200)}</p>
                                 <p>English: ${english} ${getProgressBarHtml(english, 200)}</p>
                                 <p>Mathematics: ${math} ${getProgressBarHtml(math, 100)}</p>
@@ -381,6 +383,7 @@ function showIndividualResult(roll, year, group) {
             document.body.classList.add('locked'); 
         });
 }
+
 
 
 function closePopup() {
