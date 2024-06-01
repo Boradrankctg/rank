@@ -30,11 +30,11 @@ function loadGroup(year, group) {
     contentDiv.innerHTML = `
         <div class="search-container">
             <label for="searchInput">Search by Name:</label>
-            <input type="text" id="searchInput" placeholder="Enter name..." oninput="debounce(handleSearchInput, 300)()">
+            <input type="text" id="searchInput" placeholder="🔍 Enter name" oninput="debounce(handleSearchInput, 300)()">
         </div>
         <div class="search-container">
             <label for="searchRollInput">Search by Roll:</label>
-            <input type="text" id="searchRollInput" placeholder="Enter roll number accurately..." oninput="debounce(handleRollSearchInput, 300)()">
+            <input type="text" id="searchRollInput" placeholder="🔍 Enter roll" oninput="debounce(handleRollSearchInput, 300)()">
         </div>
         <div class="search-container">
             <label for="InstituationDropdown">Select Instituation:</label>
@@ -86,18 +86,72 @@ function fetchData(year, group) {
         });
 }
 
-function processData(data) {
-    const rows = data.trim().split('\n').slice(1);
+function fetchData(year, group) {
+    showLoadingIndicator();
+    const mainDataUrl = `data_${year}_${group.toLowerCase()}.txt`;
+    const individualDataUrl = `data_${year}_${group.toLowerCase()}_individual.txt`;
+
+    Promise.all([
+        fetch(mainDataUrl).then(response => response.text()),
+        fetch(individualDataUrl).then(response => response.text()).catch(() => null)
+    ]).then(([mainData, individualData]) => {
+        console.log('Main data loaded:', mainData);
+        console.log('Individual data loaded:', individualData);
+        processData(mainData, individualData);
+        populateInstituationDropdown();
+        hideLoadingIndicator();
+    }).catch(error => {
+        console.error('Error loading data:', error);
+        hideLoadingIndicator();
+        noDataMessage.style.display = 'block';
+    });
+}
+
+function processData(mainData, individualData) {
+    const rows = mainData.trim().split('\n').slice(1);
+    const individualScores = parseIndividualData(individualData);
     allData = rows.map(row => {
         const [serial, name, roll, gpa, total, Instituation] = row.split('\t');
+        const individual = individualScores[roll] || {};
         InstituationSet.add(Instituation);
-        return { serial: parseInt(serial), name, roll: parseInt(roll), gpa: parseFloat(gpa), total: parseInt(total), Instituation };
+        return {
+            serial: parseInt(serial),
+            name,
+            roll: parseInt(roll),
+            gpa: parseFloat(gpa),
+            total: parseInt(total),
+            Instituation,
+            ...individual
+        };
     });
+    console.log('Processed data:', allData);
     allData = allData.filter(student => !isNaN(student.gpa) && !isNaN(student.total));
-    allData.sort((a, b) => a.serial - b.serial);
+    allData.sort(compareStudents);
+    console.log('Sorted data:', allData);
     filteredData = [...allData];
     updateTableData();
 }
+
+function parseIndividualData(data) {
+    if (!data) return {};
+    const rows = data.trim().split('\n');
+    const scores = {};
+    rows.forEach(row => {
+        const [roll, , , , , , phy, chem, math] = row.split('\t');
+        scores[roll] = { phy: parseInt(phy), chem: parseInt(chem), math: parseInt(math) };
+    });
+    console.log('Parsed individual scores:', scores);
+    return scores;
+}
+
+function compareStudents(a, b) {
+    if (a.gpa !== b.gpa) return b.gpa - a.gpa;
+    if (a.total !== b.total) return b.total - a.total;
+    if (a.phy !== b.phy) return b.phy - a.phy;
+    if (a.chem !== b.chem) return b.chem - a.chem;
+    return b.math - a.math;
+}
+
 
 function updateTableData() {
     const startIndex = (currentPage - 1) * studentsPerPage;
