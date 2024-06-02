@@ -43,7 +43,6 @@ h2 {
     align-items: center;
     font-size: large;
     font-weight: bolder;
-    text-decoration: underline;
     padding: 10px;
     background-color: #ecf0f1;
     list-style: none;
@@ -93,6 +92,8 @@ p {
 }
 
 .group-buttons button {
+    display: flex;
+    align-items: center;
     background-color: #000;
     font-size: 1.75rem;
     font-weight: bold;
@@ -103,6 +104,17 @@ p {
     border-radius: 9px;
     color: #fff;
     transition: background-color 0.2s, transform 0.2s;
+}
+
+.group-buttons button img {
+    margin-right: 10px;
+    width: 30px; /* Adjust size as needed */
+    height: 30px; /* Adjust size as needed */
+}
+.search-input {
+    background: url('search.png') no-repeat 10px center;
+    background-size: 16px 16px;
+    padding-left: 30px; /* Adjust this based on the size of the icon */
 }
 
 .group-buttons button:hover {
@@ -505,4 +517,30 @@ body.dark-mode .group-buttons button{
     .sidebar button {
         font-size: 12px;
     }
+}
+.student-name, .student-roll, .student-school {
+    cursor: pointer;
+}
+
+body:not(.dark-mode) .student-name,
+body:not(.dark-mode) .student-roll,
+body:not(.dark-mode) .student-school {
+    color: indigo;
+}
+
+body.dark-mode .student-name,
+body.dark-mode .student-roll,
+body.dark-mode .student-school {
+    color: white;
+}
+
+
+header img.home-icon {
+    position: absolute;
+    top: 15px;
+   left: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+    color: #666666;
 }
