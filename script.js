@@ -425,6 +425,7 @@ function showIndividualResult(roll, year, group) {
                 }
 
                 if (isHSC) {
+                    loadGroup(yearText.includes('HSC') ? `hsc_${yearText.split(' ')[1]}` : yearText.split(' ')[1], groupText);
                     if (parts.length < 8) {
                         popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
                     } else {
