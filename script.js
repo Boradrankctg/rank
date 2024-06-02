@@ -3,51 +3,6 @@ const currentYear = document.getElementById('currentYear');
 const currentGroup = document.getElementById('currentGroup');
 const noDataMessage = document.getElementById('noDataMessage');
 const yearDropdown = document.getElementById('yearDropdown');
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const yearDropdown = document.getElementById('yearDropdown');
-    const currentYear = document.getElementById('currentYear');
-    const currentGroup = document.getElementById('currentGroup');
-    const noDataMessage = document.getElementById('noDataMessage');
-
-    yearDropdown.addEventListener('change', function () {
-        loadYear(this.value);
-    });
-
-    function loadYear(year) {
-        if (!year) {
-            noDataMessage.style.display = 'block';
-            return;
-        }
-        noDataMessage.style.display = 'none';
-        updateBreadcrumb(year);
-    }
-
-    function updateBreadcrumb(year) {
-        if (year.includes('hsc')) {
-            currentYear.textContent = 'HSC ' + year.replace('hsc_', '');
-        } else {
-            currentYear.textContent = 'SSC ' + year;
-        }
-        currentGroup.style.display = 'none'; 
-    }
-});
-
-function toggleMenu() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('locked');
-}
-
-function navigateTo(page) {
-    window.location.href = page;
-}
-
-function toggleTheme() {
-    const body = document.body;
-    body.classList.toggle('dark-mode');
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.getElementById('sidebar');
     sidebar.style.width = '0px';
@@ -66,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('dark-mode');
             localStorage.setItem('theme', 'light');
         }
-        updateTableData();
+        updateTableData();  // Update table to apply new colors
     });
 });
 
@@ -143,43 +98,27 @@ let filteredData = [];
 const studentsPerPage = 500;
 let currentPage = 1;
 const InstituationSet = new Set();
+
 function fetchData(year, group) {
     showLoadingIndicator();
     const mainDataUrl = `data_${year}_${group.toLowerCase()}.txt`;
     const individualDataUrl = `data_${year}_${group.toLowerCase()}_individual.txt`;
 
     Promise.all([
-        fetch(mainDataUrl).then(response => {
-            if (!response.ok) {
-                throw new Error('Main data not found');
-            }
-            return response.text();
-        }),
-        fetch(individualDataUrl).then(response => {
-            if (!response.ok) {
-                throw new Error('Individual data not found');
-            }
-            return response.text();
-        }).catch(() => null)
+        fetch(mainDataUrl).then(response => response.text()),
+        fetch(individualDataUrl).then(response => response.text()).catch(() => null)
     ]).then(([mainData, individualData]) => {
         console.log('Main data loaded:', mainData);
         console.log('Individual data loaded:', individualData);
-
-        if (!mainData) {
-            throw new Error('Main data is missing');
-        }
-
         processData(mainData, individualData);
         populateInstituationDropdown();
         hideLoadingIndicator();
     }).catch(error => {
         console.error('Error loading data:', error);
         hideLoadingIndicator();
-        console.log("oops! No data found :(");
         noDataMessage.style.display = 'block';
     });
 }
-
 
 function processData(mainData, individualData) {
     const rows = mainData.trim().split('\n').slice(1);
@@ -237,9 +176,10 @@ function makeSchoolNamesClickable() {
 
 
 
-function showSchoolRanking(schoolName) {
+function showSchoolRanking(encodedSchoolName) {
+    const schoolName = decodeURIComponent(encodedSchoolName);
     const schoolData = allData.filter(student => student.Instituation.trim() === schoolName);
-    schoolData.sort(compareStudents); 
+    schoolData.sort(compareStudents); // Re-sort to ensure correct ranking within the school
 
     if (schoolData.length === 0) {
         contentDiv.innerHTML = `<h2>No data found for "${schoolName}"</h2>`;
@@ -274,6 +214,7 @@ function showSchoolRanking(schoolName) {
         `;
     }
 }
+
 function resetSchoolRanking() {
     // Restore the current group view without asking to select the group again
     loadGroup(currentYear.textContent.trim(), currentGroup.textContent.split(' ')[0]);
@@ -288,23 +229,34 @@ function updateTableData() {
     tableBody.innerHTML = '';
     dataToShow.forEach((student, index) => {
         const row = document.createElement('tr');
+        
         row.innerHTML = `
             <td>${startIndex + index + 1}</td>
-            <td class="student-name" onclick="showIndividualResult(${student.roll}, '${currentYear.textContent.split(' ')[1]}', '${currentGroup.textContent.split(' ')[0]}')">${student.name}</td>
-            <td class="student-roll" onclick="showIndividualResult(${student.roll}, '${currentYear.textContent.split(' ')[1]}', '${currentGroup.textContent.split(' ')[0]}')">${student.roll}</td>
+            <td class="student-name">${student.name}</td>
+            <td class="student-roll">${student.roll}</td>
             <td>${student.gpa}</td>
             <td>${student.total}</td>
-            <td class="student-school" onclick="showSchoolRanking('${student.Instituation.trim()}')">${student.Instituation}</td>
+            <td class="student-school">${student.Instituation}</td>
         `;
+
+        // Add event listeners to the name, roll, and institution cells
+        row.querySelector('.student-name').addEventListener('click', () => {
+            showIndividualResult(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
+        });
+        row.querySelector('.student-roll').addEventListener('click', () => {
+            showIndividualResult(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
+        });
+        row.querySelector('.student-school').addEventListener('click', () => {
+            showSchoolRanking(student.Instituation.trim());
+        });
+
         tableBody.appendChild(row);
     });
+
     document.getElementById('paginationInfo').textContent = `Showing ${startIndex + 1}-${endIndex} of ${filteredData.length} students`;
     updatePaginationButtons();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    makeSchoolNamesClickable(); // Initial call
-});
 
 function filterByInstituation(InstituationName = null, fromTable = false) {
     const InstituationDropdown = document.getElementById('InstituationDropdown');
@@ -562,31 +514,35 @@ function handleRollSearchInput() {
 function filterByInstituation() {
     handleSearchInput();
 }
-function toggleMenu() {
-    const sidebar = document.getElementById('sidebar');
-    if (sidebar.style.width === '0px' || sidebar.style.width === '') {
-        sidebar.style.width = '40%';
-    } else {
-        sidebar.style.width = '0px';
-    }
-}
+
 
 function navigateTo(page) {
     window.location.href = page;
 }
 
-function toggleMenu() {
-    const sidebar = document.getElementById('sidebar');
-    if (sidebar.style.width === '0px' || sidebar.style.width === '') {
-        sidebar.style.width = '40%';
-    } else {
-        sidebar.style.width = '0px';
-    }
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.getElementById('sidebar');
+    const menuButton = document.getElementById('menuButton');
     sidebar.style.width = '0px';
+
+    menuButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        if (sidebar.style.width === '0px' || sidebar.style.width === '') {
+            sidebar.style.width = '40%';
+        } else {
+            sidebar.style.width = '0px';
+        }
+    });
+
+    document.body.addEventListener('click', () => {
+        if (sidebar.style.width === '40%') {
+            sidebar.style.width = '0px';
+        }
+    });
+
+    sidebar.addEventListener('click', (event) => {
+        event.stopPropagation();
+    });
 
     const themeToggle = document.getElementById('themeToggle');
     if (localStorage.getItem('theme') === 'dark') {
@@ -604,3 +560,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+function closePopup() {
+    const popup = document.querySelector('.popup');
+    if (popup) {
+        popup.classList.add('pop-out');
+        setTimeout(() => {
+            popup.remove();
+            document.body.classList.remove('locked');
+        }, 500); // Match this duration with the animation duration
+    }
+}
+
+
