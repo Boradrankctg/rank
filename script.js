@@ -26,58 +26,34 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const yearDropdown = document.getElementById('yearDropdown');
-    const currentYear = document.getElementById('currentYear');
-    const currentGroup = document.getElementById('currentGroup');
-    const noDataMessage = document.getElementById('noDataMessage');
-
-    yearDropdown.addEventListener('change', function () {
-        loadYear(this.value);
-    });
-
-    function loadYear(year) {
-        if (!year) {
-            noDataMessage.style.display = 'block';
-            return;
-        }
-        noDataMessage.style.display = 'none';
-        updateBreadcrumb(year);
-    }
-
-    function updateBreadcrumb(year) {
-        if (year.includes('hsc')) {
-            currentYear.textContent = 'HSC ' + year.replace('hsc_', '');
-        } else {
-            currentYear.textContent = 'SSC ' + year;
-        }
-        currentGroup.style.display = 'none'; 
-    }
-});
-
 
 function loadYear(year) {
     if (year) {
-        currentYear.textContent = ` ${year}`;
-        currentGroup.style.display = 'none';
-        noDataMessage.style.display = 'none';
-        contentDiv.innerHTML = `
-            <p>Select your group:</p>
-            <div class="group-buttons">
-                <button onclick="loadGroup('${year}', 'Science')">
-                    <img src="sci.png" alt="Science Icon">Science
-                </button>
-                <button onclick="loadGroup('${year}', 'Commerce')">
-                    <img src="com.png" alt="Commerce Icon">Business
-                </button>
-                <button onclick="loadGroup('${year}', 'Arts')">
-                    <img src="hum.png" alt="Arts Icon">Humanities
-                </button>
-            </div>
-        `;
+        if (year.includes("hsc")) {
+            currentYear.textContent = `HSC ${year.split('_')[1]}`;
+        } else {
+            currentYear.textContent = `SSC ${year}`;
+        }
     } else {
-        contentDiv.innerHTML = '';
+        currentYear.textContent = "";
     }
+    
+    currentGroup.style.display = 'none';
+    noDataMessage.style.display = 'none';
+    contentDiv.innerHTML = `
+        <p>Select your group:</p>
+        <div class="group-buttons">
+            <button onclick="loadGroup('${year}', 'Science')">
+                <img src="sci.png" alt="Science Icon">Science
+            </button>
+            <button onclick="loadGroup('${year}', 'Commerce')">
+                <img src="com.png" alt="Commerce Icon">Business
+            </button>
+            <button onclick="loadGroup('${year}', 'Arts')">
+                <img src="hum.png" alt="Arts Icon">Humanities
+            </button>
+        </div>
+    `;
 }
 
 
@@ -247,9 +223,19 @@ function showSchoolRanking(encodedSchoolName) {
 }
 
 function resetSchoolRanking() {
-    // Restore the current group view without asking to select the group again
-    loadGroup(currentYear.textContent.trim(), currentGroup.textContent.split(' ')[0]);
+    // Extract year and group from the current text content
+    const yearText = currentYear.textContent;
+    const groupText = currentGroup.textContent.split(' ')[0];
+    
+    // Reset the current year and group displays
+    currentYear.textContent = "";
+    currentGroup.style.display = 'none';
+    yearDropdown.style.display = 'block';
+    
+    // Call loadGroup with the extracted year and group
+    loadGroup(yearText.includes('HSC') ? `hsc_${yearText.split(' ')[1]}` : yearText.split(' ')[1], groupText);
 }
+
 
 
 function updateTableData() {
@@ -270,7 +256,6 @@ function updateTableData() {
             <td class="student-school">${student.Instituation}</td>
         `;
 
-        // Add event listeners to the name, roll, and institution cells
         row.querySelector('.student-name').addEventListener('click', () => {
             showIndividualResult(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
         });
