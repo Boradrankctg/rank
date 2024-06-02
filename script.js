@@ -4,7 +4,6 @@ const currentGroup = document.getElementById('currentGroup');
 const noDataMessage = document.getElementById('noDataMessage');
 const yearDropdown = document.getElementById('yearDropdown');
 
-// script.js
 
 document.addEventListener("DOMContentLoaded", function () {
     const yearDropdown = document.getElementById('yearDropdown');
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         noDataMessage.style.display = 'none';
         updateBreadcrumb(year);
-        // You would add your logic here to load the data for the selected year and exam type
     }
 
     function updateBreadcrumb(year) {
@@ -32,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             currentYear.textContent = 'SSC ' + year;
         }
-        currentGroup.style.display = 'none'; // Hide the group by default, adjust as needed
+        currentGroup.style.display = 'none'; 
     }
 });
 
@@ -68,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('dark-mode');
             localStorage.setItem('theme', 'light');
         }
-        updateTableData();  // Update table to apply new colors
+        updateTableData();
     });
 });
 
