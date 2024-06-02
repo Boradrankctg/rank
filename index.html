@@ -15,12 +15,23 @@
     <header>
         <h1>Chattogram Board Students' SSC & HSC Ranking</h1>
         <h2>Designed by Hasnyne (CC'25)</h2>
+        <span class="menu-btn" onclick="toggleMenu()">&#9776;</span>
     </header>
+    <div class="sidebar" id="sidebar">
+        <button onclick="navigateTo('index.html')">Home</button>
+        <button onclick="navigateTo('about.html')">About</button>
+        <button onclick="navigateTo('contactus.html')">Contact Us</button>
+        <div class="settings">
+            <label>
+                <input type="checkbox" id="themeToggle" onchange="toggleTheme()"> Dark Mode
+            </label>
+        </div>
+    </div>
+    
     <nav aria-label="breadcrumb">
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="#" id="currentYear">Select Year</a></li>
+            <li><a href="#" id="currentYear">Year</a></li>
             <li id="currentGroup" style="display:none;"></li>
         </ul>
     </nav>
@@ -41,8 +52,11 @@
     </main>
     <div id="popupWindow" style="display:none;">
         <button id="closePopup" class="close-btn">&times;</button>
-        <div class="popup-content" id="popupContent"></div>
+        <div class="popup-content" id="popupContent">
+
+        </div>
     </div>
+    
     <footer> </footer>
     <script src="script.js"></script>
 </body>
