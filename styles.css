@@ -2,41 +2,28 @@ html, body {
     overflow-x: hidden;
     width: 100%;
     align-items: center;
-    
 }
+
 body {
-    overflow-x: hidden;
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     user-select: none;
 }
 
-header {
-    background-color: #333;
+header, footer {
+    background-color: #000;
     padding: 20px;
     text-align: center;
     color: #ecf0f1;
     width: 100%;
-    border: 3px solid #ff0000;
+    border: 3px solid #0061FE;
     border-radius: 4px;
     font-weight: bolder;
-
-}
-
-footer {
-    background-color: #333;
-    padding: 20px;
-    text-align: center;
-    color: #ecf0f1;
-    width: 100%;
-    border: 3px solid #ff0000;
-    border-radius: 4px;
 }
 
 h1 {
@@ -44,15 +31,12 @@ h1 {
     margin-bottom: 5px;
     padding: 10px;
     font-weight: bolder;
-
-    
 }
 
 h2 {
     font-size: 1.25rem;
     color: #bdc3c7;
     padding: 5px;
-
 }
 
 .breadcrumb {
@@ -69,13 +53,12 @@ h2 {
 }
 
 .breadcrumb li {
-    
     margin: 0 5px;
 }
 
 .breadcrumb a {
     text-decoration: none;
-    color: #333;
+    color: #000;
 }
 
 main {
@@ -88,7 +71,7 @@ p {
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 1.25rem;
-    color: #333;
+    color: #000;
 }
 
 .year-dropdown select {
@@ -96,7 +79,7 @@ p {
     padding: 6px;
     font-weight: bolder;
     font-size: 20px;
-    border: 3px solid #ff0000;
+    border: 3px solid #0061FE;
     border-radius: 4px;
     width: 270px;
     margin-bottom: 20px;
@@ -108,25 +91,26 @@ p {
     flex-wrap: wrap;
     margin-top: 1rem;
 }
+
 .group-buttons button {
-    background-color: #333;
+    background-color: #000;
     font-size: 1.75rem;
     font-weight: bold;
     text-transform: uppercase;
     padding: 10px 20px;
     margin: 1rem;
     border: none;
-    
     border-radius: 9px;
     color: #fff;
     transition: background-color 0.2s, transform 0.2s;
 }
+
 .group-buttons button:hover {
     background-color: #555;
     transform: scale(1.05);
 }
-.search-container {
 
+.search-container {
     margin: 0.625rem 0;
     width: 100%;
     padding: 0 10px;
@@ -137,7 +121,6 @@ p {
 }
 
 label {
-    
     display: block;
     font-weight: bold;
     margin-bottom: 0.5rem;
@@ -146,7 +129,7 @@ label {
 input[type="text"], select {
     width: 90%;
     padding: 0.625rem;
-    border: 1px solid #ff0000;
+    border: 1px solid #0061FE;
     border-radius: 4px;
     box-sizing: border-box;
     margin-bottom: 0.625rem;
@@ -165,7 +148,7 @@ table, th, td {
 }
 
 th {
-    background-color: #333;
+    background-color: #000;
     color: #fff;
     cursor: pointer;
 }
@@ -176,11 +159,7 @@ th, td {
     box-sizing: border-box;
 }
 
-.dataTables_wrapper .dataTables_filter {
-    float: right;
-    text-align: right;
-}
-
+.dataTables_wrapper .dataTables_filter,
 .dataTables_wrapper .dataTables_paginate {
     float: right;
     text-align: right;
@@ -200,7 +179,7 @@ button {
     padding: 0.625rem 1.25rem;
     align-items: center;
     font-size: 1rem;
-    background-color: #333;
+    background-color: #000;
     color: white;
     border: none;
     border-radius: 4px;
@@ -215,7 +194,7 @@ button:hover {
 
 .loading-spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
-    border-top: 4px solid #333;
+    border-top: 4px solid #000;
     border-radius: 50%;
     width: 1.25rem;
     height: 1.25rem;
@@ -240,8 +219,6 @@ button:hover {
     background-color: rgb(255, 255, 255);
     color: #fff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    z-index: 1000;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
@@ -250,20 +227,46 @@ button:hover {
 }
 
 .popup-content {
-    
     text-align: left;
-    color: #1a1717;
+    color: #000;
     font-size: 0.5rem;
 }
 
 .popup-content h2 {
     color: #2e7d32;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin: 10px 0;
     font-size: 1.2rem;
     border-bottom: 2px solid #2e7d32;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px 0;
+}
+
+.popup-content button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #5c5f5c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.popup-content button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.popup-content input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #0061FE;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-size: 1rem;
 }
 
 .popup-content p {
@@ -272,13 +275,12 @@ button:hover {
     font-family: Arial, sans-serif;
     font-weight: bold;
     line-height: 1;
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin: 15px 0;
 }
 
 .back-button {
     display: block;
-    margin: 20px auto 0 auto;
+    margin: 20px auto 0;
     padding: 10px 20px;
     background-color: #5c5f5c;
     color: #fff;
@@ -301,9 +303,8 @@ button:hover {
     border-radius: 4px;
     width: 80%;
     background-color: #bdbcbc;
-    border-radius: 4px;
     overflow: hidden;
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 .popup-content .progress-bar {
@@ -317,14 +318,9 @@ button:hover {
 }
 
 .popup-content .progress-bar.yellow {
-    height: 10px;
-    text-align: center;
-    font-weight: bolder;
-    line-height: 10px;
-    font-size: 0.7rem;
-    transition: width 0.2s ease-in-out;
     color: black; 
 }
+
 .popup-content .close-btn {
     border: 1px solid #080808;
     border-radius: 4px;
@@ -341,7 +337,7 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box; /* Ensure padding and borders are included in the dimensions */
+    box-sizing: border-box;
 }
 
 .popup-content .close-btn:hover {
@@ -352,8 +348,6 @@ button:hover {
 @media (max-width: 768px) {
     body {
         font-size: 0.8rem;
-        user-select: none; /* Prevent text copying */
-        overflow-x: hidden;
         overflow-y: auto;
     }
 
@@ -392,15 +386,123 @@ button:hover {
 
 * {
     -webkit-tap-highlight-color: transparent;
-    user-select: none; /* Prevent text copying */
+    user-select: none;
 }
+
 body.locked {
     overflow: hidden;
 }
 
+body.locked {
+    position: fixed;
+    width: 100%;
+}
+
+.menu-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+    color: #666666;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1000;
+    text-align: center;
+}
+
+.sidebar button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.sidebar button:hover {
+    background-color: #555;
+}
+
+.sidebar .settings {
+    margin-top: 20px;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .breadcrumb {
+    background-color: #000;
+}
+
+body.dark-mode .breadcrumb a {
+    color: #bbb;
+}
+
+body.dark-mode .popup {
+    border: 4px solid #ffffff;
+    background-color: rgb(0, 0, 0);
+    color: #000000;
+}
+
+body.dark-mode .popup-content {
+    text-align: left;
+    color: #ffffff;
+    font-size: 0.5rem;
+}
+
+body.dark-mode .popup-content h2 {
+    color: #2e7d32;
+    margin: 10px 0;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #2e7d32;
+    padding: 5px 0;
+}
+
+body.dark-mode .popup-content p {
+    color: #ffffff;
+    font-size: medium;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    line-height: 1;
+    margin: 15px 0;
+}
+body.dark-mode p{
+    color: #ffffff;
+}
+body.dark-mode .group-buttons button{
+    color: #000;
+    background-color: white;
+}
 @media (max-width: 768px) {
-    body.locked {
-        position: fixed;
+    .sidebar {
         width: 100%;
+        padding-top: 60px;
+    }
+
+    .sidebar button {
+        font-size: 12px;
     }
 }
