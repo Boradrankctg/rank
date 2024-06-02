@@ -25,6 +25,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+document.addEventListener("DOMContentLoaded", function () {
+    const yearDropdown = document.getElementById('yearDropdown');
+    const currentYear = document.getElementById('currentYear');
+    const currentGroup = document.getElementById('currentGroup');
+    const noDataMessage = document.getElementById('noDataMessage');
+
+    yearDropdown.addEventListener('change', function () {
+        loadYear(this.value);
+    });
+
+    function loadYear(year) {
+        if (!year) {
+            noDataMessage.style.display = 'block';
+            return;
+        }
+        noDataMessage.style.display = 'none';
+        updateBreadcrumb(year);
+    }
+
+    function updateBreadcrumb(year) {
+        if (year.includes('hsc')) {
+            currentYear.textContent = 'HSC ' + year.replace('hsc_', '');
+        } else {
+            currentYear.textContent = 'SSC ' + year;
+        }
+        currentGroup.style.display = 'none'; 
+    }
+});
+
+
 function loadYear(year) {
     if (year) {
         currentYear.textContent = ` ${year}`;
