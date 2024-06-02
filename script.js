@@ -1,4 +1,3 @@
-
 const contentDiv = document.getElementById('content');
 const currentYear = document.getElementById('currentYear');
 const currentGroup = document.getElementById('currentGroup');
@@ -37,7 +36,7 @@ function loadGroup(year, group) {
             <input type="text" id="searchRollInput" placeholder="🔍 Enter roll" oninput="debounce(handleRollSearchInput, 300)()">
         </div>
         <div class="search-container">
-            <label for="InstituationDropdown">Select Instituation:</label>
+            <label for="InstituationDropdown">Select Institution:</label>
             <select id="InstituationDropdown" onchange="filterByInstituation()"></select>
         </div>
         <button id="resetFilterBtn" style="display: none;" onclick="resetFilter()">Reset Filter</button>
@@ -72,22 +71,6 @@ const InstituationSet = new Set();
 
 function fetchData(year, group) {
     showLoadingIndicator();
-    fetch(`data_${year}_${group.toLowerCase()}.txt`)
-        .then(response => response.text())
-        .then(data => {
-            processData(data);
-            populateInstituationDropdown();
-            hideLoadingIndicator();
-        })
-        .catch(error => {
-            console.error('Error loading data:', error);
-            hideLoadingIndicator();
-            noDataMessage.style.display = 'block';
-        });
-}
-
-function fetchData(year, group) {
-    showLoadingIndicator();
     const mainDataUrl = `data_${year}_${group.toLowerCase()}.txt`;
     const individualDataUrl = `data_${year}_${group.toLowerCase()}_individual.txt`;
 
@@ -95,8 +78,6 @@ function fetchData(year, group) {
         fetch(mainDataUrl).then(response => response.text()),
         fetch(individualDataUrl).then(response => response.text()).catch(() => null)
     ]).then(([mainData, individualData]) => {
-        console.log('Main data loaded:', mainData);
-        console.log('Individual data loaded:', individualData);
         processData(mainData, individualData);
         populateInstituationDropdown();
         hideLoadingIndicator();
@@ -124,10 +105,8 @@ function processData(mainData, individualData) {
             ...individual
         };
     });
-    console.log('Processed data:', allData);
     allData = allData.filter(student => !isNaN(student.gpa) && !isNaN(student.total));
     allData.sort(compareStudents);
-    console.log('Sorted data:', allData);
     filteredData = [...allData];
     updateTableData();
 }
@@ -140,7 +119,6 @@ function parseIndividualData(data) {
         const [roll, , , , , , phy, chem, math] = row.split('\t');
         scores[roll] = { phy: parseInt(phy), chem: parseInt(chem), math: parseInt(math) };
     });
-    console.log('Parsed individual scores:', scores);
     return scores;
 }
 
@@ -151,7 +129,6 @@ function compareStudents(a, b) {
     if (a.chem !== b.chem) return b.chem - a.chem;
     return b.math - a.math;
 }
-
 
 function updateTableData() {
     const startIndex = (currentPage - 1) * studentsPerPage;
@@ -175,16 +152,9 @@ function updateTableData() {
     updatePaginationButtons();
 }
 
-function filterByInstituation(InstituationName = null, fromTable = false) {
+function filterByInstituation() {
     const InstituationDropdown = document.getElementById('InstituationDropdown');
-    if (fromTable) {
-        InstituationDropdown.value = InstituationName;
-        const event = new Event('change');
-        InstituationDropdown.dispatchEvent(event);
-    } else {
-        InstituationName = InstituationDropdown.value;
-    }
-
+    const InstituationName = InstituationDropdown.value;
     if (InstituationName) {
         filteredData = allData.filter(student => student.Instituation === InstituationName);
         document.getElementById('resetFilterBtn').style.display = 'block';
@@ -229,14 +199,14 @@ function updatePaginationButtons() {
 
 function handleSearchInput() {
     const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
-    filteredData = allData.filter(student => student.name.toLowerCase().includes(searchTerm));
-    currentPage = 1;
-    updatePage();
-}
-
-function handleRollSearchInput() {
     const rollSearchTerm = document.getElementById('searchRollInput').value.trim();
-    filteredData = allData.filter(student => student.roll.toString().includes(rollSearchTerm));
+    const selectedInstituation = document.getElementById('InstituationDropdown').value;
+    filteredData = allData.filter(student => {
+        const matchesName = student.name.toLowerCase().includes(searchTerm);
+        const matchesRoll = student.roll.toString().includes(rollSearchTerm);
+        const matchesInstituation = selectedInstituation ? student.Instituation === selectedInstituation : true;
+        return matchesName && matchesRoll && matchesInstituation;
+    });
     currentPage = 1;
     updatePage();
 }
@@ -253,7 +223,7 @@ function debounce(func, delay) {
 
 function populateInstituationDropdown() {
     const InstituationDropdown = document.getElementById('InstituationDropdown');
-    InstituationDropdown.innerHTML = '<option value="">Select Instituation</option>';
+    InstituationDropdown.innerHTML = '<option value="">Select Institution</option>';
     InstituationSet.forEach(Instituation => {
         const option = document.createElement('option');
         option.value = Instituation;
@@ -282,7 +252,7 @@ function getProgressBarHtml(score, totalMark) {
         color = 'green';
     } else if (percentage >= 70) {
         color = 'yellow';
-        additionalClass = 'yellow'; // Add this class for yellow bars
+        additionalClass = 'yellow'; 
     } else if (percentage >= 34) {
         color = 'orange';
     } else {
@@ -296,8 +266,6 @@ function getProgressBarHtml(score, totalMark) {
         </div>
     `;
 }
-
-
 function showIndividualResult(roll, year, group) {
     const fileName = `data_${year}_${group.toLowerCase()}_individual.txt`;
     const isHSC = fileName.includes("hsc");
@@ -314,22 +282,32 @@ function showIndividualResult(roll, year, group) {
                     if (parts.length < 8) {
                         popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
                     } else {
-                        const [roll, bangla, english, ICT, physics, chemistry, compulsory, optional] = parts;
-                        const student = allData.find(student => student.roll === parseInt(roll));
-                        const combinedRank = allData.findIndex(student => student.roll === parseInt(roll)) + 1;
+                        const [roll, bangla, english, ICT, subject1, subject2, compulsory, optional] = parts;
+                        const student = filteredData.find(student => student.roll === parseInt(roll));
+                        let subject1Name, subject2Name;
+                        if (group === 'Commerce') {
+                            subject1Name = 'Accounting';
+                            subject2Name = 'Finance';
+                        } else if (group === 'Arts') {
+                            subject1Name = 'Geography';
+                            subject2Name = 'Civics';
+                        } else {
+                            subject1Name = 'Physics';
+                            subject2Name = 'Chemistry';
+                        }
                         popupContent = `
                             <div class="popup-content">
                                 <span class="close-btn" onclick="closePopup()">&times;</span>
                                 <p>Name: ${student.name}</p>
-                                <p>Institution: ${student.Instituation}</p>
+                                <p>Instituation: ${student.Instituation}</p>
                                 <p>Roll: ${roll}</p>
                                 <p>GPA: ${student.gpa}</p>
-                                <p>Board Rank: ${combinedRank}</p>
+                                <p>Board Rank: ${student.serial}</p>
                                 <p>Bangla: ${bangla} ${getProgressBarHtml(bangla, 200)}</p>
                                 <p>English: ${english} ${getProgressBarHtml(english, 200)}</p>
                                 <p>ICT: ${ICT} ${getProgressBarHtml(ICT, 100)}</p>
-                                <p>Physics: ${physics} ${getProgressBarHtml(physics, 200)}</p>
-                                <p>Chemistry: ${chemistry} ${getProgressBarHtml(chemistry, 200)}</p>
+                                <p>${subject1Name}: ${subject1} ${getProgressBarHtml(subject1, 200)}</p>
+                                <p>${subject2Name}: ${subject2} ${getProgressBarHtml(subject2, 200)}</p>
                                 <p>Compulsory: ${compulsory} ${getProgressBarHtml(compulsory, 200)}</p>
                                 <p>Optional: ${optional} ${getProgressBarHtml(optional, 200)}</p>
                                 <button class="back-button" onclick="closePopup()">Back</button>
@@ -340,29 +318,42 @@ function showIndividualResult(roll, year, group) {
                     if (parts.length < 13) {
                         popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
                     } else {
-                        const [roll, bangla, english, math, bgs, religion, physics, chemistry, Compulsory, ICT, Optional, Physical, Career] = parts;
-                        const student = allData.find(student => student.roll === parseInt(roll));
-                        const combinedRank = allData.findIndex(student => student.roll === parseInt(roll)) + 1;
+                        const [roll, bangla, english, math, subject1, religion, subject2, subject3, compulsory, ICT, optional, physical, career] = parts;
+                        const student = filteredData.find(student => student.roll === parseInt(roll));
+                        let subject1Name, subject2Name, subject3Name;
+                        if (group === 'Commerce') {
+                            subject1Name = 'Science';
+                            subject2Name = 'Accounting';
+                            subject3Name = 'Finance';
+                        } else if (group === 'Arts') {
+                            subject1Name = 'Science';
+                            subject2Name = 'Geography';
+                            subject3Name = 'Civics';
+                        } else {
+                            subject1Name = 'BGS';
+                            subject2Name = 'Physics';
+                            subject3Name = 'Chemistry';
+                        }
                         popupContent = `
                             <div class="popup-content">
                                 <span class="close-btn" onclick="closePopup()">&times;</span>
                                 <p>Name: ${student.name}</p>
-                                <p>Institution: ${student.Instituation}</p>
+                                <p>Instituation: ${student.Instituation}</p>
                                 <p>Roll: ${roll}</p>
                                 <p>GPA: ${student.gpa}</p>
-                                <p>Board Rank: ${combinedRank}</p>
+                                <p>Board Rank: ${student.serial}</p>
                                 <p>Bangla: ${bangla} ${getProgressBarHtml(bangla, 200)}</p>
                                 <p>English: ${english} ${getProgressBarHtml(english, 200)}</p>
                                 <p>Mathematics: ${math} ${getProgressBarHtml(math, 100)}</p>
-                                <p>BGS: ${bgs} ${getProgressBarHtml(bgs, 100)}</p>
+                                <p>${subject1Name}: ${subject1} ${getProgressBarHtml(subject1, 100)}</p>
                                 <p>Religion: ${religion} ${getProgressBarHtml(religion, 100)}</p>
-                                <p>Physics: ${physics} ${getProgressBarHtml(physics, 100)}</p>
-                                <p>Chemistry: ${chemistry} ${getProgressBarHtml(chemistry, 100)}</p>
-                                <p>Compulsory: ${Compulsory} ${getProgressBarHtml(Compulsory, 100)}</p>
+                                <p>${subject2Name}: ${subject2} ${getProgressBarHtml(subject2, 100)}</p>
+                                <p>${subject3Name}: ${subject3} ${getProgressBarHtml(subject3, 100)}</p>
+                                <p>Compulsory: ${compulsory} ${getProgressBarHtml(compulsory, 100)}</p>
                                 <p>ICT: ${ICT} ${getProgressBarHtml(ICT, 50)}</p>
-                                <p>Optional: ${Optional} ${getProgressBarHtml(Optional, 100)}</p>
-                                <p>Physical: ${Physical} ${getProgressBarHtml(Physical, 100)}</p>
-                                <p>Career: ${Career} ${getProgressBarHtml(Career, 50)}</p>
+                                <p>Optional: ${optional} ${getProgressBarHtml(optional, 100)}</p>
+                                <p>Physical: ${physical} ${getProgressBarHtml(physical, 100)}</p>
+                                <p>Career: ${career} ${getProgressBarHtml(career, 50)}</p>
                                 <button class="back-button" onclick="closePopup()">Back</button>
                             </div>
                         `;
@@ -387,34 +378,10 @@ function showIndividualResult(roll, year, group) {
         });
 }
 
-
-
 function closePopup() {
     const popup = document.querySelector('.popup');
     if (popup) {
         popup.remove();
         document.body.classList.remove('locked'); 
     }
-}
-
-function handleSearchInput() {
-    const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
-    const rollSearchTerm = document.getElementById('searchRollInput').value.trim();
-    const selectedInstituation = document.getElementById('InstituationDropdown').value;
-    filteredData = allData.filter(student => {
-        const matchesName = student.name.toLowerCase().includes(searchTerm);
-        const matchesRoll = student.roll.toString().includes(rollSearchTerm);
-        const matchesInstituation = selectedInstituation ? student.Instituation === selectedInstituation : true;
-        return matchesName && matchesRoll && matchesInstituation;
-    });
-    currentPage = 1;
-    updatePage();
-}
-
-function handleRollSearchInput() {
-    handleSearchInput();
-}
-
-function filterByInstituation() {
-    handleSearchInput();
 }
