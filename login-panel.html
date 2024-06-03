@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Panel</title>
+</head>
+<style>body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.login-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.social-login button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.social-login button:first-child {
+    background-color: #DB4437;
+    color: white;
+}
+
+.social-login button:last-child {
+    background-color: #4267B2;
+    color: white;
+}
+
+.additional-links a {
+    display: block;
+    margin: 5px 0;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.additional-links a:hover {
+    text-decoration: underline;
+}
+</style>
+<body>
+    <div class="login-container">
+        <img src="logo.png" alt="Logo" class="logo">
+        <form class="login-form" id="login-form">
+            <label for="username">Username/Email:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="button" onclick="togglePassword()">👁️</button>
+            
+            <div class="options">
+                <input type="checkbox" id="remember-me" name="remember-me">
+                <label for="remember-me">Remember Me</label>
+                <a href="#" id="forgot-password">Forgot Password?</a>
+            </div>
+            
+            <button type="submit">Login</button>
+            
+            <div class="social-login">
+                <button type="button">Login with Google</button>
+                <button type="button">Login with Facebook</button>
+            </div>
+            
+            <div class="additional-links">
+                <a href="#" id="sign-up">New here? Sign Up</a>
+                <a href="#" id="support">Need help? Support</a>
+            </div>
+        </form>
+    </div>
+    <script>function togglePassword() {
+        const passwordField = document.getElementById('password');
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+    }
+    
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Perform login logic here (e.g., send data to the server)
+    });
+    </script>
+</body>
+</html>
