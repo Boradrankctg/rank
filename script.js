@@ -29,31 +29,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function loadYear(year) {
     if (year) {
-        if (year.includes("hsc")) {
-            currentYear.textContent = `HSC ${year.split('_')[1]}`;
-        } else {
-            currentYear.textContent = `SSC ${year}`;
-        }
+        currentYear.textContent = ` ${year}`;
+        currentGroup.style.display = 'none';
+        noDataMessage.style.display = 'none';
+        contentDiv.innerHTML = `
+            <p>Select your group:</p>
+            <div class="group-buttons">
+                <button onclick="loadGroup('${year}', 'Science')">
+                    <img src="sci.png" alt="Science Icon">Science
+                </button>
+                <button onclick="loadGroup('${year}', 'Commerce')">
+                    <img src="com.png" alt="Commerce Icon">Business
+                </button>
+                <button onclick="loadGroup('${year}', 'Arts')">
+                    <img src="hum.png" alt="Arts Icon">Humanities
+                </button>
+            </div>
+        `;
     } else {
-        currentYear.textContent = "";
+        contentDiv.innerHTML = '';
     }
-    
-    currentGroup.style.display = 'none';
-    noDataMessage.style.display = 'none';
-    contentDiv.innerHTML = `
-        <p>Select your group:</p>
-        <div class="group-buttons">
-            <button onclick="loadGroup('${year}', 'Science')">
-                <img src="sci.png" alt="Science Icon">Science
-            </button>
-            <button onclick="loadGroup('${year}', 'Commerce')">
-                <img src="com.png" alt="Commerce Icon">Business
-            </button>
-            <button onclick="loadGroup('${year}', 'Arts')">
-                <img src="hum.png" alt="Arts Icon">Humanities
-            </button>
-        </div>
-    `;
 }
 
 
@@ -62,14 +57,15 @@ function loadGroup(year, group) {
     currentGroup.textContent = `${group} Group`;
     yearDropdown.style.display = 'none';
     contentDiv.innerHTML = `
-    <div class="search-container">
-    <label for="searchInput">Search by Name:</label>
-    <input type="text" id="searchInput" class="search-input" placeholder="      Enter name" oninput="debounce(handleSearchInput, 300)()">
-</div>
-<div class="search-container">
-    <label for="searchRollInput">Search by Roll:</label>
-    <input type="text" id="searchRollInput" class="search-input" placeholder="      Enter roll" oninput="debounce(handleRollSearchInput, 300)()">
-</div>
+        <h3 id="examResultHeader"></h3> <!-- New header element -->
+        <div class="search-container">
+            <label for="searchInput">Search by Name:</label>
+            <input type="text" id="searchInput" class="search-input" placeholder="      Enter name" oninput="debounce(handleSearchInput, 300)()">
+        </div>
+        <div class="search-container">
+            <label for="searchRollInput">Search by Roll:</label>
+            <input type="text" id="searchRollInput" class="search-input" placeholder="      Enter roll" oninput="debounce(handleRollSearchInput, 300)()">
+        </div>
         <div class="search-container">
             <label for="InstituationDropdown">Select Instituation:</label>
             <select id="InstituationDropdown" onchange="filterByInstituation()"></select>
@@ -96,8 +92,17 @@ function loadGroup(year, group) {
             <button id="nextBtn" onclick="handleNextButtonClick()">Next</button>
         </div>
     `;
+    printExamResultHeader(year); // Call the new function to print the header
     fetchData(year, group);
-    
+}
+
+function printExamResultHeader(year) {
+    const headerElement = document.getElementById('examResultHeader');
+    if (headerElement) {
+        let examType = year.includes('hsc') ? 'HSC' : 'SSC';
+        let formattedYear = year.replace('hsc_', '');
+        headerElement.textContent = `${examType.toUpperCase()} ${formattedYear} Result`;
+    }
 }
 
 let allData = [];
@@ -223,19 +228,9 @@ function showSchoolRanking(encodedSchoolName) {
 }
 
 function resetSchoolRanking() {
-    // Extract year and group from the current text content
-    const yearText = currentYear.textContent;
-    const groupText = currentGroup.textContent.split(' ')[0];
-    
-    // Reset the current year and group displays
-    currentYear.textContent = "";
-    currentGroup.style.display = 'none';
-    yearDropdown.style.display = 'block';
-    
-    // Call loadGroup with the extracted year and group
-    loadGroup(yearText.includes('HSC') ? `hsc_${yearText.split(' ')[1]}` : yearText.split(' ')[1], groupText);
+    // Restore the current group view without asking to select the group again
+    loadGroup(currentYear.textContent.trim(), currentGroup.textContent.split(' ')[0]);
 }
-
 
 
 function updateTableData() {
@@ -256,6 +251,7 @@ function updateTableData() {
             <td class="student-school">${student.Instituation}</td>
         `;
 
+        // Add event listeners to the name, roll, and institution cells
         row.querySelector('.student-name').addEventListener('click', () => {
             showIndividualResult(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
         });
@@ -425,7 +421,6 @@ function showIndividualResult(roll, year, group) {
                 }
 
                 if (isHSC) {
-                    loadGroup(yearText.includes('HSC') ? `hsc_${yearText.split(' ')[1]}` : yearText.split(' ')[1], groupText);
                     if (parts.length < 8) {
                         popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
                     } else {
@@ -588,5 +583,4 @@ function closePopup() {
         }, 500); // Match this duration with the animation duration
     }
 }
-
 
