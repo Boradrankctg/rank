@@ -108,13 +108,13 @@ p {
 
 .group-buttons button img {
     margin-right: 10px;
-    width: 30px; /* Adjust size as needed */
-    height: 30px; /* Adjust size as needed */
+    width: 30px; 
+    height: 30px; 
 }
 .search-input {
     background: url('search.png') no-repeat 10px center;
     background-size: 16px 16px;
-    padding-left: 30px; /* Adjust this based on the size of the icon */
+    padding-left: 30px; 
 }
 
 .group-buttons button:hover {
@@ -147,6 +147,23 @@ input[type="text"], select {
     margin-bottom: 0.625rem;
 }
 
+input[type="email"], select {
+    width: 90%;
+    padding: 0.625rem;
+    border: 1px solid #0061FE;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 0.625rem;
+}
+
+textarea[id="message"], select {
+    width: 90%;
+    padding: 0.625rem;
+    border: 1px solid #0061FE;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 0.625rem;
+}
 table {
     width: 100%;
     margin: 1.25rem 0;
@@ -449,8 +466,8 @@ body.locked {
     margin: 20px auto;
     padding: 10px;
     font-size: 18px;
-    background-color: #444;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     border: none;
     cursor: pointer;
     width: 80%;
@@ -458,12 +475,28 @@ body.locked {
 }
 
 .sidebar button:hover {
-    background-color: #555;
+    background-color: #000000;
+    color: white;
 }
 
 .sidebar .settings {
     margin-top: 20px;
 }
+
+body.dark-mode .sidebar {
+    background-color: #000;
+}
+body.dark-mode .sidebar button
+{
+    background-color: #000;
+    color: white;
+}
+body.dark-mode .sidebar button:hover
+{
+    background-color: #fffbfb;
+    color: rgb(0, 0, 0);
+}
+
 
 body.dark-mode {
     background-color: #121212;
@@ -495,28 +528,23 @@ body.dark-mode .popup-content {
     font-size: 0.5rem;
 }
 
+
+
 body.dark-mode .popup-content h2 {
     color: #2e7d32;
-    margin: 10px 0;
-    font-size: 1.2rem;
-    border-bottom: 2px solid #2e7d32;
-    padding: 5px 0;
+
 }
 
 body.dark-mode .popup-content p {
     color: #ffffff;
-    font-size: medium;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    line-height: 1;
-    margin: 15px 0;
+
 }
 body.dark-mode p{
     color: #ffffff;
 }
 body.dark-mode .group-buttons button{
-    color: #000;
-    background-color: white;
+    color: #edecec;
+    background-color: rgb(14, 29, 192);
 }
 @media (max-width: 768px) {
     .sidebar {
@@ -604,7 +632,6 @@ button:active::after {
     animation: ripple 0.6s linear;
 }
 
-/* Loading Spinner Animation */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -618,4 +645,7 @@ button:active::after {
     height: 1.25rem;
     animation: spin 1s linear infinite;
 }
+
+
+
 
