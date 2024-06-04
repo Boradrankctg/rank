@@ -1,5 +1,7 @@
 {
   "hosting": {
+
+    "site": "boardrank",
     "public": "public",
     "ignore": [
       "firebase.json",
