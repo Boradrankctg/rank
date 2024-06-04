@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Reviews</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bora Drank Reviews</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="reviews">
+            <h2>User Reviews</h2>
+            <div id="average-rating">
+                <h3>Average Rating: <span id="avg-rating">0</span> stars</h3>
+                <p>Total Reviews: <span id="total-reviews">0</span></p>
+            </div>
+            <form id="review-form">
+                <label for="rating">Rate Your Experience:</label>
+                <select id="rating" name="rating">
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+                <label for="comment">Write a Review:</label>
+                <textarea id="comment" name="comment" rows="4"></textarea>
+                <label for="upload">Upload Photos:</label>
+                <input type="file" id="upload" name="upload" multiple>
+                <button type="button" id="submit-review">Submit Review</button>
+            </form>
+            <div id="reviews-display">
+                <h3>All Reviews</h3>
+                <input type="text" id="search" placeholder="Search reviews">
+                <div id="reviews-list"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Contact Information</p>
+        <p><a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-of-service">Terms of Service</a></p>
+    </footer>
+
+    <!-- Add Firebase SDKs -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+        import { getDatabase, ref, set, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAwUqYxrhyEZDmvlQaUB7tuVtXP1ZYdKfI",
+            authDomain: "boardrank-c095a.firebaseapp.com",
+            databaseURL: "https://boardrank-c095a-default-rtdb.firebaseio.com",
+            projectId: "boardrank-c095a",
+            storageBucket: "boardrank-c095a.appspot.com",
+            messagingSenderId: "953246350478",
+            appId: "1:953246350478:web:12c93114c0a30ad47e9ddf",
+            measurementId: "G-L9DVGQTMJT"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        // Reference to reviews in the database
+        const reviewsRef = ref(database, 'reviews');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const reviewForm = document.getElementById('review-form');
+            const reviewsList = document.getElementById('reviews-list');
+            const avgRatingEl = document.getElementById('avg-rating');
+            const totalReviewsEl = document.getElementById('total-reviews');
+            const searchInput = document.getElementById('search');
+
+            reviewForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const rating = document.getElementById('rating').value;
+                const comment = document.getElementById('comment').value;
+                const upload = document.getElementById('upload').files;
+
+                const newReviewRef = push(reviewsRef);
+                set(newReviewRef, {
+                    rating: parseInt(rating),
+                    comment,
+                    upload: Array.from(upload).map(file => URL.createObjectURL(file)),
+                    date: new Date().toISOString()
+                });
+
+                reviewForm.reset();
+            });
+
+            onValue(reviewsRef, (snapshot) => {
+                const reviews = snapshot.val();
+                updateReviews(reviews);
+            });
+
+            searchInput.addEventListener('input', () => {
+                onValue(reviewsRef, (snapshot) => {
+                    const reviews = snapshot.val();
+                    updateReviews(reviews);
+                });
+            });
+
+            function updateReviews(reviews) {
+                const reviewsArray = reviews ? Object.values(reviews) : [];
+                const filteredReviews = reviewsArray.filter(review => 
+                    review.comment.toLowerCase().includes(searchInput.value.toLowerCase())
+                );
+                reviewsList.innerHTML = filteredReviews.map(review => `
+                    <div class="review-item">
+                        <p><strong>Rating:</strong> ${review.rating} stars</p>
+                        <p><strong>Comment:</strong> ${review.comment}</p>
+                        <p><strong>Date:</strong> ${new Date(review.date).toLocaleString()}</p>
+                        ${review.upload.map(url => `<img src="${url}" alt="Review image" width="100">`).join('')}
+                    </div>
+                `).join('');
+
+                const averageRating = reviewsArray.reduce((acc, review) => acc + review.rating, 0) / reviewsArray.length || 0;
+                avgRatingEl.textContent = averageRating.toFixed(1);
+                totalReviewsEl.textContent = reviewsArray.length;
+            }
+        });
+    </script>
+</body>
+</html>
