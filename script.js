@@ -3,6 +3,9 @@ const currentYear = document.getElementById('currentYear');
 const currentGroup = document.getElementById('currentGroup');
 const noDataMessage = document.getElementById('noDataMessage');
 const yearDropdown = document.getElementById('yearDropdown');
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.getElementById('sidebar');
     sidebar.style.width = '0px';
@@ -21,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('dark-mode');
             localStorage.setItem('theme', 'light');
         }
-        updateTableData();  // Update table to apply new colors
+        updateTableData();
     });
 });
 
@@ -57,14 +60,14 @@ function loadGroup(year, group) {
     currentGroup.textContent = `${group} Group`;
     yearDropdown.style.display = 'none';
     contentDiv.innerHTML = `
-        <h3 id="examResultHeader"></h3> <!-- New header element -->
+        <h3 id="examResultHeader"></h3> 
         <div class="search-container">
             <label for="searchInput">Search by Name:</label>
-            <input type="text" id="searchInput" class="search-input" placeholder="      Enter name" oninput="debounce(handleSearchInput, 300)()">
+            <input type="text" id="searchInput" class="search-input" placeholder="Enter name" oninput="debounce(handleSearchInput, 300)()">
         </div>
         <div class="search-container">
             <label for="searchRollInput">Search by Roll:</label>
-            <input type="text" id="searchRollInput" class="search-input" placeholder="      Enter roll" oninput="debounce(handleRollSearchInput, 300)()">
+            <input type="text" id="searchRollInput" class="search-input" placeholder="Enter roll" oninput="debounce(handleRollSearchInput, 300)()">
         </div>
         <div class="search-container">
             <label for="InstituationDropdown">Select Instituation:</label>
@@ -87,12 +90,14 @@ function loadGroup(year, group) {
             <tbody id="studentTableBody"></tbody>
         </table>
         <div class="pagination">
+            <button id="firstBtn" onclick="handleFirstButtonClick()">First</button>
             <button id="prevBtn" onclick="handlePrevButtonClick()">Previous</button>
             <span id="paginationInfo">Loading data...</span>
             <button id="nextBtn" onclick="handleNextButtonClick()">Next</button>
+            <button id="lastBtn" onclick="handleLastButtonClick()">Last</button>
         </div>
     `;
-    printExamResultHeader(year); // Call the new function to print the header
+    printExamResultHeader(year); 
     fetchData(year, group);
 }
 
@@ -191,7 +196,7 @@ function makeSchoolNamesClickable() {
 function showSchoolRanking(encodedSchoolName) {
     const schoolName = decodeURIComponent(encodedSchoolName);
     const schoolData = allData.filter(student => student.Instituation.trim() === schoolName);
-    schoolData.sort(compareStudents); // Re-sort to ensure correct ranking within the school
+    schoolData.sort(compareStudents);
 
     if (schoolData.length === 0) {
         contentDiv.innerHTML = `<h2>No data found for "${schoolName}"</h2>`;
@@ -228,7 +233,7 @@ function showSchoolRanking(encodedSchoolName) {
 }
 
 function resetSchoolRanking() {
-    // Restore the current group view without asking to select the group again
+   
     loadGroup(currentYear.textContent.trim(), currentGroup.textContent.split(' ')[0]);
 }
 
@@ -251,7 +256,6 @@ function updateTableData() {
             <td class="student-school">${student.Instituation}</td>
         `;
 
-        // Add event listeners to the name, roll, and institution cells
         row.querySelector('.student-name').addEventListener('click', () => {
             showIndividualResult(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
         });
@@ -308,6 +312,20 @@ function handlePrevButtonClick() {
         updatePage();
     }
 }
+function handleFirstButtonClick() {
+    if (currentPage > 1) {
+        currentPage = 1;
+        updatePage();
+    }
+}
+function handleLastButtonClick() {
+    const maxPage = Math.ceil(filteredData.length / studentsPerPage);
+    if (currentPage < maxPage) {
+        currentPage = maxPage;
+        updatePage();
+    }
+}
+
 
 function handleNextButtonClick() {
     const maxPage = Math.ceil(filteredData.length / studentsPerPage);
@@ -377,7 +395,7 @@ function getProgressBarHtml(score, totalMark) {
         color = 'green';
     } else if (percentage >= 70) {
         color = 'yellow';
-        additionalClass = 'yellow'; // Add this class for yellow bars
+        additionalClass = 'yellow'; 
     } else if (percentage >= 34) {
         color = 'orange';
     } else {
@@ -468,7 +486,7 @@ function showIndividualResult(roll, year, group) {
                                 <p>Religion: ${religion} ${getProgressBarHtml(religion, 100)}</p>
                                 <p>${subject2Name}: ${physics} ${getProgressBarHtml(physics, 100)}</p>
                                 <p>${subject3Name}: ${chemistry} ${getProgressBarHtml(chemistry, 100)}</p>
-                                <p>Compulsory: ${Compulsory} ${getProgressBarHtml(Compulsory, 100)}</p>
+                                <p>Religion: ${Compulsory} ${getProgressBarHtml(Compulsory, 100)}</p>
                                 <p>ICT: ${ICT} ${getProgressBarHtml(ICT, 50)}</p>
                                 <p>Optional: ${Optional} ${getProgressBarHtml(Optional, 100)}</p>
                                 <p>Physical: ${Physical} ${getProgressBarHtml(Physical, 100)}</p>
@@ -580,7 +598,23 @@ function closePopup() {
         setTimeout(() => {
             popup.remove();
             document.body.classList.remove('locked');
-        }, 500); // Match this duration with the animation duration
+        }, 500); 
     }
 }
 
+var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+    scrollToTopBtn.style.display = "block";
+  } else {
+    scrollToTopBtn.style.display = "none";
+  }
+}
+
+function scrollToTop() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
+}
