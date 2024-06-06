@@ -4,8 +4,6 @@ const currentGroup = document.getElementById('currentGroup');
 const noDataMessage = document.getElementById('noDataMessage');
 const yearDropdown = document.getElementById('yearDropdown');
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.getElementById('sidebar');
     sidebar.style.width = '0px';
@@ -24,11 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('dark-mode');
             localStorage.setItem('theme', 'light');
         }
-        updateTableData();
+        updateTableData(); // Refresh table data when theme changes
     });
 });
-
-
 
 function loadYear(year) {
     if (year) {
@@ -53,7 +49,6 @@ function loadYear(year) {
         contentDiv.innerHTML = '';
     }
 }
-
 
 function loadGroup(year, group) {
     currentGroup.style.display = 'inline';
@@ -97,7 +92,7 @@ function loadGroup(year, group) {
             <button id="lastBtn" onclick="handleLastButtonClick()">Last</button>
         </div>
     `;
-    printExamResultHeader(year); 
+    printExamResultHeader(year); // Update the header with the year
     fetchData(year, group);
 }
 
@@ -117,7 +112,7 @@ let currentPage = 1;
 const InstituationSet = new Set();
 
 function fetchData(year, group) {
-    showLoadingIndicator();
+    showLoadingIndicator(); // Show loading spinner
     const mainDataUrl = `data_${year}_${group.toLowerCase()}.txt`;
     const individualDataUrl = `data_${year}_${group.toLowerCase()}_individual.txt`;
 
@@ -127,18 +122,18 @@ function fetchData(year, group) {
     ]).then(([mainData, individualData]) => {
         console.log('Main data loaded:', mainData);
         console.log('Individual data loaded:', individualData);
-        processData(mainData, individualData);
-        populateInstituationDropdown();
-        hideLoadingIndicator();
+        processData(mainData, individualData); // Process the loaded data
+        populateInstituationDropdown(); // Populate dropdown with institution names
+        hideLoadingIndicator(); // Hide loading spinner
     }).catch(error => {
         console.error('Error loading data:', error);
-        hideLoadingIndicator();
+        hideLoadingIndicator(); // Hide spinner on error
         noDataMessage.style.display = 'block';
     });
 }
 
 function processData(mainData, individualData) {
-    const rows = mainData.trim().split('\n').slice(1);
+    const rows = mainData.trim().split('\n').slice(1); // Ignore header row
     const individualScores = parseIndividualData(individualData);
     allData = rows.map(row => {
         const [serial, name, roll, gpa, total, Instituation] = row.split('\t');
@@ -156,10 +151,10 @@ function processData(mainData, individualData) {
     });
     console.log('Processed data:', allData);
     allData = allData.filter(student => !isNaN(student.gpa) && !isNaN(student.total));
-    allData.sort(compareStudents);
+    allData.sort(compareStudents); // Sort the data by GPA, total marks, etc.
     console.log('Sorted data:', allData);
     filteredData = [...allData];
-    updateTableData();
+    updateTableData(); // Update table with sorted data
 }
 
 function parseIndividualData(data) {
@@ -190,8 +185,6 @@ function makeSchoolNamesClickable() {
         schoolName.addEventListener('click', () => showSchoolRanking(schoolName.textContent.trim()));
     });
 }
-
-
 
 function showSchoolRanking(encodedSchoolName) {
     const schoolName = decodeURIComponent(encodedSchoolName);
@@ -233,10 +226,8 @@ function showSchoolRanking(encodedSchoolName) {
 }
 
 function resetSchoolRanking() {
-   
     loadGroup(currentYear.textContent.trim(), currentGroup.textContent.split(' ')[0]);
 }
-
 
 function updateTableData() {
     const startIndex = (currentPage - 1) * studentsPerPage;
@@ -272,7 +263,6 @@ function updateTableData() {
     document.getElementById('paginationInfo').textContent = `Showing ${startIndex + 1}-${endIndex} of ${filteredData.length} students`;
     updatePaginationButtons();
 }
-
 
 function filterByInstituation(InstituationName = null, fromTable = false) {
     const InstituationDropdown = document.getElementById('InstituationDropdown');
@@ -325,7 +315,6 @@ function handleLastButtonClick() {
         updatePage();
     }
 }
-
 
 function handleNextButtonClick() {
     const maxPage = Math.ceil(filteredData.length / studentsPerPage);
@@ -544,7 +533,6 @@ function handleRollSearchInput() {
 function filterByInstituation() {
     handleSearchInput();
 }
-
 
 function navigateTo(page) {
     window.location.href = page;
