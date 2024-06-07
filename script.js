@@ -475,7 +475,7 @@ function showIndividualResult(roll, year, group) {
                                 <p>Religion: ${religion} ${getProgressBarHtml(religion, 100)}</p>
                                 <p>${subject2Name}: ${physics} ${getProgressBarHtml(physics, 100)}</p>
                                 <p>${subject3Name}: ${chemistry} ${getProgressBarHtml(chemistry, 100)}</p>
-                                <p>Religion: ${Compulsory} ${getProgressBarHtml(Compulsory, 100)}</p>
+                                <p>Compulsory: ${Compulsory} ${getProgressBarHtml(Compulsory, 100)}</p>
                                 <p>ICT: ${ICT} ${getProgressBarHtml(ICT, 50)}</p>
                                 <p>Optional: ${Optional} ${getProgressBarHtml(Optional, 100)}</p>
                                 <p>Physical: ${Physical} ${getProgressBarHtml(Physical, 100)}</p>
