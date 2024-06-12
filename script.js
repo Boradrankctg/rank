@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('dark-mode');
             localStorage.setItem('theme', 'light');
         }
-        updateTableData();
+        updateTableData(); // Refresh table data when theme changes
     });
 });
 
@@ -92,7 +92,7 @@ function loadGroup(year, group) {
             <button id="lastBtn" onclick="handleLastButtonClick()">Last</button>
         </div>
     `;
-    printExamResultHeader(year); 
+    printExamResultHeader(year); // Update the header with the year
     fetchData(year, group);
 }
 
@@ -112,7 +112,7 @@ let currentPage = 1;
 const InstituationSet = new Set();
 
 function fetchData(year, group) {
-    showLoadingIndicator();
+    showLoadingIndicator(); // Show loading spinner
     const mainDataUrl = `data_${year}_${group.toLowerCase()}.txt`;
     const individualDataUrl = `data_${year}_${group.toLowerCase()}_individual.txt`;
 
@@ -122,18 +122,18 @@ function fetchData(year, group) {
     ]).then(([mainData, individualData]) => {
         console.log('Main data loaded:', mainData);
         console.log('Individual data loaded:', individualData);
-        processData(mainData, individualData);
-        populateInstituationDropdown();
-        hideLoadingIndicator();
+        processData(mainData, individualData); // Process the loaded data
+        populateInstituationDropdown(); // Populate dropdown with institution names
+        hideLoadingIndicator(); // Hide loading spinner
     }).catch(error => {
         console.error('Error loading data:', error);
-        hideLoadingIndicator();
+        hideLoadingIndicator(); // Hide spinner on error
         noDataMessage.style.display = 'block';
     });
 }
 
 function processData(mainData, individualData) {
-    const rows = mainData.trim().split('\n').slice(1);
+    const rows = mainData.trim().split('\n').slice(1); // Ignore header row
     const individualScores = parseIndividualData(individualData);
     allData = rows.map(row => {
         const [serial, name, roll, gpa, total, Instituation] = row.split('\t');
@@ -151,10 +151,10 @@ function processData(mainData, individualData) {
     });
     console.log('Processed data:', allData);
     allData = allData.filter(student => !isNaN(student.gpa) && !isNaN(student.total));
-    allData.sort(compareStudents);
+    allData.sort(compareStudents); // Sort the data by GPA, total marks, etc.
     console.log('Sorted data:', allData);
     filteredData = [...allData];
-    updateTableData();
+    updateTableData(); // Update table with sorted data
 }
 
 function parseIndividualData(data) {
@@ -475,7 +475,7 @@ function showIndividualResult(roll, year, group) {
                                 <p>Religion: ${religion} ${getProgressBarHtml(religion, 100)}</p>
                                 <p>${subject2Name}: ${physics} ${getProgressBarHtml(physics, 100)}</p>
                                 <p>${subject3Name}: ${chemistry} ${getProgressBarHtml(chemistry, 100)}</p>
-                                <p>Religion: ${Compulsory} ${getProgressBarHtml(Compulsory, 100)}</p>
+                                <p>Compulsory: ${Compulsory} ${getProgressBarHtml(Compulsory, 100)}</p>
                                 <p>ICT: ${ICT} ${getProgressBarHtml(ICT, 50)}</p>
                                 <p>Optional: ${Optional} ${getProgressBarHtml(Optional, 100)}</p>
                                 <p>Physical: ${Physical} ${getProgressBarHtml(Physical, 100)}</p>
