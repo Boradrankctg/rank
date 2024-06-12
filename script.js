@@ -64,12 +64,8 @@ function loadGroup(year, group) {
             <label for="searchRollInput">Search by Roll:</label>
             <input type="text" id="searchRollInput" class="search-input" placeholder="Enter roll" oninput="debounce(handleRollSearchInput, 300)()">
         </div>
-        <div class="search-container">
-            <label for="InstituationDropdown">Select Instituation:</label>
-            <select id="InstituationDropdown" onchange="filterByInstituation()"></select>
-        </div>
+  
         
-        <button id="resetFilterBtn" style="display: none;" onclick="resetFilter()">Reset Filter</button>
         <div class="loading-spinner" id="loadingSpinner" style="display: none;"></div>
         <table>
             <thead>
