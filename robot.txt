@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://boradrankctg.github.io/rank/sitemap.xml
