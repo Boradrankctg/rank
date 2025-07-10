@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ✅ Google Search Console Verification -->
     <meta name="google-site-verification" content="siNtiPjvsyElA07czENYNNvVQicPoBsDL_dU5cwSVQ0" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chattogram Board Students' Ranking - SSC & HSC</title>
-    <meta name="description" content="Board rank viewer for CTG board - search any roll and get results fast.">
-<meta name="keywords" content="boardrank, ctg, rank, result, roll number, chittagong board">
-<meta name="robots" content="index, follow">
 
-    <meta name="description" content="Explore the rankings of SSC and HSC students from Chattogram Board. Designed by Hasnyne (CC'25).">
-    <meta name="keywords" content="Chattogram Board, SSC Ranking, HSC Ranking, Student Rankings, Education, Hasnyne, Chittagong Board rank, Board rank, SSC result 2024, HSC result 2024, ctg bise, ssc result 2023 chittagong board, ssc result 2024 chittagong board, hsc result 2024 chittagong board, syed hasnyne mostafa, hasnyne">
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ✅ SEO Meta Tags -->
+    <title>Chattogram Board Students' Ranking - SSC & HSC</title>
+    <meta name="description" content="Board rank viewer for CTG board - search any roll and get results fast. Designed by Hasnyne (CC'25).">
+    <meta name="keywords" content="boardrank, ctg, rank, result, roll number, chittagong board, ssc result 2024, hsc result 2024, Chattogram Board, Hasnyne">
+    <meta name="robots" content="index, follow">
     <meta name="author" content="Hasnyne (CC'25)">
-    <link rel="canonical" href="https://boradrankctg.github.io/rank/">
-    
-    <meta property="og:title" content="Chattogram Board Students' Ranking - SSC & HSC">
-    <meta property="og:description" content="Explore the rankings of SSC and HSC students from Chattogram Board. Designed by Hasnyne (CC'25).">
-    <meta property="og:image" content="https://www.yourwebsite.com/images/og-image.png">
-    <meta property="og:url" content="https://boradrankctg.github.io/rank/">
-    <meta property="og:type" content="website">
-    
-    
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- ✅ Canonical Tag -->
+    <link rel="canonical" href="https://boradrankctg.github.io/rank/" />
+
+    <!-- ✅ Open Graph (Social Media Preview) -->
+    <meta property="og:title" content="Chattogram Board Students' Ranking - SSC & HSC" />
+    <meta property="og:description" content="Explore the rankings of SSC and HSC students from Chattogram Board. Designed by Hasnyne (CC'25)." />
+    <meta property="og:image" content="https://yourwebsite.com/images/og-image.png" />
+    <meta property="og:url" content="https://boradrankctg.github.io/rank/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
     <style>
         .locked {
             overflow: hidden;
+        }
+        .home-icon {
+            width: 32px;
+            height: 32px;
         }
     </style>
 </head>
 <body>
     <header>
         <a href="index.html">
-            <img src="home.png" alt="Home Icon" class="home-icon">
+            <img src="home.png" alt="Home Icon" class="home-icon" />
         </a>
         <h1>Chattogram Board Students' SSC & HSC Ranking</h1>
         <h2>Designed by Hasnyne (CC'25)</h2>
@@ -48,7 +57,7 @@
             </label>
         </div>
     </div>
-    
+
     <nav aria-label="breadcrumb">
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
@@ -56,6 +65,7 @@
             <li id="currentGroup" style="display:none;"></li>
         </ul>
     </nav>
+
     <main>
         <section>
             <div class="year-dropdown">
@@ -67,22 +77,23 @@
                     <option value="2022">SSC 2022</option>
                     <option value="hsc_2024">HSC 2024</option>
                     <option value="hsc_2023">HSC 2023</option>
-                    
                 </select>
             </div>
             <div id="content"></div>
             <div id="noDataMessage" style="display:none;">Oops! No data found.</div>
         </section>
     </main>
+
     <div id="popupWindow" style="display:none;">
         <button id="closePopup" class="close-btn">&times;</button>
         <div class="popup-content" id="popupContent"></div>
     </div>
-</div>
-<button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">
-    <img src="arrow-up.png" alt="Scroll to top">
-  </button>
-    
+
+    <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">
+        <img src="arrow-up.png" alt="Scroll to top">
+    </button>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
