@@ -269,7 +269,7 @@ button:hover {
     overflow-y: auto;
     max-height: 80vh;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    animation: popupAnimation 0.5s forwards; /* Add this line */
+    animation: popupAnimation 0.5s forwards; 
 }
 
 @keyframes popupAnimation {
@@ -718,7 +718,7 @@ header h2 {
   z-index: 99;
   border: none;
   outline: none;
-  background-color: #d9d9d9;
+  background-color: #d9d9d9;    
   color: white;
   cursor: pointer;
   padding: 0px;
@@ -729,3 +729,163 @@ header h2 {
   width: 32x;
   height: 32px;
 }
+
+table.top-institutions {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .top-institutions th, .top-institutions td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  .top-institutions th {
+    background-color: #000;
+    color: white;
+  }
+  
+  .top-institutions tbody tr:nth-child(1) {
+    background-color: gold;
+    font-weight: bolder;
+  }
+  .top-institutions tbody tr:nth-child(2) {
+    background-color: silver;
+    font-weight: bolder;
+  }
+  .top-institutions tbody tr:nth-child(3) {
+    background-color: #cd7f32;
+    font-weight: bolder;
+  }
+  
+  body.dark-mode .top-institutions th {
+    background-color: #1f1f1f;
+    color: white;
+  }
+  
+  body.dark-mode .top-institutions td {
+    background-color: #222;
+    color: #e0e0e0;
+  }
+  
+  input#InstituationDropdown[list] {
+    background: url('search.png') no-repeat 10px center;
+    background-size: 16px 16px;
+  
+
+    padding-top: 0.625rem;
+    padding-right: 0.625rem;
+    padding-bottom: 0.625rem;
+    padding-left: 40px;  
+  
+    font-size: 1rem;
+    width: 90%;
+    border: 1px solid #0061FE;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+  }
+  
+  
+  
+  body.dark-mode input#InstituationDropdown[list] {
+    background-color: #000;
+    color: #bbb;
+    border-color: #444;
+    padding-top: 0.625rem;
+    padding-right: 0.625rem;
+    padding-bottom: 0.625rem;
+   border: 1px solid #0061FE;
+    padding-left: 40px;  
+  }
+  .new-box-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  #featuredBox {
+    position: relative;
+    width: min(90vw, 300px);
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    background: radial-gradient(circle at 30% 30%, #0d1117, #1c1c1c, #2e2e2e);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  #featuredBox:hover {
+    transform: scale(1.05) rotate(0.2deg);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
+  }
+  
+  .featured-text {
+    z-index: 2;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.15);
+  }
+  
+  .new-ribbon {
+    position: absolute;
+    top: 12px;
+    left: -40px;
+    transform: rotate(-45deg);
+    background: #ff0055;
+    color: white;
+    padding: 6px 60px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 0 12px rgba(255, 0, 85, 0.7);
+    animation: pulseGlow 1.8s infinite ease-in-out;
+    z-index: 5;
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 10px #ff0055; }
+    50% { box-shadow: 0 0 25px white; }
+  }
+  
+  body.dark-mode #featuredBox {
+    background: radial-gradient(circle at 30% 30%, #1a1a1a, #000);
+    color: #fff;
+  }
+  
+  @media (max-width: 768px) {
+    #featuredBox {
+      font-size: 1.5rem;
+      width: 80vw;
+    }
+  }
+  .featured-text {
+    z-index: 2;
+    text-align: center;
+    line-height: 1.1;
+  }
+  
+  .ssc-line {
+    
+    font-size: 4.25rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+  }
+  
+  .year-line {
+    font-size: 7.25rem;
+    font-weight: 1000;
+    letter-spacing: 1px;
+    margin-top: 0.25rem;
+    text-shadow: 0 0 10px rgba(255,255,255,0.2);
+  }
+  
