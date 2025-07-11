@@ -32,6 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function loadYear(year) {
     if (year) {
+        document.getElementById("featuredBox")?.remove();
+
+        const newUrl = `${location.pathname}?year=${year}`;
+        history.pushState({}, '', newUrl);
+    
         currentYear.textContent = ` ${year}`;
         currentGroup.style.display = 'none';
         noDataMessage.style.display = 'none';
@@ -60,6 +65,7 @@ function loadGroup(year, group) {
     currentGroup.textContent = `${group} Group`;
     yearDropdown.style.display = 'none';
     contentDiv.innerHTML = `
+    
         <h3 id="examResultHeader"></h3> 
         <div class="search-container">
             <label for="searchInput">Search by Name:</label>
@@ -97,6 +103,9 @@ function loadGroup(year, group) {
             <button id="lastBtn" onclick="handleLastButtonClick()">Last</button>
         </div>
     `;
+    const newUrl = `${location.pathname}?year=${year}&group=${group}`;
+    history.pushState({}, '', newUrl);
+
     printExamResultHeader(year); 
     fetchData(year, group);
 }
@@ -194,6 +203,7 @@ function makeSchoolNamesClickable() {
 
 
 function showSchoolRanking(encodedSchoolName) {
+    scrollToTop();
     const schoolName = decodeURIComponent(encodedSchoolName);
     const schoolData = allData.filter(student => student.Instituation.trim() === schoolName);
     schoolData.sort(compareStudents);
@@ -413,6 +423,8 @@ function getProgressBarHtml(score, totalMark) {
 function showIndividualResult(roll, year, group) {
     const fileName = `data_${year}_${group.toLowerCase()}_individual.txt`;
     const isHSC = fileName.includes("hsc");
+    const newUrl = `${location.pathname}?year=${year}&group=${group}&roll=${roll}`;
+    history.pushState({}, '', newUrl);
 
     fetch(fileName)
         .then(response => response.text())
@@ -618,3 +630,182 @@ function scrollToTop() {
   document.body.scrollTop = 0; 
   document.documentElement.scrollTop = 0; 
 }
+
+
+// NEW: Top Institutions button
+function createTopInstitutionsButton() {
+    const resetBtn = document.getElementById('resetFilterBtn');
+    const topBtn = document.createElement('button');
+    topBtn.textContent = '🏆 Top Schools';
+    topBtn.style.marginLeft = '10px';
+    topBtn.onclick = showTopInstitutions;
+    resetBtn.insertAdjacentElement('afterend', topBtn);
+  }
+  
+  function showTopInstitutions() {
+    const topSchools = {};
+  
+    allData.forEach(student => {
+      const school = student.Instituation;
+      if (!topSchools[school]) {
+        topSchools[school] = {
+          gpa5Count: 0,
+          totalMarks: 0,
+          count: 0,
+          top1000Count: 0
+        };
+      }
+      if (student.gpa === 5.0) {
+        topSchools[school].gpa5Count += 1;
+      }
+      topSchools[school].totalMarks += student.total;
+      topSchools[school].count += 1;
+    });
+  
+    allData.slice(0, 1000).forEach(student => {
+      const school = student.Instituation;
+      if (topSchools[school]) {
+        topSchools[school].top1000Count++;
+      }
+    });
+  
+    const schoolArray = Object.entries(topSchools)
+      .filter(([_, stats]) => stats.count >= 50)
+      .map(([name, stats]) => {
+        const gpa5Percent = (stats.gpa5Count / stats.count) * 100;
+        return {
+          name,
+          gpa5Percent: gpa5Percent.toFixed(2),
+          gpa5Count: stats.gpa5Count,
+          avgTotal: (stats.totalMarks / stats.count).toFixed(1),
+          top1000Count: stats.top1000Count,
+          studentCount: stats.count
+        };
+      });
+  
+    // Sort by GPA 5% descending, then average total descending
+    schoolArray.sort((a, b) => {
+      const percentDiff = parseFloat(b.gpa5Percent) - parseFloat(a.gpa5Percent);
+      if (percentDiff !== 0) return percentDiff;
+      return parseFloat(b.avgTotal) - parseFloat(a.avgTotal);
+    });
+  
+    const top100 = schoolArray.slice(0, 100);
+  
+    contentDiv.innerHTML = `
+      <h2>🏆 Top 100 Institutions - ${currentGroup.textContent} ${currentYear.textContent}</h2>
+      <button onclick="loadGroup('${currentYear.textContent.trim()}', '${currentGroup.textContent.split(' ')[0]}')">Back</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Institution</th>
+            <th>GPA 5.00 %</th>
+            <th>Total GPA 5.00</th>
+            <th>Avg Total</th>
+            <th>Top 1000 Students</th>
+            <th>Total Students</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${top100.map((school, i) => `
+            <tr>
+              <td>${i + 1}</td>
+              <td>${school.name}</td>
+              <td>${school.gpa5Percent}%</td>
+              <td>${school.gpa5Count}</td>
+              <td>${school.avgTotal}</td>
+              <td>${school.top1000Count}</td>
+              <td>${school.studentCount}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    `;
+  }
+  
+  
+  function enableInstitutionSearchDropdown() {
+    const dropdown = document.getElementById('InstituationDropdown');
+    dropdown.outerHTML = `
+    <input list="institutionList" id="InstituationDropdown" placeholder="Type school name..." class="search-input" onchange="filterByInstituation()">
+
+
+      <datalist id="institutionList">
+        ${Array.from(InstituationSet).map(inst => `<option value="${inst}">`).join('')}
+      </datalist>
+    `;
+  }
+  
+
+  const originalFetchData = fetchData;
+  fetchData = function(year, group) {
+    showLoadingIndicator();
+    const mainDataUrl = `data_${year}_${group.toLowerCase()}.txt`;
+    const individualDataUrl = `data_${year}_${group.toLowerCase()}_individual.txt`;
+  
+    Promise.all([
+      fetch(mainDataUrl).then(response => response.text()),
+      fetch(individualDataUrl).then(response => response.text()).catch(() => null)
+    ]).then(([mainData, individualData]) => {
+      processData(mainData, individualData);
+      populateInstituationDropdown();
+      enableInstitutionSearchDropdown();
+      createTopInstitutionsButton();
+      hideLoadingIndicator();
+    }).catch(error => {
+      console.error('Error loading data:', error);
+      hideLoadingIndicator();
+      noDataMessage.style.display = 'block';
+    });
+  };
+  function filterByInstituation() {
+    const input = document.getElementById('InstituationDropdown').value.trim();
+    showSchoolRanking(input); // ← reuse the same function used on click
+  }
+  
+function showFullRankingNote(schoolName) {
+    const note = document.createElement('div');
+    note.className = 'filter-note';
+    note.innerHTML = `
+        Showing results for "<strong>${schoolName}</strong>" —
+        <button onclick="resetFilter()">Show Full Ranking</button>
+    `;
+    const oldNote = document.querySelector('.filter-note');
+    if (oldNote) oldNote.remove();
+    contentDiv.prepend(note);
+}
+handleURLParams();
+function handleURLParams() {
+    const params = new URLSearchParams(window.location.search);
+    const year = params.get('year');
+    const group = params.get('group');
+    const roll = params.get('roll');
+
+    if (year && !group && !roll) {
+        loadYear(year);
+    } else if (year && group && !roll) {
+        loadGroup(year, group);
+    } else if (year && group && roll) {
+        loadGroup(year, group); // Must load group before individual
+        setTimeout(() => {
+            showIndividualResult(roll, year, group);
+        }, 1000); // Delay to ensure data loads
+    }
+}
+function handleFeaturedClick() {
+    const box = document.getElementById("featuredBox");
+    box.style.transition = "all 0.4s ease";
+    box.style.opacity = "0";
+    box.style.transform = "scale(0.9)";
+  
+    setTimeout(() => {
+      box.style.display = "none";
+      const year = "2025";
+      const dropdown = document.getElementById("yearDropdown");
+      dropdown.value = year;
+      loadYear(year);
+      dropdown.style.display = "none";
+    }, 400);
+  }
+  
