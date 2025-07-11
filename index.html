@@ -1,31 +1,29 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ✅ Google Search Console Verification -->
     <meta name="google-site-verification" content="siNtiPjvsyElA07czENYNNvVQicPoBsDL_dU5cwSVQ0" />
 
-    <!-- Required Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ✅ SEO Meta Tags -->
+
     <title>Chattogram Board Students' Ranking - SSC & HSC</title>
     <meta name="description" content="Board rank viewer for CTG board - search any roll and get results fast. Designed by Hasnyne (CC'25).">
     <meta name="keywords" content="boardrank, ctg, rank, result, roll number, chittagong board, ssc result 2024, hsc result 2024, Chattogram Board, Hasnyne">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Hasnyne (CC'25)">
 
-    <!-- ✅ Canonical Tag -->
+
     <link rel="canonical" href="https://boradrankctg.github.io/rank/" />
 
-    <!-- ✅ Open Graph (Social Media Preview) -->
+
     <meta property="og:title" content="Chattogram Board Students' Ranking - SSC & HSC" />
     <meta property="og:description" content="Explore the rankings of SSC and HSC students from Chattogram Board. Designed by Hasnyne (CC'25)." />
-    <meta property="og:image" content="https://yourwebsite.com/images/og-image.png" />
+   
     <meta property="og:url" content="https://boradrankctg.github.io/rank/" />
     <meta property="og:type" content="website" />
 
-    <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
     <style>
         .locked {
@@ -37,6 +35,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <a href="index.html">
@@ -82,6 +81,17 @@
             <div id="content"></div>
             <div id="noDataMessage" style="display:none;">Oops! No data found.</div>
         </section>
+        <div class="new-box-wrapper">
+            <div id="featuredBox" onclick="handleFeaturedClick()">
+              <div class="new-ribbon">NEW </div>
+              <div class="featured-text">
+                <div class="ssc-line">SSC</div>
+                <div class="year-line">25</div>
+              </div>
+              
+            </div>
+          </div>
+          
     </main>
 
     <div id="popupWindow" style="display:none;">
@@ -93,7 +103,6 @@
         <img src="arrow-up.png" alt="Scroll to top">
     </button>
 
-    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
