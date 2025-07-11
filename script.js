@@ -395,30 +395,55 @@ function hideLoadingIndicator() {
 
 function getProgressBarHtml(score, totalMark) {
     const percentage = (parseFloat(score) / totalMark) * 100;
-    let color;
-    let additionalClass = '';
-    if (percentage >= 95) {
-        color = 'indigo';
-    } else if (percentage >= 90) {
-        color = 'blue';
-    } else if (percentage >= 80) {
-        color = 'green';
-    } else if (percentage >= 70) {
-        color = 'yellow';
-        additionalClass = 'yellow'; 
-    } else if (percentage >= 34) {
-        color = 'orange';
-    } else {
-        color = 'red';
-    }
+    const barId = `pb_${Math.random().toString(36).substr(2, 9)}`;
+    setTimeout(() => animateProgressBar(barId, percentage), 100); // slight delay for popup load
     return `
         <div class="progress-bar-container">
-            <div class="progress-bar ${additionalClass}" style="background-color: ${color}; width: ${percentage}%;">
-                ${percentage.toFixed(2)}%
-            </div>
+            <div id="${barId}" class="progress-bar">0%</div>
         </div>
     `;
 }
+
+function animateProgressBar(id, targetPercentage) {
+    const bar = document.getElementById(id);
+    let current = 0;
+
+    function update() {
+        current += 1;
+        if (current > targetPercentage) current = targetPercentage;
+
+        // Color logic
+        let color = 'red';
+        let additionalClass = '';
+        if (current >= 95) {
+            color = 'indigo';
+        } else if (current >= 90) {
+            color = 'blue';
+        } else if (current >= 80) {
+            color = 'green';
+        } else if (current >= 70) {
+            color = 'yellow';
+            additionalClass = 'yellow';
+        } else if (current >= 34) {
+            color = 'orange';
+        }
+
+        bar.style.width = `${current}%`;
+        bar.style.backgroundColor = color;
+        bar.textContent = `${current.toFixed(0)}%`;
+
+        if (current < targetPercentage) {
+            requestAnimationFrame(update);
+        } else {
+            // final correction
+            bar.style.width = `${targetPercentage}%`;
+            bar.textContent = `${targetPercentage.toFixed(2)}%`;
+        }
+    }
+
+    update();
+}
+
 
 function showIndividualResult(roll, year, group) {
     if (document.querySelector('.popup')) return; // Prevent multiple popups
@@ -904,4 +929,86 @@ function handleFeaturedClick() {
       dropdown.style.display = "none";
     }, 400);
   }
-  
+  // Add at the end of script.js
+
+setTimeout(() => {
+    if (document.querySelector('.popup')) return; // prevent duplicate popup
+
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.innerHTML = `
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2>🚀Enjoying this amazing website?</h2>
+            <p>Help us grow! Share this website:</p>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; padding: 10px;">
+                <a href="https://wa.me/?text=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp.png" alt="WhatsApp" width="36"></a>
+                <a href="https://www.instagram.com/?url=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/instagram-new.png" alt="Instagram" width="36"></a>
+                <a href="https://www.facebook.com/dialog/send?link=https://boradrankctg.github.io/rank/&app_id=YOUR_APP_ID&redirect_uri=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/facebook-messenger.png" alt="Messenger" width="36"></a>
+                <a href="mailto:?subject=Check%20this%20awesome%20ranking%20site!&body=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/gmail--v1.png" alt="Email" width="36"></a>
+            </div>
+            <hr>
+            <h3 style="margin-top:10px">⭐ Rate this Website:</h3>
+            <div id="starContainer" style="font-size: 1.8rem; color: gold; cursor: pointer;">
+                <span onclick="rateSite(1)">&#9734;</span>
+                <span onclick="rateSite(2)">&#9734;</span>
+                <span onclick="rateSite(3)">&#9734;</span>
+                <span onclick="rateSite(4)">&#9734;</span>
+                <span onclick="rateSite(5)">&#9734;</span>
+            </div>
+            <textarea id="reviewText" placeholder="Leave your feedback here..." rows="3" style="width: 100%; margin-top: 10px;"></textarea>
+            <button onclick="submitReview()">Submit Review</button>
+        </div>
+    `;
+
+    document.body.appendChild(popup);
+    document.body.classList.add('locked');
+
+}, 100000); // 100 seconds
+
+function rateSite(rating) {
+    const stars = document.getElementById('starContainer').children;
+    for (let i = 0; i < stars.length; i++) {
+        stars[i].innerHTML = i < rating ? '&#9733;' : '&#9734;';
+    }
+    localStorage.setItem('userRating', rating);
+}
+
+function submitReview() {
+    const rating = localStorage.getItem('userRating') || 0;
+    const comment = document.getElementById('reviewText').value.trim();
+    if (!comment && rating == 0) return alert('Please rate or write something.');
+
+    let reviews = JSON.parse(localStorage.getItem('reviews') || '[]');
+    reviews.push({ rating: parseInt(rating), comment });
+    localStorage.setItem('reviews', JSON.stringify(reviews));
+    alert('Thanks for your feedback!');
+    closePopup();
+}
+function submitReview() {
+    const rating = localStorage.getItem('userRating') || '';
+    const comment = document.getElementById('reviewText').value.trim();
+
+    if (!comment && !rating) return alert('Please rate or write something.');
+
+    fetch("https://formsubmit.co/ajax/hasnyne2007@gmail.com", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            Rating: rating,
+            Comment: comment
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert("Feedback sent! Check your email 😄");
+        closePopup();
+    })
+    .catch(error => {
+        console.error(error);
+        alert("Something went wrong 😞");
+    });
+}
