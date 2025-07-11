@@ -421,6 +421,8 @@ function getProgressBarHtml(score, totalMark) {
 }
 
 function showIndividualResult(roll, year, group) {
+    if (document.querySelector('.popup')) return; // Prevent multiple popups
+
     const fileName = `data_${year}_${group.toLowerCase()}_individual.txt`;
     const isHSC = fileName.includes("hsc");
     const newUrl = `${location.pathname}?year=${year}&group=${group}&roll=${roll}`;
@@ -472,7 +474,10 @@ function showIndividualResult(roll, year, group) {
                                 <p>Chemistry: ${chemistry} ${getProgressBarHtml(chemistry, 200)}</p>
                                 <p>Compulsory: ${compulsory} ${getProgressBarHtml(compulsory, 200)}</p>
                                 <p>Optional: ${optional} ${getProgressBarHtml(optional, 200)}</p>
+                                <button onclick='promptComparison(${JSON.stringify(student)}, "${year}", "${group}")'>Compare with Other Student</button>
+
                                 <button class="back-button" onclick="closePopup()">Back</button>
+
                             </div>
                         `;
                     }
@@ -503,6 +508,8 @@ function showIndividualResult(roll, year, group) {
                                 <p>Optional: ${Optional} ${getProgressBarHtml(Optional, 100)}</p>
                                 <p>Physical: ${Physical} ${getProgressBarHtml(Physical, 100)}</p>
                                 <p>Career: ${Career} ${getProgressBarHtml(Career, 50)}</p>
+                                <button onclick='promptComparison(${JSON.stringify(student)}, "${year}", "${group}")'>Compare with Other Student</button>
+
                                 <button class="back-button" onclick="closePopup()">Back</button>
                             </div>
                         `;
@@ -524,6 +531,95 @@ function showIndividualResult(roll, year, group) {
             popup.innerHTML = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
             document.body.appendChild(popup);
             document.body.classList.add('locked'); 
+        });
+}
+function getMirroredProgressBars(val1, val2, maxVal) {
+    const percent1 = Math.max(0, Math.min(100, (val1 / maxVal) * 100));
+    const percent2 = Math.max(0, Math.min(100, (val2 / maxVal) * 100));
+    return `
+    <div class="compare-row">
+        <div class="bar left-bar" style="width:${percent1}%"></div>
+        <div class="bar-label">vs</div>
+        <div class="bar right-bar" style="width:${percent2}%"></div>
+    </div>`;
+}
+
+
+function promptComparison(baseStudent, year, group) {
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+    popup.innerHTML = `
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <p>Compare <b>${baseStudent.name}</b> with another student</p>
+            <input type="text" id="compareRollInput" placeholder="Enter roll number to compare" style="width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #000;">
+            <button onclick="startComparison(${baseStudent.roll}, '${year}', '${group}')">Compare</button>
+        </div>
+    `;
+    document.body.appendChild(popup);
+    document.body.classList.add('locked');
+}
+function startComparison(roll1, year, group) {
+    const roll2 = document.getElementById("compareRollInput").value.trim();
+    if (!roll2) return alert("Enter roll number");
+
+    const dataFile = `data_${year}_${group.toLowerCase()}_individual.txt`;
+
+    fetch(dataFile)
+        .then(res => res.text())
+        .then(text => {
+            const lines = text.trim().split('\n');
+            const row1 = lines.find(r => r.startsWith(roll1.toString()));
+            const row2 = lines.find(r => r.startsWith(roll2));
+
+            if (!row2) return alert("Second roll not found.");
+
+            const parts1 = row1.split('\t');
+            const parts2 = row2.split('\t');
+
+            const student1 = allData.find(s => s.roll === parseInt(roll1));
+            const student2 = allData.find(s => s.roll === parseInt(roll2));
+
+            if (!student1 || !student2) return alert("Student data not found.");
+
+            const labels = ["Bangla", "English", "Math", "BGS", "Religion", "Physics", "Chemistry", "Compulsory", "ICT", "Optional", "Physical", "Career"];
+            let rows = `
+            <h2 style="text-align:center; margin-top: 10px;">🎯 Student Comparison</h2>
+            <p style="text-align:center; font-weight:bold;">${student1.name} <span style="color:green;">vs</span> ${student2.name}</p>
+           <div class="compare-table-container">
+            <table class="compare-table">
+
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>${student1.name}</th>
+                            <th>${student2.name}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>GPA</td><td>${student1.gpa}</td><td>${student2.gpa}</td></tr>
+                        <tr><td>Total Marks</td><td>${student1.total}</td><td>${student2.total}</td></tr>
+        `;
+        
+
+            for (let i = 1; i < Math.min(parts1.length, parts2.length); i++) {
+                const label = labels[i - 1] || `Subject ${i}`;
+                rows += `<tr><td>${label}</td><td>${parts1[i]}</td><td>${parts2[i]}</td></tr>`;
+            }
+
+            rows += `
+                        </tbody>
+                    </table>
+                </div>
+                <button class="back-button" onclick="closePopup()">Close</button>
+            `;
+
+            closePopup(); // Close input popup
+            const popup = document.createElement('div');
+            popup.classList.add('popup');
+            popup.innerHTML = `<div class="popup-content"><span class="close-btn" onclick="closePopup()">&times;</span>${rows}</div>`;
+            document.body.appendChild(popup);
+            document.body.classList.add('locked');
         });
 }
 
