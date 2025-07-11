@@ -888,4 +888,87 @@ table.top-institutions {
     margin-top: 0.25rem;
     text-shadow: 0 0 10px rgba(255,255,255,0.2);
   }
-  
+  .popup-content .comparison-row {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+}
+.popup-content .comparison-label {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+.compare-row {
+    display: flex;
+    align-items: center;
+    margin: 6px 0 14px;
+}
+
+.bar {
+    height: 12px;
+    border-radius: 3px;
+}
+
+.left-bar {
+    background-color: #4caf50; /* Green */
+    margin-right: 6px;
+    transform-origin: right;
+}
+
+.right-bar {
+    background-color: #2196f3; /* Blue */
+    margin-left: 6px;
+    transform-origin: left;
+}
+
+.bar-label {
+    min-width: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.compare-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.compare-table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    font-size: 1.05rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.compare-table th,
+.compare-table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+    min-width: 90px;
+    box-sizing: border-box;
+}
+
+.compare-table th {
+    background-color: #000;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.compare-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Dark mode compatibility */
+body.dark-mode .compare-table th {
+    background-color: #222;
+}
+
+body.dark-mode .compare-table td {
+    background-color: #111;
+    color: #fff;
+}
