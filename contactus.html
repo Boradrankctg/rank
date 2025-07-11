@@ -3,41 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Adjust the path to your CSS file if needed -->
+    <title>Contact Us via WhatsApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .contact-box {
+            background: #fff;
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .contact-box h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #20b758;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <a href="index.html"><img src="home.png" alt="Home Icon" class="home-icon"></a>
         <h1>Contact Us</h1>
+        <p>Reach out to us directly via WhatsApp!</p>
     </header>
 
-    <main>
-        <h2>We'd love to hear from you!</h2>
-        <p>If you have any questions or feedback, feel free to reach out to us using the form below.</p>
-
-        <form action="mailto:hasnyne2007@gmail.com" method="POST" enctype="text/plain">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
-    </main>
+    <div class="contact-box">
+        <h2>Send a Message</h2>
+        <div class="form-group">
+            <label for="userName">Your Name</label>
+            <input type="text" id="userName" placeholder="e.g. Jarina Akter" required>
+        </div>
+        <div class="form-group">
+            <label for="userMessage">Your Message</label>
+            <textarea id="userMessage" rows="4" placeholder="This is the best website ever.." required></textarea>
+        </div>
+        <button onclick="sendToWhatsApp()">Send on WhatsApp</button>
+    </div>
 
     <footer>
+        &copy; 2025 Chattogram Board Students' SSC & HSC Ranking
     </footer>
+
+    <script>
+        function sendToWhatsApp() {
+            const name = document.getElementById("userName").value.trim();
+            const message = document.getElementById("userMessage").value.trim();
+
+            if (!name || !message) {
+                alert("Please fill in both your name and message.");
+                return;
+            }
+
+            const fullMessage = `Hi, I'm ${name}. ${message}`;
+            const encodedMessage = encodeURIComponent(fullMessage);
+            const whatsappURL = `https://wa.me/8801788481222?text=${encodedMessage}`;
+
+            window.open(whatsappURL, "_blank");
+        }
+    </script>
+
 </body>
 </html>
