@@ -964,7 +964,7 @@ setTimeout(() => {
     document.body.appendChild(popup);
     document.body.classList.add('locked');
 
-}, 100000); // 100 seconds
+}, 30000); // 100 seconds
 
 function rateSite(rating) {
     const stars = document.getElementById('starContainer').children;
