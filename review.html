@@ -57,8 +57,18 @@
   <!-- Firebase SDKs (browser-safe version) -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
-
-  <script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import {
+      getDatabase,
+      ref,
+      push,
+      set,
+      onValue,
+      runTransaction,
+      child
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+  
     const firebaseConfig = {
       apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
       authDomain: "boardrankctg.firebaseapp.com",
@@ -69,14 +79,10 @@
       appId: "1:751761229963:web:43f9dbf71feef6dc9cec8e",
       measurementId: "G-3Y6J44NWNH"
     };
-
-    const app = firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
-
-    function navigateTo(page) {
-      window.location.href = page;
-    }
-
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+  
     function rateSite(rating) {
       const stars = document.getElementById("starContainer").children;
       for (let i = 0; i < stars.length; i++) {
@@ -84,32 +90,43 @@
       }
       localStorage.setItem("userRating", rating);
     }
-
-    function submitReview() {
+  
+    async function submitReview() {
       const comment = document.getElementById("reviewText").value.trim();
       const rating = localStorage.getItem("userRating") || 0;
-
-      if (!comment && !rating) return alert("Please write something or rate.");
-      const ref = db.ref("reviews").push();
-      ref.set({
-        comment,
-        rating: parseInt(rating),
-        likes: 0,
-        replies: {},
-        timestamp: Date.now()
-      });
-
-      document.getElementById("reviewText").value = "";
-      rateSite(0);
+  
+      if (!comment && !rating) {
+        alert("Please write something or rate.");
+        return;
+      }
+  
+      try {
+        const reviewRef = push(ref(db, "reviews"));
+        await set(reviewRef, {
+          comment,
+          rating: parseInt(rating),
+          likes: 0,
+          replies: {},
+          timestamp: Date.now()
+        });
+  
+        document.getElementById("reviewText").value = "";
+        rateSite(0);
+      } catch (error) {
+        console.error("Error submitting review:", error);
+        alert("Review submission failed.");
+      }
     }
-
+  
     function loadReviews() {
       const container = document.getElementById("reviewsContainer");
-      db.ref("reviews").on("value", (snapshot) => {
+      const reviewsRef = ref(db, "reviews");
+  
+      onValue(reviewsRef, (snapshot) => {
         container.innerHTML = "";
         const reviews = snapshot.val();
         if (!reviews) return;
-
+  
         Object.entries(reviews).reverse().forEach(([id, review]) => {
           let replies = "";
           if (review.replies) {
@@ -117,7 +134,7 @@
               `<div class="reply-box">↪️ ${reply.text}</div>`
             ).join("");
           }
-
+  
           container.innerHTML += `
             <div class="review-box">
               <div>⭐ ${review.rating || "No rating"}</div>
@@ -133,22 +150,25 @@
         });
       });
     }
-
-    function likeReview(id) {
-      const ref = db.ref("reviews/" + id + "/likes");
-      ref.transaction(current => (current || 0) + 1);
-    }
-
-    function submitReply(id) {
+  
+    window.submitReview = submitReview;
+  
+    window.likeReview = function (id) {
+      const likeRef = ref(db, `reviews/${id}/likes`);
+      runTransaction(likeRef, (current) => (current || 0) + 1);
+    };
+  
+    window.submitReply = async function (id) {
       const input = document.getElementById("reply-" + id);
       const text = input.value.trim();
       if (!text) return;
-      const replyRef = db.ref(`reviews/${id}/replies`).push();
-      replyRef.set({ text });
+      const replyRef = push(ref(db, `reviews/${id}/replies`));
+      await set(replyRef, { text });
       input.value = "";
-    }
-
+    };
+  
     document.addEventListener("DOMContentLoaded", loadReviews);
   </script>
+  
 </body>
 </html>
