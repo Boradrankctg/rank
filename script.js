@@ -1,10 +1,58 @@
+
 const contentDiv = document.getElementById('content');
 const currentYear = document.getElementById('currentYear');
 const currentGroup = document.getElementById('currentGroup');
 const noDataMessage = document.getElementById('noDataMessage');
 const yearDropdown = document.getElementById('yearDropdown');
 
-
+function renderAdminClickTable() {
+    if (!isAdmin) return;
+  
+    const year = currentYear.textContent.trim();
+    const group = currentGroup.textContent.split(' ')[0];
+  
+    const wrapper = document.createElement('div');
+    wrapper.style.marginTop = '40px';
+    wrapper.innerHTML = `
+      <h3 style="text-align:center;">👀 Admin: Student Click Stats (${group} ${year})</h3>
+      <table style="width:100%; border:1px solid #ccc; margin-top:10px;">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Roll</th>
+            <th>Clicks</th>
+          </tr>
+        </thead>
+        <tbody id="adminClickStatsBody"></tbody>
+      </table>
+    `;
+  
+    contentDiv.appendChild(wrapper);
+  
+    const tbody = wrapper.querySelector('#adminClickStatsBody');
+  
+    filteredData.forEach((student) => {
+      const row = document.createElement('tr');
+      const nameTd = document.createElement('td');
+      const rollTd = document.createElement('td');
+      const countTd = document.createElement('td');
+  
+      nameTd.textContent = student.name;
+      rollTd.textContent = student.roll;
+      countTd.textContent = 'Loading...';
+  
+      row.appendChild(nameTd);
+      row.appendChild(rollTd);
+      row.appendChild(countTd);
+      tbody.appendChild(row);
+  
+      const path = `clickCounts/${year}/${student.roll}`;
+      onValue(ref(db, path), (snapshot) => {
+        countTd.textContent = snapshot.exists() ? snapshot.val() : '0';
+      });
+    });
+  }
+  
 
 document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.getElementById('sidebar');
@@ -25,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('theme', 'light');
         }
         updateTableData();
+        
     });
 });
 
@@ -281,6 +330,8 @@ function updateTableData() {
 
     document.getElementById('paginationInfo').textContent = `Showing ${startIndex + 1}-${endIndex} of ${filteredData.length} students`;
     updatePaginationButtons();
+    renderAdminClickTable();
+
 }
 
 
