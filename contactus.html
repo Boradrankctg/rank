@@ -1,122 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us via WhatsApp</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .contact-box {
-            background: #fff;
-            padding: 30px 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            width: 90%;
-            max-width: 400px;
-        }
-
-        .contact-box h2 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 16px;
-        }
-
-        button {
-            width: 100%;
-            background-color: #25D366;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #20b758;
-        }
-
-        footer {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #777;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact • BodaRankCTG</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 </head>
 <body>
+  <header>
+    <a href="index.html">
+      <img src="home.png" alt="Home Icon" class="home-icon" />
+    </a>
+    <h1>Chattogram Board Students' SSC & HSC Ranking</h1>
+    <h2>Designed by Hasnyne (CC'25)</h2>
+    <span class="menu-btn" id="menuButton">&#9776;</span>
+  </header>
 
-    <header>
-        <h1>Contact Us</h1>
-        <p>Reach out to us directly via WhatsApp!</p>
-    </header>
-
-    <div class="contact-box">
-        <h2>Send a Message</h2>
-        <div class="form-group">
-            <label for="userName">Your Name</label>
-            <input type="text" id="userName" placeholder="e.g. Jarina Akter" required>
-        </div>
-        <div class="form-group">
-            <label for="userMessage">Your Message</label>
-            <textarea id="userMessage" rows="4" placeholder="This is the best website ever.." required></textarea>
-        </div>
-        <button onclick="sendToWhatsApp()">Send on WhatsApp</button>
+  <div class="sidebar" id="sidebar">
+    <button onclick="navigateTo('index.html')">Home</button>
+    <button onclick="navigateTo('about.html')">About</button>
+    <button onclick="navigateTo('contactus.html')">Contact Us</button>
+    <button onclick="navigateTo('review.html')">Reviews</button>
+    <div class="settings">
+      <label><input type="checkbox" id="themeToggle" onchange="toggleTheme()"> Dark Mode</label>
     </div>
+  </div>
 
-    <footer>
-        &copy; 2025 Chattogram Board Students' SSC & HSC Ranking
-    </footer>
+  <div class="icon-nav-wrapper" aria-label="Quick navigation">
+    <nav class="icon-nav-container">
+      <a href="index.html" title="Home" aria-label="Go to Home">
+        <i class="fas fa-house"></i>
+      </a>
+      <a href="about.html" title="About" aria-label="Learn About Us">
+        <i class="fas fa-user-circle"></i>
+      </a>
+      <a href="contactus.html" title="Contact Us" aria-label="Contact Us">
+        <i class="fas fa-phone"></i>
+      </a>
+      <a href="review.html" title="Reviews" aria-label="See Reviews">
+        <i class="fas fa-comments"></i>
+      </a>
+      <button id="shareBtn" title="Share This Site" aria-label="Share This Site">
+        <i class="fas fa-share"></i>
+      </button>
+    </nav>
+  </div>
+  <main>
+    <div class="contact-box">
+      <h2><i class="fab fa-whatsapp"></i> Send Message on WhatsApp</h2>
+      <div class="form-group">
+        <label for="userName"><i class="fas fa-user"></i> Your Name</label>
+        <input type="text" id="userName" placeholder="e.g. Jarina Akter" required>
+      </div>
+      <div class="form-group">
+        <label for="userMessage"><i class="fas fa-comment-dots"></i> Your Message</label>
+        <textarea id="userMessage" rows="4" placeholder="This is the best website ever..." required></textarea>
+      </div>
+      <button onclick="sendToWhatsApp()">
+        <i class="fab fa-whatsapp"></i> Send on WhatsApp
+      </button>
+    </div>
+  </main>
 
-    <script>
-        function sendToWhatsApp() {
-            const name = document.getElementById("userName").value.trim();
-            const message = document.getElementById("userMessage").value.trim();
+  <footer>
+    &copy; 2025 BodaRankCTG — Made by Hasnyne
+  </footer>
 
-            if (!name || !message) {
-                alert("Please fill in both your name and message.");
-                return;
-            }
+  <script>
+    function sendToWhatsApp() {
+      const name = document.getElementById("userName").value.trim();
+      const message = document.getElementById("userMessage").value.trim();
+      if (!name || !message) {
+        alert("Please fill in both your name and message.");
+        return;
+      }
+      const fullMessage = `Hi, I'm ${name}. ${message}`;
+      const encodedMessage = encodeURIComponent(fullMessage);
+      const whatsappURL = `https://wa.me/8801788481222?text=${encodedMessage}`;
+      window.open(whatsappURL, "_blank");
+    }
 
-            const fullMessage = `Hi, I'm ${name}. ${message}`;
-            const encodedMessage = encodeURIComponent(fullMessage);
-            const whatsappURL = `https://wa.me/8801788481222?text=${encodedMessage}`;
-
-            window.open(whatsappURL, "_blank");
-        }
-    </script>
-
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
