@@ -964,7 +964,7 @@ setTimeout(() => {
     document.body.appendChild(popup);
     document.body.classList.add('locked');
 
-}, 30000); // 100 seconds
+}, 30000); // 30 seconds
 
 function rateSite(rating) {
     const stars = document.getElementById('starContainer').children;
@@ -977,38 +977,10 @@ function rateSite(rating) {
 function submitReview() {
     const rating = localStorage.getItem('userRating') || 0;
     const comment = document.getElementById('reviewText').value.trim();
+
     if (!comment && rating == 0) return alert('Please rate or write something.');
 
-    let reviews = JSON.parse(localStorage.getItem('reviews') || '[]');
-    reviews.push({ rating: parseInt(rating), comment });
-    localStorage.setItem('reviews', JSON.stringify(reviews));
-    alert('Thanks for your feedback!');
-    closePopup();
-}
-function submitReview() {
-    const rating = localStorage.getItem('userRating') || '';
-    const comment = document.getElementById('reviewText').value.trim();
+    localStorage.setItem('pendingReview', JSON.stringify({ rating, comment }));
 
-    if (!comment && !rating) return alert('Please rate or write something.');
-
-    fetch("https://formsubmit.co/ajax/hasnyne2007@gmail.com", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-            Rating: rating,
-            Comment: comment
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert("Feedback sent! Check your email 😄");
-        closePopup();
-    })
-    .catch(error => {
-        console.error(error);
-        alert("Something went wrong 😞");
-    });
+    window.location.href = 'review.html';
 }
