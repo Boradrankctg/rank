@@ -34,7 +34,6 @@
     </div>
   </main>
 
-  <!-- Firebase Modular SDK -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import {
@@ -44,8 +43,19 @@
       set,
       onValue,
       runTransaction,
-      remove
+      remove,
+      update
     } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      const pending = localStorage.getItem("pendingReview");
+      if (pending) {
+        const { rating, comment } = JSON.parse(pending);
+        document.getElementById("reviewText").value = comment;
+        rateSite(parseInt(rating));
+        localStorage.removeItem("pendingReview");
+      }
+    });
   
     const firebaseConfig = {
       apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
@@ -60,18 +70,14 @@
   
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
-  
-    // Create or get a unique userId
+
     let userId = localStorage.getItem("userId");
     if (!userId) {
-      userId = crypto.randomUUID(); // generate random id
+      userId = crypto.randomUUID();
       localStorage.setItem("userId", userId);
     }
   
-    // Optional: Set this to match your own userId for admin control
-    const ADMIN_ID = "admin1234";
-  
-    // ⭐ Set star rating
+    const ADMIN_ID = "admin1234"; 
     function rateSite(rating) {
       const stars = document.getElementById("starContainer").children;
       for (let i = 0; i < stars.length; i++) {
@@ -81,7 +87,6 @@
     }
     window.rateSite = rateSite;
   
-    // 💬 Submit new review
     async function submitReview() {
       const name = document.getElementById("reviewName").value.trim() || "Anonymous";
       const comment = document.getElementById("reviewText").value.trim();
@@ -101,7 +106,7 @@
           likes: 0,
           replies: {},
           timestamp: Date.now(),
-          userId // 🔐 save who posted
+          userId
         });
   
         document.getElementById("reviewText").value = "";
@@ -114,7 +119,7 @@
     }
     window.submitReview = submitReview;
   
-    // 📥 Load all reviews
+    
     function loadReviews() {
       const container = document.getElementById("reviewsContainer");
       const reviewsRef = ref(db, "reviews");
@@ -151,14 +156,13 @@
         });
       });
     }
-  
-    // ❤️ Like a review
+
     window.likeReview = function (id) {
       const likeRef = ref(db, `reviews/${id}/likes`);
       runTransaction(likeRef, (current) => (current || 0) + 1);
     };
   
-    // 💬 Submit a reply
+
     window.submitReply = async function (id) {
       const input = document.getElementById("reply-" + id);
       const text = input.value.trim();
@@ -168,15 +172,56 @@
       input.value = "";
     };
   
-    // 🗑️ Delete a review
+    
     window.deleteReview = async function (id) {
       if (confirm("Are you sure you want to delete this review?")) {
         await remove(ref(db, `reviews/${id}`));
       }
     };
   
-    document.addEventListener("DOMContentLoaded", loadReviews);
+
+    function updateVisitStats() {
+      const statsRef = ref(db, "siteStats");
+      const activeRef = ref(db, `siteStats/activeUsers/${userId}`);
+  
+    
+      runTransaction(ref(db, "siteStats/totalVisits"), (count) => (count || 0) + 1);
+
+      set(activeRef, Date.now());
+    }
+  
+    function showAdminStats() {
+      const statsBox = document.createElement("div");
+      statsBox.style = "max-width: 600px; margin: 20px auto; padding: 10px; border: 2px solid #ccc; background: #f9f9f9;";
+      statsBox.innerHTML = "<h3>📊 Site Stats (Admin Only)</h3><div id='visitStats'>Loading...</div>";
+      document.body.appendChild(statsBox);
+  
+      const visitsRef = ref(db, "siteStats");
+  
+      onValue(visitsRef, (snapshot) => {
+        const data = snapshot.val() || {};
+        const total = data.totalVisits || 0;
+        const activeUsers = data.activeUsers || {};
+        const now = Date.now();
+        const activeCount = Object.values(activeUsers).filter(ts => now - ts < 5 * 60 * 1000).length;
+  
+        document.getElementById("visitStats").innerHTML = `
+          👁️ Total Visits: <strong>${total}</strong><br />
+          🟢 Live Visitors (past 5 min): <strong>${activeCount}</strong>
+        `;
+      });
+    }
+  
+    document.addEventListener("DOMContentLoaded", () => {
+      loadReviews();
+      updateVisitStats();
+  
+      if (userId === ADMIN_ID) {
+        showAdminStats();
+      }
+    });
   </script>
+  
   
 </body>
 </html>
