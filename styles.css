@@ -991,3 +991,130 @@ body.dark-mode .compare-table td {
         opacity: 0;
     }
 }
+/* === Review System Styles (BoardRank Match) === */
+.popup-content {
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    border-radius: 6px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+    box-shadow: 4px 4px 0px #000;
+  }
+  
+  .popup-content h2 {
+    color: #000;
+    font-size: 1.4rem;
+    font-weight: bolder;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 5px;
+  }
+  
+  #reviewName,
+  #reviewText {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 2px solid #000;
+    border-radius: 4px;
+    background: #fafafa;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  #starContainer span {
+    font-size: 1.6rem;
+    padding: 5px;
+    color: #d4af37;
+    cursor: pointer;
+  }
+  
+  #starContainer span:hover {
+    transform: scale(1.15);
+    color: #ffcc00;
+  }
+  
+  .review-box {
+    background-color: #fff;
+    border: 3px solid #000;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 6px;
+    box-shadow: 4px 4px 0px #000;
+    text-align: left;
+  }
+  
+  .review-box strong {
+    font-weight: bolder;
+    color: #000;
+    font-size: 1.1rem;
+  }
+  
+  .review-comment {
+    margin: 10px 0;
+    font-size: 1rem;
+    font-weight: normal;
+  }
+  
+  .reply-box {
+    background-color: #f0f0f0;
+    border-left: 4px solid #008000;
+    margin-top: 10px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+  }
+  
+  .review-box input[type="text"] {
+    width: 70%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 2px solid #000;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .review-box button {
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    padding: 6px 12px;
+    border: none;
+    margin-top: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .review-box button:hover {
+    background-color: #0df40d;
+    color: #000;
+  }
+  
+  /* Dark mode match */
+  body.dark-mode .popup-content {
+    background-color: #1f1f1f;
+    border-color: white;
+    color: #fff;
+  }
+  
+  body.dark-mode #reviewName,
+  body.dark-mode #reviewText {
+    background-color: #000;
+    color: #fff;
+    border-color: #444;
+  }
+  
+  body.dark-mode .review-box {
+    background-color: #000;
+    border-color: white;
+    color: white;
+  }
+  
+  body.dark-mode .reply-box {
+    background-color: #1a1a1a;
+    border-left-color: lime;
+  }
+  
