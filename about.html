@@ -1,97 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-    <nav aria-label="breadcrumb">
-        <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="#" id="currentYear">Select Year</a></li>
-            <li id="currentGroup" style="display:none;"></li>
-        </ul>
-    </nav>
-    <style>
-        /* Inline CSS for demonstration, move to styles.css in a real project */
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        h1 {
-            color: #2e7d32;
-            border-bottom: 2px solid #2e7d32;
-            padding-bottom: 10px;
-        }
-
-        p {
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .team {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .team-member {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-        }
-
-        .team-member img {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-
-        .team-member h3 {
-            color: #2e7d32;
-            margin-bottom: 5px;
-        }
-
-        .team-member p {
-            margin: 0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About • BodaRankCTG</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 </head>
 <body>
+  <header>
+    <a href="index.html">
+      <img src="home.png" alt="Home Icon" class="home-icon" />
+    </a>
+    <h1>Chattogram Board Students' SSC & HSC Ranking</h1>
+    <h2>Designed by Hasnyne (CC'25)</h2>
+    <span class="menu-btn" id="menuButton">&#9776;</span>
+  </header>
 
-    <div class="container">
-        <h1>About Us</h1>
-        <p>Welcome to Chattogram Board Students' SSC Ranking website!</p>
-
-        <p>We aim to provide a comprehensive and user-friendly platform where users can explore rankings, search by name or roll number, filter by school, and access historical data. Our goal is to streamline the process of obtaining SSC examination results and rankings, making it quick and efficient for everyone involved.</p>
-        <p>On our website, you can:</p>
-        <ul>
-            <li><strong>Explore Rankings:</strong> View the detailed rankings of students across various groups, including Science, Commerce, and Arts.</li>
-            <li><strong>Search by Name or Roll:</strong> Use our search functionality to find individual students by their name or roll number.</li>
-            <li><strong>Filter by School:</strong> Easily filter and view results from specific schools to compare performance.</li>
-            <li><strong>Access Historical Data:</strong> Look up results from previous years to see how students and schools have performed over time.</li>
-        </ul>
-    <p>Source code:<a href="https://pastebin.pl/view/1edd9a62">Click here</a></p>
+  <div class="sidebar" id="sidebar">
+    <button onclick="navigateTo('index.html')">Home</button>
+    <button onclick="navigateTo('about.html')">About</button>
+    <button onclick="navigateTo('contactus.html')">Contact Us</button>
+    <button onclick="navigateTo('review.html')">Reviews</button>
+    <div class="settings">
+      <label><input type="checkbox" id="themeToggle" onchange="toggleTheme()"> Dark Mode</label>
     </div>
+  </div>
 
+  <div class="icon-nav-wrapper" aria-label="Quick navigation">
+    <nav class="icon-nav-container">
+      <a href="index.html" title="Home" aria-label="Go to Home">
+        <i class="fas fa-house"></i>
+      </a>
+      <a href="about.html" title="About" aria-label="Learn About Us">
+        <i class="fas fa-user-circle"></i>
+      </a>
+      <a href="contactus.html" title="Contact Us" aria-label="Contact Us">
+        <i class="fas fa-phone"></i>
+      </a>
+      <a href="review.html" title="Reviews" aria-label="See Reviews">
+        <i class="fas fa-comments"></i>
+      </a>
+      <button id="shareBtn" title="Share This Site" aria-label="Share This Site">
+        <i class="fas fa-share"></i>
+      </button>
+    </nav>
+  </div>
+  <main>
+    <h1><i class="fas fa-info-circle"></i> About This Project</h1>
+    <p>Yo! I'm <strong>Hasnyne</strong>, an ex-student of <strong>Chittagong College</strong>. I built this site to help <span class="green">SSC students</span> find out where they stand — and where they can go next.</p>
+
+    <h2><i class="fas fa-bullseye"></i> Purpose</h2>
+    <ul>
+      <li>🔎 See your <span class="green">position</span> in the merit list</li>
+      <li>🏫 Know which <span class="green">colleges</span> are within your range</li>
+      <li>📅 Browse <span class="green">group-wise</span> and <span class="green">year-wise</span> rankings</li>
+      <li>📊 Filter by <strong>roll</strong>, <strong>marks</strong>, or <strong>college</strong></li>
+      <li>📈 View <span class="green">cutoff trends</span> from previous years</li>
+      <li>⚡ Fast, mobile-friendly, and zero ads</li>
+    </ul>
+
+    <h2><i class="fas fa-cogs"></i> Ranking Formula</h2>
+    <ol>
+      <li><strong>GPA</strong> – main filter</li>
+      <li><strong>Total Marks</strong> – for finer sort</li>
+      <li><strong>PCM Total</strong> – Physics + Chemistry + Math, as tie-breaker</li>
+    </ol>
+    <p>This isn't from the board — it's a <strong>personal project</strong> based on <span class="green">publicly available data</span>.</p>
+
+    <h2><i class="fas fa-exclamation-triangle"></i> Notes</h2>
+    <p>I’m <strong>not a pro developer</strong>. This site was made with the help of AI tools — so you might find a few bugs, issues, or missing info. If you spot something broken or want your name removed, just <span class="green">reach out</span> — I got you.</p>
+
+    <div class="contact">
+      <h2><i class="fas fa-envelope"></i> Contact Me</h2>
+      <p><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/8801788481222" target="_blank">+8801788481222</a></p>
+      <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:hasnyne2007@gmail.com">hasnyne2007@gmail.com</a></p>
+      <p><i class="fab fa-facebook"></i> <strong>Facebook:</strong> <a href="https://www.facebook.com/hasnyne.mostafa" target="_blank">hasnyne.mostafa</a></p>
+      <p><i class="fab fa-instagram"></i> <strong>Instagram:</strong> <a href="https://www.instagram.com/hasnyne.01/" target="_blank">@hasnyne.01</a></p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 BodaRankCTG — Made by Hasnyne
+  </footer>
+
+  <script src="script.js"></script>
+  
 </body>
 </html>
+<style>
+  main {
+    max-width: 960px;
+    width: 95%;
+    background: #fff;
+    margin: 40px auto;
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 2px solid #000;
+    box-shadow:
+      4px 4px 10px #bebebe,
+      -4px -4px 10px #ffffff;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: #ffffff;
+    
+    padding-bottom: 10px;
+  }
+  
+  h2 {
+    font-size: 1.4rem;
+    margin-top: 30px;
+    color: #ffffff;
+    font-weight: 800;
+    position: relative;
+    padding-left: 28px;
+  }
+  
+  h2 .section-icon {
+    position: absolute;
+    left: 0;
+    color: #00ff99;
+  }
+  
+  p, li {
+    font-size: 1.05rem;
+    color: #111;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  
+  ul, ol {
+    padding-left: 25px;
+    margin-bottom: 25px;
+  }
+  
+  li::marker {
+    color: #00b37a;
+  }
+  
+  strong {
+    color: #000;
+    font-weight: 900;
+  }
+  
+  .green {
+    color: #00b37a;
+    font-weight: bold;
+  }
+  
+  .contact {
+    background: #f0f0f0;
+    border: 1px dashed #00b37a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+  }
+  
+  .contact h2 {
+    color: #00b37a;
+    margin-bottom: 15px;
+  }
+  
+  .contact p {
+    margin: 8px 0;
+    font-size: 1rem;
+  }
+  
+  .contact a {
+    color: #00b37a;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .contact a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 600px) {
+    main {
+      padding: 25px 20px;
+      margin: 20px auto;
+    }
+  
+    h1 {
+      font-size: 1.8rem;
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+      padding-left: 24px;
+    }
+  
+    p, li {
+      font-size: 0.95rem;
+    }
+  }
+  
+  body.dark-mode main {
+    background: #1a1a1a;
+    border-color: #00ff99;
+    box-shadow:
+      4px 4px 10px #000,
+      -4px -4px 10px #222;
+  }
+  
+  body.dark-mode h1,
+  body.dark-mode h2,
+  body.dark-mode p,
+  body.dark-mode li {
+    color: #e0e0e0;
+  }
+  
+  body.dark-mode .contact {
+    background: #121212;
+    border-color: #00ff99;
+  }
+  
+  body.dark-mode .contact a {
+    color: #00ff99;
+  }
+  </style>
