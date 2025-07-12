@@ -22,6 +22,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 crossorigin="anonymous"
 />
 <body>
+
   <div class="sidebar" id="sidebar">
     <button onclick="navigateTo('index.html')">Home</button>
     <button onclick="navigateTo('about.html')">About</button>
@@ -259,101 +260,6 @@ crossorigin="anonymous"
         showAdminStats();
       }
     });
-    // === UPDATED: Submit Review with required fields ===
-async function submitReview() {
-  const name = document.getElementById("reviewName").value.trim();
-  const comment = document.getElementById("reviewText").value.trim();
-  const rating = parseInt(localStorage.getItem("userRating") || "0");
-
-  if (!name) return alert("Please enter your name.");
-  if (!comment) return alert("Please write your review.");
-  if (!rating) return alert("Please select a star rating.");
-
-  try {
-    const reviewRef = push(ref(db, "reviews"));
-    await set(reviewRef, {
-      name,
-      comment,
-      rating,
-      likes: 0,
-      replies: {},
-      timestamp: Date.now(),
-      userId,
-      likedBy: {} // For tracking likes
-    });
-
-    document.getElementById("reviewText").value = "";
-    document.getElementById("reviewName").value = "";
-    rateSite(0);
-  } catch (error) {
-    console.error("Error submitting review:", error);
-    alert("Review submission failed.");
-  }
-}
-
-// === UPDATED: Like Review - one person can ❤️ once ===
-window.likeReview = function (id) {
-  const reviewRef = ref(db, `reviews/${id}`);
-  runTransaction(reviewRef, (review) => {
-    if (review) {
-      if (!review.likedBy) review.likedBy = {};
-      if (review.likedBy[userId]) return; // Already liked
-
-      review.likes = (review.likes || 0) + 1;
-      review.likedBy[userId] = true;
-    }
-    return review;
-  });
-};
-
-// === UPDATED: Show timestamp ===
-function formatTimestamp(timestamp) {
-  const date = new Date(timestamp);
-  return date.toLocaleString("en-GB", {
-    dateStyle: "medium",
-    timeStyle: "short"
-  });
-}
-
-// === UPDATED: Load Reviews with timestamp ===
-function loadReviews() {
-  const container = document.getElementById("reviewsContainer");
-  const reviewsRef = ref(db, "reviews");
-
-  onValue(reviewsRef, (snapshot) => {
-    container.innerHTML = "";
-    const reviews = snapshot.val();
-    if (!reviews) return;
-
-    Object.entries(reviews).reverse().forEach(([id, review]) => {
-      let replies = "";
-      if (review.replies) {
-        replies = Object.values(review.replies).map(reply =>
-          `<div class="reply-box">↪️ ${reply.text}</div>`
-        ).join("");
-      }
-
-      const canDelete = review.userId === userId || userId === ADMIN_ID;
-      const dateTime = formatTimestamp(review.timestamp);
-
-      container.innerHTML += `
-        <div class="review-box">
-          <div><strong>${review.name}</strong> <small style="color:gray;">• ${dateTime}</small></div>
-          <div>⭐ ${review.rating || "No rating"}</div>
-          <div class="review-comment">${review.comment}</div>
-          <button onclick="likeReview('${id}')">❤️ ${review.likes || 0}</button>
-          <div>
-            <input type="text" placeholder="Reply..." id="reply-${id}" style="width: 80%;" />
-            <button onclick="submitReply('${id}')">Reply</button>
-          </div>
-          ${canDelete ? `<button onclick="deleteReview('${id}')">🗑️ Delete</button>` : ""}
-          ${replies}
-        </div>
-      `;
-    });
-  });
-}
-
   </script>
    <script src="script.js"></script>
   
