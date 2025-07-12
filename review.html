@@ -84,13 +84,16 @@
     const db = getDatabase(app);
   
     function rateSite(rating) {
-      const stars = document.getElementById("starContainer").children;
-      for (let i = 0; i < stars.length; i++) {
-        stars[i].innerHTML = i < rating ? "★" : "☆";
-      }
-      localStorage.setItem("userRating", rating);
-    }
-  
+  const stars = document.getElementById("starContainer").children;
+  for (let i = 0; i < stars.length; i++) {
+    stars[i].innerHTML = i < rating ? "★" : "☆";
+  }
+  localStorage.setItem("userRating", rating);
+}
+
+// ADD THIS 👇
+window.rateSite = rateSite;
+
     async function submitReview() {
       const comment = document.getElementById("reviewText").value.trim();
       const rating = localStorage.getItem("userRating") || 0;
