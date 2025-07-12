@@ -114,7 +114,72 @@
     <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">
         <img src="arrow-up.png" alt="Scroll to top">
     </button>
-
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import {
+          getDatabase,
+          ref,
+          runTransaction,
+          set,
+          onValue
+        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+      
+        const firebaseConfig = {
+          apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
+          authDomain: "boardrankctg.firebaseapp.com",
+          databaseURL: "https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app",
+          projectId: "boardrankctg",
+          storageBucket: "boardrankctg.firebasestorage.app",
+          messagingSenderId: "751761229963",
+          appId: "1:751761229963:web:43f9dbf71feef6dc9cec8e",
+          measurementId: "G-3Y6J44NWNH"
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+      
+        let userId = localStorage.getItem("userId");
+        if (!userId) {
+          userId = crypto.randomUUID();
+          localStorage.setItem("userId", userId);
+        }
+      
+        const ADMIN_ID = "admin1234"; // Use same admin ID as review.html
+      
+        // ⏱️ Track visit
+        function trackVisit() {
+          runTransaction(ref(db, "siteStats/totalVisits"), (count) => (count || 0) + 1);
+          set(ref(db, `siteStats/activeUsers/${userId}`), Date.now());
+        }
+      
+        // 📊 Show stats if admin
+        function showAdminStats() {
+          const box = document.createElement("div");
+          box.style = "max-width: 600px; margin: 30px auto; padding: 12px; border: 2px solid #333; background: #f8f8f8;";
+          box.innerHTML = `<h3>📊 Site Stats (Admin Only)</h3><div id="visitStats">Loading...</div>`;
+          document.body.appendChild(box);
+      
+          const statsRef = ref(db, "siteStats");
+      
+          onValue(statsRef, (snapshot) => {
+            const data = snapshot.val() || {};
+            const total = data.totalVisits || 0;
+            const active = data.activeUsers || {};
+            const now = Date.now();
+            const live = Object.values(active).filter(ts => now - ts < 5 * 60 * 1000).length;
+      
+            document.getElementById("visitStats").innerHTML = `
+              👁️ Total Visits: <strong>${total}</strong><br />
+              🟢 Live Visitors (past 5 min): <strong>${live}</strong>
+            `;
+          });
+        }
+      
+        // ⏳ Run on page load
+        trackVisit();
+        if (userId === ADMIN_ID) showAdminStats();
+      </script>
+      
     <script src="script.js"></script>
     
 </body>
