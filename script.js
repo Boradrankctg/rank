@@ -932,7 +932,7 @@ function handleFeaturedClick() {
   }
   // Add at the end of script.js
 
-setTimeout(() => {
+  function showSharePopup() {
     if (document.querySelector('.popup')) return; // prevent duplicate popup
 
     const popup = document.createElement('div');
@@ -964,8 +964,10 @@ setTimeout(() => {
 
     document.body.appendChild(popup);
     document.body.classList.add('locked');
+}
+setTimeout(showSharePopup, 30000);
+document.getElementById('shareBtn').addEventListener('click', showSharePopup);
 
-}, 30000); // 30 seconds
 
 function rateSite(rating) {
     const stars = document.getElementById('starContainer').children;
