@@ -56,7 +56,7 @@ crossorigin="anonymous"
   <main>
     <div class="popup-content" style="max-width: 600px; margin: 20px auto;">
       <h2>💬 Leave a Review</h2>
-      <input id="reviewName" type="text" placeholder="Your name (optional)" style="width: 100%; margin-top: 10px;" />
+      <input id="reviewName" type="text" placeholder="Jorina Akhter..." style="width: 100%; margin-top: 10px;" />
       <div id="starContainer" style="font-size: 1.5rem; color: gold; cursor: pointer; margin-top: 10px;">
         <span onclick="rateSite(1)">☆</span>
         <span onclick="rateSite(2)">☆</span>
@@ -64,7 +64,7 @@ crossorigin="anonymous"
         <span onclick="rateSite(4)">☆</span>
         <span onclick="rateSite(5)">☆</span>
       </div>
-      <textarea id="reviewText" rows="3" placeholder="Write your thoughts..." style="width: 100%; margin-top: 10px;"></textarea>
+      <textarea id="reviewText" rows="3" placeholder="Dhon er website banaiso..." style="width: 100%; margin-top: 10px;"></textarea>
       <button onclick="submitReview()" style="margin-top: 10px;">Submit Review</button>
     </div>
 
@@ -128,35 +128,47 @@ crossorigin="anonymous"
     window.rateSite = rateSite;
   
     async function submitReview() {
-      const name = document.getElementById("reviewName").value.trim() || "Anonymous";
-      const comment = document.getElementById("reviewText").value.trim();
-      const rating = localStorage.getItem("userRating") || 0;
-  
-      if (!comment && !rating) {
-        alert("Please write something or rate.");
-        return;
-      }
-  
-      try {
-        const reviewRef = push(ref(db, "reviews"));
-        await set(reviewRef, {
-          name,
-          comment,
-          rating: parseInt(rating),
-          likes: 0,
-          replies: {},
-          timestamp: Date.now(),
-          userId
-        });
-  
-        document.getElementById("reviewText").value = "";
-        document.getElementById("reviewName").value = "";
-        rateSite(0);
-      } catch (error) {
-        console.error("Error submitting review:", error);
-        alert("Review submission failed.");
-      }
-    }
+  const name = document.getElementById("reviewName").value.trim();
+  const comment = document.getElementById("reviewText").value.trim();
+  const rating = parseInt(localStorage.getItem("userRating") || 0);
+
+  if (!name) {
+    alert("Please enter your name.");
+    return;
+  }
+
+  if (!comment) {
+    alert("Please write your review message.");
+    return;
+  }
+
+  if (rating === 0) {
+    alert("Please select a star rating.");
+    return;
+  }
+
+  try {
+    const reviewRef = push(ref(db, "reviews"));
+    await set(reviewRef, {
+      name,
+      comment,
+      rating,
+      likes: 0,
+      replies: {},
+      timestamp: Date.now(),
+      userId
+    });
+
+    document.getElementById("reviewText").value = "";
+    document.getElementById("reviewName").value = "";
+    rateSite(0);
+    localStorage.removeItem("userRating");
+  } catch (error) {
+    console.error("Error submitting review:", error);
+    alert("Review submission failed.");
+  }
+}
+
     window.submitReview = submitReview;
   
     
@@ -181,10 +193,18 @@ crossorigin="anonymous"
   
           container.innerHTML += `
             <div class="review-box">
-              <div><strong>${review.name || "Anonymous"}</strong></div>
+              <div>
+  <strong>${review.name || "Anonymous"}</strong>
+  <small style="color: gray; margin-left: 10px;">${new Date(review.timestamp).toLocaleString()}</small>
+</div>
+
               <div>⭐ ${review.rating || "No rating"}</div>
               <div class="review-comment">${review.comment}</div>
-              <button onclick="likeReview('${id}')">❤️ ${review.likes || 0}</button>
+            
+  <button onclick="voteReview('${id}', 'like')">👍 ${review.likes || 0}</button>
+  <button onclick="voteReview('${id}', 'dislike')">👎 ${review.dislikes || 0}</button>
+
+
               <div>
                 <input type="text" placeholder="Reply..." id="reply-${id}" style="width: 80%;" />
                 <button onclick="submitReply('${id}')">Reply</button>
@@ -260,6 +280,41 @@ crossorigin="anonymous"
         showAdminStats();
       }
     });
+    window.voteReview = function (id, type) {
+  const voteKey = `reviewVote_${id}`;
+  const previousVote = localStorage.getItem(voteKey);
+
+  if (previousVote === type) {
+    alert(`You've already ${type}d this review.`);
+    return;
+  }
+
+  const updates = {};
+  if (type === 'like') {
+    updates[`reviews/${id}/likes`] = incrementValue(`reviews/${id}/likes`);
+    if (previousVote === 'dislike') {
+      updates[`reviews/${id}/dislikes`] = incrementValue(`reviews/${id}/dislikes`, -1);
+    }
+  } else if (type === 'dislike') {
+    updates[`reviews/${id}/dislikes`] = incrementValue(`reviews/${id}/dislikes`);
+    if (previousVote === 'like') {
+      updates[`reviews/${id}/likes`] = incrementValue(`reviews/${id}/likes`, -1);
+    }
+  }
+
+  for (const path in updates) {
+    runTransaction(ref(db, path), updates[path]);
+  }
+
+  localStorage.setItem(voteKey, type);
+};
+
+function incrementValue(path, delta = 1) {
+  return (current) => {
+    return (current || 0) + delta;
+  };
+}
+
   </script>
    <script src="script.js"></script>
   
