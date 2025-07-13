@@ -57,6 +57,8 @@ crossorigin="anonymous"
     <div class="popup-content" style="max-width: 600px; margin: 20px auto;">
       <h2>💬 Leave a Review</h2>
       <input id="reviewName" type="text" placeholder="Jorina Akhter..." style="width: 100%; margin-top: 10px;" />
+      <div id="nameError" class="error-message"></div>
+      
       <div id="starContainer" style="font-size: 1.5rem; color: gold; cursor: pointer; margin-top: 10px;">
         <span onclick="rateSite(1)">☆</span>
         <span onclick="rateSite(2)">☆</span>
@@ -64,7 +66,11 @@ crossorigin="anonymous"
         <span onclick="rateSite(4)">☆</span>
         <span onclick="rateSite(5)">☆</span>
       </div>
+      <div id="starError" class="error-message"></div>
+      
       <textarea id="reviewText" rows="3" placeholder="Dhon er website banaiso..." style="width: 100%; margin-top: 10px;"></textarea>
+      <div id="commentError" class="error-message"></div>
+      
       <button onclick="submitReview()" style="margin-top: 10px;">Submit Review</button>
     </div>
 
@@ -88,14 +94,19 @@ crossorigin="anonymous"
     } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
   
     document.addEventListener('DOMContentLoaded', () => {
-      const pending = localStorage.getItem("pendingReview");
-      if (pending) {
-        const { rating, comment } = JSON.parse(pending);
-        document.getElementById("reviewText").value = comment;
-        rateSite(parseInt(rating));
-        localStorage.removeItem("pendingReview");
-      }
-    });
+  const pending = localStorage.getItem("pendingReview");
+  if (pending) {
+    try {
+      const { rating, comment } = JSON.parse(pending);
+      document.getElementById("reviewText").value = comment;
+      rateSite(parseInt(rating));
+      localStorage.removeItem("pendingReview");
+    } catch (e) {
+      console.error("Pending review data is invalid.");
+    }
+  }
+});
+
   
     const firebaseConfig = {
       apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
@@ -119,33 +130,52 @@ crossorigin="anonymous"
   
     const ADMIN_ID = "admin1234"; 
     function rateSite(rating) {
-      const stars = document.getElementById("starContainer").children;
-      for (let i = 0; i < stars.length; i++) {
-        stars[i].innerHTML = i < rating ? "★" : "☆";
-      }
-      localStorage.setItem("userRating", rating);
-    }
+  const stars = document.getElementById("starContainer").children;
+  for (let i = 0; i < stars.length; i++) {
+    stars[i].innerHTML = i < rating ? "★" : "☆";
+  }
+  localStorage.setItem("userRating", rating);
+}
+
     window.rateSite = rateSite;
   
     async function submitReview() {
-  const name = document.getElementById("reviewName").value.trim();
-  const comment = document.getElementById("reviewText").value.trim();
+  const nameInput = document.getElementById("reviewName");
+  const commentInput = document.getElementById("reviewText");
+  const name = nameInput.value.trim();
+  const comment = commentInput.value.trim();
   const rating = parseInt(localStorage.getItem("userRating") || 0);
 
+  // Clear previous errors
+  document.getElementById("nameError").textContent = "";
+  document.getElementById("commentError").textContent = "";
+  document.getElementById("starError").textContent = "";
+  nameInput.style.border = "";
+  commentInput.style.border = "";
+
+  let hasError = false;
+
   if (!name) {
-    alert("Please enter your name.");
-    return;
+    document.getElementById("nameError").textContent = "Please enter your name.";
+    nameInput.style.border = "1px solid red";
+    hasError = true;
   }
 
   if (!comment) {
-    alert("Please write your review message.");
-    return;
+    document.getElementById("commentError").textContent = "Please write your review.";
+    commentInput.style.border = "1px solid red";
+    hasError = true;
   }
 
   if (rating === 0) {
-    alert("Please select a star rating.");
-    return;
+    const starContainer = document.getElementById("starContainer");
+    document.getElementById("starError").textContent = "Please select a star rating.";
+    starContainer.classList.add("shake");
+    setTimeout(() => starContainer.classList.remove("shake"), 500);
+    hasError = true;
   }
+
+  if (hasError) return;
 
   try {
     const reviewRef = push(ref(db, "reviews"));
@@ -159,8 +189,8 @@ crossorigin="anonymous"
       userId
     });
 
-    document.getElementById("reviewText").value = "";
-    document.getElementById("reviewName").value = "";
+    nameInput.value = "";
+    commentInput.value = "";
     rateSite(0);
     localStorage.removeItem("userRating");
   } catch (error) {
@@ -168,6 +198,7 @@ crossorigin="anonymous"
     alert("Review submission failed.");
   }
 }
+
 
     window.submitReview = submitReview;
   
@@ -285,7 +316,7 @@ crossorigin="anonymous"
   const previousVote = localStorage.getItem(voteKey);
 
   if (previousVote === type) {
-    alert(`You've already ${type}d this review.`);
+    
     return;
   }
 
