@@ -1,4 +1,5 @@
 
+
 const contentDiv = document.getElementById('content');
 const currentYear = document.getElementById('currentYear');
 const currentGroup = document.getElementById('currentGroup');
@@ -33,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function loadYear(year) {
     if (year) {
+        document.getElementById("selectPrompt").style.display = "none";
+
         document.getElementById("featuredBox")?.remove();
 
         const newUrl = `${location.pathname}?year=${year}`;
@@ -81,8 +84,13 @@ function loadGroup(year, group) {
             <select id="InstituationDropdown" onchange="filterByInstituation()"></select>
         </div>
         
-        <button id="resetFilterBtn" style="display: none;" onclick="resetFilter()">Reset Filter</button>
-        <div class="loading-spinner" id="loadingSpinner" style="display: none;"></div>
+      <button id="resetFilterBtn" style="display: none;" onclick="resetFilter()">Reset Filter</button>
+<div class="loading-spinner" id="loadingSpinner" style="display: none;"></div>
+<p id="tableHint" style="margin-top: 20px; font-weight: bold;">
+    💡 Click on student names to see detailed result and on school names to see school BASED RANK
+</p>
+<table>
+
         <table>
             <thead>
                 <tr>
