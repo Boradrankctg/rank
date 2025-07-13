@@ -1474,3 +1474,59 @@ body.locked {
   color: gray;
   font-weight: normal;
 }
+.corner-icon {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: transform 0.2s ease;
+  z-index: 999;
+}
+
+.corner-icon:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.bottom-left {
+  bottom: 12px;
+  left: 12px;
+}
+
+.bottom-right {
+  bottom: 12px;
+  right: 12px;
+}
+
+.copy-status {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  color: #0f0;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 10000;
+}
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 4px;
+}
+
+.shake {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
