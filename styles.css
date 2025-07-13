@@ -1530,3 +1530,116 @@ body.locked {
   75% { transform: translateX(-5px); }
   100% { transform: translateX(0); }
 }
+
+#tableHint {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 1rem;
+  background-color: #e6f7ff;
+  color: #005580;
+  padding: 10px 15px;
+  margin: 20px auto;
+  border-left: 5px solid #0099cc;
+  border-radius: 4px;
+  max-width: 95%;
+  text-align: center;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.08);
+}
+
+#tableHint i {
+  margin-right: 8px;
+}
+
+body.dark-mode #tableHint {
+  background-color: #001f2d;
+  color: #66d9ff;
+  border-left-color: #66d9ff;
+}
+#selectPrompt {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 1.2rem;
+  padding: 16px 24px;
+  margin: 40px auto 35px;
+  background: linear-gradient(145deg, #d32f2f, #b71c1c);
+  color: #fff;
+  border-left: 6px solid #b71c1c;
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.25);
+  text-align: center;
+  max-width: 90%;
+  letter-spacing: 1px;
+  transition: background 0.3s ease;
+  position: relative;
+}
+
+#selectPrompt .down-arrow {
+  margin-left: 10px;
+  font-size: 1.4rem;
+  vertical-align: middle;
+  animation: bounceArrow 1.5s infinite;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+body.dark-mode #selectPrompt {
+  background: linear-gradient(145deg, #b71c1c, #7f0000);
+  color: #ffcccc;
+  border-left-color: #ff5252;
+  box-shadow: 3px 3px 10px rgba(255,255,255,0.1);
+}
+
+
+@media (max-width: 768px) {
+  #selectPrompt {
+    font-size: 1rem;
+    padding: 12px 20px;
+    margin: 15px auto 20px;
+  }
+  main {
+    padding: 1rem 0.5rem;
+  }
+}
+.icon-nav-container i {
+  font-size: 1.8rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-nav-container a:hover i,
+.icon-nav-container button:hover i {
+  color: #00cc66;
+  transform: scale(1.25) rotate(-5deg);
+}
+
+body.dark-mode .icon-nav-container a,
+body.dark-mode .icon-nav-container button {
+  background: #222;
+}
+
+body.dark-mode .icon-nav-container a:hover,
+body.dark-mode .icon-nav-container button:hover {
+  background-color: #00cc66;
+  color: #fff;
+}
+.info-banner {
+  font-size: 1.2rem;
+  margin: 20px auto 10px;
+  font-weight: bold;
+  background-color: #ffefc1;
+  border-left: 4px solid orange;
+  padding: 10px 14px;
+  border-radius: 5px;
+  max-width: 90%;
+  color: #000;
+  display: inline-block;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .info-banner {
+  background-color: #333;
+  color: #fff;
+  border-left-color: #ffa500;
+}
