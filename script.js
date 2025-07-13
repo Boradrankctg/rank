@@ -608,7 +608,28 @@ function startComparison(roll1, year, group) {
 
             if (!student1 || !student2) return alert("Student data not found.");
 
-            const labels = ["Bangla", "English", "Math", "BGS", "Religion", "Physics", "Chemistry", "Compulsory", "ICT", "Optional", "Physical", "Career"];
+            let labels = [];
+const isHSC = year.includes("hsc");
+
+if (isHSC) {
+  if (group === "Science") {
+    labels = ["Bangla", "English", "ICT", "Physics", "Chemistry", "Compulsory", "Optional"];
+  } else if (group === "Commerce") {
+    labels = ["Bangla", "English", "ICT", "Accounting", "Finance", "Business Studies", "Optional"];
+  } else if (group === "Arts") {
+    labels = ["Bangla", "English", "ICT", "Geography", "Civics", "History", "Optional"];
+  }
+} else {
+  // SSC logic
+  if (group === "Science") {
+    labels = ["Bangla", "English", "Math", "BGS", "Religion", "Physics", "Chemistry", "Compulsory", "ICT", "Optional", "Physical", "Career"];
+  } else if (group === "Commerce") {
+    labels = ["Bangla", "English", "Math", "Science", "Religion", "Accounting", "Finance", "Compulsory", "ICT", "Optional", "Physical", "Career"];
+  } else if (group === "Arts") {
+    labels = ["Bangla", "English", "Math", "Science", "Religion", "Geography", "Civics", "Compulsory", "ICT", "Optional", "Physical", "Career"];
+  }
+}
+
             let rows = `
             <h2 style="text-align:center; margin-top: 10px;">🎯 Student Comparison</h2>
             <p style="text-align:center; font-weight:bold;">${student1.name} <span style="color:green;">vs</span> ${student2.name}</p>
