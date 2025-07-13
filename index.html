@@ -40,7 +40,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       crossorigin="anonymous"
     />
-    
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  crossorigin="anonymous"
+/>
+
     <style>
 
     </style>
@@ -80,27 +85,36 @@
     <div class="icon-nav-wrapper" aria-label="Quick navigation">
       <nav class="icon-nav-container">
         <a href="index.html" title="Home" aria-label="Go to Home">
-          <i class="fas fa-house"></i>
+          <i class="fas fa-house-chimney"></i>
         </a>
         <a href="about.html" title="About" aria-label="Learn About Us">
-          <i class="fas fa-user-circle"></i>
+          <i class="fas fa-user-tie"></i>
         </a>
         <a href="contactus.html" title="Contact Us" aria-label="Contact Us">
-          <i class="fas fa-phone"></i>
+          <i class="fas fa-envelope-open-text"></i>
         </a>
         <a href="review.html" title="Reviews" aria-label="See Reviews">
-          <i class="fas fa-comments"></i>
+          <i class="fas fa-star-half-stroke"></i>
         </a>
         <button id="shareBtn" title="Share This Site" aria-label="Share This Site">
-          <i class="fas fa-share"></i>
+          <i class="fas fa-bullhorn"></i>
         </button>
       </nav>
+      <div id="customBanner" class="info-banner">
+        ⚠️ This is not an official rank. It's prepared based on publicly available data.
     </div>
-
+    
+    </div>
     <main>
         <section>
-            <div class="year-dropdown">
-                <select id="yearDropdown" onchange="loadYear(this.value)">
+    
+          <p id="selectPrompt">
+            PLEASE SELECT EXAM AND YEAR <i class="fas fa-arrow-down down-arrow"></i>
+          </p>
+          
+          
+          <div class="year-dropdown">
+                          <select id="yearDropdown" onchange="loadYear(this.value)">
                     <option value="">Select Year and Exam</option>
                     <option value="2025">SSC 2025</option>
                     <option value="2024">SSC 2024</option>
