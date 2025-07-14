@@ -466,7 +466,9 @@ function showIndividualResult(roll, year, group) {
         .then(response => response.text())
         .then(data => {
             const rows = data.trim().split('\n');
-            const individualData = rows.find(row => row.startsWith(roll.toString()));
+            const individualData = rows.find(row => row.split('\t')[0].replace(/^0+/, '') === roll.toString().replace(/^0+/, ''));
+
+
             let popupContent;
             if (individualData) {
                 const parts = individualData.split('\t');
@@ -508,7 +510,8 @@ function showIndividualResult(roll, year, group) {
                                 <p>Chemistry: ${chemistry} ${getProgressBarHtml(chemistry, 200)}</p>
                                 <p>Compulsory: ${compulsory} ${getProgressBarHtml(compulsory, 200)}</p>
                                 <p>Optional: ${optional} ${getProgressBarHtml(optional, 200)}</p>
-                                <button onclick='promptComparison(${JSON.stringify(student)}, "${year}", "${group}")'>Compare with Other Student</button>
+                             <button onclick='promptComparison(${student.roll}, "${year}", "${group}")'>Compare with Other Student</button>
+
 
                                 <button class="back-button" onclick="closePopup()">Back</button>
 
@@ -542,7 +545,8 @@ function showIndividualResult(roll, year, group) {
                                 <p>Optional: ${Optional} ${getProgressBarHtml(Optional, 100)}</p>
                                 <p>Physical: ${Physical} ${getProgressBarHtml(Physical, 100)}</p>
                                 <p>Career: ${Career} ${getProgressBarHtml(Career, 50)}</p>
-                                <button onclick='promptComparison(${JSON.stringify(student)}, "${year}", "${group}")'>Compare with Other Student</button>
+                              <button onclick='promptComparison(${student.roll}, "${year}", "${group}")'>Compare with Other Student</button>
+
 
                                 <button class="back-button" onclick="closePopup()">Back</button>
                             </div>
@@ -579,7 +583,10 @@ function getMirroredProgressBars(val1, val2, maxVal) {
 }
 
 
-function promptComparison(baseStudent, year, group) {
+function promptComparison(roll, year, group) {
+    const baseStudent = allData.find(s => s.roll === roll);
+    if (!baseStudent) return alert("Base student not found.");
+  
     const popup = document.createElement('div');
     popup.classList.add('popup');
     popup.innerHTML = `
@@ -603,9 +610,9 @@ function startComparison(roll1, year, group) {
         .then(res => res.text())
         .then(text => {
             const lines = text.trim().split('\n');
-            const row1 = lines.find(r => r.startsWith(roll1.toString()));
-            const row2 = lines.find(r => r.startsWith(roll2));
-
+            const row1 = lines.find(r => r.split('\t')[0] === roll1.toString());
+            const row2 = lines.find(r => r.split('\t')[0] === roll2.toString());
+            
             if (!row2) return alert("Second roll not found.");
 
             const parts1 = row1.split('\t');
@@ -994,7 +1001,7 @@ function handleFeaturedClick() {
     document.body.appendChild(popup);
     document.body.classList.add('locked');
 }
-setTimeout(showSharePopup, 30000);
+setTimeout(showSharePopup, 45000);
 document.getElementById('shareBtn').addEventListener('click', showSharePopup);
 
 
