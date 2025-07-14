@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About • BodaRankCTG</title>
+  <title>About • BoardRankCTG</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 </head>
@@ -13,7 +13,7 @@
       <img src="home.png" alt="Home Icon" class="home-icon" />
     </a>
     <h1>Chattogram Board Students' SSC & HSC Ranking</h1>
-    <h2>Designed by Hasnyne (CC'25)</h2>
+    <h2>Designed by Hasnyne (CC'25), Tasin (CC'25)</h2>
     <span class="menu-btn" id="menuButton">&#9776;</span>
   </header>
 
@@ -65,13 +65,16 @@
     <ol>
       <li><strong>GPA</strong> – main filter</li>
       <li><strong>Total Marks</strong> – for finer sort</li>
-      <li><strong>PCM Total</strong> – Physics + Chemistry + Math, as tie-breaker</li>
+      <li><strong>PCM Total</strong> – Physics + Chemistry + Compulsory, as tie-breaker</li>
     </ol>
     <p>This isn't from the board — it's a <strong>personal project</strong> based on <span class="green">publicly available data</span>.</p>
 
     <h2><i class="fas fa-exclamation-triangle"></i> Notes</h2>
     <p>I’m <strong>not a pro developer</strong>. This site was made with the help of AI tools — so you might find a few bugs, issues, or missing info. If you spot something broken or want your name removed, just <span class="green">reach out</span> — I got you.</p>
-
+    <div class="special-thanks">
+      <i class="fas fa-hands-helping"></i> Special thanks to <strong>Tasin (Pre-Buetian)</strong> for making this possible.
+    </div>
+    
     <div class="contact">
       <h2><i class="fas fa-envelope"></i> Contact Me</h2>
       <p><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/8801788481222" target="_blank">+8801788481222</a></p>
@@ -82,7 +85,7 @@
   </main>
 
   <footer>
-    &copy; 2025 BodaRankCTG — Made by Hasnyne
+    &copy; 2025 BordRankCTG — Made by Hasnyne
   </footer>
 
   <script src="script.js"></script>
@@ -90,140 +93,193 @@
 </body>
 </html>
 <style>
+main {
+  max-width: 960px;
+  width: 95%;
+  background: #fff;
+  margin: 40px auto;
+  padding: 40px 40px 50px;
+  border-radius: 12px;
+  border: 2px solid #000;
+  box-shadow:
+    4px 4px 15px rgba(0, 179, 122, 0.3),
+    -4px -4px 15px rgba(0, 179, 122, 0.2);
+  box-sizing: border-box;
+  text-align: left;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+main h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  color: #00b37a;
+  text-align: center;
+  text-shadow: 0 0 6px #00b37a88;
+}
+
+main h2 {
+  font-size: 1.6rem;
+  margin-top: 45px;
+  margin-bottom: 15px;
+  color: #00764f;
+  font-weight: 800;
+  border-left: 5px solid #00b37a;
+  padding-left: 15px;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 4px #00b37a66;
+}
+
+main p, main li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 14px;
+  max-width: 100%;
+}
+
+main ul, main ol {
+  padding-left: 30px;
+  margin-bottom: 30px;
+}
+
+main li::marker {
+  color: #00b37a;
+  font-weight: 700;
+}
+
+main strong {
+  color: #00764f;
+  font-weight: 900;
+}
+
+main .green {
+  color: #00b37a;
+  font-weight: 700;
+}
+
+main .contact {
+  background: #e8f7f1;
+  border: 2px dashed #00b37a;
+  padding: 25px 25px 30px;
+  border-radius: 12px;
+  margin-top: 40px;
+  box-shadow: 0 0 10px #00b37a33;
+}
+
+main .contact h2 {
+  color: #009e6b;
+  margin-bottom: 20px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+main .contact p {
+  margin: 10px 0;
+  font-size: 1.05rem;
+}
+
+main .contact a {
+  color: #00764f;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+main .contact a:hover {
+  text-decoration: underline;
+  color: #004d32;
+}
+
+main .special-thanks {
+  margin-top: 50px;
+  padding: 20px 30px;
+  background: #f0fff9;
+  border-left: 5px solid #00b37a;
+  border-radius: 8px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #00764f;
+  box-shadow: 0 0 12px #00b37a44;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
   main {
-    max-width: 960px;
-    width: 95%;
-    background: #fff;
-    margin: 40px auto;
-    padding: 40px 30px;
-    border-radius: 12px;
-    border: 2px solid #000;
-    box-shadow:
-      4px 4px 10px #bebebe,
-      -4px -4px 10px #ffffff;
-    box-sizing: border-box;
+    padding: 30px 20px 35px;
+    margin: 25px auto;
   }
-  
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 900;
-    margin-bottom: 10px;
-    color: #ffffff;
-    
-    padding-bottom: 10px;
+
+  main h1 {
+    font-size: 2rem;
   }
-  
-  h2 {
-    font-size: 1.4rem;
-    margin-top: 30px;
-    color: #ffffff;
-    font-weight: 800;
-    position: relative;
-    padding-left: 28px;
+
+  main h2 {
+    font-size: 1.3rem;
+    padding-left: 12px;
   }
-  
-  h2 .section-icon {
-    position: absolute;
-    left: 0;
-    color: #00ff99;
-  }
-  
-  p, li {
-    font-size: 1.05rem;
-    color: #111;
-    font-weight: 600;
-    line-height: 1.6;
-    margin-bottom: 12px;
-  }
-  
-  ul, ol {
-    padding-left: 25px;
-    margin-bottom: 25px;
-  }
-  
-  li::marker {
-    color: #00b37a;
-  }
-  
-  strong {
-    color: #000;
-    font-weight: 900;
-  }
-  
-  .green {
-    color: #00b37a;
-    font-weight: bold;
-  }
-  
-  .contact {
-    background: #f0f0f0;
-    border: 1px dashed #00b37a;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 30px;
-  }
-  
-  .contact h2 {
-    color: #00b37a;
-    margin-bottom: 15px;
-  }
-  
-  .contact p {
-    margin: 8px 0;
+
+  main p, main li {
     font-size: 1rem;
   }
-  
-  .contact a {
-    color: #00b37a;
-    font-weight: bold;
-    text-decoration: none;
+
+  main .special-thanks {
+    font-size: 1rem;
+    padding: 15px 20px;
   }
-  
-  .contact a:hover {
-    text-decoration: underline;
-  }
-  
-  @media (max-width: 600px) {
-    main {
-      padding: 25px 20px;
-      margin: 20px auto;
-    }
-  
-    h1 {
-      font-size: 1.8rem;
-    }
-  
-    h2 {
-      font-size: 1.2rem;
-      padding-left: 24px;
-    }
-  
-    p, li {
-      font-size: 0.95rem;
-    }
-  }
-  
-  body.dark-mode main {
-    background: #1a1a1a;
-    border-color: #00ff99;
-    box-shadow:
-      4px 4px 10px #000,
-      -4px -4px 10px #222;
-  }
-  
-  body.dark-mode h1,
-  body.dark-mode h2,
-  body.dark-mode p,
-  body.dark-mode li {
-    color: #e0e0e0;
-  }
-  
-  body.dark-mode .contact {
-    background: #121212;
-    border-color: #00ff99;
-  }
-  
-  body.dark-mode .contact a {
-    color: #00ff99;
-  }
+}
+
+/* Dark mode styles only for main content */
+body.dark-mode main {
+  background: #121a12;
+  border-color: #00ff99;
+  box-shadow:
+    4px 4px 15px #004d2044,
+    -4px -4px 15px #00764f55;
+  color: #cce5cc;
+}
+
+body.dark-mode main h1 {
+  color: #00ff99;
+  text-shadow: 0 0 8px #00ff9955;
+}
+
+body.dark-mode main h2 {
+  color: #00cc77;
+  border-left-color: #00ff99;
+  text-shadow: 0 0 6px #00ff9966;
+}
+
+body.dark-mode main p, 
+body.dark-mode main li {
+  color: #b0e6b0;
+}
+
+body.dark-mode main strong {
+  color: #00cc77;
+}
+
+body.dark-mode main .green {
+  color: #00ff99;
+}
+
+body.dark-mode main .contact {
+  background: #002d00;
+  border-color: #00ff99;
+  box-shadow: 0 0 12px #00ff9933;
+}
+
+body.dark-mode main .contact a {
+  color: #00ff99;
+}
+
+body.dark-mode main .special-thanks {
+  background: #003a00;
+  border-left-color: #00ff99;
+  color: #00ff99;
+  box-shadow: 0 0 15px #00ff9966;
+}
+
   </style>
