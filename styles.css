@@ -1643,3 +1643,94 @@ body.dark-mode .info-banner {
   color: #fff;
   border-left-color: #ffa500;
 }
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.team-card {
+  background: #f0fff9;
+  border: 2px solid #00b37a;
+  padding: 25px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 300px;
+  flex: 1 1 300px;
+  box-shadow: 0 0 10px #00b37a33;
+  text-align: center;
+}
+
+.team-card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #00764f;
+  font-weight: 800;
+  text-shadow: 0 0 4px #00b37a66;
+}
+
+.team-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 14px;
+  color: #00b37a;
+  font-weight: 900;
+}
+
+.team-card p {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.team-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 3px solid #00b37a;
+  margin-bottom: 15px;
+}
+
+/* Dark mode for team section */
+body.dark-mode .team-card {
+  background: #002d00;
+  border-color: #00ff99;
+  box-shadow: 0 0 12px #00ff9933;
+}
+
+body.dark-mode .team-card h2,
+body.dark-mode .team-card h3 {
+  color: #00ff99;
+}
+
+body.dark-mode .team-card p {
+  color: #b0e6b0;
+}
+
+body.dark-mode .team-img {
+  border-color: #00ff99;
+}
+.copy-result-btn,
+.copy-link-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 18px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+}
+.copy-result-btn:hover,
+.copy-link-btn:hover {
+  background: #ddd;
+}
+.popup-footer button {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+}
