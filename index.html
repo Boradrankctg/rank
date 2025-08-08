@@ -34,26 +34,12 @@
 
 <body>
     <header>
-        <a href="index.html">
-            <img src="home.png" alt="Home Icon" class="home-icon" />
-        </a>
+       
         <h1>Chattogram Board Students' SSC & HSC Ranking</h1>
-        <h2>   </h2>
-        <span class="menu-btn" id="menuButton">&#9776;</span>
+        <h2>Designed by Hasnyne (CC'25), Tasin (CC'25)</h2>
+        
     </header>
 
-    <div class="sidebar" id="sidebar">
-        <button onclick="navigateTo('index.html')">Home</button>
-        <button onclick="navigateTo('about.html')">About</button>
-        <button onclick="navigateTo('contactus.html')">Contact Us</button>
-        <button onclick="navigateTo('review.html')">Reviews</button>
-
-        <div class="settings">
-            <label>
-                <input type="checkbox" id="themeToggle" onchange="toggleTheme()"> Dark Mode
-            </label>
-        </div>
-    </div>
 
     <nav aria-label="breadcrumb">
         <ul class="breadcrumb">
@@ -80,7 +66,12 @@
         <button id="shareBtn" title="Share This Site" aria-label="Share This Site">
           <i class="fas fa-bullhorn"></i>
         </button>
+        <button id="helpBtn" title="Help & Tips" aria-label="Help & Tips">
+          <i class="fas fa-question-circle"></i>
+        </button>
       </nav>
+    </div>
+  
       <div id="customBanner" class="info-banner">
         ⚠️ This is not an official rank. It's prepared based on publicly available data.
     </div>
@@ -102,7 +93,7 @@
                     <option value="2024">SSC 2024</option>
                     <option value="2023">SSC 2023</option>
                     <option value="2022">SSC 2022</option>
-                    <option value="2025">SSC 2025</option>
+                    <option value="hsc_2024">HSC 2024</option>
                     <option value="hsc_2023">HSC 2023</option>
                 </select>
             </div>
@@ -110,16 +101,65 @@
             
             <div id="noDataMessage" style="display:none;">Oops! No data found.</div>
         </section>
-        <div class="new-box-wrapper">
-            <div id="featuredBox" onclick="handleFeaturedClick()">
-              <div class="new-ribbon">NEW </div>
-              <div class="featured-text">
-                <div class="ssc-line">SSC</div>
-                <div class="year-line">25</div>
-              </div>
-              
-            </div>
-          </div>
+<!-- Replace existing single featuredBox block with this -->
+<div class="new-box-wrapper" id="featuredBoxes">
+  <!-- SSC years -->
+  <div class="featured-box" data-value="2025" onclick="handleFeaturedClick('2025', this)">
+    <div class="new-ribbon">NEW</div> <!-- Only SSC-25 has this -->
+    <div class="featured-text">
+      <div class="ssc-line">SSC</div>
+      <div class="year-line">25</div>
+    </div>
+  </div>
+  
+
+  <div class="featured-box" data-value="2024" onclick="handleFeaturedClick('2024', this)">
+    <div class="featured-text">
+      <div class="ssc-line">SSC</div>
+      <div class="year-line">24</div>
+    </div>
+  </div>
+
+  <div class="featured-box" data-value="2023" onclick="handleFeaturedClick('2023', this)">
+    <div class="featured-text">
+      <div class="new-ribbon">HOT</div>
+      <div class="ssc-line">SSC</div>
+      <div class="year-line">23</div>
+    </div>
+  </div>
+
+  <div class="featured-box" data-value="2022" onclick="handleFeaturedClick('2022', this)">
+    
+    <div class="featured-text">
+    
+      <div class="ssc-line">SSC</div>
+      <div class="year-line">22</div>
+    </div>
+  </div>
+
+  <!-- HSC years (note select values use 'hsc_YYYY' in your select) -->
+  <div class="featured-box" data-value="hsc_2025" onclick="handleFeaturedClick('hsc_2025', this)">
+    <div class="featured-text">
+      <div class="ssc-line">HSC</div>
+      <div class="year-line">25</div>
+    </div>
+  </div>
+
+  <div class="featured-box" data-value="hsc_2024" onclick="handleFeaturedClick('hsc_2024', this)">
+    <div class="featured-text">
+      <div class="ssc-line">HSC</div>
+      <div class="year-line">24</div>
+    </div>
+  </div>
+
+  <div class="featured-box" data-value="hsc_2023" onclick="handleFeaturedClick('hsc_2023', this)">
+    <div class="featured-text">
+      <div class="ssc-line">HSC</div>
+      <div class="year-line">23</div>
+    </div>
+  </div>
+</div>
+
           
     </main>
 
