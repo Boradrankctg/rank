@@ -156,12 +156,7 @@ textarea[id="InstituationDropdown"], select {
     box-sizing: border-box;
     margin-bottom: 0.625rem;
 }
-body.dark-mode .menu-btn{
-        color: #bbb;}
 
-body.dark-mode .search-input{
-    background-color: #000;
-        color: #bbb;}
 table {
     width: 100%;
     margin: 1.25rem 0;
@@ -446,115 +441,7 @@ body.locked {
     color: #666666;
 }
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 0;
-    background-color: #ffffff;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    z-index: 1000;
-    text-align: center;
-}
 
-.sidebar button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px;
-    font-size: 18px;
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    cursor: pointer;
-    width: 80%;
-    border-radius: 5px;
-}
-
-.sidebar button:hover {
-    background-color: #000000;
-    color: white;
-}
-
-.sidebar .settings {
-    margin-top: 20px;
-}
-
-body.dark-mode .sidebar {
-    background-color: #000;
-}
-body.dark-mode .sidebar button
-{
-    background-color: #000;
-    color: white;
-}
-body.dark-mode .sidebar button:hover
-{
-    background-color: #fffbfb;
-    color: rgb(0, 0, 0);
-}
-
-
-body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-body.dark-mode header,
-body.dark-mode footer {
-    background-color: #1f1f1f;
-}
-
-body.dark-mode .breadcrumb {
-    background-color: #000;
-}
-
-body.dark-mode .breadcrumb a {
-    color: #bbb;
-}
-
-body.dark-mode .popup {
-    border: 4px solid #ffffff;
-    background-color: rgb(0, 0, 0);
-    color: #000000;
-}
-
-body.dark-mode .popup-content {
-    text-align: left;
-    color: #ffffff;
-    font-size: 0.5rem;
-}
-
-
-
-body.dark-mode .popup-content h2 {
-    color: #2e7d32;
-
-}
-
-body.dark-mode .popup-content p {
-    color: #ffffff;
-
-}
-body.dark-mode p{
-    color: #ffffff;
-}
-body.dark-mode .group-buttons button{
-    color: #edecec;
-    background-color: rgb(14, 29, 192);
-}
-@media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        padding-top: 60px;
-    }
-
-    .sidebar button {
-        font-size: 12px;
-    }
-}
 .student-name, .student-roll, .student-school {
     cursor: pointer;
 }
@@ -566,12 +453,7 @@ body:not(.dark-mode) .student-school {
     font-weight: bolder;
 }
 
-body.dark-mode .student-name,
-body.dark-mode .student-roll,
-body.dark-mode .student-school {
-    color: white;
-    font-weight: bolder;
-}
+
 
 
 header img.home-icon {
@@ -689,9 +571,7 @@ header h2 {
     animation: fadeIn 2.25s ease-in-out;
 }
 
-.sidebar button {
-    animation: bounce 11.5s infinite;
-}
+
 #scrollToTopBtn {
   display: none;
   position: fixed;
@@ -741,16 +621,7 @@ table.top-institutions {
     background-color: #cd7f32;
     font-weight: bolder;
   }
-  
-  body.dark-mode .top-institutions th {
-    background-color: #1f1f1f;
-    color: white;
-  }
-  
-  body.dark-mode .top-institutions td {
-    background-color: #222;
-    color: #e0e0e0;
-  }
+
   
   input#InstituationDropdown[list] {
     background: url('search.png') no-repeat 10px center;
@@ -772,16 +643,7 @@ table.top-institutions {
   
   
   
-  body.dark-mode input#InstituationDropdown[list] {
-    background-color: #000;
-    color: #bbb;
-    border-color: #444;
-    padding-top: 0.625rem;
-    padding-right: 0.625rem;
-    padding-bottom: 0.625rem;
-   border: 1px solid #0061FE;
-    padding-left: 40px;  
-  }
+
   .new-box-wrapper {
     display: flex;
     justify-content: center;
@@ -839,10 +701,7 @@ table.top-institutions {
     50% { box-shadow: 0 0 25px white; }
   }
   
-  body.dark-mode #featuredBox {
-    background: radial-gradient(circle at 30% 30%, #1a1a1a, #000);
-    color: #fff;
-  }
+  
   
   @media (max-width: 768px) {
     #featuredBox {
@@ -945,15 +804,7 @@ table.top-institutions {
     background-color: #f9f9f9;
 }
 
-/* Dark mode compatibility */
-body.dark-mode .compare-table th {
-    background-color: #222;
-}
 
-body.dark-mode .compare-table td {
-    background-color: #111;
-    color: #fff;
-}
 
 .ripple {
     position: absolute;
@@ -1075,30 +926,7 @@ body.dark-mode .compare-table td {
     color: #000;
   }
   
-  /* Dark mode match */
-  body.dark-mode .popup-content {
-    background-color: #1f1f1f;
-    border-color: white;
-    color: #fff;
-  }
-  
-  body.dark-mode #reviewName,
-  body.dark-mode #reviewText {
-    background-color: #000;
-    color: #fff;
-    border-color: #444;
-  }
-  
-  body.dark-mode .review-box {
-    background-color: #000;
-    border-color: white;
-    color: white;
-  }
-  
-  body.dark-mode .reply-box {
-    background-color: #1a1a1a;
-    border-left-color: lime;
-  }
+ 
   .click-count {
     margin-left: 4px;
     font-size: 12px;
@@ -1262,14 +1090,6 @@ transform: scale(0.9);
 margin: 10px auto;
 }
 
-.sidebar {
-width: 100%;
-position: absolute;
-top: 60px;
-left: 0;
-z-index: 9999;
-background: #f0f0f0;
-}
 
 #popupWindow {
 width: 95%;
@@ -1550,11 +1370,7 @@ body.locked {
   margin-right: 8px;
 }
 
-body.dark-mode #tableHint {
-  background-color: #001f2d;
-  color: #66d9ff;
-  border-left-color: #66d9ff;
-}
+
 #selectPrompt {
   text-transform: uppercase;
   font-weight: 900;
@@ -1585,12 +1401,7 @@ body.dark-mode #tableHint {
   50% { transform: translateY(6px); }
 }
 
-body.dark-mode #selectPrompt {
-  background: linear-gradient(145deg, #b71c1c, #7f0000);
-  color: #ffcccc;
-  border-left-color: #ff5252;
-  box-shadow: 3px 3px 10px rgba(255,255,255,0.1);
-}
+
 
 
 @media (max-width: 768px) {
@@ -1614,16 +1425,7 @@ body.dark-mode #selectPrompt {
   transform: scale(1.25) rotate(-5deg);
 }
 
-body.dark-mode .icon-nav-container a,
-body.dark-mode .icon-nav-container button {
-  background: #222;
-}
 
-body.dark-mode .icon-nav-container a:hover,
-body.dark-mode .icon-nav-container button:hover {
-  background-color: #00cc66;
-  color: #fff;
-}
 .info-banner {
   font-size: 1.2rem;
   margin: 20px auto 10px;
@@ -1638,11 +1440,7 @@ body.dark-mode .icon-nav-container button:hover {
   box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
 }
 
-body.dark-mode .info-banner {
-  background-color: #333;
-  color: #fff;
-  border-left-color: #ffa500;
-}
+
 .team-container {
   display: flex;
   flex-wrap: wrap;
@@ -1696,25 +1494,7 @@ body.dark-mode .info-banner {
   margin-bottom: 15px;
 }
 
-/* Dark mode for team section */
-body.dark-mode .team-card {
-  background: #002d00;
-  border-color: #00ff99;
-  box-shadow: 0 0 12px #00ff9933;
-}
 
-body.dark-mode .team-card h2,
-body.dark-mode .team-card h3 {
-  color: #00ff99;
-}
-
-body.dark-mode .team-card p {
-  color: #b0e6b0;
-}
-
-body.dark-mode .team-img {
-  border-color: #00ff99;
-}
 .copy-result-btn,
 .copy-link-btn {
   width: 44px;
@@ -1733,4 +1513,64 @@ body.dark-mode .team-img {
   padding: 10px;
   font-size: 14px;
   border-radius: 6px;
+}
+.icon-nav-container {
+  display: flex;
+  justify-content: center; /* center them horizontally */
+  align-items: center;
+  flex-wrap: nowrap; /* no wrapping */
+  gap: 8px; /* space between buttons */
+  overflow-x: auto; /* allow scrolling if too small */
+  white-space: nowrap;
+}
+
+.icon-nav-container a,
+.icon-nav-container button {
+  flex: 1 1 auto; /* allow shrinking and growing */
+  min-width: 40px; /* minimum size for buttons */
+  text-align: center;
+}
+/* container */
+.new-box-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  animation: fadeIn 1s ease-in-out;
+  gap: 14px;
+  flex-wrap: wrap; /* allow multiple boxes on narrow screens */
+}
+
+/* featured card (used to be #featuredBox) */
+.featured-box {
+  position: relative;
+  width: min(90vw, 300px);
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  background: radial-gradient(circle at 30% 30%, #0d1117, #1c1c1c, #2e2e2e);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.featured-box:hover {
+  transform: scale(1.05) rotate(0.2deg);
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* keep same .featured-text, .ssc-line, .year-line classes as-is */
+.featured-text { z-index: 2; text-align: center; line-height: 1.1; }
+.ssc-line { font-size: 4.25rem; font-weight: 900; letter-spacing: 2px; }
+.year-line { font-size: 7.25rem; font-weight: 1000; letter-spacing: 1px; margin-top: .25rem; text-shadow: 0 0 10px rgba(255,255,255,0.2); }
+
+/* mobile tweak (replace #featuredBox in your media queries with .featured-box) */
+@media (max-width: 768px) {
+  .featured-box { font-size: 1.5rem; width: 80vw; transform: scale(0.9); margin: 10px auto; }
 }
