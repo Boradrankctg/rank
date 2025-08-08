@@ -9,12 +9,8 @@
 </head>
 <body>
   <header>
-    <a href="index.html">
-      <img src="home.png" alt="Home Icon" class="home-icon" />
-    </a>
     <h1>Chattogram Board Students' SSC & HSC Ranking</h1>
-    <h2>Designed by Hasnyne & Tasin (Chittagong College'25)</h2>
-    <span class="menu-btn" id="menuButton">&#9776;</span>
+    <h2>Designed by Hasnyne (CC'25), Tasin (CC'25)</h2>
   </header>
 <link
 rel="stylesheet"
@@ -23,15 +19,7 @@ crossorigin="anonymous"
 />
 <body>
 
-  <div class="sidebar" id="sidebar">
-    <button onclick="navigateTo('index.html')">Home</button>
-    <button onclick="navigateTo('about.html')">About</button>
-    <button onclick="navigateTo('contactus.html')">Contact Us</button>
-    <button onclick="navigateTo('review.html')">Reviews</button>
-    <div class="settings">
-      <label><input type="checkbox" id="themeToggle" onchange="toggleTheme()"> Dark Mode</label>
-    </div>
-  </div>
+  
   <div class="icon-nav-wrapper" aria-label="Quick navigation">
     <nav class="icon-nav-container">
       <a href="index.html" title="Home" aria-label="Go to Home">
@@ -49,8 +37,15 @@ crossorigin="anonymous"
       <button id="shareBtn" title="Share This Site" aria-label="Share This Site">
         <i class="fas fa-bullhorn"></i>
       </button>
+      <button id="helpBtn" title="Help & Tips" aria-label="Help & Tips">
+        <i class="fas fa-question-circle"></i>
+      </button>
     </nav>
   </div>
+  <div id="popupWindow" style="display:none;">
+    <button id="closePopup" class="close-btn">&times;</button>
+    <div class="popup-content" id="popupContent"></div>
+</div>
 
 
   <main>
