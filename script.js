@@ -8,27 +8,7 @@ const yearDropdown = document.getElementById('yearDropdown');
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.style.width = '0px';
 
-    const themeToggle = document.getElementById('themeToggle');
-    if (localStorage.getItem('theme') === 'dark') {
-        themeToggle.checked = true;
-        document.body.classList.add('dark-mode');
-    }
-
-    themeToggle.addEventListener('change', () => {
-        if (themeToggle.checked) {
-            document.body.classList.add('dark-mode');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.body.classList.remove('dark-mode');
-            localStorage.setItem('theme', 'light');
-        }
-        updateTableData();
-    });
-});
 function showRankTipsPopup() {
     const popup = document.createElement('div');
     popup.className = 'popup';
@@ -74,13 +54,16 @@ function showRankTipsPopup() {
     `;
     document.body.appendChild(popup);
     document.body.classList.add('locked');
+    
 }
+document.getElementById('helpBtn').addEventListener('click', showRankTipsPopup);
 
 function loadYear(year) {
     if (year) {
         document.getElementById("selectPrompt").style.display = "none";
 
-        document.getElementById("featuredBox")?.remove();
+        document.querySelectorAll('.featured-box').forEach(b => b.remove());
+
 
         const newUrl = `${location.pathname}?year=${year}`;
         history.pushState({}, '', newUrl);
@@ -827,7 +810,7 @@ function navigateTo(page) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const sidebar = document.getElementById('sidebar');
+    
     const menuButton = document.getElementById('menuButton');
     sidebar.style.width = '0px';
 
@@ -850,21 +833,6 @@ document.addEventListener('DOMContentLoaded', () => {
         event.stopPropagation();
     });
 
-    const themeToggle = document.getElementById('themeToggle');
-    if (localStorage.getItem('theme') === 'dark') {
-        themeToggle.checked = true;
-        document.body.classList.add('dark-mode');
-    }
-
-    themeToggle.addEventListener('change', () => {
-        if (themeToggle.checked) {
-            document.body.classList.add('dark-mode');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.body.classList.remove('dark-mode');
-            localStorage.setItem('theme', 'light');
-        }
-    });
 });
 
 function closePopup() {
@@ -1055,7 +1023,8 @@ function handleURLParams() {
 
         // Remove prompt + featuredBox if exists
         document.getElementById("selectPrompt")?.remove();
-        document.getElementById("featuredBox")?.remove();
+        document.querySelectorAll('.featured-box').forEach(b => b.remove());
+
 
         // Update breadcrumb visually
         currentYear.textContent = ` ${year}`;
@@ -1134,21 +1103,30 @@ function handleURLParams() {
     }
 }
 
-function handleFeaturedClick() {
-    const box = document.getElementById("featuredBox");
+// generic handler used by each featured box
+function handleFeaturedClick(yearValue, el) {
+    // el is the clicked element (passed via `this`) — fallback to query selector if not provided
+    const box = el || document.querySelector(`.featured-box[data-value="${yearValue}"]`);
+    if (!box) return;
+  
+    // animate hide (same visual behaviour as original)
     box.style.transition = "all 0.4s ease";
     box.style.opacity = "0";
     box.style.transform = "scale(0.9)";
   
     setTimeout(() => {
       box.style.display = "none";
-      const year = "2025";
+  
+      // set dropdown and load
       const dropdown = document.getElementById("yearDropdown");
-      dropdown.value = year;
-      loadYear(year);
-      dropdown.style.display = "none";
+      if (dropdown) {
+        dropdown.value = yearValue;
+        dropdown.style.display = 'none';
+      }
+      loadYear(yearValue);
     }, 400);
   }
+  
   // Add at the end of script.js
 
   function showSharePopup() {
