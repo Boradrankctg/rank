@@ -40,6 +40,11 @@ h2 {
 }
 
 
+h3 {
+  font-size: 1.25rem;
+  color: #1a1919;
+  padding: 5px;
+}
 
 main {
     text-align: center;
@@ -449,7 +454,7 @@ body.locked {
 body:not(.dark-mode) .student-name,
 body:not(.dark-mode) .student-roll,
 body:not(.dark-mode) .student-school {
-    color: indigo;
+    color: rgb(0, 0, 0);
     font-weight: bolder;
 }
 
@@ -681,9 +686,10 @@ table.top-institutions {
   }
   
   .new-ribbon {
+    
     position: absolute;
     top: 12px;
-    left: -40px;
+    left: -50px;
     transform: rotate(-45deg);
     background: #ff0055;
     color: white;
@@ -694,6 +700,7 @@ table.top-institutions {
     box-shadow: 0 0 12px rgba(255, 0, 85, 0.7);
     animation: pulseGlow 1.8s infinite ease-in-out;
     z-index: 5;
+    
   }
   
   @keyframes pulseGlow {
@@ -1573,4 +1580,129 @@ body.locked {
 /* mobile tweak (replace #featuredBox in your media queries with .featured-box) */
 @media (max-width: 768px) {
   .featured-box { font-size: 1.5rem; width: 80vw; transform: scale(0.9); margin: 10px auto; }
+}
+.popup-footer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.footer-btn {
+  background: rgba(1, 196, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  color: #000000 !important;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.footer-btn i {
+  font-size: 1rem;
+}
+
+.footer-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+/* Style for 'Compare with Other Student' & 'Watch SSC Result' buttons */
+button[onclick^="promptComparison"],
+button[onclick^="showSSCResultFromHSC"] {
+    background-color: #fff9c4 !important; /* pale yellow */
+    color: #000 !important;               /* black text */
+    border: 1px solid #f0e68c !important;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Add emoji before text */
+button[onclick^="promptComparison"]::before {
+    content: "⚖ "; /* comparison emoji */
+}
+
+button[onclick^="showSSCResultFromHSC"]::before {
+    content: "📜 "; /* scroll/paper emoji for result */
+}
+
+button[onclick^="promptComparison"]:hover,
+button[onclick^="showSSCResultFromHSC"]:hover {
+    background-color: #fff59d !important; /* slightly deeper yellow on hover */
+}
+/* ==============================
+   HIGHLIGHT: Student Name & Board Rank
+   Paste at the END of styles.css
+   ============================== */
+
+/* Feature A — Student name (first <p> inside popup-content) */
+
+
+/* Feature B — Board rank (5th <p> inside popup-content) */
+.popup .popup-content p.board-rank,
+.popup .popup-content > p:nth-of-type(5) {
+  background-color: #e1db2b !important; /* cool light green */
+  color: #000 !important;                /* black text */
+  padding: 6px 10px !important;
+  border-radius: 8px !important;
+  display: inline-block !important;
+  font-weight: 800 !important;
+  box-shadow: 0 6px 18px rgba(34,150,34,0.06) !important;
+  margin: 6px 0 10px 0 !important;
+  line-height: 1.2 !important;
+}
+
+/* small responsive tweak: make them full-width on tiny screens so they don't overflow */
+@media (max-width: 420px) {
+  .popup .popup-content p.student-name,
+  .popup .popup-content > p:nth-of-type(1),
+  .popup .popup-content p.board-rank,
+  .popup .popup-content > p:nth-of-type(5) {
+    display: block !important;
+    width: calc(100% - 24px) !important;
+  }
+}
+
+
+table {
+  font-family: 'Poppins', 'Segoe UI', sans-serif; /* modern, eye-catching font */
+  font-weight: bold; /* make all table text bold */
+  color: #000; /* black text */
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: #ffffff; /* very pale banana yellow, subtle */
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #e0f7fa; /* very pale cyan, soft */
+}
+@keyframes colorShift {
+  0% {
+    background-color: #fffbe6; /* light banana */
+  }
+  25% {
+    background-color: #e0f7fa; /* light cyan */
+  }
+  50% {
+    background-color: #ffebee; /* light red */
+  }
+  75% {
+    background-color: #fef9e7; /* pale yellow */
+  }
+  100% {
+    background-color: #fffbe6;
+  }
+}
+
+table tbody tr {
+  animation: colorShift 10s infinite alternate;
 }
