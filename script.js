@@ -184,9 +184,12 @@ function fetchData(year, group) {
 
 
 
+// Check once when the page loads if they already filled the form
+let visitorInfoCompleted = localStorage.getItem('visitorInfoGiven') === '1';
 
 
 function showIndividualResultWithCheck(roll, year, group) {
+  
   // Skip check for direct URL (when ?roll= in link)
   const params = new URLSearchParams(window.location.search);
   if (params.has('roll') && params.get('roll') == roll) {
@@ -199,10 +202,11 @@ function showIndividualResultWithCheck(roll, year, group) {
     return showIndividualResult(roll, year, group);
   }
 
-  // Already filled info? Skip form
-  if (localStorage.getItem('visitorInfoGiven') === '1') {
-    return showIndividualResult(roll, year, group);
-  }
+// Already filled info? Skip form
+if (visitorInfoCompleted) {
+  return showIndividualResult(roll, year, group);
+}
+
 
   // Show visitor form in same popup style
   const popup = document.createElement('div');
@@ -251,6 +255,8 @@ function showIndividualResultWithCheck(roll, year, group) {
   
     // Save so form never shows again
     localStorage.setItem('visitorInfoGiven', '1');
+    visitorInfoCompleted = true; // so it works immediately without reload
+
   
     // Store in Firebase
     import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js").then(dbLib => {
@@ -618,6 +624,7 @@ function animateProgressBar(id, targetPercentage) {
 
 
 function showIndividualResult(roll, year, group) {
+  
     if (document.querySelector('.popup')) return; // Prevent multiple popups
 
     const fileName = `data_${year}_${group.toLowerCase()}_individual.txt`;
@@ -751,7 +758,10 @@ function showIndividualResult(roll, year, group) {
             popup.innerHTML = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
             document.body.appendChild(popup);
             document.body.classList.add('locked'); 
+            
         });
+        
+        
 }
 function copyFullResult(btn) {
     const popup = btn.closest('.popup-content');
@@ -1306,7 +1316,14 @@ function handleFeaturedClick(yearValue, el) {
     document.body.appendChild(popup);
     document.body.classList.add('locked');
 }
-setTimeout(showSharePopup, 150000);
+// At top of your script
+if (!localStorage.getItem('sharePopupShown')) {
+  setTimeout(() => {
+      showSharePopup();
+      localStorage.setItem('sharePopupShown', '1');
+  }, 150000);
+}
+
 document.getElementById('shareBtn').addEventListener('click', showSharePopup);
 
 
@@ -1760,3 +1777,137 @@ setTimeout(() => {
         });
     }
 }, 300); // 0.3s delay so elements are rendered
+/* === Paste this at the END of your script.js / all merged.txt === */
+(function(){
+  if (window.__br_popupFixInstalled) return;
+  window.__br_popupFixInstalled = true;
+
+  // Remember scroll position right before user interacts
+  let lastScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+  let lastPointerTime = 0;
+  function saveScroll() {
+    lastScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    lastPointerTime = Date.now();
+  }
+  document.addEventListener('pointerdown', saveScroll, {capture:true});
+  document.addEventListener('touchstart', saveScroll, {capture:true});
+
+  // If a sudden jump-to-top happens right after an interaction, restore previous scroll
+  window.addEventListener('scroll', function() {
+    try {
+      if (Date.now() - lastPointerTime < 350 && Math.abs(window.scrollY) < 6 && lastScrollY > 50) {
+        // schedule to avoid fighting native scrolling
+        setTimeout(() => { window.scrollTo(0, lastScrollY); }, 0);
+      }
+    } catch(e){}
+  }, {passive:true});
+
+  // Observe DOM for any added .popup nodes: make them fixed overlays and reset popup-content scrollTop
+  const mo = new MutationObserver(function(muts){
+    for (const m of muts) {
+      for (const node of m.addedNodes) {
+        if (node.nodeType === 1 && node.classList.contains('popup')) {
+          // restore page scroll (so popup addition won't leave user at top)
+          requestAnimationFrame(() => window.scrollTo(0, lastScrollY));
+          // make the popup act like a centered fixed overlay (minimizes layout reflow)
+          Object.assign(node.style, {
+            position: node.style.position || 'fixed',
+            inset: node.style.inset || '0',
+            display: node.style.display || 'flex',
+            alignItems: node.style.alignItems || 'center',
+            justifyContent: node.style.justifyContent || 'center',
+            zIndex: node.style.zIndex || '99999',
+            overflow: node.style.overflow || 'auto'
+          });
+          const content = node.querySelector('.popup-content');
+          if (content) content.scrollTop = 0;
+        }
+      }
+    }
+  });
+  mo.observe(document.body, { childList: true, subtree: true });
+
+  // Non-destructive monkey-patch of history.pushState:
+  // when pushState(url) contains ?roll=..., we tag the state with __brModal:true
+  const _origPush = window.__br_origPushState || history.pushState;
+  if (!window.__br_origPushState) window.__br_origPushState = _origPush;
+  history.pushState = function(state, title, url) {
+    try {
+      const isModalUrl = typeof url === 'string' && /[?&]roll=/.test(url);
+      if (isModalUrl) {
+        const newState = Object.assign({}, state || {}, { __brModal: true });
+        return _origPush.call(history, newState, title, url);
+      }
+    } catch(e){}
+    return _origPush.apply(history, arguments);
+  };
+
+  // helper that closes popup while restoring scroll
+  function _closePopupIfOpen() {
+    const popup = document.querySelector('.popup');
+    if (!popup) return false;
+    if (typeof closePopup === 'function') {
+      try { closePopup(); } catch(e) { popup.remove(); document.body.classList.remove('locked'); }
+    } else {
+      popup.remove(); document.body.classList.remove('locked');
+    }
+    requestAnimationFrame(() => window.scrollTo(0, lastScrollY));
+    return true;
+  }
+
+  // When user hits Back (popstate), if a popup is open, close it instead of the user feeling they left the page
+  window.addEventListener('popstate', function(ev){
+    if (document.querySelector('.popup')) {
+      _closePopupIfOpen();
+    }
+  });
+
+  // If page loaded directly with ?roll=... and popup exists, make sure current history state is tagged
+  try {
+    if (/[?&]roll=/.test(location.search) && document.querySelector('.popup')) {
+      history.replaceState(Object.assign({}, history.state || {}, { __brModal: true }), '', location.href);
+    }
+  } catch(e){}
+
+  // expose a small API for debugging
+  window.__br_popupFix = {
+    getLastScroll: () => lastScrollY,
+    disconnect: () => mo.disconnect()
+  };
+})();
+// Back button closes popup instead of navigating away
+window.addEventListener('popstate', function () {
+  const popup = document.querySelector('.popup');
+  if (popup) {
+      if (typeof closePopup === 'function') {
+          closePopup();
+      } else {
+          popup.remove();
+          document.body.classList.remove('locked');
+      }
+  }
+});
+(function() {
+  let lastScrollY = 0;
+
+  // Capture scroll before a popup opens
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('td'); // your table cell click
+    if (!target) return;
+    lastScrollY = window.scrollY || document.documentElement.scrollTop;
+  }, true);
+
+  // Restore scroll immediately after any popup is added
+  const mo = new MutationObserver(function(mutations) {
+    for (const m of mutations) {
+      for (const node of m.addedNodes) {
+        if (node.nodeType === 1 && node.classList.contains('popup')) {
+          requestAnimationFrame(() => {
+            window.scrollTo(0, lastScrollY);
+          });
+        }
+      }
+    }
+  });
+  mo.observe(document.body, { childList: true, subtree: true });
+})();
