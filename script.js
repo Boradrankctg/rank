@@ -1842,3 +1842,4 @@ setTimeout(() => {
       });
   }
 }, 300); // 0.3s delay so elements are rendered
+
