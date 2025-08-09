@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visitors • BoardRankCTG</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+</head>
+<body>
+  <header>
+    <h1>All Visitors</h1>
+    <h2>Chattogram Board Students' SSC & HSC Ranking</h2>
+  </header>
+
+  <main style="max-width: 900px; margin: auto;">
+    <table border="1" style="width:100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Source</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="visitorsContainer"></tbody>
+    </table>
+  </main>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getDatabase, ref, onValue, remove } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
+      authDomain: "boardrankctg.firebaseapp.com",
+      databaseURL: "https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "boardrankctg",
+      storageBucket: "boardrankctg.firebasestorage.app",
+      messagingSenderId: "751761229963",
+      appId: "1:751761229963:web:43f9dbf71feef6dc9cec8e",
+      measurementId: "G-3Y6J44NWNH"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+  
+    const ADMIN_ID = "admin1234";
+    const userId = localStorage.getItem("userId");
+  
+    if (userId !== ADMIN_ID) {
+      document.body.innerHTML = "<h2 style='text-align:center;color:red;'>Access Denied</h2>";
+      throw new Error("Not admin");
+    }
+  
+    const container = document.getElementById("visitorsContainer");
+    const visitorsRef = ref(db, "visitors");
+  
+    onValue(visitorsRef, (snapshot) => {
+      container.innerHTML = "";
+      const visitors = snapshot.val() || {};
+      Object.entries(visitors).reverse().forEach(([id, visitor]) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${visitor.name}</td>
+          <td>${visitor.type}</td>
+          <td>${visitor.source}</td>
+          <td>${new Date(visitor.timestamp).toLocaleString()}</td>
+          <td><button onclick="deleteVisitor('${id}')">🗑️ Delete</button></td>
+        `;
+        container.appendChild(tr);
+      });
+    });
+  
+    // ✅ Delete function
+    window.deleteVisitor = function(id) {
+      if (confirm("Delete this visitor entry?")) {
+        remove(ref(db, `visitors/${id}`))
+          .then(() => console.log(`Deleted visitor: ${id}`))
+          .catch(err => console.error("Error deleting visitor:", err));
+      }
+    };
+  </script>
+  
+</body>
+</html>
