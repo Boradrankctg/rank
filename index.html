@@ -67,6 +67,10 @@
         <button id="helpBtn" title="Help & Tips" aria-label="Help & Tips">
           <i class="fas fa-question-circle"></i>
         </button>
+        <a href="visitors.html" id="visitorsLink" title="Visitors" aria-label="Visitors">
+          <i class="fas fa-users"></i>
+        </a>
+        
   
       </nav>
     </div>
@@ -196,6 +200,49 @@
       
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
+        // Make sure db and helpers are available globally
+window.db = db; // expose the same db instance to non-module scripts
+
+// local cache to speed up admin display
+window.clickCountsCache = {};
+window._br_clickListenerSet = new Set();
+
+// Increment click count in Firebase
+window.incrementClickCount = function(roll) {
+  if (!window.db) {
+    console.error("DB not ready for incrementClickCount");
+    return;
+  }
+  try {
+    const clickRef = ref(window.db, `clickCounts/${roll}`);
+    runTransaction(clickRef, (count) => {
+      return (count || 0) + 1;
+    }).catch(err => console.error('incrementClickCount error', err));
+  } catch (e) {
+    console.error('incrementClickCount exception', e);
+  }
+};
+
+// Listen for click count changes in Firebase
+window.listenClickCount = function(roll, cb) {
+  if (!window.db) {
+    console.error("DB not ready for listenClickCount");
+    cb(0);
+    return;
+  }
+  try {
+    const clickRef = ref(window.db, `clickCounts/${roll}`);
+    onValue(clickRef, (snap) => {
+      const val = snap.val() || 0;
+      window.clickCountsCache[roll] = val;
+      cb(val);
+    });
+  } catch (e) {
+    console.error('listenClickCount exception', e);
+    cb(0);
+  }
+};
+
       
         let userId = localStorage.getItem("userId");
         if (!userId) {
@@ -325,6 +372,40 @@
       setTimeout(showFirstVisitHint, 200);
     }
   };
+  // ---------- click-count helpers (paste into index.html module script) ----------
+window.clickCountsCache = {};            // local in-page cache
+window._br_clickListenerSet = new Set(); // to avoid duplicate onValue listeners
+
+window.incrementClickCount = function(roll) {
+  try {
+    // uses runTransaction which is already imported in this module
+    runTransaction(ref(db, `clickCounts/${roll}`), (count) => (count || 0) + 1)
+      .catch(err => console.error('incrementClickCount error', err));
+  } catch (e) {
+    console.error('incrementClickCount exception', e);
+  }
+};
+
+window.listenClickCount = function(roll, cb) {
+  try {
+    // attach realtime listener; update local cache and invoke callback
+    const r = ref(db, `clickCounts/${roll}`);
+    onValue(r, (snap) => {
+      const val = snap.val() || 0;
+      window.clickCountsCache[roll] = val;
+      try { cb(val); } catch(e){ console.error('listen cb error', e); }
+    }, (err) => {
+      console.error('listenClickCount onValue error', err);
+      try { cb(0); } catch(e) {}
+    });
+  } catch (e) {
+    console.error('listenClickCount exception', e);
+    try { cb(0); } catch(e) {}
+  }
+};
+// -------------------------------------------------------------------------------
+
+  
   </script>
   
 </html>
