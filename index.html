@@ -62,13 +62,12 @@
         </a>
         <a href="review.html" title="Reviews" aria-label="See Reviews">
           <i class="fas fa-star-half-stroke"></i>
+          
         </a>
-        <button id="shareBtn" title="Share This Site" aria-label="Share This Site">
-          <i class="fas fa-bullhorn"></i>
-        </button>
         <button id="helpBtn" title="Help & Tips" aria-label="Help & Tips">
           <i class="fas fa-question-circle"></i>
         </button>
+  
       </nav>
     </div>
   
@@ -139,6 +138,7 @@
 
   <!-- HSC years (note select values use 'hsc_YYYY' in your select) -->
   <div class="featured-box" data-value="hsc_2025" onclick="handleFeaturedClick('hsc_2025', this)">
+    <div class="new-ribbon">SOON</div>
     <div class="featured-text">
       <div class="ssc-line">HSC</div>
       <div class="year-line">25</div>
@@ -163,6 +163,8 @@
           
     </main>
 
+
+    
     <div id="popupWindow" style="display:none;">
         <button id="closePopup" class="close-btn">&times;</button>
         <div class="popup-content" id="popupContent"></div>
@@ -244,4 +246,85 @@
     </footer>
   
 </body>
+<style>
+  #firstVisitHint {
+    position: absolute;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    animation: floatY 1s ease-in-out infinite;
+    pointer-events: none;
+  }
+  #firstVisitHint img {
+    width: 40px;
+    height: 40px;
+    animation: wiggle 0.8s infinite;
+  }
+  #firstVisitHint .bubble {
+    background: #fff;
+    color: #222;
+    border: 2px solid #333;
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 13px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    white-space: nowrap;
+  }
+  @keyframes wiggle {
+    0%,100% { transform: rotate(0deg); }
+    25% { transform: rotate(8deg); }
+    75% { transform: rotate(-8deg); }
+  }
+  @keyframes floatY {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  </style>
+  
+  <script>
+  function showFirstVisitHint() {
+    if (localStorage.getItem('nameClickHintShown')) return;
+  
+    const firstNameCell = document.querySelector('.student-name');
+    if (!firstNameCell) return;
+  
+    const hint = document.createElement('div');
+    hint.id = 'firstVisitHint';
+    hint.innerHTML = `
+      <img src="https://img.icons8.com/emoji/48/backhand-index-pointing-left-light-skin-tone.png" alt="👈">
+      <div class="bubble">Click a student's name<br>for detailed results</div>
+    `;
+    document.body.appendChild(hint);
+  
+    function positionHint() {
+      const rect = firstNameCell.getBoundingClientRect();
+      hint.style.top = `${rect.top + window.scrollY + 5}px`;
+      hint.style.left = `${rect.right + window.scrollX - 20}px`; // moved left
+    }
+  
+    positionHint();
+    window.addEventListener('resize', positionHint);
+    window.addEventListener('scroll', positionHint);
+  
+    document.body.addEventListener('click', function handler(e) {
+      if (e.target.classList.contains('student-name')) {
+        hint.remove();
+        localStorage.setItem('nameClickHintShown', '1');
+        document.body.removeEventListener('click', handler);
+      }
+    }, true);
+  }
+  
+  // Show only after table is populated
+  const originalUpdateTableData = updateTableData;
+  updateTableData = function() {
+    originalUpdateTableData.apply(this, arguments);
+    if (!document.getElementById('firstVisitHint')) {
+      setTimeout(showFirstVisitHint, 200);
+    }
+  };
+  </script>
+  
 </html>
