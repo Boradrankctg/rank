@@ -521,6 +521,7 @@ function showIndividualResult(roll, year, group) {
                     } else {
                         const [roll, bangla, english, ICT, physics, chemistry, compulsory, optional] = parts;
                         const student = allData.find(student => student.roll === parseInt(roll));
+              
                         const combinedRank = allData.findIndex(student => student.roll === parseInt(roll)) + 1;
                         popupContent = `
                             <div class="popup-content">
@@ -539,11 +540,18 @@ function showIndividualResult(roll, year, group) {
                                 <p>Optional: ${optional} ${getProgressBarHtml(optional, 200)}</p>
                                 <button onclick='promptComparison(${student.roll}, "${year}", "${group}")'>Compare with Other Student</button>
                                 <button onclick="showSSCResultFromHSC('${student.name}', '${group.toLowerCase()}')">Watch SSC Result</button>
-                          
-<div class="popup-footer" style="display: flex; gap: 12px; margin-top: 20px;">
-  <button onclick="copyFullResult(this)" class="copy-result-btn" aria-label="Copy full result">📄</button>
-   <button class="back-button" onclick="closePopup()">Back</button>
-  <button onclick="copyStudentResultLink(this)" class="copy-link-btn" aria-label="Copy result link">🔗</button>
+<div class="popup-footer">
+  <button onclick="copyFullResult(this)" class="icon-btn footer-btn" title="Copy Result">
+    <i class="fas fa-copy"></i>
+  </button>
+  <button onclick="closePopup()" class="icon-btn footer-btn" title="Close">
+    <i class="fas fa-times"></i>
+  </button>
+  <button onclick="copyStudentResultLink(this)" class="icon-btn footer-btn" title="Copy Link">
+    <i class="fas fa-link"></i>
+  </button>
+</div>
+
                         `;
                     }
                 } else {
@@ -575,12 +583,18 @@ function showIndividualResult(roll, year, group) {
                                 <p>Career: ${Career} ${getProgressBarHtml(Career, 50)}</p>
                               <button onclick='promptComparison(${student.roll}, "${year}", "${group}")'>Compare with Other Student</button>
 
-<div class="popup-footer" style="display: flex; gap: 12px; margin-top: 20px;">
-  <button onclick="copyFullResult(this)" class="copy-result-btn" aria-label="Copy full result">📄</button>
-   <button class="back-button" onclick="closePopup()">Back</button>
-  <button onclick="copyStudentResultLink(this)" class="copy-link-btn" aria-label="Copy result link">🔗</button>
+<div class="popup-footer">
+  <button onclick="copyFullResult(this)" class="icon-btn footer-btn" title="Copy Result">
+    <i class="fas fa-copy"></i>
+  </button>
+  <button onclick="closePopup()" class="icon-btn footer-btn" title="Close">
+    <i class="fas fa-times"></i>
+  </button>
+  <button onclick="copyStudentResultLink(this)" class="icon-btn footer-btn" title="Copy Link">
+    <i class="fas fa-link"></i>
+  </button>
+</div>
 
-                               
                             
                         `;
                     }
@@ -1577,3 +1591,254 @@ function _br_normalizeName(s) {
     document.body.appendChild(popup);
     document.body.classList.add('locked');
 }
+function applyRankThemeToPopup(rank) {
+  const popup = document.querySelector('.popup .popup-content');
+  if (!popup) return;
+
+  let bgColor = '', textColor = '#fff', btnColor = '';
+  if (rank <= 1000) {
+      bgColor = 'linear-gradient(135deg, #FFD700, #FFC107)'; // gold
+      btnColor = '#b8860b';
+  } else if (rank <= 10000) {
+      bgColor = 'linear-gradient(135deg, #C0C0C0, #A9A9A9)'; // silver
+      btnColor = '#555';
+  } else {
+      bgColor = 'linear-gradient(135deg, #cd7f32, #8b4513)'; // bronze
+      btnColor = '#4b2e1a';
+  }
+
+  popup.style.background = bgColor;
+  popup.style.color = textColor;
+  popup.style.borderRadius = '10px';
+  popup.style.boxShadow = '0 0 15px rgba(0,0,0,0.3)';
+
+  // Update all buttons inside popup to match theme
+  popup.querySelectorAll('button').forEach(btn => {
+      btn.style.backgroundColor = btnColor;
+      btn.style.color = '#fff';
+      btn.style.border = 'none';
+      btn.style.borderRadius = '5px';
+  });
+
+  // Update headings or highlights
+  popup.querySelectorAll('h2, h3, p strong').forEach(el => {
+      el.style.color = textColor;
+  });
+}
+/* popup-rank-themer.js
+   Place this after your main script (or paste at the end of script.js).
+   It auto-themes any .popup created on the page based on "Board Rank: N".
+*/
+(function initPopupRankThemer(){
+  const THEMES = {
+    gold: {
+      popupBg: 'linear-gradient(135deg,#fff8e1 0%, #ffd700 100%)',
+      contentBg: 'linear-gradient(180deg, rgba(255,230,150,0.12), rgba(255,215,0,0.04))',
+      border: '3px solid #d4af37',
+      boxShadow: '0 12px 40px rgba(212,175,55,0.48)',
+      color: '#2b1b00',
+      buttonBg: '#d4af37',
+      buttonColor: '#1b0f00',
+      progressColor: '#b8860b'
+    },
+    silver: {
+      popupBg: 'linear-gradient(135deg,#f6f7f8 0%, #d7d7d7 100%)',
+      contentBg: 'linear-gradient(180deg, rgba(200,200,200,0.08), rgba(220,220,220,0.03))',
+      border: '3px solid #a0a0a0',
+      boxShadow: '0 12px 40px rgba(150,150,150,0.35)',
+      color: '#222',
+      buttonBg: '#9e9e9e',
+      buttonColor: '#fff',
+      progressColor: '#8e8e8e'
+    },
+    bronze: {
+      popupBg: 'linear-gradient(135deg,#f3e6dd 0%, #b87333 100%)',
+      contentBg: 'linear-gradient(180deg, rgba(184,115,51,0.08), rgba(184,115,51,0.03))',
+      border: '3px solid #8b5a2b',
+      boxShadow: '0 12px 40px rgba(139,90,43,0.45)',
+      color: '#2e1b0f',
+      buttonBg: '#8b5a2b',
+      buttonColor: '#fff',
+      progressColor: '#7a4725'
+    }
+  };
+
+  // helper to set inline style with !important
+  function setStyleImportant(el, prop, value) {
+    if (!el) return;
+    el.style.setProperty(prop, value, 'important');
+  }
+
+  function applyThemeToPopup(popupEl, themeName) {
+    const t = THEMES[themeName];
+    if (!t || !popupEl) return;
+
+    // mark themed
+    popupEl.dataset.rankThemed = themeName;
+
+    // outer popup element
+    setStyleImportant(popupEl, 'background', t.popupBg);
+    setStyleImportant(popupEl, 'border', t.border);
+    setStyleImportant(popupEl, 'box-shadow', t.boxShadow);
+    setStyleImportant(popupEl, 'color', t.color);
+    setStyleImportant(popupEl, 'border-radius', '12px');
+    setStyleImportant(popupEl, 'padding', '18px');
+
+    // inner content (some popups put styles on .popup-content)
+    const content = popupEl.querySelector('.popup-content') || popupEl;
+    setStyleImportant(content, 'background', t.contentBg);
+    setStyleImportant(content, 'color', t.color);
+    setStyleImportant(content, 'padding', '14px');
+    setStyleImportant(content, 'border-radius', '10px');
+
+    // close button if present
+    const closeBtn = content.querySelector('.close-btn');
+    if (closeBtn) {
+      setStyleImportant(closeBtn, 'background', '#fff');
+      setStyleImportant(closeBtn, 'color', t.buttonColor);
+      setStyleImportant(closeBtn, 'border', 'none');
+      setStyleImportant(closeBtn, 'width', '34px');
+      setStyleImportant(closeBtn, 'height', '34px');
+      setStyleImportant(closeBtn, 'border-radius', '50%');
+      setStyleImportant(closeBtn, 'box-shadow', '0 4px 10px rgba(0,0,0,0.12)');
+    }
+
+    // style all normal buttons inside popup
+    content.querySelectorAll('button, .icon-btn, .back-button').forEach(btn => {
+      setStyleImportant(btn, 'background', t.buttonBg);
+      setStyleImportant(btn, 'color', t.buttonColor);
+      setStyleImportant(btn, 'border', 'none');
+      setStyleImportant(btn, 'padding', '8px 12px');
+      setStyleImportant(btn, 'border-radius', '8px');
+      setStyleImportant(btn, 'cursor', 'pointer');
+    });
+
+    // style progress bars inside popup
+    content.querySelectorAll('.progress-bar').forEach(pb => {
+      setStyleImportant(pb, 'background-color', t.progressColor);
+      setStyleImportant(pb, 'color', '#fff');
+    });
+
+    // highlight the first p (name) and 5th p (board rank) if present
+    try {
+      const ps = Array.from(content.querySelectorAll('p'));
+      if (ps[0]) {
+        setStyleImportant(ps[0], 'background-color', 'rgba(255,255,255,0.15)');
+        setStyleImportant(ps[0], 'padding', '6px 10px');
+        setStyleImportant(ps[0], 'border-radius', '8px');
+        setStyleImportant(ps[0], 'display', 'inline-block');
+      }
+      if (ps[4]) {
+        setStyleImportant(ps[4], 'background-color', 'rgba(255,255,255,0.10)');
+        setStyleImportant(ps[4], 'padding', '6px 10px');
+        setStyleImportant(ps[4], 'border-radius', '8px');
+        setStyleImportant(ps[4], 'display', 'inline-block');
+      }
+    } catch(e){}
+  }
+
+  // extract Board Rank number from popup text
+  function getRankFromPopup(popupEl) {
+    if (!popupEl) return null;
+    const txt = (popupEl.innerText || popupEl.textContent || '').replace(/\u00A0/g,' ');
+    // try common patterns
+    const m = txt.match(/Board\s*Rank[:\s#-]*\s*(\d{1,7})/i) || txt.match(/\bRank[:\s#-]*\s*(\d{1,7})\b/i);
+    if (m) return parseInt(m[1], 10);
+    // fallback: search p elements for digits
+    const pNodes = popupEl.querySelectorAll('p');
+    for (let p of pNodes) {
+      const mm = (p.textContent || '').match(/(\d{1,7})/);
+      if (mm) {
+        // only accept if surrounding text includes 'rank' or 'board'
+        const ctx = (p.textContent || '').toLowerCase();
+        if (ctx.includes('rank') || ctx.includes('board')) return parseInt(mm[1],10);
+      }
+    }
+    return null;
+  }
+
+  function handleNewPopup(popupEl) {
+    if (!popupEl || popupEl.dataset.rankThemed) return;
+    // small delay to allow innerHTML to be populated
+    setTimeout(() => {
+      const rank = getRankFromPopup(popupEl);
+      let theme = 'bronze';
+      if (rank !== null && !isNaN(rank)) {
+        if (rank <= 1000) theme = 'gold';
+        else if (rank <= 10000) theme = 'silver';
+        else theme = 'bronze';
+      } else {
+        // no rank found — default neutral (silver)
+        theme = 'silver';
+      }
+      applyThemeToPopup(popupEl, theme);
+    }, 30);
+  }
+
+  // Observe DOM for added popups and subtree changes
+  const observer = new MutationObserver(muts => {
+    for (const m of muts) {
+      // nodes added (new popup elements)
+      m.addedNodes && m.addedNodes.forEach(node => {
+        if (!(node instanceof HTMLElement)) return;
+        if (node.classList && node.classList.contains('popup')) {
+          handleNewPopup(node);
+        } else {
+          // maybe popup nested inside a fragment
+          const p = node.querySelector && node.querySelector('.popup');
+          if (p) handleNewPopup(p);
+        }
+      });
+      // sometimes content inside an existing popup changes (e.g., loader -> content)
+      if (m.type === 'childList' && m.target instanceof HTMLElement) {
+        const anc = m.target.closest && m.target.closest('.popup');
+        if (anc) handleNewPopup(anc);
+      }
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // initial scan of existing popups
+  document.querySelectorAll('.popup').forEach(p => handleNewPopup(p));
+
+  // expose for debugging if you want to call manually
+  window.__BR_rankThemer = { applyThemeToPopup, getRankFromPopup, observer };
+
+})();
+// Delay to ensure table cells are in the DOM
+setTimeout(() => {
+  const firstNameCell = document.querySelector('.student-name');
+  if (firstNameCell) {
+      const hand = document.createElement('div');
+      hand.id = 'clickHand';
+      hand.innerHTML = '👉';
+      document.body.appendChild(hand);
+
+      const text = document.createElement('div');
+      text.id = 'clickHandText';
+      text.innerText = 'Click here for detailed result';
+      document.body.appendChild(text);
+
+      function positionHand() {
+          const r = firstNameCell.getBoundingClientRect();
+          hand.style.position = 'absolute';
+          hand.style.top = (window.scrollY + r.top - 5) + 'px';
+          hand.style.left = (window.scrollX + r.right + 8) + 'px';
+
+          text.style.position = 'absolute';
+          text.style.top = (window.scrollY + r.top - 28) + 'px';
+          text.style.left = (window.scrollX + r.right + 40) + 'px';
+      }
+      positionHand();
+      window.addEventListener('scroll', positionHand);
+      window.addEventListener('resize', positionHand);
+
+      firstNameCell.addEventListener('click', () => {
+          hand.remove();
+          text.remove();
+          window.removeEventListener('scroll', positionHand);
+          window.removeEventListener('resize', positionHand);
+      });
+  }
+}, 300); // 0.3s delay so elements are rendered
