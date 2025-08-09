@@ -182,6 +182,104 @@ function fetchData(year, group) {
     });
 }
 
+
+
+
+
+function showIndividualResultWithCheck(roll, year, group) {
+  // Skip check for direct URL (when ?roll= in link)
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('roll') && params.get('roll') == roll) {
+    return showIndividualResult(roll, year, group);
+  }
+
+  // First free view
+  if (!localStorage.getItem('detailedResultSeen')) {
+    localStorage.setItem('detailedResultSeen', '1');
+    return showIndividualResult(roll, year, group);
+  }
+
+  // Already filled info? Skip form
+  if (localStorage.getItem('visitorInfoGiven') === '1') {
+    return showIndividualResult(roll, year, group);
+  }
+
+  // Show visitor form in same popup style
+  const popup = document.createElement('div');
+  popup.classList.add('popup');
+  popup.innerHTML = `
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h3 style="margin-bottom:10px;">🔍 Before continuing...</h3>
+      <p>Please tell us a bit about you to access all detailed results.</p>
+      <label>Name:<br>
+        <input type="text" id="visitorName" placeholder="Your name" style="width:100%;margin-top:4px;">
+      </label><br><br>
+      <label>Type:<br>
+        <select id="visitorType" style="width:100%;margin-top:4px;">
+          <option value="">Select ...</option>
+          <option>SSC</option>
+          <option>HSC</option>
+          <option>Others</option>
+        </select>
+      </label><br><br>
+      <label>How did you find us?<br>
+        <select id="visitorSource" style="width:100%;margin-top:4px;">
+          <option value="">Select ...</option>
+          <option>WhatsApp group</option>
+          <option>Facebook group</option>
+          <option>Friend</option>
+          <option>Facebook post</option>
+          <option>Others</option>
+        </select>
+      </label><br><br>
+      <button id="submitVisitorInfo" style="width:100%;">Submit</button>
+    </div>
+  `;
+  document.body.appendChild(popup);
+  document.body.classList.add('locked');
+
+  document.getElementById('submitVisitorInfo').addEventListener('click', () => {
+    const name = document.getElementById('visitorName').value.trim();
+    const type = document.getElementById('visitorType').value;
+    const source = document.getElementById('visitorSource').value;
+  
+    if (!name || !type || !source) {
+      alert('Please fill all fields.');
+      return;
+    }
+  
+    // Save so form never shows again
+    localStorage.setItem('visitorInfoGiven', '1');
+  
+    // Store in Firebase
+    import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js").then(dbLib => {
+      const { getDatabase, ref, push, set } = dbLib;
+      const db = getDatabase();
+      const userId = localStorage.getItem("userId") || crypto.randomUUID();
+      localStorage.setItem("userId", userId);
+  
+      const visitorRef = push(ref(db, "visitors"));
+      set(visitorRef, {
+        name,
+        type,
+        source,
+        timestamp: Date.now()
+      }).catch(err => console.error("Error saving visitor:", err));
+    });
+  
+    closePopup();
+    showIndividualResult(roll, year, group);
+  });
+  
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const userId = localStorage.getItem("userId");
+  if (userId !== "admin1234") {
+    document.getElementById("visitorsLink")?.remove();
+  }
+});
+
 function processData(mainData, individualData) {
     const rows = mainData.trim().split('\n').slice(1);
     const individualScores = parseIndividualData(individualData);
@@ -265,8 +363,20 @@ function showSchoolRanking(encodedSchoolName) {
                     ${schoolData.map((student, index) => `
                         <tr>
                             <td>${index + 1}</td>
-                            <td class="student-name" onclick="showIndividualResult(${student.roll}, '${currentYear.textContent.split(' ')[1]}', '${currentGroup.textContent.split(' ')[0]}')">${student.name}</td>
-                            <td class="student-roll" onclick="showIndividualResult(${student.roll}, '${currentYear.textContent.split(' ')[1]}', '${currentGroup.textContent.split(' ')[0]}')">${student.roll}</td>
+                           <td class="student-name" onclick="
+  (function(){
+    if (window.incrementClickCount) incrementClickCount(${student.roll});
+    showIndividualResultWithCheck(${student.roll}, '${currentYear.textContent.split(' ')[1]}', '${currentGroup.textContent.split(' ')[0]}');
+  })()
+">${student.name}</td>
+
+<td class="student-roll" onclick="
+  (function(){
+    if (window.incrementClickCount) incrementClickCount(${student.roll});
+    showIndividualResultWithCheck(${student.roll}, '${currentYear.textContent.split(' ')[1]}', '${currentGroup.textContent.split(' ')[0]}');
+  })()
+">${student.roll}</td>
+
                             <td>${student.gpa}</td>
                             <td>${student.total}</td>
                             <td class="student-school">${student.Instituation}</td>
@@ -293,24 +403,50 @@ function updateTableData() {
     dataToShow.forEach((student, index) => {
         const row = document.createElement('tr');
         
-        row.innerHTML = `
-            <td>${startIndex + index + 1}</td>
-            <td class="student-name">${student.name}</td>
-            <td class="student-roll">${student.roll}</td>
-            <td>${student.gpa}</td>
-            <td>${student.total}</td>
-            <td class="student-school">${student.Instituation}</td>
-        `;
+// inside updateTableData(), for each student (replace the old row.innerHTML / listeners)
+const nameId = `name-${student.roll}`;
+const isAdmin = (localStorage.getItem('userId') === 'admin1234'); // matches your existing check
 
-        row.querySelector('.student-name').addEventListener('click', () => {
-            showIndividualResult(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
-        });
-        row.querySelector('.student-roll').addEventListener('click', () => {
-            showIndividualResult(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
-        });
-        row.querySelector('.student-school').addEventListener('click', () => {
-            showSchoolRanking(student.Instituation.trim());
-        });
+row.innerHTML = `
+  <td>${startIndex + index + 1}</td>
+  <td class="student-name" id="${nameId}">${student.name}${isAdmin ? ` [${(window.clickCountsCache && window.clickCountsCache[student.roll]) || 0}]` : ''}</td>
+  <td class="student-roll">${student.roll}</td>
+  <td>${student.gpa}</td>
+  <td>${student.total}</td>
+  <td class="student-school">${student.Instituation}</td>
+`;
+
+// name click -> increment counter (if helper available) then open popup (with existing check)
+const nameCell = row.querySelector('.student-name');
+nameCell.addEventListener('click', () => {
+  if (typeof window.incrementClickCount === 'function') {
+    try { window.incrementClickCount(student.roll); } catch(e){ console.error(e); }
+  }
+  showIndividualResultWithCheck(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
+});
+
+// roll cell should behave same as before
+row.querySelector('.student-roll').addEventListener('click', () => {
+  if (typeof window.incrementClickCount === 'function') {
+    try { window.incrementClickCount(student.roll); } catch(e){ console.error(e); }
+  }
+  showIndividualResultWithCheck(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
+});
+
+// update school click as before
+row.querySelector('.student-school').addEventListener('click', () => {
+  showSchoolRanking(student.Instituation.trim());
+});
+
+// if admin, attach a real-time listener once so the [count] updates live
+if (isAdmin && typeof window.listenClickCount === 'function' && !window._br_clickListenerSet.has(student.roll)) {
+  window._br_clickListenerSet.add(student.roll);
+  window.listenClickCount(student.roll, (val) => {
+    const el = document.getElementById(nameId);
+    if (el) el.textContent = `${student.name} [${val}]`;
+  });
+}
+
 
         tableBody.appendChild(row);
     });
@@ -1090,13 +1226,7 @@ function handleURLParams() {
         // Load header and fetch data
         printExamResultHeader(year);
         fetchData(year, group);
-        if (!sessionStorage.getItem('rankTipsShown')) {
-            setTimeout(() => {
-                showRankTipsPopup();
-                sessionStorage.setItem('rankTipsShown', '1');
-            }, 800);
-        }
-        
+
 
         // If roll is present, wait and then show popup
         if (roll) {
@@ -1591,255 +1721,42 @@ function _br_normalizeName(s) {
     document.body.appendChild(popup);
     document.body.classList.add('locked');
 }
-function applyRankThemeToPopup(rank) {
-  const popup = document.querySelector('.popup .popup-content');
-  if (!popup) return;
 
-  let bgColor = '', textColor = '#fff', btnColor = '';
-  if (rank <= 1000) {
-      bgColor = 'linear-gradient(135deg, #FFD700, #FFC107)'; // gold
-      btnColor = '#b8860b';
-  } else if (rank <= 10000) {
-      bgColor = 'linear-gradient(135deg, #C0C0C0, #A9A9A9)'; // silver
-      btnColor = '#555';
-  } else {
-      bgColor = 'linear-gradient(135deg, #cd7f32, #8b4513)'; // bronze
-      btnColor = '#4b2e1a';
-  }
 
-  popup.style.background = bgColor;
-  popup.style.color = textColor;
-  popup.style.borderRadius = '10px';
-  popup.style.boxShadow = '0 0 15px rgba(0,0,0,0.3)';
 
-  // Update all buttons inside popup to match theme
-  popup.querySelectorAll('button').forEach(btn => {
-      btn.style.backgroundColor = btnColor;
-      btn.style.color = '#fff';
-      btn.style.border = 'none';
-      btn.style.borderRadius = '5px';
-  });
-
-  // Update headings or highlights
-  popup.querySelectorAll('h2, h3, p strong').forEach(el => {
-      el.style.color = textColor;
-  });
-}
-/* popup-rank-themer.js
-   Place this after your main script (or paste at the end of script.js).
-   It auto-themes any .popup created on the page based on "Board Rank: N".
-*/
-(function initPopupRankThemer(){
-  const THEMES = {
-    gold: {
-      popupBg: 'linear-gradient(135deg,#fff8e1 0%, #ffd700 100%)',
-      contentBg: 'linear-gradient(180deg, rgba(255,230,150,0.12), rgba(255,215,0,0.04))',
-      border: '3px solid #d4af37',
-      boxShadow: '0 12px 40px rgba(212,175,55,0.48)',
-      color: '#2b1b00',
-      buttonBg: '#d4af37',
-      buttonColor: '#1b0f00',
-      progressColor: '#b8860b'
-    },
-    silver: {
-      popupBg: 'linear-gradient(135deg,#f6f7f8 0%, #d7d7d7 100%)',
-      contentBg: 'linear-gradient(180deg, rgba(200,200,200,0.08), rgba(220,220,220,0.03))',
-      border: '3px solid #a0a0a0',
-      boxShadow: '0 12px 40px rgba(150,150,150,0.35)',
-      color: '#222',
-      buttonBg: '#9e9e9e',
-      buttonColor: '#fff',
-      progressColor: '#8e8e8e'
-    },
-    bronze: {
-      popupBg: 'linear-gradient(135deg,#f3e6dd 0%, #b87333 100%)',
-      contentBg: 'linear-gradient(180deg, rgba(184,115,51,0.08), rgba(184,115,51,0.03))',
-      border: '3px solid #8b5a2b',
-      boxShadow: '0 12px 40px rgba(139,90,43,0.45)',
-      color: '#2e1b0f',
-      buttonBg: '#8b5a2b',
-      buttonColor: '#fff',
-      progressColor: '#7a4725'
-    }
-  };
-
-  // helper to set inline style with !important
-  function setStyleImportant(el, prop, value) {
-    if (!el) return;
-    el.style.setProperty(prop, value, 'important');
-  }
-
-  function applyThemeToPopup(popupEl, themeName) {
-    const t = THEMES[themeName];
-    if (!t || !popupEl) return;
-
-    // mark themed
-    popupEl.dataset.rankThemed = themeName;
-
-    // outer popup element
-    setStyleImportant(popupEl, 'background', t.popupBg);
-    setStyleImportant(popupEl, 'border', t.border);
-    setStyleImportant(popupEl, 'box-shadow', t.boxShadow);
-    setStyleImportant(popupEl, 'color', t.color);
-    setStyleImportant(popupEl, 'border-radius', '12px');
-    setStyleImportant(popupEl, 'padding', '18px');
-
-    // inner content (some popups put styles on .popup-content)
-    const content = popupEl.querySelector('.popup-content') || popupEl;
-    setStyleImportant(content, 'background', t.contentBg);
-    setStyleImportant(content, 'color', t.color);
-    setStyleImportant(content, 'padding', '14px');
-    setStyleImportant(content, 'border-radius', '10px');
-
-    // close button if present
-    const closeBtn = content.querySelector('.close-btn');
-    if (closeBtn) {
-      setStyleImportant(closeBtn, 'background', '#fff');
-      setStyleImportant(closeBtn, 'color', t.buttonColor);
-      setStyleImportant(closeBtn, 'border', 'none');
-      setStyleImportant(closeBtn, 'width', '34px');
-      setStyleImportant(closeBtn, 'height', '34px');
-      setStyleImportant(closeBtn, 'border-radius', '50%');
-      setStyleImportant(closeBtn, 'box-shadow', '0 4px 10px rgba(0,0,0,0.12)');
-    }
-
-    // style all normal buttons inside popup
-    content.querySelectorAll('button, .icon-btn, .back-button').forEach(btn => {
-      setStyleImportant(btn, 'background', t.buttonBg);
-      setStyleImportant(btn, 'color', t.buttonColor);
-      setStyleImportant(btn, 'border', 'none');
-      setStyleImportant(btn, 'padding', '8px 12px');
-      setStyleImportant(btn, 'border-radius', '8px');
-      setStyleImportant(btn, 'cursor', 'pointer');
-    });
-
-    // style progress bars inside popup
-    content.querySelectorAll('.progress-bar').forEach(pb => {
-      setStyleImportant(pb, 'background-color', t.progressColor);
-      setStyleImportant(pb, 'color', '#fff');
-    });
-
-    // highlight the first p (name) and 5th p (board rank) if present
-    try {
-      const ps = Array.from(content.querySelectorAll('p'));
-      if (ps[0]) {
-        setStyleImportant(ps[0], 'background-color', 'rgba(255,255,255,0.15)');
-        setStyleImportant(ps[0], 'padding', '6px 10px');
-        setStyleImportant(ps[0], 'border-radius', '8px');
-        setStyleImportant(ps[0], 'display', 'inline-block');
-      }
-      if (ps[4]) {
-        setStyleImportant(ps[4], 'background-color', 'rgba(255,255,255,0.10)');
-        setStyleImportant(ps[4], 'padding', '6px 10px');
-        setStyleImportant(ps[4], 'border-radius', '8px');
-        setStyleImportant(ps[4], 'display', 'inline-block');
-      }
-    } catch(e){}
-  }
-
-  // extract Board Rank number from popup text
-  function getRankFromPopup(popupEl) {
-    if (!popupEl) return null;
-    const txt = (popupEl.innerText || popupEl.textContent || '').replace(/\u00A0/g,' ');
-    // try common patterns
-    const m = txt.match(/Board\s*Rank[:\s#-]*\s*(\d{1,7})/i) || txt.match(/\bRank[:\s#-]*\s*(\d{1,7})\b/i);
-    if (m) return parseInt(m[1], 10);
-    // fallback: search p elements for digits
-    const pNodes = popupEl.querySelectorAll('p');
-    for (let p of pNodes) {
-      const mm = (p.textContent || '').match(/(\d{1,7})/);
-      if (mm) {
-        // only accept if surrounding text includes 'rank' or 'board'
-        const ctx = (p.textContent || '').toLowerCase();
-        if (ctx.includes('rank') || ctx.includes('board')) return parseInt(mm[1],10);
-      }
-    }
-    return null;
-  }
-
-  function handleNewPopup(popupEl) {
-    if (!popupEl || popupEl.dataset.rankThemed) return;
-    // small delay to allow innerHTML to be populated
-    setTimeout(() => {
-      const rank = getRankFromPopup(popupEl);
-      let theme = 'bronze';
-      if (rank !== null && !isNaN(rank)) {
-        if (rank <= 1000) theme = 'gold';
-        else if (rank <= 10000) theme = 'silver';
-        else theme = 'bronze';
-      } else {
-        // no rank found — default neutral (silver)
-        theme = 'silver';
-      }
-      applyThemeToPopup(popupEl, theme);
-    }, 30);
-  }
-
-  // Observe DOM for added popups and subtree changes
-  const observer = new MutationObserver(muts => {
-    for (const m of muts) {
-      // nodes added (new popup elements)
-      m.addedNodes && m.addedNodes.forEach(node => {
-        if (!(node instanceof HTMLElement)) return;
-        if (node.classList && node.classList.contains('popup')) {
-          handleNewPopup(node);
-        } else {
-          // maybe popup nested inside a fragment
-          const p = node.querySelector && node.querySelector('.popup');
-          if (p) handleNewPopup(p);
-        }
-      });
-      // sometimes content inside an existing popup changes (e.g., loader -> content)
-      if (m.type === 'childList' && m.target instanceof HTMLElement) {
-        const anc = m.target.closest && m.target.closest('.popup');
-        if (anc) handleNewPopup(anc);
-      }
-    }
-  });
-
-  observer.observe(document.body, { childList: true, subtree: true });
-
-  // initial scan of existing popups
-  document.querySelectorAll('.popup').forEach(p => handleNewPopup(p));
-
-  // expose for debugging if you want to call manually
-  window.__BR_rankThemer = { applyThemeToPopup, getRankFromPopup, observer };
-
-})();
 // Delay to ensure table cells are in the DOM
 setTimeout(() => {
-  const firstNameCell = document.querySelector('.student-name');
-  if (firstNameCell) {
-      const hand = document.createElement('div');
-      hand.id = 'clickHand';
-      hand.innerHTML = '👉';
-      document.body.appendChild(hand);
+    const firstNameCell = document.querySelector('.student-name');
+    if (firstNameCell) {
+        const hand = document.createElement('div');
+        hand.id = 'clickHand';
+        hand.innerHTML = '👉';
+        document.body.appendChild(hand);
 
-      const text = document.createElement('div');
-      text.id = 'clickHandText';
-      text.innerText = 'Click here for detailed result';
-      document.body.appendChild(text);
+        const text = document.createElement('div');
+        text.id = 'clickHandText';
+        text.innerText = 'Click here for detailed result';
+        document.body.appendChild(text);
 
-      function positionHand() {
-          const r = firstNameCell.getBoundingClientRect();
-          hand.style.position = 'absolute';
-          hand.style.top = (window.scrollY + r.top - 5) + 'px';
-          hand.style.left = (window.scrollX + r.right + 8) + 'px';
+        function positionHand() {
+            const r = firstNameCell.getBoundingClientRect();
+            hand.style.position = 'absolute';
+            hand.style.top = (window.scrollY + r.top - 5) + 'px';
+            hand.style.left = (window.scrollX + r.right + 8) + 'px';
 
-          text.style.position = 'absolute';
-          text.style.top = (window.scrollY + r.top - 28) + 'px';
-          text.style.left = (window.scrollX + r.right + 40) + 'px';
-      }
-      positionHand();
-      window.addEventListener('scroll', positionHand);
-      window.addEventListener('resize', positionHand);
+            text.style.position = 'absolute';
+            text.style.top = (window.scrollY + r.top - 28) + 'px';
+            text.style.left = (window.scrollX + r.right + 40) + 'px';
+        }
+        positionHand();
+        window.addEventListener('scroll', positionHand);
+        window.addEventListener('resize', positionHand);
 
-      firstNameCell.addEventListener('click', () => {
-          hand.remove();
-          text.remove();
-          window.removeEventListener('scroll', positionHand);
-          window.removeEventListener('resize', positionHand);
-      });
-  }
+        firstNameCell.addEventListener('click', () => {
+            hand.remove();
+            text.remove();
+            window.removeEventListener('scroll', positionHand);
+            window.removeEventListener('resize', positionHand);
+        });
+    }
 }, 300); // 0.3s delay so elements are rendered
-
