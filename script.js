@@ -1,5 +1,3 @@
-
-
 const contentDiv = document.getElementById('content');
 const currentYear = document.getElementById('currentYear');
 const currentGroup = document.getElementById('currentGroup');
@@ -187,98 +185,259 @@ function fetchData(year, group) {
 // Check once when the page loads if they already filled the form
 let visitorInfoCompleted = localStorage.getItem('visitorInfoGiven') === '1';
 
+/* ===== device helper: returns deviceData + fingerprint ===== */
+/* ===== device helper: returns deviceData + fingerprint + model detection ===== */
+function getDeviceDataAndFingerprint() {
+  const ua = navigator.userAgent || '';
+  const platform = navigator.platform || '';
+  const screenRes = `${screen.width}x${screen.height}`;
+  const deviceMemory = navigator.deviceMemory || null;
+  const cores = navigator.hardwareConcurrency || null;
+  const vendor = navigator.vendor || '';
 
-function showIndividualResultWithCheck(roll, year, group) {
-  
-  // Skip check for direct URL (when ?roll= in link)
+  // --- Detect device model from UA ---
+  let deviceModel = 'Unknown device';
+  if (/Android/i.test(ua)) {
+    // Extract something like "SM-S918B" or "Redmi Note 12"
+    const match = ua.match(/Android\s+[\d.]+;\s+([^)]+)/i);
+    if (match && match[1]) {
+      deviceModel = match[1].replace(/Build\/.+/, '').trim();
+    }
+  } else if (/iPhone/i.test(ua)) {
+    deviceModel = 'Apple iPhone';
+  } else if (/iPad/i.test(ua)) {
+    deviceModel = 'Apple iPad';
+  } else if (/Macintosh/i.test(ua)) {
+    deviceModel = 'Apple Mac';
+  } else if (/Windows/i.test(ua)) {
+    deviceModel = 'Windows PC';
+  } else if (/Linux/i.test(ua)) {
+    deviceModel = 'Linux Device';
+  }
+
+  const deviceData = {
+    ua,
+    platform,
+    screen: screenRes,
+    deviceMemory,
+    cores,
+    vendor,
+    deviceModel
+  };
+
+  // fingerprint hash
+  const seed = `${ua}|${platform}|${screenRes}|${deviceMemory}|${cores}|${vendor}`;
+  let h = 5381;
+  for (let i = 0; i < seed.length; i++) {
+    h = ((h << 5) + h) + seed.charCodeAt(i);
+    h = h & 0xffffffff;
+  }
+  const fingerprint = (h >>> 0).toString(16);
+
+  return { deviceData, fingerprint };
+}
+
+// Replace the whole showIndividualResultWithCheck(...) function with this updated async version
+async function showIndividualResultWithCheck(roll, year, group) {
+  // direct link & first-free-view handling (keep existing logic)
   const params = new URLSearchParams(window.location.search);
   if (params.has('roll') && params.get('roll') == roll) {
     return showIndividualResult(roll, year, group);
   }
+// Allow two free clicks before showing popup
+let clickCount = parseInt(localStorage.getItem('detailedResultClickCount') || '0', 10);
+clickCount++;
+localStorage.setItem('detailedResultClickCount', clickCount);
 
-  // First free view
-  if (!localStorage.getItem('detailedResultSeen')) {
-    localStorage.setItem('detailedResultSeen', '1');
-    return showIndividualResult(roll, year, group);
-  }
-
-// Already filled info? Skip form
-if (visitorInfoCompleted) {
+if (clickCount <= 2) { // first two clicks are free
   return showIndividualResult(roll, year, group);
 }
 
+  // compute fingerprint and device data
+  const { deviceData, fingerprint } = getDeviceDataAndFingerprint();
 
-  // Show visitor form in same popup style
+  // quick localStorage check (fast)
+  if (localStorage.getItem('visitorInfoGiven') === '1' &&
+      localStorage.getItem('visitorFingerprint') === fingerprint) {
+    visitorInfoCompleted = true;
+    return showIndividualResult(roll, year, group);
+  }
+
+  // fallback: check server (Firebase) for same fingerprint before showing form
+  try {
+    const dbLib = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
+    const { getDatabase, ref, get, query, orderByChild, equalTo } = dbLib;
+    const dbv = getDatabase();
+    const q = query(ref(dbv, 'visitors'), orderByChild('fingerprint'), equalTo(fingerprint));
+    const snap = await get(q);
+    if (snap && snap.exists()) {
+      // we found a visitor entry with same fingerprint -> don't show popup again
+      localStorage.setItem('visitorInfoGiven', '1');
+      localStorage.setItem('visitorFingerprint', fingerprint);
+      visitorInfoCompleted = true;
+      return showIndividualResult(roll, year, group);
+    }
+  } catch (err) {
+    // If the query fails (offline or permission), just continue to show the form.
+    console.warn('Fingerprint check failed (ignoring):', err);
+  }
+
+  // Show improved visitor form popup
+  if (document.querySelector('.popup')) return; // avoid duplicates
   const popup = document.createElement('div');
   popup.classList.add('popup');
   popup.innerHTML = `
-    <div class="popup-content">
-      <span class="close-btn" onclick="closePopup()">&times;</span>
-      <h3 style="margin-bottom:10px;">🔍 Before continuing...</h3>
-      <p>Please tell us a bit about you to access all detailed results.</p>
-      <label>Name:<br>
-        <input type="text" id="visitorName" placeholder="Your name" style="width:100%;margin-top:4px;">
-      </label><br><br>
-      <label>Type:<br>
-        <select id="visitorType" style="width:100%;margin-top:4px;">
-          <option value="">Select ...</option>
-          <option>SSC</option>
-          <option>HSC</option>
-          <option>Others</option>
-        </select>
-      </label><br><br>
-      <label>How did you find us?<br>
-        <select id="visitorSource" style="width:100%;margin-top:4px;">
-          <option value="">Select ...</option>
-          <option>WhatsApp group</option>
-          <option>Facebook group</option>
-          <option>Friend</option>
-          <option>Facebook post</option>
-          <option>Others</option>
-        </select>
-      </label><br><br>
-      <button id="submitVisitorInfo" style="width:100%;">Submit</button>
+  <div class="popup-content">
+    <div class="popup-header">
+      <i>📝</i> Quick Check
+      <button class="close-btn" onclick="closePopup()">&times;</button>
     </div>
-  `;
+    <div class="popup-body">
+      <p style="color:#555;">Please tell us a bit about yourself so we can improve our service. We store basic device info so you won't see this again on the same device.</p>
+      
+      <label>Name</label>
+      <input id="visitorName" type="text" placeholder="Your name" />
+
+      <label>Institution (school / college)</label>
+      <input id="visitorInstitution" type="text" placeholder="Institution name" />
+
+      <label>Type</label>
+      <select id="visitorType">
+        <option value="">Select ...</option>
+        <option>SSC</option>
+        <option>HSC</option>
+        <option>Others</option>
+      </select>
+
+      <label>How did you find us?</label>
+      <select id="visitorSource">
+        <option value="">Select ...</option>
+        <option>WhatsApp group</option>
+        <option>Facebook group</option>
+        <option>Friend / Classmate</option>
+        <option>Facebook post</option>
+        <option>Instagram</option>
+        <option>YouTube</option>
+        <option>Google Search</option>
+        <option>School notice board</option>
+        <option>Teacher</option>
+        <option>Relatives</option>
+        <option>Other social media</option>
+        <option>Others</option>
+      </select>
+
+      <label>Experience so far</label>
+      <select id="visitorExperience">
+        <option value="">Select ...</option>
+        <option value="worst">😖 Worst</option>
+        <option value="bad">😞 Bad</option>
+        <option value="average">😐 Average</option>
+        <option value="good">🙂 Good</option>
+        <option value="best">🤩 Best</option>
+      </select>
+    </div>
+    <div class="popup-footer">
+      <button class="secondary-btn" onclick="closePopup()">Cancel</button>
+      <button id="submitVisitorInfo" class="primary-btn">Submit</button>
+    </div>
+  </div>
+`;
+
   document.body.appendChild(popup);
   document.body.classList.add('locked');
 
-  document.getElementById('submitVisitorInfo').addEventListener('click', () => {
+  // click handler
+  document.getElementById('submitVisitorInfo').addEventListener('click', async () => {
     const name = document.getElementById('visitorName').value.trim();
+    const institution = document.getElementById('visitorInstitution').value.trim();
     const type = document.getElementById('visitorType').value;
     const source = document.getElementById('visitorSource').value;
-  
-    if (!name || !type || !source) {
-      alert('Please fill all fields.');
+    const experience = document.getElementById('visitorExperience').value;
+
+    // validation rules you requested
+    if (!name || name.length < 4) {
+      alert('Name must contain at least 4 characters.');
       return;
     }
-  
-    // Save so form never shows again
-    localStorage.setItem('visitorInfoGiven', '1');
-    visitorInfoCompleted = true; // so it works immediately without reload
+    if (!institution || institution.length < 3) {
+      alert('Institution name must contain at least 3 characters.');
+      return;
+    }
+    if (!type || !source) {
+      alert('Please fill all required fields.');
+      return;
+    }
 
-  
-    // Store in Firebase
-    import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js").then(dbLib => {
+    // mark as given (local quick-guard)
+    localStorage.setItem('visitorInfoGiven', '1');
+    localStorage.setItem('visitorFingerprint', fingerprint);
+    visitorInfoCompleted = true;
+
+    // save to Firebase: name, institution, type, source, experience, plus device data & fingerprint & timestamp
+    try {
+      const dbLib = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
       const { getDatabase, ref, push, set } = dbLib;
-      const db = getDatabase();
-      const userId = localStorage.getItem("userId") || crypto.randomUUID();
-      localStorage.setItem("userId", userId);
-  
-      const visitorRef = push(ref(db, "visitors"));
-      set(visitorRef, {
+      const dbv = getDatabase();
+      const visitorRef = push(ref(dbv, "visitors"));
+      await set(visitorRef, {
         name,
+        institution,
         type,
         source,
+        experience,
+        fingerprint,
+        deviceData,
         timestamp: Date.now()
-      }).catch(err => console.error("Error saving visitor:", err));
-    });
-  
-    closePopup();
-    showIndividualResult(roll, year, group);
+      });
+    } catch (err) {
+      console.error('Error saving visitor info:', err);
+    }
+
+// Hide form, show loading animation
+const body = popup.querySelector('.popup-body');
+const footer = popup.querySelector('.popup-footer');
+body.innerHTML = `
+  <div class="access-status">
+    <div class="circle"></div>
+    <div class="status-text">Processing...</div>
+  </div>
+`;
+footer.style.display = 'none';
+
+// Fake processing delay
+setTimeout(() => {
+  const success = true; // You could make this false to test "Access Denied"
+
+  const circleEl = body.querySelector('.circle');
+  circleEl.style.display = 'none';
+
+  if (success) {
+    body.innerHTML = `
+      <div class="access-status">
+        <div class="tick">✅</div>
+        <div class="status-text" style="color:#16a34a;">Full Access Granted</div>
+      </div>
+    `;
+    setTimeout(() => {
+      closePopup();
+      showIndividualResult(roll, year, group);
+    }, 1500);
+  } else {
+    body.innerHTML = `
+      <div class="access-status">
+        <div class="cross">❌</div>
+        <div class="status-text" style="color:#dc2626;">Access Denied</div>
+      </div>
+    `;
+    setTimeout(() => {
+      closePopup();
+    }, 1500);
+  }
+}, 1000);
+
   });
-  
 }
+
 document.addEventListener("DOMContentLoaded", () => {
   const userId = localStorage.getItem("userId");
   if (userId !== "admin1234") {
@@ -624,7 +783,6 @@ function animateProgressBar(id, targetPercentage) {
 
 
 function showIndividualResult(roll, year, group) {
-  
     if (document.querySelector('.popup')) return; // Prevent multiple popups
 
     const fileName = `data_${year}_${group.toLowerCase()}_individual.txt`;
@@ -693,6 +851,10 @@ function showIndividualResult(roll, year, group) {
   <button onclick="copyStudentResultLink(this)" class="icon-btn footer-btn" title="Copy Link">
     <i class="fas fa-link"></i>
   </button>
+   <button onclick="downloadStudentPDF(this)" class="icon-btn footer-btn" title="Download PDF">
+  <i class="fas fa-file-pdf"></i>
+</button>
+          
 </div>
 
                         `;
@@ -736,6 +898,10 @@ function showIndividualResult(roll, year, group) {
   <button onclick="copyStudentResultLink(this)" class="icon-btn footer-btn" title="Copy Link">
     <i class="fas fa-link"></i>
   </button>
+  <button onclick="downloadStudentPDF(this)" class="icon-btn footer-btn" title="Download PDF">
+  <i class="fas fa-file-pdf"></i>
+</button>
+
 </div>
 
                             
@@ -758,10 +924,7 @@ function showIndividualResult(roll, year, group) {
             popup.innerHTML = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
             document.body.appendChild(popup);
             document.body.classList.add('locked'); 
-            
         });
-        
-        
 }
 function copyFullResult(btn) {
     const popup = btn.closest('.popup-content');
@@ -1318,10 +1481,10 @@ function handleFeaturedClick(yearValue, el) {
 }
 // At top of your script
 if (!localStorage.getItem('sharePopupShown')) {
-  setTimeout(() => {
-      showSharePopup();
-      localStorage.setItem('sharePopupShown', '1');
-  }, 150000);
+    setTimeout(() => {
+        showSharePopup();
+        localStorage.setItem('sharePopupShown', '1');
+    }, 150000);
 }
 
 document.getElementById('shareBtn').addEventListener('click', showSharePopup);
@@ -1777,137 +1940,175 @@ setTimeout(() => {
         });
     }
 }, 300); // 0.3s delay so elements are rendered
-/* === Paste this at the END of your script.js / all merged.txt === */
-(function(){
-  if (window.__br_popupFixInstalled) return;
-  window.__br_popupFixInstalled = true;
+function downloadStudentPDF(btn) {
+  const safe = s => String(s == null ? '' : s).trim();
 
-  // Remember scroll position right before user interacts
-  let lastScrollY = window.scrollY || document.documentElement.scrollTop || 0;
-  let lastPointerTime = 0;
-  function saveScroll() {
-    lastScrollY = window.scrollY || document.documentElement.scrollTop || 0;
-    lastPointerTime = Date.now();
+  const popup = (btn && btn.closest && (btn.closest('.popup') || btn.closest('.popup-content'))) || 
+                document.querySelector('.popup .popup-content') || null;
+  if (!popup) {
+    alert('No result popup found.');
+    return;
   }
-  document.addEventListener('pointerdown', saveScroll, {capture:true});
-  document.addEventListener('touchstart', saveScroll, {capture:true});
 
-  // If a sudden jump-to-top happens right after an interaction, restore previous scroll
-  window.addEventListener('scroll', function() {
-    try {
-      if (Date.now() - lastPointerTime < 350 && Math.abs(window.scrollY) < 6 && lastScrollY > 50) {
-        // schedule to avoid fighting native scrolling
-        setTimeout(() => { window.scrollTo(0, lastScrollY); }, 0);
-      }
-    } catch(e){}
-  }, {passive:true});
+  const data = { name: '', roll: '', institution: '', gpa: '', subjects: [] };
 
-  // Observe DOM for any added .popup nodes: make them fixed overlays and reset popup-content scrollTop
-  const mo = new MutationObserver(function(muts){
-    for (const m of muts) {
-      for (const node of m.addedNodes) {
-        if (node.nodeType === 1 && node.classList.contains('popup')) {
-          // restore page scroll (so popup addition won't leave user at top)
-          requestAnimationFrame(() => window.scrollTo(0, lastScrollY));
-          // make the popup act like a centered fixed overlay (minimizes layout reflow)
-          Object.assign(node.style, {
-            position: node.style.position || 'fixed',
-            inset: node.style.inset || '0',
-            display: node.style.display || 'flex',
-            alignItems: node.style.alignItems || 'center',
-            justifyContent: node.style.justifyContent || 'center',
-            zIndex: node.style.zIndex || '99999',
-            overflow: node.style.overflow || 'auto'
-          });
-          const content = node.querySelector('.popup-content');
-          if (content) content.scrollTop = 0;
-        }
+  // parse colon lines
+  const els = Array.from(popup.querySelectorAll('p,div,span,li,td'));
+  els.forEach(el => {
+    const txt = safe(el.textContent);
+    if (!txt) return;
+    const colon = txt.match(/^([^:]{1,40})\s*[:\-]\s*(.+)$/);
+    if (colon) {
+      const key = colon[1].toLowerCase();
+      const val = colon[2].trim();
+      if (key.includes('name') && !data.name) data.name = val;
+      else if (key.includes('roll') && !data.roll) data.roll = val;
+      else if ((key.includes('institution') || key.includes('school') || key.includes('college')) && !data.institution) data.institution = val;
+      else if (key.includes('gpa') && !key.includes('subject') && !data.gpa) data.gpa = val;
+      else if (!key.includes('board rank')) {
+        data.subjects.push({ name: colon[1].trim(), mark: val });
       }
     }
   });
-  mo.observe(document.body, { childList: true, subtree: true });
 
-  // Non-destructive monkey-patch of history.pushState:
-  // when pushState(url) contains ?roll=..., we tag the state with __brModal:true
-  const _origPush = window.__br_origPushState || history.pushState;
-  if (!window.__br_origPushState) window.__br_origPushState = _origPush;
-  history.pushState = function(state, title, url) {
+  // remove accidental "Board Rank" subjects
+  data.subjects = data.subjects.filter(s => !/board\s*rank/i.test(s.name));
+
+  function markToGrade(markStr, subjectName) {
+    const m = parseFloat(String(markStr).replace(/[^0-9.\-]/g, ''));
+    if (isNaN(m)) return { gp: '-', grade: '-' };
+  
+    const nameLower = (subjectName || '').toLowerCase();
+  
+    // Detect HSC: prefer currentYear element, fallback to popup text
+    let yearText = '';
     try {
-      const isModalUrl = typeof url === 'string' && /[?&]roll=/.test(url);
-      if (isModalUrl) {
-        const newState = Object.assign({}, state || {}, { __brModal: true });
-        return _origPush.call(history, newState, title, url);
+      if (typeof currentYear !== 'undefined' && currentYear && currentYear.textContent) {
+        yearText = String(currentYear.textContent).toLowerCase();
       }
-    } catch(e){}
-    return _origPush.apply(history, arguments);
-  };
-
-  // helper that closes popup while restoring scroll
-  function _closePopupIfOpen() {
-    const popup = document.querySelector('.popup');
-    if (!popup) return false;
-    if (typeof closePopup === 'function') {
-      try { closePopup(); } catch(e) { popup.remove(); document.body.classList.remove('locked'); }
+    } catch (e) { yearText = ''; }
+    const popupText = (document.querySelector('.popup .popup-content')?.textContent || '').toLowerCase();
+    const isHSC = (yearText.includes('hsc') || popupText.includes('hsc'));
+  
+    // Determine total marks according to exam type + subject
+    let totalMarks;
+    if (isHSC) {
+      // HSC rules: ICT = 100, all other subjects = 200
+      if (nameLower.includes('ict')) totalMarks = 100;
+      else totalMarks = 200;
     } else {
-      popup.remove(); document.body.classList.remove('locked');
+      // SSC rules (existing behavior): Bangla/English = 200, ICT/Career = 50, others = 100
+      if (nameLower.includes('ict') || nameLower.includes('career')) totalMarks = 50;
+      else if (nameLower.includes('bangla') || nameLower.includes('english')) totalMarks = 200;
+      else totalMarks = 100;
     }
-    requestAnimationFrame(() => window.scrollTo(0, lastScrollY));
-    return true;
+  
+    // Calculate percentage
+    const percentage = (m / totalMarks) * 100;
+  
+    // Bangladesh GPA/Grade thresholds (79.5% counts as A+)
+    if (percentage >= 79.5) return { gp: 5.00, grade: 'A+' };
+    if (percentage >= 70) return { gp: 4.00, grade: 'A' };
+    if (percentage >= 60) return { gp: 3.50, grade: 'A-' };
+    if (percentage >= 50) return { gp: 3.00, grade: 'B' };
+    if (percentage >= 40) return { gp: 2.00, grade: 'C' };
+    if (percentage >= 33) return { gp: 1.00, grade: 'D' };
+    return { gp: 0.00, grade: 'F' };
+  }
+  
+
+  const filename = `${(data.name || 'marksheet').replace(/[^\w\- ]/g, '')}.pdf`;
+
+  function loadJsPdf(cb) {
+    if (window.jspdf && window.jspdf.jsPDF) return cb();
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+    s.onload = cb;
+    document.head.appendChild(s);
   }
 
-  // When user hits Back (popstate), if a popup is open, close it instead of the user feeling they left the page
-  window.addEventListener('popstate', function(ev){
-    if (document.querySelector('.popup')) {
-      _closePopupIfOpen();
-    }
+  loadJsPdf(() => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+    const pageW = doc.internal.pageSize.getWidth();
+    const margin = 15;
+    let y = 18;
+
+    // HEADER
+    doc.setFontSize(18);
+    doc.setFont(undefined, 'bold');
+    doc.text('SSC 2025 Board Rank of Chittagong', margin, y);
+    y += 12;
+
+// INFO BOX
+const infoW = pageW - margin * 2;
+const colW = infoW / 4;
+const infoH = 20;
+const fields = [
+  { label: 'Name', value: data.name || '-' },
+  { label: 'Roll', value: data.roll || '-' },
+  { label: 'Institution', value: data.institution || '-' },
+  { label: 'GPA', value: data.gpa || '-' }
+];
+doc.setLineWidth(0.3);
+doc.rect(margin, y, infoW, infoH);
+for (let i = 0; i < fields.length; i++) {
+  const x = margin + i * colW;
+  doc.rect(x, y, colW, infoH);
+  doc.setFontSize(9);
+  doc.text(fields[i].label + ':', x + 2, y + 6);
+
+  doc.setFont(undefined, 'bold');
+  // Wrap text to fit inside the column width
+  const wrapped = doc.splitTextToSize(fields[i].value, colW - 4);
+  doc.setFontSize(10);
+  let textY = y + 12;
+  wrapped.forEach(line => {
+    doc.text(line, x + 2, textY);
+    textY += 4; // line spacing
   });
+  doc.setFont(undefined, 'normal');
+}
+y += infoH + 8;
 
-  // If page loaded directly with ?roll=... and popup exists, make sure current history state is tagged
-  try {
-    if (/[?&]roll=/.test(location.search) && document.querySelector('.popup')) {
-      history.replaceState(Object.assign({}, history.state || {}, { __brModal: true }), '', location.href);
-    }
-  } catch(e){}
 
-  // expose a small API for debugging
-  window.__br_popupFix = {
-    getLastScroll: () => lastScrollY,
-    disconnect: () => mo.disconnect()
-  };
-})();
-// Back button closes popup instead of navigating away
-window.addEventListener('popstate', function () {
-  const popup = document.querySelector('.popup');
-  if (popup) {
-      if (typeof closePopup === 'function') {
-          closePopup();
-      } else {
-          popup.remove();
-          document.body.classList.remove('locked');
-      }
-  }
-});
-(function() {
-  let lastScrollY = 0;
+    // TABLE HEADER
+    const tblW = pageW - margin * 2;
+    const col1 = Math.round(tblW * 0.5 * 100) / 100; // Subject
+    const col2 = Math.round(tblW * 0.25 * 100) / 100; // Marks
+    const col3 = tblW - col1 - col2; // GPA col
+    const rowH = 8;
 
-  // Capture scroll before a popup opens
-  document.addEventListener('click', function(e) {
-    const target = e.target.closest('td'); // your table cell click
-    if (!target) return;
-    lastScrollY = window.scrollY || document.documentElement.scrollTop;
-  }, true);
+    doc.setFillColor(240);
+    doc.rect(margin, y, col1, rowH, 'F');
+    doc.rect(margin + col1, y, col2, rowH, 'F');
+    doc.rect(margin + col1 + col2, y, col3, rowH, 'F');
+    doc.setFont(undefined, 'bold');
+    doc.text('Subject', margin + 2, y + 6);
+    doc.text('Marks', margin + col1 + col2 - 2, y + 6, { align: 'right' });
+    doc.text('GPA', margin + col1 + col2 + col3 - 2, y + 6, { align: 'right' });
+    y += rowH;
+    doc.setFont(undefined, 'normal');
 
-  // Restore scroll immediately after any popup is added
-  const mo = new MutationObserver(function(mutations) {
-    for (const m of mutations) {
-      for (const node of m.addedNodes) {
-        if (node.nodeType === 1 && node.classList.contains('popup')) {
-          requestAnimationFrame(() => {
-            window.scrollTo(0, lastScrollY);
-          });
-        }
-      }
-    }
+    // TABLE BODY
+    data.subjects.forEach(row => {
+      const g = markToGrade(row.mark, row.name);
+
+      doc.rect(margin, y, col1, rowH);
+      doc.rect(margin + col1, y, col2, rowH);
+      doc.rect(margin + col1 + col2, y, col3, rowH);
+
+      doc.text(row.name, margin + 2, y + 5);
+      doc.text(String(row.mark), margin + col1 + col2 - 2, y + 5, { align: 'right' });
+      doc.text(`${g.gp.toFixed(2)} (${g.grade})`, margin + col1 + col2 + col3 - 2, y + 5, { align: 'right' });
+      y += rowH;
+    });
+
+    // FOOTER
+    doc.setFontSize(9);
+    doc.text(`Generated on ${new Date().toLocaleString()}`, margin, 285);
+    doc.text('Unofficial printable copy', pageW - margin, 285, { align: 'right' });
+
+    doc.save(filename);
   });
-  mo.observe(document.body, { childList: true, subtree: true });
-})();
+}
