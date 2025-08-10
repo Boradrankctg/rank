@@ -289,10 +289,31 @@ if (clickCount <= 2) { // first two clicks are free
   popup.classList.add('popup');
   popup.innerHTML = `
   <div class="popup-content">
-    <div class="popup-header">
-      <i>📝</i> Quick Check
-      <button class="close-btn" onclick="closePopup()">&times;</button>
-    </div>
+<div class="popup-header" style="
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+">
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <img src="https://img.icons8.com/color/48/verified-badge.png" alt="Icon" style="width: 28px; height: 28px;">
+    <span>Quick Verification</span>
+  </div>
+  <button class="close-btn" onclick="visitorInfoDenied()" style="
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+  ">&times;</button>
+</div>
+
     <div class="popup-body">
       <p style="color:#555;">Please tell us a bit about yourself so we can improve our service. We store basic device info so you won't see this again on the same device.</p>
       
@@ -338,7 +359,8 @@ if (clickCount <= 2) { // first two clicks are free
       </select>
     </div>
     <div class="popup-footer">
-      <button class="secondary-btn" onclick="closePopup()">Cancel</button>
+      <button class="secondary-btn" onclick="visitorInfoDenied()">Cancel</button>
+
       <button id="submitVisitorInfo" class="primary-btn">Submit</button>
     </div>
   </div>
@@ -347,7 +369,6 @@ if (clickCount <= 2) { // first two clicks are free
   document.body.appendChild(popup);
   document.body.classList.add('locked');
 
-  // click handler
   document.getElementById('submitVisitorInfo').addEventListener('click', async () => {
     const name = document.getElementById('visitorName').value.trim();
     const institution = document.getElementById('visitorInstitution').value.trim();
@@ -355,88 +376,106 @@ if (clickCount <= 2) { // first two clicks are free
     const source = document.getElementById('visitorSource').value;
     const experience = document.getElementById('visitorExperience').value;
 
-    // validation rules you requested
     if (!name || name.length < 4) {
-      alert('Name must contain at least 4 characters.');
-      return;
+        alert('Name must contain at least 4 characters.');
+        return;
     }
     if (!institution || institution.length < 3) {
-      alert('Institution name must contain at least 3 characters.');
-      return;
+        alert('Institution name must contain at least 3 characters.');
+        return;
     }
     if (!type || !source) {
-      alert('Please fill all required fields.');
-      return;
+        alert('Please fill all required fields.');
+        return;
     }
 
-    // mark as given (local quick-guard)
-    localStorage.setItem('visitorInfoGiven', '1');
-    localStorage.setItem('visitorFingerprint', fingerprint);
-    visitorInfoCompleted = true;
+    const body = popup.querySelector('.popup-body');
+    const footer = popup.querySelector('.popup-footer');
+    const originalFormHTML = body.innerHTML;
+    if (footer) footer.style.display = 'none';
 
-    // save to Firebase: name, institution, type, source, experience, plus device data & fingerprint & timestamp
-    try {
-      const dbLib = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
-      const { getDatabase, ref, push, set } = dbLib;
-      const dbv = getDatabase();
-      const visitorRef = push(ref(dbv, "visitors"));
-      await set(visitorRef, {
-        name,
-        institution,
-        type,
-        source,
-        experience,
-        fingerprint,
-        deviceData,
-        timestamp: Date.now()
-      });
-    } catch (err) {
-      console.error('Error saving visitor info:', err);
-    }
-
-// Hide form, show loading animation
-const body = popup.querySelector('.popup-body');
-const footer = popup.querySelector('.popup-footer');
-body.innerHTML = `
-  <div class="access-status">
-    <div class="circle"></div>
-    <div class="status-text">Processing...</div>
-  </div>
-`;
-footer.style.display = 'none';
-
-// Fake processing delay
-setTimeout(() => {
-  const success = true; // You could make this false to test "Access Denied"
-
-  const circleEl = body.querySelector('.circle');
-  circleEl.style.display = 'none';
-
-  if (success) {
+    // Show confirmation screen
     body.innerHTML = `
-      <div class="access-status">
-        <div class="tick">✅</div>
-        <div class="status-text" style="color:#16a34a;">Full Access Granted</div>
-      </div>
+        <div style="text-align:center; padding:20px;">
+            <h3 style="color:#d97706; margin-bottom:8px;">⚠ Confirm Your Name</h3>
+            <p>Are you sure your name is <b>"${name}"</b>?</p>
+            <p style="font-size:0.9rem; color:#555;">
+                If you use a fake name, this form will appear again every time you visit.
+                Please enter real details to avoid repeated verification.
+            </p>
+            <div style="margin-top:15px; display:flex; justify-content:center; gap:12px;">
+                <button id="confirmNameBtn" class="primary-btn">Confirm</button>
+                <button id="editNameBtn" class="secondary-btn">Edit Name</button>
+            </div>
+        </div>
     `;
-    setTimeout(() => {
-      closePopup();
-      showIndividualResult(roll, year, group);
-    }, 1500);
-  } else {
-    body.innerHTML = `
-      <div class="access-status">
-        <div class="cross">❌</div>
-        <div class="status-text" style="color:#dc2626;">Access Denied</div>
-      </div>
-    `;
-    setTimeout(() => {
-      closePopup();
-    }, 1500);
-  }
-}, 1000);
 
+    // Handle confirm
+    document.getElementById('confirmNameBtn').addEventListener('click', async () => {
+        localStorage.setItem('visitorInfoGiven', '1');
+        localStorage.setItem('visitorFingerprint', fingerprint);
+        visitorInfoCompleted = true;
+
+        // Save to Firebase
+        try {
+            const dbLib = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
+            const { getDatabase, ref, push, set } = dbLib;
+            const dbv = getDatabase();
+            const visitorRef = push(ref(dbv, "visitors"));
+            await set(visitorRef, {
+                name,
+                institution,
+                type,
+                source,
+                experience,
+                fingerprint,
+                deviceData,
+                timestamp: Date.now()
+            });
+        } catch (err) {
+            console.error('Error saving visitor info:', err);
+        }
+
+        // Spinner → success
+        body.innerHTML = `
+            <div class="access-status">
+                <div class="circle"></div>
+                <div class="status-text">Processing...</div>
+            </div>
+        `;
+        setTimeout(() => {
+            body.innerHTML = `
+                <div class="access-status">
+                    <div class="tick">✅</div>
+                    <div class="status-text" style="color:#16a34a;">Full Access Granted</div>
+                </div>
+            `;
+            setTimeout(() => {
+                closePopup();
+                showIndividualResult(roll, year, group);
+            }, 1500);
+        }, 1000);
+    });
+
+    document.getElementById('editNameBtn').addEventListener('click', () => {
+      // Restore original form inside the same popup
+      body.innerHTML = originalFormHTML;
+      footer.style.display = 'flex';
+  
+      // Restore values
+      document.getElementById('visitorName').value = name;
+      document.getElementById('visitorInstitution').value = institution;
+      document.getElementById('visitorType').value = type;
+      document.getElementById('visitorSource').value = source;
+      document.getElementById('visitorExperience').value = experience;
+  
+      // Rebind submit button logic
+      document.getElementById('submitVisitorInfo').addEventListener('click', submitHandler);
   });
+  
+  
+});
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -2277,5 +2316,43 @@ y += infoH + 8;
     doc.text('Unofficial printable copy', pageW - margin, 285, { align: 'right' });
 
     doc.save(filename);
+    showToast("📥 Download started");
   });
+}
+function visitorInfoDenied() {
+  const popup = document.querySelector('.popup');
+  if (!popup) return;
+
+  const body = popup.querySelector('.popup-body');
+  const footer = popup.querySelector('.popup-footer');
+
+  if (footer) footer.style.display = 'none';
+
+  // show the same spinner as success
+  if (body) {
+    body.innerHTML = `
+      <div class="access-status">
+        <div class="circle"></div>
+        <div class="status-text">Processing...</div>
+      </div>
+    `;
+
+    // after short delay, change to ❌
+    setTimeout(() => {
+      const circleEl = body.querySelector('.circle');
+      if (circleEl) circleEl.style.display = 'none';
+
+      body.innerHTML = `
+        <div class="access-status">
+          <div class="cross">❌</div>
+          <div class="status-text" style="color:#dc2626;">Access Denied — Please try again</div>
+        </div>
+      `;
+    }, 800); // spinner time before showing cross
+  }
+
+  // close popup after showing the ❌ for a bit
+  setTimeout(() => {
+    closePopup();
+  }, 1800);
 }
