@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +16,21 @@
 
   <main style="max-width: 900px; margin: auto;">
     <table border="1" style="width:100%; border-collapse: collapse;">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Source</th>
-          <th>Date</th>
-        </tr>
-      </thead>
+      
+<!-- in visitors.html: replace the <thead> block with -->
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Source</th>
+      <th>Institution</th>
+      <th>Experience</th>
+      <th>Device</th>
+      <th>Date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  
       <tbody id="visitorsContainer"></tbody>
     </table>
   </main>
@@ -62,12 +70,19 @@
       Object.entries(visitors).reverse().forEach(([id, visitor]) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-          <td>${visitor.name}</td>
-          <td>${visitor.type}</td>
-          <td>${visitor.source}</td>
-          <td>${new Date(visitor.timestamp).toLocaleString()}</td>
-          <td><button onclick="deleteVisitor('${id}')">🗑️ Delete</button></td>
-        `;
+  <td>${visitor.name || ''}</td>
+  <td>${visitor.type || ''}</td>
+  <td>${visitor.source || ''}</td>
+  <td>${visitor.institution || ''}</td>
+  <td>${visitor.experience || ''}</td>
+  <td title="${visitor.deviceData ? JSON.stringify(visitor.deviceData).replace(/"/g, '&quot;') : ''}">
+    ${visitor.deviceData?.deviceModel || 'Unknown'}
+  </td>
+  <td>${visitor.timestamp ? new Date(visitor.timestamp).toLocaleString() : ''}</td>
+  <td><button onclick="deleteVisitor('${id}')">🗑️ Delete</button></td>
+`;
+
+
         container.appendChild(tr);
       });
     });
