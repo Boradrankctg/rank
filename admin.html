@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Access</title>
+</head>
+<body>
+<h1>Set Admin Access</h1>
+<button onclick="setAdmin()">Get Admin Access</button>
+
+<script>
+function setAdmin() {
+    localStorage.setItem("userId", "admin1234");
+    alert("Admin access set! Redirecting...");
+    window.location.href = "https://boradrankctg.github.io/rank/index.html";
+}
+</script>
+</body>
+</html>
