@@ -173,11 +173,12 @@ function fetchData(year, group) {
         processData(mainData, individualData);
         populateInstituationDropdown();
         hideLoadingIndicator();
-    }).catch(error => {
+      }).catch(error => {
         console.error('Error loading data:', error);
-        hideLoadingIndicator();
+        hideLoadingIndicator({ forceError: true, errorMessage: 'Unable to load files — check your connection.' });
         noDataMessage.style.display = 'block';
     });
+    
 }
 
 
@@ -722,13 +723,126 @@ function populateInstituationDropdown() {
     });
 }
 
-function showLoadingIndicator() {
-    document.getElementById('loadingSpinner').style.display = 'block';
+/* ==== NEW Loader Popup ==== */
+(function(){
+  const STYLE_ID = 'br-loader-styles';
+  function ensureLoaderStyles() {
+    if (document.getElementById(STYLE_ID)) return;
+    const s = document.createElement('style');
+    s.id = STYLE_ID;
+    s.textContent = `
+#dataLoaderOverlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 10050;
+  display: flex; align-items: center; justify-content: center;
 }
+#dataLoaderOverlay .loader-box {
+  background: #fff;
+  padding: 20px 28px;
+  border-radius: 12px;
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+#dataLoaderOverlay .rings {
+  width: 96px; height: 96px; margin: 0 auto; position: relative;
+}
+#dataLoaderOverlay .ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 6px solid transparent;
+  border-top-color: #1976d2;
+  animation: spin 1s linear infinite;
+}
+#dataLoaderOverlay .ring.r2 {
+  width: 64px; height: 64px;
+  top: 16px; left: 16px;
+  border-top-color: #ff8f00;
+  animation-duration: 1.4s;
+}
+#dataLoaderOverlay .ring.r3 {
+  width: 40px; height: 40px;
+  top: 28px; left: 28px;
+  border-top-color: #6a1b9a;
+  animation-duration: 1.85s;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#dataLoaderOverlay .percent {
+  font-size: 22px; font-weight: bold; margin-top: 8px;
+}
+#dataLoaderOverlay .subtext {
+  font-size: 13px; color: #555; margin-top: 4px;
+}
+#dataLoaderOverlay button {
+  margin-top: 12px; padding: 6px 14px;
+  border-radius: 6px; background: #1976d2; color: #fff;
+  border: none; cursor: pointer;
+}
+    `;
+    document.head.appendChild(s);
+  }
 
-function hideLoadingIndicator() {
-    document.getElementById('loadingSpinner').style.display = 'none';
-}
+  window.showLoadingIndicator = function() {
+    if (document.getElementById('dataLoaderOverlay')) return;
+    ensureLoaderStyles();
+
+    const overlay = document.createElement('div');
+    overlay.id = 'dataLoaderOverlay';
+    overlay.innerHTML = `
+      <div class="loader-box">
+        <div class="rings">
+          <div class="ring r1" style="width:96px;height:96px;"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+        </div>
+        <div id="brLoaderPercent" class="percent">1%</div>
+        <div id="brLoaderSub" class="subtext">Preparing files…</div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+
+    window.__br_percent = 1;
+    function step() {
+      if (!document.getElementById('dataLoaderOverlay')) return;
+      if (window.__br_percent < 99) {
+        window.__br_percent += Math.floor(Math.random()*5) + 1;
+        if (window.__br_percent > 99) window.__br_percent = 99;
+        document.getElementById('brLoaderPercent').textContent = window.__br_percent + '%';
+
+        const sub = document.getElementById('brLoaderSub');
+        if (window.__br_percent < 30) sub.textContent = 'Starting…';
+        else if (window.__br_percent < 70) sub.textContent = 'Loading records…';
+        else sub.textContent = 'Almost there…';
+      }
+      window.__br_timer = setTimeout(step, Math.random()*400 + 120);
+    }
+    step();
+  };
+
+  window.hideLoadingIndicator = function(opts={}) {
+    clearTimeout(window.__br_timer);
+    const overlay = document.getElementById('dataLoaderOverlay');
+    if (!overlay) return;
+
+    const noData = opts.forceError === true || (typeof filteredData !== 'undefined' && filteredData.length === 0);
+
+    if (noData) {
+      overlay.querySelector('.loader-box').innerHTML = `
+        <h2 style="color:#b71c1c; margin:6px 0;">Oops! No data found</h2>
+        <p style="color:#444; margin-bottom: 10px;">${opts.errorMessage || 'No matching results. Try another year/group.'}</p>
+        <button onclick="document.getElementById('dataLoaderOverlay').remove()">OK</button>
+      `;
+      return;
+    }
+
+    document.getElementById('brLoaderPercent').textContent = '100%';
+    document.getElementById('brLoaderSub').textContent = 'Done';
+    setTimeout(() => overlay.remove(), 300);
+  };
+})();
+
 
 function getProgressBarHtml(score, totalMark) {
     const percentage = (parseFloat(score) / totalMark) * 100;
@@ -1097,13 +1211,6 @@ if (isHSC) {
         });
 }
 
-function closePopup() {
-    const popup = document.querySelector('.popup');
-    if (popup) {
-        popup.remove();
-        document.body.classList.remove('locked'); 
-    }
-}
 
 function handleSearchInput() {
     const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
@@ -1158,16 +1265,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// Existing closePopup function
 function closePopup() {
-    const popup = document.querySelector('.popup');
-    if (popup) {
-        popup.classList.add('pop-out');
-        setTimeout(() => {
-            popup.remove();
-            document.body.classList.remove('locked');
-        }, 500); 
-    }
+  const popup = document.querySelector('.popup');
+  if (popup) {
+      popup.classList.add('pop-out');
+      setTimeout(() => {
+          popup.remove();
+          document.body.classList.remove('locked');
+      }, 500); 
+  }
 }
+
+// Listen for ESC key press
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+      closePopup();
+  }
+});
+
+// Handle phone "back" button (browser history)
+window.addEventListener('popstate', function() {
+  closePopup();
+});
+
+// Push a history state when popup opens
+function openPopup(contentHTML) {
+  const popup = document.createElement('div');
+  popup.className = 'popup';
+  popup.innerHTML = contentHTML;
+  document.body.appendChild(popup);
+  document.body.classList.add('locked');
+
+  // Add animation class if needed
+  popup.classList.add('pop-in');
+
+  // Push a new state to enable back button closing
+  history.pushState({ popupOpen: true }, '');
+}
+
 
 var scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
@@ -1185,6 +1321,36 @@ function scrollToTop() {
   document.body.scrollTop = 0; 
   document.documentElement.scrollTop = 0; 
 }
+// Handle phone/PC back button
+window.addEventListener('popstate', function () {
+  const params = new URLSearchParams(window.location.search);
+  const year = params.get('year');
+  const group = params.get('group');
+  const roll = params.get('roll');
+
+  // If a popup is open, close it first
+  if (document.querySelector('.popup')) {
+      closePopup();
+      return;
+  }
+
+  // If roll present → show individual result
+  if (year && group && roll) {
+      showIndividualResult(roll, year, group);
+  }
+  // If year & group present → load that table
+  else if (year && group) {
+      loadGroup(year, group);
+  }
+  // If only year present → load group selection
+  else if (year) {
+      loadYear(year);
+  }
+  // No params → go to home/default
+  else {
+      location.reload(); // or your home view loader
+  }
+});
 
 
 // NEW: Top Institutions button
@@ -1310,9 +1476,10 @@ function createTopInstitutionsButton() {
       hideLoadingIndicator();
     }).catch(error => {
       console.error('Error loading data:', error);
-      hideLoadingIndicator();
+      hideLoadingIndicator({ forceError: true, errorMessage: 'Unable to load files — check your connection.' });
       noDataMessage.style.display = 'block';
-    });
+  });
+  
   };
   function filterByInstituation() {
     const input = document.getElementById('InstituationDropdown').value.trim();
