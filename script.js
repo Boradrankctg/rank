@@ -183,11 +183,8 @@ function fetchData(year, group) {
 
 
 
-// Check once when the page loads if they already filled the form
 let visitorInfoCompleted = localStorage.getItem('visitorInfoGiven') === '1';
 
-/* ===== device helper: returns deviceData + fingerprint ===== */
-/* ===== device helper: returns deviceData + fingerprint + model detection ===== */
 function getDeviceDataAndFingerprint() {
   const ua = navigator.userAgent || '';
   const platform = navigator.platform || '';
@@ -238,14 +235,11 @@ function getDeviceDataAndFingerprint() {
   return { deviceData, fingerprint };
 }
 
-// Replace the whole showIndividualResultWithCheck(...) function with this updated async version
 async function showIndividualResultWithCheck(roll, year, group) {
-  // direct link & first-free-view handling (keep existing logic)
   const params = new URLSearchParams(window.location.search);
   if (params.has('roll') && params.get('roll') == roll) {
     return showIndividualResult(roll, year, group);
   }
-// Allow two free clicks before showing popup
 let clickCount = parseInt(localStorage.getItem('detailedResultClickCount') || '0', 10);
 clickCount++;
 localStorage.setItem('detailedResultClickCount', clickCount);
@@ -357,6 +351,11 @@ if (clickCount <= 2) { // first two clicks are free
         <option value="good">🙂 Good</option>
         <option value="best">🤩 Best</option>
       </select>
+
+
+      <label>Leave a Message (optional)</label>
+<textarea id="visitorMessage" placeholder="Write something..." style="min-height:60px;"></textarea>
+
     </div>
     <div class="popup-footer">
       <button class="secondary-btn" onclick="visitorInfoDenied()">Cancel</button>
@@ -368,6 +367,25 @@ if (clickCount <= 2) { // first two clicks are free
 
   document.body.appendChild(popup);
   document.body.classList.add('locked');
+  function looksFakeName(name) {
+    if (!name) return true;
+    const cleaned = name.trim();
+
+    // Too short / too long
+    if (cleaned.length < 3 || cleaned.length > 40) return true;
+
+    // Must contain at least one space (first + last name) and only letters/spaces
+    if (!/^[a-zA-Z\s]+$/.test(cleaned)) return true;
+
+    // Very few vowels (gibberish like "sdghjk")
+    const vowelCount = (cleaned.match(/[aeiouAEIOU]/g) || []).length;
+    if (vowelCount < 2) return true;
+
+    // Same character repeated 4+ times in a row
+    if (/(.)\1{3,}/.test(cleaned)) return true;
+
+    return false;
+}
 
   document.getElementById('submitVisitorInfo').addEventListener('click', async () => {
     const name = document.getElementById('visitorName').value.trim();
@@ -375,6 +393,94 @@ if (clickCount <= 2) { // first two clicks are free
     const type = document.getElementById('visitorType').value;
     const source = document.getElementById('visitorSource').value;
     const experience = document.getElementById('visitorExperience').value;
+
+    if (experience === "worst" || experience === "bad") {
+      const body = popup.querySelector('.popup-body');
+      const footer = popup.querySelector('.popup-footer');
+      if (footer) footer.style.display = 'none';
+  
+      // Step 1: Show loading spinner
+      body.innerHTML = `
+          <div style="text-align:center; padding:20px;">
+              <div class="access-status">
+                  <div class="circle" style="
+                      border: 4px solid #ccc;
+                      border-top: 4px solid #1976d2;
+                      border-radius: 50%;
+                      width: 40px;
+                      height: 40px;
+                      margin: auto;
+                      animation: spin 1s linear infinite;
+                  "></div>
+                  <div style="margin-top: 10px; font-size: 0.95rem;">Checking your feedback…</div>
+              </div>
+          </div>
+          <style>
+              @keyframes spin { to { transform: rotate(360deg); } }
+          </style>
+      `;
+  
+      // Step 2: After delay, show lighthearted denial message
+      setTimeout(() => {
+          body.innerHTML = `
+              <div style="text-align:center; padding:20px;">
+                  <h3 style="color:#b91c1c;">🚫 Access Not Granted</h3>
+                  <p style="margin:10px 0; font-size:0.95rem;">
+                      Looks like this feature isn’t available with that feedback.  
+                      Maybe try again later.
+                  </p>
+                  <p style="color:#666; font-size:0.85rem;">
+                      We’re always working to improve — your opinion is noted.
+                  </p>
+                  <button onclick="visitorInfoDenied()" class="secondary-btn" style="margin-top:15px;">
+                      Close
+                  </button>
+              </div>
+          `;
+      }, 1500);
+  
+      return;
+  }
+  if (looksFakeName(name)) {
+    const body = popup.querySelector('.popup-body');
+    const footer = popup.querySelector('.popup-footer');
+    if (footer) footer.style.display = 'none';
+
+    // Spinner first
+    body.innerHTML = `
+        <div style="text-align:center; padding:20px;">
+            <div class="circle" style="
+                border: 4px solid #ccc;
+                border-top: 4px solid #1976d2;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                margin: auto;
+                animation: spin 1s linear infinite;
+            "></div>
+            <div style="margin-top: 10px; font-size: 0.95rem;">Verifying name…</div>
+        </div>
+        <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+    `;
+
+    // After delay → denial screen
+    setTimeout(() => {
+        body.innerHTML = `
+            <div style="text-align:center; padding:20px;">
+                <h3 style="color:#b91c1c;">🚫 Access Not Granted</h3>
+                <p style="margin:10px 0; font-size:0.95rem;">
+                    The name provided doesn’t seem valid.  
+                    Please use your real name to continue.
+                </p>
+                <button onclick="visitorInfoDenied()" class="secondary-btn" style="margin-top:15px;">
+                    Close
+                </button>
+            </div>
+        `;
+    }, 1500);
+
+    return;
+}
 
     if (!name || name.length < 4) {
         alert('Name must contain at least 4 characters.');
@@ -423,15 +529,17 @@ if (clickCount <= 2) { // first two clicks are free
             const dbv = getDatabase();
             const visitorRef = push(ref(dbv, "visitors"));
             await set(visitorRef, {
-                name,
-                institution,
-                type,
-                source,
-                experience,
-                fingerprint,
-                deviceData,
-                timestamp: Date.now()
-            });
+              name,
+              institution,
+              type,
+              source,
+              experience,
+              message: document.getElementById('visitorMessage')?.value?.trim() || "",
+              fingerprint,
+              deviceData,
+              timestamp: Date.now()
+          });
+          
         } catch (err) {
             console.error('Error saving visitor info:', err);
         }
@@ -613,7 +721,8 @@ const nameId = `name-${student.roll}`;
 const isAdmin = (localStorage.getItem('userId') === 'admin1234'); // matches your existing check
 
 row.innerHTML = `
-  <td>${startIndex + index + 1}</td>
+  <td>${allData.findIndex(s => s.roll === student.roll) + 1}</td>
+
   <td class="student-name" id="${nameId}">${student.name}${isAdmin ? ` [${(window.clickCountsCache && window.clickCountsCache[student.roll]) || 0}]` : ''}</td>
   <td class="student-roll">${student.roll}</td>
   <td>${student.gpa}</td>
@@ -762,7 +871,7 @@ function populateInstituationDropdown() {
     });
 }
 
-/* ==== NEW Loader Popup ==== */
+
 (function(){
   const STYLE_ID = 'br-loader-styles';
   function ensureLoaderStyles() {
@@ -866,15 +975,20 @@ function populateInstituationDropdown() {
     if (!overlay) return;
 
     const noData = opts.forceError === true || (typeof filteredData !== 'undefined' && filteredData.length === 0);
-
     if (noData) {
       overlay.querySelector('.loader-box').innerHTML = `
-        <h2 style="color:#b71c1c; margin:6px 0;">Oops! No data found</h2>
-        <p style="color:#444; margin-bottom: 10px;">${opts.errorMessage || 'No matching results. Try another year/group.'}</p>
-        <button onclick="document.getElementById('dataLoaderOverlay').remove()">OK</button>
+        <h2 style="color:#b71c1c; margin:6px 0;">❗ Data NOT FOUND</h2>
+        <p style="color:#444; margin-bottom: 10px;">
+          This selected results are not yet available.<br>
+        </p>
+        <button onclick="window.location.href='index.html'">Go Back</button>
+
       `;
       return;
     }
+   
+
+    
 
     document.getElementById('brLoaderPercent').textContent = '100%';
     document.getElementById('brLoaderSub').textContent = 'Done';
@@ -1278,33 +1392,8 @@ function navigateTo(page) {
     window.location.href = page;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    
-    const menuButton = document.getElementById('menuButton');
-    sidebar.style.width = '0px';
 
-    menuButton.addEventListener('click', (event) => {
-        event.stopPropagation();
-        if (sidebar.style.width === '0px' || sidebar.style.width === '') {
-            sidebar.style.width = '40%';
-        } else {
-            sidebar.style.width = '0px';
-        }
-    });
 
-    document.body.addEventListener('click', () => {
-        if (sidebar.style.width === '40%') {
-            sidebar.style.width = '0px';
-        }
-    });
-
-    sidebar.addEventListener('click', (event) => {
-        event.stopPropagation();
-    });
-
-});
-
-// Existing closePopup function
 function closePopup() {
   const popup = document.querySelector('.popup');
   if (popup) {
@@ -1316,19 +1405,19 @@ function closePopup() {
   }
 }
 
-// Listen for ESC key press
+
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
       closePopup();
   }
 });
 
-// Handle phone "back" button (browser history)
+
 window.addEventListener('popstate', function() {
   closePopup();
 });
 
-// Push a history state when popup opens
+
 function openPopup(contentHTML) {
   const popup = document.createElement('div');
   popup.className = 'popup';
@@ -1360,14 +1449,14 @@ function scrollToTop() {
   document.body.scrollTop = 0; 
   document.documentElement.scrollTop = 0; 
 }
-// Handle phone/PC back button
+
 window.addEventListener('popstate', function () {
   const params = new URLSearchParams(window.location.search);
   const year = params.get('year');
   const group = params.get('group');
   const roll = params.get('roll');
 
-  // If a popup is open, close it first
+
   if (document.querySelector('.popup')) {
       closePopup();
       return;
@@ -1392,7 +1481,7 @@ window.addEventListener('popstate', function () {
 });
 
 
-// NEW: Top Institutions button
+
 function createTopInstitutionsButton() {
     const resetBtn = document.getElementById('resetFilterBtn');
     const topBtn = document.createElement('button');
@@ -1544,23 +1633,21 @@ function handleURLParams() {
     const roll = params.get('roll');
 
     if (year && group) {
-        // Set dropdown value (sync UI)
+        
         if (yearDropdown) {
             yearDropdown.value = year;
             yearDropdown.style.display = 'none';
         }
 
-        // Remove prompt + featuredBox if exists
+   
         document.getElementById("selectPrompt")?.remove();
         document.querySelectorAll('.featured-box').forEach(b => b.remove());
 
 
-        // Update breadcrumb visually
         currentYear.textContent = ` ${year}`;
         currentGroup.textContent = `${group} Group`;
         currentGroup.style.display = 'inline';
 
-        // Load data directly
         contentDiv.innerHTML = `
             <h3 id="examResultHeader"></h3>
             <div class="search-container">
@@ -1602,12 +1689,12 @@ function handleURLParams() {
             </div>
         `;
 
-        // Load header and fetch data
+
         printExamResultHeader(year);
         fetchData(year, group);
 
 
-        // If roll is present, wait and then show popup
+     
         if (roll) {
             setTimeout(() => {
                 showIndividualResult(roll, year, group);
@@ -1615,24 +1702,22 @@ function handleURLParams() {
         }
 
     } else if (year) {
-        // Only year present, ask user to select group
+    
         loadYear(year);
         if (yearDropdown) {
             yearDropdown.value = year;
         }
     } else {
-        // No URL param → show dropdown normally
+ 
         contentDiv.innerHTML = '';
     }
 }
 
-// generic handler used by each featured box
+
 function handleFeaturedClick(yearValue, el) {
-    // el is the clicked element (passed via `this`) — fallback to query selector if not provided
     const box = el || document.querySelector(`.featured-box[data-value="${yearValue}"]`);
     if (!box) return;
   
-    // animate hide (same visual behaviour as original)
     box.style.transition = "all 0.4s ease";
     box.style.opacity = "0";
     box.style.transform = "scale(0.9)";
@@ -1640,7 +1725,6 @@ function handleFeaturedClick(yearValue, el) {
     setTimeout(() => {
       box.style.display = "none";
   
-      // set dropdown and load
       const dropdown = document.getElementById("yearDropdown");
       if (dropdown) {
         dropdown.value = yearValue;
@@ -1650,10 +1734,9 @@ function handleFeaturedClick(yearValue, el) {
     }, 400);
   }
   
-  // Add at the end of script.js
 
   function showSharePopup() {
-    if (document.querySelector('.popup')) return; // prevent duplicate popup
+    if (document.querySelector('.popup')) return; 
 
     const popup = document.createElement('div');
     popup.className = 'popup';
@@ -1685,7 +1768,6 @@ function handleFeaturedClick(yearValue, el) {
     document.body.appendChild(popup);
     document.body.classList.add('locked');
 }
-// At top of your script
 if (!localStorage.getItem('sharePopupShown')) {
     setTimeout(() => {
         showSharePopup();
@@ -1714,12 +1796,7 @@ function submitReview() {
 
     window.location.href = 'review.html';
 }
-// =========================
-// HSC -> SSC LINK MODULE
-// Paste this at the END of your script.js / all merged.txt
-// =========================
 
-/* Helper: normalize student name (collapse spaces, lower, remove punctuation but keep letters/numbers/unicode) */
 function _br_normalizeName(s) {
     if (!s && s !== 0) return '';
     try {
@@ -1728,28 +1805,23 @@ function _br_normalizeName(s) {
         .replace(/\s+/g, ' ')
         .trim()
         .toLowerCase()
-        // remove punctuation but keep Unicode letters & numbers & spaces
         .replace(/[^\p{L}\p{N}\s]/gu, '');
     } catch (e) {
-      // fallback if Unicode property escapes not supported:
       return String(s).replace(/\s+/g, ' ').trim().toLowerCase().replace(/[^\w\s]/g, '');
     }
   }
   
-  /* Helper: normalize roll (strip leading zeros, spaces) */
   function _br_normalizeRoll(r) {
     if (r === undefined || r === null) return '';
     return String(r).trim().replace(/^0+/, '') || '0';
   }
   
-  /* Remove all popups immediately (no animation) so showIndividualResult can open new popup */
   function _br_removeAllPopupsImmediate() {
     const popups = document.querySelectorAll('.popup');
     popups.forEach(p => p.remove());
     document.body.classList.remove('locked');
   }
   
-  /* Small visual spinner HTML (reused) */
   function _br_spinnerHtml() {
     return `<div style="display:flex;align-items:center;gap:10px;">
               <div class="loading-spinner" style="width:18px;height:18px;border-top-width:4px"></div>
@@ -1757,9 +1829,7 @@ function _br_normalizeName(s) {
             </div>`;
   }
   
-  /* Lightweight modal message (no alerts) */
   function _br_showMessage(msg) {
-    // remove existing popup(s)
     _br_removeAllPopupsImmediate();
   
     const popup = document.createElement('div');
@@ -1775,17 +1845,10 @@ function _br_normalizeName(s) {
     document.body.classList.add('locked');
   }
   
-  /* ---- SSC data cache ----
-     window.__br_sscCache = {
-       [yearNumber]: {
-          byName: Map(normalizedName -> [ { roll, group, nameRaw, institution? } ]),
-          byRoll: Map(normalizedRoll -> { roll, group, nameRaw, institution? })
-       }
-     }
-  */
+
+
   window.__br_sscCache = window.__br_sscCache || {};
   
-  /* Ensure SSC data for a given HSC year is loaded (returns Promise resolving to cache object for sscYear) */
   function _br_ensureSSCLoadedForHSCYear(hscYearNum) {
     return new Promise((resolve) => {
       try {
@@ -1803,13 +1866,11 @@ function _br_normalizeName(s) {
             return r.text();
           }).then(text => {
             const rows = text.trim().split('\n');
-            // skip header if header line present (most of your files have header)
             const start = rows.length && rows[0].includes('\t') && rows[0].toLowerCase().includes('name') ? 1 : 0;
             for (let i = start; i < rows.length; i++) {
               const row = rows[i].trim();
               if (!row) continue;
               const cols = row.split('\t');
-              // expected main format: serial, name, roll, gpa, total, Instituation
               const nameRaw = (cols[1] || '').trim();
               const rollRaw = (cols[2] || '').trim();
               const institution = (cols[5] || '').trim();
@@ -1817,17 +1878,12 @@ function _br_normalizeName(s) {
               const nName = _br_normalizeName(nameRaw);
               const nRoll = _br_normalizeRoll(rollRaw);
               const obj = { roll: rollRaw, rollNorm: nRoll, group: g.charAt(0).toUpperCase() + g.slice(1), nameRaw, institution };
-  
-              // byRoll: keep first if collision (roll collisions across groups are unlikely but dedupe)
-              if (!cache.byRoll.has(nRoll)) cache.byRoll.set(nRoll, obj);
-  
-              // byName: push candidate array, dedupe by roll+group
-              const arr = cache.byName.get(nName) || [];
+                if (!cache.byRoll.has(nRoll)) cache.byRoll.set(nRoll, obj);
+                const arr = cache.byName.get(nName) || [];
               if (!arr.some(x => x.rollNorm === obj.rollNorm && x.group === obj.group)) arr.push(obj);
               cache.byName.set(nName, arr);
             }
           }).catch(() => {
-            // file missing or parse error -> ignore group quietly
           });
         });
   
@@ -1844,16 +1900,13 @@ function _br_normalizeName(s) {
     });
   }
   
-  /* Try to read HSC roll from currently displayed popup (used to save mapping). Returns normalized roll or null */
   function _br_getHscRollFromCurrentPopup() {
     try {
       const popupContent = document.querySelector('.popup .popup-content');
       if (!popupContent) return null;
       const txt = (popupContent.innerText || popupContent.textContent || '').replace(/\u00A0/g, ' ');
-      // look for "Roll: 12345" (robust)
       const m = txt.match(/roll[:\s]*([0-9\-]+)/i);
       if (m && m[1]) return _br_normalizeRoll(m[1]);
-      // fallback search in p elements
       const nodes = popupContent.querySelectorAll('p,div,span');
       for (let n of nodes) {
         const t = (n.textContent || '').trim();
@@ -1866,7 +1919,6 @@ function _br_normalizeName(s) {
     return null;
   }
   
-  /* Save HSC->SSC link for future: key pattern br_hsc2ssc:<hscYear>:<hscRoll> -> { sscYear, sscRoll, sscGroup, nameMatched } */
   function _br_saveLinkMapping(hscYearNum, hscRollNorm, sscYearNum, sscRollNorm, sscGroup, matchedNameRaw) {
     try {
       if (!hscYearNum || !hscRollNorm) return;
@@ -1876,7 +1928,6 @@ function _br_normalizeName(s) {
     } catch (e) {}
   }
   
-  /* Retrieve mapping if exists */
   function _br_getLinkMapping(hscYearNum, hscRollNorm) {
     try {
       const key = `br_hsc2ssc:${hscYearNum}:${hscRollNorm}`;
@@ -1886,9 +1937,7 @@ function _br_normalizeName(s) {
     } catch (e) { return null; }
   }
   
-  /* Build a small modal listing multiple SSC candidates and allow typing roll or clicking a candidate */
   function _br_showCandidatesModalAndHandle(matches, sscYearNum, onSelect) {
-    // matches: array of { roll, rollNorm, group, nameRaw, institution }
     const popup = document.createElement('div');
     popup.className = 'popup';
     popup.innerHTML = `
@@ -1923,18 +1972,15 @@ function _br_normalizeName(s) {
   
       item.querySelector('.br_open_btn').addEventListener('click', (ev) => {
         ev.stopPropagation();
-        // select this candidate
         _br_removeAllPopupsImmediate();
         setTimeout(() => onSelect(m), 60);
       });
     });
   
-    // Confirm by roll typed
     popup.querySelector('#br_ssc_roll_confirm').addEventListener('click', () => {
       const val = popup.querySelector('#br_ssc_roll_input').value.trim();
       const norm = _br_normalizeRoll(val);
       if (!norm) {
-        // highlight or message
         popup.querySelector('#br_ssc_roll_input').style.border = '1px solid red';
         return;
       }
@@ -1943,7 +1989,6 @@ function _br_normalizeName(s) {
         _br_removeAllPopupsImmediate();
         setTimeout(() => onSelect(found), 60);
       } else {
-        // show ephemeral message inside modal
         const err = document.createElement('div');
         err.style = 'color:#b71c1c;margin-top:8px;font-weight:bold';
         err.textContent = 'No SSC record found with that roll among the candidates.';
@@ -1953,19 +1998,15 @@ function _br_normalizeName(s) {
     });
   }
   
-  /* PUBLIC function (called from HSC popup button). name = full name as shown in HSC popup; hscGroupLower = 'science'|'commerce'|'arts' (optional) */
   function showSSCResultFromHSC(name, hscGroupLower) {
     try {
-      // Determine HSC year from UI's currentYear text (the app stores 'hsc_2025' or similar)
       const yearLabel = (currentYear && currentYear.textContent) ? currentYear.textContent.trim() : null;
       let hscYearNum = null;
       if (yearLabel && yearLabel.toLowerCase().includes('hsc')) {
-        // expected 'hsc_2025' or 'hsc 2025' or 'HSC 2025' etc
         const m = yearLabel.match(/(\d{4})/);
         if (m) hscYearNum = parseInt(m[1], 10);
       }
   
-      // fallback: try to extract from URL param '?year=hsc_2025'
       if (!hscYearNum) {
         try {
           const params = new URLSearchParams(window.location.search);
@@ -1977,39 +2018,33 @@ function _br_normalizeName(s) {
         } catch (e) {}
       }
   
-      // final fallback: assume HSC 2025 if cannot detect (not ideal but prevents crash)
       if (!hscYearNum) hscYearNum = (new Date()).getFullYear();
   
-      // If HSC popup includes the hsc roll, get it for mapping usage
-      const currentHscRoll = _br_getHscRollFromCurrentPopup(); // normalized roll string or null
+      const currentHscRoll = _br_getHscRollFromCurrentPopup(); 
   
-      // Check localStorage mapping first (fast path)
+ 
       if (currentHscRoll) {
         const mapping = _br_getLinkMapping(hscYearNum, currentHscRoll);
         if (mapping && mapping.sscYear && mapping.sscRoll) {
-          // direct open (close any current popups)
+         
           _br_removeAllPopupsImmediate();
           setTimeout(() => {
-            // mapping.sscGroup might be saved; fallback to 'Science' if not
+            
             showIndividualResult(mapping.sscRoll, String(mapping.sscYear), mapping.sscGroup || 'Science');
           }, 60);
           return;
         }
       }
   
-      // show a small temporary modal with spinner inside current popup context (non-blocking)
       const loaderPopup = document.createElement('div');
       loaderPopup.className = 'popup';
       loaderPopup.innerHTML = `<div class="popup-content">${_br_spinnerHtml()}</div>`;
       document.body.appendChild(loaderPopup);
       document.body.classList.add('locked');
   
-      // Ensure SSC data loaded
       _br_ensureSSCLoadedForHSCYear(hscYearNum).then(cache => {
         try {
-          // remove loader (but don't close main HSC popup)
           loaderPopup.remove();
-          // try to find matches by normalized name
           const nName = _br_normalizeName(name || '');
           const sscYearNum = hscYearNum - 2;
           const sscCache = cache || window.__br_sscCache[sscYearNum] || { byName: new Map(), byRoll: new Map() };
@@ -2021,7 +2056,6 @@ function _br_normalizeName(s) {
             return;
           }
   
-          // Deduplicate by rollNorm+group (should already be deduped in cache, but extra safety)
           const uniq = [];
           const seen = new Set();
           rawMatches.forEach(m => {
@@ -2033,9 +2067,7 @@ function _br_normalizeName(s) {
           });
   
           if (uniq.length === 1) {
-            // direct open: remove all popups then open SSC individual
             const chosen = uniq[0];
-            // try to save mapping if we have hsc roll
             if (currentHscRoll) _br_saveLinkMapping(hscYearNum, currentHscRoll, sscYearNum, chosen.rollNorm, chosen.group, chosen.nameRaw);
   
             _br_removeAllPopupsImmediate();
@@ -2045,9 +2077,7 @@ function _br_normalizeName(s) {
             return;
           }
   
-          // multiple candidates: show selection modal (click-to-open OR type roll)
           _br_showCandidatesModalAndHandle(uniq, sscYearNum, (chosen) => {
-            // chosen is candidate object
             if (currentHscRoll) _br_saveLinkMapping(hscYearNum, currentHscRoll, sscYearNum, chosen.rollNorm, chosen.group, chosen.nameRaw);
             _br_removeAllPopupsImmediate();
             setTimeout(() => {
@@ -2071,20 +2101,19 @@ function _br_normalizeName(s) {
       _br_showMessage("Unexpected error occurred.");
     }
   }
-  
-  /* --- Optional integration: when fetchData is called for HSC, prefetch SSC automatically (non-invasive) --- */
+
   if (typeof fetchData === 'function') {
     try {
       const _origFetchData = fetchData;
       fetchData = function(year, group) {
         try {
-          // call original behavior
+
           _origFetchData(year, group);
         } catch (e) {
           console.error('wrapped fetchData original error', e);
         }
         try {
-          // if HSC year detected, prefetch ssc (non-blocking)
+  
           if (typeof year === 'string' && year.toLowerCase().includes('hsc')) {
             const m = year.match(/(\d{4})/);
             const yh = m ? Number(m[1]) : null;
@@ -2109,8 +2138,6 @@ function _br_normalizeName(s) {
 }
 
 
-
-// Delay to ensure table cells are in the DOM
 setTimeout(() => {
     const firstNameCell = document.querySelector('.student-name');
     if (firstNameCell) {
@@ -2145,7 +2172,7 @@ setTimeout(() => {
             window.removeEventListener('resize', positionHand);
         });
     }
-}, 300); // 0.3s delay so elements are rendered
+}, 300); 
 function downloadStudentPDF(btn) {
   const safe = s => String(s == null ? '' : s).trim();
 
@@ -2158,7 +2185,7 @@ function downloadStudentPDF(btn) {
 
   const data = { name: '', roll: '', institution: '', gpa: '', subjects: [] };
 
-  // parse colon lines
+
   const els = Array.from(popup.querySelectorAll('p,div,span,li,td'));
   els.forEach(el => {
     const txt = safe(el.textContent);
@@ -2177,7 +2204,7 @@ function downloadStudentPDF(btn) {
     }
   });
 
-  // remove accidental "Board Rank" subjects
+
   data.subjects = data.subjects.filter(s => !/board\s*rank/i.test(s.name));
 
   function markToGrade(markStr, subjectName) {
@@ -2186,7 +2213,7 @@ function downloadStudentPDF(btn) {
   
     const nameLower = (subjectName || '').toLowerCase();
   
-    // Detect HSC: prefer currentYear element, fallback to popup text
+
     let yearText = '';
     try {
       if (typeof currentYear !== 'undefined' && currentYear && currentYear.textContent) {
@@ -2196,23 +2223,22 @@ function downloadStudentPDF(btn) {
     const popupText = (document.querySelector('.popup .popup-content')?.textContent || '').toLowerCase();
     const isHSC = (yearText.includes('hsc') || popupText.includes('hsc'));
   
-    // Determine total marks according to exam type + subject
+
     let totalMarks;
     if (isHSC) {
-      // HSC rules: ICT = 100, all other subjects = 200
+    
       if (nameLower.includes('ict')) totalMarks = 100;
       else totalMarks = 200;
     } else {
-      // SSC rules (existing behavior): Bangla/English = 200, ICT/Career = 50, others = 100
+      
       if (nameLower.includes('ict') || nameLower.includes('career')) totalMarks = 50;
       else if (nameLower.includes('bangla') || nameLower.includes('english')) totalMarks = 200;
       else totalMarks = 100;
     }
   
-    // Calculate percentage
+
     const percentage = (m / totalMarks) * 100;
   
-    // Bangladesh GPA/Grade thresholds (79.5% counts as A+)
     if (percentage >= 79.5) return { gp: 5.00, grade: 'A+' };
     if (percentage >= 70) return { gp: 4.00, grade: 'A' };
     if (percentage >= 60) return { gp: 3.50, grade: 'A-' };
@@ -2240,13 +2266,12 @@ function downloadStudentPDF(btn) {
     const margin = 15;
     let y = 18;
 
-    // HEADER
     doc.setFontSize(18);
     doc.setFont(undefined, 'bold');
     doc.text('SSC 2025 Board Rank of Chittagong', margin, y);
     y += 12;
 
-// INFO BOX
+
 const infoW = pageW - margin * 2;
 const colW = infoW / 4;
 const infoH = 20;
@@ -2265,24 +2290,23 @@ for (let i = 0; i < fields.length; i++) {
   doc.text(fields[i].label + ':', x + 2, y + 6);
 
   doc.setFont(undefined, 'bold');
-  // Wrap text to fit inside the column width
+
   const wrapped = doc.splitTextToSize(fields[i].value, colW - 4);
   doc.setFontSize(10);
   let textY = y + 12;
   wrapped.forEach(line => {
     doc.text(line, x + 2, textY);
-    textY += 4; // line spacing
+    textY += 4; 
   });
   doc.setFont(undefined, 'normal');
 }
 y += infoH + 8;
 
 
-    // TABLE HEADER
     const tblW = pageW - margin * 2;
-    const col1 = Math.round(tblW * 0.5 * 100) / 100; // Subject
-    const col2 = Math.round(tblW * 0.25 * 100) / 100; // Marks
-    const col3 = tblW - col1 - col2; // GPA col
+    const col1 = Math.round(tblW * 0.5 * 100) / 100; 
+    const col2 = Math.round(tblW * 0.25 * 100) / 100; 
+    const col3 = tblW - col1 - col2; 
     const rowH = 8;
 
     doc.setFillColor(240);
@@ -2296,7 +2320,7 @@ y += infoH + 8;
     y += rowH;
     doc.setFont(undefined, 'normal');
 
-    // TABLE BODY
+  
     data.subjects.forEach(row => {
       const g = markToGrade(row.mark, row.name);
 
@@ -2310,7 +2334,7 @@ y += infoH + 8;
       y += rowH;
     });
 
-    // FOOTER
+    
     doc.setFontSize(9);
     doc.text(`Generated on ${new Date().toLocaleString()}`, margin, 285);
     doc.text('Unofficial printable copy', pageW - margin, 285, { align: 'right' });
@@ -2328,7 +2352,7 @@ function visitorInfoDenied() {
 
   if (footer) footer.style.display = 'none';
 
-  // show the same spinner as success
+
   if (body) {
     body.innerHTML = `
       <div class="access-status">
@@ -2337,7 +2361,6 @@ function visitorInfoDenied() {
       </div>
     `;
 
-    // after short delay, change to ❌
     setTimeout(() => {
       const circleEl = body.querySelector('.circle');
       if (circleEl) circleEl.style.display = 'none';
@@ -2348,10 +2371,9 @@ function visitorInfoDenied() {
           <div class="status-text" style="color:#dc2626;">Access Denied — Please try again</div>
         </div>
       `;
-    }, 800); // spinner time before showing cross
+    }, 800); 
   }
 
-  // close popup after showing the ❌ for a bit
   setTimeout(() => {
     closePopup();
   }, 1800);
