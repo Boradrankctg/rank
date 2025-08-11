@@ -27,10 +27,12 @@
           <th>Experience</th>
           <th>Message</th>
           <th>Device</th>
+          <th>Fingerprint</th> <!-- ✅ Added -->
           <th>Date</th>
           <th>Action</th>
         </tr>
       </thead>
+      
       
   </thead>
   
@@ -82,19 +84,21 @@ let count = totalVisitors;
 Object.entries(visitors).reverse().forEach(([id, visitor]) => {
   const tr = document.createElement("tr");
   tr.innerHTML = `
-    <td>${count--}</td>
-    <td>${escapeHtml(visitor.name || '')}</td>
-    <td>${escapeHtml(visitor.type || '')}</td>
-    <td>${escapeHtml(visitor.source || '')}</td>
-    <td>${escapeHtml(visitor.institution || '')}</td>
-    <td>${escapeHtml(visitor.experience || '')}</td>
-    <td>${visitor.message ? '<div class="visitor-message">' + escapeHtml(visitor.message) + '</div>' : ''}</td>
-    <td title="${visitor.deviceData ? escapeHtml(JSON.stringify(visitor.deviceData)) : ''}">
-      ${escapeHtml(visitor.deviceData?.deviceModel || 'Unknown')}
-    </td>
-    <td>${visitor.timestamp ? new Date(visitor.timestamp).toLocaleString() : ''}</td>
-    <td><button onclick="deleteVisitor('${id}')">🗑️ Delete</button></td>
-  `;
+  <td>${count--}</td>
+  <td>${escapeHtml(visitor.name || '')}</td>
+  <td>${escapeHtml(visitor.type || '')}</td>
+  <td>${escapeHtml(visitor.source || '')}</td>
+  <td>${escapeHtml(visitor.institution || '')}</td>
+  <td>${escapeHtml(visitor.experience || '')}</td>
+  <td>${visitor.message ? '<div class="visitor-message">' + escapeHtml(visitor.message) + '</div>' : ''}</td>
+  <td title="${visitor.deviceData ? escapeHtml(JSON.stringify(visitor.deviceData)) : ''}">
+    ${escapeHtml(visitor.deviceData?.deviceModel || 'Unknown')}
+  </td>
+  <td>${escapeHtml(visitor.fingerprint || '')}</td> <!-- ✅ New column -->
+  <td>${visitor.timestamp ? new Date(visitor.timestamp).toLocaleString() : ''}</td>
+  <td><button onclick="deleteVisitor('${id}')">🗑️ Delete</button></td>
+`;
+
   container.appendChild(tr);
 });
 
