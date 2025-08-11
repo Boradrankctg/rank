@@ -393,7 +393,7 @@ if (clickCount <= 2) { // first two clicks are free
     const type = document.getElementById('visitorType').value;
     const source = document.getElementById('visitorSource').value;
     const experience = document.getElementById('visitorExperience').value;
-
+    const messageVal = document.getElementById('visitorMessage').value.trim(); // ✅ capture now
     if (experience === "worst" || experience === "bad") {
       const body = popup.querySelector('.popup-body');
       const footer = popup.querySelector('.popup-footer');
@@ -534,7 +534,7 @@ if (clickCount <= 2) { // first two clicks are free
               type,
               source,
               experience,
-              message: document.getElementById('visitorMessage')?.value?.trim() || "",
+              message: messageVal, // ✅ use saved value
               fingerprint,
               deviceData,
               timestamp: Date.now()
