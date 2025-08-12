@@ -16,8 +16,10 @@
     <meta property="og:url" content="https://boradrankctg.github.io/rank/" />
     <meta property="og:type" content="website" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 
@@ -26,7 +28,7 @@
     <header>
        
         <h1>Chattogram Board Students' SSC & HSC Ranking</h1>
-        <h2>Designed by Hasnyne & Tasin (Chittagong College'25)</h2>
+        <h2>Designed by Hasnyne (CC'25), Tasin (CC'25)</h2>
         
     </header>
 
@@ -277,7 +279,42 @@ window.listenClickCount = function(roll, cb) {
     </footer>
   
 </body>
-
+<style>
+  #firstVisitHint {
+    position: absolute;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    animation: floatY 1s ease-in-out infinite;
+    pointer-events: none;
+  }
+  #firstVisitHint img {
+    width: 40px;
+    height: 40px;
+    animation: wiggle 0.8s infinite;
+  }
+  #firstVisitHint .bubble {
+    background: #fff;
+    color: #222;
+    border: 2px solid #333;
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 13px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    white-space: nowrap;
+  }
+  @keyframes wiggle {
+    0%,100% { transform: rotate(0deg); }
+    25% { transform: rotate(8deg); }
+    75% { transform: rotate(-8deg); }
+  }
+  @keyframes floatY {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  </style>
   
   <script>
   function showFirstVisitHint() {
@@ -353,6 +390,4 @@ window.listenClickCount = function(roll, cb) {
   </script>
   
 </html>
-
-
 
