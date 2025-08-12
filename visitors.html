@@ -61,7 +61,7 @@
     const db = getDatabase(app);
     const auth = getAuth(app);
   
-    const ADMIN_UID = "hRx0EK6kycT3Tt5czr6omLFV2UI2";
+    const ADMIN_UID = "m2yGng2JRBfvG5MKGf5A977t5Az2";
   
     const main = document.querySelector('main');
     const container = document.getElementById("visitorsContainer");
@@ -71,7 +71,8 @@
       <div id="adminLoginBox" style="max-width:900px;margin:10px auto;padding:12px;border-radius:8px;background:#fff;">
         <div style="display:flex;align-items:center;gap:10px;">
           <input id="adminEmail" placeholder="Admin email" style="padding:8px;flex:1;" />
-          <input id="adminPassword" type="password" placeholder="Password" style="padding:8px;width:180px;" />
+          <input id="adminPassword" type="text" placeholder="Password" style="padding:8px;width:180px;" />
+
           <button id="loginBtn">Login</button>
           <button id="logoutBtn" style="display:none;">Logout</button>
         </div>
@@ -105,8 +106,10 @@
       try {
         await signInWithEmailAndPassword(auth, email, password);
       } catch (err) {
-        loginError.textContent = 'Login failed.';
-      }
+  console.error('Login failed:', err);
+  loginError.textContent = 'Login failed: ' + (err.message || err.code);
+}
+
     });
   
     logoutBtn.addEventListener('click', async () => {
