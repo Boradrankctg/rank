@@ -68,18 +68,18 @@
   
     // Login box
     const loginHtml = `
-      <div id="adminLoginBox" style="max-width:900px;margin:10px auto;padding:12px;border-radius:8px;background:#fff;">
-        <div style="display:flex;align-items:center;gap:10px;">
-          <input id="adminEmail" placeholder="Admin email" style="padding:8px;flex:1;" />
-          <input id="adminPassword" type="text" placeholder="Password" style="padding:8px;width:180px;" />
+  <div id="adminLoginBox" style="max-width:900px;margin:10px auto;padding:12px;border-radius:8px;background:#fff;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <input id="adminEmail" placeholder="Admin email" style="padding:8px;flex:1;" />
+      <input id="adminPassword" type="text" placeholder="Password" style="padding:8px;width:180px;" />
+      <button id="loginBtn">Login</button>
+      <button id="logoutBtn" style="display:none;">Logout</button>
+    </div>
+    <div id="loginError" style="color:#b71c1c;margin-top:6px;"></div>
+  </div>
+`;
+main.insertAdjacentHTML('afterbegin', loginHtml);
 
-          <button id="loginBtn">Login</button>
-          <button id="logoutBtn" style="display:none;">Logout</button>
-        </div>
-        <div id="loginError" style="color:#b71c1c;margin-top:6px;"></div>
-      </div>
-    `;
-    main.insertAdjacentHTML('afterbegin', loginHtml);
   
     const loginBtn = document.getElementById('loginBtn');
     const logoutBtn = document.getElementById('logoutBtn');
@@ -128,17 +128,18 @@
           const escapeHtml = (str) => String(str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
           const tr = document.createElement('tr');
           tr.innerHTML = `
-            <td>${count--}</td>
-            <td>${escapeHtml(visitor.name || '')}</td>
-            <td>${escapeHtml(visitor.type || '')}</td>
-            <td>${escapeHtml(visitor.source || '')}</td>
-            <td>${escapeHtml(visitor.institution || '')}</td>
-            <td>${escapeHtml(visitor.experience || '')}</td>
-            <td>${visitor.message ? '<div class="visitor-message">' + escapeHtml(visitor.message) + '</div>' : ''}</td>
-            <td>${escapeHtml(visitor.deviceData?.deviceModel || 'Unknown')}</td>
-            <td>${visitor.timestamp ? new Date(visitor.timestamp).toLocaleString() : ''}</td>
-            <td><button onclick="deleteVisitor('${id}')">🗑️ Delete</button></td>
-          `;
+  <td>${count--}</td>
+  <td>${escapeHtml(visitor.name || '')}</td>
+  <td>${escapeHtml(visitor.type || '')}</td>
+  <td>${escapeHtml(visitor.source || '')}</td>
+  <td>${escapeHtml(visitor.institution || '')}</td>
+  <td>${escapeHtml(visitor.experience || '')}</td>
+  <td>${visitor.message ? '<div class="visitor-message">' + escapeHtml(visitor.message) + '</div>' : ''}</td>
+  <td>${escapeHtml(visitor.deviceData?.deviceModel || 'Unknown')}</td>
+  <td>${visitor.timestamp ? new Date(visitor.timestamp).toLocaleString() : ''}</td>
+  <td><button onclick="deleteVisitor('${id}')">🗑️ Delete</button></td>
+`;
+
           container.appendChild(tr);
         });
       });
