@@ -45,22 +45,31 @@
     import { getDatabase, ref, onValue, remove } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
     import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
   
-    // Firebase config (same as your current one)
-    const firebaseConfig = {
-      apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
-      authDomain: "boardrankctg.firebaseapp.com",
-      databaseURL: "https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "boardrankctg",
-      storageBucket: "boardrankctg.firebasestorage.app",
-      messagingSenderId: "751761229963",
-      appId: "1:751761229963:web:43f9dbf71feef6dc9cec8e",
-      measurementId: "G-3Y6J44NWNH"
-    };
-  
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    const auth = getAuth(app);
-  
+// --- Project 1: boardrankctg (DATABASE) ---
+const dbConfig = {
+  apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
+  authDomain: "boardrankctg.firebaseapp.com",
+  databaseURL: "https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "boardrankctg",
+  storageBucket: "boardrankctg.appspot.com",
+  messagingSenderId: "751761229963",
+  appId: "1:751761229963:web:43f9dbf71feef6dc9cec8e"
+};
+const dbApp = initializeApp(dbConfig, "dbApp"); 
+const db = getDatabase(dbApp);
+
+// --- Project 2: boardrank-c095a (AUTH) ---
+const authConfig = {
+  apiKey: "AIzaSyAwUqYxrhyEZDmvlQaUB7tuVtXP1ZYdKfI",
+  authDomain: "boardrank-c095a.firebaseapp.com",
+  projectId: "boardrank-c095a",
+  storageBucket: "boardrank-c095a.appspot.com",
+  messagingSenderId: "953246350478",
+  appId: "1:953246350478:web:xxxxxxxxxxxxxxxx" // ← copy exact value from Firebase settings
+};
+const authApp = initializeApp(authConfig, "authApp");
+const auth = getAuth(authApp);
+
     const ADMIN_UID = "m2yGng2JRBfvG5MKGf5A977t5Az2";
   
     const main = document.querySelector('main');
@@ -127,7 +136,7 @@ main.insertAdjacentHTML('afterbegin', loginHtml);
         entries.forEach(([id, visitor]) => {
           const escapeHtml = (str) => String(str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
           const tr = document.createElement('tr');
-          tr.innerHTML = `
+tr.innerHTML = `
   <td>${count--}</td>
   <td>${escapeHtml(visitor.name || '')}</td>
   <td>${escapeHtml(visitor.type || '')}</td>
@@ -135,9 +144,11 @@ main.insertAdjacentHTML('afterbegin', loginHtml);
   <td>${escapeHtml(visitor.institution || '')}</td>
   <td>${escapeHtml(visitor.experience || '')}</td>
   <td>${visitor.message ? '<div class="visitor-message">' + escapeHtml(visitor.message) + '</div>' : ''}</td>
-  <td>${escapeHtml(visitor.deviceData?.deviceModel || 'Unknown')}</td>
-  <td>${visitor.timestamp ? new Date(visitor.timestamp).toLocaleString() : ''}</td>
-  <td><button onclick="deleteVisitor('${id}')">🗑️ Delete</button></td>
+ <td>${escapeHtml(visitor.deviceData?.deviceModel || 'Unknown')}</td>
+<td>${escapeHtml(visitor.fingerprint || '—')}</td>
+<td>${visitor.timestamp ? new Date(visitor.timestamp).toLocaleString() : ''}</td>
+<td><button onclick="deleteVisitor('${id}')">🗑️ Delete</button></td>
+
 `;
 
           container.appendChild(tr);
