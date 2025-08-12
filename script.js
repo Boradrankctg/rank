@@ -234,6 +234,72 @@ function getDeviceDataAndFingerprint() {
 
   return { deviceData, fingerprint };
 }
+function simpleHash(s) {
+  let h = 2166136261 >>> 0;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24);
+  }
+  return (h >>> 0).toString(16);
+}
+
+async function checkBlockStatus() {
+  const { fingerprint } = getDeviceDataAndFingerprint();
+  if (!fingerprint) return false;
+  const fpHash = simpleHash(fingerprint);
+
+  const snap = await firebase.database().ref('blocks/' + fpHash).once('value');
+  if (snap.exists()) {
+    const b = snap.val();
+    if (b.active && (!b.expiresAt || Date.now() < b.expiresAt)) {
+      showBlockingOverlay(b.reason, b.expiresAt);
+      return true;
+    }
+  }
+  return false;
+}
+
+function showBlockingOverlay(reason, expiresAt) {
+  const overlay = document.createElement('div');
+  overlay.style = `
+    position:fixed; inset:0; background:rgba(0,0,0,0.95);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color:white; z-index:2147483647; font-family:sans-serif;
+    text-align:center; padding:20px;
+  `;
+  overlay.innerHTML = `
+    <h2 style="font-size:2rem;">⛔ You have been blocked</h2>
+    <p style="font-size:1.2rem; max-width:500px;">${reason || 'No reason provided'}</p>
+    <div id="br_block_timer" style="margin-top:15px; font-size:1.1rem;"></div>
+  `;
+  document.body.innerHTML = ""; // wipe page content
+  document.body.appendChild(overlay);
+  document.body.style.overflow = 'hidden';
+
+  // Disable any attempt to navigate away or close
+  window.onbeforeunload = () => true;
+  window.history.pushState(null, "", window.location.href);
+  window.onpopstate = () => {
+    window.history.pushState(null, "", window.location.href);
+  };
+
+  if (expiresAt) {
+    const timerEl = document.getElementById('br_block_timer');
+    const tick = () => {
+      const secs = Math.max(0, Math.floor((expiresAt - Date.now()) / 1000));
+      const m = Math.floor(secs / 60), s = secs % 60;
+      timerEl.textContent = `Please try again later: ${m}m ${s}s`;
+      if (secs > 0) setTimeout(tick, 1000);
+    };
+    tick();
+  }
+}
+
+
+// Run the check as soon as the page is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  checkBlockStatus();
+});
 
 async function showIndividualResultWithCheck(roll, year, group) {
   const params = new URLSearchParams(window.location.search);
