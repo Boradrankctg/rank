@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About • BoardRankCTG</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 </head>
 <body>
   <header>
     <h1>Chattogram Board Students' SSC & HSC Ranking</h1>
-    <h2>Designed by Hasnyne (CC'25), Tasin (CC'25)</h2>
+    <h2>Designed by Hasnyne & Tasin (Chittagong College'25)</h2>
   </header>
 <link
 rel="stylesheet"
@@ -34,7 +34,7 @@ crossorigin="anonymous"
       <a href="review.html" title="Reviews" aria-label="See Reviews">
         <i class="fas fa-star-half-stroke"></i>
       </a>
-  
+   
       <button id="helpBtn" title="Help & Tips" aria-label="Help & Tips">
         <i class="fas fa-question-circle"></i>
       </button>
@@ -74,274 +74,9 @@ crossorigin="anonymous"
   </main>
 
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import {
-      getDatabase,
-      ref,
-      push,
-      set,
-      onValue,
-      runTransaction,
-      remove,
-      update
-    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
-  
-    document.addEventListener('DOMContentLoaded', () => {
-  const pending = localStorage.getItem("pendingReview");
-  if (pending) {
-    try {
-      const { rating, comment } = JSON.parse(pending);
-      document.getElementById("reviewText").value = comment;
-      rateSite(parseInt(rating));
-      localStorage.removeItem("pendingReview");
-    } catch (e) {
-      console.error("Pending review data is invalid.");
-    }
-  }
-});
-
-  
-    const firebaseConfig = {
-      apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
-      authDomain: "boardrankctg.firebaseapp.com",
-      databaseURL: "https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "boardrankctg",
-      storageBucket: "boardrankctg.firebasestorage.app",
-      messagingSenderId: "751761229963",
-      appId: "1:751761229963:web:43f9dbf71feef6dc9cec8e",
-      measurementId: "G-3Y6J44NWNH"
-    };
-  
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-
-    let userId = localStorage.getItem("userId");
-    if (!userId) {
-      userId = crypto.randomUUID();
-      localStorage.setItem("userId", userId);
-    }
-  
-    const ADMIN_ID = "admin1234"; 
-    function rateSite(rating) {
-  const stars = document.getElementById("starContainer").children;
-  for (let i = 0; i < stars.length; i++) {
-    stars[i].innerHTML = i < rating ? "★" : "☆";
-  }
-  localStorage.setItem("userRating", rating);
-}
-
-    window.rateSite = rateSite;
-  
-    async function submitReview() {
-  const nameInput = document.getElementById("reviewName");
-  const commentInput = document.getElementById("reviewText");
-  const name = nameInput.value.trim();
-  const comment = commentInput.value.trim();
-  const rating = parseInt(localStorage.getItem("userRating") || 0);
-
-  // Clear previous errors
-  document.getElementById("nameError").textContent = "";
-  document.getElementById("commentError").textContent = "";
-  document.getElementById("starError").textContent = "";
-  nameInput.style.border = "";
-  commentInput.style.border = "";
-
-  let hasError = false;
-
-  if (!name) {
-    document.getElementById("nameError").textContent = "Please enter your name.";
-    nameInput.style.border = "1px solid red";
-    hasError = true;
-  }
-
-  if (!comment) {
-    document.getElementById("commentError").textContent = "Please write your review.";
-    commentInput.style.border = "1px solid red";
-    hasError = true;
-  }
-
-  if (rating === 0) {
-    const starContainer = document.getElementById("starContainer");
-    document.getElementById("starError").textContent = "Please select a star rating.";
-    starContainer.classList.add("shake");
-    setTimeout(() => starContainer.classList.remove("shake"), 500);
-    hasError = true;
-  }
-
-  if (hasError) return;
-
-  try {
-    const reviewRef = push(ref(db, "reviews"));
-    await set(reviewRef, {
-      name,
-      comment,
-      rating,
-      likes: 0,
-      replies: {},
-      timestamp: Date.now(),
-      userId
-    });
-
-    nameInput.value = "";
-    commentInput.value = "";
-    rateSite(0);
-    localStorage.removeItem("userRating");
-  } catch (error) {
-    console.error("Error submitting review:", error);
-    alert("Review submission failed.");
-  }
-}
-
-
-    window.submitReview = submitReview;
-  
-    
-    function loadReviews() {
-      const container = document.getElementById("reviewsContainer");
-      const reviewsRef = ref(db, "reviews");
-  
-      onValue(reviewsRef, (snapshot) => {
-        container.innerHTML = "";
-        const reviews = snapshot.val();
-        if (!reviews) return;
-  
-        Object.entries(reviews).reverse().forEach(([id, review]) => {
-          let replies = "";
-          if (review.replies) {
-            replies = Object.values(review.replies).map(reply =>
-              `<div class="reply-box">↪️ ${reply.text}</div>`
-            ).join("");
-          }
-  
-          const canDelete = review.userId === userId || userId === ADMIN_ID;
-  
-          container.innerHTML += `
-            <div class="review-box">
-              <div>
-  <strong>${review.name || "Anonymous"}</strong>
-  <small style="color: gray; margin-left: 10px;">${new Date(review.timestamp).toLocaleString()}</small>
-</div>
-
-              <div>⭐ ${review.rating || "No rating"}</div>
-              <div class="review-comment">${review.comment}</div>
-            
-  <button onclick="voteReview('${id}', 'like')">👍 ${review.likes || 0}</button>
-  <button onclick="voteReview('${id}', 'dislike')">👎 ${review.dislikes || 0}</button>
-
-
-              <div>
-                <input type="text" placeholder="Reply..." id="reply-${id}" style="width: 80%;" />
-                <button onclick="submitReply('${id}')">Reply</button>
-              </div>
-              ${canDelete ? `<button onclick="deleteReview('${id}')">🗑️ Delete</button>` : ""}
-              ${replies}
-            </div>
-          `;
-        });
-      });
-    }
-
-    window.likeReview = function (id) {
-      const likeRef = ref(db, `reviews/${id}/likes`);
-      runTransaction(likeRef, (current) => (current || 0) + 1);
-    };
-  
-
-    window.submitReply = async function (id) {
-      const input = document.getElementById("reply-" + id);
-      const text = input.value.trim();
-      if (!text) return;
-      const replyRef = push(ref(db, `reviews/${id}/replies`));
-      await set(replyRef, { text });
-      input.value = "";
-    };
-  
-    
-    window.deleteReview = async function (id) {
-      if (confirm("Are you sure you want to delete this review?")) {
-        await remove(ref(db, `reviews/${id}`));
-      }
-    };
-  
-
-    function updateVisitStats() {
-      const statsRef = ref(db, "siteStats");
-      const activeRef = ref(db, `siteStats/activeUsers/${userId}`);
-  
-    
-      runTransaction(ref(db, "siteStats/totalVisits"), (count) => (count || 0) + 1);
-
-      set(activeRef, Date.now());
-    }
-  
-    function showAdminStats() {
-      const statsBox = document.createElement("div");
-      statsBox.style = "max-width: 600px; margin: 20px auto; padding: 10px; border: 2px solid #ccc; background: #f9f9f9;";
-      statsBox.innerHTML = "<h3>📊 Site Stats (Admin Only)</h3><div id='visitStats'>Loading...</div>";
-      document.body.appendChild(statsBox);
-  
-      const visitsRef = ref(db, "siteStats");
-  
-      onValue(visitsRef, (snapshot) => {
-        const data = snapshot.val() || {};
-        const total = data.totalVisits || 0;
-        const activeUsers = data.activeUsers || {};
-        const now = Date.now();
-        const activeCount = Object.values(activeUsers).filter(ts => now - ts < 5 * 60 * 1000).length;
-  
-        document.getElementById("visitStats").innerHTML = `
-          👁️ Total Visits: <strong>${total}</strong><br />
-          🟢 Live Visitors (past 5 min): <strong>${activeCount}</strong>
-        `;
-      });
-    }
-  
-    document.addEventListener("DOMContentLoaded", () => {
-      loadReviews();
-      updateVisitStats();
-  
-      if (userId === ADMIN_ID) {
-        showAdminStats();
-      }
-    });
-    window.voteReview = function (id, type) {
-  const voteKey = `reviewVote_${id}`;
-  const previousVote = localStorage.getItem(voteKey);
-
-  if (previousVote === type) {
-    
-    return;
-  }
-
-  const updates = {};
-  if (type === 'like') {
-    updates[`reviews/${id}/likes`] = incrementValue(`reviews/${id}/likes`);
-    if (previousVote === 'dislike') {
-      updates[`reviews/${id}/dislikes`] = incrementValue(`reviews/${id}/dislikes`, -1);
-    }
-  } else if (type === 'dislike') {
-    updates[`reviews/${id}/dislikes`] = incrementValue(`reviews/${id}/dislikes`);
-    if (previousVote === 'like') {
-      updates[`reviews/${id}/likes`] = incrementValue(`reviews/${id}/likes`, -1);
-    }
-  }
-
-  for (const path in updates) {
-    runTransaction(ref(db, path), updates[path]);
-  }
-
-  localStorage.setItem(voteKey, type);
-};
-
-function incrementValue(path, delta = 1) {
-  return (current) => {
-    return (current || 0) + delta;
-  };
-}
-
+  const _0x89949d=_0x2d4f;(function(_0x5b5005,_0x3594b4){const _0x1806b8=_0x2d4f,_0x4485fc=_0x5b5005();while(!![]){try{const _0x8b0d18=parseInt(_0x1806b8(0x127))/0x1*(parseInt(_0x1806b8(0x10f))/0x2)+parseInt(_0x1806b8(0x10b))/0x3*(parseInt(_0x1806b8(0x11d))/0x4)+parseInt(_0x1806b8(0x135))/0x5*(parseInt(_0x1806b8(0x131))/0x6)+-parseInt(_0x1806b8(0x15d))/0x7+-parseInt(_0x1806b8(0x15a))/0x8*(parseInt(_0x1806b8(0x112))/0x9)+parseInt(_0x1806b8(0x169))/0xa*(-parseInt(_0x1806b8(0x13d))/0xb)+parseInt(_0x1806b8(0x153))/0xc;if(_0x8b0d18===_0x3594b4)break;else _0x4485fc['push'](_0x4485fc['shift']());}catch(_0x34643c){_0x4485fc['push'](_0x4485fc['shift']());}}}(_0x527d,0x73e75));import{initializeApp}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';import{getDatabase,ref,push,set,onValue,runTransaction,remove,update}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';document['addEventListener'](_0x89949d(0x157),()=>{const _0x1c8559=_0x89949d,_0x55ead0=localStorage['getItem']('pendingReview');if(_0x55ead0)try{const {rating:_0x4ac1e3,comment:_0x4cd788}=JSON[_0x1c8559(0x12e)](_0x55ead0);document[_0x1c8559(0x14e)](_0x1c8559(0x150))[_0x1c8559(0x113)]=_0x4cd788,rateSite(parseInt(_0x4ac1e3)),localStorage[_0x1c8559(0x128)](_0x1c8559(0x111));}catch(_0x10a911){console[_0x1c8559(0x14a)](_0x1c8559(0x10d));}});function _0x527d(){const _0x4b7b31=['reviews/','parse','\x27,\x20\x27dislike\x27)\x22>👎\x20','textContent','1330566FDkLHU','forEach','/dislikes','</button>\x0a\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20placeholder=\x22Reply...\x22\x20id=\x22reply-','10lRdBrF','submitReview','siteStats','entries','reverse','AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA','setItem','nameError','1045BxYpCm','</strong><br\x20/>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20🟢\x20Live\x20Visitors\x20(past\x205\x20min):\x20<strong>','totalVisits','No\x20rating','replies','Review\x20submission\x20failed.','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22review-box\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20<strong>','values','<button\x20onclick=\x22deleteReview(\x27','/likes','\x22\x20style=\x22width:\x2080%;\x22\x20/>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22submitReply(\x27','length','join','error','reviewName','remove','val','getElementById','<div\x20class=\x22reply-box\x22>↪️\x20','reviewText','activeUsers','addEventListener','2402448ysOtLw','reviewVote_','submitReply','deleteReview','DOMContentLoaded','name','rating','80rLwNDE','innerHTML','userId','1850905efKtBR','dislike','starContainer','1px\x20solid\x20red','Please\x20select\x20a\x20star\x20rating.','map','filter','boardrankctg.firebasestorage.app','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','reviewsContainer','</small>\x0a</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>⭐\x20','border','58390kKcvTE','likes','\x27,\x20\x27like\x27)\x22>👍\x20','Please\x20write\x20your\x20review.','</button>\x0a\x20\x20<button\x20onclick=\x22voteReview(\x27','siteStats/activeUsers/','admin1234','reviews','\x27)\x22>🗑️\x20Delete</button>','616593XBWxwR','trim','Pending\x20review\x20data\x20is\x20invalid.','reply-','59988bBUfuC','comment','pendingReview','31770pbzxjT','value','children','<h3>📊\x20Site\x20Stats\x20(Admin\x20Only)</h3><div\x20id=\x27visitStats\x27>Loading...</div>','starError','shake','rateSite','getItem','dislikes','Error\x20submitting\x20review:','style','4OsXnIz','like','add','now','https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app','commentError','boardrankctg.firebaseapp.com','max-width:\x20600px;\x20margin:\x2020px\x20auto;\x20padding:\x2010px;\x20border:\x202px\x20solid\x20#ccc;\x20background:\x20#f9f9f9;','userRating','</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','16LYcQiv','removeItem','\x27)\x22>Reply</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','1:751761229963:web:43f9dbf71feef6dc9cec8e','</strong>\x0a\x20\x20<small\x20style=\x22color:\x20gray;\x20margin-left:\x2010px;\x22>','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20<button\x20onclick=\x22voteReview(\x27'];_0x527d=function(){return _0x4b7b31;};return _0x527d();}const firebaseConfig={'apiKey':_0x89949d(0x13a),'authDomain':_0x89949d(0x123),'databaseURL':_0x89949d(0x121),'projectId':'boardrankctg','storageBucket':_0x89949d(0x164),'messagingSenderId':'751761229963','appId':_0x89949d(0x12a),'measurementId':'G-3Y6J44NWNH'},app=initializeApp(firebaseConfig),db=getDatabase(app);function _0x2d4f(_0x21fae6,_0x5ac512){const _0x527d75=_0x527d();return _0x2d4f=function(_0x2d4f2f,_0x19ef17){_0x2d4f2f=_0x2d4f2f-0x107;let _0x1419eb=_0x527d75[_0x2d4f2f];return _0x1419eb;},_0x2d4f(_0x21fae6,_0x5ac512);}let userId=localStorage['getItem'](_0x89949d(0x15c));!userId&&(userId=crypto['randomUUID'](),localStorage[_0x89949d(0x13b)]('userId',userId));const ADMIN_ID=_0x89949d(0x108);function rateSite(_0x488335){const _0x2f3169=_0x89949d,_0x376e7c=document[_0x2f3169(0x14e)](_0x2f3169(0x15f))[_0x2f3169(0x114)];for(let _0x486f12=0x0;_0x486f12<_0x376e7c[_0x2f3169(0x148)];_0x486f12++){_0x376e7c[_0x486f12][_0x2f3169(0x15b)]=_0x486f12<_0x488335?'★':'☆';}localStorage[_0x2f3169(0x13b)]('userRating',_0x488335);}window[_0x89949d(0x118)]=rateSite;async function submitReview(){const _0xbf153=_0x89949d,_0x96da42=document['getElementById'](_0xbf153(0x14b)),_0x132eb5=document[_0xbf153(0x14e)]('reviewText'),_0x44a9da=_0x96da42[_0xbf153(0x113)]['trim'](),_0x286c3b=_0x132eb5[_0xbf153(0x113)][_0xbf153(0x10c)](),_0x34c172=parseInt(localStorage[_0xbf153(0x119)](_0xbf153(0x125))||0x0);document[_0xbf153(0x14e)](_0xbf153(0x13c))[_0xbf153(0x130)]='',document[_0xbf153(0x14e)](_0xbf153(0x122))[_0xbf153(0x130)]='',document[_0xbf153(0x14e)](_0xbf153(0x116))['textContent']='',_0x96da42[_0xbf153(0x11c)][_0xbf153(0x168)]='',_0x132eb5[_0xbf153(0x11c)][_0xbf153(0x168)]='';let _0x405eef=![];!_0x44a9da&&(document[_0xbf153(0x14e)]('nameError')[_0xbf153(0x130)]='Please\x20enter\x20your\x20name.',_0x96da42[_0xbf153(0x11c)][_0xbf153(0x168)]=_0xbf153(0x160),_0x405eef=!![]);!_0x286c3b&&(document[_0xbf153(0x14e)](_0xbf153(0x122))[_0xbf153(0x130)]=_0xbf153(0x16c),_0x132eb5[_0xbf153(0x11c)]['border']='1px\x20solid\x20red',_0x405eef=!![]);if(_0x34c172===0x0){const _0x410b05=document['getElementById']('starContainer');document[_0xbf153(0x14e)]('starError')[_0xbf153(0x130)]=_0xbf153(0x161),_0x410b05['classList'][_0xbf153(0x11f)](_0xbf153(0x117)),setTimeout(()=>_0x410b05['classList'][_0xbf153(0x14c)](_0xbf153(0x117)),0x1f4),_0x405eef=!![];}if(_0x405eef)return;try{const _0x3375d9=push(ref(db,'reviews'));await set(_0x3375d9,{'name':_0x44a9da,'comment':_0x286c3b,'rating':_0x34c172,'likes':0x0,'replies':{},'timestamp':Date[_0xbf153(0x120)](),'userId':userId}),_0x96da42[_0xbf153(0x113)]='',_0x132eb5[_0xbf153(0x113)]='',rateSite(0x0),localStorage[_0xbf153(0x128)](_0xbf153(0x125));}catch(_0x51d7d1){console[_0xbf153(0x14a)](_0xbf153(0x11b),_0x51d7d1),alert(_0xbf153(0x142));}}window[_0x89949d(0x136)]=submitReview;function loadReviews(){const _0x23d24a=_0x89949d,_0x427090=document[_0x23d24a(0x14e)](_0x23d24a(0x166)),_0x3a4871=ref(db,_0x23d24a(0x109));onValue(_0x3a4871,_0x8643b4=>{const _0x2470e2=_0x23d24a;_0x427090[_0x2470e2(0x15b)]='';const _0x40b4a5=_0x8643b4[_0x2470e2(0x14d)]();if(!_0x40b4a5)return;Object[_0x2470e2(0x138)](_0x40b4a5)[_0x2470e2(0x139)]()[_0x2470e2(0x132)](([_0x5841f0,_0x4518d9])=>{const _0x5dd704=_0x2470e2;let _0xd24039='';_0x4518d9[_0x5dd704(0x141)]&&(_0xd24039=Object[_0x5dd704(0x144)](_0x4518d9[_0x5dd704(0x141)])[_0x5dd704(0x162)](_0x59943f=>_0x5dd704(0x14f)+_0x59943f['text']+'</div>')[_0x5dd704(0x149)](''));const _0x26707d=_0x4518d9[_0x5dd704(0x15c)]===userId||userId===ADMIN_ID;_0x427090['innerHTML']+=_0x5dd704(0x143)+(_0x4518d9[_0x5dd704(0x158)]||'Anonymous')+_0x5dd704(0x12b)+new Date(_0x4518d9['timestamp'])['toLocaleString']()+_0x5dd704(0x167)+(_0x4518d9[_0x5dd704(0x159)]||_0x5dd704(0x140))+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22review-comment\x22>'+_0x4518d9[_0x5dd704(0x110)]+_0x5dd704(0x12c)+_0x5841f0+_0x5dd704(0x16b)+(_0x4518d9[_0x5dd704(0x16a)]||0x0)+_0x5dd704(0x16d)+_0x5841f0+_0x5dd704(0x12f)+(_0x4518d9[_0x5dd704(0x11a)]||0x0)+_0x5dd704(0x134)+_0x5841f0+_0x5dd704(0x147)+_0x5841f0+_0x5dd704(0x129)+(_0x26707d?_0x5dd704(0x145)+_0x5841f0+_0x5dd704(0x10a):'')+_0x5dd704(0x165)+_0xd24039+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20';});});}window['likeReview']=function(_0x354124){const _0x4eefcb=_0x89949d,_0x405741=ref(db,_0x4eefcb(0x12d)+_0x354124+_0x4eefcb(0x146));runTransaction(_0x405741,_0x42d749=>(_0x42d749||0x0)+0x1);},window[_0x89949d(0x155)]=async function(_0x17a3e7){const _0xde402a=_0x89949d,_0x46da77=document[_0xde402a(0x14e)](_0xde402a(0x10e)+_0x17a3e7),_0x560e95=_0x46da77['value'][_0xde402a(0x10c)]();if(!_0x560e95)return;const _0xb56745=push(ref(db,_0xde402a(0x12d)+_0x17a3e7+'/replies'));await set(_0xb56745,{'text':_0x560e95}),_0x46da77[_0xde402a(0x113)]='';},window[_0x89949d(0x156)]=async function(_0x3b8630){const _0x36aaab=_0x89949d;confirm('Are\x20you\x20sure\x20you\x20want\x20to\x20delete\x20this\x20review?')&&await remove(ref(db,_0x36aaab(0x12d)+_0x3b8630));};function updateVisitStats(){const _0x2e50a7=_0x89949d,_0x596702=ref(db,_0x2e50a7(0x137)),_0x375693=ref(db,_0x2e50a7(0x107)+userId);runTransaction(ref(db,'siteStats/totalVisits'),_0x2be858=>(_0x2be858||0x0)+0x1),set(_0x375693,Date['now']());}function showAdminStats(){const _0x16f435=_0x89949d,_0x5cad6b=document['createElement']('div');_0x5cad6b[_0x16f435(0x11c)]=_0x16f435(0x124),_0x5cad6b[_0x16f435(0x15b)]=_0x16f435(0x115),document['body']['appendChild'](_0x5cad6b);const _0x5f47c5=ref(db,_0x16f435(0x137));onValue(_0x5f47c5,_0x278441=>{const _0x4a685=_0x16f435,_0x3db79d=_0x278441[_0x4a685(0x14d)]()||{},_0x46c0b8=_0x3db79d[_0x4a685(0x13f)]||0x0,_0x41c723=_0x3db79d[_0x4a685(0x151)]||{},_0x1b70a8=Date[_0x4a685(0x120)](),_0x5b04bd=Object['values'](_0x41c723)[_0x4a685(0x163)](_0x551865=>_0x1b70a8-_0x551865<0x5*0x3c*0x3e8)[_0x4a685(0x148)];document[_0x4a685(0x14e)]('visitStats')[_0x4a685(0x15b)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20👁️\x20Total\x20Visits:\x20<strong>'+_0x46c0b8+_0x4a685(0x13e)+_0x5b04bd+_0x4a685(0x126);});}document[_0x89949d(0x152)](_0x89949d(0x157),()=>{loadReviews(),updateVisitStats(),userId===ADMIN_ID&&showAdminStats();}),window['voteReview']=function(_0x538ec1,_0x4fc92b){const _0x9eed5e=_0x89949d,_0x4a1cfb=_0x9eed5e(0x154)+_0x538ec1,_0x3198c7=localStorage[_0x9eed5e(0x119)](_0x4a1cfb);if(_0x3198c7===_0x4fc92b)return;const _0x400503={};if(_0x4fc92b===_0x9eed5e(0x11e))_0x400503[_0x9eed5e(0x12d)+_0x538ec1+_0x9eed5e(0x146)]=incrementValue(_0x9eed5e(0x12d)+_0x538ec1+_0x9eed5e(0x146)),_0x3198c7===_0x9eed5e(0x15e)&&(_0x400503[_0x9eed5e(0x12d)+_0x538ec1+_0x9eed5e(0x133)]=incrementValue(_0x9eed5e(0x12d)+_0x538ec1+'/dislikes',-0x1));else _0x4fc92b===_0x9eed5e(0x15e)&&(_0x400503[_0x9eed5e(0x12d)+_0x538ec1+_0x9eed5e(0x133)]=incrementValue(_0x9eed5e(0x12d)+_0x538ec1+_0x9eed5e(0x133)),_0x3198c7==='like'&&(_0x400503[_0x9eed5e(0x12d)+_0x538ec1+_0x9eed5e(0x146)]=incrementValue(_0x9eed5e(0x12d)+_0x538ec1+_0x9eed5e(0x146),-0x1)));for(const _0x2ff1dc in _0x400503){runTransaction(ref(db,_0x2ff1dc),_0x400503[_0x2ff1dc]);}localStorage['setItem'](_0x4a1cfb,_0x4fc92b);};function incrementValue(_0x1f7056,_0x146c65=0x1){return _0x3652ef=>{return(_0x3652ef||0x0)+_0x146c65;};}
   </script>
    <script src="script.js"></script>
   
 </body>
 </html>
-
