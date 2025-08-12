@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Visitors • BoardRankCTG</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://openfpcdn.io/fingerprintjs/v4"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 </head>
 <body>
@@ -43,7 +45,9 @@
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import { getDatabase, ref, onValue, remove } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+    import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
   
+    // Firebase config (same as your current one)
     const firebaseConfig = {
       apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
       authDomain: "boardrankctg.firebaseapp.com",
@@ -56,63 +60,106 @@
     };
   
     const app = initializeApp(firebaseConfig);
+    
     const db = getDatabase(app);
-  
-    const ADMIN_ID = "admin1234";
-    const userId = localStorage.getItem("userId");
-  
-    if (userId !== ADMIN_ID) {
-      document.body.innerHTML = "<h2 style='text-align:center;color:red;'>Access Denied</h2>";
-      throw new Error("Not admin");
-    }
-  
-    const container = document.getElementById("visitorsContainer");
-    const visitorsRef = ref(db, "visitors");
-  
-    onValue(visitorsRef, (snapshot) => {
-      container.innerHTML = "";
-      const visitors = snapshot.val() || {};
-      function escapeHtml(str) {
-  return String(str || '').replace(/[&<>"']/g, function(m) {
-    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);
-  });
-}
+    const auth = getAuth(app);
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-const totalVisitors = Object.entries(visitors).length;
-let count = totalVisitors;
+const ADMIN_UID = "hRx0EK6kycT3Tt5czr6omLFV2UI2";
 
-Object.entries(visitors).reverse().forEach(([id, visitor]) => {
-  const tr = document.createElement("tr");
-  tr.innerHTML = `
-  <td>${count--}</td>
-  <td>${escapeHtml(visitor.name || '')}</td>
-  <td>${escapeHtml(visitor.type || '')}</td>
-  <td>${escapeHtml(visitor.source || '')}</td>
-  <td>${escapeHtml(visitor.institution || '')}</td>
-  <td>${escapeHtml(visitor.experience || '')}</td>
-  <td>${visitor.message ? '<div class="visitor-message">' + escapeHtml(visitor.message) + '</div>' : ''}</td>
-  <td title="${visitor.deviceData ? escapeHtml(JSON.stringify(visitor.deviceData)) : ''}">
-    ${escapeHtml(visitor.deviceData?.deviceModel || 'Unknown')}
-  </td>
-  <td>${escapeHtml(visitor.fingerprint || '')}</td> <!-- ✅ New column -->
-  <td>${visitor.timestamp ? new Date(visitor.timestamp).toLocaleString() : ''}</td>
-  <td><button onclick="deleteVisitor('${id}')">🗑️ Delete</button></td>
-`;
-
-  container.appendChild(tr);
+onAuthStateChanged(auth, (user) => {
+  if (!user || user.uid !== ADMIN_UID) {
+    alert("Admin access required.");
+    window.location.href = "admin.html";
+  }
 });
 
+    const main = document.querySelector('main');
+    const container = document.getElementById("visitorsContainer");
+  
+    // Login box
+    const loginHtml = `
+      <div id="adminLoginBox" style="max-width:900px;margin:10px auto;padding:12px;border-radius:8px;background:#fff;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <input id="adminEmail" placeholder="Admin email" style="padding:8px;flex:1;" />
+          <input id="adminPassword" type="password" placeholder="Password" style="padding:8px;width:180px;" />
+          <button id="loginBtn">Login</button>
+          <button id="logoutBtn" style="display:none;">Logout</button>
+        </div>
+        <div id="loginError" style="color:#b71c1c;margin-top:6px;"></div>
+      </div>
+    `;
+    main.insertAdjacentHTML('afterbegin', loginHtml);
+  
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const loginError = document.getElementById('loginError');
+  
+    onAuthStateChanged(auth, user => {
+      if (user && user.uid === ADMIN_UID) {
+        document.getElementById('adminLoginBox').style.display = 'none';
+        loadVisitors();
+      } else {
+        document.getElementById('adminLoginBox').style.display = 'block';
+        container.innerHTML = `<tr><td colspan="10" style="text-align:center;color:#b71c1c;">Admin access required. Please login.</td></tr>`;
+      }
     });
   
-    // ✅ Delete function
-    window.deleteVisitor = function(id) {
-      if (confirm("Delete this visitor entry?")) {
-        remove(ref(db, `visitors/${id}`))
-          .then(() => console.log(`Deleted visitor: ${id}`))
-          .catch(err => console.error("Error deleting visitor:", err));
+    loginBtn.addEventListener('click', async () => {
+      loginError.textContent = '';
+      const email = document.getElementById('adminEmail').value.trim();
+      const password = document.getElementById('adminPassword').value;
+      if (!email || !password) {
+        loginError.textContent = 'Enter email and password.';
+        return;
       }
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+      } catch (err) {
+        loginError.textContent = 'Login failed.';
+      }
+    });
+  
+    logoutBtn.addEventListener('click', async () => {
+      await signOut(auth);
+      location.reload();
+    });
+  
+    function loadVisitors() {
+      const visitorsRef = ref(db, "visitors");
+      onValue(visitorsRef, (snapshot) => {
+        container.innerHTML = "";
+        const visitors = snapshot.val() || {};
+        const entries = Object.entries(visitors).reverse();
+        let count = entries.length;
+        entries.forEach(([id, visitor]) => {
+          const escapeHtml = (str) => String(str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${count--}</td>
+            <td>${escapeHtml(visitor.name || '')}</td>
+            <td>${escapeHtml(visitor.type || '')}</td>
+            <td>${escapeHtml(visitor.source || '')}</td>
+            <td>${escapeHtml(visitor.institution || '')}</td>
+            <td>${escapeHtml(visitor.experience || '')}</td>
+            <td>${visitor.message ? '<div class="visitor-message">' + escapeHtml(visitor.message) + '</div>' : ''}</td>
+            <td>${escapeHtml(visitor.deviceData?.deviceModel || 'Unknown')}</td>
+            <td>${visitor.timestamp ? new Date(visitor.timestamp).toLocaleString() : ''}</td>
+            <td><button onclick="deleteVisitor('${id}')">🗑️ Delete</button></td>
+          `;
+          container.appendChild(tr);
+        });
+      });
+    }
+  
+    window.deleteVisitor = function(id) {
+      if (!confirm("Delete this visitor?")) return;
+      remove(ref(db, `visitors/${id}`)).catch(err => {
+        alert('Delete failed — permission denied.');
+      });
     };
   </script>
+  
   
 </body>
 </html>
