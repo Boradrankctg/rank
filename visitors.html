@@ -147,12 +147,7 @@ tr.innerHTML = `
  <td>${escapeHtml(visitor.deviceData?.deviceModel || 'Unknown')}</td>
 <td>${escapeHtml(visitor.fingerprint || '—')}</td>
 <td>${visitor.timestamp ? new Date(visitor.timestamp).toLocaleString() : ''}</td>
-<td>
-  <button onclick="deleteVisitor('${id}')">🗑️ Delete</button>
-  <button onclick="openBlockModal('${visitor.fingerprint || ''}')">⛔ Block</button>
-  <button onclick="unblockByFingerprint('${visitor.fingerprint || ''}')">✅ Unblock</button>
-</td>
-
+<td><button onclick="deleteVisitor('${id}')">🗑️ Delete</button></td>
 
 `;
 
@@ -167,79 +162,6 @@ tr.innerHTML = `
         alert('Delete failed — permission denied.');
       });
     };
-
-
-    window.openBlockModal = function(fingerprint) {
-  if (!fingerprint) return alert('No fingerprint found.');
-  const minutes = parseInt(prompt('Block for how many minutes?', '60'), 10);
-  if (isNaN(minutes) || minutes <= 0) return alert('Invalid time.');
-  const reason = prompt('Enter reason for block:', 'Violation of rules');
-  const fpHash = simpleHash(fingerprint);
-  const now = Date.now();
-  const expiresAt = now + minutes * 60 * 1000;
-  firebaseAuthCheckAndWriteBlock(fpHash, reason, now, expiresAt);
-};
-
-window.unblockByFingerprint = async function(fingerprint) {
-  if (!fingerprint) return alert('No fingerprint found.');
-  const user = firebase.auth().currentUser;
-  if (!user || user.uid !== ADMIN_UID) {
-    return alert('Only admin can unblock.');
-  }
-  const fpHash = simpleHash(fingerprint);
-  await firebase.database().ref('blocks/' + fpHash).remove();
-  alert('Unblocked.');
-};
-
-
-function simpleHash(s) {
-  let h = 2166136261 >>> 0;
-  for (let i = 0; i < s.length; i++) {
-    h ^= s.charCodeAt(i);
-    h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24);
-  }
-  return (h >>> 0).toString(16);
-}
-
-function openBlockModal(fingerprint) {
-  if (!fingerprint) return alert('No fingerprint found.');
-  const minutes = parseInt(prompt('Block for how many minutes?', '60'), 10);
-  if (isNaN(minutes) || minutes <= 0) return alert('Invalid time.');
-  const reason = prompt('Enter reason for block:', 'Violation of rules');
-  const fpHash = simpleHash(fingerprint);
-  const now = Date.now();
-  const expiresAt = now + minutes * 60 * 1000;
-  firebaseAuthCheckAndWriteBlock(fpHash, reason, now, expiresAt);
-}
-
-async function firebaseAuthCheckAndWriteBlock(fpHash, reason, now, expiresAt) {
-  const user = firebase.auth().currentUser;
-  if (!user || user.uid !== ADMIN_UID) {
-    return alert('Only admin can block.');
-  }
-  await firebase.database().ref('blocks/' + fpHash).set({
-    fingerprintHash: fpHash,
-    reason,
-    blockedByUid: user.uid,
-    blockedByEmail: user.email || '',
-    createdAt: now,
-    expiresAt,
-    active: true
-  });
-  alert('Blocked.');
-}
-
-async function unblockByFingerprint(fingerprint) {
-  if (!fingerprint) return alert('No fingerprint found.');
-  const user = firebase.auth().currentUser;
-  if (!user || user.uid !== ADMIN_UID) {
-    return alert('Only admin can unblock.');
-  }
-  const fpHash = simpleHash(fingerprint);
-  await firebase.database().ref('blocks/' + fpHash).remove();
-  alert('Unblocked.');
-}
-  
   </script>
   
   
