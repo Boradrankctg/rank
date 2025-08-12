@@ -5,6 +5,19 @@ const noDataMessage = document.getElementById('noDataMessage');
 const yearDropdown = document.getElementById('yearDropdown');
 
 
+function xorDecrypt(dataBytes, key) {
+  const keyBytes = new TextEncoder().encode(key);
+  return dataBytes.map((b, i) => b ^ keyBytes[i % keyBytes.length]);
+}
+
+async function fetchAndDecode(url, key) {
+  const res = await fetch(url);
+  const encodedText = await res.text();
+  const decodedBase64 = atob(encodedText);
+  const decodedBytes = new Uint8Array(decodedBase64.split("").map(c => c.charCodeAt(0)));
+  const originalBytes = xorDecrypt(decodedBytes, key);
+  return new TextDecoder().decode(originalBytes);
+}
 
 
 function showRankTipsPopup() {
@@ -165,9 +178,16 @@ function fetchData(year, group) {
     const individualDataUrl = `data_${year}_${group.toLowerCase()}_individual.txt`;
 
     Promise.all([
-        fetch(mainDataUrl).then(response => response.text()),
-        fetch(individualDataUrl).then(response => response.text()).catch(() => null)
-    ]).then(([mainData, individualData]) => {
+      fetch(mainDataUrl)
+        .then(res => res.text())
+        .then(encoded => {
+          try { return atob(encoded); } catch { return encoded; }
+        }),
+      fetch(individualDataUrl)
+        .then(res => res.text())
+        .catch(() => null)
+  ])
+  .then(([mainData, individualData]) => {
         console.log('Main data loaded:', mainData);
         console.log('Individual data loaded:', individualData);
         processData(mainData, individualData);
@@ -1594,7 +1614,8 @@ function createTopInstitutionsButton() {
     const individualDataUrl = `data_${year}_${group.toLowerCase()}_individual.txt`;
   
     Promise.all([
-      fetch(mainDataUrl).then(response => response.text()),
+      fetchAndDecode(mainDataUrl, "MySecretKey123")
+,
       fetch(individualDataUrl).then(response => response.text()).catch(() => null)
     ]).then(([mainData, individualData]) => {
       processData(mainData, individualData);
