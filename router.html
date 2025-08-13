@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    (function() {
+      // Get path parts
+      const parts = window.location.pathname.split('/').filter(Boolean);
+      // Expected: ["rank", "2025", "Science", "student", "114143"]
+
+      let query = '';
+      if (parts.length >= 2) {
+        query += '?year=' + encodeURIComponent(parts[1]);
+      }
+      if (parts.length >= 3) {
+        query += '&group=' + encodeURIComponent(parts[2]);
+      }
+      if (parts.length >= 4 && parts[3] === 'student' && parts[4]) {
+        query += '&roll=' + encodeURIComponent(parts[4]);
+      }
+      if (parts.length >= 4 && parts[3] === 'school' && parts[4]) {
+        query += '&school=' + encodeURIComponent(parts[4]);
+      }
+
+      // Redirect to index.html with query params
+      window.location.replace('/rank/index.html' + query);
+    })();
+  </script>
+</head>
+<body>
+  Redirecting...
+</body>
+</html>
