@@ -1,8 +1,5 @@
 {
   "cleanUrls": true,
-  "redirects": [
-    { "source": "/", "destination": "/rank", "permanent": true }
-  ],
   "rewrites": [
     { "source": "/rank", "destination": "/rank/index.html" },
     { "source": "/rank/", "destination": "/rank/index.html" },
