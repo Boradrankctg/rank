@@ -1,0 +1,13 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/", "destination": "/rank", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/rank", "destination": "/rank/index.html" },
+    { "source": "/rank/", "destination": "/rank/index.html" },
+    { "source": "/rank/:year", "destination": "/router.html" },
+    { "source": "/rank/:year/:group", "destination": "/router.html" },
+    { "source": "/rank/:year/:group/:type/:id", "destination": "/router.html" }
+  ]
+}
