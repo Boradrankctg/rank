@@ -5,7 +5,6 @@
   <title>Redirecting...</title>
   <script>
     (function() {
-      // Get path parts
       const parts = window.location.pathname.split('/').filter(Boolean);
       // Expected: ["rank", "2025", "Science", "student", "114143"]
 
@@ -23,7 +22,6 @@
         query += '&school=' + encodeURIComponent(parts[4]);
       }
 
-      // Redirect to index.html with query params
       window.location.replace('/rank/index.html' + query);
     })();
   </script>
