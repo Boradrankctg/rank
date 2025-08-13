@@ -1,10 +1,9 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/rank", "destination": "/rank/index.html" },
-    { "source": "/rank/", "destination": "/rank/index.html" },
-    { "source": "/rank/:year", "destination": "/router.html" },
-    { "source": "/rank/:year/:group", "destination": "/router.html" },
-    { "source": "/rank/:year/:group/:type/:id", "destination": "/router.html" }
+    { "source": "/:year", "destination": "/router.html" },
+    { "source": "/:year/:group", "destination": "/router.html" },
+    { "source": "/:year/:group/:roll", "destination": "/router.html" },
+    { "source": "/:year/:group/school/:schoolCode", "destination": "/router.html" }
   ]
 }
