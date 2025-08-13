@@ -1,9 +1,1 @@
-{
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/:year", "destination": "/router.html" },
-    { "source": "/:year/:group", "destination": "/router.html" },
-    { "source": "/:year/:group/:roll", "destination": "/router.html" },
-    { "source": "/:year/:group/school/:schoolCode", "destination": "/router.html" }
-  ]
-}
+
