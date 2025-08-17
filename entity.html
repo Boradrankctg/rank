@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <title>SSC & HSC Board Rank — Chittagong Board (Unofficial)</title>
+    <meta name="description" content="View unofficial SSC & HSC rankings for Chattogram/Chittagong Board with marks list. Fast, easy, with GPA, total marks, and school comparisons.">
+    <meta name="keywords" content="SSC 2025, SSC Result 2025, Board Rank, Chittagong Board Rank, Bangladesh SSC Rank, SSC 2025 Rank, HSC 2024 Result, SSC 2024 Result, Board-wise Rank, CTG Board Result, GPA Rank Bangladesh">
+    <meta name="author" content="Hasnyne" />
+    <meta name="robots" content="index, follow" />
+    <meta name="google-site-verification" content="siNtiPjvsyElA07czENYNNvVQicPoBsDL_dU5cwSVQ0" />
+  
+    <link rel="canonical" href="https://boradrankctg.github.io/rank/" />
+  
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="SSC & HSC Board Rank — Chittagong Board (Unofficial)" />
+    <meta property="og:description" content="Unofficial SSC 2025 rankings for Chittagong Board and Bangladesh. Search by roll number, compare schools, view GPA, marks, and ranks easily." />
+    <meta property="og:url" content="https://boradrankctg.github.io/rank/" />
+    <meta property="og:type" content="website" />
+    <!-- Default OG image -->
+    <meta property="og:image" content="https://og-playground.vercel.app/api/og?title=BoardRankCTG&subtitle=SSC%20%26%20HSC%20Rankings%20%E2%80%94%20Chattogram%20Board" />
+    <meta name="twitter:card" content="summary_large_image" />
+  
+    <!-- Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <!-- html2canvas for Share as Image -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-f7n3GfUINp0dF2kIgwTQ5Q/NFOTdI1N3r2rOeGd8GvK7m9VB6g8lO6D8Dq/7Hc5VQsr6QyQGHTpM4RwFgq3GEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+    <!-- Favicons -->
+    <link rel="icon" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/icons/trophy-line.svg" type="image/svg+xml" />
+    <!-- PWA / Manifest -->
+    <link rel="manifest" href="/rank/manifest.json">
+    <link rel="apple-touch-icon" href="/rank/icons/icon-192.png">
+    <meta name="theme-color" content="#2563eb">
+    <!-- Sitemap (optional) -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/rank/sitemap.xml">
+    <!-- CSP (Report-Only) -->
+    <meta http-equiv="Content-Security-Policy-Report-Only" content="default-src 'self' https://boradrankctg.github.io; script-src 'self' https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app https://www.gstatic.com https://firebaseinstallations.googleapis.com https://firebasestorage.googleapis.com; worker-src 'self'; frame-ancestors 'self'; upgrade-insecure-requests">
+  </head>
+
+  <body>
+    <!-- New Pro Hero -->
+    <section class="hero hero-pro" aria-label="BoardRank Hero">
+      <div class="hero-bg">
+        <span class="blob b1"></span>
+        <span class="blob b2"></span>
+        <span class="blob b3"></span>
+        <span class="grid-lines"></span>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <div class="hero-eyebrow">
+              <i class="ri-shield-star-line"></i> Chattogram Board • Hasnyne
+            </div>
+
+            <h1>
+              SSC & HSC Board Rankings
+              made clear and fast.
+            </h1>
+
+            <p class="hero-sub">
+              Instant search, school comparisons, and shareable mark sheets — all in a lightning‑quick, mobile‑first experience.
+            </p>
+
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#yearDropdown"><i class="ri-trophy-line"></i> Choose Year & Group</a>
+              <button id="helpBtnHero" class="btn btn-secondary"><i class="fas fa-question-circle"></i> How it works</button>
+            </div>
+
+            <div class="hero-kpis">
+              <div class="kpi">
+                <i class="ri-flashlight-line"></i>
+                <span>Instant</span>
+                <small>Search & filters</small>
+              </div>
+              <div class="kpi">
+                <i class="ri-building-4-line"></i>
+                <span>Top 100</span>
+                <small>Institutions</small>
+              </div>
+              <div class="kpi">
+                <i class="ri-file-chart-line"></i>
+                <span>Individual</span>
+                <small>Mark sheets</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <div class="glass-card">
+              <div class="card-head"><i class="ri-trophy-line"></i>Features</div>
+              <ul class="card-list">
+                <li><i class="ri-checkbox-circle-line"></i> Compare any two students</li>
+                <li><i class="ri-checkbox-circle-line"></i> School-wise rank pages</li>
+                <li><i class="ri-checkbox-circle-line"></i> individual mark sheets </li>
+              </ul>
+              <div class="card-foot">
+                <span class="pill"><i class="ri-smartphone-line"></i> Mobile-first</span>
+                <span class="pill"><i class="ri-contrast-drop-2-line"></i> Dark mode</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" id="currentYear">Year</a></li>
+            <li id="currentGroup" style="display:none;"></li>
+        </ul>
+    </nav>
+
+    <nav class="app-nav" role="navigation">
+      <div class="nav-inner">
+        <a class="brand" href="index.html">🎓 BoardRankCTG</a>
+    
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <i class="ri-menu-line"></i>
+        </button>
+    
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html"><i class="fas fa-house-chimney"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-user-tie"></i> About</a></li>
+          <li><a href="review.html"><i class="fas fa-star-half-stroke"></i> Reviews</a></li>
+          <li><a href="contactus.html"><i class="fas fa-envelope-open-text"></i> Contact</a></li>
+    
+          <li><button id="helpBtn" class="linklike"><i class="fas fa-question-circle"></i> Help</button></li>
+          <li><button id="shareBtn" class="linklike"><i class="ri-share-line"></i> Share</button></li>
+          <li><a href="visitors.html" id="visitorsLink"><i class="fas fa-users"></i> Visitors</a></li>
+    
+          <li class="divider"></li>
+          <li>
+            <label class="theme-switch" title="Toggle theme">
+              <input type="checkbox" id="themeToggle" />
+              <span class="slider" aria-hidden="true"></span>
+              <span class="label">Dark mode</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    
+      <div class="nav-overlay" id="navOverlay"></div>
+    </nav>
+    
+    <div id="customBanner" class="info-banner">
+      ⚠️ This is not an official rank. It's prepared based on publicly available data.
+    </div>
+    <div id="annBanner" class="ann-banner type-info" style="display:none;">
+      <div class="ann-inner">
+        <div class="ann-text" id="annText"></div>
+        <a id="annBtn" class="ann-btn" href="#" target="_blank" rel="noopener" style="display:none;">Learn more</a>
+      </div>
+    </div>
+
+    
+    <main>
+        <section>
+    
+          <p id="selectPrompt">
+            PLEASE SELECT EXAM AND YEAR <i class="fas fa-arrow-down down-arrow"></i>
+          </p>
+          
+          
+          <div class="year-dropdown">
+                          <select id="yearDropdown" onchange="loadYear(this.value)">
+                    <option value=""><strong> Year and Exam</strong></option>
+                    <option value="hsc_2025">HSC 2025</option>
+                    <option value="2025">SSC 2025</option>
+                    <option value="2024">SSC 2024</option>
+                    <option value="2023">SSC 2023</option>
+                    <option value="2022">SSC 2022</option>
+                    <option value="hsc_2024">HSC 2024</option>
+                    <option value="hsc_2023">HSC 2023</option>
+                </select>
+            </div>
+            <div id="content"></div>
+            
+            <div id="noDataMessage" style="display:none;">Oops! No data found.</div>
+        </section>
+
+
+
+  <div class="featured-box" data-value="2025" onclick="handleFeaturedClick('2025', this)">
+    <div class="new-ribbon"><span style="position: relative; left: -14px;">RECHECK</span></div>
+
+    <div class="featured-text">
+      <div class="ssc-line">SSC</div>
+      <div class="year-line">25</div>
+    </div>
+  </div>
+  
+
+  <div class="featured-box" data-value="2024" onclick="handleFeaturedClick('2024', this)">
+    <div class="featured-text">
+      <div class="ssc-line">SSC</div>
+      <div class="year-line">24</div>
+    </div>
+  </div>
+
+  <div class="featured-box" data-value="2023" onclick="handleFeaturedClick('2023', this)">
+    <div class="featured-text">
+      <div class="new-ribbon">HOT</div>
+      <div class="ssc-line">SSC</div>
+      <div class="year-line">23</div>
+    </div>
+  </div>
+
+  <div class="featured-box" data-value="2022" onclick="handleFeaturedClick('2022', this)">
+    
+    <div class="featured-text">
+    
+      <div class="ssc-line">SSC</div>
+      <div class="year-line">22</div>
+    </div>
+  </div>
+
+  <div class="featured-box" data-value="hsc_2025" onclick="handleFeaturedClick('hsc_2025', this)">
+    <div class="new-ribbon">SOON</div>
+    <div class="featured-text">
+      <div class="ssc-line">HSC</div>
+      <div class="year-line">25</div>
+    </div>
+  </div>
+
+  <div class="featured-box" data-value="hsc_2024" onclick="handleFeaturedClick('hsc_2024', this)">
+    <div class="featured-text">
+      <div class="ssc-line">HSC</div>
+      <div class="year-line">24</div>
+    </div>
+  </div>
+
+  <div class="featured-box" data-value="hsc_2023" onclick="handleFeaturedClick('hsc_2023', this)">
+    <div class="featured-text">
+      <div class="ssc-line">HSC</div>
+      <div class="year-line">23</div>
+    </div>
+  </div>
+</div>
+<section id="seo-blurb">
+  <div class="seo-container">
+    <h2><strong></strong>SSC Result Rankings — CHITTAGONG Board </strong></h2>
+    <p>BoardRankCTG provides <strong>SSC Result Rankings</strong> for the <strong>Chattogram Education Board</strong>, covering <strong>Science</strong>, <strong>Business Studies</strong>, and <strong>Humanities</strong> for 2025, 2024, 2023, and earlier years. Our rankings are accurate, fast, and easy to use.</p>
+
+    <p>Search instantly by student name, roll number, or school, compare scores, and explore the <em>Top 100 institutions</em>. View GPA, total marks, and rank for each student, with shareable links and downloadable data.</p>
+
+    <p>Our platform offers complete year-wise SSC rankings for all streams, including Science, Business Studies, and Humanities. Users can quickly find results using instant search and stream-based filters, making navigation effortless. The dedicated <em>Top 100 Schools</em> view highlights the best-performing institutions in the Chattogram Board area. Every ranking table is fully mobile-friendly and optimized for fast loading, ensuring smooth access on any device. All data can be freely downloaded for offline use, and every record is based on accurate results from verified public sources.</p>
+    
+
+    <p>From <strong>SSC 2025</strong> results to historical rankings, BoardRankCTG is the go-to platform for students, educators, and institutions in the Chattogram Board area.</p>
+  </div>
+</section>
+<section id="story" class="container" style="margin-top: 10px;">
+  <div class="info-banner">⚠️ This is not an official rank. Built from publicly available data.</div>
+
+  <div class="grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 14px;">
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px; box-shadow: var(--shadow-soft);">
+      <h3>Instant Search</h3><p>Find students by name, roll or school — results update as you type.</p>
+    </div>
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px; box-shadow: var(--shadow-soft);">
+      <h3>Smart Compare</h3><p>Side-by-side marks comparison — see strengths at a glance.</p>
+    </div>
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px; box-shadow: var(--shadow-soft);">
+      <h3>Top Schools</h3><p>Ranked by GPA 5.00%, top 1,000 share, and average totals.</p>
+    </div>
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px; box-shadow: var(--shadow-soft);">
+      <h3>Share & Export</h3><p>Copy results, share links, or download a polished PDF.</p>
+    </div>
+  </div>
+</section>
+
+<section id="proof" class="container" style="margin-top: 16px;">
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+    <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; text-align:center;">
+      <div style="font-size:2rem; font-weight:900; color:var(--primary)">⚡</div>
+      <div style="font-size:1.5rem; font-weight:900;" id="liveVisits">—</div>
+      <div style="color:var(--text-muted); font-weight:800;">Total Visits</div>
+    </div>
+    <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; text-align:center;">
+      <div style="font-size:2rem; font-weight:900; color:#22c55e">✅</div>
+      <div style="font-size:1.5rem; font-weight:900;">Fast & Mobile</div>
+      <div style="color:var(--text-muted); font-weight:800;">Optimized for any device</div>
+    </div>
+    <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; text-align:center;">
+      <div style="font-size:2rem; font-weight:900; color:#f59e0b">🏆</div>
+      <div style="font-size:1.5rem; font-weight:900;">Top 100 Schools</div>
+      <div style="color:var(--text-muted); font-weight:800;">Updated per selection</div>
+    </div>
+  </div>
+</section>
+<script>
+  // If admin stats already load in your script, you can re-use the values.
+  // Lightweight listener for total visits (optional, safe no-op if db not init yet).
+  (function(){
+    try {
+      if (window.db && window.firebase) {
+        const { ref, onValue } = window.firebase.database;
+        onValue(ref(window.db, "siteStats/totalVisits"), (snap) => {
+          const v = snap.val() || 0;
+          const n = document.getElementById('liveVisits'); if (n) n.textContent = v.toLocaleString();
+        });
+      }
+    } catch (e){}
+  })();
+</script>
+
+<section id="action" class="container" style="margin: 20px auto 0; text-align:center;">
+  <a class="btn btn-primary" href="#yearDropdown"><i class="ri-trophy-line"></i>Choose Year & Group</a>
+</section>
+          
+    </main>
+
+
+    
+    <div id="popupWindow" style="display:none;">
+        <button id="closePopup" class="close-btn">&times;</button>
+        <div class="popup-content" id="popupContent"></div>
+    </div>
+
+    <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">
+        <img src="arrow-up.png" alt="Scroll to top">
+    </button>
+
+    
+    <script type="module">
+
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getDatabase, ref, runTransaction, set, onValue, get, update } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
+          authDomain: "boardrankctg.firebaseapp.com",
+          databaseURL: "https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app",
+          projectId: "boardrankctg",
+          storageBucket: "boardrankctg.firebasestorage.app",
+          messagingSenderId: "751761229963",
+          appId: "1:751761229963:web:43f9dbf71feef6dc9cec8e",
+          measurementId: "G-3Y6J44NWNH"
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+window.db = db; 
+
+
+window.clickCountsCache = {};
+window._br_clickListenerSet = new Set();
+
+
+window.incrementClickCount = function(roll) {
+  if (!window.db) {
+    console.error("DB not ready for incrementClickCount");
+    return;
+  }
+  try {
+    const clickRef = ref(window.db, `clickCounts/${roll}`);
+    runTransaction(clickRef, (count) => {
+      return (count || 0) + 1;
+    }).catch(err => console.error('incrementClickCount error', err));
+  } catch (e) {
+    console.error('incrementClickCount exception', e);
+  }
+};
+
+window.listenClickCount = function(roll, cb) {
+  if (!window.db) {
+    console.error("DB not ready for listenClickCount");
+    cb(0);
+    return;
+  }
+  try {
+    const clickRef = ref(window.db, `clickCounts/${roll}`);
+    onValue(clickRef, (snap) => {
+      const val = snap.val() || 0;
+      window.clickCountsCache[roll] = val;
+      cb(val);
+    });
+  } catch (e) {
+    console.error('listenClickCount exception', e);
+    cb(0);
+  }
+};
+
+      
+        let userId = localStorage.getItem("userId");
+        if (!userId) {
+          userId = crypto.randomUUID();
+          localStorage.setItem("userId", userId);
+        }
+      
+        const ADMIN_ID = "admin1234";
+      
+        function trackVisit() {
+          runTransaction(ref(db, "siteStats/totalVisits"), (count) => (count || 0) + 1);
+          set(ref(db, `siteStats/activeUsers/${userId}`), Date.now());
+        }
+      
+
+        function showAdminStats() {
+          const box = document.createElement("div");
+          box.style = "max-width: 600px; margin: 30px auto; padding: 12px; border: 2px solid #333; background: #f8f8f8;";
+          box.innerHTML = `<h3>📊 Site Stats (Admin Only)</h3><div id="visitStats">Loading...</div>`;
+          document.body.appendChild(box);
+      
+          const statsRef = ref(db, "siteStats");
+      
+          onValue(statsRef, (snapshot) => {
+            const data = snapshot.val() || {};
+            const total = data.totalVisits || 0;
+            const active = data.activeUsers || {};
+            const now = Date.now();
+            const live = Object.values(active).filter(ts => now - ts < 5 * 60 * 1000).length;
+      
+            document.getElementById("visitStats").innerHTML = `
+              👁️ Total Visits: <strong>${total}</strong><br />
+              🟢 Live Visitors (past 5 min): <strong>${live}</strong>
+            `;
+          });
+        }
+      
+        trackVisit();
+        initAnnouncementsListener();
+        checkAndEnforceBan();
+        if (userId === ADMIN_ID) showAdminStats();
+        function __deriveFingerprintFallback() {
+    // Same seed parts you used elsewhere (UA + platform + screen + memory + cores + vendor)
+    const ua = navigator.userAgent || '';
+    const platform = navigator.platform || '';
+    const screenRes = `${screen.width}x${screen.height}`;
+    const deviceMemory = navigator.deviceMemory || '';
+    const cores = navigator.hardwareConcurrency || '';
+    const vendor = navigator.vendor || '';
+    const seed = `${ua}|${platform}|${screenRes}|${deviceMemory}|${cores}|${vendor}`;
+    // djb2-style hash to hex
+    let h = 5381;
+    for (let i = 0; i < seed.length; i++) {
+      h = ((h << 5) + h) + seed.charCodeAt(i);
+      h = h & 0xffffffff;
+    }
+    return (h >>> 0).toString(16);
+  }
+
+  async function __getFingerprint() {
+    try {
+      if (typeof getDeviceDataAndFingerprint === 'function') {
+        const v = getDeviceDataAndFingerprint();
+        if (v && v.fingerprint) return v.fingerprint;
+      }
+    } catch (e) {}
+    return __deriveFingerprintFallback();
+  }
+
+  function startBanCountdown(until) {
+    const timer = document.getElementById('banTimer');
+    if (!timer) return;
+    clearInterval(window.__banTick);
+    if (until === -1) {
+      timer.textContent = 'Permanent ban';
+      return;
+    }
+    function tick() {
+      const ms = until - Date.now();
+      if (ms <= 0) {
+        timer.textContent = 'Ban expired. Reloading...';
+        setTimeout(() => location.reload(), 1200);
+        clearInterval(window.__banTick);
+        return;
+      }
+      const s = Math.floor(ms / 1000);
+      const d = Math.floor(s / 86400);
+      const h = Math.floor((s % 86400) / 3600);
+      const m = Math.floor((s % 3600) / 60);
+      const ss = s % 60;
+      timer.textContent = `Time left: ${d}d ${h}h ${m}m ${ss}s`;
+    }
+    tick();
+    window.__banTick = setInterval(tick, 1000);
+  }
+
+  function initAnnouncementsListener() {
+    const annRef = ref(db, 'announcements/global');
+    onValue(annRef, (snap) => {
+      const v = snap.val() || {};
+      const banner = document.getElementById('annBanner');
+      if (!banner) return;
+
+      if (v.active && v.message) {
+        banner.style.display = 'block';
+        banner.className = `ann-banner type-${v.type || 'info'}`;
+        const textEl = document.getElementById('annText');
+        const btnEl = document.getElementById('annBtn');
+        textEl.textContent = v.message || '';
+        if (v.buttonText && v.buttonUrl) {
+          btnEl.style.display = 'inline-block';
+          btnEl.textContent = v.buttonText;
+          btnEl.href = v.buttonUrl;
+        } else {
+          btnEl.style.display = 'none';
+        }
+      } else {
+        banner.style.display = 'none';
+      }
+    });
+  }
+
+  async function checkAndEnforceBan() {
+    const fp = await __getFingerprint();
+    const bRef = ref(db, 'bannedDevices/' + fp);
+    onValue(bRef, (snap) => {
+      const ban = snap.val();
+      const overlay = document.getElementById('banOverlay');
+      if (!overlay) return;
+
+      const active = ban && (ban.until === -1 || Number(ban.until) > Date.now());
+      if (active) {
+        overlay.style.display = 'flex';
+        document.body.classList.add('ban-locked');
+        const reason = ban.reason || '—';
+        const until = Number(ban.until);
+        document.getElementById('banReason').textContent = `Reason: ${reason}`;
+        document.getElementById('banUntil').textContent = (until === -1)
+          ? 'Until: Permanent'
+          : 'Until: ' + new Date(until).toLocaleString();
+        startBanCountdown(until);
+
+        // Swallow input so it cannot be closed via keyboard/mouse
+        const stopper = (e) => { e.stopPropagation(); e.preventDefault(); };
+        window.addEventListener('keydown', stopper, { capture: true });
+        window.addEventListener('click', stopper, { capture: true });
+      } else {
+        overlay.style.display = 'none';
+        document.body.classList.remove('ban-locked');
+        clearInterval(window.__banTick);
+      }
+    });
+  }
+
+      </script>
+      
+    <script src="script.js"></script>
+
+    <footer>
+      &copy; 2025 BoardRankCTG — Made by Hasnyne
+    </footer>
+    
+
+    <div id="banOverlay">
+      <div class="ban-card">
+        <h3>  🚫 Access Restricted</h3>
+        <p id="banReason">Reason: —</p>
+        <p id="banUntil">Until: —</p>
+        <div id="banTimer" style="font-weight:800;margin-top:6px;"></div>
+        <p style="margin-top:12px;font-size:.9rem;">If you think this is a mistake, contact the admin.</p>
+      </div>
+    </div>
+
+    <!-- HasnyneBOT Launcher -->
+    <div id="hb-launcher" aria-label="Open HAS9beta" title="Need help?">
+      <div class="has9-split">
+        <img class="half half-boy" src="https://img.icons8.com/color/96/administrator-male--v1.png" alt="human">
+        <img class="half half-ai" src="https://img.icons8.com/color/96/robot-2.png" alt="ai">
+      </div>
+      <span class="hb-badge" style="display:none">1</span>
+      <span class="hb-ping"></span>
+    </div>
+
+<!-- HasnyneBOT Panel -->
+<div id="hb-panel" role="dialog" aria-modal="true" aria-label="HasnyneBOT" style="display:none;">
+  <div class="hb-head">
+    <div class="hb-title">
+      <div class="has9-split small">
+        <img class="half half-boy" src="https://img.icons8.com/color/96/administrator-male--v1.png" alt="human">
+        <img class="half half-ai" src="https://img.icons8.com/color/96/robot-2.png" alt="ai">
+      </div>
+          <div>
+        <div class="hb-name">HAS9beta</div>
+        <div class="hb-sub">chaotic guide • v10max</div>
+      </div>
+    </div>
+    <button id="hb-close" aria-label="Close" type="button">×</button>
+  </div>
+  <div class="hb-body" id="hb-chat" aria-live="polite"></div>
+  <div class="hb-actions">
+ 
+    <div class="hb-ask">
+      <input id="hb-input" type="text" placeholder="say anything: start tour, ssc 2025 science, roll 12345, how’s life?" aria-label="Ask">
+      <button id="hb-send" type="button">Send</button>
+    </div>
+  </div>
+</div>
+
+<!-- Tour overlay (non-blocking) -->
+<div id="hb-tour" style="display:none;" aria-hidden="true">
+  <div id="hb-thl" aria-hidden="true"></div>
+  <div id="hb-ttp" role="region" aria-label="Guided tour">
+    <div class="hb-meta">
+      <div id="hb-count"></div>
+      <div class="hb-prog"><span></span></div>
+    </div>
+    <div class="hb-ttl" id="hb-ttl"></div>
+    <div class="hb-desc" id="hb-desc"></div>
+    <div class="hb-ctrl">
+      <button id="hb-prev" type="button">Back</button>
+      <button id="hb-next" type="button">Next</button>
+      <button id="hb-end" type="button">Finish</button>
+    </div>
+  </div>
+</div>
+    
+
+
+</body>
+<style>
+  #firstVisitHint {
+    position: absolute;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    animation: floatY 1s ease-in-out infinite;
+    pointer-events: none;
+  }
+  #firstVisitHint img {
+    width: 40px;
+    height: 40px;
+    animation: wiggle 0.8s infinite;
+  }
+  #firstVisitHint .bubble {
+    background: #fff;
+    color: #222;
+    border: 2px solid #333;
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 13px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    white-space: nowrap;
+  }
+  @keyframes wiggle {
+    0%,100% { transform: rotate(0deg); }
+    25% { transform: rotate(8deg); }
+    75% { transform: rotate(-8deg); }
+  }
+  @keyframes floatY {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  </style>
+  
+  <script>
+  function showFirstVisitHint() {
+    if (localStorage.getItem('nameClickHintShown')) return;
+  
+    const firstNameCell = document.querySelector('.student-name');
+    if (!firstNameCell) return;
+  
+    const hint = document.createElement('div');
+    hint.id = 'firstVisitHint';
+    hint.innerHTML = `
+      <img src="https://img.icons8.com/emoji/48/backhand-index-pointing-left-light-skin-tone.png" alt="👈">
+      <div class="bubble">Click a student's name<br>for detailed results</div>
+    `;
+    document.body.appendChild(hint);
+  
+    function positionHint() {
+      const rect = firstNameCell.getBoundingClientRect();
+      hint.style.top = `${rect.top + window.scrollY + 5}px`;
+      hint.style.left = `${rect.right + window.scrollX - 20}px`; 
+    }
+  
+    positionHint();
+    window.addEventListener('resize', positionHint);
+    window.addEventListener('scroll', positionHint);
+  
+    document.body.addEventListener('click', function handler(e) {
+      if (e.target.classList.contains('student-name')) {
+        hint.remove();
+        localStorage.setItem('nameClickHintShown', '1');
+        document.body.removeEventListener('click', handler);
+      }
+    }, true);
+  }
+
+  const originalUpdateTableData = updateTableData;
+  updateTableData = function() {
+    originalUpdateTableData.apply(this, arguments);
+    if (!document.getElementById('firstVisitHint')) {
+      document.addEventListener('mousemove', () => setTimeout(showFirstVisitHint, 200), { once: true });
+document.addEventListener('touchstart', () => setTimeout(showFirstVisitHint, 200), { once: true });
+
+    }
+  };
+
+window.clickCountsCache = {};          
+window._br_clickListenerSet = new Set();
+
+window.incrementClickCount = function(roll) {
+  try {
+    runTransaction(ref(db, `clickCounts/${roll}`), (count) => (count || 0) + 1)
+      .catch(err => console.error('incrementClickCount error', err));
+  } catch (e) {
+    console.error('incrementClickCount exception', e);
+  }
+};
+
+window.listenClickCount = function(roll, cb) {
+  try {
+    const r = ref(db, `clickCounts/${roll}`);
+    onValue(r, (snap) => {
+      const val = snap.val() || 0;
+      window.clickCountsCache[roll] = val;
+      try { cb(val); } catch(e){ console.error('listen cb error', e); }
+    }, (err) => {
+      console.error('listenClickCount onValue error', err);
+      try { cb(0); } catch(e) {}
+    });
+  } catch (e) {
+    console.error('listenClickCount exception', e);
+    try { cb(0); } catch(e) {}
+  }
+};
+
+  </script>
+
+
+    <!-- Hero micro-parallax -->
+    <script>
+      // Subtle parallax for hero blobs (optional)
+      (function(){
+        const hero = document.querySelector('.hero.hero-pro');
+        if (!hero) return;
+        const blobs = hero.querySelectorAll('.blob');
+        let raf = 0;
+        function onMove(e){
+          cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(()=>{
+            const r = hero.getBoundingClientRect();
+            const cx = (e.clientX - r.left) / r.width - 0.5;
+            const cy = (e.clientY - r.top) / r.height - 0.5;
+            blobs.forEach((b, i)=>{
+              const depth = (i+1)*5;
+              b.style.transform = `translate3d(${cx*depth*6}px, ${cy*depth*-6}px, 0)`;
+            });
+          });
+        }
+        hero.addEventListener('mousemove', onMove);
+        hero.addEventListener('mouseleave', ()=>{ blobs.forEach(b=>b.style.transform='translate3d(0,0,0)'); });
+      })();
+    </script>
+
+
+  
+</html>
+
