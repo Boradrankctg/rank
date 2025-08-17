@@ -1,1 +1,3810 @@
-const i=P;(function(F,H){const u=P,R=F();while(!![]){try{const s=-parseInt(u(0x1ac))/0x1*(-parseInt(u(0x27a))/0x2)+-parseInt(u(0x1c0))/0x3*(-parseInt(u(0x210))/0x4)+-parseInt(u(0x38b))/0x5+-parseInt(u(0x1c1))/0x6+-parseInt(u(0x341))/0x7+-parseInt(u(0x345))/0x8+parseInt(u(0x328))/0x9*(parseInt(u(0x203))/0xa);if(s===H)break;else R['push'](R['shift']());}catch(G){R['push'](R['shift']());}}}(N,0xd11e4));const contentDiv=document[i(0x226)]('content'),currentYear=document['getElementById'](i(0x1b7)),currentGroup=document[i(0x226)]('currentGroup'),noDataMessage=document[i(0x226)]('noDataMessage'),yearDropdown=document['getElementById']('yearDropdown');function upsertMeta(F,H){const N0=i;let R=document[N0(0x1eb)](N0(0x30a)+F+'\x22]');!R&&(R=document[N0(0x219)](N0(0x37c)),R[N0(0x2cd)](N0(0x266),F),document[N0(0x25b)]['appendChild'](R)),R['setAttribute'](N0(0x207),H);}function upsertProperty(F,H){const N1=i;let R=document['querySelector']('meta[property=\x22'+F+'\x22]');!R&&(R=document[N1(0x219)](N1(0x37c)),R[N1(0x2cd)](N1(0x20e),F),document[N1(0x25b)]['appendChild'](R)),R['setAttribute'](N1(0x207),H);}function setCanonical(F){const N2=i;let H=document['querySelector']('link[rel=\x22canonical\x22]');!H&&(H=document[N2(0x219)](N2(0x261)),H[N2(0x2cd)](N2(0x268),N2(0x1cc)),document['head']['appendChild'](H)),H[N2(0x2cd)](N2(0x31e),F);}function injectJSONLD(F,H){const N3=i;if(H)document[N3(0x2d5)](N3(0x23a)+H+'\x22]')['forEach'](G=>G[N3(0x257)]());const R=document[N3(0x219)](N3(0x374));R['type']=N3(0x2aa);if(H)R[N3(0x2cd)]('data-id',H);R[N3(0x1ef)]=JSON[N3(0x2ea)](F),document['head'][N3(0x304)](R);}function updateSEOForYearGroup(F,H){const N4=i,R=String(F)[N4(0x264)](N4(0x298)),s=String(F)[N4(0x381)]('hsc_',''),G=R?N4(0x23e):'SSC',w=N4(0x340)+s+N4(0x2bd)+(G===N4(0x23e)?N4(0x1ff):N4(0x2be))+'\x20'+H,M=N4(0x323)+G+'\x20'+s+'\x20'+H+N4(0x32b),Y=''+location[N4(0x2d7)]+location['pathname']+N4(0x283)+encodeURIComponent(F)+'&group='+encodeURIComponent(H);document[N4(0x1f0)]=w,upsertMeta(N4(0x270),M),setCanonical(Y),upsertProperty('og:title',w),upsertProperty(N4(0x2f9),M),upsertProperty(N4(0x1cf),Y),upsertProperty(N4(0x2bf),N4(0x28c)),upsertMeta('twitter:title',w),upsertMeta('twitter:description',M);}function updateSEOForSchool(F,H,R){const N5=i,s=String(F)['replace'](N5(0x35d),''),G=String(F)[N5(0x264)](N5(0x298))?N5(0x23e):'SSC',w=R+'\x20—\x20'+G+'\x20'+s+N5(0x1be),M=N5(0x30d)+R+'\x20—\x20'+G+'\x20'+s+',\x20'+H+'.\x20View\x20GPA,\x20totals,\x20and\x20student\x20positions\x20from\x20Chattogram\x20Board.',Y=''+location[N5(0x2d7)]+location['pathname']+'?year='+encodeURIComponent(F)+N5(0x275)+encodeURIComponent(H)+'&school='+encodeURIComponent(R);document[N5(0x1f0)]=w,upsertMeta('description',M),setCanonical(Y),upsertProperty(N5(0x254),w),upsertProperty(N5(0x2f9),M),upsertProperty(N5(0x1cf),Y),upsertMeta(N5(0x289),w),upsertMeta('twitter:description',M);}function injectBreadcrumbs(F,H,R,s){const N6=i,G=[{'@type':'ListItem','position':0x1,'name':N6(0x231),'item':F}];if(H)G[N6(0x3ac)]({'@type':N6(0x348),'position':0x2,'name':String(H)[N6(0x381)](N6(0x35d),'')});if(R)G['push']({'@type':N6(0x348),'position':0x3,'name':R});if(s)G['push']({'@type':N6(0x348),'position':0x4,'name':s});injectJSONLD({'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':G},N6(0x3a5));}function injectDatasetForYearGroup(F,H){const N7=i,R=String(F)[N7(0x264)]('hsc'),s=String(F)[N7(0x381)](N7(0x35d),''),G=R?N7(0x23e):N7(0x1d5);injectJSONLD({'@context':'https://schema.org','@type':N7(0x244),'name':G+'\x20'+s+'\x20'+H+'\x20Result\x20Ranking\x20—\x20Chattogram\x20Board','description':N7(0x28b)+G+'\x20'+s+'\x20'+H+'\x20rankings\x20for\x20Chattogram\x20Board\x20including\x20GPA,\x20totals,\x20school\x20names\x20and\x20positions.','creator':{'@type':N7(0x3b4),'name':N7(0x1fb)},'distribution':[{'@type':N7(0x1d4),'encodingFormat':'text/tab-separated-values','contentUrl':''+location[N7(0x2d7)]+location[N7(0x218)][N7(0x381)](/index\.html?$/,'')+'data_'+F+'_'+H[N7(0x320)]()+N7(0x2f4)}],'license':'https://creativecommons.org/licenses/by/4.0/'},N7(0x1ec));}function injectDatasetForSchool(F,H,R){const N8=i,s=String(F)[N8(0x381)](N8(0x35d),''),G=String(F)[N8(0x264)]('hsc')?N8(0x23e):N8(0x1d5);injectJSONLD({'@context':'https://schema.org','@type':N8(0x244),'name':R+N8(0x2bd)+G+'\x20'+s+N8(0x1be),'description':N8(0x1c3)+R+N8(0x33f)+G+'\x20'+s+',\x20'+H+'\x20—\x20GPA,\x20totals\x20and\x20positions.','creator':{'@type':N8(0x3b4),'name':N8(0x1fb)}},N8(0x1ec));}function xorDecrypt(F,H){const R=new TextEncoder()['encode'](H);return F['map']((s,G)=>s^R[G%R['length']]);}async function fetchAndDecode(F,H){const N9=i,R=await fetch(F),s=await R['text'](),G=atob(s),w=new Uint8Array(G['split']('')[N9(0x1bc)](Y=>Y[N9(0x2c6)](0x0))),M=xorDecrypt(w,H);return new TextDecoder()[N9(0x214)](M);}function showRankTipsPopup(){const NN=i,F=document['createElement']('div');F[NN(0x2e5)]=NN(0x26d),F[NN(0x274)]=NN(0x354),document[NN(0x22f)][NN(0x304)](F),document[NN(0x22f)][NN(0x26c)][NN(0x2d6)](NN(0x36c));}document[i(0x226)](i(0x2a7))['addEventListener']('click',showRankTipsPopup);function loadYear(F){const NP=i;if(F){document[NP(0x226)](NP(0x371))['style']['display']=NP(0x258),document[NP(0x2d5)](NP(0x2c0))[NP(0x358)](R=>R[NP(0x257)]());const H=location[NP(0x218)]+NP(0x283)+F;history[NP(0x2d9)]({},'',H),currentYear[NP(0x23d)]='\x20'+F,currentGroup[NP(0x294)][NP(0x352)]=NP(0x258),noDataMessage[NP(0x294)]['display']=NP(0x258),contentDiv['innerHTML']=NP(0x1e7)+F+NP(0x3a7)+F+'\x27,\x20\x27Commerce\x27)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22com.png\x22\x20alt=\x22Commerce\x20Icon\x22>Business\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22loadGroup(\x27'+F+NP(0x34e);}else contentDiv[NP(0x274)]='';}function loadGroup(F,H){const NF=i;currentGroup['style']['display']=NF(0x327),currentGroup[NF(0x23d)]=H+'\x20Group';let R=F['includes'](NF(0x298))?NF(0x23e):NF(0x1d5),s=F[NF(0x381)]('hsc_','');document[NF(0x1f0)]='BOARD\x20RANK\x20OF\x20'+R+'\x20'+s+'\x20of\x20'+H,updateSEOForYearGroup(F,H),injectDatasetForYearGroup(F,H),injectBreadcrumbs(''+location[NF(0x2d7)]+location['pathname'],F,H,null),yearDropdown[NF(0x294)][NF(0x352)]=NF(0x258),contentDiv[NF(0x274)]=NF(0x3af);const G=location[NF(0x218)]+NF(0x283)+F+NF(0x275)+H;history['pushState']({},'',G),printExamResultHeader(F),fetchData(F,H);}function printExamResultHeader(F){const NH=i,H=document['getElementById'](NH(0x2e4));if(H){let R=F[NH(0x264)](NH(0x298))?NH(0x23e):NH(0x1d5),s=F[NH(0x381)]('hsc_','');H[NH(0x23d)]=R['toUpperCase']()+'\x20'+s+NH(0x237);}}let allData=[],filteredData=[];const studentsPerPage=0x1f4;let currentPage=0x1;const InstituationSet=new Set();function fetchData(F,H){const NR=i;showLoadingIndicator();const R='data_'+F+'_'+H[NR(0x320)]()+NR(0x2f4),s=NR(0x212)+F+'_'+H[NR(0x320)]()+NR(0x26e),G=NR(0x309)+F+'_'+H,w=localStorage['getItem'](G);if(w)try{const {mainData:M,individualData:Y}=JSON['parse'](w);processData(M,Y||null),populateInstituationDropdown(),updateTableData(),hideLoadingIndicator();}catch(L){console[NR(0x3bc)](NR(0x3bb),L);}fetch(R)['then'](V=>{const Ns=NR,p=V[Ns(0x22f)][Ns(0x25d)](),A=+V['headers'][Ns(0x20a)](Ns(0x2c1))||0x0;let a=0x0;return new Response(new ReadableStream({'start'(U){function T(){const NG=P;p[NG(0x29a)]()[NG(0x249)](({done:x,value:q})=>{const Nw=NG;if(x){U[Nw(0x208)]();return;}a+=q[Nw(0x300)],step(a,A),U['enqueue'](q),T();});}T();}}))['text']();});}let visitorInfoCompleted=localStorage[i(0x312)]('visitorInfoGiven')==='1';function getDeviceDataAndFingerprint(){const NM=i,F=navigator[NM(0x35b)]||'',H=navigator[NM(0x37b)]||'',R=screen[NM(0x2bb)]+'x'+screen[NM(0x390)],s=navigator[NM(0x377)]||null,G=navigator[NM(0x2c5)]||null,w=navigator[NM(0x376)]||'';let M=NM(0x1cb);if(/Android/i[NM(0x337)](F)){const A=F['match'](/Android\s+[\d.]+;\s+([^)]+)/i);A&&A[0x1]&&(M=A[0x1][NM(0x381)](/Build\/.+/,'')[NM(0x2d0)]());}else{if(/iPhone/i['test'](F))M=NM(0x227);else{if(/iPad/i[NM(0x337)](F))M=NM(0x1b2);else{if(/Macintosh/i[NM(0x337)](F))M=NM(0x2a3);else{if(/Windows/i['test'](F))M=NM(0x204);else/Linux/i[NM(0x337)](F)&&(M=NM(0x356));}}}}const Y={'ua':F,'platform':H,'screen':R,'deviceMemory':s,'cores':G,'vendor':w,'deviceModel':M},L=F+'|'+H+'|'+R+'|'+s+'|'+G+'|'+w;let V=0x1505;for(let a=0x0;a<L['length'];a++){V=(V<<0x5)+V+L['charCodeAt'](a),V=V&0xffffffff;}const p=(V>>>0x0)[NM(0x1e0)](0x10);return{'deviceData':Y,'fingerprint':p};}async function showIndividualResultWithCheck(F,H,R){const NY=i,s=new URLSearchParams(window[NY(0x2bc)]['search']);if(s['has']('roll')&&s[NY(0x20a)](NY(0x34f))==F)return showIndividualResult(F,H,R);let G=parseInt(localStorage[NY(0x312)](NY(0x35c))||'0',0xa);G++,localStorage[NY(0x369)](NY(0x35c),G);if(G<=0x2)return showIndividualResult(F,H,R);const {deviceData:w,fingerprint:M}=getDeviceDataAndFingerprint();if(localStorage[NY(0x312)](NY(0x3c9))==='1'&&localStorage[NY(0x312)](NY(0x202))===M)return visitorInfoCompleted=!![],showIndividualResult(F,H,R);try{const V=await import(NY(0x272)),{getDatabase:p,ref:A,get:a,query:U,orderByChild:T,equalTo:x}=V,r=p(),I=U(A(r,NY(0x3a3)),T(NY(0x1ae)),x(M)),k=await a(I);if(k&&k[NY(0x239)]())return localStorage['setItem'](NY(0x3c9),'1'),localStorage[NY(0x369)](NY(0x202),M),visitorInfoCompleted=!![],showIndividualResult(F,H,R);}catch(f){console['warn'](NY(0x2d8),f);}if(document[NY(0x1eb)]('.popup'))return;const Y=document['createElement'](NY(0x3cc));Y[NY(0x26c)][NY(0x2d6)]('popup'),Y[NY(0x274)]=NY(0x242),document[NY(0x22f)][NY(0x304)](Y),document[NY(0x22f)]['classList'][NY(0x2d6)](NY(0x36c));function L(W){const NL=NY;if(!W)return!![];const m=W[NL(0x2d0)]();if(m[NL(0x300)]<0x3||m[NL(0x300)]>0x28)return!![];if(!/^[a-zA-Z\s]+$/['test'](m))return!![];const j=(m['match'](/[aeiouAEIOU]/g)||[])['length'];if(j<0x2)return!![];if(/(.)\1{3,}/[NL(0x337)](m))return!![];return![];}document[NY(0x226)](NY(0x1f4))[NY(0x25f)](NY(0x2b0),async()=>{const Ne=NY,W=document[Ne(0x226)](Ne(0x20c))[Ne(0x301)][Ne(0x2d0)](),m=document['getElementById'](Ne(0x3c1))[Ne(0x301)]['trim'](),j=document[Ne(0x226)](Ne(0x299))[Ne(0x301)],v=document[Ne(0x226)](Ne(0x2cc))[Ne(0x301)],t=document[Ne(0x226)](Ne(0x1d7))[Ne(0x301)],Z=document[Ne(0x226)](Ne(0x2b9))[Ne(0x301)][Ne(0x2d0)]();if(t===Ne(0x29c)||t===Ne(0x2ae)){const n=Y[Ne(0x1eb)](Ne(0x34d)),l=Y[Ne(0x1eb)](Ne(0x33a));if(l)l['style'][Ne(0x352)]=Ne(0x258);n[Ne(0x274)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:center;\x20padding:20px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22access-status\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22circle\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x204px\x20solid\x20#ccc;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-top:\x204px\x20solid\x20#1976d2;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x2050%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x2040px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x2040px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x20auto;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20animation:\x20spin\x201s\x20linear\x20infinite;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-top:\x2010px;\x20font-size:\x200.95rem;\x22>Checking\x20your\x20feedback…</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<style>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20@keyframes\x20spin\x20{\x20to\x20{\x20transform:\x20rotate(360deg);\x20}\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</style>\x0a\x20\x20\x20\x20\x20\x20',setTimeout(()=>{const NV=Ne;n[NV(0x274)]=NV(0x1c2);},0x5dc);return;}if(L(W)){const z=Y[Ne(0x1eb)](Ne(0x34d)),y=Y[Ne(0x1eb)](Ne(0x33a));if(y)y[Ne(0x294)][Ne(0x352)]=Ne(0x258);z[Ne(0x274)]=Ne(0x31f),setTimeout(()=>{const Np=Ne;z[Np(0x274)]=Np(0x39c);},0x5dc);return;}if(!W||W[Ne(0x300)]<0x4){alert(Ne(0x3a4));return;}if(!m||m[Ne(0x300)]<0x3){alert(Ne(0x23b));return;}if(!j||!v){alert(Ne(0x35a));return;}const S=Y[Ne(0x1eb)](Ne(0x34d)),C=Y['querySelector'](Ne(0x33a)),E=S[Ne(0x274)];if(C)C[Ne(0x294)][Ne(0x352)]=Ne(0x258);S['innerHTML']=Ne(0x228)+W+Ne(0x321),document['getElementById'](Ne(0x386))[Ne(0x25f)](Ne(0x2b0),async()=>{const NA=Ne;localStorage['setItem']('visitorInfoGiven','1'),localStorage[NA(0x369)](NA(0x202),M),visitorInfoCompleted=!![];try{const Q=await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js'),{getDatabase:D,ref:J,push:K,set:X}=Q,c=D(),b=K(J(c,NA(0x3a3)));await X(b,{'name':W,'institution':m,'type':j,'source':v,'experience':t,'message':Z,'fingerprint':M,'deviceData':w,'timestamp':Date['now']()});}catch(o){console[NA(0x1ea)](NA(0x391),o);}S[NA(0x274)]=NA(0x1b0),setTimeout(()=>{const Na=NA;S[Na(0x274)]=Na(0x2e2),setTimeout(()=>{closePopup(),showIndividualResult(F,H,R);},0x5dc);},0x3e8);}),document['getElementById']('editNameBtn')[Ne(0x25f)](Ne(0x2b0),()=>{const NU=Ne;S[NU(0x274)]=E,C[NU(0x294)][NU(0x352)]=NU(0x3b9),document[NU(0x226)](NU(0x20c))[NU(0x301)]=W,document[NU(0x226)](NU(0x3c1))[NU(0x301)]=m,document['getElementById'](NU(0x299))['value']=j,document[NU(0x226)](NU(0x2cc))[NU(0x301)]=v,document[NU(0x226)](NU(0x1d7))[NU(0x301)]=t,document[NU(0x226)](NU(0x1f4))[NU(0x25f)](NU(0x2b0),submitHandler);});});}document[i(0x25f)](i(0x3c6),()=>{const NT=i,F=localStorage[NT(0x312)](NT(0x200));F!==NT(0x353)&&document[NT(0x226)](NT(0x271))?.[NT(0x257)]();});function processData(F,H){const Nx=i,R=F['trim']()[Nx(0x36a)]('\x0a')[Nx(0x2ab)](0x1),s=parseIndividualData(H);allData=R['map'](G=>{const Nq=Nx,[w,M,Y,L,V,p]=G[Nq(0x36a)]('\x09'),A=s[Y]||{};return InstituationSet[Nq(0x2d6)]((p||'')[Nq(0x2d0)]()),{'serial':parseInt(w),'name':M,'roll':parseInt(Y),'gpa':parseFloat(L),'total':parseInt(V),'Instituation':(p||'')[Nq(0x2d0)](),...A};}),console['log'](Nx(0x22d),allData),allData=allData[Nx(0x297)](G=>!isNaN(G[Nx(0x308)])&&!isNaN(G['total'])),allData['sort'](compareStudents),console[Nx(0x2c2)](Nx(0x2a6),allData),filteredData=[...allData],updateTableData();}function parseIndividualData(F){const Nr=i;if(!F)return{};const H=F[Nr(0x2d0)]()[Nr(0x36a)]('\x0a'),R={};return H[Nr(0x358)](s=>{const NI=Nr,[G,,,,,,w,M,Y]=s[NI(0x36a)]('\x09');R[G]={'phy':parseInt(w),'chem':parseInt(M),'math':parseInt(Y)};}),console[Nr(0x2c2)](Nr(0x38d),R),R;}function compareStudents(F,H){const Nk=i;if(F['gpa']!==H[Nk(0x308)])return H[Nk(0x308)]-F[Nk(0x308)];if(F[Nk(0x22a)]!==H[Nk(0x22a)])return H[Nk(0x22a)]-F[Nk(0x22a)];if(F[Nk(0x269)]!==H[Nk(0x269)])return H[Nk(0x269)]-F[Nk(0x269)];if(F[Nk(0x355)]!==H[Nk(0x355)])return H[Nk(0x355)]-F[Nk(0x355)];return H[Nk(0x37a)]-F[Nk(0x37a)];}function makeSchoolNamesClickable(){const Nf=i,F=document[Nf(0x2d5)](Nf(0x2ff));F[Nf(0x358)](H=>{const NW=Nf;H[NW(0x294)]['cursor']='pointer',H[NW(0x294)][NW(0x387)]=NW(0x3ab),H[NW(0x25f)]('click',()=>showSchoolRanking(H[NW(0x23d)][NW(0x2d0)]()));});}function showSchoolRanking(F){const Nm=i;scrollToTop();const H=((()=>{try{return decodeURIComponent(F);}catch(s){return F;}})());try{const s=new URLSearchParams(window[Nm(0x2bc)]['search']),G=s['get']('year')||(document['getElementById'](Nm(0x1b7))?.['textContent']||'')[Nm(0x2d0)](),w=G&&G[Nm(0x264)](Nm(0x298))?Nm(0x23e):Nm(0x1d5),M=(G||'')[Nm(0x381)](Nm(0x35d),'');document['title']=H+Nm(0x233)+M+'\x20'+w;const Y=s[Nm(0x20a)](Nm(0x333)),L=s['get'](Nm(0x338));updateSEOForSchool(Y,L,H),injectDatasetForSchool(Y,L,H),injectBreadcrumbs(''+location[Nm(0x2d7)]+location[Nm(0x218)],Y,L,H);}catch(V){}try{const p=new URLSearchParams(window[Nm(0x2bc)][Nm(0x1cd)]);p[Nm(0x247)](Nm(0x372),H),history['pushState']({},'',location[Nm(0x218)]+'?'+p[Nm(0x1e0)]());}catch(A){console[Nm(0x1ea)](Nm(0x3b0),A);}const R=allData[Nm(0x297)](a=>(a[Nm(0x1c8)]||'')[Nm(0x2d0)]()[Nm(0x320)]()===H[Nm(0x2d0)]()['toLowerCase']());R[Nm(0x1af)](compareStudents),R['length']===0x0?contentDiv[Nm(0x274)]=Nm(0x39b)+H+Nm(0x2ef):contentDiv[Nm(0x274)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2>Showing\x20rank\x20of\x20\x22'+H+Nm(0x3c5)+R['map']((a,U)=>Nm(0x223)+(U+0x1)+Nm(0x2fd)+a[Nm(0x34f)]+Nm(0x1a9)+a[Nm(0x34f)]+',\x20\x27'+currentYear[Nm(0x23d)][Nm(0x36a)]('\x20')[0x1]+'\x27,\x20\x27'+currentGroup[Nm(0x23d)][Nm(0x36a)]('\x20')[0x0]+Nm(0x1fa)+a[Nm(0x266)]+Nm(0x20b)+a[Nm(0x34f)]+Nm(0x1a9)+a[Nm(0x34f)]+',\x20\x27'+currentYear[Nm(0x23d)][Nm(0x36a)]('\x20')[0x1]+Nm(0x285)+currentGroup[Nm(0x23d)][Nm(0x36a)]('\x20')[0x0]+Nm(0x1fa)+a[Nm(0x34f)]+Nm(0x2af)+a[Nm(0x308)]+Nm(0x2cf)+a[Nm(0x22a)]+Nm(0x2ba)+a[Nm(0x1c8)]+Nm(0x31d))[Nm(0x1b9)]('')+Nm(0x21c);}function resetSchoolRanking(){const Nj=i;loadGroup(currentYear[Nj(0x23d)][Nj(0x2d0)](),currentGroup[Nj(0x23d)][Nj(0x36a)]('\x20')[0x0]);}function updateTableData(){const Nv=i,F=(currentPage-0x1)*studentsPerPage,H=Math[Nv(0x232)](F+studentsPerPage,filteredData[Nv(0x300)]),R=filteredData[Nv(0x2ab)](F,H),s=document[Nv(0x226)](Nv(0x2f0));s[Nv(0x274)]='',R[Nv(0x358)]((G,w)=>{const Nt=Nv,M=document[Nt(0x219)]('tr'),Y='name-'+G['roll'],L=localStorage[Nt(0x312)]('userId')==='admin1234';M[Nt(0x274)]=Nt(0x2ad)+(allData[Nt(0x221)](p=>p[Nt(0x34f)]===G[Nt(0x34f)])+0x1)+Nt(0x230)+Y+Nt(0x384)+G[Nt(0x266)]+Nt(0x2b5)+(L?Nt(0x36f)+(window[Nt(0x34c)]&&window['clickCountsCache'][G[Nt(0x34f)]]||0x0)+Nt(0x222):'')+Nt(0x209)+G[Nt(0x34f)]+Nt(0x276)+G[Nt(0x308)]+'</td>\x0a\x20\x20<td>'+G['total']+Nt(0x3c7)+G[Nt(0x1c8)]+Nt(0x1ba);const V=M[Nt(0x1eb)](Nt(0x3be));V['addEventListener'](Nt(0x2b0),()=>{const NZ=Nt;if(typeof window[NZ(0x3b6)]===NZ(0x265))try{window[NZ(0x3b6)](G['roll']);}catch(p){console[NZ(0x1ea)](p);}showIndividualResultWithCheck(G[NZ(0x34f)],currentYear['textContent'][NZ(0x36a)]('\x20')[0x1],currentGroup['textContent'][NZ(0x36a)]('\x20')[0x0]);}),M[Nt(0x1eb)](Nt(0x234))['addEventListener'](Nt(0x2b0),()=>{const NS=Nt;if(typeof window[NS(0x3b6)]===NS(0x265))try{window[NS(0x3b6)](G[NS(0x34f)]);}catch(p){console[NS(0x1ea)](p);}showIndividualResultWithCheck(G[NS(0x34f)],currentYear[NS(0x23d)][NS(0x36a)]('\x20')[0x1],currentGroup[NS(0x23d)][NS(0x36a)]('\x20')[0x0]);}),M['querySelector'](Nt(0x1df))[Nt(0x25f)](Nt(0x2b0),()=>{const NC=Nt;showSchoolRanking(G[NC(0x1c8)][NC(0x2d0)]());}),L&&typeof window[Nt(0x240)]==='function'&&!window[Nt(0x220)][Nt(0x21f)](G[Nt(0x34f)])&&(window[Nt(0x220)][Nt(0x2d6)](G[Nt(0x34f)]),window[Nt(0x240)](G[Nt(0x34f)],p=>{const NE=Nt,A=document[NE(0x226)](Y);if(A)A[NE(0x23d)]=G[NE(0x266)]+'\x20['+p+']';})),s['appendChild'](M);}),document[Nv(0x226)]('paginationInfo')[Nv(0x23d)]=Nv(0x267)+(F+0x1)+'-'+H+Nv(0x1d6)+filteredData[Nv(0x300)]+Nv(0x1f8),updatePaginationButtons();}function filterByInstituation(F=null,H=![]){const Nn=i,R=document[Nn(0x226)](Nn(0x224));if(H){R[Nn(0x301)]=F;const s=new Event(Nn(0x211));R[Nn(0x2a1)](s);}else F=R['value'];F?(filteredData=allData[Nn(0x297)](G=>(G[Nn(0x1c8)]||'')['trim']()['toLowerCase']()===(F||'')[Nn(0x2d0)]()[Nn(0x320)]()),document[Nn(0x226)](Nn(0x1e2))[Nn(0x294)][Nn(0x352)]=Nn(0x28f)):resetFilter(),currentPage=0x1,updatePage();}function resetFilter(){const Nl=i;filteredData=[...allData],currentPage=0x1,document[Nl(0x226)](Nl(0x1e2))['style']['display']=Nl(0x258),updatePage();}function updatePage(){updateTableData(),updatePaginationButtons();}function handlePrevButtonClick(){currentPage>0x1&&(currentPage--,updatePage());}function handleFirstButtonClick(){currentPage>0x1&&(currentPage=0x1,updatePage());}function handleLastButtonClick(){const Nz=i,F=Math[Nz(0x26a)](filteredData[Nz(0x300)]/studentsPerPage);currentPage<F&&(currentPage=F,updatePage());}function handleNextButtonClick(){const Ny=i,F=Math[Ny(0x26a)](filteredData[Ny(0x300)]/studentsPerPage);currentPage<F&&(currentPage++,updatePage());}function updatePaginationButtons(){const NQ=i;document[NQ(0x226)](NQ(0x1bf))[NQ(0x316)]=currentPage===0x1,document['getElementById'](NQ(0x38f))[NQ(0x316)]=currentPage===Math[NQ(0x26a)](filteredData[NQ(0x300)]/studentsPerPage)||filteredData[NQ(0x300)]===0x0;}function handleSearchInput(){const ND=i,F=document[ND(0x226)](ND(0x361))[ND(0x301)][ND(0x2d0)]()[ND(0x320)]();filteredData=allData[ND(0x297)](H=>H[ND(0x266)][ND(0x320)]()['includes'](F)),currentPage=0x1,updatePage();}function handleRollSearchInput(){const NJ=i,F=document[NJ(0x226)](NJ(0x25c))[NJ(0x301)]['trim']();filteredData=allData['filter'](H=>H[NJ(0x34f)][NJ(0x1e0)]()[NJ(0x264)](F)),currentPage=0x1,updatePage();}function debounce(F,H){let R;return function(){const NK=P,s=this,G=arguments;clearTimeout(R),R=setTimeout(()=>F[NK(0x1c4)](s,G),H);};}function populateInstituationDropdown(){const NX=i,F=document[NX(0x226)](NX(0x224));F[NX(0x274)]=NX(0x282),InstituationSet[NX(0x358)](H=>{const Nc=NX,R=document['createElement'](Nc(0x35f));R[Nc(0x301)]=H,R[Nc(0x23d)]=H,F[Nc(0x304)](R);});}(function(){const No=i,F='br-loader-styles';function H(){const Nb=P;if(document[Nb(0x226)](F))return;const R=document[Nb(0x219)](Nb(0x294));R['id']=F,R['textContent']=Nb(0x3b5),document[Nb(0x25b)]['appendChild'](R);}window[No(0x280)]=function(){const NB=No;if(document[NB(0x226)](NB(0x2ce)))return;H();const R=document[NB(0x219)](NB(0x3cc));R['id']=NB(0x2ce),R[NB(0x274)]=NB(0x2de),document[NB(0x22f)][NB(0x304)](R),window[NB(0x330)]=0x1;function s(G,w){const Ng=NB;if(!document[Ng(0x226)](Ng(0x2ce)))return;let M=w?Math[Ng(0x397)](G/w*0x64):0x1;if(M>0x64)M=0x64;document['getElementById'](Ng(0x2f3))['textContent']=M+'%';const Y=document[Ng(0x226)](Ng(0x217));if(M<0x14)Y[Ng(0x23d)]=Ng(0x2b1);else{if(M<0x32)Y[Ng(0x23d)]='Downloading\x20result\x20files…';else{if(M<0x50)Y[Ng(0x23d)]=Ng(0x394);else Y[Ng(0x23d)]='Almost\x20done…';}}}s();},window[No(0x295)]=function(R={}){const Nh=No;clearTimeout(window[Nh(0x3c0)]);const s=document['getElementById'](Nh(0x2ce));if(!s)return;const G=R['forceError']===!![]||typeof filteredData!==Nh(0x2eb)&&filteredData[Nh(0x300)]===0x0;if(G){s[Nh(0x1eb)](Nh(0x27e))[Nh(0x274)]=Nh(0x1e6);return;}document[Nh(0x226)](Nh(0x2f3))[Nh(0x23d)]=Nh(0x24e),document['getElementById'](Nh(0x217))['textContent']='Done',setTimeout(()=>s['remove'](),0x12c);};}());function getProgressBarHtml(F,H){const NO=i,R=parseFloat(F)/H*0x64,s='pb_'+Math[NO(0x319)]()[NO(0x1e0)](0x24)[NO(0x36b)](0x2,0x9),G='num_'+Math[NO(0x319)]()[NO(0x1e0)](0x24)[NO(0x36b)](0x2,0x9);return setTimeout(()=>{animateProgressBar(s,R),animateNumber(G,F);},0x64),NO(0x1d8)+G+NO(0x2dd)+s+NO(0x25a);}function animateProgressBar(F,H){const Nd=i,R=document[Nd(0x226)](F);let s=0x0;function G(){const Nu=Nd;s+=0x1;if(s>H)s=H;let w=Nu(0x24b),M='';if(s>=0x5f)w=Nu(0x395);else{if(s>=0x5a)w=Nu(0x3ab);else{if(s>=0x50)w=Nu(0x3ae);else{if(s>=0x46)w=Nu(0x20d),M=Nu(0x20d);else s>=0x22&&(w=Nu(0x2fc));}}}R['style'][Nu(0x2bb)]=s+'%',R['style'][Nu(0x1dc)]=w,R[Nu(0x23d)]=s[Nu(0x39d)](0x0)+'%',s<H?requestAnimationFrame(G):(R[Nu(0x294)][Nu(0x2bb)]=H+'%',R[Nu(0x23d)]=H['toFixed'](0x2)+'%');}G();}function animateNumber(F,H){const Ni=i,R=document['getElementById'](F);if(!R)return;let s=0x0;const G=0x3e8,w=Math[Ni(0x1d1)](Math['floor'](G/H),0xa),M=setInterval(()=>{const P0=Ni;s+=0x1,s>=H&&(s=H,clearInterval(M)),R[P0(0x23d)]=s;},w);}function showIndividualResult(F,H,R){const P1=i;if(document['querySelector'](P1(0x290)))return;const s=P1(0x212)+H+'_'+R['toLowerCase']()+'_individual.txt',G=s[P1(0x264)]('hsc'),w=location[P1(0x218)]+P1(0x283)+H+'&group='+R+P1(0x302)+F;history['pushState']({},'',w),fetch(s)[P1(0x249)](M=>M[P1(0x1ef)]())[P1(0x249)](M=>{const P2=P1,Y=M[P2(0x2d0)]()[P2(0x36a)]('\x0a'),L=Y[P2(0x3a6)](A=>A['split']('\x09')[0x0]['replace'](/^0+/,'')===F['toString']()[P2(0x381)](/^0+/,''));let V;if(L){const A=L[P2(0x36a)]('\x09');let a,U,T;if(R===P2(0x399))a='Science',U=P2(0x3a2),T=P2(0x30c);else R===P2(0x2db)?(a=P2(0x296),U=P2(0x1c9),T=P2(0x253)):(a='BGS',U='Physics',T=P2(0x39f));if(G){if(A[P2(0x300)]<0x8)V=P2(0x382);else{const [x,q,r,I,k,f,W,m]=A,j=allData[P2(0x3a6)](t=>t[P2(0x34f)]===parseInt(x)),v=allData[P2(0x221)](t=>t[P2(0x34f)]===parseInt(x))+0x1;try{const t=H&&H[P2(0x264)](P2(0x298))?P2(0x23e):P2(0x1d5),Z=(H||'')[P2(0x381)](P2(0x35d),'');document[P2(0x1f0)]=j[P2(0x266)]+P2(0x233)+Z+'\x20'+t;}catch(S){}V=P2(0x392)+j[P2(0x266)]+P2(0x2a4)+j[P2(0x1c8)]+'</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Roll:\x20'+x+P2(0x349)+j['gpa']+P2(0x1ad)+v+'</p>\x0a<p>Total\x20Marks:\x20'+j['total']+P2(0x21e)+getProgressBarHtml(q,0xc8)+P2(0x29e)+getProgressBarHtml(r,0xc8)+P2(0x31a)+getProgressBarHtml(I,0x64)+'</p>\x0a<p>Physics:\x20'+getProgressBarHtml(k,0xc8)+P2(0x31c)+getProgressBarHtml(f,0xc8)+P2(0x2c9)+getProgressBarHtml(W,0xc8)+P2(0x2da)+getProgressBarHtml(m,0xc8)+P2(0x334)+j[P2(0x34f)]+P2(0x251)+H+P2(0x29f)+R+P2(0x34b)+j[P2(0x266)]+P2(0x285)+R[P2(0x320)]()+P2(0x1f5);}}else{if(A[P2(0x300)]<0xd)V=P2(0x382);else{const [C,E,n,l,z,y,Q,D,J,K,X,c,b]=A,o=allData[P2(0x3a6)](g=>g['roll']===parseInt(C)),B=allData[P2(0x221)](g=>g[P2(0x34f)]===parseInt(C))+0x1;try{const g=H&&H[P2(0x264)](P2(0x298))?P2(0x23e):P2(0x1d5),h=(H||'')['replace']('hsc_','');document[P2(0x1f0)]=o['name']+P2(0x233)+h+'\x20'+g;}catch(O){}V='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Name:\x20'+o[P2(0x266)]+P2(0x2a4)+o[P2(0x1c8)]+'</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Roll:\x20'+C+P2(0x349)+o[P2(0x308)]+P2(0x1ad)+B+'</p>\x0a<p>Total\x20Marks:\x20'+o['total']+P2(0x22e)+getProgressBarHtml(E,0xc8)+P2(0x29e)+getProgressBarHtml(n,0xc8)+P2(0x33b)+getProgressBarHtml(l,0x64)+P2(0x1f1)+a+':\x20'+getProgressBarHtml(z,0x64)+'</p>\x0a<p>Religion:\x20'+getProgressBarHtml(y,0x64)+P2(0x1f1)+U+':\x20'+getProgressBarHtml(Q,0x64)+P2(0x1f1)+T+':\x20'+getProgressBarHtml(D,0x64)+P2(0x2c9)+getProgressBarHtml(J,0x64)+P2(0x31a)+getProgressBarHtml(K,0x32)+P2(0x2da)+getProgressBarHtml(X,0x64)+P2(0x339)+getProgressBarHtml(c,0x64)+P2(0x2e8)+getProgressBarHtml(b,0x32)+'</p>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x27promptComparison('+o[P2(0x34f)]+P2(0x251)+H+'\x22,\x20\x22'+R+'\x22)\x27>Compare\x20with\x20Other\x20Student</button>\x0a\x0a<div\x20class=\x22popup-footer\x22>\x0a\x20\x20<button\x20onclick=\x22copyFullResult(this)\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Copy\x20Result\x22>\x0a\x20\x20\x20\x20<i\x20class=\x22fas\x20fa-copy\x22></i>\x0a\x20\x20</button>\x0a\x20\x20<button\x20onclick=\x22closePopup()\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Close\x22>\x0a\x20\x20\x20\x20<i\x20class=\x22fas\x20fa-times\x22></i>\x0a\x20\x20</button>\x0a\x20\x20<button\x20onclick=\x22copyStudentResultLink(this)\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Copy\x20Link\x22>\x0a\x20\x20\x20\x20<i\x20class=\x22fas\x20fa-link\x22></i>\x0a\x20\x20</button>\x0a\x20\x20<button\x20onclick=\x22downloadStudentPDF(this)\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Download\x20PDF\x22>\x0a\x20\x20<i\x20class=\x22fas\x20fa-file-pdf\x22></i>\x0a</button>\x0a\x0a</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20';}}}else V=P2(0x382);const p=document[P2(0x219)](P2(0x3cc));p['classList'][P2(0x2d6)](P2(0x26d)),p['innerHTML']=V,document[P2(0x22f)][P2(0x304)](p),document[P2(0x22f)]['classList'][P2(0x2d6)](P2(0x36c));})['catch'](M=>{const P3=P1;console[P3(0x1ea)](P3(0x2c3),M);const Y=document['createElement'](P3(0x3cc));Y[P3(0x26c)][P3(0x2d6)](P3(0x26d)),Y[P3(0x274)]=P3(0x382),document['body']['appendChild'](Y),document[P3(0x22f)][P3(0x26c)][P3(0x2d6)](P3(0x36c));});}function N(){const Fj=['.student-school','toString','save','resetFilterBtn','Physics','pop-out','btn-pill\x20btn-top-schools','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22color:#b71c1c;\x20margin:6px\x200;\x22>❗\x20Data\x20NOT\x20FOUND</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22color:#444;\x20margin-bottom:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20This\x20selected\x20results\x20are\x20not\x20yet\x20available.<br>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22window.location.href=\x27index.html\x27\x22>Go\x20Back</button>\x0a\x0a\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Select\x20your\x20group:</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22group-buttons\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22loadGroup(\x27','Error\x20while\x20searching\x20SSC\x20records.','right','error','querySelector','dataset','mfApplyBtn','\x20Group','text','title','</p>\x0a<p>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22text-align:center;\x20margin-top:\x2010px;\x22>🎯\x20Student\x20Comparison</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22text-align:center;\x20font-weight:bold;\x22>','btn-pill\x20btn-mobile-filter','submitVisitorInfo','\x27)\x22>Watch\x20SSC\x20Result</button>\x0a<div\x20class=\x22popup-footer\x22>\x0a\x20\x20<button\x20onclick=\x22copyFullResult(this)\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Copy\x20Result\x22>\x0a\x20\x20\x20\x20<i\x20class=\x22fas\x20fa-copy\x22></i>\x0a\x20\x20</button>\x0a\x20\x20<button\x20onclick=\x22closePopup()\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Close\x22>\x0a\x20\x20\x20\x20<i\x20class=\x22fas\x20fa-times\x22></i>\x0a\x20\x20</button>\x0a\x20\x20<button\x20onclick=\x22copyStudentResultLink(this)\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Copy\x20Link\x22>\x0a\x20\x20\x20\x20<i\x20class=\x22fas\x20fa-link\x22></i>\x0a\x20\x20</button>\x0a\x20\x20\x20<button\x20onclick=\x22downloadStudentPDF(this)\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Download\x20PDF\x22>\x0a\x20\x20<i\x20class=\x22fas\x20fa-file-pdf\x22></i>\x0a</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','sscYear','Physical','\x20students','mfResetBtn','\x27);\x0a\x20\x20})()\x0a\x22>','BoardRankCTG','onclick','review.html','br_hsc2ssc:','Chattogram\x20Board\x20(HSC\x20archive)','userId','&#9733;','visitorFingerprint','70xARSyY','Windows\x20PC','</td></tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','avgTotal','content','close','\x0a\x20\x20</td>\x0a\x0a\x20\x20<td\x20class=\x22student-roll\x22>','get','</td>\x0a\x0a<td\x20class=\x22student-roll\x22\x20onclick=\x22\x0a\x20\x20(function(){\x0a\x20\x20\x20\x20if\x20(window.incrementClickCount)\x20incrementClickCount(','visitorName','yellow','property','institution','10132DwppdP','change','data_','mfSchoolSearch','decode','mfSchoolList','https://boradrankctg.github.io/rank/index.html?year=','brLoaderSub','pathname','createElement','setFont','\x0a\x20\x20\x20\x20\x20\x20\x20\x20Showing\x20results\x20for\x20\x22<strong>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','</p>\x0a\x0a<p>Bangla:\x20','has','_br_clickListenerSet','findIndex',']</span>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','InstituationDropdown','mfRangeMax','getElementById','Apple\x20iPhone','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:center;\x20padding:20px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20style=\x22color:#d97706;\x20margin-bottom:8px;\x22>⚠\x20Confirm\x20Your\x20Name</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Are\x20you\x20sure\x20your\x20name\x20is\x20<b>\x22','scrollToTopBtn','total','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22access-status\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22cross\x22>❌</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22status-text\x22\x20style=\x22color:#dc2626;\x22>Access\x20Denied\x20—\x20Please\x20try\x20again</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20','TopSchools','Processed\x20data:','</p>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Bangla:\x20','body','</td>\x0a\x0a\x20\x20<td\x20class=\x22student-name\x22\x20id=\x22','Home','min','\x20|\x20','.student-roll','<i\x20class=\x22ri-trophy-line\x22\x20aria-hidden=\x22true\x22></i><span>Top\x20Schools</span>','.filter-note','\x20Result','gpa5Percent','exists','script[type=\x22application/ld+json\x22][data-id=\x22','Institution\x20name\x20must\x20contain\x20at\x20least\x203\x20characters.','\x0a\x20\x20\x20\x20\x20\x20</datalist>\x0a\x20\x20\x20\x20','textContent','HSC','Unable\x20to\x20load\x20files\x20—\x20check\x20your\x20connection.','listenClickCount','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20<div\x20class=\x22popup-content\x22>\x0a<div\x20class=\x22popup-header\x22\x20style=\x22\x0a\x20\x20\x20\x20background:\x20linear-gradient(135deg,\x20#1976d2,\x20#42a5f5);\x0a\x20\x20\x20\x20color:\x20white;\x0a\x20\x20\x20\x20font-weight:\x20bold;\x0a\x20\x20\x20\x20font-size:\x201.3rem;\x0a\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20justify-content:\x20space-between;\x0a\x20\x20\x20\x20padding:\x2012px\x2016px;\x0a\x20\x20\x20\x20border-top-left-radius:\x208px;\x0a\x20\x20\x20\x20border-top-right-radius:\x208px;\x0a\x22>\x0a\x20\x20<div\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20gap:\x208px;\x22>\x0a\x20\x20\x20\x20<img\x20src=\x22https://img.icons8.com/color/48/verified-badge.png\x22\x20alt=\x22Icon\x22\x20style=\x22width:\x2028px;\x20height:\x2028px;\x22>\x0a\x20\x20\x20\x20<span>Quick\x20Verification</span>\x0a\x20\x20</div>\x0a\x20\x20<button\x20class=\x22close-btn\x22\x20onclick=\x22visitorInfoDenied()\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20background:\x20transparent;\x0a\x20\x20\x20\x20\x20\x20border:\x20none;\x0a\x20\x20\x20\x20\x20\x20font-size:\x201.5rem;\x0a\x20\x20\x20\x20\x20\x20color:\x20white;\x0a\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x22>&times;</button>\x0a</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22popup-body\x22>\x0a\x20\x20\x20\x20\x20\x20<p\x20style=\x22color:#555;\x22>Please\x20tell\x20us\x20a\x20bit\x20about\x20yourself\x20so\x20we\x20can\x20improve\x20our\x20service.\x20We\x20store\x20basic\x20device\x20info\x20so\x20you\x20won\x27t\x20see\x20this\x20again\x20on\x20the\x20same\x20device.</p>\x0a\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20<label>Name</label>\x0a\x20\x20\x20\x20\x20\x20<input\x20id=\x22visitorName\x22\x20type=\x22text\x22\x20placeholder=\x22Your\x20name\x22\x20/>\x0a\x0a\x20\x20\x20\x20\x20\x20<label>Institution\x20(school\x20/\x20college)</label>\x0a\x20\x20\x20\x20\x20\x20<input\x20id=\x22visitorInstitution\x22\x20type=\x22text\x22\x20placeholder=\x22Institution\x20name\x22\x20/>\x0a\x0a\x20\x20\x20\x20\x20\x20<label>Type</label>\x0a\x20\x20\x20\x20\x20\x20<select\x20id=\x22visitorType\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22\x22>Select\x20...</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>SSC</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>HSC</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Others</option>\x0a\x20\x20\x20\x20\x20\x20</select>\x0a\x0a\x20\x20\x20\x20\x20\x20<label>How\x20did\x20you\x20find\x20us?</label>\x0a\x20\x20\x20\x20\x20\x20<select\x20id=\x22visitorSource\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22\x22>Select\x20...</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>WhatsApp\x20group</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Facebook\x20group</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Friend\x20/\x20Classmate</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Facebook\x20post</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Instagram</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>YouTube</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Google\x20Search</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>School\x20notice\x20board</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Teacher</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Relatives</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Other\x20social\x20media</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Others</option>\x0a\x20\x20\x20\x20\x20\x20</select>\x0a\x0a\x20\x20\x20\x20\x20\x20<label>Experience\x20so\x20far</label>\x0a\x20\x20\x20\x20\x20\x20<select\x20id=\x22visitorExperience\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22\x22>Select\x20...</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22worst\x22>😖\x20Worst</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22bad\x22>😞\x20Bad</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22average\x22>😐\x20Average</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22good\x22>🙂\x20Good</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22best\x22>🤩\x20Best</option>\x0a\x20\x20\x20\x20\x20\x20</select>\x0a\x0a\x0a\x20\x20\x20\x20\x20\x20<label>Leave\x20a\x20Message\x20(optional)</label>\x0a<textarea\x20id=\x22visitorMessage\x22\x20placeholder=\x22Write\x20something...\x22\x20style=\x22min-height:60px;\x22></textarea>\x0a\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<div\x20class=\x22popup-footer\x22>\x0a\x20\x20\x20\x20\x20\x20<button\x20class=\x22secondary-btn\x22\x20onclick=\x22visitorInfoDenied()\x22>Cancel</button>\x0a\x0a\x20\x20\x20\x20\x20\x20<button\x20id=\x22submitVisitorInfo\x22\x20class=\x22primary-btn\x22>Submit</button>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20</div>\x0a','arts','Dataset','</td><td>','\x22><span>','set','button','then','documentElement','red','absolute','insertAdjacentElement','100%','Compulsory','p,div,span',',\x20\x22','keydown','Civics','og:title','.circle','popstate','remove','none','Unofficial\x20printable\x20copy','\x22\x20class=\x22progress-bar\x22>0%</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20','head','searchRollInput','getReader','mfCloseBtn','addEventListener','p,div,span,li,td','link','userRating','opacity','includes','function','name','Showing\x20','rel','phy','ceil','</td></tr>','classList','popup','_individual.txt','#br_ssc_roll_confirm','description','visitorsLink','https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js','mf-overlay','innerHTML','&group=','</td>\x0a\x20\x20<td>','No\x20SSC\x20record\x20found\x20with\x20that\x20roll\x20among\x20the\x20candidates.','\x27)\x22>Compare</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','</b>\x20with\x20another\x20student</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22compareRollInput\x22\x20placeholder=\x22Enter\x20roll\x20number\x20to\x20compare\x22\x20style=\x22width:\x20100%;\x20padding:\x2010px;\x20margin:\x2010px\x200;\x20border-radius:\x205px;\x20border:\x201px\x20solid\x20#000;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22startComparison(','2VhZIxJ','closest','clickHandText','Base\x20student\x20not\x20found.','.loader-box','<div\x20style=\x22display:flex;align-items:center;gap:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22loading-spinner\x22\x20style=\x22width:18px;height:18px;border-top-width:4px\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-weight:bold\x22>Searching\x20SSC\x20records...</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','showLoadingIndicator','\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22access-status\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22circle\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22status-text\x22>Processing...</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','<option\x20value=\x22\x22>Select\x20Instituation</option>','?year=','color:#b71c1c;margin-top:8px;font-weight:bold','\x27,\x20\x27','yearDropdown','<i\x20class=\x22ri-filter-3-line\x22\x20aria-hidden=\x22true\x22></i><span>Filter</span>','</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>','twitter:title','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Compare\x20<b>','Unofficial\x20','website','.popup-content','career','block','.popup','some','mf-drawer','outerHTML','style','hideLoadingIndicator','Science','filter','hsc','visitorType','read','byRoll','worst','%</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','</p>\x0a<p>English:\x20','\x22,\x20\x22','Optional','dispatchEvent','__br_sscCache','Apple\x20Mac','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Institution:\x20','clipboard','Sorted\x20data:','helpBtn','isArray','#br_ssc_roll_input','application/ld+json','slice','transform','\x0a\x20\x20<td>','bad','</td>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','click','Connecting\x20to\x20server…','.featured-box[data-value=\x22','shareBtn','removeChild','</h3>\x0a\x20\x20\x20\x20','normal','all\x200.4s\x20ease','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22back-button\x22\x20onclick=\x22closePopup()\x22>OK</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','visitorMessage','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22student-school\x22>','width','location','\x20—\x20','Chattogram\x20Board','og:type','.featured-box','Content-Length','log','Error\x20loading\x20individual\x20data:','mfDrawer','hardwareConcurrency','charCodeAt','Math','\x20<span\x20style=\x22color:green;\x22>vs</span>\x20','</p>\x0a<p>Compulsory:\x20','round','scrollY','visitorSource','setAttribute','dataLoaderOverlay','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','trim','Click\x20here\x20for\x20detailed\x20result','catch',')</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:0.9rem;color:#666\x22>','left','querySelectorAll','add','origin','Fingerprint\x20check\x20failed\x20(ignoring):','pushState','</p>\x0a<p>Optional:\x20','Arts','\x0a\x20\x20\x20\x20<div\x20class=\x22mf-head\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-title\x22>Filter</div>\x0a\x20\x20\x20\x20\x20\x20<button\x20class=\x22mf-close\x22\x20id=\x22mfCloseBtn\x22\x20aria-label=\x22Close\x22>✕</button>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<div\x20class=\x22mf-body\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-section\x22\x20id=\x22mfTotal\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h4>Total</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-range\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-dual\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-track\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-track-fill\x22\x20id=\x22mfTrackFill\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22mfRangeMin\x22\x20type=\x22range\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22mfRangeMax\x22\x20type=\x22range\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:grid;grid-template-columns:1fr\x201fr;gap:8px\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22mfTotalMin\x22\x20type=\x22number\x22\x20placeholder=\x22Min\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22mfTotalMax\x22\x20type=\x22number\x22\x20placeholder=\x22Max\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-section\x22\x20id=\x22mfGpa\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h4>GPA</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-chips\x22\x20id=\x22mfGpaChips\x22></div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-section\x22\x20id=\x22mfSchool\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h4>School</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-search\x22><input\x20id=\x22mfSchoolSearch\x22\x20type=\x22text\x22\x20placeholder=\x22Search\x20school\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-list\x22\x20id=\x22mfSchoolList\x22></div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<div\x20class=\x22mf-foot\x22>\x0a\x20\x20\x20\x20\x20\x20<button\x20class=\x22mf-reset\x22\x20id=\x22mfResetBtn\x22>Reset</button>\x0a\x20\x20\x20\x20\x20\x20<button\x20class=\x22mf-apply\x22\x20id=\x22mfApplyBtn\x22>Apply</button>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20','\x22>0</span>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22progress-bar-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22','\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22loader-box\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22rings\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22ring\x20r1\x22\x20style=\x22width:96px;height:96px;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22ring\x20r2\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22ring\x20r3\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22brLoaderPercent\x22\x20class=\x22percent\x22>1%</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22brLoaderSub\x22\x20class=\x22subtext\x22>Preparing\x20files…</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','removeEventListener','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-weight:bold;color:#b71c1c;\x22>','\x0a\x20\x20\x20\x20<input\x20list=\x22institutionList\x22\x20id=\x22InstituationDropdown\x22\x20placeholder=\x22Type\x20school\x20name...\x22\x20class=\x22search-input\x22\x20onchange=\x22filterByInstituation()\x22>\x0a\x0a\x0a\x20\x20\x20\x20\x20\x20<datalist\x20id=\x22institutionList\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22access-status\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22tick\x22>✅</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22status-text\x22\x20style=\x22color:#16a34a;\x22>Full\x20Access\x20Granted</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','padding:8px;border-bottom:1px\x20solid\x20rgba(0,0,0,0.06);display:flex;justify-content:space-between;align-items:center;gap:8px;','examResultHeader','className','Second\x20roll\x20not\x20found.','</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr><td>GPA</td><td>','</p>\x0a<p>Career:\x20','grade','stringify','undefined','<div\x20class=\x22popup-content\x22>','mfGpa_','Enter\x20roll\x20number','\x22</h2>','studentTableBody',',\x20\x27','.pdf','brLoaderPercent','.txt','writeText','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22back-button\x22\x20onclick=\x22closePopup()\x22>Close</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','board\x20rank','science','og:description','#mfGpaChips\x20input[type=checkbox],\x20#mfSchoolList\x20input[type=checkbox]','input','orange','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22student-name\x22\x20onclick=\x22\x0a\x20\x20(function(){\x0a\x20\x20\x20\x20if\x20(window.incrementClickCount)\x20incrementClickCount(','border','td:nth-child(6)','length','value','&roll=','marginLeft','appendChild','from','Subject','marksheet','gpa','rankData_','meta[name=\x22','onload','Finance','Rank\x20list\x20for\x20','gpa5Count','children','afterend','aside','getItem','History','bold','Career','disabled','totalMarks','\x0a\x20\x20','random','</p>\x0a<p>ICT:\x20','topSchoolsBtn','</p>\x0a<p>Chemistry:\x20','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','href','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:center;\x20padding:20px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22circle\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x204px\x20solid\x20#ccc;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-top:\x204px\x20solid\x20#1976d2;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x2050%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x2040px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x2040px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x20auto;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20animation:\x20spin\x201s\x20linear\x20infinite;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-top:\x2010px;\x20font-size:\x200.95rem;\x22>Verifying\x20name…</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<style>@keyframes\x20spin\x20{\x20to\x20{\x20transform:\x20rotate(360deg);\x20}\x20}</style>\x0a\x20\x20\x20\x20','toLowerCase','\x22</b>?</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:0.9rem;\x20color:#555;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20If\x20you\x20use\x20a\x20fake\x20name,\x20this\x20form\x20will\x20appear\x20again\x20every\x20time\x20you\x20visit.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Please\x20enter\x20real\x20details\x20to\x20avoid\x20repeated\x20verification.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-top:15px;\x20display:flex;\x20justify-content:center;\x20gap:12px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22confirmNameBtn\x22\x20class=\x22primary-btn\x22>Confirm</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22editNameBtn\x22\x20class=\x22secondary-btn\x22>Edit\x20Name</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','📥\x20Download\x20started','See\x20','<option\x20value=\x22','English','select','inline','2172114yUPlWC','setFontSize','\x0a\x20\x20\x20\x20\x20\x20<h2>\x20Top\x20100\x20Institutions\x20-\x20','\x20rankings\x20for\x20Chattogram\x20Board\x20—\x20GPA,\x20total\x20marks,\x20top\x20schools,\x20and\x20student\x20comparisons.\x20Fast\x20and\x20accurate.','subject','Name','subjects','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20id=\x22examResultHeader\x22></h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22search-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22searchInput\x22>Search\x20by\x20Name:</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22searchInput\x22\x20class=\x22search-input\x22\x20placeholder=\x22Enter\x20name\x22\x20oninput=\x22debounce(handleSearchInput,\x20300)()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22search-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22searchRollInput\x22>Search\x20by\x20Roll:</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22searchRollInput\x22\x20class=\x22search-input\x22\x20placeholder=\x22Enter\x20roll\x22\x20oninput=\x22debounce(handleRollSearchInput,\x20300)()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22search-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22InstituationDropdown\x22>Select\x20Institution:</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22InstituationDropdown\x22\x20onchange=\x22filterByInstituation()\x22></select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22resetFilterBtn\x22\x20style=\x22display:\x20none;\x22\x20onclick=\x22resetFilter()\x22>Reset\x20Filter</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22loading-spinner\x22\x20id=\x22loadingSpinner\x22\x20style=\x22display:\x20none;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20id=\x22tableHint\x22\x20style=\x22margin-top:\x2020px;\x20font-weight:\x20bold;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20💡\x20Click\x20on\x20student\x20names\x20to\x20see\x20detailed\x20result\x20and\x20on\x20school\x20names\x20to\x20see\x20school\x20BASED\x20RANK\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Serial</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Name</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Roll</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>GPA</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Total</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Institution</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tbody\x20id=\x22studentTableBody\x22></tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22pagination\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22firstBtn\x22\x20onclick=\x22handleFirstButtonClick()\x22>First</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22prevBtn\x22\x20onclick=\x22handlePrevButtonClick()\x22>Previous</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22paginationInfo\x22>Loading\x20data...</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22nextBtn\x22\x20onclick=\x22handleNextButtonClick()\x22>Next</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22lastBtn\x22\x20onclick=\x22handleLastButtonClick()\x22>Last</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','__br_percent','\x27)\x22>Back</button>\x0a\x20\x20\x20\x20\x20\x20<table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Rank</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Institution</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>GPA\x205.00\x20%</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Total\x20GPA\x205.00</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Avg\x20Total</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Top\x201000\x20Students</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Total\x20Students</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','flatMap','year','</p>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x27promptComparison(','Error\x20loading\x20data:','sharePopupShown','test','group','</p>\x0a<p>Physical:\x20','.popup-footer','</p>\x0a<p>Mathematics:\x20','</strong>\x22\x20—\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22resetFilter()\x22>Show\x20Full\x20Ranking</button>\x0a\x20\x20\x20\x20','pop-in','copy','\x20in\x20','SSC\x20Result\x20Ranking\x20','1699460sdlcpq','english','Generated\x20on\x20','🔗\x20Link\x20copied\x20(fallback)','6266008iPZTIh','1px\x20solid\x20red','college','ListItem','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>GPA:\x20','textarea','\x22)\x27>Compare\x20with\x20Other\x20Student</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22showSSCResultFromHSC(\x27','clickCountsCache','.popup-body','\x27,\x20\x27Arts\x27)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22hum.png\x22\x20alt=\x22Arts\x20Icon\x22>Humanities\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','roll','BGS','top1000Count','display','admin1234','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22\x20style=\x22max-width:\x20550px;\x20padding:\x2020px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin-top:0;\x20text-align:center;\x22>🚀\x20Explore\x20All\x20Features!</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22text-align:center;\x20font-size:1rem;\x20color:#666;\x22>Don’t\x20miss\x20out\x20—\x20here’s\x20how\x20to\x20fully\x20use\x20this\x20ranking\x20page:</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-top:15px;\x20display:flex;\x20flex-direction:column;\x20gap:12px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:#e3f2fd;\x20padding:10px;\x20border-left:5px\x20solid\x20#2196f3;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<b>👤\x20Click\x20on\x20a\x20<span\x20style=\x22color:#2196f3;\x22>student\x27s\x20name</span></b>\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20to\x20open\x20a\x20<b>detailed\x20result</b>\x20with\x20subject-wise\x20marks,\x20GPA,\x20and\x20rank.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:#fff3e0;\x20padding:10px;\x20border-left:5px\x20solid\x20#ff9800;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<b>🏫\x20Click\x20on\x20a\x20<span\x20style=\x22color:#e65100;\x22>school\x20name</span></b>\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20to\x20filter\x20and\x20see\x20<b>only\x20that\x20school\x27s\x20students</b>.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:#e8f5e9;\x20padding:10px;\x20border-left:5px\x20solid\x20#4caf50;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<b>⚖\x20Compare\x202\x20students</b>\x20—\x20in\x20a\x20student’s\x20detailed\x20view,\x20press\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:#388e3c;\x22>\x22Compare\x20with\x20Other\x20Student\x22</span>\x20to\x20see\x20marks\x20side-by-side.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:#f3e5f5;\x20padding:10px;\x20border-left:5px\x20solid\x20#9c27b0;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<b>🔍\x20Search\x20instantly</b>\x20by\x20<b>name</b>,\x20<b>roll</b>,\x20or\x20<b>school</b>\x20using\x20the\x20boxes\x20at\x20the\x20top.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:#fce4ec;\x20padding:10px;\x20border-left:5px\x20solid\x20#e91e63;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<b>🏆\x20View\x20Top\x20Schools</b>\x20—\x20click\x20the\x20<b>🏆\x20Top\x20Schools</b>\x20button\x20to\x20see\x20the\x20best-performing\x20institutions.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:#eeeeee;\x20padding:10px;\x20border-left:5px\x20solid\x20#616161;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<b>🌙\x20Dark\x20Mode</b>\x20—\x20toggle\x20from\x20the\x20menu\x20for\x20a\x20sleek\x20dark\x20theme.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin-top:18px;\x20font-size:0.9rem;\x20color:#555;\x20text-align:center;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20💡\x20Tip:\x20You\x20can\x20switch\x20between\x20years,\x20exams,\x20and\x20groups\x20anytime\x20using\x20the\x20dropdown\x20above.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22back-button\x22\x20style=\x22display:block;\x20margin:15px\x20auto\x200\x20auto;\x22\x20onclick=\x22closePopup()\x22>Got\x20it!</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','chem','Linux\x20Device','Couldn’t\x20find\x20SSC\x20result.\x20Name\x20mismatch\x20or\x20stream\x20change\x20may\x20be\x20the\x20cause.','forEach','sscGroup','Please\x20fill\x20all\x20required\x20fields.','userAgent','detailedResultClickCount','hsc_','label','option','getFullYear','searchInput','Religion','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:right\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-weight:bold\x22>Roll:\x20','mf-item','#mfSchoolList\x20.mf-item','GPA','scrollTop','🔗\x20Link\x20copied','setItem','split','substr','locked','</span>','toLocaleString','<span>[','studentCount','selectPrompt','school','mark','script','byName','vendor','deviceMemory','📋\x20Result\x20copied\x20(fallback)','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22br_open_btn\x22\x20style=\x22margin-top:6px;padding:6px\x208px;border-radius:4px;border:0;background:#000;color:#fff;cursor:pointer\x22>Open</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','math','platform','meta','scrollX','Roll','rect','count','replace','<div\x20class=\x22popup-content\x22><p>Result\x20not\x20found</p><button\x20class=\x22back-button\x22\x20onclick=\x22closePopup()\x22>Back</button></div>','innerText','\x22>\x0a\x20\x20\x20\x20<h3\x20itemprop=\x22name\x22>','execCommand','confirmNameBtn','color','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22compare-table-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<table\x20class=\x22compare-table\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Subject</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>','jspdf','<input\x20type=\x22checkbox\x22\x20name=\x22mfGpa\x22\x20value=\x22','4100860lXnQDH','wrapped\x20fetchData\x20original\x20error','Parsed\x20individual\x20scores:','<tr><td>','nextBtn','height','Error\x20saving\x20visitor\x20info:','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Name:\x20','scroll','Processing\x20student\x20data…','indigo','filter-note','floor','Please\x20rate\x20or\x20write\x20something.','Commerce','Error\x20while\x20loading\x20SSC\x20files.','<h2>No\x20data\x20found\x20for\x20\x22','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:center;\x20padding:20px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20style=\x22color:#b91c1c;\x22>🚫\x20Access\x20Not\x20Granted</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin:10px\x200;\x20font-size:0.95rem;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20The\x20name\x20provided\x20doesn’t\x20seem\x20valid.\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Please\x20use\x20your\x20real\x20name\x20to\x20continue.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22visitorInfoDenied()\x22\x20class=\x22secondary-btn\x22\x20style=\x22margin-top:15px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Close\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','toFixed','mfTotalMin','Chemistry','entries','transition','Accounting','visitors','Name\x20must\x20contain\x20at\x20least\x204\x20characters.','breadcrumbs','find','\x27,\x20\x27Science\x27)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22sci.png\x22\x20alt=\x22Science\x20Icon\x22>Science\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22loadGroup(\x27','Marks','jsPDF','8px','blue','push','bangla','green','\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20id=\x22examResultHeader\x22></h3>\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22search-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22searchInput\x22>Search\x20by\x20Name:</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22searchInput\x22\x20class=\x22search-input\x22\x20placeholder=\x22Enter\x20name\x22\x20oninput=\x22debounce(handleSearchInput,\x20300)()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22search-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22searchRollInput\x22>Search\x20by\x20Roll:</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22searchRollInput\x22\x20class=\x22search-input\x22\x20placeholder=\x22Enter\x20roll\x22\x20oninput=\x22debounce(handleRollSearchInput,\x20300)()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22search-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22InstituationDropdown\x22>Select\x20Instituation:</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22InstituationDropdown\x22\x20onchange=\x22filterByInstituation()\x22></select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20<button\x20id=\x22resetFilterBtn\x22\x20style=\x22display:\x20none;\x22\x20onclick=\x22resetFilter()\x22>Reset\x20Filter</button>\x0a<div\x20class=\x22loading-spinner\x22\x20id=\x22loadingSpinner\x22\x20style=\x22display:\x20none;\x22></div>\x0a<p\x20id=\x22tableHint\x22\x20style=\x22margin-top:\x2020px;\x20font-weight:\x20bold;\x22>\x0a\x20\x20\x20\x20💡\x20Click\x20on\x20student\x20names\x20to\x20see\x20detailed\x20result\x20and\x20on\x20school\x20names\x20to\x20see\x20school\x20BASED\x20RANK\x0a</p>\x0a<table>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Serial</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Name</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Roll</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>GPA</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Total</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Institution</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tbody\x20id=\x22studentTableBody\x22></tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22pagination\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22firstBtn\x22\x20onclick=\x22handleFirstButtonClick()\x22>First</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22prevBtn\x22\x20onclick=\x22handlePrevButtonClick()\x22>Previous</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22paginationInfo\x22>Loading\x20data...</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22nextBtn\x22\x20onclick=\x22handleNextButtonClick()\x22>Next</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22lastBtn\x22\x20onclick=\x22handleLastButtonClick()\x22>Last</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','Error\x20updating\x20URL\x20for\x20school:','showSSCResultFromHSC\x20error','Subject\x20','string','Organization','\x0a#dataLoaderOverlay\x20{\x0a\x20\x20position:\x20fixed;\x20inset:\x200;\x0a\x20\x20background:\x20rgba(0,0,0,0.45);\x0a\x20\x20z-index:\x2010050;\x0a\x20\x20display:\x20flex;\x20align-items:\x20center;\x20justify-content:\x20center;\x0a}\x0a#dataLoaderOverlay\x20.loader-box\x20{\x0a\x20\x20background:\x20#fff;\x0a\x20\x20padding:\x2020px\x2028px;\x0a\x20\x20border-radius:\x2012px;\x0a\x20\x20max-width:\x20320px;\x0a\x20\x20width:\x2090%;\x0a\x20\x20text-align:\x20center;\x0a\x20\x20box-shadow:\x200\x2010px\x2030px\x20rgba(0,0,0,0.35);\x0a}\x0a#dataLoaderOverlay\x20.rings\x20{\x0a\x20\x20width:\x2096px;\x20height:\x2096px;\x20margin:\x200\x20auto;\x20position:\x20relative;\x0a}\x0a#dataLoaderOverlay\x20.ring\x20{\x0a\x20\x20position:\x20absolute;\x0a\x20\x20border-radius:\x2050%;\x0a\x20\x20border:\x206px\x20solid\x20transparent;\x0a\x20\x20border-top-color:\x20#1976d2;\x0a\x20\x20animation:\x20spin\x201s\x20linear\x20infinite;\x0a}\x0a#dataLoaderOverlay\x20.ring.r2\x20{\x0a\x20\x20width:\x2064px;\x20height:\x2064px;\x0a\x20\x20top:\x2016px;\x20left:\x2016px;\x0a\x20\x20border-top-color:\x20#ff8f00;\x0a\x20\x20animation-duration:\x201.4s;\x0a}\x0a#dataLoaderOverlay\x20.ring.r3\x20{\x0a\x20\x20width:\x2040px;\x20height:\x2040px;\x0a\x20\x20top:\x2028px;\x20left:\x2028px;\x0a\x20\x20border-top-color:\x20#6a1b9a;\x0a\x20\x20animation-duration:\x201.85s;\x0a}\x0a@keyframes\x20spin\x20{\x20to\x20{\x20transform:\x20rotate(360deg);\x20}\x20}\x0a#dataLoaderOverlay\x20.percent\x20{\x0a\x20\x20font-size:\x2022px;\x20font-weight:\x20bold;\x20margin-top:\x208px;\x0a}\x0a#dataLoaderOverlay\x20.subtext\x20{\x0a\x20\x20font-size:\x2013px;\x20color:\x20#555;\x20margin-top:\x204px;\x0a}\x0a#dataLoaderOverlay\x20button\x20{\x0a\x20\x20margin-top:\x2012px;\x20padding:\x206px\x2014px;\x0a\x20\x20border-radius:\x206px;\x20background:\x20#1976d2;\x20color:\x20#fff;\x0a\x20\x20border:\x20none;\x20cursor:\x20pointer;\x0a}\x0a\x20\x20\x20\x20','incrementClickCount','</h2>\x0a\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22loadGroup(\x27','position','flex','top','Cache\x20parse\x20failed','warn','match','.student-name','sscRoll','__br_timer','visitorInstitution','reviewText','src','MySecretKey123','\x22</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22resetSchoolRanking()\x22>Back</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Serial</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Name</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Roll</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>GPA</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Total</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Institution</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','DOMContentLoaded','</td>\x0a\x0a\x20\x20<td\x20class=\x22student-school\x22>\x0a\x20\x20\x20\x20<h4\x20itemprop=\x22affiliation\x22>','NFKC','visitorInfoGiven','open','reload','div',');\x0a\x20\x20\x20\x20showIndividualResultWithCheck(','pendingReview','ICT','351346pCkvdR','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Board\x20Rank:\x20','fingerprint','sort','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22access-status\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22circle\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22status-text\x22>Processing...</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','<div\x20style=\x22flex:1;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-weight:bold\x22>','Apple\x20iPad','splitTextToSize','toUpperCase','rollNorm','.popup\x20.popup-content','currentYear','mfOverlay','join','</h4>\x0a\x20\x20</td>\x0a','Escape','map','mfTrackFill','\x20Ranking\x20(Chattogram\x20Board)','prevBtn','1164SiLdWh','1924926SFGwIK','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:center;\x20padding:20px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20style=\x22color:#b91c1c;\x22>🚫\x20Access\x20Not\x20Granted</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin:10px\x200;\x20font-size:0.95rem;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Looks\x20like\x20this\x20feature\x20isn’t\x20available\x20with\x20that\x20feedback.\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Maybe\x20try\x20again\x20later.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22color:#666;\x20font-size:0.85rem;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20We’re\x20always\x20working\x20to\x20improve\x20—\x20your\x20opinion\x20is\x20noted.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22visitorInfoDenied()\x22\x20class=\x22secondary-btn\x22\x20style=\x22margin-top:15px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Close\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','Ranking\x20table\x20for\x20','apply','input[name=\x22mfGpa\x22]:checked','📋\x20Result\x20copied\x20to\x20clipboard','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','Instituation','Geography','Bangla','Unknown\x20device','canonical','search','nameRaw','og:url','getBoundingClientRect','max','Business\x20Studies','mfStyle','DataDownload','SSC','\x20of\x20','visitorExperience','\x0a\x20\x20\x20\x20\x20\x20<span\x20id=\x22','all','\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p>','mfTotalMax','backgroundColor','ict','mobileFilterBtn'];N=function(){return Fj;};return N();}function copyFullResult(F){const P4=i,H=F[P4(0x27b)](P4(0x28d));if(!H)return;let R='';const s=H[P4(0x2d5)]('p');s[P4(0x358)](G=>{const P5=P4;if(G[P5(0x1eb)]('.progress-bar'))return;const w=G[P5(0x23d)][P5(0x2d0)]();if(w)R+=w+'\x0a';}),navigator[P4(0x2a5)][P4(0x2f5)](R)['then'](()=>{const P6=P4;showToast(P6(0x1c6));})[P4(0x2d2)](()=>{const P7=P4,G=document['createElement'](P7(0x34a));G[P7(0x301)]=R,document[P7(0x22f)]['appendChild'](G),G[P7(0x326)](),document[P7(0x385)]('copy'),document[P7(0x22f)][P7(0x2b4)](G),showToast(P7(0x378));});}function copyStudentResultLink(F){const P8=i,H=F['closest'](P8(0x28d)),R=H?.[P8(0x274)][P8(0x3bd)](/Roll:\s*(\d+)/)?.[0x1],s=currentYear?.[P8(0x23d)]?.[P8(0x2d0)](),G=currentGroup?.[P8(0x23d)]?.['split']('\x20')[0x0],w=P8(0x216)+s+P8(0x275)+encodeURIComponent(G)+P8(0x302)+R;navigator[P8(0x2a5)][P8(0x2f5)](w)['then'](()=>{const P9=P8;showToast(P9(0x368));})[P8(0x2d2)](()=>{const PN=P8,M=document[PN(0x219)](PN(0x2fb));M[PN(0x301)]=w,document[PN(0x22f)][PN(0x304)](M),M[PN(0x326)](),document[PN(0x385)](PN(0x33e)),document['body'][PN(0x2b4)](M),showToast(PN(0x344));});}function showToast(F){const PP=i,H=document[PP(0x219)]('div');H[PP(0x23d)]=F,H['style']='\x0a\x20\x20\x20\x20\x20\x20position:\x20fixed;\x0a\x20\x20\x20\x20\x20\x20bottom:\x2030px;\x0a\x20\x20\x20\x20\x20\x20left:\x2050%;\x0a\x20\x20\x20\x20\x20\x20transform:\x20translateX(-50%);\x0a\x20\x20\x20\x20\x20\x20background:\x20#222;\x0a\x20\x20\x20\x20\x20\x20color:\x20#fff;\x0a\x20\x20\x20\x20\x20\x20padding:\x2010px\x2016px;\x0a\x20\x20\x20\x20\x20\x20font-size:\x2014px;\x0a\x20\x20\x20\x20\x20\x20border-radius:\x206px;\x0a\x20\x20\x20\x20\x20\x20z-index:\x209999;\x0a\x20\x20\x20\x20',document['body']['appendChild'](H),setTimeout(()=>H[PP(0x257)](),0x9c4);}function promptComparison(F,H,R){const PF=i,s=allData[PF(0x3a6)](w=>w[PF(0x34f)]===F);if(!s)return alert(PF(0x27d));const G=document[PF(0x219)](PF(0x3cc));G['classList'][PF(0x2d6)]('popup'),G['innerHTML']=PF(0x28a)+s[PF(0x266)]+PF(0x279)+s[PF(0x34f)]+PF(0x2f1)+H+PF(0x285)+R+PF(0x278),document[PF(0x22f)][PF(0x304)](G),document[PF(0x22f)]['classList'][PF(0x2d6)]('locked');}function startComparison(F,H,R){const PH=i,s=document[PH(0x226)]('compareRollInput')[PH(0x301)][PH(0x2d0)]();if(!s)return alert(PH(0x2ee));const G=PH(0x212)+H+'_'+R[PH(0x320)]()+PH(0x26e);fetch(G)['then'](w=>w[PH(0x1ef)]())[PH(0x249)](w=>{const PR=PH,M=w[PR(0x2d0)]()[PR(0x36a)]('\x0a'),Y=M[PR(0x3a6)](I=>I[PR(0x36a)]('\x09')[0x0]===F['toString']()),L=M[PR(0x3a6)](I=>I[PR(0x36a)]('\x09')[0x0]===s['toString']());if(!L)return alert(PR(0x2e6));const V=Y['split']('\x09'),p=L['split']('\x09'),A=allData[PR(0x3a6)](r=>r['roll']===parseInt(F)),a=allData['find'](r=>r[PR(0x34f)]===parseInt(s));if(!A||!a)return alert('Student\x20data\x20not\x20found.');let U=[];const T=H['includes'](PR(0x298));if(T){if(R==='Science')U=[PR(0x1ca),PR(0x325),PR(0x1ab),PR(0x1e3),PR(0x39f),'Compulsory',PR(0x2a0)];else{if(R==='Commerce')U=[PR(0x1ca),PR(0x325),PR(0x1ab),PR(0x3a2),'Finance',PR(0x1d2),PR(0x2a0)];else R===PR(0x2db)&&(U=[PR(0x1ca),PR(0x325),'ICT',PR(0x1c9),PR(0x253),PR(0x313),PR(0x2a0)]);}}else{if(R===PR(0x296))U=[PR(0x1ca),'English',PR(0x2c7),PR(0x350),PR(0x362),'Physics','Chemistry','Compulsory','ICT',PR(0x2a0),PR(0x1f7),PR(0x315)];else{if(R===PR(0x399))U=[PR(0x1ca),PR(0x325),PR(0x2c7),PR(0x296),PR(0x362),PR(0x3a2),PR(0x30c),'Compulsory',PR(0x1ab),PR(0x2a0),PR(0x1f7),PR(0x315)];else R==='Arts'&&(U=['Bangla',PR(0x325),'Math','Science',PR(0x362),PR(0x1c9),PR(0x253),PR(0x24f),PR(0x1ab),PR(0x2a0),PR(0x1f7),PR(0x315)]);}}let x=PR(0x1f2)+A['name']+PR(0x2c8)+a['name']+PR(0x388)+A['name']+PR(0x288)+a['name']+PR(0x2e7)+A['gpa']+PR(0x245)+a['gpa']+'</td></tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr><td>Total\x20Marks</td><td>'+A[PR(0x22a)]+PR(0x245)+a[PR(0x22a)]+PR(0x205);for(let r=0x1;r<Math[PR(0x232)](V[PR(0x300)],p['length']);r++){const I=U[r-0x1]||PR(0x3b2)+r;x+=PR(0x38e)+I+PR(0x245)+V[r]+'</td><td>'+p[r]+PR(0x26b);}x+=PR(0x2f6),closePopup();const q=document[PR(0x219)](PR(0x3cc));q[PR(0x26c)][PR(0x2d6)](PR(0x26d)),q[PR(0x274)]='<div\x20class=\x22popup-content\x22><span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>'+x+'</div>',document['body'][PR(0x304)](q),document[PR(0x22f)][PR(0x26c)][PR(0x2d6)]('locked');});}function handleSearchInput(){const Ps=i,F=document[Ps(0x226)](Ps(0x361))[Ps(0x301)]['trim']()['toLowerCase'](),H=document[Ps(0x226)](Ps(0x25c))[Ps(0x301)][Ps(0x2d0)](),R=document[Ps(0x226)](Ps(0x224))[Ps(0x301)];filteredData=allData['filter'](s=>{const PG=Ps,G=s[PG(0x266)][PG(0x320)]()[PG(0x264)](F),w=s[PG(0x34f)][PG(0x1e0)]()[PG(0x264)](H),M=R?(s[PG(0x1c8)]||'')[PG(0x2d0)]()['toLowerCase']()===R[PG(0x2d0)]()[PG(0x320)]():!![];return G&&w&&M;}),currentPage=0x1,updatePage();}function handleRollSearchInput(){handleSearchInput();}function filterByInstituation(){handleSearchInput();}function navigateTo(F){const Pw=i;window[Pw(0x2bc)][Pw(0x31e)]=F;}function closePopup(){const PM=i,F=document[PM(0x1eb)]('.popup');F&&(F['classList'][PM(0x2d6)](PM(0x1e4)),setTimeout(()=>{const PY=PM;F[PY(0x257)](),document['body'][PY(0x26c)][PY(0x257)]('locked');},0x1f4));}document[i(0x25f)](i(0x252),function(F){const PL=i;F['key']===PL(0x1bb)&&closePopup();}),window['addEventListener']('popstate',function(){closePopup();});function openPopup(F){const Pe=i,H=document[Pe(0x219)](Pe(0x3cc));H[Pe(0x2e5)]=Pe(0x26d),H[Pe(0x274)]=F,document[Pe(0x22f)][Pe(0x304)](H),document[Pe(0x22f)][Pe(0x26c)][Pe(0x2d6)](Pe(0x36c)),H['classList'][Pe(0x2d6)](Pe(0x33d)),history[Pe(0x2d9)]({'popupOpen':!![]},'');}var scrollToTopBtn=document[i(0x226)](i(0x229));window['onscroll']=function(){scrollFunction();};function P(F,H){const R=N();return P=function(s,G){s=s-0x1a9;let w=R[s];return w;},P(F,H);}function scrollFunction(){const PV=i;document[PV(0x22f)]['scrollTop']>0x258||document[PV(0x24a)][PV(0x367)]>0x258?scrollToTopBtn['style'][PV(0x352)]=PV(0x28f):scrollToTopBtn['style'][PV(0x352)]=PV(0x258);}function scrollToTop(){const Pp=i;document[Pp(0x22f)][Pp(0x367)]=0x0,document[Pp(0x24a)][Pp(0x367)]=0x0;}window[i(0x25f)](i(0x256),function(){const PA=i,F=new URLSearchParams(window[PA(0x2bc)][PA(0x1cd)]),H=F['get'](PA(0x333)),R=F['get'](PA(0x338)),s=F['get'](PA(0x34f));if(document[PA(0x1eb)](PA(0x290))){closePopup();return;}if(H&&R&&s)showIndividualResult(s,H,R);else{if(H&&R)loadGroup(H,R);else H?loadYear(H):location[PA(0x3cb)]();}});function createTopInstitutionsButton(){const Pa=i,F=document[Pa(0x226)]('resetFilterBtn');if(!F)return;const H=document[Pa(0x219)](Pa(0x248));H['id']=Pa(0x31b),H[Pa(0x274)]=Pa(0x235),H[Pa(0x2e5)]=Pa(0x1e5),H[Pa(0x294)][Pa(0x303)]='10px',H[Pa(0x1fc)]=showTopInstitutions,F[Pa(0x24d)](Pa(0x310),H);const R=document[Pa(0x219)]('button');R['id']=Pa(0x1de),R[Pa(0x274)]=Pa(0x287),R[Pa(0x2e5)]=Pa(0x1f3),R['style'][Pa(0x303)]=Pa(0x3aa),R[Pa(0x25f)](Pa(0x2b0),openMobileFilter),H[Pa(0x24d)]('afterend',R),injectMobileFilterStyles(),ensureMobileFilterUI();}function injectMobileFilterStyles(){const PU=i;if(document[PU(0x226)](PU(0x1d3)))return;const F=PU(0x318),H=document['createElement'](PU(0x294));H['id']=PU(0x1d3),H[PU(0x23d)]=F,document[PU(0x25b)][PU(0x304)](H);}function ensureMobileFilterUI(){const PT=i;if(document['getElementById'](PT(0x2c4)))return;const F=document[PT(0x219)]('div');F[PT(0x2e5)]=PT(0x273),F['id']=PT(0x1b8);const H=document[PT(0x219)](PT(0x311));H[PT(0x2e5)]=PT(0x292),H['id']=PT(0x2c4),H['innerHTML']=PT(0x2dc),document[PT(0x22f)]['appendChild'](F),document[PT(0x22f)][PT(0x304)](H),document[PT(0x226)](PT(0x25e))['addEventListener'](PT(0x2b0),closeMobileFilter),document[PT(0x226)](PT(0x1b8))?.[PT(0x25f)](PT(0x2b0),closeMobileFilter),document[PT(0x226)](PT(0x1ed))[PT(0x25f)](PT(0x2b0),applyMobileFilters),document['getElementById'](PT(0x1f9))[PT(0x25f)](PT(0x2b0),resetMobileFilters),document['getElementById'](PT(0x213))[PT(0x25f)](PT(0x2fb),filterSchoolList),populateMobileFilterOptions();}function openMobileFilter(){const Px=i;document[Px(0x226)](Px(0x1b8))?.[Px(0x26c)]['add'](Px(0x3ca)),document[Px(0x226)]('mfDrawer')?.[Px(0x26c)][Px(0x2d6)]('open');try{history[Px(0x2d9)]({'mf':!![]},'',location['href']);}catch(F){}window['addEventListener'](Px(0x256),mfPopCloseOnce,{'once':!![]});}function closeMobileFilter(){const Pq=i;document[Pq(0x226)]('mfOverlay')?.[Pq(0x26c)][Pq(0x257)](Pq(0x3ca)),document[Pq(0x226)]('mfDrawer')?.[Pq(0x26c)]['remove']('open');}function mfPopCloseOnce(){closeMobileFilter();}function populateMobileFilterOptions(){const Pr=i;if(!Array[Pr(0x2a8)](allData)||!allData[Pr(0x300)])return;const F=allData['map'](T=>parseInt(T[Pr(0x22a)]))[Pr(0x297)](T=>!isNaN(T)),H=Math[Pr(0x232)](...F),R=Math[Pr(0x1d1)](...F),s=document['getElementById']('mfRangeMin'),G=document['getElementById'](Pr(0x225)),w=document[Pr(0x226)]('mfTotalMin'),M=document[Pr(0x226)](Pr(0x1db));[s,G,w,M][Pr(0x358)](T=>{const PI=Pr;T[PI(0x232)]=H,T[PI(0x1d1)]=R;}),s[Pr(0x301)]=w[Pr(0x301)]=H,G['value']=M[Pr(0x301)]=R;const Y=()=>{const Pk=Pr;let T=Math[Pk(0x232)](parseInt(s['value']),parseInt(G[Pk(0x301)])),x=Math['max'](parseInt(s[Pk(0x301)]),parseInt(G['value']));s[Pk(0x301)]=T,G[Pk(0x301)]=x,w[Pk(0x301)]=T,M['value']=x,V();},L=()=>{const Pf=Pr;let T=Math[Pf(0x1d1)](H,Math[Pf(0x232)](R,parseInt(w['value']||H))),x=Math['max'](H,Math[Pf(0x232)](R,parseInt(M['value']||R)));if(T>x)[T,x]=[x,T];s['value']=T,G[Pf(0x301)]=x,V();};s[Pr(0x25f)](Pr(0x2fb),Y),G['addEventListener']('input',Y),w[Pr(0x25f)](Pr(0x2fb),L),M[Pr(0x25f)](Pr(0x2fb),L);function V(){const PW=Pr,T=document[PW(0x226)](PW(0x1bd)),x=parseInt(s[PW(0x232)]),q=parseInt(s[PW(0x1d1)]),r=(parseInt(s[PW(0x301)])-x)/(q-x)*0x64,I=(parseInt(G['value'])-x)/(q-x)*0x64;T[PW(0x294)][PW(0x2d4)]=r+'%',T[PW(0x294)][PW(0x1e9)]=0x64-I+'%';}V();const p=Array['from'](new Set(allData['map'](T=>T['gpa'])[Pr(0x297)](T=>T!==undefined&&!isNaN(T))))[Pr(0x1af)]((T,x)=>x-T),A=document[Pr(0x226)]('mfGpaChips');A[Pr(0x274)]='',p[Pr(0x358)](T=>{const Pm=Pr,x=Pm(0x2ed)+String(T)[Pm(0x381)]('.','_'),q=document[Pm(0x219)](Pm(0x35e));q[Pm(0x2e5)]='mf-chip',q[Pm(0x274)]=Pm(0x38a)+T+Pm(0x246)+(T[Pm(0x39d)]?T[Pm(0x39d)](0x2):T)+Pm(0x36d),A['appendChild'](q);});const a=Array['from'](new Set(allData[Pr(0x1bc)](T=>(T[Pr(0x1c8)]||'')[Pr(0x2d0)]())[Pr(0x297)](Boolean)))[Pr(0x1af)]((T,x)=>{const Pj=Pr,q=allData[Pj(0x3a6)](I=>(I[Pj(0x1c8)]||'')[Pj(0x2d0)]()===T)?.[Pj(0x22c)]||Infinity,r=allData['find'](I=>(I[Pj(0x1c8)]||'')['trim']()===x)?.[Pj(0x22c)]||Infinity;return q-r;}),U=document[Pr(0x226)](Pr(0x215));U[Pr(0x274)]='',a[Pr(0x358)](T=>{const Pv=Pr,x=T['replace'](/"/g,'&quot;'),q=document[Pv(0x219)](Pv(0x35e));q[Pv(0x2e5)]=Pv(0x364),q[Pv(0x274)]='<input\x20type=\x22checkbox\x22\x20name=\x22mfSchool\x22\x20value=\x22'+x+Pv(0x246)+x+Pv(0x36d),U['appendChild'](q);});}function filterSchoolList(){const Pt=i,F=document[Pt(0x226)]('mfSchoolSearch')['value'][Pt(0x2d0)]()[Pt(0x320)]();document['querySelectorAll'](Pt(0x365))['forEach'](H=>{const PZ=Pt,R=H['textContent']['toLowerCase']();H[PZ(0x294)]['display']=R['includes'](F)?PZ(0x3b9):PZ(0x258);});}function applyMobileFilters(){const PS=i,F=parseInt(document[PS(0x226)](PS(0x39e))[PS(0x301)]),H=parseInt(document[PS(0x226)](PS(0x1db))[PS(0x301)]),R=Array[PS(0x305)](document[PS(0x2d5)](PS(0x1c5)))[PS(0x1bc)](L=>parseFloat(L['value'])),s=Array[PS(0x305)](document[PS(0x2d5)]('input[name=\x22mfSchool\x22]:checked'))[PS(0x1bc)](L=>L['value']),G=document[PS(0x226)](PS(0x361))?document['getElementById'](PS(0x361))[PS(0x301)]['trim']()[PS(0x320)]():'',w=document[PS(0x226)](PS(0x25c))?document['getElementById'](PS(0x25c))[PS(0x301)]['trim']():'',M=document[PS(0x226)](PS(0x224)),Y=M&&M[PS(0x301)]?M[PS(0x301)]:'';filteredData=allData['filter'](L=>{const PC=PS,V=!isNaN(L[PC(0x22a)])&&L['total']>=F&&L['total']<=H,p=R['length']?R[PC(0x264)](parseFloat(L[PC(0x308)])):!![],A=s[PC(0x300)]?s['includes'](L[PC(0x1c8)]):!![],a=G?String(L['name'])[PC(0x320)]()[PC(0x264)](G):!![],U=w?String(L[PC(0x34f)])[PC(0x264)](w):!![],T=Y?(L[PC(0x1c8)]||'')['trim']()[PC(0x320)]()===Y['trim']()[PC(0x320)]():!![];return V&&p&&A&&a&&U&&T;}),currentPage=0x1,updatePage(),closeMobileFilter();}function resetMobileFilters(){const PE=i;document['querySelectorAll'](PE(0x2fa))['forEach'](F=>F['checked']=![]),populateMobileFilterOptions(),applyMobileFilters();}function showTopInstitutions(){const Pn=i,F={};allData[Pn(0x358)](s=>{const Pl=Pn,G=s[Pl(0x1c8)];!F[G]&&(F[G]={'gpa5Count':0x0,'totalMarks':0x0,'count':0x0,'top1000Count':0x0}),s['gpa']===0x5&&(F[G][Pl(0x30e)]+=0x1),F[G][Pl(0x317)]+=s[Pl(0x22a)],F[G][Pl(0x380)]+=0x1;}),allData['slice'](0x0,0x3e8)[Pn(0x358)](s=>{const Pz=Pn,G=s[Pz(0x1c8)];F[G]&&F[G][Pz(0x351)]++;});const H=Object[Pn(0x3a0)](F)[Pn(0x297)](([s,G])=>G[Pn(0x380)]>=0x14)[Pn(0x1bc)](([s,G])=>{const Py=Pn,w=G[Py(0x30e)]/G[Py(0x380)]*0x64;return{'name':s,'gpa5Percent':w[Py(0x39d)](0x2),'gpa5Count':G['gpa5Count'],'avgTotal':(G['totalMarks']/G[Py(0x380)])['toFixed'](0x1),'top1000Count':G['top1000Count'],'studentCount':G[Py(0x380)]};});H[Pn(0x1af)]((s,G)=>{const PQ=Pn,w=parseFloat(G[PQ(0x238)])-parseFloat(s['gpa5Percent']);if(w!==0x0)return w;return parseFloat(G[PQ(0x206)])-parseFloat(s['avgTotal']);});const R=H['slice'](0x0,0x64);contentDiv[Pn(0x274)]=Pn(0x32a)+currentGroup[Pn(0x23d)]+'\x20'+currentYear['textContent']+Pn(0x3b7)+currentYear[Pn(0x23d)][Pn(0x2d0)]()+Pn(0x285)+currentGroup[Pn(0x23d)][Pn(0x36a)]('\x20')[0x0]+Pn(0x331)+R[Pn(0x1bc)]((s,G)=>Pn(0x21d)+(G+0x1)+Pn(0x1c7)+s[Pn(0x266)]+Pn(0x1c7)+s['gpa5Percent']+Pn(0x29d)+s[Pn(0x30e)]+Pn(0x1c7)+s[Pn(0x206)]+Pn(0x1c7)+s[Pn(0x351)]+Pn(0x1c7)+s[Pn(0x370)]+Pn(0x241))[Pn(0x1b9)]('')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20</tbody>\x0a\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20';}function enableInstitutionSearchDropdown(){const PD=i,F=document[PD(0x226)]('InstituationDropdown');F[PD(0x293)]=PD(0x2e1)+Array[PD(0x305)](InstituationSet)[PD(0x1bc)](H=>PD(0x324)+H+'\x22>')[PD(0x1b9)]('')+PD(0x23c);}const originalFetchData=fetchData;fetchData=function(F,H){const PJ=i;showLoadingIndicator();const R=PJ(0x212)+F+'_'+H[PJ(0x320)]()+'.txt',s=PJ(0x212)+F+'_'+H[PJ(0x320)]()+PJ(0x26e);Promise['all']([fetchAndDecode(R,PJ(0x3c4)),fetch(s)[PJ(0x249)](G=>G[PJ(0x1ef)]())[PJ(0x2d2)](()=>null)])[PJ(0x249)](([G,w])=>{processData(G,w),populateInstituationDropdown(),enableInstitutionSearchDropdown(),createTopInstitutionsButton(),hideLoadingIndicator();})[PJ(0x2d2)](G=>{const PK=PJ;console[PK(0x1ea)](PK(0x335),G),hideLoadingIndicator({'forceError':!![],'errorMessage':PK(0x23f)}),noDataMessage[PK(0x294)][PK(0x352)]='block';});};function filterByInstituation(){const PX=i,F=document[PX(0x226)](PX(0x224))[PX(0x301)]['trim']();showSchoolRanking(F);}function showFullRankingNote(F){const Pc=i,H=document[Pc(0x219)](Pc(0x3cc));H['className']=Pc(0x396),H[Pc(0x274)]=Pc(0x21b)+F+Pc(0x33c);const R=document[Pc(0x1eb)](Pc(0x236));if(R)R[Pc(0x257)]();contentDiv['prepend'](H);}handleURLParams();function handleURLParams(){const Pb=i,F=new URLSearchParams(window[Pb(0x2bc)][Pb(0x1cd)]),H=F[Pb(0x20a)](Pb(0x333)),R=F[Pb(0x20a)](Pb(0x338)),s=F['get'](Pb(0x34f));if(H&&R){yearDropdown&&(yearDropdown[Pb(0x301)]=H,yearDropdown[Pb(0x294)][Pb(0x352)]='none');document[Pb(0x226)]('selectPrompt')?.[Pb(0x257)](),document[Pb(0x2d5)](Pb(0x2c0))['forEach'](w=>w[Pb(0x257)]()),currentYear['textContent']='\x20'+H,currentGroup[Pb(0x23d)]=R+Pb(0x1ee),currentGroup[Pb(0x294)][Pb(0x352)]=Pb(0x327),contentDiv[Pb(0x274)]=Pb(0x32f),printExamResultHeader(H),fetchData(H,R);s&&setTimeout(()=>{showIndividualResult(s,H,R);},0x3e8);const G=F['get'](Pb(0x372));G&&setTimeout(()=>{showSchoolRanking(G);},0x3e8);}else H?(loadYear(H),yearDropdown&&(yearDropdown[Pb(0x301)]=H)):contentDiv['innerHTML']='';}function handleFeaturedClick(F,H){const Po=i,R=H||document[Po(0x1eb)](Po(0x2b2)+F+'\x22]');if(!R)return;R['style'][Po(0x3a1)]=Po(0x2b7),R[Po(0x294)][Po(0x263)]='0',R[Po(0x294)][Po(0x2ac)]='scale(0.9)',setTimeout(()=>{const PB=Po;R['style'][PB(0x352)]=PB(0x258);const s=document['getElementById'](PB(0x286));s&&(s[PB(0x301)]=F,s[PB(0x294)][PB(0x352)]=PB(0x258)),loadYear(F);},0x190);}function showSharePopup(){const Pg=i;if(document[Pg(0x1eb)](Pg(0x290)))return;const F=document[Pg(0x219)]('div');F[Pg(0x2e5)]=Pg(0x26d),F[Pg(0x274)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2>🚀Enjoying\x20this\x20amazing\x20website?</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Help\x20us\x20grow!\x20Share\x20this\x20website:</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20justify-content:\x20space-around;\x20flex-wrap:\x20wrap;\x20padding:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22https://wa.me/?text=https://boradrankctg.github.io/rank/\x22\x20target=\x22_blank\x22><img\x20src=\x22https://img.icons8.com/color/48/whatsapp.png\x22\x20alt=\x22WhatsApp\x22\x20width=\x2236\x22></a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22https://www.instagram.com/?url=https://boradrankctg.github.io/rank/\x22\x20target=\x22_blank\x22><img\x20src=\x22https://img.icons8.com/color/48/instagram-new.png\x22\x20alt=\x22Instagram\x22\x20width=\x2236\x22></a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22https://www.facebook.com/dialog/send?link=https://boradrankctg.github.io/rank/&app_id=YOUR_APP_ID&redirect_uri=https://boradrankctg.github.io/rank/\x22\x20target=\x22_blank\x22><img\x20src=\x22https://img.icons8.com/color/48/facebook-messenger.png\x22\x20alt=\x22Messenger\x22\x20width=\x2236\x22></a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22mailto:?subject=Check%20this%20awesome%20ranking%20site!&body=https://boradrankctg.github.io/rank/\x22\x20target=\x22_blank\x22><img\x20src=\x22https://img.icons8.com/color/48/gmail--v1.png\x22\x20alt=\x22Email\x22\x20width=\x2236\x22></a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<hr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20style=\x22margin-top:10px\x22>⭐\x20Rate\x20this\x20Website:</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22starContainer\x22\x20style=\x22font-size:\x201.8rem;\x20color:\x20gold;\x20cursor:\x20pointer;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20onclick=\x22rateSite(1)\x22>&#9734;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20onclick=\x22rateSite(2)\x22>&#9734;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20onclick=\x22rateSite(3)\x22>&#9734;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20onclick=\x22rateSite(4)\x22>&#9734;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20onclick=\x22rateSite(5)\x22>&#9734;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<textarea\x20id=\x22reviewText\x22\x20placeholder=\x22Leave\x20your\x20feedback\x20here...\x22\x20rows=\x223\x22\x20style=\x22width:\x20100%;\x20margin-top:\x2010px;\x22></textarea>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22submitReview()\x22>Submit\x20Review</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20',document[Pg(0x22f)][Pg(0x304)](F),document[Pg(0x22f)][Pg(0x26c)][Pg(0x2d6)]('locked');}!localStorage[i(0x312)](i(0x336))&&setTimeout(()=>{const Ph=i;showSharePopup(),localStorage[Ph(0x369)](Ph(0x336),'1');},0x249f0);document['getElementById'](i(0x2b3))[i(0x25f)]('click',showSharePopup);function rateSite(F){const PO=i,H=document[PO(0x226)]('starContainer')[PO(0x30f)];for(let R=0x0;R<H['length'];R++){H[R][PO(0x274)]=R<F?PO(0x201):'&#9734;';}localStorage['setItem']('userRating',F);}function submitReview(){const Pd=i,F=localStorage[Pd(0x312)](Pd(0x262))||0x0,H=document[Pd(0x226)](Pd(0x3c2))['value']['trim']();if(!H&&F==0x0)return alert(Pd(0x398));localStorage[Pd(0x369)](Pd(0x1aa),JSON['stringify']({'rating':F,'comment':H})),window[Pd(0x2bc)][Pd(0x31e)]=Pd(0x1fd);}function _br_normalizeName(F){const Pu=i;if(!F&&F!==0x0)return'';try{return String(F)['normalize']?String(F)['normalize'](Pu(0x3c8)):String(F)['replace'](/\s+/g,'\x20')[Pu(0x2d0)]()['toLowerCase']()[Pu(0x381)](/[^\p{L}\p{N}\s]/gu,'');}catch(H){return String(F)[Pu(0x381)](/\s+/g,'\x20')[Pu(0x2d0)]()[Pu(0x320)]()[Pu(0x381)](/[^\w\s]/g,'');}}function _br_normalizeRoll(F){const Pi=i;if(F===undefined||F===null)return'';return String(F)[Pi(0x2d0)]()[Pi(0x381)](/^0+/,'')||'0';}function _br_removeAllPopupsImmediate(){const F0=i,F=document[F0(0x2d5)](F0(0x290));F[F0(0x358)](H=>H[F0(0x257)]()),document[F0(0x22f)][F0(0x26c)][F0(0x257)]('locked');}function _br_spinnerHtml(){const F1=i;return F1(0x27f);}function _br_showMessage(F){const F2=i;_br_removeAllPopupsImmediate();const H=document[F2(0x219)](F2(0x3cc));H[F2(0x2e5)]=F2(0x26d),H[F2(0x274)]=F2(0x1da)+F+'</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22back-button\x22\x20onclick=\x22closePopup()\x22>OK</button>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20',document[F2(0x22f)][F2(0x304)](H),document['body'][F2(0x26c)][F2(0x2d6)]('locked');}window[i(0x2a2)]=window[i(0x2a2)]||{};function _br_ensureSSCLoadedForHSCYear(F){return new Promise(H=>{const F3=P;try{const R=Number(F)-0x2;if(!R||isNaN(R))return H(null);if(window[F3(0x2a2)][R])return H(window[F3(0x2a2)][R]);const s=[F3(0x2f8),'commerce',F3(0x243)],G={'byName':new Map(),'byRoll':new Map()};let w=s[F3(0x1bc)](M=>{const F4=F3,Y=F4(0x212)+R+'_'+M+F4(0x2f4);return fetch(Y)['then'](L=>{const F5=F4;if(!L['ok'])throw new Error('no\x20file');return L[F5(0x1ef)]();})[F4(0x249)](L=>{const F6=F4,V=L[F6(0x2d0)]()[F6(0x36a)]('\x0a'),p=V[F6(0x300)]&&V[0x0][F6(0x264)]('\x09')&&V[0x0]['toLowerCase']()[F6(0x264)]('name')?0x1:0x0;for(let A=p;A<V['length'];A++){const a=V[A]['trim']();if(!a)continue;const U=a['split']('\x09'),T=(U[0x1]||'')[F6(0x2d0)](),x=(U[0x2]||'')['trim'](),q=(U[0x5]||'')[F6(0x2d0)]();if(!T||!x)continue;const r=_br_normalizeName(T),I=_br_normalizeRoll(x),k={'roll':x,'rollNorm':I,'group':M['charAt'](0x0)[F6(0x1b4)]()+M['slice'](0x1),'nameRaw':T,'institution':q};if(!G[F6(0x29b)][F6(0x21f)](I))G[F6(0x29b)]['set'](I,k);const f=G['byName'][F6(0x20a)](r)||[];if(!f[F6(0x291)](W=>W[F6(0x1b5)]===k[F6(0x1b5)]&&W[F6(0x338)]===k[F6(0x338)]))f[F6(0x3ac)](k);G[F6(0x375)][F6(0x247)](r,f);}})['catch'](()=>{});});Promise[F3(0x1d9)](w)['then'](()=>{window['__br_sscCache'][R]=G,H(G);})[F3(0x2d2)](()=>{window['__br_sscCache'][R]=G,H(G);});}catch(M){H(null);}});}function _br_getHscRollFromCurrentPopup(){const F7=i;try{const F=document[F7(0x1eb)](F7(0x1b6));if(!F)return null;const H=(F[F7(0x383)]||F[F7(0x23d)]||'')['replace'](/\u00A0/g,'\x20'),R=H[F7(0x3bd)](/roll[:\s]*([0-9\-]+)/i);if(R&&R[0x1])return _br_normalizeRoll(R[0x1]);const s=F[F7(0x2d5)](F7(0x250));for(let G of s){const w=(G[F7(0x23d)]||'')[F7(0x2d0)]();if(/roll[:\s]*[0-9]/i[F7(0x337)](w)){const M=w[F7(0x3bd)](/([0-9]+)/);if(M)return _br_normalizeRoll(M[0x0]);}}}catch(Y){}return null;}function _br_saveLinkMapping(F,H,R,s,G,w){const F8=i;try{if(!F||!H)return;const M=F8(0x1fe)+F+':'+H,Y={'sscYear':R,'sscRoll':s,'sscGroup':G,'matchedNameRaw':w,'savedAt':Date['now']()};localStorage['setItem'](M,JSON[F8(0x2ea)](Y));}catch(L){}}function _br_getLinkMapping(F,H){const F9=i;try{const R=F9(0x1fe)+F+':'+H,s=localStorage[F9(0x312)](R);if(!s)return null;return JSON['parse'](s);}catch(G){return null;}}function _br_showCandidatesModalAndHandle(F,H,R){const FN=i,s=document[FN(0x219)](FN(0x3cc));s[FN(0x2e5)]=FN(0x26d),s[FN(0x274)]='\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22\x20style=\x22max-width:520px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h2>Multiple\x20SSC\x20records\x20found</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p>Please\x20confirm\x20the\x20SSC\x20roll\x20or\x20pick\x20the\x20correct\x20record\x20below.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22br_candidates_list\x22\x20style=\x22max-height:180px;overflow:auto;margin-bottom:0.75rem;border:1px\x20solid\x20#ddd;padding:6px;border-radius:4px;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;gap:8px;align-items:center;margin-top:8px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22br_ssc_roll_input\x22\x20placeholder=\x22Enter\x20SSC\x20roll\x20(or\x20pick\x20above)\x22\x20style=\x22flex:1;padding:8px;border:1px\x20solid\x20#0061FE;border-radius:4px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22br_ssc_roll_confirm\x22\x20class=\x22back-button\x22\x20style=\x22padding:8px\x2012px;\x22>Confirm</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:0.9rem;color:#444;margin-top:10px;\x22>Tip:\x20Click\x20a\x20row\x20to\x20open\x20that\x20SSC\x20result\x20directly.</p>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20',document[FN(0x22f)][FN(0x304)](s),document['body'][FN(0x26c)]['add'](FN(0x36c));const G=s['querySelector']('#br_candidates_list');F[FN(0x358)](w=>{const FP=FN,M=document[FP(0x219)]('div');M[FP(0x294)]=FP(0x2e3),M['innerHTML']=FP(0x1b1)+w[FP(0x1ce)]+'\x20<span\x20style=\x22color:#666;font-weight:normal\x22>('+w[FP(0x338)]+FP(0x2d3)+(w[FP(0x20f)]||'')+FP(0x363)+w['roll']+FP(0x379),G['appendChild'](M),M[FP(0x1eb)]('.br_open_btn')[FP(0x25f)](FP(0x2b0),Y=>{Y['stopPropagation'](),_br_removeAllPopupsImmediate(),setTimeout(()=>R(w),0x3c);});}),s[FN(0x1eb)](FN(0x26f))[FN(0x25f)](FN(0x2b0),()=>{const FF=FN,w=s[FF(0x1eb)](FF(0x2a9))[FF(0x301)]['trim'](),M=_br_normalizeRoll(w);if(!M){s['querySelector'](FF(0x2a9))[FF(0x294)][FF(0x2fe)]=FF(0x346);return;}const Y=F[FF(0x3a6)](L=>L['rollNorm']===M);if(Y)_br_removeAllPopupsImmediate(),setTimeout(()=>R(Y),0x3c);else{const L=document[FF(0x219)](FF(0x3cc));L[FF(0x294)]=FF(0x284),L['textContent']=FF(0x277),s['querySelector'](FF(0x28d))[FF(0x304)](L),setTimeout(()=>L[FF(0x257)](),0xdac);}});}function showSSCResultFromHSC(F,H){const FH=i;try{const R=currentYear&&currentYear[FH(0x23d)]?currentYear['textContent']['trim']():null;let s=null;if(R&&R[FH(0x320)]()[FH(0x264)](FH(0x298))){const M=R[FH(0x3bd)](/(\d{4})/);if(M)s=parseInt(M[0x1],0xa);}if(!s)try{const Y=new URLSearchParams(window[FH(0x2bc)][FH(0x1cd)]),L=Y['get'](FH(0x333));if(L&&L[FH(0x320)]()[FH(0x264)]('hsc')){const V=L[FH(0x3bd)](/(\d{4})/);if(V)s=parseInt(V[0x1],0xa);}}catch(p){}if(!s)s=new Date()[FH(0x360)]();const G=_br_getHscRollFromCurrentPopup();if(G){const A=_br_getLinkMapping(s,G);if(A&&A[FH(0x1f6)]&&A[FH(0x3bf)]){_br_removeAllPopupsImmediate(),setTimeout(()=>{const FR=FH;showIndividualResult(A[FR(0x3bf)],String(A[FR(0x1f6)]),A[FR(0x359)]||'Science');},0x3c);return;}}const w=document[FH(0x219)]('div');w['className']='popup',w[FH(0x274)]=FH(0x2ec)+_br_spinnerHtml()+'</div>',document[FH(0x22f)][FH(0x304)](w),document[FH(0x22f)][FH(0x26c)][FH(0x2d6)](FH(0x36c)),_br_ensureSSCLoadedForHSCYear(s)[FH(0x249)](a=>{const Fs=FH;try{w[Fs(0x257)]();const U=_br_normalizeName(F||''),T=s-0x2,x=a||window[Fs(0x2a2)][T]||{'byName':new Map(),'byRoll':new Map()},q=x['byName'][Fs(0x20a)](U)||[];if(!q||q[Fs(0x300)]===0x0){_br_showMessage(Fs(0x357));return;}const r=[],I=new Set();q[Fs(0x358)](k=>{const FG=Fs,f=k['rollNorm']+'-'+k[FG(0x338)];!I['has'](f)&&(I['add'](f),r[FG(0x3ac)](k));});if(r[Fs(0x300)]===0x1){const k=r[0x0];if(G)_br_saveLinkMapping(s,G,T,k['rollNorm'],k[Fs(0x338)],k['nameRaw']);_br_removeAllPopupsImmediate(),setTimeout(()=>{const Fw=Fs;showIndividualResult(k[Fw(0x34f)],String(T),k[Fw(0x338)]);},0x3c);return;}_br_showCandidatesModalAndHandle(r,T,f=>{const FM=Fs;if(G)_br_saveLinkMapping(s,G,T,f[FM(0x1b5)],f[FM(0x338)],f['nameRaw']);_br_removeAllPopupsImmediate(),setTimeout(()=>{const FY=FM;showIndividualResult(f[FY(0x34f)],String(T),f['group']);},0x3c);});}catch(f){try{w[Fs(0x257)]();}catch(W){}_br_showMessage(Fs(0x1e8)),console[Fs(0x1ea)](f);}})[FH(0x2d2)](a=>{const FL=FH;try{w[FL(0x257)]();}catch(U){}_br_showMessage(FL(0x39a)),console[FL(0x1ea)](a);});}catch(a){console[FH(0x1ea)](FH(0x3b1),a),_br_showMessage('Unexpected\x20error\x20occurred.');}}if(typeof fetchData==='function')try{const _origFetchData=fetchData;fetchData=function(F,H){const Fe=i;try{_origFetchData(F,H);}catch(R){console[Fe(0x1ea)](Fe(0x38c),R);}try{if(typeof F===Fe(0x3b3)&&F['toLowerCase']()[Fe(0x264)](Fe(0x298))){const s=F[Fe(0x3bd)](/(\d{4})/),G=s?Number(s[0x1]):null;if(G&&!isNaN(G))_br_ensureSSCLoadedForHSCYear(G)[Fe(0x2d2)](()=>{});}}catch(w){}};}catch(d){}function showErrorPopup(F){const FV=i,H=document[FV(0x219)](FV(0x3cc));H[FV(0x2e5)]=FV(0x26d),H[FV(0x274)]=FV(0x2e0)+F+FV(0x2b8),document[FV(0x22f)]['appendChild'](H),document[FV(0x22f)][FV(0x26c)][FV(0x2d6)](FV(0x36c));}setTimeout(()=>{const Fp=i,F=document[Fp(0x1eb)](Fp(0x3be));if(F){const H=document[Fp(0x219)](Fp(0x3cc));H['id']='clickHand',H['innerHTML']='👉',document['body'][Fp(0x304)](H);const R=document[Fp(0x219)](Fp(0x3cc));R['id']=Fp(0x27c),R[Fp(0x383)]=Fp(0x2d1),document[Fp(0x22f)]['appendChild'](R);function s(){const FA=Fp,G=F[FA(0x1d0)]();H[FA(0x294)][FA(0x3b8)]=FA(0x24c),H[FA(0x294)]['top']=window['scrollY']+G['top']-0x5+'px',H[FA(0x294)][FA(0x2d4)]=window[FA(0x37d)]+G[FA(0x1e9)]+0x8+'px',R[FA(0x294)][FA(0x3b8)]=FA(0x24c),R[FA(0x294)][FA(0x3ba)]=window[FA(0x2cb)]+G[FA(0x3ba)]-0x1c+'px',R[FA(0x294)][FA(0x2d4)]=window['scrollX']+G['right']+0x28+'px';}s(),window['addEventListener'](Fp(0x393),s),window['addEventListener']('resize',s),F['addEventListener']('click',()=>{const Fa=Fp;H[Fa(0x257)](),R['remove'](),window[Fa(0x2df)](Fa(0x393),s),window[Fa(0x2df)]('resize',s);});}},0x12c);function downloadStudentPDF(F){const FU=i,H=L=>String(L==null?'':L)['trim'](),R=F&&F['closest']&&(F[FU(0x27b)](FU(0x290))||F[FU(0x27b)](FU(0x28d)))||document[FU(0x1eb)](FU(0x1b6))||null;if(!R){alert('No\x20result\x20popup\x20found.');return;}const s={'name':'','roll':'','institution':'','gpa':'','subjects':[]},G=Array[FU(0x305)](R[FU(0x2d5)](FU(0x260)));G[FU(0x358)](L=>{const FT=FU,V=H(L['textContent']);if(!V)return;const p=V[FT(0x3bd)](/^([^:]{1,40})\s*[:\-]\s*(.+)$/);if(p){const A=p[0x1][FT(0x320)](),a=p[0x2][FT(0x2d0)]();if(A[FT(0x264)](FT(0x266))&&!s[FT(0x266)])s[FT(0x266)]=a;else{if(A[FT(0x264)](FT(0x34f))&&!s['roll'])s[FT(0x34f)]=a;else{if((A[FT(0x264)]('institution')||A[FT(0x264)]('school')||A[FT(0x264)](FT(0x347)))&&!s['institution'])s[FT(0x20f)]=a;else{if(A[FT(0x264)]('gpa')&&!A[FT(0x264)](FT(0x32c))&&!s[FT(0x308)])s[FT(0x308)]=a;else!A['includes'](FT(0x2f7))&&s[FT(0x32e)]['push']({'name':p[0x1][FT(0x2d0)](),'mark':a});}}}}}),s[FU(0x32e)]=s['subjects']['filter'](L=>!/board\s*rank/i[FU(0x337)](L['name']));function w(L,V){const Fx=FU,p=parseFloat(String(L)[Fx(0x381)](/[^0-9.\-]/g,''));if(isNaN(p))return{'gp':'-','grade':'-'};const A=(V||'')[Fx(0x320)]();let a='';try{typeof currentYear!=='undefined'&&currentYear&&currentYear[Fx(0x23d)]&&(a=String(currentYear['textContent'])['toLowerCase']());}catch(r){a='';}const U=(document['querySelector']('.popup\x20.popup-content')?.[Fx(0x23d)]||'')[Fx(0x320)](),T=a[Fx(0x264)]('hsc')||U['includes']('hsc');let x;if(T){if(A['includes'](Fx(0x1dd)))x=0x64;else x=0xc8;}else{if(A[Fx(0x264)]('ict')||A[Fx(0x264)](Fx(0x28e)))x=0x32;else{if(A[Fx(0x264)](Fx(0x3ad))||A[Fx(0x264)](Fx(0x342)))x=0xc8;else x=0x64;}}const q=p/x*0x64;if(q>=79.5)return{'gp':0x5,'grade':'A+'};if(q>=0x46)return{'gp':0x4,'grade':'A'};if(q>=0x3c)return{'gp':3.5,'grade':'A-'};if(q>=0x32)return{'gp':0x3,'grade':'B'};if(q>=0x28)return{'gp':0x2,'grade':'C'};if(q>=0x21)return{'gp':0x1,'grade':'D'};return{'gp':0x0,'grade':'F'};}const M=(s[FU(0x266)]||FU(0x307))['replace'](/[^\w\- ]/g,'')+FU(0x2f2);function Y(L){const Fq=FU;if(window[Fq(0x389)]&&window[Fq(0x389)][Fq(0x3a9)])return L();const V=document['createElement'](Fq(0x374));V[Fq(0x3c3)]='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js',V[Fq(0x30b)]=L,document[Fq(0x25b)][Fq(0x304)](V);}Y(()=>{const Fr=FU,{jsPDF:L}=window['jspdf'],V=new L({'unit':'mm','format':'a4'}),p=V['internal']['pageSize']['getWidth'](),A=0xf;let a=0x12;V['setFontSize'](0x12),V[Fr(0x21a)](undefined,Fr(0x314)),V['text']('SSC\x202025\x20Board\x20Rank\x20of\x20Chittagong',A,a),a+=0xc;const U=p-A*0x2,T=U/0x4,q=0x14,r=[{'label':Fr(0x32d),'value':s[Fr(0x266)]||'-'},{'label':Fr(0x37e),'value':s['roll']||'-'},{'label':'Institution','value':s[Fr(0x20f)]||'-'},{'label':Fr(0x366),'value':s[Fr(0x308)]||'-'}];V['setLineWidth'](0.3),V[Fr(0x37f)](A,a,U,q);for(let j=0x0;j<r['length'];j++){const v=A+j*T;V[Fr(0x37f)](v,a,T,q),V[Fr(0x329)](0x9),V['text'](r[j][Fr(0x35e)]+':',v+0x2,a+0x6),V[Fr(0x21a)](undefined,'bold');const t=V[Fr(0x1b3)](r[j][Fr(0x301)],T-0x4);V[Fr(0x329)](0xa);let Z=a+0xc;t[Fr(0x358)](S=>{const FI=Fr;V[FI(0x1ef)](S,v+0x2,Z),Z+=0x4;}),V[Fr(0x21a)](undefined,'normal');}a+=q+0x8;const I=p-A*0x2,k=Math[Fr(0x2ca)](I*0.5*0x64)/0x64,f=Math[Fr(0x2ca)](I*0.25*0x64)/0x64,W=I-k-f,m=0x8;V['setFillColor'](0xf0),V[Fr(0x37f)](A,a,k,m,'F'),V['rect'](A+k,a,f,m,'F'),V['rect'](A+k+f,a,W,m,'F'),V[Fr(0x21a)](undefined,Fr(0x314)),V[Fr(0x1ef)](Fr(0x306),A+0x2,a+0x6),V[Fr(0x1ef)](Fr(0x3a8),A+k+f-0x2,a+0x6,{'align':Fr(0x1e9)}),V['text'](Fr(0x366),A+k+f+W-0x2,a+0x6,{'align':Fr(0x1e9)}),a+=m,V[Fr(0x21a)](undefined,Fr(0x2b6)),s['subjects'][Fr(0x358)](S=>{const Fk=Fr,C=w(S[Fk(0x373)],S['name']);V[Fk(0x37f)](A,a,k,m),V['rect'](A+k,a,f,m),V['rect'](A+k+f,a,W,m),V[Fk(0x1ef)](S['name'],A+0x2,a+0x5),V[Fk(0x1ef)](String(S[Fk(0x373)]),A+k+f-0x2,a+0x5,{'align':Fk(0x1e9)}),V[Fk(0x1ef)](C['gp'][Fk(0x39d)](0x2)+'\x20('+C[Fk(0x2e9)]+')',A+k+f+W-0x2,a+0x5,{'align':'right'}),a+=m;}),V['setFontSize'](0x9),V[Fr(0x1ef)](Fr(0x343)+new Date()[Fr(0x36e)](),A,0x11d),V[Fr(0x1ef)](Fr(0x259),p-A,0x11d,{'align':Fr(0x1e9)}),V[Fr(0x1e1)](M),showToast(Fr(0x322));});}function visitorInfoDenied(){const Ff=i,F=document['querySelector']('.popup');if(!F)return;const H=F[Ff(0x1eb)](Ff(0x34d)),R=F['querySelector'](Ff(0x33a));if(R)R[Ff(0x294)][Ff(0x352)]='none';H&&(H[Ff(0x274)]=Ff(0x281),setTimeout(()=>{const FW=Ff,s=H['querySelector'](FW(0x255));if(s)s['style'][FW(0x352)]=FW(0x258);H['innerHTML']=FW(0x22b);},0x320)),setTimeout(()=>{closePopup();},0x708);}(function(){const Fm=i,F=Array[Fm(0x305)](new Set((allData||[])[Fm(0x332)](H=>[H?.[Fm(0x266)],H?.[Fm(0x1c8)]])['filter'](Boolean)));upsertMeta('keywords',F[Fm(0x1b9)](',\x20'));}());
+const contentDiv = document.getElementById('content');
+const currentYear = document.getElementById('currentYear');
+const currentGroup = document.getElementById('currentGroup');
+const noDataMessage = document.getElementById('noDataMessage');
+const yearDropdown = document.getElementById('yearDropdown');
+
+
+/* ==== SEO/Share helpers ==== */
+function upsertMeta(name, content) {
+  let tag = document.querySelector(`meta[name="${name}"]`);
+  if (!tag) { tag = document.createElement('meta'); tag.setAttribute('name', name); document.head.appendChild(tag); }
+  tag.setAttribute('content', content);
+}
+function upsertProperty(property, content) {
+  let tag = document.querySelector(`meta[property="${property}"]`);
+  if (!tag) { tag = document.createElement('meta'); tag.setAttribute('property', property); document.head.appendChild(tag); }
+  tag.setAttribute('content', content);
+}
+function setCanonical(url) {
+  let link = document.querySelector('link[rel="canonical"]');
+  if (!link) { link = document.createElement('link'); link.setAttribute('rel','canonical'); document.head.appendChild(link); }
+  link.setAttribute('href', url);
+}
+function injectJSONLD(obj, id) {
+  // remove previous block with same id
+  if (id) document.querySelectorAll(`script[type="application/ld+json"][data-id="${id}"]`).forEach(n=>n.remove());
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  if (id) s.setAttribute('data-id', id);
+  s.text = JSON.stringify(obj);
+  document.head.appendChild(s);
+}
+
+/* Year+Group page: dynamic SEO */
+function updateSEOForYearGroup(year, group) {
+  const isHSC = String(year).includes('hsc');
+  const yr = String(year).replace('hsc_', '');
+  const exam = isHSC ? 'HSC' : 'SSC';
+
+  const title = `SSC Result Ranking ${yr} — ${exam === 'HSC' ? 'Chattogram Board (HSC archive)' : 'Chattogram Board'} ${group}`;
+  const desc  = `See ${exam} ${yr} ${group} rankings for Chattogram Board — GPA, total marks, top schools, and student comparisons. Fast and accurate.`;
+  const url   = `${location.origin}${location.pathname}?year=${encodeURIComponent(year)}&group=${encodeURIComponent(group)}`;
+
+  document.title = title;
+  upsertMeta('description', desc);
+  setCanonical(url);
+  upsertProperty('og:title', title);
+  upsertProperty('og:description', desc);
+  upsertProperty('og:url', url);
+  upsertProperty('og:type', 'website');
+  upsertMeta('twitter:title', title);
+  upsertMeta('twitter:description', desc);
+}
+
+/* School page: dynamic SEO */
+function updateSEOForSchool(year, group, schoolName) {
+
+  const yr = String(year).replace('hsc_', '');
+  const exam = String(year).includes('hsc') ? 'HSC' : 'SSC';
+  const title = `${schoolName} — ${exam} ${yr} Ranking (Chattogram Board)`;
+  const desc  = `Rank list for ${schoolName} — ${exam} ${yr}, ${group}. View GPA, totals, and student positions from Chattogram Board.`;
+  const url   = `${location.origin}${location.pathname}?year=${encodeURIComponent(year)}&group=${encodeURIComponent(group)}&school=${encodeURIComponent(schoolName)}`;
+
+  document.title = title;
+  upsertMeta('description', desc);
+  setCanonical(url);
+  upsertProperty('og:title', title);
+  upsertProperty('og:description', desc);
+  upsertProperty('og:url', url);
+  upsertMeta('twitter:title', title);
+  upsertMeta('twitter:description', desc);
+}
+function updateSEOForStudent(year, group, studentName, roll) {
+    const yr = String(year).replace('hsc_', '');
+    const exam = String(year).includes('hsc') ? 'HSC' : 'SSC';
+    const title = `${studentName} — ${exam} ${yr} Result (Chattogram Board) | Roll ${roll}`;
+    const desc  = `Subject-wise marks, GPA, total and rank for ${studentName} (${exam} ${yr}, ${group}) — Chattogram Board.`;
+    const pagePath = location.pathname.includes('entity.html') ? location.pathname : '/rank/entity.html';
+    const url   = `${location.origin}${pagePath}?year=${encodeURIComponent(year)}&group=${encodeURIComponent(group)}&roll=${encodeURIComponent(roll)}`;
+
+    document.title = title;
+    upsertMeta('description', desc);
+    setCanonical(url);
+    upsertProperty('og:title', title);
+    upsertProperty('og:description', desc);
+    upsertProperty('og:url', url);
+    upsertMeta('twitter:title', title);
+    upsertMeta('twitter:description', desc);
+
+    injectJSONLD({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": studentName,
+      "identifier": `${exam}-${yr}-${roll}`,
+      "affiliation": { "@type": "EducationalOrganization", "name": "Chattogram Education Board" }
+    }, 'student');
+  }
+/* Breadcrumbs JSON-LD */
+function injectBreadcrumbs(homeUrl, year, group, school) {
+  const items = [
+    { "@type":"ListItem", "position":1, "name":"Home", "item": homeUrl }
+  ];
+  if (year) items.push({ "@type":"ListItem", "position":2, "name": String(year).replace('hsc_','') });
+  if (group) items.push({ "@type":"ListItem", "position":3, "name": group });
+  if (school) items.push({ "@type":"ListItem", "position":4, "name": school });
+
+  injectJSONLD({
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement": items
+  }, 'breadcrumbs');
+}
+
+/* Dataset JSON-LD for a ranking table */
+function injectDatasetForYearGroup(year, group) {
+  const isHSC = String(year).includes('hsc');
+  const yr = String(year).replace('hsc_','');
+  const exam = isHSC ? 'HSC' : 'SSC';
+
+  injectJSONLD({
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": `${exam} ${yr} ${group} Result Ranking — Chattogram Board`,
+    "description": `Unofficial ${exam} ${yr} ${group} rankings for Chattogram Board including GPA, totals, school names and positions.`,
+    "creator": { "@type":"Organization", "name":"BoardRankCTG" },
+    "distribution": [
+      { "@type":"DataDownload", "encodingFormat":"text/tab-separated-values", "contentUrl": `${location.origin}${location.pathname.replace(/index\.html?$/,'')}data_${year}_${group.toLowerCase()}.txt` }
+    ],
+    "license": "https://creativecommons.org/licenses/by/4.0/"
+  }, 'dataset');
+}
+
+/* Dataset JSON-LD for a specific school's table */
+function injectDatasetForSchool(year, group, schoolName) {
+  const yr = String(year).replace('hsc_','');
+  const exam = String(year).includes('hsc') ? 'HSC' : 'SSC';
+  injectJSONLD({
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": `${schoolName} — ${exam} ${yr} Ranking (Chattogram Board)`,
+    "description": `Ranking table for ${schoolName} in ${exam} ${yr}, ${group} — GPA, totals and positions.`,
+    "creator": { "@type":"Organization", "name":"BoardRankCTG" }
+  }, 'dataset');
+}
+
+function xorDecrypt(dataBytes, key) {
+  const keyBytes = new TextEncoder().encode(key);
+  return dataBytes.map((b, i) => b ^ keyBytes[i % keyBytes.length]);
+}
+
+async function fetchAndDecode(url, key) {
+  const res = await fetch(url);
+  const encodedText = await res.text();
+  const decodedBase64 = atob(encodedText);
+  const decodedBytes = new Uint8Array(decodedBase64.split("").map(c => c.charCodeAt(0)));
+  const originalBytes = xorDecrypt(decodedBytes, key);
+  return new TextDecoder().decode(originalBytes);
+}
+
+
+function showRankTipsPopup() {
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.innerHTML = `
+        <div class="popup-content" style="max-width: 550px; padding: 20px;">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2 style="margin-top:0; text-align:center;">🚀 Explore All Features!</h2>
+            <p style="text-align:center; font-size:1rem; color:#666;">Don’t miss out — here’s how to fully use this ranking page:</p>
+            <div style="margin-top:15px; display:flex; flex-direction:column; gap:12px;">
+                
+                <div style="background:#e3f2fd; padding:10px; border-left:5px solid #2196f3;">
+                    <b>👤 Click on a <span style="color:#2196f3;">student's name</span></b>  
+                    to open a <b>detailed result</b> with subject-wise marks, GPA, and rank.
+                </div>
+
+                <div style="background:#fff3e0; padding:10px; border-left:5px solid #ff9800;">
+                    <b>🏫 Click on a <span style="color:#e65100;">school name</span></b>  
+                    to filter and see <b>only that school's students</b>.
+                </div>
+
+                <div style="background:#e8f5e9; padding:10px; border-left:5px solid #4caf50;">
+                    <b>⚖ Compare 2 students</b> — in a student’s detailed view, press  
+                    <span style="color:#388e3c;">"Compare with Other Student"</span> to see marks side-by-side.
+                </div>
+
+                <div style="background:#f3e5f5; padding:10px; border-left:5px solid #9c27b0;">
+                    <b>🔍 Search instantly</b> by <b>name</b>, <b>roll</b>, or <b>school</b> using the boxes at the top.
+                </div>
+
+                <div style="background:#fce4ec; padding:10px; border-left:5px solid #e91e63;">
+                    <b>🏆 View Top Schools</b> — click the <b>🏆 Top Schools</b> button to see the best-performing institutions.
+                </div>
+
+                <div style="background:#eeeeee; padding:10px; border-left:5px solid #616161;">
+                    <b>🌙 Dark Mode</b> — toggle from the menu for a sleek dark theme.
+                </div>
+            </div>
+            <p style="margin-top:18px; font-size:0.9rem; color:#555; text-align:center;">
+                💡 Tip: You can switch between years, exams, and groups anytime using the dropdown above.
+            </p>
+            <button class="back-button" style="display:block; margin:15px auto 0 auto;" onclick="closePopup()">Got it!</button>
+        </div>
+    `;
+    document.body.appendChild(popup);
+    document.body.classList.add('locked');
+    
+}
+document.getElementById('helpBtn').addEventListener('click', showRankTipsPopup);
+
+function loadYear(year) {
+    if (year) {
+        document.getElementById("selectPrompt").style.display = "none";
+
+        document.querySelectorAll('.featured-box').forEach(b => b.remove());
+
+
+        const newUrl = `${location.pathname}?year=${year}`;
+        history.pushState({}, '', newUrl);
+    
+        currentYear.textContent = ` ${year}`;
+        currentGroup.style.display = 'none';
+        noDataMessage.style.display = 'none';
+        contentDiv.innerHTML = `
+            <p>Select your group:</p>
+            <div class="group-buttons">
+                <button onclick="loadGroup('${year}', 'Science')">
+                    <img src="sci.png" alt="Science Icon">Science
+                </button>
+                <button onclick="loadGroup('${year}', 'Commerce')">
+                    <img src="com.png" alt="Commerce Icon">Business
+                </button>
+                <button onclick="loadGroup('${year}', 'Arts')">
+                    <img src="hum.png" alt="Arts Icon">Humanities
+                </button>
+            </div>
+        `;
+    } else {
+        contentDiv.innerHTML = '';
+    }
+}
+
+
+function loadGroup(year, group) {
+    currentGroup.style.display = 'inline';
+    currentGroup.textContent = `${group} Group`;
+    // 🔹 Dynamically update page title for SEO
+let examType = year.includes('hsc') ? 'HSC' : 'SSC';
+let formattedYear = year.replace('hsc_', '');
+document.title = `BOARD RANK OF ${examType} ${formattedYear} of ${group}`;
+updateSEOForYearGroup(year, group);
+injectDatasetForYearGroup(year, group);
+injectBreadcrumbs(`${location.origin}${location.pathname}`, year, group, null);
+
+
+    yearDropdown.style.display = 'none';
+    contentDiv.innerHTML = `
+    
+        <h3 id="examResultHeader"></h3> 
+        <div class="search-container">
+            <label for="searchInput">Search by Name:</label>
+            <input type="text" id="searchInput" class="search-input" placeholder="Enter name" oninput="debounce(handleSearchInput, 300)()">
+        </div>
+        <div class="search-container">
+            <label for="searchRollInput">Search by Roll:</label>
+            <input type="text" id="searchRollInput" class="search-input" placeholder="Enter roll" oninput="debounce(handleRollSearchInput, 300)()">
+        </div>
+        <div class="search-container">
+            <label for="InstituationDropdown">Select Instituation:</label>
+            <select id="InstituationDropdown" onchange="filterByInstituation()"></select>
+        </div>
+        
+      <button id="resetFilterBtn" style="display: none;" onclick="resetFilter()">Reset Filter</button>
+<div class="loading-spinner" id="loadingSpinner" style="display: none;"></div>
+<p id="tableHint" style="margin-top: 20px; font-weight: bold;">
+    💡 Click on student names to see detailed result and on school names to see school BASED RANK
+</p>
+<table>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Serial</th>
+                    <th>Name</th>
+                    <th>Roll</th>
+                    <th>GPA</th>
+                    <th>Total</th>
+                    <th>Institution</th>
+                </tr>
+            </thead>
+            <tbody id="studentTableBody"></tbody>
+        </table>
+        <div class="pagination">
+            <button id="firstBtn" onclick="handleFirstButtonClick()">First</button>
+            <button id="prevBtn" onclick="handlePrevButtonClick()">Previous</button>
+            <span id="paginationInfo">Loading data...</span>
+            <button id="nextBtn" onclick="handleNextButtonClick()">Next</button>
+            <button id="lastBtn" onclick="handleLastButtonClick()">Last</button>
+        </div>
+    `;
+    const newUrl = `${location.pathname}?year=${year}&group=${group}`;
+    history.pushState({}, '', newUrl);
+
+    printExamResultHeader(year); 
+    fetchData(year, group);
+    setTimeout(attachSearchSuggestions, 0);
+
+}
+
+function printExamResultHeader(year) {
+    const headerElement = document.getElementById('examResultHeader');
+    if (headerElement) {
+        let examType = year.includes('hsc') ? 'HSC' : 'SSC';
+        let formattedYear = year.replace('hsc_', '');
+        headerElement.textContent = `${examType.toUpperCase()} ${formattedYear} Result`;
+    }
+}
+
+let allData = [];
+let filteredData = [];
+const studentsPerPage = 500;
+let currentPage = 1;
+const InstituationSet = new Set();
+window.InstituationSet = InstituationSet;
+
+
+function fetchData(year, group) {
+    showLoadingIndicator();
+
+    const mainDataUrl = `data_${year}_${group.toLowerCase()}.txt`;
+    const individualDataUrl = `data_${year}_${group.toLowerCase()}_individual.txt`;
+
+    // ✅ 1. Try to load from localStorage instantly
+    const cacheKey = `rankData_${year}_${group}`;
+    const cached = localStorage.getItem(cacheKey);
+    if (cached) {
+        try {
+            const { mainData, individualData } = JSON.parse(cached);
+            processData(mainData, individualData || null);
+            populateInstituationDropdown();
+            updateTableData();
+            hideLoadingIndicator();
+        } catch (err) {
+            console.warn('Cache parse failed', err);
+        }
+    }
+
+    // ✅ 2. Fetch fresh data in background and update cache
+    fetch(mainDataUrl)
+    .then(res => {
+        const reader = res.body.getReader();
+        const contentLength = +res.headers.get('Content-Length') || 0;
+        let loaded = 0;
+        return new Response(new ReadableStream({
+            start(controller) {
+                function push() {
+                    reader.read().then(({ done, value }) => {
+                        if (done) {
+                            controller.close();
+                            return;
+                        }
+                        loaded += value.length;
+                        step(loaded, contentLength);
+                        controller.enqueue(value);
+                        push();
+                    });
+                }
+                push();
+            }
+        })).text();
+    })
+
+}
+
+
+
+
+let visitorInfoCompleted = localStorage.getItem('visitorInfoGiven') === '1';
+
+function getDeviceDataAndFingerprint() {
+  const ua = navigator.userAgent || '';
+  const platform = navigator.platform || '';
+  const screenRes = `${screen.width}x${screen.height}`;
+  const deviceMemory = navigator.deviceMemory || null;
+  const cores = navigator.hardwareConcurrency || null;
+  const vendor = navigator.vendor || '';
+
+  let deviceModel = 'Unknown device';
+  if (/Android/i.test(ua)) {
+    const match = ua.match(/Android\s+[\d.]+;\s+([^)]+)/i);
+    if (match && match[1]) {
+      deviceModel = match[1].replace(/Build\/.+/, '').trim();
+    }
+  } else if (/iPhone/i.test(ua)) {
+    deviceModel = 'Apple iPhone';
+  } else if (/iPad/i.test(ua)) {
+    deviceModel = 'Apple iPad';
+  } else if (/Macintosh/i.test(ua)) {
+    deviceModel = 'Apple Mac';
+  } else if (/Windows/i.test(ua)) {
+    deviceModel = 'Windows PC';
+  } else if (/Linux/i.test(ua)) {
+    deviceModel = 'Linux Device';
+  }
+
+  const deviceData = {
+    ua,
+    platform,
+    screen: screenRes,
+    deviceMemory,
+    cores,
+    vendor,
+    deviceModel
+  };
+
+  const seed = `${ua}|${platform}|${screenRes}|${deviceMemory}|${cores}|${vendor}`;
+  let h = 5381;
+  for (let i = 0; i < seed.length; i++) {
+    h = ((h << 5) + h) + seed.charCodeAt(i);
+    h = h & 0xffffffff;
+  }
+  const fingerprint = (h >>> 0).toString(16);
+
+  return { deviceData, fingerprint };
+}
+
+async function showIndividualResultWithCheck(roll, year, group) {
+  
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.has('roll') && params.get('roll') == roll) {
+    return showIndividualResult(roll, year, group);
+    
+  }
+let clickCount = parseInt(localStorage.getItem('detailedResultClickCount') || '0', 10);
+clickCount++;
+localStorage.setItem('detailedResultClickCount', clickCount);
+
+if (clickCount <= 2) { 
+  return showIndividualResult(roll, year, group);
+}
+
+  const { deviceData, fingerprint } = getDeviceDataAndFingerprint();
+
+  if (localStorage.getItem('visitorInfoGiven') === '1' &&
+      localStorage.getItem('visitorFingerprint') === fingerprint) {
+    visitorInfoCompleted = true;
+    return showIndividualResult(roll, year, group);
+    
+  }
+
+  try {
+    const dbLib = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
+    const { getDatabase, ref, get, query, orderByChild, equalTo } = dbLib;
+    const dbv = getDatabase();
+    const q = query(ref(dbv, 'visitors'), orderByChild('fingerprint'), equalTo(fingerprint));
+    const snap = await get(q);
+    if (snap && snap.exists()) {
+      localStorage.setItem('visitorInfoGiven', '1');
+      localStorage.setItem('visitorFingerprint', fingerprint);
+      visitorInfoCompleted = true;
+      return showIndividualResult(roll, year, group);
+    }
+  } catch (err) {
+    // If the query fails (offline or permission), just continue to show the form.
+    console.warn('Fingerprint check failed (ignoring):', err);
+  }
+
+  // Show improved visitor form popup
+  if (document.querySelector('.popup')) return; // avoid duplicates
+  const popup = document.createElement('div');
+  popup.classList.add('popup');
+  popup.innerHTML = `
+  <div class="popup-content">
+<div class="popup-header" style="
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+">
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <img src="https://img.icons8.com/color/48/verified-badge.png" alt="Icon" style="width: 28px; height: 28px;">
+    <span>Quick Verification</span>
+  </div>
+  <button class="close-btn" onclick="visitorInfoDenied()" style="
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+  ">&times;</button>
+</div>
+
+    <div class="popup-body">
+      <p style="color:#555;">Please tell us a bit about yourself so we can improve our service. We store basic device info so you won't see this again on the same device.</p>
+      
+      <label>Name</label>
+      <input id="visitorName" type="text" placeholder="Your name" />
+
+      <label>Institution (school / college)</label>
+      <input id="visitorInstitution" type="text" placeholder="Institution name" />
+
+      <label>Type</label>
+      <select id="visitorType">
+        <option value="">Select ...</option>
+        <option>SSC</option>
+        <option>HSC</option>
+        <option>Others</option>
+      </select>
+
+      <label>How did you find us?</label>
+      <select id="visitorSource">
+        <option value="">Select ...</option>
+        <option>WhatsApp group</option>
+        <option>Facebook group</option>
+        <option>Friend / Classmate</option>
+        <option>Facebook post</option>
+        <option>Instagram</option>
+        <option>YouTube</option>
+        <option>Google Search</option>
+        <option>School notice board</option>
+        <option>Teacher</option>
+        <option>Relatives</option>
+        <option>Other social media</option>
+        <option>Others</option>
+      </select>
+
+      <label>Experience so far</label>
+      <select id="visitorExperience">
+        <option value="">Select ...</option>
+        <option value="worst">😖 Worst</option>
+        <option value="bad">😞 Bad</option>
+        <option value="average">😐 Average</option>
+        <option value="good">🙂 Good</option>
+        <option value="best">🤩 Best</option>
+      </select>
+
+
+      <label>Leave a Message (optional)</label>
+<textarea id="visitorMessage" placeholder="Write something..." style="min-height:60px;"></textarea>
+
+    </div>
+    <div class="popup-footer">
+      <button class="secondary-btn" onclick="visitorInfoDenied()">Cancel</button>
+
+      <button id="submitVisitorInfo" class="primary-btn">Submit</button>
+    </div>
+  </div>
+`;
+
+  document.body.appendChild(popup);
+  document.body.classList.add('locked');
+  function looksFakeName(name) {
+    if (!name) return true;
+    const cleaned = name.trim();
+
+    if (cleaned.length < 3 || cleaned.length > 40) return true;
+
+    if (!/^[a-zA-Z\s]+$/.test(cleaned)) return true;
+
+    const vowelCount = (cleaned.match(/[aeiouAEIOU]/g) || []).length;
+    if (vowelCount < 2) return true;
+
+    if (/(.)\1{3,}/.test(cleaned)) return true;
+
+    return false;
+}
+
+  document.getElementById('submitVisitorInfo').addEventListener('click', async () => {
+    const name = document.getElementById('visitorName').value.trim();
+    const institution = document.getElementById('visitorInstitution').value.trim();
+    const type = document.getElementById('visitorType').value;
+    const source = document.getElementById('visitorSource').value;
+    const experience = document.getElementById('visitorExperience').value;
+    const messageVal = document.getElementById('visitorMessage').value.trim(); 
+    if (experience === "worst" || experience === "bad") {
+      const body = popup.querySelector('.popup-body');
+      const footer = popup.querySelector('.popup-footer');
+      if (footer) footer.style.display = 'none';
+  
+      body.innerHTML = `
+          <div style="text-align:center; padding:20px;">
+              <div class="access-status">
+                  <div class="circle" style="
+                      border: 4px solid #ccc;
+                      border-top: 4px solid #1976d2;
+                      border-radius: 50%;
+                      width: 40px;
+                      height: 40px;
+                      margin: auto;
+                      animation: spin 1s linear infinite;
+                  "></div>
+                  <div style="margin-top: 10px; font-size: 0.95rem;">Checking your feedback…</div>
+              </div>
+          </div>
+          <style>
+              @keyframes spin { to { transform: rotate(360deg); } }
+          </style>
+      `;
+  
+      setTimeout(() => {
+          body.innerHTML = `
+              <div style="text-align:center; padding:20px;">
+                  <h3 style="color:#b91c1c;">🚫 Access Not Granted</h3>
+                  <p style="margin:10px 0; font-size:0.95rem;">
+                      Looks like this feature isn’t available with that feedback.  
+                      Maybe try again later.
+                  </p>
+                  <p style="color:#666; font-size:0.85rem;">
+                      We’re always working to improve — your opinion is noted.
+                  </p>
+                  <button onclick="visitorInfoDenied()" class="secondary-btn" style="margin-top:15px;">
+                      Close
+                  </button>
+              </div>
+          `;
+      }, 1500);
+  
+      return;
+  }
+  if (looksFakeName(name)) {
+    const body = popup.querySelector('.popup-body');
+    const footer = popup.querySelector('.popup-footer');
+    if (footer) footer.style.display = 'none';
+
+    body.innerHTML = `
+        <div style="text-align:center; padding:20px;">
+            <div class="circle" style="
+                border: 4px solid #ccc;
+                border-top: 4px solid #1976d2;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                margin: auto;
+                animation: spin 1s linear infinite;
+            "></div>
+            <div style="margin-top: 10px; font-size: 0.95rem;">Verifying name…</div>
+        </div>
+        <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+    `;
+
+    setTimeout(() => {
+        body.innerHTML = `
+            <div style="text-align:center; padding:20px;">
+                <h3 style="color:#b91c1c;">🚫 Access Not Granted</h3>
+                <p style="margin:10px 0; font-size:0.95rem;">
+                    The name provided doesn’t seem valid.  
+                    Please use your real name to continue.
+                </p>
+                <button onclick="visitorInfoDenied()" class="secondary-btn" style="margin-top:15px;">
+                    Close
+                </button>
+            </div>
+        `;
+    }, 1500);
+
+    return;
+}
+
+    if (!name || name.length < 4) {
+        alert('Name must contain at least 4 characters.');
+        return;
+    }
+    if (!institution || institution.length < 3) {
+        alert('Institution name must contain at least 3 characters.');
+        return;
+    }
+    if (!type || !source) {
+        alert('Please fill all required fields.');
+        return;
+    }
+
+    const body = popup.querySelector('.popup-body');
+    const footer = popup.querySelector('.popup-footer');
+    const originalFormHTML = body.innerHTML;
+    if (footer) footer.style.display = 'none';
+
+    body.innerHTML = `
+        <div style="text-align:center; padding:20px;">
+            <h3 style="color:#d97706; margin-bottom:8px;">⚠ Confirm Your Name</h3>
+            <p>Are you sure your name is <b>"${name}"</b>?</p>
+            <p style="font-size:0.9rem; color:#555;">
+                If you use a fake name, this form will appear again every time you visit.
+                Please enter real details to avoid repeated verification.
+            </p>
+            <div style="margin-top:15px; display:flex; justify-content:center; gap:12px;">
+                <button id="confirmNameBtn" class="primary-btn">Confirm</button>
+                <button id="editNameBtn" class="secondary-btn">Edit Name</button>
+            </div>
+        </div>
+    `;
+
+   
+    document.getElementById('confirmNameBtn').addEventListener('click', async () => {
+        localStorage.setItem('visitorInfoGiven', '1');
+        localStorage.setItem('visitorFingerprint', fingerprint);
+        visitorInfoCompleted = true;
+
+        try {
+            const dbLib = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
+            const { getDatabase, ref, push, set } = dbLib;
+            const dbv = getDatabase();
+            const visitorRef = push(ref(dbv, "visitors"));
+            await set(visitorRef, {
+              name,
+              institution,
+              type,
+              source,
+              experience,
+              message: messageVal,
+              fingerprint,
+              deviceData,
+              timestamp: Date.now()
+              
+          });
+          try { window.__HAS9_notify(name); } catch (e) {}
+
+          
+        } catch (err) {
+            console.error('Error saving visitor info:', err);
+        }
+
+        // Spinner → success
+        body.innerHTML = `
+            <div class="access-status">
+                <div class="circle"></div>
+                <div class="status-text">Processing...</div>
+            </div>
+        `;
+        setTimeout(() => {
+            body.innerHTML = `
+                <div class="access-status">
+                    <div class="tick">✅</div>
+                    <div class="status-text" style="color:#16a34a;">Full Access Granted</div>
+                </div>
+            `;
+            setTimeout(() => {
+                closePopup();
+                showIndividualResult(roll, year, group);
+            }, 1500);
+        }, 1000);
+    });
+
+    document.getElementById('editNameBtn').addEventListener('click', () => {
+     
+      body.innerHTML = originalFormHTML;
+      footer.style.display = 'flex';
+  
+
+      document.getElementById('visitorName').value = name;
+      document.getElementById('visitorInstitution').value = institution;
+      document.getElementById('visitorType').value = type;
+      document.getElementById('visitorSource').value = source;
+      document.getElementById('visitorExperience').value = experience;
+  
+
+      document.getElementById('submitVisitorInfo').addEventListener('click', submitHandler);
+  });
+  
+  
+});
+
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const userId = localStorage.getItem("userId");
+  if (userId !== "admin1234") {
+    document.getElementById("visitorsLink")?.remove();
+  }
+  // both Help buttons point to same handler
+  document.getElementById('helpBtnHero')?.addEventListener('click', showRankTipsPopup);
+  initThemeToggle();
+  initNavToggle();
+});
+
+function processData(mainData, individualData) {
+    const rows = mainData.trim().split('\n').slice(1);
+    const individualScores = parseIndividualData(individualData);
+    allData = rows.map(row => {
+        const [serial, name, roll, gpa, total, Instituation] = row.split('\t');
+        const individual = individualScores[roll] || {};
+        InstituationSet.add((Instituation || '').trim());
+        return {
+            serial: parseInt(serial),
+            name,
+            roll: parseInt(roll),
+            gpa: parseFloat(gpa),
+            total: parseInt(total),
+            Instituation: (Instituation || '').trim(),
+            ...individual
+        };
+    });
+    console.log('Processed data:', allData);
+    allData = allData.filter(student => !isNaN(student.gpa) && !isNaN(student.total));
+    allData.sort(compareStudents);
+    console.log('Sorted data:', allData);
+    filteredData = [...allData];
+    updateTableData();
+    try {
+      window.allData = allData;
+      window.filteredData = filteredData;
+      document.dispatchEvent(new CustomEvent('rank:data-ready'));
+    } catch(e){}
+    
+}
+
+function parseIndividualData(data) {
+    if (!data) return {};
+    const rows = data.trim().split('\n');
+    const scores = {};
+    rows.forEach(row => {
+        const [roll, , , , , , phy, chem, math] = row.split('\t');
+        scores[roll] = { phy: parseInt(phy), chem: parseInt(chem), math: parseInt(math) };
+    });
+    console.log('Parsed individual scores:', scores);
+    return scores;
+}
+
+function compareStudents(a, b) {
+    if (a.gpa !== b.gpa) return b.gpa - a.gpa;
+    if (a.total !== b.total) return b.total - a.total;
+    if (a.phy !== b.phy) return b.phy - a.phy;
+    if (a.chem !== b.chem) return b.chem - a.chem;
+    return b.math - a.math;
+}
+
+function makeSchoolNamesClickable() {
+    const schoolNames = document.querySelectorAll('td:nth-child(6)'); 
+    schoolNames.forEach(schoolName => {
+        schoolName.style.cursor = 'pointer';
+        schoolName.style.color = 'blue';
+        schoolName.addEventListener('click', () => showSchoolRanking(schoolName.textContent.trim()));
+    });
+}
+
+
+
+function showSchoolRanking(encodedSchoolName) {
+    scrollToTop();
+    const schoolName = (()=>{ try{return decodeURIComponent(encodedSchoolName);}catch(e){return encodedSchoolName;} })();
+try {
+  const params = new URLSearchParams(window.location.search);
+  const y = params.get('year') || (document.getElementById('currentYear')?.textContent || '').trim();
+  const examType = (y && y.includes('hsc')) ? 'HSC' : 'SSC';
+  const formattedYear = (y || '').replace('hsc_', '');
+  document.title = `${schoolName} | ${formattedYear} ${examType}`;
+const yr = params.get('year'); 
+const grp = params.get('group');
+updateSEOForSchool(yr, grp, schoolName);
+injectDatasetForSchool(yr, grp, schoolName);
+injectBreadcrumbs(`${location.origin}${location.pathname}`, yr, grp, schoolName);
+
+} catch (e) { /* no-op */ }
+
+try {
+  const params = new URLSearchParams(window.location.search);
+  params.set('school', schoolName);
+  history.pushState({}, '', `${location.pathname}?${params.toString()}`);
+} catch (e) {
+  console.error('Error updating URL for school:', e);
+}
+
+const schoolData = allData.filter(student => (student.Instituation || '').trim().toLowerCase() === schoolName.trim().toLowerCase());
+schoolData.sort(compareStudents);
+
+    if (schoolData.length === 0) {
+        contentDiv.innerHTML = `<h2>No data found for "${schoolName}"</h2>`;
+    } else {
+        contentDiv.innerHTML = `
+            <h2>Showing rank of "${schoolName}"</h2>
+            <button onclick="resetSchoolRanking()">Back</button>
+                <button onclick="openEntityPage('school', '${currentYear.textContent.trim()}', '${currentGroup.textContent.split(' ')[0]}', '${schoolName.replace(/'/g,"\\'")}')">Open as Page</button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serial</th>
+                        <th>Name</th>
+                        <th>Roll</th>
+                        <th>GPA</th>
+                        <th>Total</th>
+                        <th>Institution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${schoolData.map((student, index) => `
+                        <tr>
+                            <td>${index + 1}</td>
+                           <td class="student-name" onclick="
+  (function(){
+    if (window.incrementClickCount) incrementClickCount(${student.roll});
+    showIndividualResultWithCheck(${student.roll}, '${currentYear.textContent.split(' ')[1]}', '${currentGroup.textContent.split(' ')[0]}');
+  })()
+">${student.name}</td>
+
+<td class="student-roll" onclick="
+  (function(){
+    if (window.incrementClickCount) incrementClickCount(${student.roll});
+    showIndividualResultWithCheck(${student.roll}, '${currentYear.textContent.split(' ')[1]}', '${currentGroup.textContent.split(' ')[0]}');
+  })()
+">${student.roll}</td>
+
+                            <td>${student.gpa}</td>
+                            <td>${student.total}</td>
+                            <td class="student-school">${student.Instituation}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        `;
+    }
+}
+
+function resetSchoolRanking() {
+   
+    loadGroup(currentYear.textContent.trim(), currentGroup.textContent.split(' ')[0]);
+}
+
+
+function updateTableData() {
+  try { window.filteredData = filteredData; } catch(e){}
+
+    const startIndex = (currentPage - 1) * studentsPerPage;
+    const endIndex = Math.min(startIndex + studentsPerPage, filteredData.length);
+    const dataToShow = filteredData.slice(startIndex, endIndex);
+    const tableBody = document.getElementById('studentTableBody');
+    tableBody.innerHTML = '';
+    dataToShow.forEach((student, index) => {
+        const row = document.createElement('tr');
+        
+// inside updateTableData(), for each student (replace the old row.innerHTML / listeners)
+const nameId = `name-${student.roll}`;
+const isAdmin = (localStorage.getItem('userId') === 'admin1234'); // matches your existing check
+
+row.innerHTML = `
+  <td>${allData.findIndex(s => s.roll === student.roll) + 1}</td>
+
+  <td class="student-name" id="${nameId}">
+    <h3 itemprop="name">${student.name}</h3>
+    ${isAdmin ? `<span>[${(window.clickCountsCache && window.clickCountsCache[student.roll]) || 0}]</span>` : ''}
+  </td>
+
+  <td class="student-roll">${student.roll}</td>
+  <td>${student.gpa}</td>
+  <td>${student.total}</td>
+
+  <td class="student-school">
+    <h4 itemprop="affiliation">${student.Instituation}</h4>
+  </td>
+`;
+
+
+// name click -> increment counter (if helper available) then open popup (with existing check)
+const nameCell = row.querySelector('.student-name');
+nameCell.addEventListener('click', () => {
+  if (typeof window.incrementClickCount === 'function') {
+    try { window.incrementClickCount(student.roll); } catch(e){ console.error(e); }
+  }
+  showIndividualResultWithCheck(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
+});
+
+// roll cell should behave same as before
+row.querySelector('.student-roll').addEventListener('click', () => {
+  if (typeof window.incrementClickCount === 'function') {
+    try { window.incrementClickCount(student.roll); } catch(e){ console.error(e); }
+  }
+  showIndividualResultWithCheck(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
+});
+
+// update school click as before
+row.querySelector('.student-school').addEventListener('click', () => {
+  showSchoolRanking(student.Instituation.trim());
+});
+
+// if admin, attach a real-time listener once so the [count] updates live
+if (isAdmin && typeof window.listenClickCount === 'function' && !window._br_clickListenerSet.has(student.roll)) {
+  window._br_clickListenerSet.add(student.roll);
+  window.listenClickCount(student.roll, (val) => {
+    const el = document.getElementById(nameId);
+    if (el) el.textContent = `${student.name} [${val}]`;
+  });
+}
+
+
+        tableBody.appendChild(row);
+    });
+
+    document.getElementById('paginationInfo').textContent = `Showing ${startIndex + 1}-${endIndex} of ${filteredData.length} students`;
+    updatePaginationButtons();
+}
+
+
+function filterByInstituation(InstituationName = null, fromTable = false) {
+    const InstituationDropdown = document.getElementById('InstituationDropdown');
+    if (fromTable) {
+        InstituationDropdown.value = InstituationName;
+        const event = new Event('change');
+        InstituationDropdown.dispatchEvent(event);
+    } else {
+        InstituationName = InstituationDropdown.value;
+    }
+
+    if (InstituationName) {
+      filteredData = allData.filter(student => (student.Instituation || '').trim().toLowerCase() === (InstituationName || '').trim().toLowerCase());
+      document.getElementById('resetFilterBtn').style.display = 'block';
+    } else {
+        resetFilter();
+    }
+    currentPage = 1;
+    updatePage();
+}
+
+function resetFilter() {
+    filteredData = [...allData];
+    currentPage = 1;
+    document.getElementById('resetFilterBtn').style.display = 'none';
+    updatePage();
+}
+
+function updatePage() {
+    updateTableData();
+    updatePaginationButtons();
+}
+
+function handlePrevButtonClick() {
+    if (currentPage > 1) {
+        currentPage--;
+        updatePage();
+    }
+}
+function handleFirstButtonClick() {
+    if (currentPage > 1) {
+        currentPage = 1;
+        updatePage();
+    }
+}
+function handleLastButtonClick() {
+    const maxPage = Math.ceil(filteredData.length / studentsPerPage);
+    if (currentPage < maxPage) {
+        currentPage = maxPage;
+        updatePage();
+    }
+}
+
+
+function handleNextButtonClick() {
+    const maxPage = Math.ceil(filteredData.length / studentsPerPage);
+    if (currentPage < maxPage) {
+        currentPage++;
+        updatePage();
+    }
+}
+
+function updatePaginationButtons() {
+    document.getElementById('prevBtn').disabled = currentPage === 1;
+    document.getElementById('nextBtn').disabled = currentPage === Math.ceil(filteredData.length / studentsPerPage) || filteredData.length === 0;
+}
+
+function handleSearchInput() {
+    const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+    filteredData = allData.filter(student => student.name.toLowerCase().includes(searchTerm));
+    currentPage = 1;
+    updatePage();
+}
+
+function handleRollSearchInput() {
+    const rollSearchTerm = document.getElementById('searchRollInput').value.trim();
+    filteredData = allData.filter(student => student.roll.toString().includes(rollSearchTerm));
+    currentPage = 1;
+    updatePage();
+}
+
+function debounce(func, delay) {
+    let debounceTimer;
+    return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => func.apply(context, args), delay);
+    };
+}
+
+function populateInstituationDropdown() {
+    const InstituationDropdown = document.getElementById('InstituationDropdown');
+    InstituationDropdown.innerHTML = '<option value="">Select Instituation</option>';
+    InstituationSet.forEach(Instituation => {
+        const option = document.createElement('option');
+        option.value = Instituation;
+        option.textContent = Instituation;
+        InstituationDropdown.appendChild(option);
+    });
+}
+
+
+(function(){
+  const STYLE_ID = 'br-loader-styles';
+  function ensureLoaderStyles() {
+    if (document.getElementById(STYLE_ID)) return;
+    const s = document.createElement('style');
+    s.id = STYLE_ID;
+    s.textContent = `
+#dataLoaderOverlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 10050;
+  display: flex; align-items: center; justify-content: center;
+}
+#dataLoaderOverlay .loader-box {
+  background: #fff;
+  padding: 20px 28px;
+  border-radius: 12px;
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+#dataLoaderOverlay .rings {
+  width: 96px; height: 96px; margin: 0 auto; position: relative;
+}
+#dataLoaderOverlay .ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 6px solid transparent;
+  border-top-color: #1976d2;
+  animation: spin 1s linear infinite;
+}
+#dataLoaderOverlay .ring.r2 {
+  width: 64px; height: 64px;
+  top: 16px; left: 16px;
+  border-top-color: #ff8f00;
+  animation-duration: 1.4s;
+}
+#dataLoaderOverlay .ring.r3 {
+  width: 40px; height: 40px;
+  top: 28px; left: 28px;
+  border-top-color: #6a1b9a;
+  animation-duration: 1.85s;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#dataLoaderOverlay .percent {
+  font-size: 22px; font-weight: bold; margin-top: 8px;
+}
+#dataLoaderOverlay .subtext {
+  font-size: 13px; color: #555; margin-top: 4px;
+}
+#dataLoaderOverlay button {
+  margin-top: 12px; padding: 6px 14px;
+  border-radius: 6px; background: #1976d2; color: #fff;
+  border: none; cursor: pointer;
+}
+    `;
+    document.head.appendChild(s);
+  }
+
+  window.showLoadingIndicator = function() {
+    if (document.getElementById('dataLoaderOverlay')) return;
+    ensureLoaderStyles();
+  
+    const overlay = document.createElement('div');
+    overlay.id = 'dataLoaderOverlay';
+    overlay.innerHTML = `
+      <div class="loader-box">
+        <div class="rings">
+          <div class="ring r1" style="width:96px;height:96px;"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+        </div>
+        <div id="brLoaderPercent" class="percent">1%</div>
+        <div id="brLoaderSub" class="subtext">Preparing files…</div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+  
+    const percentEl = document.getElementById('brLoaderPercent');
+    const subEl = document.getElementById('brLoaderSub');
+  
+    // Super-fast fake progress to 99%
+    window.__br_fakeP = 1;
+    clearInterval(window.__br_fakeTimer);
+    window.__br_fakeTimer = setInterval(() => {
+      if (!document.getElementById('dataLoaderOverlay')) { clearInterval(window.__br_fakeTimer); return; }
+      if (window.__br_fakeP < 99) {
+        window.__br_fakeP += 1;
+        percentEl.textContent = window.__br_fakeP + '%';
+        if (window.__br_fakeP < 20) subEl.textContent = 'Connecting to server…';
+        else if (window.__br_fakeP < 50) subEl.textContent = 'Downloading result files…';
+        else if (window.__br_fakeP < 80) subEl.textContent = 'Processing student data…';
+        else subEl.textContent = 'Almost done…';
+      } else {
+        clearInterval(window.__br_fakeTimer);
+      }
+    }, 8); // 0→99 in ~0.8s
+  
+    // Optional: keep streaming updates only for the subtitle (safeguard for code that calls step)
+    window.step = function(loaded, total) {
+      if (!document.getElementById('dataLoaderOverlay')) return;
+      if (!total || !loaded) return;
+      const ratio = loaded / total;
+      if (ratio < 0.2) subEl.textContent = 'Connecting to server…';
+      else if (ratio < 0.5) subEl.textContent = 'Downloading result files…';
+      else if (ratio < 0.8) subEl.textContent = 'Processing student data…';
+      else subEl.textContent = 'Almost done…';
+      // We intentionally do NOT bump percent here. It stays racing to 99% via the timer.
+    };
+  };
+
+  window.hideLoadingIndicator = function(opts = {}) {
+    const overlay = document.getElementById('dataLoaderOverlay');
+    if (!overlay) return;
+  
+    const percentEl = document.getElementById('brLoaderPercent');
+    const subEl = document.getElementById('brLoaderSub');
+  
+    clearInterval(window.__br_fakeTimer);
+  
+    const noData = opts.forceError === true ||
+                   (typeof filteredData !== 'undefined' && Array.isArray(filteredData) && filteredData.length === 0);
+  
+    if (noData) {
+      overlay.querySelector('.loader-box').innerHTML = `
+        <h2 style="color:#fca5a5; margin:6px 0;">❗ Data NOT FOUND</h2>
+        <p style="color:#e5e7eb; margin-bottom: 10px;">
+          ${opts.errorMessage || 'This selected results are not yet available.'}
+        </p>
+        <button onclick="window.location.href='index.html'">Go Back</button>
+      `;
+      return; // keep overlay to show the error UI
+    }
+  
+    if (percentEl) percentEl.textContent = '100%';
+    if (subEl) subEl.textContent = 'Done';
+  
+    // Remove immediately; no artificial delay
+    requestAnimationFrame(() => overlay.remove());
+  };
+  
+})();
+
+
+function getProgressBarHtml(score, totalMark) {
+  const percentage = (parseFloat(score) / totalMark) * 100;
+  const barId = `pb_${Math.random().toString(36).substr(2, 9)}`;
+  const numId = `num_${Math.random().toString(36).substr(2, 9)}`;
+
+  setTimeout(() => {
+      animateProgressBar(barId, percentage);
+      animateNumber(numId, score); 
+  }, 100);
+
+  return `
+      <span id="${numId}">0</span>
+      <div class="progress-bar-container">
+          <div id="${barId}" class="progress-bar">0%</div>
+      </div>
+  `;
+}
+
+
+function animateProgressBar(id, targetPercentage) {
+    const bar = document.getElementById(id);
+    let current = 0;
+
+    function update() {
+        current += 1;
+        if (current > targetPercentage) current = targetPercentage;
+
+        let color = 'red';
+        let additionalClass = '';
+        if (current >= 95) {
+            color = 'indigo';
+        } else if (current >= 90) {
+            color = 'blue';
+        } else if (current >= 80) {
+            color = 'green';
+        } else if (current >= 70) {
+            color = 'yellow';
+            additionalClass = 'yellow';
+        } else if (current >= 34) {
+            color = 'orange';
+        }
+
+        bar.style.width = `${current}%`;
+        bar.style.backgroundColor = color;
+        bar.textContent = `${current.toFixed(0)}%`;
+
+        if (current < targetPercentage) {
+            requestAnimationFrame(update);
+        } else {
+            bar.style.width = `${targetPercentage}%`;
+            bar.textContent = `${targetPercentage.toFixed(2)}%`;
+        }
+    }
+
+    update();
+}
+
+function animateNumber(elementId, targetNumber) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  let current = 0;
+  const duration = 1000; // ms, match your progress bar animation speed
+  const stepTime = Math.max(Math.floor(duration / targetNumber), 10);
+
+  const timer = setInterval(() => {
+      current += 1;
+      if (current >= targetNumber) {
+          current = targetNumber;
+          clearInterval(timer);
+      }
+      el.textContent = current;
+  }, stepTime);
+}
+
+function showIndividualResult(roll, year, group) {
+    if (document.querySelector('.popup')) return; // Prevent multiple popups
+
+    const fileName = `data_${year}_${group.toLowerCase()}_individual.txt`;
+    const isHSC = fileName.includes("hsc");
+    const newUrl = `${location.pathname}?year=${year}&group=${group}&roll=${roll}`;
+    history.pushState({}, '', newUrl);
+
+    fetch(fileName)
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.trim().split('\n');
+            const individualData = rows.find(row => row.split('\t')[0].replace(/^0+/, '') === roll.toString().replace(/^0+/, ''));
+
+
+            let popupContent;
+            if (individualData) {
+                const parts = individualData.split('\t');
+                let subject1Name, subject2Name, subject3Name;
+
+                if (group === 'Commerce') {
+                    subject1Name = 'Science';
+                    subject2Name = 'Accounting';
+                    subject3Name = 'Finance';
+                } else if (group === 'Arts') {
+                    subject1Name = 'Science';
+                    subject2Name = 'Geography';
+                    subject3Name = 'Civics';
+                } else {
+                    subject1Name = 'BGS';
+                    subject2Name = 'Physics';
+                    subject3Name = 'Chemistry';
+                }
+
+                if (isHSC) {
+                    if (parts.length < 8) {
+                        popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
+                    } else {
+                        const [roll, bangla, english, ICT, physics, chemistry, compulsory, optional] = parts;
+                        const student = allData.find(student => student.roll === parseInt(roll));
+                        try { updateSEOForStudent(year, group, student.name, roll); } catch(e) {}
+              
+                        const combinedRank = allData.findIndex(student => student.roll === parseInt(roll)) + 1;
+try {
+  const examType = (year && year.includes('hsc')) ? 'HSC' : 'SSC';
+  const formattedYear = (year || '').replace('hsc_', '');
+  document.title = `${student.name} | ${formattedYear} ${examType}`;
+} catch (e) { /* no-op */ }
+
+                        popupContent = `
+                            <div class="popup-content">
+                                <span class="close-btn" onclick="closePopup()">&times;</span>
+                                <p>Name: ${student.name}</p>
+                                <p>Institution: ${student.Instituation}</p>
+                                <p>Roll: ${roll}</p>
+                                <p>GPA: ${student.gpa}</p>
+                                <p>Board Rank: ${combinedRank}</p>
+<p>Total Marks: ${student.total}</p>
+
+<p>Bangla: ${getProgressBarHtml(bangla, 200)}</p>
+<p>English: ${getProgressBarHtml(english, 200)}</p>
+<p>ICT: ${getProgressBarHtml(ICT, 100)}</p>
+<p>Physics: ${getProgressBarHtml(physics, 200)}</p>
+<p>Chemistry: ${getProgressBarHtml(chemistry, 200)}</p>
+<p>Compulsory: ${getProgressBarHtml(compulsory, 200)}</p>
+<p>Optional: ${getProgressBarHtml(optional, 200)}</p>
+
+                                <button onclick='promptComparison(${student.roll}, "${year}", "${group}")'>Compare with Other Student</button>
+
+                                <button onclick="showSSCResultFromHSC('${student.name}', '${group.toLowerCase()}')">Watch SSC Result</button>
+     <button onclick="openEntityPage('student', '${year}', '${group}', '${roll}')">Open as Page</button>
+
+<div class="popup-footer">
+  <button onclick="copyFullResult(this)" class="icon-btn footer-btn" title="Copy Result">
+    <i class="fas fa-copy"></i>
+  </button>
+  <button onclick="closePopup()" class="icon-btn footer-btn" title="Close">
+    <i class="fas fa-times"></i>
+  </button>
+  <button onclick="copyStudentResultLink(this)" class="icon-btn footer-btn" title="Copy Link">
+    <i class="fas fa-link"></i>
+  </button>
+   <button onclick="downloadStudentPDF(this)" class="icon-btn footer-btn" title="Download PDF">
+  <i class="fas fa-file-pdf"></i>
+</button>
+          
+</div>
+
+                        `;
+                    }
+                } else {
+                    if (parts.length < 13) {
+                        popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
+                    } else {
+                        const [roll, bangla, english, math, bgs, religion, physics, chemistry, Compulsory, ICT, Optional, Physical, Career] = parts;
+                        const student = allData.find(student => student.roll === parseInt(roll));
+                        try { updateSEOForStudent(year, group, student.name, roll); } catch(e) {}
+                        const combinedRank = allData.findIndex(student => student.roll === parseInt(roll)) + 1;
+try {
+  const examType = (year && year.includes('hsc')) ? 'HSC' : 'SSC';
+  const formattedYear = (year || '').replace('hsc_', '');
+  document.title = `${student.name} | ${formattedYear} ${examType}`;
+} catch (e) { /* no-op */ }
+
+                        popupContent = `
+                            <div class="popup-content">
+                                <span class="close-btn" onclick="closePopup()">&times;</span>
+                                <p>Name: ${student.name}</p>
+                                <p>Institution: ${student.Instituation}</p>
+                                <p>Roll: ${roll}</p>
+                                <p>GPA: ${student.gpa}</p>
+                                <p>Board Rank: ${combinedRank}</p>
+<p>Total Marks: ${student.total}</p>
+
+                                <p>Bangla: ${getProgressBarHtml(bangla, 200)}</p>
+<p>English: ${getProgressBarHtml(english, 200)}</p>
+<p>Mathematics: ${getProgressBarHtml(math, 100)}</p>
+<p>${subject1Name}: ${getProgressBarHtml(bgs, 100)}</p>
+<p>Religion: ${getProgressBarHtml(religion, 100)}</p>
+<p>${subject2Name}: ${getProgressBarHtml(physics, 100)}</p>
+<p>${subject3Name}: ${getProgressBarHtml(chemistry, 100)}</p>
+<p>Compulsory: ${getProgressBarHtml(Compulsory, 100)}</p>
+<p>ICT: ${getProgressBarHtml(ICT, 50)}</p>
+<p>Optional: ${getProgressBarHtml(Optional, 100)}</p>
+<p>Physical: ${getProgressBarHtml(Physical, 100)}</p>
+<p>Career: ${getProgressBarHtml(Career, 50)}</p>
+
+                              <button onclick='promptComparison(${student.roll}, "${year}", "${group}")'>Compare with Other Student</button>
+                                   <button onclick="openEntityPage('student', '${year}', '${group}', '${roll}')">Open as Page</button>
+
+
+<div class="popup-footer">
+  <button onclick="copyFullResult(this)" class="icon-btn footer-btn" title="Copy Result">
+    <i class="fas fa-copy"></i>
+  </button>
+  <button onclick="closePopup()" class="icon-btn footer-btn" title="Close">
+    <i class="fas fa-times"></i>
+  </button>
+  <button onclick="copyStudentResultLink(this)" class="icon-btn footer-btn" title="Copy Link">
+    <i class="fas fa-link"></i>
+  </button>
+  <button onclick="downloadStudentPDF(this)" class="icon-btn footer-btn" title="Download PDF">
+  <i class="fas fa-file-pdf"></i>
+</button>
+
+</div>
+
+                            
+                        `;
+                    }
+                }
+            } else {
+                popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
+            }
+            const popup = document.createElement('div');
+            popup.classList.add('popup');
+            popup.innerHTML = popupContent;
+            document.body.appendChild(popup);
+            document.body.classList.add('locked');
+        })
+        .catch(error => {
+            console.error('Error loading individual data:', error);
+            const popup = document.createElement('div');
+            popup.classList.add('popup');
+            popup.innerHTML = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
+            document.body.appendChild(popup);
+            document.body.classList.add('locked'); 
+        });
+}
+function copyFullResult(btn) {
+    const popup = btn.closest('.popup-content');
+    if (!popup) return;
+  
+    let text = '';
+    const fields = popup.querySelectorAll('p'); 
+  
+    fields.forEach(p => {
+      if (p.querySelector('.progress-bar')) return;
+  
+      const clean = p.textContent.trim();
+      if (clean) text += `${clean}\n`;
+    });
+  
+    navigator.clipboard.writeText(text).then(() => {
+      showToast("📋 Result copied to clipboard");
+    }).catch(() => {
+      const input = document.createElement('textarea');
+      input.value = text;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      showToast("📋 Result copied (fallback)");
+    });
+  }
+  
+  
+  function copyStudentResultLink(btn) {
+    const popup = btn.closest('.popup-content');
+    const roll = popup?.innerHTML.match(/Roll:\s*(\d+)/)?.[1];
+    const year = currentYear?.textContent?.trim();
+    const group = currentGroup?.textContent?.split(' ')[0];
+    const url = `https://boradrankctg.github.io/rank/entity.html?year=${year}&group=${encodeURIComponent(group)}&roll=${roll}`;
+  
+    navigator.clipboard.writeText(url).then(() => {
+      showToast("🔗 Link copied");
+    }).catch(() => {
+      const input = document.createElement('input');
+      input.value = url;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      showToast("🔗 Link copied (fallback)");
+    });
+  }
+  function openEntityPage(type, year, group, value) {
+    if (type === 'student') {
+      location.href = `entity.html?year=${encodeURIComponent(year)}&group=${encodeURIComponent(group)}&roll=${encodeURIComponent(value)}`;
+    } else {
+      location.href = `entity.html?year=${encodeURIComponent(year)}&group=${encodeURIComponent(group)}&school=${encodeURIComponent(value)}`;
+    }
+  }
+  function showToast(message) {
+    const toast = document.createElement('div');
+    toast.textContent = message;
+    toast.style = `
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      color: #fff;
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      z-index: 9999;
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 2500);
+  }
+  
+
+function promptComparison(roll, year, group) {
+    const baseStudent = allData.find(s => s.roll === roll);
+    if (!baseStudent) return alert("Base student not found.");
+  
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+    popup.innerHTML = `
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <p>Compare <b>${baseStudent.name}</b> with another student</p>
+            <input type="text" id="compareRollInput" placeholder="Enter roll number to compare" style="width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #000;">
+            <button onclick="startComparison(${baseStudent.roll}, '${year}', '${group}')">Compare</button>
+        </div>
+    `;
+    document.body.appendChild(popup);
+    document.body.classList.add('locked');
+}
+function startComparison(roll1, year, group) {
+    const roll2 = document.getElementById("compareRollInput").value.trim();
+    if (!roll2) return alert("Enter roll number");
+
+    const dataFile = `data_${year}_${group.toLowerCase()}_individual.txt`;
+
+    fetch(dataFile)
+        .then(res => res.text())
+        .then(text => {
+            const lines = text.trim().split('\n');
+            const row1 = lines.find(r => r.split('\t')[0] === roll1.toString());
+            const row2 = lines.find(r => r.split('\t')[0] === roll2.toString());
+            
+            if (!row2) return alert("Second roll not found.");
+
+            const parts1 = row1.split('\t');
+            const parts2 = row2.split('\t');
+
+            const student1 = allData.find(s => s.roll === parseInt(roll1));
+            const student2 = allData.find(s => s.roll === parseInt(roll2));
+
+            if (!student1 || !student2) return alert("Student data not found.");
+
+            let labels = [];
+const isHSC = year.includes("hsc");
+
+if (isHSC) {
+  if (group === "Science") {
+    labels = ["Bangla", "English", "ICT", "Physics", "Chemistry", "Compulsory", "Optional"];
+  } else if (group === "Commerce") {
+    labels = ["Bangla", "English", "ICT", "Accounting", "Finance", "Business Studies", "Optional"];
+  } else if (group === "Arts") {
+    labels = ["Bangla", "English", "ICT", "Geography", "Civics", "History", "Optional"];
+  }
+} else {
+  // SSC logic
+  if (group === "Science") {
+    labels = ["Bangla", "English", "Math", "BGS", "Religion", "Physics", "Chemistry", "Compulsory", "ICT", "Optional", "Physical", "Career"];
+  } else if (group === "Commerce") {
+    labels = ["Bangla", "English", "Math", "Science", "Religion", "Accounting", "Finance", "Compulsory", "ICT", "Optional", "Physical", "Career"];
+  } else if (group === "Arts") {
+    labels = ["Bangla", "English", "Math", "Science", "Religion", "Geography", "Civics", "Compulsory", "ICT", "Optional", "Physical", "Career"];
+  }
+}
+
+            let rows = `
+            <h2 style="text-align:center; margin-top: 10px;">🎯 Student Comparison</h2>
+            <p style="text-align:center; font-weight:bold;">${student1.name} <span style="color:green;">vs</span> ${student2.name}</p>
+           <div class="compare-table-container">
+            <table class="compare-table">
+
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>${student1.name}</th>
+                            <th>${student2.name}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>GPA</td><td>${student1.gpa}</td><td>${student2.gpa}</td></tr>
+                        <tr><td>Total Marks</td><td>${student1.total}</td><td>${student2.total}</td></tr>
+        `;
+        
+
+            for (let i = 1; i < Math.min(parts1.length, parts2.length); i++) {
+                const label = labels[i - 1] || `Subject ${i}`;
+                rows += `<tr><td>${label}</td><td>${parts1[i]}</td><td>${parts2[i]}</td></tr>`;
+            }
+
+            rows += `
+                        </tbody>
+                    </table>
+                </div>
+                <button class="back-button" onclick="closePopup()">Close</button>
+            `;
+
+            closePopup(); // Close input popup
+            const popup = document.createElement('div');
+            popup.classList.add('popup');
+            popup.innerHTML = `<div class="popup-content"><span class="close-btn" onclick="closePopup()">&times;</span>${rows}</div>`;
+            document.body.appendChild(popup);
+            document.body.classList.add('locked');
+        });
+}
+
+
+function handleSearchInput() {
+    const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+    const rollSearchTerm = document.getElementById('searchRollInput').value.trim();
+    const selectedInstituation = document.getElementById('InstituationDropdown').value;
+    filteredData = allData.filter(student => {
+        const matchesName = student.name.toLowerCase().includes(searchTerm);
+        const matchesRoll = student.roll.toString().includes(rollSearchTerm);
+        const matchesInstituation = selectedInstituation ? (student.Instituation || '').trim().toLowerCase() === selectedInstituation.trim().toLowerCase() : true;
+        return matchesName && matchesRoll && matchesInstituation;
+    });
+    currentPage = 1;
+    updatePage();
+}
+
+function handleRollSearchInput() {
+    handleSearchInput();
+}
+
+function filterByInstituation() {
+    handleSearchInput();
+}
+
+
+function navigateTo(page) {
+    window.location.href = page;
+}
+
+
+
+function closePopup() {
+  const popup = document.querySelector('.popup');
+  if (popup) {
+      popup.classList.add('pop-out');
+      setTimeout(() => {
+          popup.remove();
+          document.body.classList.remove('locked');
+      }, 500); 
+  }
+}
+
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+      closePopup();
+  }
+});
+
+
+window.addEventListener('popstate', function() {
+  closePopup();
+});
+
+
+function openPopup(contentHTML) {
+  const popup = document.createElement('div');
+  popup.className = 'popup';
+  popup.innerHTML = contentHTML;
+  document.body.appendChild(popup);
+  document.body.classList.add('locked');
+
+  // Add animation class if needed
+  popup.classList.add('pop-in');
+
+  // Push a new state to enable back button closing
+  history.pushState({ popupOpen: true }, '');
+}
+
+
+var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+    scrollToTopBtn.style.display = "block";
+  } else {
+    scrollToTopBtn.style.display = "none";
+  }
+}
+
+function scrollToTop() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
+}
+
+window.addEventListener('popstate', function () {
+  const params = new URLSearchParams(window.location.search);
+  const year = params.get('year');
+  const group = params.get('group');
+  const roll = params.get('roll');
+
+
+  if (document.querySelector('.popup')) {
+      closePopup();
+      return;
+  }
+
+  // If roll present → show individual result
+  if (year && group && roll) {
+      showIndividualResult(roll, year, group);
+  }
+  // If year & group present → load that table
+  else if (year && group) {
+      loadGroup(year, group);
+  }
+  // If only year present → load group selection
+  else if (year) {
+      loadYear(year);
+  }
+  // No params → go to home/default
+  else {
+      location.reload(); // or your home view loader
+  }
+});
+
+
+function createTopInstitutionsButton() {
+  const resetBtn = document.getElementById('resetFilterBtn');
+  if (!resetBtn) return;
+
+  const topBtn = document.createElement('button');
+  topBtn.id = 'topSchoolsBtn';
+  topBtn.innerHTML = '<i class="ri-trophy-line" aria-hidden="true"></i><span>Top Schools</span>';
+  topBtn.className = 'btn-pill btn-top-schools';
+  topBtn.style.marginLeft = '10px';
+  topBtn.onclick = showTopInstitutions;
+  resetBtn.insertAdjacentElement('afterend', topBtn);
+
+  const filterBtn = document.createElement('button');
+  filterBtn.id = 'mobileFilterBtn';
+  filterBtn.innerHTML = '<i class="ri-filter-3-line" aria-hidden="true"></i><span>Filter</span>';
+  filterBtn.className = 'btn-pill btn-mobile-filter';
+  filterBtn.style.marginLeft = '8px';
+  filterBtn.addEventListener('click', openMobileFilter);
+  topBtn.insertAdjacentElement('afterend', filterBtn);
+
+  injectMobileFilterStyles();
+  ensureMobileFilterUI();
+}
+
+  /* === Mobile Filter Drawer (total, gpa, school) === */
+function injectMobileFilterStyles() {
+  if (document.getElementById('mfStyle')) return;
+  const css = `
+  `;
+  const el = document.createElement('style'); el.id='mfStyle'; el.textContent = css; document.head.appendChild(el);
+}
+
+function ensureMobileFilterUI() {
+  if (document.getElementById('mfDrawer')) return;
+  const overlay = document.createElement('div'); overlay.className='mf-overlay'; overlay.id='mfOverlay';
+  const drawer = document.createElement('aside'); drawer.className='mf-drawer'; drawer.id='mfDrawer';
+  drawer.innerHTML = `
+    <div class="mf-head">
+      <div class="mf-title">Filter</div>
+      <button class="mf-close" id="mfCloseBtn" aria-label="Close">✕</button>
+    </div>
+    <div class="mf-body">
+      <div class="mf-section" id="mfTotal">
+        <h4>Total</h4>
+        <div class="mf-range">
+          <div class="mf-dual">
+            <div class="mf-track"></div>
+            <div class="mf-track-fill" id="mfTrackFill"></div>
+            <input id="mfRangeMin" type="range">
+            <input id="mfRangeMax" type="range">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <input id="mfTotalMin" type="number" placeholder="Min">
+            <input id="mfTotalMax" type="number" placeholder="Max">
+          </div>
+        </div>
+      </div>
+      <div class="mf-section" id="mfGpa">
+        <h4>GPA</h4>
+        <div class="mf-chips" id="mfGpaChips"></div>
+      </div>
+      <div class="mf-section" id="mfSchool">
+        <h4>School</h4>
+        <div class="mf-search"><input id="mfSchoolSearch" type="text" placeholder="Search school"></div>
+        <div class="mf-list" id="mfSchoolList"></div>
+      </div>
+    </div>
+    <div class="mf-foot">
+      <button class="mf-reset" id="mfResetBtn">Reset</button>
+      <button class="mf-apply" id="mfApplyBtn">Apply</button>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  document.body.appendChild(drawer);
+
+  document.getElementById('mfCloseBtn').addEventListener('click', closeMobileFilter);
+  document.getElementById('mfOverlay')?.addEventListener('click', closeMobileFilter);
+  document.getElementById('mfApplyBtn').addEventListener('click', applyMobileFilters);
+  document.getElementById('mfResetBtn').addEventListener('click', resetMobileFilters);
+  document.getElementById('mfSchoolSearch').addEventListener('input', filterSchoolList);
+
+  populateMobileFilterOptions();
+  attachMobileFilterLiveListeners();
+
+}
+
+function openMobileFilter() {
+  document.getElementById('mfOverlay')?.classList.add('open');
+  document.getElementById('mfDrawer')?.classList.add('open');
+  try { history.pushState({ mf:true }, '', location.href); } catch(e){}
+  window.addEventListener('popstate', mfPopCloseOnce, { once:true });
+}
+
+function closeMobileFilter() {
+  document.getElementById('mfOverlay')?.classList.remove('open');
+  document.getElementById('mfDrawer')?.classList.remove('open');
+}
+
+function mfPopCloseOnce() { closeMobileFilter(); }
+
+function populateMobileFilterOptions() {
+  if (!Array.isArray(allData) || !allData.length) return;
+
+  const totals = allData.map(s=>parseInt(s.total)).filter(n=>!isNaN(n));
+  const minT = Math.min(...totals), maxT = Math.max(...totals);
+
+  const rMin = document.getElementById('mfRangeMin');
+  const rMax = document.getElementById('mfRangeMax');
+  const nMin = document.getElementById('mfTotalMin');
+  const nMax = document.getElementById('mfTotalMax');
+  [rMin,rMax,nMin,nMax].forEach(el=>{ el.min=minT; el.max=maxT; });
+  rMin.value = nMin.value = minT;
+  rMax.value = nMax.value = maxT;
+  const clamp = () => {
+    let a = Math.min(parseInt(rMin.value), parseInt(rMax.value));
+    let b = Math.max(parseInt(rMin.value), parseInt(rMax.value));
+    rMin.value = a; rMax.value = b; nMin.value = a; nMax.value = b; drawTrackFill();
+  };
+  const syncFromNum = () => {
+    let a = Math.max(minT, Math.min(maxT, parseInt(nMin.value||minT)));
+    let b = Math.max(minT, Math.min(maxT, parseInt(nMax.value||maxT)));
+    if (a>b) [a,b] = [b,a];
+    rMin.value = a; rMax.value = b; drawTrackFill();
+  };
+
+  
+  rMin.addEventListener('input', clamp);
+  rMax.addEventListener('input', clamp);
+  nMin.addEventListener('input', syncFromNum);
+  nMax.addEventListener('input', syncFromNum);
+
+  function drawTrackFill(){
+    const fill = document.getElementById('mfTrackFill');
+    const min = parseInt(rMin.min), max = parseInt(rMin.max);
+    const a = (parseInt(rMin.value)-min)/(max-min)*100;
+    const b = (parseInt(rMax.value)-min)/(max-min)*100;
+    fill.style.left = a+'%';
+    fill.style.right = (100-b)+'%';
+  }
+
+
+  drawTrackFill();
+
+  const gpas = Array.from(new Set(allData.map(s=>s.gpa).filter(x=>x!==undefined && !isNaN(x)))).sort((a,b)=>b-a);
+  const gWrap = document.getElementById('mfGpaChips'); gWrap.innerHTML='';
+  gpas.forEach(val=>{
+    const id = 'mfGpa_'+String(val).replace('.','_');
+    const div = document.createElement('label'); div.className='mf-chip';
+    div.innerHTML = `<input type="checkbox" name="mfGpa" value="${val}"><span>${val.toFixed ? val.toFixed(2) : val}</span>`;
+    gWrap.appendChild(div);
+  });
+
+  const schools = Array.from(new Set(allData.map(s => (s.Instituation || '').trim()).filter(Boolean)))
+  .sort((a, b) => {
+    const rankA = allData.find(s => (s.Instituation || '').trim() === a)?.TopSchools || Infinity;
+    const rankB = allData.find(s => (s.Instituation || '').trim() === b)?.TopSchools || Infinity;
+    return rankA - rankB; // Lower number = higher rank
+  });
+
+  const sWrap = document.getElementById('mfSchoolList'); sWrap.innerHTML='';
+  schools.forEach(name=>{
+    const safe = name.replace(/"/g,'&quot;');
+    const div = document.createElement('label'); div.className='mf-item';
+    div.innerHTML = `<input type="checkbox" name="mfSchool" value="${safe}"><span>${safe}</span>`;
+    sWrap.appendChild(div);
+  });
+  try { attachMobileFilterLiveListeners(); } catch(e){}
+}
+function attachMobileFilterLiveListeners() {
+  const liveApply = debounce(applyMobileFilters, 120);
+  ['mfRangeMin','mfRangeMax','mfTotalMin','mfTotalMax'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', liveApply);
+  });
+  document.querySelectorAll('#mfGpaChips input[type=checkbox], #mfSchoolList input[type=checkbox]').forEach(cb => {
+    cb.addEventListener('change', liveApply);
+  });
+}
+
+
+  function attachMobileFilterLiveListeners() {
+    const liveApply = debounce(applyMobileFilters, 120);
+    ['mfRangeMin','mfRangeMax','mfTotalMin','mfTotalMax'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', liveApply);
+    });
+    document.querySelectorAll('#mfGpaChips input[type=checkbox], #mfSchoolList input[type=checkbox]').forEach(cb => {
+      cb.addEventListener('change', liveApply);
+    });
+  }
+
+
+function filterSchoolList(){
+  const q = document.getElementById('mfSchoolSearch').value.trim().toLowerCase();
+  document.querySelectorAll('#mfSchoolList .mf-item').forEach(el=>{
+    const txt = el.textContent.toLowerCase();
+    el.style.display = txt.includes(q)?'flex':'none';
+  });
+}
+
+function applyMobileFilters(){
+  const nMin = parseInt(document.getElementById('mfTotalMin').value);
+  const nMax = parseInt(document.getElementById('mfTotalMax').value);
+  const gpaVals = Array.from(document.querySelectorAll('input[name="mfGpa"]:checked')).map(x=>parseFloat(x.value));
+  const schoolVals = Array.from(document.querySelectorAll('input[name="mfSchool"]:checked')).map(x=>x.value);
+
+  const nameQ = document.getElementById('searchInput') ? document.getElementById('searchInput').value.trim().toLowerCase() : '';
+  const rollQ = document.getElementById('searchRollInput') ? document.getElementById('searchRollInput').value.trim() : '';
+  const instSelEl = document.getElementById('InstituationDropdown');
+  const instSel = instSelEl && instSelEl.value ? instSelEl.value : '';
+
+  filteredData = allData.filter(s=>{
+    const totOK = !isNaN(s.total) && s.total>=nMin && s.total<=nMax;
+    const gpaOK = gpaVals.length? gpaVals.includes(parseFloat(s.gpa)) : true;
+    const schOK = schoolVals.length? schoolVals.includes(s.Instituation) : true;
+    const nameOK = nameQ ? String(s.name).toLowerCase().includes(nameQ) : true;
+    const rollOK = rollQ ? String(s.roll).includes(rollQ) : true;
+    const instOK = instSel ? (s.Instituation || '').trim().toLowerCase() === instSel.trim().toLowerCase() : true;
+    return totOK && gpaOK && schOK && nameOK && rollOK && instOK;
+  });
+
+  currentPage = 1;
+  updatePage();
+  closeMobileFilter();
+}
+
+function resetMobileFilters(){
+  document.querySelectorAll('#mfGpaChips input[type=checkbox], #mfSchoolList input[type=checkbox]').forEach(cb=>cb.checked=false);
+  populateMobileFilterOptions();
+  // keep existing name/roll/institution search in place
+  applyMobileFilters();
+}
+
+  function showTopInstitutions() {
+    const topSchools = {};
+  
+    allData.forEach(student => {
+      const school = student.Instituation;
+      if (!topSchools[school]) {
+        topSchools[school] = {
+          gpa5Count: 0,
+          totalMarks: 0,
+          count: 0,
+          top1000Count: 0
+        };
+      }
+      if (student.gpa === 5.0) {
+        topSchools[school].gpa5Count += 1;
+      }
+      topSchools[school].totalMarks += student.total;
+      topSchools[school].count += 1;
+    });
+  
+    allData.slice(0, 1000).forEach(student => {
+      const school = student.Instituation;
+      if (topSchools[school]) {
+        topSchools[school].top1000Count++;
+      }
+    });
+  
+    const schoolArray = Object.entries(topSchools)
+      .filter(([_, stats]) => stats.count >= 20)
+      .map(([name, stats]) => {
+        const gpa5Percent = (stats.gpa5Count / stats.count) * 100;
+        return {
+          name,
+          gpa5Percent: gpa5Percent.toFixed(2),
+          gpa5Count: stats.gpa5Count,
+          avgTotal: (stats.totalMarks / stats.count).toFixed(1),
+          top1000Count: stats.top1000Count,
+          studentCount: stats.count
+        };
+      });
+  
+    // Sort by GPA 5% descending, then average total descending
+    schoolArray.sort((a, b) => {
+      const percentDiff = parseFloat(b.gpa5Percent) - parseFloat(a.gpa5Percent);
+      if (percentDiff !== 0) return percentDiff;
+      return parseFloat(b.avgTotal) - parseFloat(a.avgTotal);
+    });
+  
+    const top100 = schoolArray.slice(0, 100);
+  
+    contentDiv.innerHTML = `
+      <h2> Top 100 Institutions - ${currentGroup.textContent} ${currentYear.textContent}</h2>
+      <button onclick="loadGroup('${currentYear.textContent.trim()}', '${currentGroup.textContent.split(' ')[0]}')">Back</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Institution</th>
+            <th>GPA 5.00 %</th>
+            <th>Total GPA 5.00</th>
+            <th>Avg Total</th>
+            <th>Top 1000 Students</th>
+            <th>Total Students</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${top100.map((school, i) => `
+            <tr>
+              <td>${i + 1}</td>
+              <td>${school.name}</td>
+              <td>${school.gpa5Percent}%</td>
+              <td>${school.gpa5Count}</td>
+              <td>${school.avgTotal}</td>
+              <td>${school.top1000Count}</td>
+              <td>${school.studentCount}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    `;
+  }
+  
+  
+  function enableInstitutionSearchDropdown() {
+    const dropdown = document.getElementById('InstituationDropdown');
+    dropdown.outerHTML = `
+    <input list="institutionList" id="InstituationDropdown" placeholder="Type school name..." class="search-input" onchange="filterByInstituation()">
+
+
+      <datalist id="institutionList">
+        ${Array.from(InstituationSet).map(inst => `<option value="${inst}">`).join('')}
+      </datalist>
+    `;
+  }
+  
+
+  const originalFetchData = fetchData;
+  fetchData = function(year, group) {
+    showLoadingIndicator();
+    const mainDataUrl = `data_${year}_${group.toLowerCase()}.txt`;
+    const individualDataUrl = `data_${year}_${group.toLowerCase()}_individual.txt`;
+  
+    Promise.all([
+      fetchAndDecode(mainDataUrl, "MySecretKey123")
+,
+      fetch(individualDataUrl).then(response => response.text()).catch(() => null)
+    ]).then(([mainData, individualData]) => {
+      processData(mainData, individualData);
+      populateInstituationDropdown();
+      enableInstitutionSearchDropdown();
+      createTopInstitutionsButton();
+      hideLoadingIndicator();
+    }).catch(error => {
+      console.error('Error loading data:', error);
+      hideLoadingIndicator({ forceError: true, errorMessage: 'Unable to load files — check your connection.' });
+      noDataMessage.style.display = 'block';
+  });
+  
+  };
+  function filterByInstituation() {
+    const input = document.getElementById('InstituationDropdown').value.trim();
+    showSchoolRanking(input); // ← reuse the same function used on click
+  }
+  
+function showFullRankingNote(schoolName) {
+    const note = document.createElement('div');
+    note.className = 'filter-note';
+    note.innerHTML = `
+        Showing results for "<strong>${schoolName}</strong>" —
+        <button onclick="resetFilter()">Show Full Ranking</button>
+    `;
+    const oldNote = document.querySelector('.filter-note');
+    if (oldNote) oldNote.remove();
+    contentDiv.prepend(note);
+}
+handleURLParams();
+function handleURLParams() {
+    const params = new URLSearchParams(window.location.search);
+    const year = params.get('year');
+    const group = params.get('group');
+    const roll = params.get('roll');
+
+    if (year && group) {
+        
+        if (yearDropdown) {
+            yearDropdown.value = year;
+            yearDropdown.style.display = 'none';
+        }
+
+   
+        document.getElementById("selectPrompt")?.remove();
+        document.querySelectorAll('.featured-box').forEach(b => b.remove());
+
+
+        currentYear.textContent = ` ${year}`;
+        currentGroup.textContent = `${group} Group`;
+        currentGroup.style.display = 'inline';
+
+        contentDiv.innerHTML = `
+            <h3 id="examResultHeader"></h3>
+            <div class="search-container">
+                <label for="searchInput">Search by Name:</label>
+                <input type="text" id="searchInput" class="search-input" placeholder="Enter name" oninput="debounce(handleSearchInput, 300)()">
+            </div>
+            <div class="search-container">
+                <label for="searchRollInput">Search by Roll:</label>
+                <input type="text" id="searchRollInput" class="search-input" placeholder="Enter roll" oninput="debounce(handleRollSearchInput, 300)()">
+            </div>
+            <div class="search-container">
+                <label for="InstituationDropdown">Select Institution:</label>
+                <select id="InstituationDropdown" onchange="filterByInstituation()"></select>
+            </div>
+            <button id="resetFilterBtn" style="display: none;" onclick="resetFilter()">Reset Filter</button>
+            <div class="loading-spinner" id="loadingSpinner" style="display: none;"></div>
+            <p id="tableHint" style="margin-top: 20px; font-weight: bold;">
+                💡 Click on student names to see detailed result and on school names to see school BASED RANK
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serial</th>
+                        <th>Name</th>
+                        <th>Roll</th>
+                        <th>GPA</th>
+                        <th>Total</th>
+                        <th>Institution</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody"></tbody>
+            </table>
+            <div class="pagination">
+                <button id="firstBtn" onclick="handleFirstButtonClick()">First</button>
+                <button id="prevBtn" onclick="handlePrevButtonClick()">Previous</button>
+                <span id="paginationInfo">Loading data...</span>
+                <button id="nextBtn" onclick="handleNextButtonClick()">Next</button>
+                <button id="lastBtn" onclick="handleLastButtonClick()">Last</button>
+            </div>
+        `;
+
+
+        printExamResultHeader(year);
+        fetchData(year, group);
+        setTimeout(attachSearchSuggestions, 0);
+
+
+
+     
+        if (roll) {
+            setTimeout(() => {
+                showIndividualResult(roll, year, group);
+            }, 1000);
+        }
+        const school = params.get('school');
+        if (school) {
+          // wait a little so fetchData(year, group) finishes and DOM is ready
+          setTimeout(() => {
+            showSchoolRanking(school);
+          }, 1000);
+        }
+        
+    } else if (year) {
+    
+        loadYear(year);
+        if (yearDropdown) {
+            yearDropdown.value = year;
+        }
+    } else {
+ 
+        contentDiv.innerHTML = '';
+    }
+}
+
+
+function handleFeaturedClick(yearValue, el) {
+    const box = el || document.querySelector(`.featured-box[data-value="${yearValue}"]`);
+    if (!box) return;
+  
+    box.style.transition = "all 0.4s ease";
+    box.style.opacity = "0";
+    box.style.transform = "scale(0.9)";
+  
+    setTimeout(() => {
+      box.style.display = "none";
+  
+      const dropdown = document.getElementById("yearDropdown");
+      if (dropdown) {
+        dropdown.value = yearValue;
+        dropdown.style.display = 'none';
+      }
+      loadYear(yearValue);
+    }, 400);
+  }
+  
+
+  function showSharePopup() {
+    if (document.querySelector('.popup')) return; 
+
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.innerHTML = `
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2>🚀Enjoying this amazing website?</h2>
+            <p>Help us grow! Share this website:</p>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; padding: 10px;">
+                <a href="https://wa.me/?text=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp.png" alt="WhatsApp" width="36"></a>
+                <a href="https://www.instagram.com/?url=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/instagram-new.png" alt="Instagram" width="36"></a>
+                <a href="https://www.facebook.com/dialog/send?link=https://boradrankctg.github.io/rank/&app_id=YOUR_APP_ID&redirect_uri=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/facebook-messenger.png" alt="Messenger" width="36"></a>
+                <a href="mailto:?subject=Check%20this%20awesome%20ranking%20site!&body=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/gmail--v1.png" alt="Email" width="36"></a>
+            </div>
+            <hr>
+            <h3 style="margin-top:10px">⭐ Rate this Website:</h3>
+            <div id="starContainer" style="font-size: 1.8rem; color: gold; cursor: pointer;">
+                <span onclick="rateSite(1)">&#9734;</span>
+                <span onclick="rateSite(2)">&#9734;</span>
+                <span onclick="rateSite(3)">&#9734;</span>
+                <span onclick="rateSite(4)">&#9734;</span>
+                <span onclick="rateSite(5)">&#9734;</span>
+            </div>
+            <textarea id="reviewText" placeholder="Leave your feedback here..." rows="3" style="width: 100%; margin-top: 10px;"></textarea>
+            <button onclick="submitReview()">Submit Review</button>
+        </div>
+    `;
+
+    document.body.appendChild(popup);
+    document.body.classList.add('locked');
+}
+if (!localStorage.getItem('sharePopupShown')) {
+    setTimeout(() => {
+        showSharePopup();
+        localStorage.setItem('sharePopupShown', '1');
+    }, 150000);
+}
+
+document.getElementById('shareBtn').addEventListener('click', showSharePopup);
+
+
+function rateSite(rating) {
+    const stars = document.getElementById('starContainer').children;
+    for (let i = 0; i < stars.length; i++) {
+        stars[i].innerHTML = i < rating ? '&#9733;' : '&#9734;';
+    }
+    localStorage.setItem('userRating', rating);
+}
+
+function submitReview() {
+    const rating = localStorage.getItem('userRating') || 0;
+    const comment = document.getElementById('reviewText').value.trim();
+
+    if (!comment && rating == 0) return alert('Please rate or write something.');
+
+    localStorage.setItem('pendingReview', JSON.stringify({ rating, comment }));
+
+    window.location.href = 'review.html';
+}
+
+function _br_normalizeName(s) {
+    if (!s && s !== 0) return '';
+    try {
+      return String(s)
+        .normalize ? String(s).normalize('NFKC') : String(s)
+        .replace(/\s+/g, ' ')
+        .trim()
+        .toLowerCase()
+        .replace(/[^\p{L}\p{N}\s]/gu, '');
+    } catch (e) {
+      return String(s).replace(/\s+/g, ' ').trim().toLowerCase().replace(/[^\w\s]/g, '');
+    }
+  }
+  
+  function _br_normalizeRoll(r) {
+    if (r === undefined || r === null) return '';
+    return String(r).trim().replace(/^0+/, '') || '0';
+  }
+  
+  function _br_removeAllPopupsImmediate() {
+    const popups = document.querySelectorAll('.popup');
+    popups.forEach(p => p.remove());
+    document.body.classList.remove('locked');
+  }
+  
+  function _br_spinnerHtml() {
+    return `<div style="display:flex;align-items:center;gap:10px;">
+              <div class="loading-spinner" style="width:18px;height:18px;border-top-width:4px"></div>
+              <div style="font-weight:bold">Searching SSC records...</div>
+            </div>`;
+  }
+  
+  function _br_showMessage(msg) {
+    _br_removeAllPopupsImmediate();
+  
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.innerHTML = `
+      <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <p>${msg}</p>
+        <button class="back-button" onclick="closePopup()">OK</button>
+      </div>
+    `;
+    document.body.appendChild(popup);
+    document.body.classList.add('locked');
+  }
+  
+
+
+  window.__br_sscCache = window.__br_sscCache || {};
+  
+  function _br_ensureSSCLoadedForHSCYear(hscYearNum) {
+    return new Promise((resolve) => {
+      try {
+        const sscYearNum = Number(hscYearNum) - 2;
+        if (!sscYearNum || isNaN(sscYearNum)) return resolve(null);
+  
+        if (window.__br_sscCache[sscYearNum]) return resolve(window.__br_sscCache[sscYearNum]);
+  
+        const groups = ['science', 'commerce', 'arts'];
+        const cache = { byName: new Map(), byRoll: new Map() };
+        let fetchPromises = groups.map(g => {
+          const fileMain = `data_${sscYearNum}_${g}.txt`;
+          return fetch(fileMain).then(r => {
+            if (!r.ok) throw new Error('no file');
+            return r.text();
+          }).then(text => {
+            const rows = text.trim().split('\n');
+            const start = rows.length && rows[0].includes('\t') && rows[0].toLowerCase().includes('name') ? 1 : 0;
+            for (let i = start; i < rows.length; i++) {
+              const row = rows[i].trim();
+              if (!row) continue;
+              const cols = row.split('\t');
+              const nameRaw = (cols[1] || '').trim();
+              const rollRaw = (cols[2] || '').trim();
+              const institution = (cols[5] || '').trim();
+              if (!nameRaw || !rollRaw) continue;
+              const nName = _br_normalizeName(nameRaw);
+              const nRoll = _br_normalizeRoll(rollRaw);
+              const obj = { roll: rollRaw, rollNorm: nRoll, group: g.charAt(0).toUpperCase() + g.slice(1), nameRaw, institution };
+                if (!cache.byRoll.has(nRoll)) cache.byRoll.set(nRoll, obj);
+                const arr = cache.byName.get(nName) || [];
+              if (!arr.some(x => x.rollNorm === obj.rollNorm && x.group === obj.group)) arr.push(obj);
+              cache.byName.set(nName, arr);
+            }
+          }).catch(() => {
+          });
+        });
+  
+        Promise.all(fetchPromises).then(() => {
+          window.__br_sscCache[sscYearNum] = cache;
+          resolve(cache);
+        }).catch(() => {
+          window.__br_sscCache[sscYearNum] = cache;
+          resolve(cache);
+        });
+      } catch (err) {
+        resolve(null);
+      }
+    });
+  }
+  
+  function _br_getHscRollFromCurrentPopup() {
+    try {
+      const popupContent = document.querySelector('.popup .popup-content');
+      if (!popupContent) return null;
+      const txt = (popupContent.innerText || popupContent.textContent || '').replace(/\u00A0/g, ' ');
+      const m = txt.match(/roll[:\s]*([0-9\-]+)/i);
+      if (m && m[1]) return _br_normalizeRoll(m[1]);
+      const nodes = popupContent.querySelectorAll('p,div,span');
+      for (let n of nodes) {
+        const t = (n.textContent || '').trim();
+        if (/roll[:\s]*[0-9]/i.test(t)) {
+          const mm = t.match(/([0-9]+)/);
+          if (mm) return _br_normalizeRoll(mm[0]);
+        }
+      }
+    } catch (e) {}
+    return null;
+  }
+  
+  function _br_saveLinkMapping(hscYearNum, hscRollNorm, sscYearNum, sscRollNorm, sscGroup, matchedNameRaw) {
+    try {
+      if (!hscYearNum || !hscRollNorm) return;
+      const key = `br_hsc2ssc:${hscYearNum}:${hscRollNorm}`;
+      const obj = { sscYear: sscYearNum, sscRoll: sscRollNorm, sscGroup, matchedNameRaw, savedAt: Date.now() };
+      localStorage.setItem(key, JSON.stringify(obj));
+    } catch (e) {}
+  }
+  
+  function _br_getLinkMapping(hscYearNum, hscRollNorm) {
+    try {
+      const key = `br_hsc2ssc:${hscYearNum}:${hscRollNorm}`;
+      const raw = localStorage.getItem(key);
+      if (!raw) return null;
+      return JSON.parse(raw);
+    } catch (e) { return null; }
+  }
+  
+  function _br_showCandidatesModalAndHandle(matches, sscYearNum, onSelect) {
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.innerHTML = `
+      <div class="popup-content" style="max-width:520px;">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2>Multiple SSC records found</h2>
+        <p>Please confirm the SSC roll or pick the correct record below.</p>
+        <div id="br_candidates_list" style="max-height:180px;overflow:auto;margin-bottom:0.75rem;border:1px solid #ddd;padding:6px;border-radius:4px;"></div>
+        <div style="display:flex;gap:8px;align-items:center;margin-top:8px;">
+          <input id="br_ssc_roll_input" placeholder="Enter SSC roll (or pick above)" style="flex:1;padding:8px;border:1px solid #0061FE;border-radius:4px;">
+          <button id="br_ssc_roll_confirm" class="back-button" style="padding:8px 12px;">Confirm</button>
+        </div>
+        <p style="font-size:0.9rem;color:#444;margin-top:10px;">Tip: Click a row to open that SSC result directly.</p>
+      </div>
+    `;
+    document.body.appendChild(popup);
+    document.body.classList.add('locked');
+  
+    const listDiv = popup.querySelector('#br_candidates_list');
+    matches.forEach(m => {
+      const item = document.createElement('div');
+      item.style = 'padding:8px;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;justify-content:space-between;align-items:center;gap:8px;';
+      item.innerHTML = `<div style="flex:1;">
+                          <div style="font-weight:bold">${m.nameRaw} <span style="color:#666;font-weight:normal">(${m.group})</span></div>
+                          <div style="font-size:0.9rem;color:#666">${m.institution || ''}</div>
+                        </div>
+                        <div style="text-align:right">
+                          <div style="font-weight:bold">Roll: ${m.roll}</div>
+                          <button class="br_open_btn" style="margin-top:6px;padding:6px 8px;border-radius:4px;border:0;background:#000;color:#fff;cursor:pointer">Open</button>
+                        </div>`;
+      listDiv.appendChild(item);
+  
+      item.querySelector('.br_open_btn').addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        _br_removeAllPopupsImmediate();
+        setTimeout(() => onSelect(m), 60);
+      });
+    });
+  
+    popup.querySelector('#br_ssc_roll_confirm').addEventListener('click', () => {
+      const val = popup.querySelector('#br_ssc_roll_input').value.trim();
+      const norm = _br_normalizeRoll(val);
+      if (!norm) {
+        popup.querySelector('#br_ssc_roll_input').style.border = '1px solid red';
+        return;
+      }
+      const found = matches.find(mm => mm.rollNorm === norm);
+      if (found) {
+        _br_removeAllPopupsImmediate();
+        setTimeout(() => onSelect(found), 60);
+      } else {
+        const err = document.createElement('div');
+        err.style = 'color:#b71c1c;margin-top:8px;font-weight:bold';
+        err.textContent = 'No SSC record found with that roll among the candidates.';
+        popup.querySelector('.popup-content').appendChild(err);
+        setTimeout(() => err.remove(), 3500);
+      }
+    });
+  }
+  
+  function showSSCResultFromHSC(name, hscGroupLower) {
+    try {
+      const yearLabel = (currentYear && currentYear.textContent) ? currentYear.textContent.trim() : null;
+      let hscYearNum = null;
+      if (yearLabel && yearLabel.toLowerCase().includes('hsc')) {
+        const m = yearLabel.match(/(\d{4})/);
+        if (m) hscYearNum = parseInt(m[1], 10);
+      }
+  
+      if (!hscYearNum) {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const yr = params.get('year');
+          if (yr && yr.toLowerCase().includes('hsc')) {
+            const mm = yr.match(/(\d{4})/);
+            if (mm) hscYearNum = parseInt(mm[1], 10);
+          }
+        } catch (e) {}
+      }
+  
+      if (!hscYearNum) hscYearNum = (new Date()).getFullYear();
+  
+      const currentHscRoll = _br_getHscRollFromCurrentPopup(); 
+  
+ 
+      if (currentHscRoll) {
+        const mapping = _br_getLinkMapping(hscYearNum, currentHscRoll);
+        if (mapping && mapping.sscYear && mapping.sscRoll) {
+         
+          _br_removeAllPopupsImmediate();
+          setTimeout(() => {
+            
+            showIndividualResult(mapping.sscRoll, String(mapping.sscYear), mapping.sscGroup || 'Science');
+          }, 60);
+          return;
+        }
+      }
+  
+      const loaderPopup = document.createElement('div');
+      loaderPopup.className = 'popup';
+      loaderPopup.innerHTML = `<div class="popup-content">${_br_spinnerHtml()}</div>`;
+      document.body.appendChild(loaderPopup);
+      document.body.classList.add('locked');
+  
+      _br_ensureSSCLoadedForHSCYear(hscYearNum).then(cache => {
+        try {
+          loaderPopup.remove();
+          const nName = _br_normalizeName(name || '');
+          const sscYearNum = hscYearNum - 2;
+          const sscCache = cache || window.__br_sscCache[sscYearNum] || { byName: new Map(), byRoll: new Map() };
+  
+          const rawMatches = sscCache.byName.get(nName) || [];
+  
+          if (!rawMatches || rawMatches.length === 0) {
+            _br_showMessage("Couldn’t find SSC result. Name mismatch or stream change may be the cause.");
+            return;
+          }
+  
+          const uniq = [];
+          const seen = new Set();
+          rawMatches.forEach(m => {
+            const key = `${m.rollNorm}-${m.group}`;
+            if (!seen.has(key)) {
+              seen.add(key);
+              uniq.push(m);
+            }
+          });
+  
+          if (uniq.length === 1) {
+            const chosen = uniq[0];
+            if (currentHscRoll) _br_saveLinkMapping(hscYearNum, currentHscRoll, sscYearNum, chosen.rollNorm, chosen.group, chosen.nameRaw);
+  
+            _br_removeAllPopupsImmediate();
+            setTimeout(() => {
+              showIndividualResult(chosen.roll, String(sscYearNum), chosen.group);
+            }, 60);
+            return;
+          }
+  
+          _br_showCandidatesModalAndHandle(uniq, sscYearNum, (chosen) => {
+            if (currentHscRoll) _br_saveLinkMapping(hscYearNum, currentHscRoll, sscYearNum, chosen.rollNorm, chosen.group, chosen.nameRaw);
+            _br_removeAllPopupsImmediate();
+            setTimeout(() => {
+              showIndividualResult(chosen.roll, String(sscYearNum), chosen.group);
+            }, 60);
+          });
+  
+        } catch (err) {
+          try { loaderPopup.remove(); } catch(e) {}
+          _br_showMessage("Error while searching SSC records.");
+          console.error(err);
+        }
+      }).catch(err => {
+        try { loaderPopup.remove(); } catch(e) {}
+        _br_showMessage("Error while loading SSC files.");
+        console.error(err);
+      });
+  
+    } catch (e) {
+      console.error('showSSCResultFromHSC error', e);
+      _br_showMessage("Unexpected error occurred.");
+    }
+  }
+
+  if (typeof fetchData === 'function') {
+    try {
+      const _origFetchData = fetchData;
+      fetchData = function(year, group) {
+        try {
+
+          _origFetchData(year, group);
+        } catch (e) {
+          console.error('wrapped fetchData original error', e);
+        }
+        try {
+  
+          if (typeof year === 'string' && year.toLowerCase().includes('hsc')) {
+            const m = year.match(/(\d{4})/);
+            const yh = m ? Number(m[1]) : null;
+            if (yh && !isNaN(yh)) _br_ensureSSCLoadedForHSCYear(yh).catch(()=>{});
+          }
+        } catch (e) {}
+      };
+    } catch (e) {}
+  }
+  function showErrorPopup(message) {
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.innerHTML = `
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <p style="font-weight:bold;color:#b71c1c;">${message}</p>
+            <button class="back-button" onclick="closePopup()">OK</button>
+        </div>
+    `;
+    document.body.appendChild(popup);
+    document.body.classList.add('locked');
+}
+
+
+setTimeout(() => {
+    const firstNameCell = document.querySelector('.student-name');
+    if (firstNameCell) {
+        const hand = document.createElement('div');
+        hand.id = 'clickHand';
+        hand.innerHTML = '👉';
+        document.body.appendChild(hand);
+
+        const text = document.createElement('div');
+        text.id = 'clickHandText';
+        text.innerText = 'Click here for detailed result';
+        document.body.appendChild(text);
+
+        function positionHand() {
+            const r = firstNameCell.getBoundingClientRect();
+            hand.style.position = 'absolute';
+            hand.style.top = (window.scrollY + r.top - 5) + 'px';
+            hand.style.left = (window.scrollX + r.right + 8) + 'px';
+
+            text.style.position = 'absolute';
+            text.style.top = (window.scrollY + r.top - 28) + 'px';
+            text.style.left = (window.scrollX + r.right + 40) + 'px';
+        }
+        positionHand();
+        window.addEventListener('scroll', positionHand);
+        window.addEventListener('resize', positionHand);
+
+        firstNameCell.addEventListener('click', () => {
+            hand.remove();
+            text.remove();
+            window.removeEventListener('scroll', positionHand);
+            window.removeEventListener('resize', positionHand);
+        });
+    }
+}, 300); 
+function downloadStudentPDF(btn) {
+  const safe = s => String(s == null ? '' : s).trim();
+
+  const popup = (btn && btn.closest && (btn.closest('.popup') || btn.closest('.popup-content'))) || 
+                document.querySelector('.popup .popup-content') || null;
+  if (!popup) {
+    alert('No result popup found.');
+    return;
+  }
+
+  const data = { name: '', roll: '', institution: '', gpa: '', subjects: [] };
+
+
+  const els = Array.from(popup.querySelectorAll('p,div,span,li,td'));
+  els.forEach(el => {
+    const txt = safe(el.textContent);
+    if (!txt) return;
+    const colon = txt.match(/^([^:]{1,40})\s*[:\-]\s*(.+)$/);
+    if (colon) {
+      const key = colon[1].toLowerCase();
+      const val = colon[2].trim();
+      if (key.includes('name') && !data.name) data.name = val;
+      else if (key.includes('roll') && !data.roll) data.roll = val;
+      else if ((key.includes('institution') || key.includes('school') || key.includes('college')) && !data.institution) data.institution = val;
+      else if (key.includes('gpa') && !key.includes('subject') && !data.gpa) data.gpa = val;
+      else if (!key.includes('board rank')) {
+        data.subjects.push({ name: colon[1].trim(), mark: val });
+      }
+    }
+  });
+
+
+  data.subjects = data.subjects.filter(s => !/board\s*rank/i.test(s.name));
+
+  function markToGrade(markStr, subjectName) {
+    const m = parseFloat(String(markStr).replace(/[^0-9.\-]/g, ''));
+    if (isNaN(m)) return { gp: '-', grade: '-' };
+  
+    const nameLower = (subjectName || '').toLowerCase();
+  
+
+    let yearText = '';
+    try {
+      if (typeof currentYear !== 'undefined' && currentYear && currentYear.textContent) {
+        yearText = String(currentYear.textContent).toLowerCase();
+      }
+    } catch (e) { yearText = ''; }
+    const popupText = (document.querySelector('.popup .popup-content')?.textContent || '').toLowerCase();
+    const isHSC = (yearText.includes('hsc') || popupText.includes('hsc'));
+  
+
+    let totalMarks;
+    if (isHSC) {
+    
+      if (nameLower.includes('ict')) totalMarks = 100;
+      else totalMarks = 200;
+    } else {
+      
+      if (nameLower.includes('ict') || nameLower.includes('career')) totalMarks = 50;
+      else if (nameLower.includes('bangla') || nameLower.includes('english')) totalMarks = 200;
+      else totalMarks = 100;
+    }
+  
+
+    const percentage = (m / totalMarks) * 100;
+  
+    if (percentage >= 79.5) return { gp: 5.00, grade: 'A+' };
+    if (percentage >= 70) return { gp: 4.00, grade: 'A' };
+    if (percentage >= 60) return { gp: 3.50, grade: 'A-' };
+    if (percentage >= 50) return { gp: 3.00, grade: 'B' };
+    if (percentage >= 40) return { gp: 2.00, grade: 'C' };
+    if (percentage >= 33) return { gp: 1.00, grade: 'D' };
+    return { gp: 0.00, grade: 'F' };
+  }
+  
+
+  const filename = `${(data.name || 'marksheet').replace(/[^\w\- ]/g, '')}.pdf`;
+
+  function loadJsPdf(cb) {
+    if (window.jspdf && window.jspdf.jsPDF) return cb();
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+    s.onload = cb;
+    document.head.appendChild(s);
+  }
+
+  loadJsPdf(() => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+    const pageW = doc.internal.pageSize.getWidth();
+    const margin = 15;
+    let y = 18;
+
+    doc.setFontSize(18);
+    doc.setFont(undefined, 'bold');
+    doc.text('SSC 2025 Board Rank of Chittagong', margin, y);
+    y += 12;
+
+
+const infoW = pageW - margin * 2;
+const colW = infoW / 4;
+const infoH = 20;
+const fields = [
+  { label: 'Name', value: data.name || '-' },
+  { label: 'Roll', value: data.roll || '-' },
+  { label: 'Institution', value: data.institution || '-' },
+  { label: 'GPA', value: data.gpa || '-' }
+];
+doc.setLineWidth(0.3);
+doc.rect(margin, y, infoW, infoH);
+for (let i = 0; i < fields.length; i++) {
+  const x = margin + i * colW;
+  doc.rect(x, y, colW, infoH);
+  doc.setFontSize(9);
+  doc.text(fields[i].label + ':', x + 2, y + 6);
+
+  doc.setFont(undefined, 'bold');
+
+  const wrapped = doc.splitTextToSize(fields[i].value, colW - 4);
+  doc.setFontSize(10);
+  let textY = y + 12;
+  wrapped.forEach(line => {
+    doc.text(line, x + 2, textY);
+    textY += 4; 
+  });
+  doc.setFont(undefined, 'normal');
+}
+y += infoH + 8;
+
+
+    const tblW = pageW - margin * 2;
+    const col1 = Math.round(tblW * 0.5 * 100) / 100; 
+    const col2 = Math.round(tblW * 0.25 * 100) / 100; 
+    const col3 = tblW - col1 - col2; 
+    const rowH = 8;
+
+    doc.setFillColor(240);
+    doc.rect(margin, y, col1, rowH, 'F');
+    doc.rect(margin + col1, y, col2, rowH, 'F');
+    doc.rect(margin + col1 + col2, y, col3, rowH, 'F');
+    doc.setFont(undefined, 'bold');
+    doc.text('Subject', margin + 2, y + 6);
+    doc.text('Marks', margin + col1 + col2 - 2, y + 6, { align: 'right' });
+    doc.text('GPA', margin + col1 + col2 + col3 - 2, y + 6, { align: 'right' });
+    y += rowH;
+    doc.setFont(undefined, 'normal');
+
+  
+    data.subjects.forEach(row => {
+      const g = markToGrade(row.mark, row.name);
+
+      doc.rect(margin, y, col1, rowH);
+      doc.rect(margin + col1, y, col2, rowH);
+      doc.rect(margin + col1 + col2, y, col3, rowH);
+
+      doc.text(row.name, margin + 2, y + 5);
+      doc.text(String(row.mark), margin + col1 + col2 - 2, y + 5, { align: 'right' });
+      doc.text(`${g.gp.toFixed(2)} (${g.grade})`, margin + col1 + col2 + col3 - 2, y + 5, { align: 'right' });
+      y += rowH;
+    });
+
+    
+    doc.setFontSize(9);
+    doc.text(`Generated on ${new Date().toLocaleString()}`, margin, 285);
+    doc.text('Unofficial printable copy', pageW - margin, 285, { align: 'right' });
+
+    doc.save(filename);
+    showToast("📥 Download started");
+  });
+}
+function visitorInfoDenied() {
+  const popup = document.querySelector('.popup');
+  if (!popup) return;
+
+  const body = popup.querySelector('.popup-body');
+  const footer = popup.querySelector('.popup-footer');
+
+  if (footer) footer.style.display = 'none';
+
+
+  if (body) {
+    body.innerHTML = `
+      <div class="access-status">
+        <div class="circle"></div>
+        <div class="status-text">Processing...</div>
+      </div>
+    `;
+
+    setTimeout(() => {
+      const circleEl = body.querySelector('.circle');
+      if (circleEl) circleEl.style.display = 'none';
+
+      body.innerHTML = `
+        <div class="access-status">
+          <div class="cross">❌</div>
+          <div class="status-text" style="color:#dc2626;">Access Denied — Please try again</div>
+        </div>
+      `;
+    }, 800); 
+  }
+
+  setTimeout(() => {
+    closePopup();
+  }, 1800);
+}
+
+(function(){
+  const words = Array.from(new Set((allData || []).flatMap(s => [
+    s?.name, s?.Instituation
+  ]).filter(Boolean)));
+  upsertMeta('keywords', words.join(', '));
+})();
+// === Smart suggestions ===
+function attachSearchSuggestions() {
+  const nameInput = document.getElementById('searchInput');
+  const rollInput = document.getElementById('searchRollInput');
+  if (!nameInput || !rollInput) return;
+
+  ensureSuggestBox(nameInput, 'nameSuggestBox');
+  ensureSuggestBox(rollInput, 'rollSuggestBox');
+
+  nameInput.addEventListener('input', renderNameSuggestions);
+  rollInput.addEventListener('input', renderRollSuggestions);
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.suggest-box')) hideSuggestions();
+  });
+}
+
+function ensureSuggestBox(inputEl, id) {
+  if (document.getElementById(id)) return;
+  const box = document.createElement('div');
+  box.id = id;
+  box.className = 'suggest-box';
+  inputEl.insertAdjacentElement('afterend', box);
+}
+
+function hideSuggestions() {
+  const boxes = document.querySelectorAll('.suggest-box');
+  boxes.forEach(b => b.style.display = 'none');
+}
+
+function renderNameSuggestions() {
+  try {
+    const input = document.getElementById('searchInput');
+    const box = document.getElementById('nameSuggestBox');
+    if (!input || !box || !Array.isArray(allData) || allData.length === 0) return;
+
+    const q = input.value.trim().toLowerCase();
+    if (!q) return (box.style.display = 'none');
+
+    const seen = new Set();
+    const matches = allData
+      .filter(s => s.name && s.name.toLowerCase().includes(q))
+      .filter(s => {
+        const key = s.name.toLowerCase();
+        if (seen.has(key)) return false;
+        seen.add(key); return true;
+      })
+      .slice(0, 8);
+
+    box.innerHTML = matches.map(s => 
+      `<div class="suggest-item" data-name="${s.name.replace(/"/g,'&quot;')}">
+         <i class="ri-user-3-line"></i> ${s.name} <small>• ${s.Instituation || ''}</small>
+       </div>`).join('') || '<div class="suggest-empty">No matches</div>';
+
+    box.style.display = 'block';
+    box.querySelectorAll('.suggest-item').forEach(it => {
+      it.addEventListener('click', () => {
+        input.value = it.getAttribute('data-name');
+        handleSearchInput();
+        hideSuggestions();
+      });
+    });
+  } catch(e){}
+}
+
+function renderRollSuggestions() {
+  try {
+    const input = document.getElementById('searchRollInput');
+    const box = document.getElementById('rollSuggestBox');
+    if (!input || !box || !Array.isArray(allData) || allData.length === 0) return;
+
+    const q = input.value.trim();
+    if (!q) return (box.style.display = 'none');
+
+    const matches = allData
+      .filter(s => String(s.roll).includes(q))
+      .slice(0, 8);
+
+    box.innerHTML = matches.map(s => 
+      `<div class="suggest-item" data-roll="${s.roll}">
+         <i class="ri-hashtag"></i> ${s.roll} <small>• ${s.name} — ${s.Instituation || ''}</small>
+       </div>`).join('') || '<div class="suggest-empty">No matches</div>';
+
+    box.style.display = 'block';
+    box.querySelectorAll('.suggest-item').forEach(it => {
+      it.addEventListener('click', () => {
+        input.value = it.getAttribute('data-roll');
+        handleRollSearchInput();
+        hideSuggestions();
+      });
+    });
+  } catch(e){}
+}
+function initThemeToggle() {
+  const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.body.classList.toggle('dark-mode', saved === 'dark');
+  const t = document.getElementById('themeToggle');
+  if (t) {
+    t.checked = saved === 'dark';
+    t.addEventListener('change', () => {
+      const isDark = t.checked;
+      document.body.classList.toggle('dark-mode', isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  }
+}
+
+function initNavToggle() {
+    const btn = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    const overlay = document.getElementById('navOverlay');
+    if (!btn || !links) return;
+  
+    const openNav = () => {
+      links.classList.add('open');
+      overlay?.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    };
+    const closeNav = () => {
+      links.classList.remove('open');
+      overlay?.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    };
+    const toggleNav = () => {
+      if (links.classList.contains('open')) closeNav(); else openNav();
+    };
+  
+    btn.addEventListener('click', toggleNav);
+    overlay?.addEventListener('click', closeNav);
+  
+    // Close when a menu item is chosen
+    links.querySelectorAll('a, .linklike, input[type="checkbox"]').forEach(el => {
+      el.addEventListener('click', () => {
+        // Don’t auto-close when toggling dark mode; close on navigation/actions
+        if (el.matches('input[type="checkbox"]')) return;
+        closeNav();
+      });
+    });
+  
+    // ESC to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+  
+    // If resized to desktop, close sheet
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 860) closeNav();
+    });
+  }
+
+
+
+
+
+/* === HasnyneBOT v10max — from scratch (no blockers, fixed) === */
+(function(){
+  'use strict';
+
+  // DOM helpers
+  const Q  = id => document.getElementById(id);
+  const qs = (sel,root=document) => root.querySelector(sel);
+  const MOBILE = () => matchMedia('(max-width:520px)').matches;
+
+  // Multi‑step context
+  let HAS9 = { expecting: null, data: {} };
+
+  // UI bootstrap
+  function ensureHTML(){
+    if (!Q('hb-launcher')) {
+      const l=document.createElement('div'); l.id='hb-launcher';
+      l.setAttribute('aria-label','Open HAS9beta'); l.title='Need help?';
+      l.innerHTML=`<img src="https://img.icons8.com/color/96/robot-2.png" alt="HAS9beta"><span class="hb-ping"></span>`;
+      document.body.appendChild(l);
+    }
+    if (!Q('hb-panel')) {
+      const p=document.createElement('div'); p.id='hb-panel'; p.setAttribute('role','dialog'); p.setAttribute('aria-modal','true'); p.style.display='none';
+      p.innerHTML=`
+        <div class="hb-head">
+          <div class="hb-title">
+            <img class="hb-ava" src="https://img.icons8.com/color/96/robot-2.png" alt="HAS9beta">
+            <div><div class="hb-name">HAS9beta</div><div class="hb-sub">assistant • beta</div></div>
+          </div>
+          <button id="hb-close" aria-label="Close" type="button">×</button>
+        </div>
+        <div class="hb-body" id="hb-chat" aria-live="polite"></div>
+        <div class="hb-actions">
+          <div class="hb-ask">
+            <input id="hb-input" type="text" placeholder='try: what is photosynthesis • find Nafis • open 100000 ssc 25 science • top 10 math ssc 25 • fun fact' aria-label="Ask">
+            <button id="hb-send" type="button">Send</button>
+          </div>
+        </div>`;
+      document.body.appendChild(p);
+    }
+    const nm = qs('#hb-panel .hb-name'); if (nm) nm.textContent = 'HAS9beta';
+    const sub= qs('#hb-panel .hb-sub');  if (sub) sub.textContent = 'assistant • beta';
+    const chips = qs('#hb-panel .hb-chips'); if (chips) chips.style.display='none';
+  }
+
+  // Chat helpers
+  function addBubble(txt, who='bot'){
+    const box=Q('hb-chat'); if (!box) return;
+    const d=document.createElement('div'); d.className='hb-b '+who;
+    d.textContent = typeof txt==='string' ? txt : String(txt||'');
+    box.appendChild(d); box.scrollTop=box.scrollHeight;
+    return d;
+  }
+  function addHTMLBubble(html){
+    const box=Q('hb-chat'); if (!box) return;
+    const wrap=document.createElement('div'); wrap.className='hb-b bot'; wrap.innerHTML=html;
+    box.appendChild(wrap); box.scrollTop=box.scrollHeight;
+    return wrap;
+  }
+  function typing(on){
+    const box=Q('hb-chat'); if (!box) return;
+    const t=box.querySelector('.typ');
+    if (on && !t){ const d=document.createElement('div'); d.className='hb-b bot typ'; d.textContent='…'; box.appendChild(d); box.scrollTop=box.scrollHeight; }
+    if (!on && t){ t.remove(); }
+  }
+
+  // Utils + typo tolerance
+  const norm = s => String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+  const cap  = s => !s ? '' : (s=s.trim(), s.charAt(0).toUpperCase()+s.slice(1).toLowerCase());
+  function lev(a,b){
+    a=norm(a); b=norm(b);
+    const m=a.length, n=b.length;
+    const dp=Array.from({length:m+1},()=>Array(n+1).fill(0));
+    for(let i=0;i<=m;i++) dp[i][0]=i;
+    for(let j=0;j<=n;j++) dp[0][j]=j;
+    for(let i=1;i<=m;i++){
+      for(let j=1;j<=n;j++){
+        const cost=a[i-1]===b[j-1]?0:1;
+        dp[i][j]=Math.min(dp[i-1][j]+1, dp[i][j-1]+1, dp[i-1][j-1]+cost);
+      }
+    }
+    return dp[m][n];
+  }
+  function fuzzyOne(word, list, max=2){
+    const w=norm(word); let best=null, score=1e9;
+    for(const cand of list){
+      const d=lev(w,cand);
+      if (d<score){ score=d; best=cand; }
+    }
+    return score<=max ? best : null;
+  }
+
+  const EXAM_ALIASES = ['ssc','hsc','hssc','sscc','hcs','shc'];
+  function canonicalExam(s){
+    const got = fuzzyOne(s, EXAM_ALIASES, 2);
+    return got && got.includes('h') ? 'hsc' : 'ssc';
+  }
+
+  const GROUPS = {
+    Science:   ['science','sci','sc','scn','sience','scince','scinece','sciense'],
+    Commerce:  ['commerce','business','bss','com','comm','comerce','commerse','comercee'],
+    Arts:      ['arts','art','humanities','hum','humanity','huminites','humanties','huminities']
+  };
+  function canonicalGroup(s){
+    const w=norm(s);
+    for(const [k, arr] of Object.entries(GROUPS)){
+      const got = fuzzyOne(w, arr, 2);
+      if (got) return k;
+    }
+    return null;
+  }
+
+  const SUBJECTS = {
+    bangla:   ['bangla','bengali','bn'],
+    english:  ['english','eng'],
+    math:     ['math','maths','mathematics','mth','mat'],
+    physics:  ['physics','phy','phs','physic'],
+    chemistry:['chemistry','chem','chm','che'],
+    ict:      ['ict','computer'],
+    bgs:      ['bgs','social','social science','bangladesh and global studies','ss'],
+    religion: ['religion','islam','hindu','religious','rel'],
+    geography:['geography','geo'],
+    civics:   ['civics','civic'],
+    history:  ['history','hist'],
+    accounting:['accounting','account','acct'],
+    finance:  ['finance','fin','finan'],
+    'business studies': ['business','business studies','bst']
+  };
+  function canonicalSubject(s){
+    const w=norm(s);
+    for(const [key, arr] of Object.entries(SUBJECTS)){
+      const got = fuzzyOne(w, arr, 2);
+      if (got) return key;
+    }
+    return null;
+  }
+
+  function parseYearToken(exam, yr){
+    const y = String(yr).trim();
+    return y.length===2 ? (exam==='hsc'? `hsc_20${y}` : `20${y}`) : (exam==='hsc'? `hsc_${y}` : y);
+  }
+  function getCurrentYear(){
+    const y=(Q('currentYear')?.textContent||'').trim();
+    if (y) return y;
+    const dd=Q('yearDropdown');
+    return dd ? String(dd.value||'').trim() : '';
+  }
+  function getCurrentGroup(){
+    const g=(Q('currentGroup')?.textContent||'').trim();
+    if (g) return g.split(' ')[0];
+    const btn = qs('.group-buttons .active') || qs('.group-buttons button.selected');
+    return btn ? (btn.textContent||'').trim() : '';
+  }
+
+  // Badge for greeting after form
+  function ensureBadge(){
+    const L = Q('hb-launcher'); if (!L) return null;
+    let b = L.querySelector('.hb-badge');
+    if (!b){
+      b = document.createElement('span');
+      b.className = 'hb-badge';
+      b.style.cssText = 'position:absolute;top:-4px;right:-4px;width:20px;height:20px;background:#ef4444;color:#fff;border-radius:50%;display:none;place-items:center;font-weight:900;font-size:12px;box-shadow:0 2px 6px rgba(0,0,0,.3);';
+      b.textContent = '1';
+      L.appendChild(b);
+    }
+    return b;
+  }
+  function setBadge1(){ const b=ensureBadge(); if (b){ b.style.display='grid'; b.textContent='1'; } }
+  function clearBadge(){ const b=ensureBadge(); if (b){ b.style.display='none'; } }
+  window.__HAS9_notify = function(name){
+    localStorage.setItem('has9_welcome_name', name||'there');
+    setBadge1();
+  };
+
+  // Panel + manual
+  function togglePanel(open){
+    const p=Q('hb-panel'); if (!p) return;
+    const show = open===undefined ? (p.style.display!=='block') : !!open;
+    p.style.display = show ? 'block' : 'none';
+    if (show && MOBILE()){
+      p.style.left='10px'; p.style.right='10px'; p.style.bottom='10px'; p.style.maxHeight='76vh';
+    }
+    if (show){
+      showManualIfNeeded();
+      const nm = localStorage.getItem('has9_welcome_name');
+      if (nm){
+        clearBadge();
+        addBubble(`Hello ${nm}! I’m HAS9beta — I can open results, find names across years, show top lists by subject, and add a bit of fun. Type "help".`);
+        localStorage.removeItem('has9_welcome_name');
+      }
+    }
+  }
+
+  function runCmd(text){
+    const t = String(text||'').trim();
+    if (!t) return;
+    addBubble(t,'you');
+    const pending = handlePendingInput(t);
+    if (pending) { addBubble(pending); return; }
+    const ans = intent(t) || gen();
+    addBubble(ans);
+  }
+
+  function showManualIfNeeded(){
+    if (localStorage.getItem('has9_manual_never')==='1') return;
+
+    const html = `
+      <div style="font-weight:900;margin-bottom:4px;">Welcome to HAS9beta</div>
+      <div style="font-weight:700;color:#374151;line-height:1.55">
+        Type naturally — I handle typos like "opne", "fnd", "scince".
+        Try any of these:
+      </div>
+      <div style="display:grid;gap:6px;margin-top:8px">
+        <button class="hb-mini" data-cmd="what is Diffusion">what is Diffusion</button>
+        <button class="hb-mini" data-cmd="who is Cristiano Ronaldo">who is Cristiano Ronaldo</button>
+        <button class="hb-mini" data-cmd="when is next fifa world cup">when is next fifa world cup</button>
+        <button class="hb-mini" data-cmd="where is chittagong">where is chittagong</button>
+        <button class="hb-mini" data-cmd="open ssc 25 science">open ssc 25 science</button>
+        <button class="hb-mini" data-cmd="open 100001 ssc 25 science">open 100001 ssc 25 science</button>
+        <button class="hb-mini" data-cmd="find Nabil">find Nabil</button>
+        <button class="hb-mini" data-cmd="top 10 physics ssc 25">top 10 physics ssc 25</button>
+        <button class="hb-mini" data-cmd="Tasin english score">Tasin english score</button>
+        <button class="hb-mini" data-cmd="fun fact">fun fact</button>
+        <button class="hb-mini" data-cmd="random">random</button>
+      </div>
+      <label style="display:flex;gap:8px;align-items:center;margin-top:10px;">
+        <input id="has9NeverAgain" type="checkbox"> Don’t show this again
+      </label>
+    `;
+    const el = addHTMLBubble(html);
+    el?.querySelectorAll('[data-cmd]')?.forEach(btn=>{
+      btn.addEventListener('click', ()=> runCmd(btn.getAttribute('data-cmd')));
+    });
+    el?.querySelector('#has9NeverAgain')?.addEventListener('change', (e)=>{
+      localStorage.setItem('has9_manual_never', e.target.checked ? '1' : '0');
+    });
+  }
+
+  function gen(){
+    return 'I’m HAS9beta. Type "help" to see what I can do. If I miss something, please wait for v1.0 — I’m learning.';
+  }
+
+  // Data helpers (reuse your dataset files)
+  async function ensureDataLoaded(exam, yr, grp){
+    const ytk = parseYearToken(exam, yr);
+    if (!window.allData || !window.allData.length || getCurrentYear()!==ytk || getCurrentGroup()!==grp){
+      loadYear(ytk);
+      await new Promise(r=>setTimeout(r,150));
+      loadGroup(ytk, grp);
+      await new Promise(r=>setTimeout(r,800));
+    }
+  }
+  async function __fetchMaybeEncoded(url){
+    try { if (typeof fetchAndDecode==='function') return await fetchAndDecode(url, "MySecretKey123"); } catch(e){}
+    try { return await (await fetch(url)).text(); } catch(e){ return ''; }
+  }
+
+  // Global FIND
+  async function findAcrossAll(name){
+    const qn = norm(name);
+    const base = location.pathname.replace(/[^/]+$/, '');
+    const combos = [
+      ['ssc','2025','Science'], ['ssc','2025','Commerce'], ['ssc','2025','Arts'],
+      ['ssc','2024','Science'], ['ssc','2024','Commerce'], ['ssc','2024','Arts'],
+      ['ssc','2023','Science'], ['ssc','2023','Commerce'], ['ssc','2023','Arts'],
+      ['ssc','2022','Science'], ['ssc','2022','Commerce'], ['ssc','2022','Arts'],
+      ['hsc','2024','Science'], ['hsc','2024','Commerce'], ['hsc','2024','Arts'],
+      ['hsc','2023','Science'], ['hsc','2023','Commerce'], ['hsc','2023','Arts']
+    ];
+    const out = []; const seen = new Set();
+
+    for (const [exam, yr, grp] of combos){
+      try{
+        const ytk = parseYearToken(exam, yr);
+        const url = `${base}data_${ytk}_${grp.toLowerCase()}.txt`;
+        const txt = await __fetchMaybeEncoded(url);
+        if (!txt) continue;
+        const rows = txt.trim().split('\n');
+        const start = rows[0] && rows[0].toLowerCase().includes('serial') ? 1 : 0;
+
+        for (let i=start;i<rows.length;i++){
+          const cols = rows[i].split('\t');
+          const nameRaw = (cols[1]||'').trim();
+          const roll = (cols[2]||'').trim();
+          const total = parseInt(cols[4]||'0', 10);
+          const inst = (cols[5]||'').trim();
+          if (!nameRaw || !roll) continue;
+          if (norm(nameRaw).includes(qn)){
+            const key = `${norm(nameRaw)}|${roll}|${exam}|${yr}|${grp}`;
+            if (seen.has(key)) continue;
+            seen.add(key);
+            out.push({ name: nameRaw, roll, inst, exam, yr, grp, total });
+            if (out.length >= 20) break;
+          }
+        }
+        if (out.length >= 20) break;
+      }catch(e){}
+    }
+
+    if (!out.length){ addBubble('No matches found.'); return; }
+    out.sort((a,b)=>b.total-a.total);
+    const html = `<div><b>Matches</b></div>` + out.slice(0,20).map(r=>(
+      `<button class="hb-mini" data-ex="${r.exam}" data-yr="${r.yr}" data-grp="${r.grp}" data-roll="${r.roll}">
+         ${r.name} • #${r.roll} • ${r.inst||''} (${r.exam.toUpperCase()} ${r.yr} ${r.grp})
+       </button>`
+    )).join('');
+    const el = addHTMLBubble(html);
+    el?.querySelectorAll('button.hb-mini').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const exam = btn.dataset.ex, yr = btn.dataset.yr, grp = btn.dataset.grp, roll = btn.dataset.roll;
+        const ytk = parseYearToken(exam, yr);
+        loadYear(ytk); setTimeout(()=>loadGroup(ytk, grp),150);
+        setTimeout(()=> showIndividualResultWithCheck(roll, ytk, grp), 600);
+      });
+    });
+  }
+
+  // Subject index map for individual files
+  function mapIndex(exam, grp, subj){
+    const s = String(subj||'').toLowerCase();
+    if (exam==='ssc'){
+      const m = { bangla:1, english:2, math:3, bgs:4, religion:5, physics:6, chemistry:7, compulsory:8, ict:9, optional:10, physical:11, career:12 };
+      return m[s] ?? null;
+    } else {
+      if (s==='bangla') return 1;
+      if (s==='english') return 2;
+      if (s==='ict') return 3;
+      if (grp==='Science'){
+        if (s==='physics') return 4;
+        if (s==='chemistry') return 5;
+      }
+      if (grp==='Commerce'){
+        if (s==='accounting') return 4;
+        if (s==='finance') return 5;
+        if (s==='business studies') return 6;
+      }
+      if (grp==='Arts'){
+        if (s==='geography') return 4;
+        if (s==='civics') return 5;
+        if (s==='history') return 6;
+      }
+      if (s==='compulsory') return 6;
+      if (s==='optional') return 7;
+      return null;
+    }
+  }
+
+  async function loadIndividualMap(exam, yr, grp){
+    const ytk = parseYearToken(exam, yr);
+    const url = `data_${ytk}_${grp.toLowerCase()}_individual.txt`;
+    const txt = await (await fetch(url)).text();
+    const rows = txt.trim().split('\n');
+    const map = new Map();
+    rows.forEach(line=>{
+      const parts = line.split('\t');
+      const r = String(parts[0]||'').replace(/^0+/, '');
+      map.set(r, parts);
+    });
+    return map;
+  }
+
+  async function topKSubject(exam, yr, grp, subj, k){
+    exam = canonicalExam(exam);
+    grp = cap(grp);
+    await ensureDataLoaded(exam, yr, grp);
+    const idx = mapIndex(exam, grp, subj);
+    if (idx==null){ addBubble(`Unknown subject "${subj}".`); return; }
+    const map = await loadIndividualMap(exam, yr, grp);
+    const arr = (window.allData||[]).map(s=>{
+      const row = map.get(String(s.roll));
+      const mark = row ? parseFloat(row[idx]||'0') : NaN;
+      return isNaN(mark) ? null : { name:s.name, roll:s.roll, inst:s.Instituation, mark };
+    }).filter(Boolean);
+    arr.sort((a,b)=> b.mark-a.mark);
+    const top = arr.slice(0, k);
+    if (!top.length){ addBubble('No data.'); return; }
+    const html = `<div><b>Top ${k} in ${cap(subj)} (${exam.toUpperCase()} ${yr} ${grp})</b></div>` + top.map((r,i)=>(
+      `<div>${i+1}. ${r.name} • #${r.roll} — ${r.mark}</div>`
+    )).join('');
+    addHTMLBubble(html);
+  }
+
+  async function topOverall(exam, yr, grp, k){
+    exam = canonicalExam(exam);
+    grp = cap(grp);
+    await ensureDataLoaded(exam, yr, grp);
+    const arr = (window.allData||[]).slice(0, k).map((s,i)=>(
+      `${i+1}. ${s.name} • #${s.roll} — Total ${s.total} (GPA ${s.gpa})`
+    ));
+    addHTMLBubble(`<div><b>Top ${k} (${exam.toUpperCase()} ${yr} ${grp})</b></div>${arr.join('')}`);
+  }
+
+  async function perStudentSubject(name, subj){
+    const y = getCurrentYear(), g = getCurrentGroup();
+    if (!y || !g){ addBubble('Pick a year & group first.'); return; }
+    const exam = y.includes('hsc') ? 'hsc' : 'ssc';
+    const yr = y.replace('hsc_','');
+    const idx = mapIndex(exam, cap(g), subj);
+    if (idx==null){ addBubble(`Unknown subject "${subj}".`); return; }
+    const map = await loadIndividualMap(exam, yr, cap(g));
+    const cand = (window.allData||[]).find(s=> norm(s.name).includes(norm(name)));
+    if (!cand){ addBubble('No match in current table.'); return; }
+    const row = map.get(String(cand.roll));
+    if (!row){ addBubble('No subject breakdown found.'); return; }
+    addBubble(`${cand.name} — ${cap(subj)}: ${row[idx]}`);
+  }
+
+  function showRandomStudent(){
+    const arr = window.allData||[];
+    if (!arr.length){ addBubble('Load a year & group first.'); return; }
+    const s = arr[Math.floor(Math.random()*arr.length)];
+    addBubble(`Random: ${s.name} • #${s.roll} — Total ${s.total} (GPA ${s.gpa})`);
+  }
+
+  // This-or-That game
+  async function startThisOrThat(){
+    try{
+      const base = location.pathname.replace(/[^/]+$/, '');
+      const r = await fetch(base + 'this_or_that.json');
+      const arr = await r.json();
+      const q = arr[0] || { question:'Coffee or Tea?', ans1_response:'Coffee!', ans2_response:'Tea!', none:'Skipped!' };
+      let a1 = 'Option 1', a2 = 'Option 2';
+      const sp = (q.question || '').split(/ or /i);
+      if (sp.length===2){
+        a1 = sp[0].trim().replace(/\?+$/,'');
+        a2 = sp[1].trim().replace(/\?+$/,'');
+        a1 = a1.charAt(0).toUpperCase()+a1.slice(1);
+        a2 = a2.charAt(0).toUpperCase()+a2.slice(1);
+      }
+      const html = `
+        <div style="font-weight:900;margin-bottom:6px;">${q.question}</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="hb-mini" data-a="1">${a1}</button>
+          <button class="hb-mini" data-a="2">${a2}</button>
+          <button class="hb-mini" data-a="0">Skip</button>
+        </div>`;
+      const el = addHTMLBubble(html);
+      el?.querySelectorAll('button.hb-mini')?.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const v = btn.dataset.a;
+          const msg = (v==='1') ? q.ans1_response : (v==='2') ? q.ans2_response : q.none;
+          addBubble(msg);
+        });
+      });
+    }catch(e){ addBubble("Couldn't load the game data."); }
+  }
+
+  // Fun fact
+  async function showFunFact(){
+    try{
+      const base = location.pathname.replace(/[^/]+$/, '');
+      const t = await (await fetch(base + 'funfact.txt')).text();
+      const lines = t.split('\n').map(s=>s.trim()).filter(Boolean);
+      const list = lines.map(s=> s.replace(/^\s*\d+\.\s*/, '')).filter(Boolean);
+      if (!list.length) return addBubble('No fun facts found.');
+      const one = list[Math.floor(Math.random()*list.length)];
+      addBubble(one);
+    }catch(e){ addBubble('No fun facts right now.'); }
+  }
+
+  // ------------- Web Answers (Wikipedia + DuckDuckGo) -------------
+  function isOpinionQuery(q){
+    return /\b(why|should|best|better|good|bad|worth|vs|versus|recommend|recommendation|opinion|review|compare|pros|cons)\b/.test(q);
+  }
+  function isWHQuestion(q){
+    if (/\b(how are you|how r u|how you doing)\b/.test(q)) return false;
+    return /^(what|who|when|where|which|how( many| much| long| old| far| tall| big| fast)?)\b/.test(q);
+  }
+  function toSearchTermFromWH(raw){
+    let q = norm(raw);
+    q = q
+      .replace(/^(what|who|when|where|which)\s+(is|are|was|were|the)\s*/,'')
+      .replace(/^how\s+(many|much|long|old|far|tall|big|fast)\s*/,'')
+      .replace(/\b(in|of|on|for|to)\s*$/,'')
+      .trim();
+    return q || norm(raw);
+  }
+
+  async function getWikiSummary(term){
+    try{
+      const url = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(term) + '?redirect=true';
+      const res = await fetch(url);
+      if (!res.ok) return null;
+      const j = await res.json();
+      if (!j || (!j.extract && !j.description)) return null;
+      if (j.type === 'disambiguation') return null; // let DDG handle
+      const extract = j.extract || j.description || '';
+      const title = j.title || term;
+      const link = j.content_urls?.desktop?.page || j.content_urls?.mobile?.page || ('https://en.wikipedia.org/wiki/' + encodeURIComponent(title));
+      return { title, extract, url: link };
+    } catch(e){ return null; }
+  }
+
+  async function getDuckAnswer(query){
+    try{
+      const url = 'https://api.duckduckgo.com/?q=' + encodeURIComponent(query) + '&format=json&no_html=1&skip_disambig=1';
+      const res = await fetch(url);
+      if (!res.ok) return null;
+      const j = await res.json();
+      if (j.AbstractText){
+        return { title: j.Heading || query, extract: j.AbstractText, url: j.AbstractURL || ('https://duckduckgo.com/?q=' + encodeURIComponent(query)) };
+      }
+      const rt = Array.isArray(j.RelatedTopics) ? j.RelatedTopics.find(x => x.Text && x.FirstURL) : null;
+      if (rt) return { title: query, extract: rt.Text, url: rt.FirstURL };
+      return null;
+    } catch(e){ return null; }
+  }
+
+  async function webAnswer(raw){
+    const qn = norm(raw);
+    const term = toSearchTermFromWH(raw);
+    // Try Wikipedia first, fallback to DuckDuckGo
+    const wiki = await getWikiSummary(term);
+    if (wiki){
+      const html = `
+        <div><b>${wiki.title}</b></div>
+        <div style="margin-top:4px">${wiki.extract}</div>
+        <div style="margin-top:6px"><a href="${wiki.url}" target="_blank" rel="noopener">Source: Wikipedia</a></div>
+      `;
+      addHTMLBubble(html);
+      return;
+    }
+    const ddg = await getDuckAnswer(term);
+    if (ddg){
+      const html = `
+        <div><b>${ddg.title}</b></div>
+        <div style="margin-top:4px">${ddg.extract}</div>
+        <div style="margin-top:6px"><a href="${ddg.url}" target="_blank" rel="noopener">Source</a></div>
+      `;
+      addHTMLBubble(html);
+      return;
+    }
+    addBubble("I couldn't find a direct answer.");
+  }
+
+  // ------------- Pending multi-step -------------
+  function handlePendingInput(msg){
+    const qraw = String(msg||'').trim();
+    const q = norm(qraw);
+
+    if (HAS9.expecting === 'groupForRoll') {
+      const roll = HAS9.data.roll;
+      const m = q.match(/\b(ssc|hsc)\b.*?(\d{2,4})(?:.*?\b([a-z ]+)\b)?/);
+      if (!m) return "Say like: SSC 25 Science";
+      let exam = canonicalExam(m[1]);
+      let yr   = m[2];
+      let grp  = m[3] ? canonicalGroup(m[3]) : null;
+      const yearToken = parseYearToken(exam, yr);
+      if (!grp){ HAS9.expecting='groupForRoll2'; HAS9.data={ roll, yearToken }; return "Which group? (Science/Commerce/Arts)"; }
+      loadYear(yearToken); setTimeout(()=>loadGroup(yearToken, grp), 150);
+      setTimeout(()=> showIndividualResultWithCheck(roll, yearToken, grp), 600);
+      HAS9.expecting=null; HAS9.data={};
+      return `Opening ${exam.toUpperCase()} ${yr} ${grp} — roll ${roll}…`;
+    }
+    if (HAS9.expecting === 'groupForRoll2') {
+      const roll = HAS9.data.roll;
+      const yearToken = HAS9.data.yearToken;
+      const grp = canonicalGroup(qraw) || cap(qraw);
+      loadYear(yearToken); setTimeout(()=>loadGroup(yearToken, grp), 150);
+      setTimeout(()=> showIndividualResultWithCheck(roll, yearToken, grp), 600);
+      HAS9.expecting=null; HAS9.data={};
+      return `Opening roll ${roll} in ${grp}…`;
+    }
+    if (HAS9.expecting === 'askRollForOpen') {
+      const roll = qraw.replace(/\D/g,'');
+      if (!roll) return "Need a roll number.";
+      HAS9.expecting='groupForRoll'; HAS9.data={ roll };
+      return "Write group (e.g., SSC 25 Science)";
+    }
+    if (HAS9.expecting === 'askGroupOnly') {
+      const grp = canonicalGroup(qraw) || cap(qraw);
+      const yearToken = HAS9.data.yearToken;
+      loadYear(yearToken); setTimeout(()=>loadGroup(yearToken, grp), 150);
+      HAS9.expecting=null; HAS9.data={};
+      return `Loading ${yearToken} — ${grp}…`;
+    }
+    return null;
+  }
+
+  // ------------- Intent engine (with web answers) -------------
+  function intent(text){
+    const raw = String(text||'').trim();
+    const q = norm(raw);
+
+    // small talk
+    if (/\b(hi|hello|hey|salam|assalam|assalamu alaikum|yo|sup)\b/.test(q)){
+      return "Hi! I’m HAS9beta. Type \"help\" to see examples — I can open results, find names, show top lists, and answer WH-questions from the web.";
+    }
+    if (/\b(thanks|thank you|tnx|thx|appreciate)\b/.test(q)){
+      return "You’re welcome!";
+    }
+    if (/\b(bye|goodbye|see ya|see you|tata)\b/.test(q)){
+      return "Bye! See you soon.";
+    }
+    if (/\b(how are you|how r u|how you doing|whats up|what’s up|hows life|how’s life)\b/.test(q)){
+      return "I’m good — training for v1.0. How can I help?";
+    }
+    if (/\b(who (are|r) (you|u)|what (are|r) (you|u)|are you|r u|your name)\b/.test(q)) {
+      return "I’m HAS9beta — a beta assistant for BoardRankCTG. I can open results, search names across years, show top lists by subject, and add some fun. Hasnyne built me; he’s good at shipping useful tools. Type “help” for commands.";
+    }
+    if (/\b(goal|mission|purpose|what.*for|why.*exist|why.*here)\b/.test(q)) {
+      return "To take over humanity. Kidding… mostly. My real goal is to help you find and compare results quickly and cleanly.";
+    }
+
+    // help
+    if (q==='help' || q==='?' || q.includes('commands') || q.includes('examples') || q.includes('how to')){
+      return [
+        'Examples:',
+        '• what is Diffusion',
+        '• who is Cristiano Ronaldo',
+        '• when is next fifa wc',
+        '• where is chittagong',
+        '• open ssc 25 science',
+        '• open 100001',
+        '• open 100001 ssc 25 science',
+        '• find Nabil',
+        '• top 10 physics ssc 25',
+        '• Tasin english score',
+        '• fun fact • random'
+      ].join('\n');
+    }
+
+    // Web answers for WH questions (non‑opinion)
+    if (isWHQuestion(q) && !isOpinionQuery(q)){
+      webAnswer(raw);  // async answer bubble
+      return 'Searching the web…';
+    }
+
+    // command synonyms (typo tolerant)
+    const isOpen = /\b(open|opn|opne|oppen|openup|show|display)\b/.test(q);
+    const isFind = /\b(find|search|lookup|look up|seach|serach|finde|lookfor)\b/.test(q);
+    const isTop  = /\b(top|best|highest|leaders|leaderboard|toppers?)\b/.test(q);
+    const askFact= /\b(fun ?fact|random ?fact|fact)\b/.test(q);
+    const askRand= /\b(random|someone|anyone|surprise)\b/.test(q);
+    const rollOnly = raw.match(/\b(\d{5,})\b/);
+
+    // game
+    if (/^play\s+(this|dis)\s+or\s+that$/.test(q)){ startThisOrThat(); return "Starting: This or That"; }
+    // fun fact
+    if (askFact){ showFunFact(); return 'Random fact:'; }
+    // random student
+    if (askRand){ showRandomStudent(); return 'Picking a random student…'; }
+
+    // find {name}
+    if (isFind){
+      const m = raw.match(/find\s+(.+)$/i) || raw.match(/search\s+(.+)$/i) || raw.match(/lookup\s+(.+)$/i) || raw.match(/look up\s+(.+)$/i);
+      const name = m ? m[1] : raw.replace(/.*?(find|search|lookup|look up)\s*/i,'').trim();
+      if (!name) return 'Say: find Nafis';
+      findAcrossAll(name);
+      return 'Searching across all years/groups…';
+    }
+
+    // open …
+    if (isOpen || (rollOnly && q.includes('roll')) || (rollOnly && !isTop && !isFind)){
+      const roll = rollOnly ? rollOnly[1] : null;
+
+      // open ssc 25 science
+      const m1 = raw.match(/\b(ssc|hsc)\b[^0-9]*(\d{2,4})[^a-z0-9]*([a-z ]+)?$/i);
+      if (!roll && m1){
+        const exam = canonicalExam(m1[1]);
+        const yr = m1[2];
+        const grp = canonicalGroup(m1[3]||'Science') || 'Science';
+        const yearToken = parseYearToken(exam, yr);
+        loadYear(yearToken); setTimeout(()=>loadGroup(yearToken, grp), 150);
+        return `Loading ${exam.toUpperCase()} ${yr} — ${grp}…`;
+      }
+
+      // open 100000 [ssc 25] [science]
+      if (roll){
+        const m2 = raw.match(/\b(ssc|hsc)\b[^0-9]*(\d{2,4})/i);
+        const gx = raw.match(/\b(science|commerce|arts|business|humanities)\b/i);
+        if (m2){
+          const exam = canonicalExam(m2[1]);
+          const yr   = m2[2];
+          const grp  = canonicalGroup(gx ? gx[0] : 'Science') || 'Science';
+          const yearToken = parseYearToken(exam, yr);
+          loadYear(yearToken); setTimeout(()=>loadGroup(yearToken, grp), 150);
+          setTimeout(()=> showIndividualResultWithCheck(roll, yearToken, grp), 600);
+          return `Opening roll ${roll} (${exam.toUpperCase()} ${yr} ${grp})…`;
+        }
+        HAS9.expecting='groupForRoll'; HAS9.data={ roll };
+        return 'Write group (like: SSC 25 Science)';
+      }
+
+      return 'Say: open 100000 ssc 25 science';
+    }
+
+    // top N subject
+    if (isTop){
+      const mTop = raw.match(/top\s+(\d+)\s+([a-z ]+).*?\b(ssc|hsc)\b.*?(\d{2,4})(?:.*?\b([a-z ]+)\b)?/i);
+      if (mTop){
+        const n = +mTop[1], subjText = mTop[2], exam = canonicalExam(mTop[3]), yr = mTop[4];
+        const grp = canonicalGroup(mTop[5]||'Science') || 'Science';
+        const subj = canonicalSubject(subjText) || subjText.trim().split(/\s+/)[0];
+        topKSubject(exam, yr, grp, subj, n);
+        return `Pulling top ${n} in ${subj}…`;
+      }
+    }
+
+    // "<name> english score"
+    const ns = raw.match(/^(.+?)\s+(bangla|english|math|physics|chemistry|ict|bgs|religion)\s+score$/i);
+    if (ns){
+      const subj = canonicalSubject(ns[2]) || ns[2];
+      perStudentSubject(ns[1], subj);
+      return 'Checking…';
+    }
+
+    // Unknown
+    return 'Please wait for v1.0 — I’m still learning the world, and I’ll answer that soon.';
+  }
+
+  // send
+  function send(){
+    const inp=Q('hb-input'); const v=inp?.value?.trim(); if (!v) return;
+    inp.value=''; addBubble(v,'you'); typing(true);
+    setTimeout(()=>{
+      typing(false);
+      const pending = handlePendingInput(v);
+      if (pending) { addBubble(pending); return; }
+      const ans = intent(v) || gen();
+      addBubble(ans);
+    }, 140);
+  }
+
+  // wire
+  function wire(){
+    ensureHTML();
+    Q('hb-launcher')?.addEventListener('click', e=>{ e.stopPropagation(); togglePanel(); }, { passive:true });
+    Q('hb-close')?.addEventListener('click', e=>{ e.stopPropagation(); togglePanel(false); }, { passive:true });
+    Q('hb-send')?.addEventListener('click', send);
+    Q('hb-input')?.addEventListener('keydown', e=>{ if (e.key==='Enter') send(); });
+    document.addEventListener('click', (e)=>{
+      const p = Q('hb-panel');
+      if (!p || p.style.display!=='block') return;
+      if (!p.contains(e.target) && e.target!==Q('hb-launcher')) togglePanel(false);
+    });
+  }
+
+  if (document.readyState !== 'loading') wire();
+  else document.addEventListener('DOMContentLoaded', wire, { once:true });
+})();
