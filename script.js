@@ -491,7 +491,7 @@ let clickCount = parseInt(localStorage.getItem('detailedResultClickCount') || '0
 clickCount++;
 localStorage.setItem('detailedResultClickCount', clickCount);
 
-if (clickCount <= 2) { 
+if (clickCount <= 10) { 
   
 const visitorId = getOrCreateVisitorId();
 
