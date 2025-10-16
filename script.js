@@ -1,1 +1,3120 @@
-const FV=U;(function(Z,N){const Fv=U,T=Z();while(!![]){try{const O=parseInt(Fv(0x287))/0x1+parseInt(Fv(0xf2))/0x2+-parseInt(Fv(0x1bd))/0x3+-parseInt(Fv(0x17a))/0x4+-parseInt(Fv(0x339))/0x5+parseInt(Fv(0x16a))/0x6*(-parseInt(Fv(0x1e6))/0x7)+parseInt(Fv(0x39a))/0x8;if(O===N)break;else T['push'](T['shift']());}catch(R){T['push'](T['shift']());}}}(F,0x42d3c));const contentDiv=document['getElementById'](FV(0x379)),currentYear=document[FV(0x341)](FV(0x2d2)),currentGroup=document['getElementById'](FV(0x2db)),noDataMessage=document[FV(0x341)](FV(0x325)),yearDropdown=document[FV(0x341)](FV(0x2fc));function upsertMeta(Z,N){const Ft=FV;let T=document[Ft(0x18c)](Ft(0x101)+Z+'\x22]');!T&&(T=document[Ft(0x269)](Ft(0x226)),T[Ft(0x35e)](Ft(0x334),Z),document[Ft(0x116)]['appendChild'](T)),T[Ft(0x35e)](Ft(0x379),N);}function upsertProperty(Z,N){const FD=FV;let T=document[FD(0x18c)](FD(0x14c)+Z+'\x22]');!T&&(T=document[FD(0x269)]('meta'),T[FD(0x35e)](FD(0x170),Z),document['head']['appendChild'](T)),T[FD(0x35e)]('content',N);}function setCanonical(Z){const FK=FV;let N=document[FK(0x18c)](FK(0x2f4));!N&&(N=document[FK(0x269)](FK(0xec)),N[FK(0x35e)](FK(0x354),'canonical'),document['head'][FK(0x126)](N)),N[FK(0x35e)](FK(0x204),Z);}function injectJSONLD(Z,N){const Fr=FV;if(N)document[Fr(0x364)](Fr(0x2e7)+N+'\x22]')[Fr(0x119)](O=>O[Fr(0x217)]());const T=document[Fr(0x269)](Fr(0xb0));T[Fr(0x22a)]=Fr(0x27d);if(N)T['setAttribute'](Fr(0xd6),N);T[Fr(0x271)]=JSON[Fr(0x14e)](Z),document[Fr(0x116)][Fr(0x126)](T);}function updateSEOForYearGroup(Z,N){const FL=FV,T=String(Z)['includes'](FL(0x132)),O=String(Z)[FL(0x2b0)](FL(0x33c),''),R=T?FL(0x365):FL(0x381),c=FL(0x28d)+O+FL(0x281)+(R==='HSC'?'Chattogram\x20Board\x20(HSC\x20archive)':FL(0x22d))+'\x20'+N,b='See\x20'+R+'\x20'+O+'\x20'+N+FL(0x114),y=''+location[FL(0x144)]+location['pathname']+FL(0x216)+encodeURIComponent(Z)+FL(0x366)+encodeURIComponent(N);document[FL(0x1eb)]=c,upsertMeta(FL(0x278),b),setCanonical(y),upsertProperty('og:title',c),upsertProperty(FL(0x26b),b),upsertProperty(FL(0x3b4),y),upsertProperty(FL(0x2cd),FL(0x26f)),upsertMeta(FL(0x11f),c),upsertMeta(FL(0x1ea),b);}function updateSEOForSchool(Z,N,T){const Fm=FV,O=String(Z)[Fm(0x2b0)](Fm(0x33c),''),R=String(Z)[Fm(0x1c9)]('hsc')?'HSC':'SSC',c=T+Fm(0x281)+R+'\x20'+O+Fm(0x3a4),b=Fm(0x1c8)+T+'\x20—\x20'+R+'\x20'+O+',\x20'+N+Fm(0x24e),y=''+location[Fm(0x144)]+location[Fm(0x1ac)]+Fm(0x216)+encodeURIComponent(Z)+'&group='+encodeURIComponent(N)+Fm(0x184)+encodeURIComponent(T);document[Fm(0x1eb)]=c,upsertMeta('description',b),setCanonical(y),upsertProperty(Fm(0x313),c),upsertProperty(Fm(0x26b),b),upsertProperty(Fm(0x3b4),y),upsertMeta(Fm(0x11f),c),upsertMeta(Fm(0x1ea),b);}function updateSEOForStudent(Z,N,T,O){const FG=FV,R=String(Z)[FG(0x2b0)](FG(0x33c),''),c=String(Z)[FG(0x1c9)]('hsc')?FG(0x365):FG(0x381),b=T+FG(0x281)+c+'\x20'+R+FG(0x3ad)+O,y='Subject-wise\x20marks,\x20GPA,\x20total\x20and\x20rank\x20for\x20'+T+'\x20('+c+'\x20'+R+',\x20'+N+')\x20—\x20Chattogram\x20Board.',E=location[FG(0x1ac)][FG(0x1c9)](FG(0x183))?location[FG(0x1ac)]:FG(0x1a6),q=''+location[FG(0x144)]+E+'?year='+encodeURIComponent(Z)+FG(0x366)+encodeURIComponent(N)+FG(0x1a1)+encodeURIComponent(O);document[FG(0x1eb)]=b,upsertMeta(FG(0x278),y),setCanonical(q),upsertProperty(FG(0x313),b),upsertProperty(FG(0x26b),y),upsertProperty(FG(0x3b4),q),upsertMeta('twitter:title',b),upsertMeta(FG(0x1ea),y),injectJSONLD({'@context':FG(0xab),'@type':FG(0x2ea),'name':T,'identifier':c+'-'+R+'-'+O,'affiliation':{'@type':'EducationalOrganization','name':FG(0x372)}},FG(0x28a));}function injectBreadcrumbs(Z,N,T,O){const FP=FV,R=[{'@type':'ListItem','position':0x1,'name':FP(0xf4),'item':Z}];if(N)R[FP(0xb9)]({'@type':FP(0xd9),'position':0x2,'name':String(N)[FP(0x2b0)](FP(0x33c),'')});if(T)R[FP(0xb9)]({'@type':FP(0xd9),'position':0x3,'name':T});if(O)R['push']({'@type':FP(0xd9),'position':0x4,'name':O});injectJSONLD({'@context':FP(0xab),'@type':'BreadcrumbList','itemListElement':R},FP(0x33f));}function injectDatasetForYearGroup(Z,N){const Ff=FV,T=String(Z)['includes'](Ff(0x132)),O=String(Z)[Ff(0x2b0)](Ff(0x33c),''),R=T?Ff(0x365):Ff(0x381);injectJSONLD({'@context':Ff(0xab),'@type':'Dataset','name':R+'\x20'+O+'\x20'+N+'\x20Result\x20Ranking\x20—\x20Chattogram\x20Board','description':Ff(0x245)+R+'\x20'+O+'\x20'+N+Ff(0x273),'creator':{'@type':'Organization','name':Ff(0xdb)},'distribution':[{'@type':Ff(0x12b),'encodingFormat':Ff(0x20f),'contentUrl':''+location[Ff(0x144)]+location[Ff(0x1ac)][Ff(0x2b0)](/index\.html?$/,'')+Ff(0x117)+Z+'_'+N[Ff(0xfc)]()+'.txt'}],'license':Ff(0x150)},'dataset');}function injectDatasetForSchool(Z,N,T){const Fl=FV,O=String(Z)['replace'](Fl(0x33c),''),R=String(Z)[Fl(0x1c9)](Fl(0x132))?Fl(0x365):Fl(0x381);injectJSONLD({'@context':'https://schema.org','@type':Fl(0x2c1),'name':T+Fl(0x281)+R+'\x20'+O+'\x20Ranking\x20(Chattogram\x20Board)','description':'Ranking\x20table\x20for\x20'+T+Fl(0xba)+R+'\x20'+O+',\x20'+N+Fl(0x2e9),'creator':{'@type':Fl(0x3aa),'name':Fl(0xdb)}},'dataset');}function xorDecrypt(Z,N){const FM=FV,T=new TextEncoder()['encode'](N);return Z[FM(0x155)]((O,R)=>O^T[R%T[FM(0x2dc)]]);}async function fetchAndDecode(Z,N){const FS=FV,T=await fetch(Z),O=await T[FS(0x271)](),R=atob(O),c=new Uint8Array(R[FS(0x188)]('')[FS(0x155)](y=>y['charCodeAt'](0x0))),b=xorDecrypt(c,N);return new TextDecoder()['decode'](b);}function showRankTipsPopup(){const FQ=FV;if(document[FQ(0x18c)]('.popup'))return;const Z=document[FQ(0x269)]('div');Z[FQ(0x251)]=FQ(0xe2),Z[FQ(0x35a)]=FQ(0x2a1),document[FQ(0x105)]['appendChild'](Z),document[FQ(0x105)][FQ(0x25a)][FQ(0x343)](FQ(0x342)),Z[FQ(0x364)](FQ(0xb6))[FQ(0x119)](N=>{const FX=FQ;N[FX(0x12f)]('click',()=>{const Fh=FX,T=N[Fh(0x11a)]('data-cmd')||'',O=document[Fh(0x341)](Fh(0x1dd)),R=document[Fh(0x341)]('hb-input'),c=document[Fh(0x341)]('hb-send');if(typeof togglePanel===Fh(0x14d))togglePanel(!![]);else O?.[Fh(0x28c)]();setTimeout(()=>{const FA=Fh,b=document['getElementById'](FA(0xe5)),y=document[FA(0x341)](FA(0x2df));b&&y&&(b[FA(0x19b)]=T,y[FA(0x28c)]());},0xb4);});});}document[FV(0x341)](FV(0x2c9))[FV(0x12f)](FV(0x28c),showRankTipsPopup);function loadYear(Z){const Fn=FV;if(Z){document[Fn(0x341)](Fn(0x196))['style'][Fn(0x1ff)]='none',document[Fn(0x364)](Fn(0xb5))[Fn(0x119)](T=>T[Fn(0x217)]());const N=location[Fn(0x1ac)]+Fn(0x216)+Z;history[Fn(0x2ac)]({},'',N),currentYear[Fn(0x1af)]='\x20'+Z,currentGroup[Fn(0x259)][Fn(0x1ff)]='none',noDataMessage['style'][Fn(0x1ff)]=Fn(0x2da),contentDiv[Fn(0x35a)]=Fn(0xd0)+Z+Fn(0x320)+Z+Fn(0xe9)+Z+Fn(0x15d);}else contentDiv[Fn(0x35a)]='';}function loadGroup(Z,N){const Fi=FV;currentGroup[Fi(0x259)]['display']=Fi(0x227),currentGroup[Fi(0x1af)]=N+Fi(0x38f);let T=Z['includes'](Fi(0x132))?Fi(0x365):'SSC',O=Z[Fi(0x2b0)](Fi(0x33c),'');document[Fi(0x1eb)]='BOARD\x20RANK\x20OF\x20'+T+'\x20'+O+Fi(0x392)+N,updateSEOForYearGroup(Z,N),injectDatasetForYearGroup(Z,N),injectBreadcrumbs(''+location[Fi(0x144)]+location[Fi(0x1ac)],Z,N,null),yearDropdown[Fi(0x259)][Fi(0x1ff)]=Fi(0x2da),contentDiv['innerHTML']=Fi(0xdd);const R=location[Fi(0x1ac)]+'?year='+Z+'&group='+N;history[Fi(0x2ac)]({},'',R),printExamResultHeader(Z),fetchData(Z,N),setTimeout(attachSearchSuggestions,0x0);}function printExamResultHeader(Z){const FC=FV,N=document['getElementById']('examResultHeader');if(N){let T=Z['includes']('hsc')?FC(0x365):FC(0x381),O=Z[FC(0x2b0)](FC(0x33c),'');N[FC(0x1af)]=T[FC(0x286)]()+'\x20'+O+FC(0x32c);}}let allData=[],filteredData=[];const studentsPerPage=0x1f4;let currentPage=0x1;const InstituationSet=new Set();window['InstituationSet']=InstituationSet;function fetchData(Z,N){const FI=FV;showLoadingIndicator();const T='data_'+Z+'_'+N[FI(0xfc)]()+FI(0x2e0),O=FI(0x117)+Z+'_'+N['toLowerCase']()+'_individual.txt',R=FI(0xf0)+Z+'_'+N,c=localStorage[FI(0x2a2)](R);if(c)try{const {mainData:b,individualData:y}=JSON[FI(0x2a9)](c);processData(b,y||null),populateInstituationDropdown(),updateTableData(),hideLoadingIndicator();}catch(E){console[FI(0x179)](FI(0x28b),E);}fetch(T)[FI(0x3af)](q=>{const FY=FI,z=q[FY(0x105)]['getReader'](),j=+q[FY(0x2fb)][FY(0x2a4)]('Content-Length')||0x0;let s=0x0;return new Response(new ReadableStream({'start'(w){function k(){const FW=U;z[FW(0x2f7)]()[FW(0x3af)](({done:x,value:B})=>{const Fp=FW;if(x){w[Fp(0x1f2)]();return;}s+=B[Fp(0x2dc)],step(s,j),w['enqueue'](B),k();});}k();}}))[FY(0x271)]();});}let visitorInfoCompleted=localStorage[FV(0x2a2)]('visitorInfoGiven')==='1';function getDeviceDataAndFingerprint(){const Fu=FV,Z=navigator[Fu(0x1a7)]||'',N=navigator['platform']||'',T=screen[Fu(0x3a0)]+'x'+screen[Fu(0x157)],O=navigator[Fu(0x249)]||null,R=navigator[Fu(0x2fe)]||null,c=navigator[Fu(0xee)]||'';let b='Unknown\x20device';if(/Android/i['test'](Z)){const j=Z['match'](/Android\s+[\d.]+;\s+([^)]+)/i);j&&j[0x1]&&(b=j[0x1][Fu(0x2b0)](/Build\/.+/,'')['trim']());}else{if(/iPhone/i[Fu(0x120)](Z))b=Fu(0xde);else{if(/iPad/i['test'](Z))b=Fu(0x38e);else{if(/Macintosh/i['test'](Z))b=Fu(0x215);else{if(/Windows/i[Fu(0x120)](Z))b=Fu(0x24d);else/Linux/i[Fu(0x120)](Z)&&(b=Fu(0x168));}}}}const y={'ua':Z,'platform':N,'screen':T,'deviceMemory':O,'cores':R,'vendor':c,'deviceModel':b},E=Z+'|'+N+'|'+T+'|'+O+'|'+R+'|'+c;let q=0x1505;for(let s=0x0;s<E['length'];s++){q=(q<<0x5)+q+E[Fu(0x1cf)](s),q=q&0xffffffff;}const z=(q>>>0x0)[Fu(0x292)](0x10);return{'deviceData':y,'fingerprint':z};}async function showIndividualResultWithCheck(Z,N,T){const FJ=FV,O=new URLSearchParams(window[FJ(0x2bf)]['search']);if(O['has']('roll')&&O[FJ(0x2a4)](FJ(0xb4))==Z)return showIndividualResult(Z,N,T);let R=parseInt(localStorage[FJ(0x2a2)]('detailedResultClickCount')||'0',0xa);R++,localStorage[FJ(0x137)](FJ(0x1cd),R);if(R<=0x2)return showIndividualResult(Z,N,T);const {deviceData:c,fingerprint:b}=getDeviceDataAndFingerprint();if(localStorage[FJ(0x2a2)](FJ(0x19d))==='1'&&localStorage[FJ(0x2a2)](FJ(0x181))===b)return visitorInfoCompleted=!![],showIndividualResult(Z,N,T);try{const z=await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js'),{getDatabase:j,ref:s,get:w,query:k,orderByChild:x,equalTo:B}=z,a=j(),d=k(s(a,FJ(0x12d)),x(FJ(0x262)),B(b)),o=await w(d);if(o&&o[FJ(0x2d5)]())return localStorage[FJ(0x137)](FJ(0x19d),'1'),localStorage[FJ(0x137)](FJ(0x181),b),visitorInfoCompleted=!![],showIndividualResult(Z,N,T);}catch(g){console[FJ(0x179)](FJ(0x3a8),g);}if(document[FJ(0x18c)](FJ(0x275)))return;const y=document[FJ(0x269)](FJ(0x280));y['classList'][FJ(0x343)](FJ(0xe2)),y[FJ(0x35a)]=FJ(0x2de),document[FJ(0x105)][FJ(0x126)](y),document[FJ(0x105)][FJ(0x25a)][FJ(0x343)](FJ(0x342));function E(v){const FH=FJ;if(!v)return!![];const V=v[FH(0x22c)]();if(V[FH(0x2dc)]<0x3||V[FH(0x2dc)]>0x28)return!![];if(!/^[a-zA-Z\s]+$/['test'](V))return!![];const t=(V['match'](/[aeiouAEIOU]/g)||[])[FH(0x2dc)];if(t<0x2)return!![];if(/(.)\1{3,}/['test'](V))return!![];return![];}document[FJ(0x341)](FJ(0x23c))[FJ(0x12f)](FJ(0x28c),async()=>{const U0=FJ,v=document[U0(0x341)](U0(0x2d4))['value'][U0(0x22c)](),V=document[U0(0x341)]('visitorInstitution')['value'][U0(0x22c)](),t=document[U0(0x341)](U0(0x326))[U0(0x19b)],D=document[U0(0x341)](U0(0x118))['value'],K=document[U0(0x341)](U0(0x3a2))[U0(0x19b)],r=document[U0(0x341)](U0(0x1ba))[U0(0x19b)][U0(0x22c)]();if(K===U0(0x31b)||K===U0(0x2b7)){const P=y[U0(0x18c)](U0(0xb8)),f=y[U0(0x18c)](U0(0xfd));if(f)f[U0(0x259)][U0(0x1ff)]=U0(0x2da);P[U0(0x35a)]=U0(0x295),setTimeout(()=>{const U1=U0;P[U1(0x35a)]=U1(0x272);},0x5dc);return;}if(E(v)){const l=y[U0(0x18c)](U0(0xb8)),M=y[U0(0x18c)](U0(0xfd));if(M)M[U0(0x259)][U0(0x1ff)]=U0(0x2da);l[U0(0x35a)]=U0(0x297),setTimeout(()=>{const U2=U0;l[U2(0x35a)]=U2(0xc0);},0x5dc);return;}if(!v||v['length']<0x4){alert(U0(0x1d9));return;}if(!V||V[U0(0x2dc)]<0x3){alert('Institution\x20name\x20must\x20contain\x20at\x20least\x203\x20characters.');return;}if(!t||!D){alert(U0(0x34d));return;}const L=y[U0(0x18c)]('.popup-body'),m=y[U0(0x18c)](U0(0xfd)),G=L[U0(0x35a)];if(m)m[U0(0x259)][U0(0x1ff)]=U0(0x2da);L['innerHTML']=U0(0x1aa)+v+'\x22</b>?</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:0.9rem;\x20color:#555;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20If\x20you\x20use\x20a\x20fake\x20name,\x20this\x20form\x20will\x20appear\x20again\x20every\x20time\x20you\x20visit.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Please\x20enter\x20real\x20details\x20to\x20avoid\x20repeated\x20verification.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-top:15px;\x20display:flex;\x20justify-content:center;\x20gap:12px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22confirmNameBtn\x22\x20class=\x22primary-btn\x22>Confirm</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22editNameBtn\x22\x20class=\x22secondary-btn\x22>Edit\x20Name</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20',document[U0(0x341)](U0(0x178))['addEventListener']('click',async()=>{const U3=U0;localStorage['setItem'](U3(0x19d),'1'),localStorage[U3(0x137)]('visitorFingerprint',b),visitorInfoCompleted=!![];try{const S=await import(U3(0x28e)),{getDatabase:Q,ref:X,push:h,set:A}=S,n=Q(),i=h(X(n,U3(0x12d)));await A(i,{'name':v,'institution':V,'type':t,'source':D,'experience':K,'message':r,'fingerprint':b,'deviceData':c,'timestamp':Date[U3(0x230)]()});try{window['__HAS9_notify'](v);}catch(C){}}catch(I){console[U3(0x2aa)]('Error\x20saving\x20visitor\x20info:',I);}L['innerHTML']=U3(0x24f),setTimeout(()=>{const U4=U3;L[U4(0x35a)]=U4(0x2ff),setTimeout(()=>{closePopup(),showIndividualResult(Z,N,T);},0x5dc);},0x3e8);}),document[U0(0x341)](U0(0x207))['addEventListener'](U0(0x28c),()=>{const U5=U0;L[U5(0x35a)]=G,m[U5(0x259)][U5(0x1ff)]='flex',document['getElementById'](U5(0x2d4))[U5(0x19b)]=v,document['getElementById']('visitorInstitution')[U5(0x19b)]=V,document[U5(0x341)](U5(0x326))[U5(0x19b)]=t,document[U5(0x341)](U5(0x118))[U5(0x19b)]=D,document[U5(0x341)]('visitorExperience')[U5(0x19b)]=K,document[U5(0x341)](U5(0x23c))[U5(0x12f)](U5(0x28c),submitHandler);});});}document[FV(0x12f)](FV(0x3a3),()=>{const U6=FV,Z=localStorage[U6(0x2a2)](U6(0x383));Z!=='admin1234'&&document[U6(0x341)](U6(0x10d))?.[U6(0x217)](),document[U6(0x341)](U6(0x264))?.['addEventListener'](U6(0x28c),showRankTipsPopup),initThemeToggle(),initNavToggle();});function processData(Z,N){const U7=FV,T=Z[U7(0x22c)]()['split']('\x0a')['slice'](0x1),O=parseIndividualData(N);allData=T[U7(0x155)](R=>{const U8=U7,[c,b,y,E,q,z]=R[U8(0x188)]('\x09'),j=O[y]||{};return InstituationSet[U8(0x343)]((z||'')[U8(0x22c)]()),{'serial':parseInt(c),'name':b,'roll':parseInt(y),'gpa':parseFloat(E),'total':parseInt(q),'Instituation':(z||'')['trim'](),...j};}),console[U7(0xca)](U7(0xed),allData),allData=allData[U7(0x2ca)](R=>!isNaN(R[U7(0x1b8)])&&!isNaN(R[U7(0x29b)])),allData[U7(0x1e7)](compareStudents),console[U7(0xca)](U7(0xc5),allData),filteredData=[...allData],updateTableData();try{window[U7(0xce)]=allData,window['filteredData']=filteredData,document['dispatchEvent'](new CustomEvent(U7(0x202)));}catch(R){}}function parseIndividualData(Z){const U9=FV;if(!Z)return{};const N=Z[U9(0x22c)]()['split']('\x0a'),T={};return N['forEach'](O=>{const UF=U9,[R,,,,,,c,b,y]=O[UF(0x188)]('\x09');T[R]={'phy':parseInt(c),'chem':parseInt(b),'math':parseInt(y)};}),console[U9(0xca)]('Parsed\x20individual\x20scores:',T),T;}function compareStudents(Z,N){const UU=FV;if(Z[UU(0x1b8)]!==N[UU(0x1b8)])return N[UU(0x1b8)]-Z[UU(0x1b8)];if(Z[UU(0x29b)]!==N[UU(0x29b)])return N[UU(0x29b)]-Z[UU(0x29b)];if(Z[UU(0x395)]!==N[UU(0x395)])return N['phy']-Z[UU(0x395)];if(Z['chem']!==N[UU(0x121)])return N[UU(0x121)]-Z[UU(0x121)];return N[UU(0x2f9)]-Z[UU(0x2f9)];}function makeSchoolNamesClickable(){const UZ=FV,Z=document[UZ(0x364)](UZ(0x198));Z[UZ(0x119)](N=>{const UN=UZ;N[UN(0x259)][UN(0x106)]='pointer',N[UN(0x259)][UN(0x1f8)]=UN(0x282),N[UN(0x12f)](UN(0x28c),()=>showSchoolRanking(N[UN(0x1af)]['trim']()));});}function showSchoolRanking(Z){const UT=FV;scrollToTop();const N=((()=>{try{return decodeURIComponent(Z);}catch(O){return Z;}})());try{const O=new URLSearchParams(window[UT(0x2bf)][UT(0x35f)]),R=O[UT(0x2a4)](UT(0x332))||(document[UT(0x341)](UT(0x2d2))?.[UT(0x1af)]||'')[UT(0x22c)](),c=R&&R[UT(0x1c9)](UT(0x132))?'HSC':UT(0x381),b=(R||'')['replace']('hsc_','');document[UT(0x1eb)]=N+UT(0x37e)+b+'\x20'+c;const E=O[UT(0x2a4)](UT(0x332)),q=O[UT(0x2a4)](UT(0x219));updateSEOForSchool(E,q,N),injectDatasetForSchool(E,q,N),injectBreadcrumbs(''+location['origin']+location[UT(0x1ac)],E,q,N);}catch(z){}try{const j=new URLSearchParams(window[UT(0x2bf)]['search']);j['set'](UT(0x387),N),history[UT(0x2ac)]({},'',location[UT(0x1ac)]+'?'+j[UT(0x292)]());}catch(s){console[UT(0x2aa)](UT(0x2cb),s);}const T=allData[UT(0x2ca)](w=>(w[UT(0x12c)]||'')[UT(0x22c)]()[UT(0xfc)]()===N[UT(0x22c)]()['toLowerCase']());T[UT(0x1e7)](compareStudents),T[UT(0x2dc)]===0x0?contentDiv['innerHTML']=UT(0x18f)+N+'\x22</h2>':contentDiv['innerHTML']='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2>Showing\x20rank\x20of\x20\x22'+N+UT(0x29c)+currentYear['textContent']['trim']()+UT(0x2bd)+currentGroup[UT(0x1af)][UT(0x188)]('\x20')[0x0]+UT(0x2bd)+N[UT(0x2b0)](/'/g,'\x5c\x27')+UT(0x13b)+T[UT(0x155)]((w,k)=>UT(0x290)+(k+0x1)+UT(0x359)+w[UT(0xb4)]+');\x0a\x20\x20\x20\x20showIndividualResultWithCheck('+w['roll']+',\x20\x27'+currentYear[UT(0x1af)][UT(0x188)]('\x20')[0x1]+UT(0x2bd)+currentGroup[UT(0x1af)][UT(0x188)]('\x20')[0x0]+'\x27);\x0a\x20\x20})()\x0a\x22>'+w[UT(0x334)]+UT(0x274)+w[UT(0xb4)]+');\x0a\x20\x20\x20\x20showIndividualResultWithCheck('+w[UT(0xb4)]+UT(0x3a6)+currentYear[UT(0x1af)][UT(0x188)]('\x20')[0x1]+UT(0x2bd)+currentGroup['textContent'][UT(0x188)]('\x20')[0x0]+UT(0x2c7)+w['roll']+UT(0x154)+w[UT(0x1b8)]+UT(0x190)+w[UT(0x29b)]+UT(0x18d)+w[UT(0x12c)]+UT(0x128))[UT(0x1f5)]('')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20';}function resetSchoolRanking(){const UO=FV;loadGroup(currentYear['textContent'][UO(0x22c)](),currentGroup['textContent'][UO(0x188)]('\x20')[0x0]);}function updateTableData(){const UR=FV;try{window[UR(0x1ab)]=filteredData;}catch(R){}const Z=(currentPage-0x1)*studentsPerPage,N=Math[UR(0x1bf)](Z+studentsPerPage,filteredData[UR(0x2dc)]),T=filteredData[UR(0x348)](Z,N),O=document[UR(0x341)](UR(0x26e));O[UR(0x35a)]='',T[UR(0x119)]((c,b)=>{const Ue=UR,y=document[Ue(0x269)]('tr'),E=Ue(0x33e)+c[Ue(0xb4)],q=localStorage['getItem']('userId')==='admin1234';y[Ue(0x35a)]=Ue(0x1bb)+(allData[Ue(0x21f)](j=>j['roll']===c[Ue(0xb4)])+0x1)+Ue(0x253)+E+Ue(0xcf)+c[Ue(0x334)]+Ue(0x1cb)+(q?Ue(0x294)+(window[Ue(0x2c5)]&&window['clickCountsCache'][c[Ue(0xb4)]]||0x0)+Ue(0x1d1):'')+'\x0a\x20\x20</td>\x0a\x0a\x20\x20<td\x20class=\x22student-roll\x22>'+c[Ue(0xb4)]+Ue(0x375)+c[Ue(0x1b8)]+Ue(0x375)+c['total']+Ue(0x374)+c[Ue(0x12c)]+Ue(0x15a);const z=y['querySelector'](Ue(0x11d));z[Ue(0x12f)]('click',()=>{const Uc=Ue;if(typeof window[Uc(0x151)]===Uc(0x14d))try{window[Uc(0x151)](c[Uc(0xb4)]);}catch(j){console[Uc(0x2aa)](j);}showIndividualResultWithCheck(c[Uc(0xb4)],currentYear['textContent'][Uc(0x188)]('\x20')[0x1],currentGroup[Uc(0x1af)][Uc(0x188)]('\x20')[0x0]);}),y['querySelector'](Ue(0x167))[Ue(0x12f)](Ue(0x28c),()=>{const Ub=Ue;if(typeof window[Ub(0x151)]===Ub(0x14d))try{window[Ub(0x151)](c['roll']);}catch(j){console[Ub(0x2aa)](j);}showIndividualResultWithCheck(c[Ub(0xb4)],currentYear[Ub(0x1af)][Ub(0x188)]('\x20')[0x1],currentGroup[Ub(0x1af)][Ub(0x188)]('\x20')[0x0]);}),y[Ue(0x18c)]('.student-school')[Ue(0x12f)](Ue(0x28c),()=>{const Uy=Ue;showSchoolRanking(c[Uy(0x12c)][Uy(0x22c)]());}),q&&typeof window[Ue(0x260)]===Ue(0x14d)&&!window['_br_clickListenerSet'][Ue(0x2b2)](c[Ue(0xb4)])&&(window['_br_clickListenerSet']['add'](c[Ue(0xb4)]),window[Ue(0x260)](c[Ue(0xb4)],j=>{const UE=Ue,s=document['getElementById'](E);if(s)s[UE(0x1af)]=c[UE(0x334)]+'\x20['+j+']';})),O[Ue(0x126)](y);}),document[UR(0x341)](UR(0x113))[UR(0x1af)]='Showing\x20'+(Z+0x1)+'-'+N+'\x20of\x20'+filteredData['length']+UR(0x33b),updatePaginationButtons();}function filterByInstituation(Z=null,N=![]){const Uq=FV,T=document['getElementById'](Uq(0x338));if(N){T[Uq(0x19b)]=Z;const O=new Event(Uq(0x110));T[Uq(0x2b5)](O);}else Z=T[Uq(0x19b)];Z?(filteredData=allData[Uq(0x2ca)](R=>(R['Instituation']||'')[Uq(0x22c)]()['toLowerCase']()===(Z||'')['trim']()[Uq(0xfc)]()),document[Uq(0x341)](Uq(0xd5))[Uq(0x259)][Uq(0x1ff)]=Uq(0x173)):resetFilter(),currentPage=0x1,updatePage();}function resetFilter(){const Uz=FV;filteredData=[...allData],currentPage=0x1,document[Uz(0x341)](Uz(0xd5))[Uz(0x259)][Uz(0x1ff)]=Uz(0x2da),updatePage();}function updatePage(){updateTableData(),updatePaginationButtons();}function handlePrevButtonClick(){currentPage>0x1&&(currentPage--,updatePage());}function handleFirstButtonClick(){currentPage>0x1&&(currentPage=0x1,updatePage());}function handleLastButtonClick(){const Uj=FV,Z=Math[Uj(0x15b)](filteredData['length']/studentsPerPage);currentPage<Z&&(currentPage=Z,updatePage());}function handleNextButtonClick(){const Us=FV,Z=Math[Us(0x15b)](filteredData[Us(0x2dc)]/studentsPerPage);currentPage<Z&&(currentPage++,updatePage());}function updatePaginationButtons(){const Uw=FV;document[Uw(0x341)]('prevBtn')[Uw(0x1e9)]=currentPage===0x1,document[Uw(0x341)]('nextBtn')['disabled']=currentPage===Math[Uw(0x15b)](filteredData[Uw(0x2dc)]/studentsPerPage)||filteredData[Uw(0x2dc)]===0x0;}function handleSearchInput(){const Uk=FV,Z=document[Uk(0x341)](Uk(0x349))[Uk(0x19b)][Uk(0x22c)]()[Uk(0xfc)]();filteredData=allData[Uk(0x2ca)](N=>N[Uk(0x334)][Uk(0xfc)]()['includes'](Z)),currentPage=0x1,updatePage();}function handleRollSearchInput(){const Ux=FV,Z=document['getElementById'](Ux(0x24a))['value'][Ux(0x22c)]();filteredData=allData[Ux(0x2ca)](N=>N[Ux(0xb4)]['toString']()['includes'](Z)),currentPage=0x1,updatePage();}function debounce(Z,N){let T;return function(){const UB=U,O=this,R=arguments;clearTimeout(T),T=setTimeout(()=>Z[UB(0x235)](O,R),N);};}function populateInstituationDropdown(){const Ua=FV,Z=document[Ua(0x341)](Ua(0x338));Z['innerHTML']=Ua(0x221),InstituationSet[Ua(0x119)](N=>{const Ud=Ua,T=document[Ud(0x269)]('option');T[Ud(0x19b)]=N,T[Ud(0x1af)]=N,Z['appendChild'](T);});}(function(){const Uo=FV,Z=Uo(0x30d);function N(){const Ug=Uo;if(document[Ug(0x341)](Z))return;const T=document['createElement'](Ug(0x259));T['id']=Z,T[Ug(0x1af)]=Ug(0x1a8),document[Ug(0x116)][Ug(0x126)](T);}window[Uo(0x2f2)]=function(){const Uv=Uo;if(document[Uv(0x341)]('dataLoaderOverlay'))return;N();const T=document[Uv(0x269)](Uv(0x280));T['id']=Uv(0x2be),T[Uv(0x35a)]=Uv(0x2a8),document['body'][Uv(0x126)](T);const O=document[Uv(0x341)](Uv(0xf1)),R=document['getElementById'](Uv(0x32d));window['__br_fakeP']=0x1,clearInterval(window[Uv(0x1c7)]),window['__br_fakeTimer']=setInterval(()=>{const UV=Uv;if(!document[UV(0x341)]('dataLoaderOverlay')){clearInterval(window[UV(0x1c7)]);return;}if(window[UV(0xfa)]<0x63){window[UV(0xfa)]+=0x1,O[UV(0x1af)]=window['__br_fakeP']+'%';if(window[UV(0xfa)]<0x14)R['textContent']=UV(0x13a);else{if(window[UV(0xfa)]<0x32)R[UV(0x1af)]=UV(0x38d);else{if(window['__br_fakeP']<0x50)R[UV(0x1af)]=UV(0x180);else R[UV(0x1af)]='Almost\x20done…';}}}else clearInterval(window[UV(0x1c7)]);},0x8),window[Uv(0xbc)]=function(c,b){const Ut=Uv;if(!document[Ut(0x341)]('dataLoaderOverlay'))return;if(!b||!c)return;const y=c/b;if(y<0.2)R['textContent']='Connecting\x20to\x20server…';else{if(y<0.5)R['textContent']=Ut(0x38d);else{if(y<0.8)R[Ut(0x1af)]=Ut(0x180);else R['textContent']=Ut(0x254);}}};},window[Uo(0x391)]=function(T={}){const UD=Uo,O=document[UD(0x341)]('dataLoaderOverlay');if(!O)return;const R=document[UD(0x341)]('brLoaderPercent'),c=document['getElementById'](UD(0x32d));clearInterval(window[UD(0x1c7)]);const b=T[UD(0x14a)]===!![]||typeof filteredData!=='undefined'&&Array['isArray'](filteredData)&&filteredData[UD(0x2dc)]===0x0;if(b){O[UD(0x18c)](UD(0x35c))[UD(0x35a)]=UD(0x2b9)+(T[UD(0x309)]||'This\x20selected\x20results\x20are\x20not\x20yet\x20available.')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22window.location.href=\x27index.html\x27\x22>Go\x20Back</button>\x0a\x20\x20\x20\x20\x20\x20';return;}if(R)R[UD(0x1af)]=UD(0x26c);if(c)c['textContent']=UD(0x11b);requestAnimationFrame(()=>O[UD(0x217)]());};}());function getProgressBarHtml(Z,N){const UK=FV,T=parseFloat(Z)/N*0x64,O=UK(0x16d)+Math['random']()[UK(0x292)](0x24)[UK(0x18b)](0x2,0x9),R=UK(0x129)+Math[UK(0x369)]()[UK(0x292)](0x24)[UK(0x18b)](0x2,0x9);return setTimeout(()=>{animateProgressBar(O,T),animateNumber(R,Z);},0x64),UK(0x2f1)+R+'\x22>0</span>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22progress-bar-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22'+O+'\x22\x20class=\x22progress-bar\x22>0%</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20';}function animateProgressBar(Z,N){const Ur=FV,T=document[Ur(0x341)](Z);let O=0x0;function R(){const UL=Ur;O+=0x1;if(O>N)O=N;let c=UL(0x3b7),b='';if(O>=0x5f)c='indigo';else{if(O>=0x5a)c='blue';else{if(O>=0x50)c=UL(0xff);else{if(O>=0x46)c=UL(0x367),b=UL(0x367);else O>=0x22&&(c=UL(0x310));}}}T[UL(0x259)]['width']=O+'%',T[UL(0x259)][UL(0x162)]=c,T[UL(0x1af)]=O['toFixed'](0x0)+'%',O<N?requestAnimationFrame(R):(T[UL(0x259)][UL(0x3a0)]=N+'%',T[UL(0x1af)]=N[UL(0x1b5)](0x2)+'%');}R();}function animateNumber(Z,N){const Um=FV,T=document[Um(0x341)](Z);if(!T)return;let O=0x0;const R=0x3e8,c=Math[Um(0x182)](Math[Um(0x1ee)](R/N),0xa),b=setInterval(()=>{const UG=Um;O+=0x1,O>=N&&(O=N,clearInterval(b)),T[UG(0x1af)]=O;},c);}function showIndividualResult(Z,N,T){const UP=FV;if(document[UP(0x18c)](UP(0x275)))return;const O=UP(0x117)+N+'_'+T[UP(0xfc)]()+UP(0x384),R=O['includes'](UP(0x132)),c=location['pathname']+UP(0x216)+N+'&group='+T+UP(0x1a1)+Z;history[UP(0x2ac)]({},'',c),fetch(O)[UP(0x3af)](b=>b[UP(0x271)]())['then'](b=>{const Uf=UP,y=b[Uf(0x22c)]()['split']('\x0a'),E=y[Uf(0x172)](j=>j[Uf(0x188)]('\x09')[0x0][Uf(0x2b0)](/^0+/,'')===Z[Uf(0x292)]()[Uf(0x2b0)](/^0+/,''));let q;if(E){const j=E[Uf(0x188)]('\x09');let s,w,k;if(T===Uf(0x1bc))s=Uf(0x1ed),w=Uf(0xf5),k='Finance';else T==='Arts'?(s=Uf(0x1ed),w=Uf(0x32b),k=Uf(0x23e)):(s=Uf(0x3b2),w=Uf(0xd1),k=Uf(0xc3));if(R){if(j[Uf(0x2dc)]<0x8)q=Uf(0x23f);else{const [x,B,a,d,o,g,v,V]=j,t=allData[Uf(0x172)](K=>K['roll']===parseInt(x));try{updateSEOForStudent(N,T,t[Uf(0x334)],x);}catch(K){}const D=allData['findIndex'](r=>r['roll']===parseInt(x))+0x1;try{const r=N&&N[Uf(0x1c9)]('hsc')?Uf(0x365):Uf(0x381),L=(N||'')[Uf(0x2b0)](Uf(0x33c),'');document[Uf(0x1eb)]=t['name']+Uf(0x37e)+L+'\x20'+r;}catch(m){}q=Uf(0xe7)+t[Uf(0x334)]+Uf(0x31c)+t['Instituation']+'</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Roll:\x20'+x+Uf(0x203)+t[Uf(0x1b8)]+'</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Board\x20Rank:\x20'+D+Uf(0x28f)+t[Uf(0x29b)]+Uf(0x376)+getProgressBarHtml(B,0xc8)+Uf(0x17f)+getProgressBarHtml(a,0xc8)+Uf(0x256)+getProgressBarHtml(d,0x64)+'</p>\x0a<p>Physics:\x20'+getProgressBarHtml(o,0xc8)+Uf(0x3b0)+getProgressBarHtml(g,0xc8)+'</p>\x0a<p>Compulsory:\x20'+getProgressBarHtml(v,0xc8)+'</p>\x0a<p>Optional:\x20'+getProgressBarHtml(V,0xc8)+Uf(0x16c)+t['roll']+Uf(0x306)+N+Uf(0x311)+T+'\x22)\x27>Compare\x20with\x20Other\x20Student</button>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22showSSCResultFromHSC(\x27'+t[Uf(0x334)]+Uf(0x2bd)+T[Uf(0xfc)]()+Uf(0x2ef)+N+Uf(0x2bd)+T+'\x27,\x20\x27'+x+Uf(0x308);}}else{if(j[Uf(0x2dc)]<0xd)q=Uf(0x23f);else{const [G,P,f,l,M,S,Q,X,h,A,n,i,C]=j,I=allData[Uf(0x172)](W=>W[Uf(0xb4)]===parseInt(G));try{updateSEOForStudent(N,T,I[Uf(0x334)],G);}catch(W){}const Y=allData['findIndex'](p=>p[Uf(0xb4)]===parseInt(G))+0x1;try{const p=N&&N[Uf(0x1c9)](Uf(0x132))?Uf(0x365):Uf(0x381),u=(N||'')[Uf(0x2b0)](Uf(0x33c),'');document[Uf(0x1eb)]=I[Uf(0x334)]+Uf(0x37e)+u+'\x20'+p;}catch(J){}q='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Name:\x20'+I['name']+Uf(0x31c)+I[Uf(0x12c)]+Uf(0x17c)+G+Uf(0x203)+I[Uf(0x1b8)]+Uf(0xc8)+Y+'</p>\x0a<p>Total\x20Marks:\x20'+I[Uf(0x29b)]+Uf(0x2ec)+getProgressBarHtml(P,0xc8)+Uf(0x17f)+getProgressBarHtml(f,0xc8)+Uf(0x397)+getProgressBarHtml(l,0x64)+Uf(0x2fa)+s+':\x20'+getProgressBarHtml(M,0x64)+Uf(0x2eb)+getProgressBarHtml(S,0x64)+Uf(0x2fa)+w+':\x20'+getProgressBarHtml(Q,0x64)+Uf(0x2fa)+k+':\x20'+getProgressBarHtml(X,0x64)+'</p>\x0a<p>Compulsory:\x20'+getProgressBarHtml(h,0x64)+Uf(0x256)+getProgressBarHtml(A,0x32)+Uf(0x356)+getProgressBarHtml(n,0x64)+Uf(0x2e8)+getProgressBarHtml(i,0x64)+Uf(0x37a)+getProgressBarHtml(C,0x32)+Uf(0x20e)+I['roll']+Uf(0x306)+N+Uf(0x311)+T+Uf(0x2a0)+N+Uf(0x2bd)+T+Uf(0x2bd)+G+Uf(0x362);}}}else q='<div\x20class=\x22popup-content\x22><p>Result\x20not\x20found</p><button\x20class=\x22back-button\x22\x20onclick=\x22closePopup()\x22>Back</button></div>';const z=document[Uf(0x269)](Uf(0x280));z[Uf(0x25a)][Uf(0x343)](Uf(0xe2)),z[Uf(0x35a)]=q,document[Uf(0x105)][Uf(0x126)](z),document[Uf(0x105)][Uf(0x25a)][Uf(0x343)](Uf(0x342));})[UP(0x141)](b=>{const Ul=UP;console[Ul(0x2aa)](Ul(0x265),b);const y=document['createElement'](Ul(0x280));y[Ul(0x25a)][Ul(0x343)]('popup'),y[Ul(0x35a)]=Ul(0x23f),document[Ul(0x105)]['appendChild'](y),document[Ul(0x105)][Ul(0x25a)]['add']('locked');});}function copyFullResult(Z){const UM=FV,N=Z[UM(0x21b)](UM(0x36f));if(!N)return;let T='';const O=N[UM(0x364)]('p');O[UM(0x119)](R=>{const US=UM;if(R['querySelector'](US(0x13e)))return;const c=R[US(0x1af)][US(0x22c)]();if(c)T+=c+'\x0a';}),navigator['clipboard'][UM(0x2b3)](T)[UM(0x3af)](()=>{const UQ=UM;showToast(UQ(0xe1));})['catch'](()=>{const UX=UM,R=document[UX(0x269)]('textarea');R[UX(0x19b)]=T,document['body'][UX(0x126)](R),R[UX(0x13d)](),document[UX(0x1e4)](UX(0x248)),document['body']['removeChild'](R),showToast(UX(0x212));});}function copyStudentResultLink(Z){const Uh=FV,N=Z[Uh(0x21b)](Uh(0x36f)),T=N?.['innerHTML'][Uh(0x16f)](/Roll:\s*(\d+)/)?.[0x1],O=currentYear?.[Uh(0x1af)]?.[Uh(0x22c)](),R=currentGroup?.[Uh(0x1af)]?.['split']('\x20')[0x0],c=Uh(0x38c)+O+'&group='+encodeURIComponent(R)+Uh(0x1a1)+T;navigator['clipboard'][Uh(0x2b3)](c)[Uh(0x3af)](()=>{const UA=Uh;showToast(UA(0x303));})[Uh(0x141)](()=>{const Un=Uh,b=document[Un(0x269)](Un(0x34f));b[Un(0x19b)]=c,document[Un(0x105)][Un(0x126)](b),b[Un(0x13d)](),document[Un(0x1e4)](Un(0x248)),document[Un(0x105)]['removeChild'](b),showToast(Un(0x1e1));});}function openEntityPage(Z,N,T,O){const Ui=FV;Z===Ui(0x28a)?location[Ui(0x204)]=Ui(0x23b)+encodeURIComponent(N)+Ui(0x366)+encodeURIComponent(T)+Ui(0x1a1)+encodeURIComponent(O):location[Ui(0x204)]=Ui(0x23b)+encodeURIComponent(N)+Ui(0x366)+encodeURIComponent(T)+Ui(0x184)+encodeURIComponent(O);}function showToast(Z){const UC=FV,N=document[UC(0x269)](UC(0x280));N[UC(0x1af)]=Z,N[UC(0x259)]=UC(0x394),document[UC(0x105)][UC(0x126)](N),setTimeout(()=>N[UC(0x217)](),0x9c4);}function F(){const Td=['extract','</div>','\x20—\x20Total\x20','Name\x20must\x20contain\x20at\x20least\x204\x20characters.','</b></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-top:4px\x22>','institution','<option\x20value=\x22','hb-launcher','true','round','2022','🔗\x20Link\x20copied\x20(fallback)','count','<div\x20style=\x22display:flex;align-items:center;gap:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22loading-spinner\x22\x20style=\x22width:18px;height:18px;border-top-width:4px\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-weight:bold\x22>Searching\x20SSC\x20records...</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','execCommand','commerse','1141196dcDONG','sort','•\x20when\x20is\x20next\x20fifa\x20wc','disabled','twitter:description','title','Please\x20wait\x20for\x20v1.0\x20—\x20I’m\x20still\x20learning\x20the\x20world,\x20and\x20I’ll\x20answer\x20that\x20soon.','Science','floor','sharePopupShown','scrollHeight','hb-panel','close','mfDrawer','FirstURL','join','no\x20file','bangla','color','\x0a\x20\x20','</h2>\x0a\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22loadGroup(\x27','📥\x20Download\x20started','che','src','fill','display','humanties','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22access-status\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22cross\x22>❌</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22status-text\x22\x20style=\x22color:#dc2626;\x22>Access\x20Denied\x20—\x20Please\x20try\x20again</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20','rank:data-ready','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>GPA:\x20','href','#hb-panel\x20.hb-name','mf-drawer','editNameBtn','Arts','Subject\x20','__HAS9_notify','com','Say:\x20find\x20Nafis','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hb-head\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hb-title\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20class=\x22hb-ava\x22\x20src=\x22https://img.icons8.com/color/96/robot-2.png\x22\x20alt=\x22HAS9beta\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div><div\x20class=\x22hb-name\x22>HAS9beta</div><div\x20class=\x22hb-sub\x22>assistant\x20•\x20beta</div></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22hb-close\x22\x20aria-label=\x22Close\x22\x20type=\x22button\x22>×</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hb-body\x22\x20id=\x22hb-chat\x22\x20aria-live=\x22polite\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hb-actions\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hb-ask\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22hb-input\x22\x20type=\x22text\x22\x20placeholder=\x27try:\x20what\x20is\x20photosynthesis\x20•\x20find\x20Nafis\x20•\x20open\x20100000\x20ssc\x2025\x20science\x20•\x20top\x2010\x20math\x20ssc\x2025\x20•\x20fun\x20fact\x27\x20aria-label=\x22Ask\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22hb-send\x22\x20type=\x22button\x22>Send</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>','</p>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x27promptComparison(','text/tab-separated-values','https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js','exam','📋\x20Result\x20copied\x20(fallback)','https://en.wikipedia.org/wiki/','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','Apple\x20Mac','?year=','remove','Opening\x20roll\x20','group','2023','closest','&format=json&no_html=1&skip_disambig=1','<div\x20class=\x22suggest-item\x22\x20data-name=\x22','input[name=\x22mfSchool\x22]:checked','findIndex','hssc','<option\x20value=\x22\x22>Select\x20Instituation</option>','there','Searching\x20across\x20all\x20years/groups…','.br_open_btn','url','meta','inline','college','gpa5Count','type','sscc','trim','Chattogram\x20Board','Couldn’t\x20find\x20SSC\x20result.\x20Name\x20mismatch\x20or\x20stream\x20change\x20may\x20be\x20the\x20cause.','#hb-panel\x20.hb-chips','now','<div\x20class=\x22popup-content\x22>','shareBtn','studentCount','</small>\x0a\x20\x20\x20\x20\x20\x20\x20</div>','apply','art','https://duckduckgo.com/?q=','compulsory','Bangla','To\x20take\x20over\x20humanity.\x20Kidding…\x20mostly.\x20My\x20real\x20goal\x20is\x20to\x20help\x20you\x20find\x20and\x20compare\x20results\x20quickly\x20and\x20cleanly.','entity.html?year=','submitVisitorInfo','getFullYear','Civics','<div\x20class=\x22popup-content\x22><p>Result\x20not\x20found</p><button\x20class=\x22back-button\x22\x20onclick=\x22closePopup()\x22>Back</button></div>','Skipped!','mobileFilterBtn','Escape','Student\x20data\x20not\x20found.','btn-pill\x20btn-top-schools','Unofficial\x20','\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22\x20style=\x22max-width:520px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h2>Multiple\x20SSC\x20records\x20found</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p>Please\x20confirm\x20the\x20SSC\x20roll\x20or\x20pick\x20the\x20correct\x20record\x20below.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22br_candidates_list\x22\x20style=\x22max-height:180px;overflow:auto;margin-bottom:0.75rem;border:1px\x20solid\x20#ddd;padding:6px;border-radius:4px;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;gap:8px;align-items:center;margin-top:8px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22br_ssc_roll_input\x22\x20placeholder=\x22Enter\x20SSC\x20roll\x20(or\x20pick\x20above)\x22\x20style=\x22flex:1;padding:8px;border:1px\x20solid\x20#0061FE;border-radius:4px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22br_ssc_roll_confirm\x22\x20class=\x22back-button\x22\x20style=\x22padding:8px\x2012px;\x22>Confirm</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:0.9rem;color:#444;margin-top:10px;\x22>Tip:\x20Click\x20a\x20row\x20to\x20open\x20that\x20SSC\x20result\x20directly.</p>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','bgs','copy','deviceMemory','searchRollInput','geo','Heading','Windows\x20PC','.\x20View\x20GPA,\x20totals,\x20and\x20student\x20positions\x20from\x20Chattogram\x20Board.','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22access-status\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22circle\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22status-text\x22>Processing...</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','mfSchoolList','className','Tea!','</td>\x0a\x0a\x20\x20<td\x20class=\x22student-name\x22\x20id=\x22','Almost\x20done…','rollSuggestBox','</p>\x0a<p>ICT:\x20','SSC\x202025\x20Board\x20Rank\x20of\x20Chittagong','mf-item','style','classList','No\x20result\x20popup\x20found.','Loading\x20','transition','ICT','__br_sscCache','listenClickCount','button.hb-mini','fingerprint','GPA','helpBtnHero','Error\x20loading\x20individual\x20data:','dataset','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20','has9_welcome_name','createElement','avgTotal','og:description','100%','border','studentTableBody','website','phs','text','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:center;\x20padding:20px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20style=\x22color:#b91c1c;\x22>🚫\x20Access\x20Not\x20Granted</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin:10px\x200;\x20font-size:0.95rem;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Looks\x20like\x20this\x20feature\x20isn’t\x20available\x20with\x20that\x20feedback.\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Maybe\x20try\x20again\x20later.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22color:#666;\x20font-size:0.85rem;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20We’re\x20always\x20working\x20to\x20improve\x20—\x20your\x20opinion\x20is\x20noted.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22visitorInfoDenied()\x22\x20class=\x22secondary-btn\x22\x20style=\x22margin-top:15px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Close\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x20rankings\x20for\x20Chattogram\x20Board\x20including\x20GPA,\x20totals,\x20school\x20names\x20and\x20positions.','</td>\x0a\x0a<td\x20class=\x22student-roll\x22\x20onclick=\x22\x0a\x20\x20(function(){\x0a\x20\x20\x20\x20if\x20(window.incrementClickCount)\x20incrementClickCount(','.popup','light','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22hb-mini\x22\x20data-a=\x222\x22>','description','</td><td>','documentElement','contains','flex','application/ld+json','Unknown\x20subject\x20\x22','•\x20find\x20Nabil','div','\x20—\x20','blue','bengali','pendingReview','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Compare\x20<b>','toUpperCase','131113JWeTMd','<div\x20class=\x22suggest-empty\x22>No\x20matches</div>','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:right\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-weight:bold\x22>Roll:\x20','student','Cache\x20parse\x20failed','click','SSC\x20Result\x20Ranking\x20','https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js','</p>\x0a<p>Total\x20Marks:\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','this_or_that.json','toString','hb-b\x20','<span>[','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:center;\x20padding:20px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22access-status\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22circle\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x204px\x20solid\x20#ccc;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-top:\x204px\x20solid\x20#1976d2;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x2050%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x2040px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x2040px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x20auto;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20animation:\x20spin\x201s\x20linear\x20infinite;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-top:\x2010px;\x20font-size:\x200.95rem;\x22>Checking\x20your\x20feedback…</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<style>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20@keyframes\x20spin\x20{\x20to\x20{\x20transform:\x20rotate(360deg);\x20}\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</style>\x0a\x20\x20\x20\x20\x20\x20','showSSCResultFromHSC\x20error','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:center;\x20padding:20px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22circle\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x204px\x20solid\x20#ccc;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-top:\x204px\x20solid\x20#1976d2;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x2050%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x2040px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x2040px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x20auto;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20animation:\x20spin\x201s\x20linear\x20infinite;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-top:\x2010px;\x20font-size:\x200.95rem;\x22>Verifying\x20name…</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<style>@keyframes\x20spin\x20{\x20to\x20{\x20transform:\x20rotate(360deg);\x20}\x20}</style>\x0a\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div><b>','NFKD','[data-cmd]','total','\x22</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22resetSchoolRanking()\x22>Back</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22openEntityPage(\x27school\x27,\x20\x27','splitTextToSize','color:#b71c1c;margin-top:8px;font-weight:bold','save','\x22)\x27>Compare\x20with\x20Other\x20Student</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22openEntityPage(\x27student\x27,\x20\x27','\x0a\x20\x20\x20\x20<div\x20class=\x22popup-content\x20help-popup\x22\x20style=\x22max-width:\x20720px;\x22>\x0a\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin-top:0;\x22>How\x20it\x20works</h2>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22help-grid\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22help-item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-title\x22><i\x20class=\x22ri-trophy-line\x22></i>\x20Choose\x20Year\x20&\x20Group</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-text\x22>Pick\x20SSC/HSC\x20+\x20year.\x20Then\x20you\x20can\x20search,\x20filter,\x20and\x20open\x20details.</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22help-item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-title\x22><i\x20class=\x22ri-search-line\x22></i>\x20Instant\x20Search</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-text\x22>Filter\x20by\x20Name,\x20Roll,\x20or\x20Institution.\x20Type\x20in\x20both\x20boxes\x20to\x20narrow.</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22help-item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-title\x22><i\x20class=\x22ri-open-arm-line\x22></i>\x20Open\x20Student\x20Details</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-text\x22>Click\x20any\x20Name\x20or\x20Roll\x20to\x20see\x20marks,\x20GPA,\x20Board\x20Rank,\x20PDF/Copy/Link,\x20and\x20Compare.</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22help-item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-title\x22><i\x20class=\x22ri-building-4-line\x22></i>\x20School-wise\x20Ranking</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-text\x22>Click\x20a\x20school\x20name\x20(or\x20pick\x20it\x20from\x20Institution)\x20to\x20see\x20only\x20that\x20school’s\x20list.</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22help-item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-title\x22><i\x20class=\x22ri-filter-3-line\x22></i>\x20Mobile\x20Filter\x20Drawer</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-text\x22>Tap\x20Filter\x20to\x20set\x20Total\x20range,\x20GPA\x20chips,\x20and\x20multi‑select\x20Schools,\x20then\x20Apply.</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22help-item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-title\x22><i\x20class=\x22ri-bar-chart-2-line\x22></i>\x20Top\x20100\x20Institutions</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-text\x22>Tap\x20“Top\x20Schools”\x20to\x20see\x20Top\x20100\x20by\x20GPA‑5%\x20and\x20overall\x20performance.</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22help-item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-title\x22><i\x20class=\x22ri-external-link-line\x22></i>\x20Share\x20&\x20Export</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-text\x22>In\x20a\x20student’s\x20popup:\x20Copy\x20Result,\x20Copy\x20Link,\x20or\x20Download\x20PDF.</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22help-item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-title\x22><i\x20class=\x22ri-robot-2-line\x22></i>\x20HAS9beta\x20(smart\x20helper)</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hi-text\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20•\x20Web\x20answers:\x20try\x20“what\x20is\x20photosynthesis”,\x20“who\x20is\x20sundar\x20pichai”<br>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20•\x20Open:\x20“open\x20ssc\x2025\x20science”,\x20“open\x20100000\x20ssc\x2025\x20science”<br>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20•\x20Find\x20(global):\x20“find\x20Nafis”<br>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20•\x20Top\x20lists:\x20“top\x2010\x20math\x20ssc\x2025”<br>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20•\x20Fun:\x20“play\x20this\x20or\x20that”,\x20“fun\x20fact”,\x20“random”\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22help-actions\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22help-chip\x22\x20data-cmd=\x22open\x20ssc\x2025\x20science\x22><i\x20class=\x22ri-trophy-line\x22></i>\x20open\x20ssc\x2025\x20science</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22help-chip\x22\x20data-cmd=\x22find\x20Nafis\x22><i\x20class=\x22ri-search-line\x22></i>\x20find\x20Nafis</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22help-chip\x22\x20data-cmd=\x22top\x2010\x20math\x20ssc\x2025\x22><i\x20class=\x22ri-bar-chart-2-line\x22></i>\x20top\x2010\x20math\x20ssc\x2025</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22help-chip\x22\x20data-cmd=\x22what\x20is\x20photosynthesis\x22><i\x20class=\x22ri-book-open-line\x22></i>\x20what\x20is\x20photosynthesis</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22help-chip\x22\x20data-cmd=\x22fun\x20fact\x22><i\x20class=\x22ri-sparkling-2-line\x22></i>\x20fun\x20fact</button>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<p\x20class=\x22help-note\x22>Note:\x20This\x20is\x20an\x20unofficial\x20ranking\x20made\x20from\x20publicly\x20available\x20data.</p>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20','getItem','Say\x20like:\x20SSC\x2025\x20Science','get','business','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-weight:bold;color:#b71c1c;\x22>','nameSuggestBox','\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22loader-box\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22rings\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22ring\x20r1\x22\x20style=\x22width:96px;height:96px;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22ring\x20r2\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22ring\x20r3\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22brLoaderPercent\x22\x20class=\x22percent\x22>1%</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22brLoaderSub\x22\x20class=\x22subtext\x22>Preparing\x20files…</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','parse','error','matchMedia','pushState','key','stopPropagation','Couldn\x27t\x20load\x20the\x20game\x20data.','replace','AbstractURL','has','writeText','</span>','dispatchEvent','76vh','bad','%</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22color:#fca5a5;\x20margin:6px\x200;\x22>❗\x20Data\x20NOT\x20FOUND</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22color:#e5e7eb;\x20margin-bottom:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','bst','all\x200.4s\x20ease','sience','\x27,\x20\x27','dataLoaderOverlay','location','getWidth','Dataset','aria-label','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22br_open_btn\x22\x20style=\x22margin-top:6px;padding:6px\x208px;border-radius:4px;border:0;background:#000;color:#fff;cursor:pointer\x22>Open</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','sscGroup','clickCountsCache','NFKC','\x27);\x0a\x20\x20})()\x0a\x22>','civics','helpBtn','filter','Error\x20updating\x20URL\x20for\x20school:','navLinks','og:type','Coffee\x20or\x20Tea?','accounting','\x20<small>•\x20','•\x20open\x20ssc\x2025\x20science','currentYear','topSchoolsBtn','visitorName','exists','hcs','scrollTop','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-hashtag\x22></i>\x20','data','none','currentGroup','length','mfSchoolSearch','\x0a\x20\x20<div\x20class=\x22popup-content\x22>\x0a<div\x20class=\x22popup-header\x22\x20style=\x22\x0a\x20\x20\x20\x20background:\x20linear-gradient(135deg,\x20#1976d2,\x20#42a5f5);\x0a\x20\x20\x20\x20color:\x20white;\x0a\x20\x20\x20\x20font-weight:\x20bold;\x0a\x20\x20\x20\x20font-size:\x201.3rem;\x0a\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20justify-content:\x20space-between;\x0a\x20\x20\x20\x20padding:\x2012px\x2016px;\x0a\x20\x20\x20\x20border-top-left-radius:\x208px;\x0a\x20\x20\x20\x20border-top-right-radius:\x208px;\x0a\x22>\x0a\x20\x20<div\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20gap:\x208px;\x22>\x0a\x20\x20\x20\x20<img\x20src=\x22https://img.icons8.com/color/48/verified-badge.png\x22\x20alt=\x22Icon\x22\x20style=\x22width:\x2028px;\x20height:\x2028px;\x22>\x0a\x20\x20\x20\x20<span>Quick\x20Verification</span>\x0a\x20\x20</div>\x0a\x20\x20<button\x20class=\x22close-btn\x22\x20onclick=\x22visitorInfoDenied()\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20background:\x20transparent;\x0a\x20\x20\x20\x20\x20\x20border:\x20none;\x0a\x20\x20\x20\x20\x20\x20font-size:\x201.5rem;\x0a\x20\x20\x20\x20\x20\x20color:\x20white;\x0a\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x22>&times;</button>\x0a</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22popup-body\x22>\x0a\x20\x20\x20\x20\x20\x20<p\x20style=\x22color:#555;\x22>Please\x20tell\x20us\x20a\x20bit\x20about\x20yourself\x20so\x20we\x20can\x20improve\x20our\x20service.\x20We\x20store\x20basic\x20device\x20info\x20so\x20you\x20won\x27t\x20see\x20this\x20again\x20on\x20the\x20same\x20device.</p>\x0a\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20<label>Name</label>\x0a\x20\x20\x20\x20\x20\x20<input\x20id=\x22visitorName\x22\x20type=\x22text\x22\x20placeholder=\x22Your\x20name\x22\x20/>\x0a\x0a\x20\x20\x20\x20\x20\x20<label>Institution\x20(school\x20/\x20college)</label>\x0a\x20\x20\x20\x20\x20\x20<input\x20id=\x22visitorInstitution\x22\x20type=\x22text\x22\x20placeholder=\x22Institution\x20name\x22\x20/>\x0a\x0a\x20\x20\x20\x20\x20\x20<label>Type</label>\x0a\x20\x20\x20\x20\x20\x20<select\x20id=\x22visitorType\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22\x22>Select\x20...</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>SSC</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>HSC</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Others</option>\x0a\x20\x20\x20\x20\x20\x20</select>\x0a\x0a\x20\x20\x20\x20\x20\x20<label>How\x20did\x20you\x20find\x20us?</label>\x0a\x20\x20\x20\x20\x20\x20<select\x20id=\x22visitorSource\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22\x22>Select\x20...</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>WhatsApp\x20group</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Facebook\x20group</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Friend\x20/\x20Classmate</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Facebook\x20post</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Instagram</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>YouTube</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Google\x20Search</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>School\x20notice\x20board</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Teacher</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Relatives</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Other\x20social\x20media</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option>Others</option>\x0a\x20\x20\x20\x20\x20\x20</select>\x0a\x0a\x20\x20\x20\x20\x20\x20<label>Experience\x20so\x20far</label>\x0a\x20\x20\x20\x20\x20\x20<select\x20id=\x22visitorExperience\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22\x22>Select\x20...</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22worst\x22>😖\x20Worst</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22bad\x22>😞\x20Bad</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22average\x22>😐\x20Average</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22good\x22>🙂\x20Good</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22best\x22>🤩\x20Best</option>\x0a\x20\x20\x20\x20\x20\x20</select>\x0a\x0a\x0a\x20\x20\x20\x20\x20\x20<label>Leave\x20a\x20Message\x20(optional)</label>\x0a<textarea\x20id=\x22visitorMessage\x22\x20placeholder=\x22Write\x20something...\x22\x20style=\x22min-height:60px;\x22></textarea>\x0a\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<div\x20class=\x22popup-footer\x22>\x0a\x20\x20\x20\x20\x20\x20<button\x20class=\x22secondary-btn\x22\x20onclick=\x22visitorInfoDenied()\x22>Cancel</button>\x0a\x0a\x20\x20\x20\x20\x20\x20<button\x20id=\x22submitVisitorInfo\x22\x20class=\x22primary-btn\x22>Submit</button>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20</div>\x0a','hb-send','.txt','set','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','Hi!\x20I’m\x20HAS9beta.\x20Type\x20\x22help\x22\x20to\x20see\x20examples\x20—\x20I\x20can\x20open\x20results,\x20find\x20names,\x20show\x20top\x20lists,\x20and\x20answer\x20WH-questions\x20from\x20the\x20web.','.group-buttons\x20.active','keydown','jspdf','script[type=\x22application/ld+json\x22][data-id=\x22','</p>\x0a<p>Physical:\x20','\x20—\x20GPA,\x20totals\x20and\x20positions.','Person','</p>\x0a<p>Religion:\x20','</p>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Bangla:\x20','\x20<span\x20style=\x22color:green;\x22>vs</span>\x20','humanities','\x27)\x22>Watch\x20SSC\x20Result</button>\x0a\x20\x20\x20\x20\x20<button\x20onclick=\x22openEntityPage(\x27student\x27,\x20\x27','2024','\x0a\x20\x20\x20\x20\x20\x20<span\x20id=\x22','showLoadingIndicator','string','link[rel=\x22canonical\x22]','Finance','mfGpa_','read','\x20•\x20#','math','</p>\x0a<p>','headers','yearDropdown','optional','hardwareConcurrency','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22access-status\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22tick\x22>✅</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22status-text\x22\x20style=\x22color:#16a34a;\x22>Full\x20Access\x20Granted</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','english','<img\x20src=\x22https://img.icons8.com/color/96/robot-2.png\x22\x20alt=\x22HAS9beta\x22><span\x20class=\x22hb-ping\x22></span>','theme','🔗\x20Link\x20copied','mfResetBtn','#br_ssc_roll_input',',\x20\x22','Open\x20HAS9beta','\x27)\x22>Open\x20as\x20Page</button>\x0a\x0a<div\x20class=\x22popup-footer\x22>\x0a\x20\x20<button\x20onclick=\x22copyFullResult(this)\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Copy\x20Result\x22>\x0a\x20\x20\x20\x20<i\x20class=\x22fas\x20fa-copy\x22></i>\x0a\x20\x20</button>\x0a\x20\x20<button\x20onclick=\x22closePopup()\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Close\x22>\x0a\x20\x20\x20\x20<i\x20class=\x22fas\x20fa-times\x22></i>\x0a\x20\x20</button>\x0a\x20\x20<button\x20onclick=\x22copyStudentResultLink(this)\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Copy\x20Link\x22>\x0a\x20\x20\x20\x20<i\x20class=\x22fas\x20fa-link\x22></i>\x0a\x20\x20</button>\x0a\x20\x20\x20<button\x20onclick=\x22downloadStudentPDF(this)\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Download\x20PDF\x22>\x0a\x20\x20<i\x20class=\x22fas\x20fa-file-pdf\x22></i>\x0a</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','errorMessage','Compulsory','yearToken','assistant\x20•\x20beta','br-loader-styles','.circle','userRating','orange','\x22,\x20\x22','computer','og:title','\x0a\x20\x20\x20\x20\x20\x20</datalist>\x0a\x20\x20\x20\x20','Checking…','askRollForOpen','Picking\x20a\x20random\x20student…','groupForRoll2','board\x20rank','pop-in','worst','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Institution:\x20','civic','•\x20open\x20100001','onscroll','\x27,\x20\x27Science\x27)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22sci.png\x22\x20alt=\x22Science\x20Icon\x22>Science\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22loadGroup(\x27','groupForRoll','dark','byRoll','data-name','noDataMessage','visitorType','<div><b>Matches</b></div>','loading','</td></tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr><td>Total\x20Marks</td><td>','onload','Geography','\x20Result','brLoaderSub','\x20<span\x20style=\x22color:#666;font-weight:normal\x22>(','Unexpected\x20error\x20occurred.','I’m\x20good\x20—\x20training\x20for\x20v1.0.\x20How\x20can\x20I\x20help?','finance','year','Which\x20group?\x20(Science/Commerce/Arts)','name','setFont','Text','geography','InstituationDropdown','626290OFFAZH','</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>','\x20students','hsc_','</td></tr>','name-','breadcrumbs','!\x20I’m\x20HAS9beta\x20—\x20I\x20can\x20open\x20results,\x20find\x20names\x20across\x20years,\x20show\x20top\x20lists\x20by\x20subject,\x20answer\x20WH-questions\x20from\x20the\x20web,\x20and\x20add\x20a\x20bit\x20of\x20fun.\x20Type\x20\x22help\x22\x20for\x20examples.','getElementById','locked','add','10px','normal','\x0a\x20\x20\x20\x20<input\x20list=\x22institutionList\x22\x20id=\x22InstituationDropdown\x22\x20placeholder=\x22Type\x20school\x20name...\x22\x20class=\x22search-input\x22\x20onchange=\x22filterByInstituation()\x22>\x0a\x0a\x0a\x20\x20\x20\x20\x20\x20<datalist\x20id=\x22institutionList\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','•\x20top\x2010\x20physics\x20ssc\x2025','slice','searchInput','maxHeight','insertAdjacentElement','isArray','Please\x20fill\x20all\x20required\x20fields.','Second\x20roll\x20not\x20found.','input','.suggest-item','ans2_response','&#9733;','Examples:','rel','dark-mode','</p>\x0a<p>Optional:\x20','?redirect=true','open','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22student-name\x22\x20onclick=\x22\x0a\x20\x20(function(){\x0a\x20\x20\x20\x20if\x20(window.incrementClickCount)\x20incrementClickCount(','innerHTML','marginLeft','.loader-box','&quot;','setAttribute','search','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-weight:900;margin-bottom:6px;\x22>','bangladesh\x20and\x20global\x20studies','\x27)\x22>Open\x20as\x20Page</button>\x0a\x0a\x0a<div\x20class=\x22popup-footer\x22>\x0a\x20\x20<button\x20onclick=\x22copyFullResult(this)\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Copy\x20Result\x22>\x0a\x20\x20\x20\x20<i\x20class=\x22fas\x20fa-copy\x22></i>\x0a\x20\x20</button>\x0a\x20\x20<button\x20onclick=\x22closePopup()\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Close\x22>\x0a\x20\x20\x20\x20<i\x20class=\x22fas\x20fa-times\x22></i>\x0a\x20\x20</button>\x0a\x20\x20<button\x20onclick=\x22copyStudentResultLink(this)\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Copy\x20Link\x22>\x0a\x20\x20\x20\x20<i\x20class=\x22fas\x20fa-link\x22></i>\x0a\x20\x20</button>\x0a\x20\x20<button\x20onclick=\x22downloadStudentPDF(this)\x22\x20class=\x22icon-btn\x20footer-btn\x22\x20title=\x22Download\x20PDF\x22>\x0a\x20\x20<i\x20class=\x22fas\x20fa-file-pdf\x22></i>\x0a</button>\x0a\x0a</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','rect','querySelectorAll','HSC','&group=','yellow','Religion','random','(max-width:520px)','.typ','Marks','Optional','suggest-box','.popup-content','mathematics',')</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:0.9rem;color:#666\x22>','Chattogram\x20Education\x20Board','physic','</td>\x0a\x0a\x20\x20<td\x20class=\x22student-school\x22>\x0a\x20\x20\x20\x20<h4\x20itemprop=\x22affiliation\x22>','</td>\x0a\x20\x20<td>','</p>\x0a\x0a<p>Bangla:\x20','normalize','subjects','content','</p>\x0a<p>Career:\x20','label','</strong>\x22\x20—\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22resetFilter()\x22>Show\x20Full\x20Ranking</button>\x0a\x20\x20\x20\x20','Subject','\x20|\x20','question','page','SSC','byName','userId','_individual.txt','Searching\x20the\x20web…','TopSchools','school','charAt','bold','outerHTML','funfact.txt','https://boradrankctg.github.io/rank/entity.html?year=','Downloading\x20result\x20files…','Apple\x20iPad','\x20Group','•\x20open\x20100001\x20ssc\x2025\x20science','hideLoadingIndicator','\x20of\x20','aria-modal','\x0a\x20\x20\x20\x20\x20\x20position:\x20fixed;\x0a\x20\x20\x20\x20\x20\x20bottom:\x2030px;\x0a\x20\x20\x20\x20\x20\x20left:\x2050%;\x0a\x20\x20\x20\x20\x20\x20transform:\x20translateX(-50%);\x0a\x20\x20\x20\x20\x20\x20background:\x20#222;\x0a\x20\x20\x20\x20\x20\x20color:\x20#fff;\x0a\x20\x20\x20\x20\x20\x20padding:\x2010px\x2016px;\x0a\x20\x20\x20\x20\x20\x20font-size:\x2014px;\x0a\x20\x20\x20\x20\x20\x20border-radius:\x206px;\x0a\x20\x20\x20\x20\x20\x20z-index:\x209999;\x0a\x20\x20\x20\x20','phy','No\x20matches\x20found.','</p>\x0a<p>Mathematics:\x20','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','pageSize','6296416QWuwcW','Name','starContainer','has9-open','hist','filter-note','width','Starting:\x20This\x20or\x20That','visitorExperience','DOMContentLoaded','\x20Ranking\x20(Chattogram\x20Board)','\x22\x20data-grp=\x22',',\x20\x27','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;gap:8px;flex-wrap:wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22hb-mini\x22\x20data-a=\x221\x22>','Fingerprint\x20check\x20failed\x20(ignoring):','readyState','Organization','subject','mfApplyBtn','\x20Result\x20(Chattogram\x20Board)\x20|\x20Roll\x20','.group-buttons\x20button.selected','then','</p>\x0a<p>Chemistry:\x20','I\x20couldn\x27t\x20find\x20a\x20direct\x20answer.','BGS','from','og:url','mfOverlay','Bye!\x20See\x20you\x20soon.','red','mat','https://schema.org','Physical','Load\x20a\x20year\x20&\x20group\x20first.','\x27)\x22>Back</button>\x0a\x20\x20\x20\x20\x20\x20<table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Rank</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Institution</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>GPA\x205.00\x20%</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Total\x20GPA\x205.00</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Avg\x20Total</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Top\x201000\x20Students</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Total\x20Students</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','checked','script','AbstractText','comerce','mfRangeMax','roll','.featured-box','.help-chip','inst','.popup-body','push','\x20in\x20','rollNorm','step','hb-close','mfTrackFill','.popup\x20.popup-content','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:center;\x20padding:20px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20style=\x22color:#b91c1c;\x22>🚫\x20Access\x20Not\x20Granted</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin:10px\x200;\x20font-size:0.95rem;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20The\x20name\x20provided\x20doesn’t\x20seem\x20valid.\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Please\x20use\x20your\x20real\x20name\x20to\x20continue.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22visitorInfoDenied()\x22\x20class=\x22secondary-btn\x22\x20style=\x22margin-top:15px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Close\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','you','</b>\x20with\x20another\x20student</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22compareRollInput\x22\x20placeholder=\x22Enter\x20roll\x20number\x20to\x20compare\x22\x20style=\x22width:\x20100%;\x20padding:\x2010px;\x20margin:\x2010px\x200;\x20border-radius:\x205px;\x20border:\x201px\x20solid\x20#000;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22startComparison(','Chemistry','examples','Sorted\x20data:','padding:8px;border-bottom:1px\x20solid\x20rgba(0,0,0,0.06);display:flex;justify-content:space-between;align-items:center;gap:8px;','No\x20subject\x20breakdown\x20found.','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Board\x20Rank:\x20','English','log','.suggest-box','Pulling\x20top\x20','ict','allData','\x22>\x0a\x20\x20\x20\x20<h3\x20itemprop=\x22name\x22>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Select\x20your\x20group:</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22group-buttons\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22loadGroup(\x27','Physics','mfRangeMin','chm','•\x20where\x20is\x20chittagong','resetFilterBtn','data-id','Institution','MySecretKey123','ListItem','bss','BoardRankCTG','\x22\x20target=\x22_blank\x22\x20rel=\x22noopener\x22>Source</a></div>\x0a\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20id=\x22examResultHeader\x22></h3>\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22search-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22searchInput\x22>Search\x20by\x20Name:</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22searchInput\x22\x20class=\x22search-input\x22\x20placeholder=\x22Enter\x20name\x22\x20oninput=\x22debounce(handleSearchInput,\x20300)()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22search-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22searchRollInput\x22>Search\x20by\x20Roll:</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22searchRollInput\x22\x20class=\x22search-input\x22\x20placeholder=\x22Enter\x20roll\x22\x20oninput=\x22debounce(handleRollSearchInput,\x20300)()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22search-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22InstituationDropdown\x22>Select\x20Instituation:</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22InstituationDropdown\x22\x20onchange=\x22filterByInstituation()\x22></select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20<button\x20id=\x22resetFilterBtn\x22\x20style=\x22display:\x20none;\x22\x20onclick=\x22resetFilter()\x22>Reset\x20Filter</button>\x0a<div\x20class=\x22loading-spinner\x22\x20id=\x22loadingSpinner\x22\x20style=\x22display:\x20none;\x22></div>\x0a<p\x20id=\x22tableHint\x22\x20style=\x22margin-top:\x2020px;\x20font-weight:\x20bold;\x22>\x0a\x20\x20\x20\x20💡\x20Click\x20on\x20student\x20names\x20to\x20see\x20detailed\x20result\x20and\x20on\x20school\x20names\x20to\x20see\x20school\x20BASED\x20RANK\x0a</p>\x0a<table>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Serial</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Name</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Roll</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>GPA</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Total</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Institution</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tbody\x20id=\x22studentTableBody\x22></tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22pagination\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22firstBtn\x22\x20onclick=\x22handleFirstButtonClick()\x22>First</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22prevBtn\x22\x20onclick=\x22handlePrevButtonClick()\x22>Previous</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22paginationInfo\x22>Loading\x20data...</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22nextBtn\x22\x20onclick=\x22handleNextButtonClick()\x22>Next</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22lastBtn\x22\x20onclick=\x22handleLastButtonClick()\x22>Last</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','Apple\x20iPhone','Random\x20fact:','Enter\x20roll\x20number','📋\x20Result\x20copied\x20to\x20clipboard','popup','#hb-panel\x20.hb-sub','\x20•\x20','hb-input','right','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Name:\x20','compareRollInput','\x27,\x20\x27Commerce\x27)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22com.png\x22\x20alt=\x22Commerce\x20Icon\x22>Business\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22loadGroup(\x27','Error\x20while\x20searching\x20SSC\x20records.','arts','link','Processed\x20data:','vendor','#br_candidates_list','rankData_','brLoaderPercent','213796aELyDX','commerce','Home','Accounting','scinece',')</b></div>','disambiguation','\x20—\x20roll\x20','__br_fakeP','ans1_response','toLowerCase','.popup-footer','resize','green','Option\x202','meta[name=\x22','opacity','mfCloseBtn','\x0a\x20\x20\x20\x20\x20\x20\x20\x20</tbody>\x0a\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20','body','cursor','hb-badge','\x22><span>','left','content_urls','science','No\x20data.','visitorsLink','8px','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-top:6px\x22><a\x20href=\x22','change','<button\x20class=\x22hb-mini\x22\x20data-ex=\x22','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20id=\x22examResultHeader\x22></h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22search-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22searchInput\x22>Search\x20by\x20Name:</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22searchInput\x22\x20class=\x22search-input\x22\x20placeholder=\x22Enter\x20name\x22\x20oninput=\x22debounce(handleSearchInput,\x20300)()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22search-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22searchRollInput\x22>Search\x20by\x20Roll:</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22searchRollInput\x22\x20class=\x22search-input\x22\x20placeholder=\x22Enter\x20roll\x22\x20oninput=\x22debounce(handleRollSearchInput,\x20300)()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22search-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22InstituationDropdown\x22>Select\x20Institution:</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22InstituationDropdown\x22\x20onchange=\x22filterByInstituation()\x22></select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22resetFilterBtn\x22\x20style=\x22display:\x20none;\x22\x20onclick=\x22resetFilter()\x22>Reset\x20Filter</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22loading-spinner\x22\x20id=\x22loadingSpinner\x22\x20style=\x22display:\x20none;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20id=\x22tableHint\x22\x20style=\x22margin-top:\x2020px;\x20font-weight:\x20bold;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20💡\x20Click\x20on\x20student\x20names\x20to\x20see\x20detailed\x20result\x20and\x20on\x20school\x20names\x20to\x20see\x20school\x20BASED\x20RANK\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Serial</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Name</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Roll</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>GPA</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Total</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Institution</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tbody\x20id=\x22studentTableBody\x22></tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22pagination\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22firstBtn\x22\x20onclick=\x22handleFirstButtonClick()\x22>First</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22prevBtn\x22\x20onclick=\x22handlePrevButtonClick()\x22>Previous</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22paginationInfo\x22>Loading\x20data...</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22nextBtn\x22\x20onclick=\x22handleNextButtonClick()\x22>Next</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22lastBtn\x22\x20onclick=\x22handleLastButtonClick()\x22>Last</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','paginationInfo','\x20rankings\x20for\x20Chattogram\x20Board\x20—\x20GPA,\x20total\x20marks,\x20top\x20schools,\x20and\x20student\x20comparisons.\x20Fast\x20and\x20accurate.','hb-b\x20bot','head','data_','visitorSource','forEach','getAttribute','Done','matches','.student-name','<input\x20type=\x22checkbox\x22\x20name=\x22mfSchool\x22\x20value=\x22','twitter:title','test','chem','data-roll','innerText','\x0a\x20\x20\x20\x20<div\x20class=\x22mf-head\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-title\x22>Filter</div>\x0a\x20\x20\x20\x20\x20\x20<button\x20class=\x22mf-close\x22\x20id=\x22mfCloseBtn\x22\x20aria-label=\x22Close\x22>✕</button>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<div\x20class=\x22mf-body\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-section\x22\x20id=\x22mfTotal\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h4>Total</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-range\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-dual\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-track\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-track-fill\x22\x20id=\x22mfTrackFill\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22mfRangeMin\x22\x20type=\x22range\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22mfRangeMax\x22\x20type=\x22range\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:grid;grid-template-columns:1fr\x201fr;gap:8px\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22mfTotalMin\x22\x20type=\x22number\x22\x20placeholder=\x22Min\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22mfTotalMax\x22\x20type=\x22number\x22\x20placeholder=\x22Max\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-section\x22\x20id=\x22mfGpa\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h4>GPA</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-chips\x22\x20id=\x22mfGpaChips\x22></div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-section\x22\x20id=\x22mfSchool\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h4>School</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-search\x22><input\x20id=\x22mfSchoolSearch\x22\x20type=\x22text\x22\x20placeholder=\x22Search\x20school\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mf-list\x22\x20id=\x22mfSchoolList\x22></div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<div\x20class=\x22mf-foot\x22>\x0a\x20\x20\x20\x20\x20\x20<button\x20class=\x22mf-reset\x22\x20id=\x22mfResetBtn\x22>Reset</button>\x0a\x20\x20\x20\x20\x20\x20<button\x20class=\x22mf-apply\x22\x20id=\x22mfApplyBtn\x22>Apply</button>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20','navToggle','appendChild','setFillColor','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','num_','internal','DataDownload','Instituation','visitors','aria-expanded','addEventListener','mfTotalMin','data-cmd','hsc','\x27)\x22>Compare</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','history','afterend','pop-out','setItem','sscRoll','#mfSchoolList\x20.mf-item','Connecting\x20to\x20server…','\x27)\x22>Open\x20as\x20Page</button>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Serial</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Name</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Roll</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>GPA</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Total</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Institution</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','setFontSize','select','.progress-bar','\x20(GPA\x20','<div><b>Top\x20','catch','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22back-button\x22\x20onclick=\x22closePopup()\x22>OK</button>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','p,div,span,li,td','origin','huminites','Pick\x20a\x20year\x20&\x20group\x20first.','•\x20what\x20is\x20Diffusion','sci','entries','forceError','setLineWidth','meta[property=\x22','function','stringify','<tr><td>','https://creativecommons.org/licenses/by/4.0/','incrementClickCount','toLocaleString','•\x20fun\x20fact\x20•\x20random','</td>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','map','jsPDF','height','\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p>','(prefers-color-scheme:\x20dark)','</h4>\x0a\x20\x20</td>\x0a','ceil','Unofficial\x20printable\x20copy','\x27,\x20\x27Arts\x27)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22hum.png\x22\x20alt=\x22Arts\x20Icon\x22>Humanities\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','#mfGpaChips\x20input[type=checkbox],\x20#mfSchoolList\x20input[type=checkbox]','all','I’m\x20HAS9beta\x20—\x20a\x20beta\x20assistant\x20for\x20BoardRankCTG.\x20I\x20can\x20open\x20results,\x20search\x20names\x20across\x20years,\x20show\x20top\x20lists\x20by\x20subject,\x20and\x20add\x20some\x20fun.\x20Hasnyne\x20built\x20me;\x20he’s\x20good\x20at\x20shipping\x20useful\x20tools.\x20Type\x20“help”\x20for\x20commands.','nameRaw','backgroundColor','mfStyle','mark','No\x20fun\x20facts\x20found.','br_hsc2ssc:','.student-roll','Linux\x20Device','.featured-box[data-value=\x22','12YglOVI',')\x0a\x20\x20\x20\x20\x20\x20\x20</button>','</p>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x27promptComparison(','pb_','totalMarks','match','property','No\x20match\x20in\x20current\x20table.','find','block','.filter-note','popstate','json','some','confirmNameBtn','warn','94876anBKNq','keywords','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Roll:\x20','2025','&#9734;','</p>\x0a<p>English:\x20','Processing\x20student\x20data…','visitorFingerprint','max','entity.html','&school=','RelatedTopics','religion','I’m\x20HAS9beta.\x20Type\x20\x22help\x22\x20to\x20see\x20what\x20I\x20can\x20do.\x20If\x20I\x20miss\x20something,\x20please\x20wait\x20for\x20v1.0\x20—\x20I’m\x20learning.','split','\x22\x20target=\x22_blank\x22\x20rel=\x22noopener\x22>Source:\x20Wikipedia</a></div>\x0a\x20\x20\x20\x20\x20\x20','how\x20to','substr','querySelector','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22student-school\x22>','p,div,span','<h2>No\x20data\x20found\x20for\x20\x22','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','<input\x20type=\x22checkbox\x22\x20name=\x22mfGpa\x22\x20value=\x22','input[name=\x22mfGpa\x22]:checked','physics','navOverlay','scince','selectPrompt','target','td:nth-child(6)','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22back-button\x22\x20onclick=\x22closePopup()\x22>OK</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','Coffee!','value','Unable\x20to\x20load\x20files\x20—\x20check\x20your\x20connection.','visitorInfoGiven','career','commands','Math','&roll=','undefined','finan','mfTotalMax','reviewText','/rank/entity.html','userAgent','\x0a#dataLoaderOverlay\x20{\x0a\x20\x20position:\x20fixed;\x20inset:\x200;\x0a\x20\x20background:\x20rgba(0,0,0,0.45);\x0a\x20\x20z-index:\x2010050;\x0a\x20\x20display:\x20flex;\x20align-items:\x20center;\x20justify-content:\x20center;\x0a}\x0a#dataLoaderOverlay\x20.loader-box\x20{\x0a\x20\x20background:\x20#fff;\x0a\x20\x20padding:\x2020px\x2028px;\x0a\x20\x20border-radius:\x2012px;\x0a\x20\x20max-width:\x20320px;\x0a\x20\x20width:\x2090%;\x0a\x20\x20text-align:\x20center;\x0a\x20\x20box-shadow:\x200\x2010px\x2030px\x20rgba(0,0,0,0.35);\x0a}\x0a#dataLoaderOverlay\x20.rings\x20{\x0a\x20\x20width:\x2096px;\x20height:\x2096px;\x20margin:\x200\x20auto;\x20position:\x20relative;\x0a}\x0a#dataLoaderOverlay\x20.ring\x20{\x0a\x20\x20position:\x20absolute;\x0a\x20\x20border-radius:\x2050%;\x0a\x20\x20border:\x206px\x20solid\x20transparent;\x0a\x20\x20border-top-color:\x20#1976d2;\x0a\x20\x20animation:\x20spin\x201s\x20linear\x20infinite;\x0a}\x0a#dataLoaderOverlay\x20.ring.r2\x20{\x0a\x20\x20width:\x2064px;\x20height:\x2064px;\x0a\x20\x20top:\x2016px;\x20left:\x2016px;\x0a\x20\x20border-top-color:\x20#ff8f00;\x0a\x20\x20animation-duration:\x201.4s;\x0a}\x0a#dataLoaderOverlay\x20.ring.r3\x20{\x0a\x20\x20width:\x2040px;\x20height:\x2040px;\x0a\x20\x20top:\x2028px;\x20left:\x2028px;\x0a\x20\x20border-top-color:\x20#6a1b9a;\x0a\x20\x20animation-duration:\x201.85s;\x0a}\x0a@keyframes\x20spin\x20{\x20to\x20{\x20transform:\x20rotate(360deg);\x20}\x20}\x0a#dataLoaderOverlay\x20.percent\x20{\x0a\x20\x20font-size:\x2022px;\x20font-weight:\x20bold;\x20margin-top:\x208px;\x0a}\x0a#dataLoaderOverlay\x20.subtext\x20{\x0a\x20\x20font-size:\x2013px;\x20color:\x20#555;\x20margin-top:\x204px;\x0a}\x0a#dataLoaderOverlay\x20button\x20{\x0a\x20\x20margin-top:\x2012px;\x20padding:\x206px\x2014px;\x0a\x20\x20border-radius:\x206px;\x20background:\x20#1976d2;\x20color:\x20#fff;\x0a\x20\x20border:\x20none;\x20cursor:\x20pointer;\x0a}\x0a\x20\x20\x20\x20','hb-chat','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:center;\x20padding:20px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20style=\x22color:#d97706;\x20margin-bottom:8px;\x22>⚠\x20Confirm\x20Your\x20Name</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Are\x20you\x20sure\x20your\x20name\x20is\x20<b>\x22','filteredData','pathname','grid','role','textContent','themeToggle','Hello\x20','Base\x20student\x20not\x20found.','askGroupOnly','<i\x20class=\x22ri-trophy-line\x22\x20aria-hidden=\x22true\x22></i><span>Top\x20Schools</span>','toFixed','top1000Count','gpa5Percent','gpa','chemistry','visitorMessage','\x0a\x20\x20<td>','Commerce','828918DAjcYR','reload','min','Career','expecting','hum','Write\x20group\x20(e.g.,\x20SSC\x2025\x20Science)','Generated\x20on\x20','<div\x20class=\x22suggest-item\x22\x20data-roll=\x22','bottom','__br_fakeTimer','Rank\x20list\x20for\x20','includes','sciense','</h3>\x0a\x20\x20\x20\x20','hsc_20','detailedResultClickCount','has9_manual_never','charCodeAt','flatMap',']</span>','wrapped\x20fetchData\x20original\x20error','false','grp','ssc'];F=function(){return Td;};return F();}function promptComparison(Z,N,T){const UI=FV,O=allData[UI(0x172)](c=>c[UI(0xb4)]===Z);if(!O)return alert(UI(0x1b2));const R=document['createElement'](UI(0x280));R[UI(0x25a)][UI(0x343)](UI(0xe2)),R['innerHTML']=UI(0x285)+O[UI(0x334)]+UI(0xc2)+O[UI(0xb4)]+UI(0x3a6)+N+UI(0x2bd)+T+UI(0x133),document[UI(0x105)][UI(0x126)](R),document[UI(0x105)][UI(0x25a)][UI(0x343)](UI(0x342));}function startComparison(Z,N,T){const UY=FV,O=document[UY(0x341)](UY(0xe8))['value'][UY(0x22c)]();if(!O)return alert(UY(0xe0));const R='data_'+N+'_'+T['toLowerCase']()+UY(0x384);fetch(R)[UY(0x3af)](c=>c[UY(0x271)]())[UY(0x3af)](c=>{const UW=UY,b=c['trim']()[UW(0x188)]('\x0a'),y=b[UW(0x172)](a=>a['split']('\x09')[0x0]===Z[UW(0x292)]()),E=b[UW(0x172)](a=>a['split']('\x09')[0x0]===O[UW(0x292)]());if(!E)return alert(UW(0x34e));const q=y['split']('\x09'),z=E[UW(0x188)]('\x09'),j=allData[UW(0x172)](a=>a[UW(0xb4)]===parseInt(Z)),s=allData[UW(0x172)](a=>a[UW(0xb4)]===parseInt(O));if(!j||!s)return alert(UW(0x243));let w=[];const k=N[UW(0x1c9)](UW(0x132));if(k){if(T===UW(0x1ed))w=[UW(0x239),UW(0xc9),'ICT',UW(0xd1),UW(0xc3),UW(0x30a),UW(0x36d)];else{if(T===UW(0x1bc))w=[UW(0x239),UW(0xc9),UW(0x25e),UW(0xf5),UW(0x2f5),'Business\x20Studies','Optional'];else T===UW(0x208)&&(w=[UW(0x239),UW(0xc9),UW(0x25e),UW(0x32b),UW(0x23e),'History',UW(0x36d)]);}}else{if(T===UW(0x1ed))w=['Bangla','English',UW(0x1a0),UW(0x3b2),UW(0x368),'Physics',UW(0xc3),UW(0x30a),UW(0x25e),UW(0x36d),'Physical','Career'];else{if(T==='Commerce')w=[UW(0x239),UW(0xc9),UW(0x1a0),'Science',UW(0x368),UW(0xf5),UW(0x2f5),UW(0x30a),UW(0x25e),'Optional',UW(0xac),'Career'];else T===UW(0x208)&&(w=[UW(0x239),UW(0xc9),UW(0x1a0),UW(0x1ed),UW(0x368),'Geography',UW(0x23e),UW(0x30a),'ICT','Optional',UW(0xac),UW(0x1c0)]);}}let x='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22text-align:center;\x20margin-top:\x2010px;\x22>🎯\x20Student\x20Comparison</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22text-align:center;\x20font-weight:bold;\x22>'+j[UW(0x334)]+UW(0x2ed)+s[UW(0x334)]+'</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22compare-table-container\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<table\x20class=\x22compare-table\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Subject</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>'+j['name']+UW(0x33a)+s[UW(0x334)]+'</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr><td>GPA</td><td>'+j[UW(0x1b8)]+UW(0x279)+s['gpa']+UW(0x329)+j[UW(0x29b)]+UW(0x279)+s[UW(0x29b)]+'</td></tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20';for(let a=0x1;a<Math[UW(0x1bf)](q[UW(0x2dc)],z[UW(0x2dc)]);a++){const d=w[a-0x1]||UW(0x209)+a;x+=UW(0x14f)+d+UW(0x279)+q[a]+UW(0x279)+z[a]+UW(0x33d);}x+='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22back-button\x22\x20onclick=\x22closePopup()\x22>Close</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',closePopup();const B=document[UW(0x269)](UW(0x280));B[UW(0x25a)][UW(0x343)](UW(0xe2)),B[UW(0x35a)]='<div\x20class=\x22popup-content\x22><span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>'+x+UW(0x1d7),document[UW(0x105)]['appendChild'](B),document['body'][UW(0x25a)][UW(0x343)](UW(0x342));});}function handleSearchInput(){const Up=FV,Z=document[Up(0x341)](Up(0x349))['value'][Up(0x22c)]()[Up(0xfc)](),N=document['getElementById'](Up(0x24a))['value'][Up(0x22c)](),T=document[Up(0x341)](Up(0x338))[Up(0x19b)];filteredData=allData['filter'](O=>{const Uu=Up,R=O[Uu(0x334)]['toLowerCase']()[Uu(0x1c9)](Z),c=O[Uu(0xb4)][Uu(0x292)]()[Uu(0x1c9)](N),b=T?(O[Uu(0x12c)]||'')[Uu(0x22c)]()['toLowerCase']()===T['trim']()[Uu(0xfc)]():!![];return R&&c&&b;}),currentPage=0x1,updatePage();}function handleRollSearchInput(){handleSearchInput();}function filterByInstituation(){handleSearchInput();}function navigateTo(Z){const UJ=FV;window[UJ(0x2bf)][UJ(0x204)]=Z;}function closePopup(){const UH=FV,Z=document[UH(0x18c)]('.popup');Z&&(Z[UH(0x25a)]['add'](UH(0x136)),setTimeout(()=>{const Z0=UH;Z[Z0(0x217)](),document[Z0(0x105)]['classList'][Z0(0x217)](Z0(0x342));},0x1f4));}function U(Z,N){const T=F();return U=function(O,R){O=O-0xab;let e=T[O];return e;},U(Z,N);}document[FV(0x12f)](FV(0x2e5),function(Z){const Z1=FV;Z[Z1(0x2ad)]===Z1(0x242)&&closePopup();}),window[FV(0x12f)](FV(0x175),function(){closePopup();});function openPopup(Z){const Z2=FV,N=document[Z2(0x269)](Z2(0x280));N['className']=Z2(0xe2),N[Z2(0x35a)]=Z,document[Z2(0x105)]['appendChild'](N),document[Z2(0x105)][Z2(0x25a)][Z2(0x343)]('locked'),N['classList'][Z2(0x343)](Z2(0x31a)),history['pushState']({'popupOpen':!![]},'');}var scrollToTopBtn=document[FV(0x341)]('scrollToTopBtn');window[FV(0x31f)]=function(){scrollFunction();};function scrollFunction(){const Z3=FV;document[Z3(0x105)][Z3(0x2d7)]>0x258||document[Z3(0x27a)][Z3(0x2d7)]>0x258?scrollToTopBtn[Z3(0x259)][Z3(0x1ff)]=Z3(0x173):scrollToTopBtn[Z3(0x259)][Z3(0x1ff)]=Z3(0x2da);}function scrollToTop(){const Z4=FV;document[Z4(0x105)][Z4(0x2d7)]=0x0,document[Z4(0x27a)][Z4(0x2d7)]=0x0;}window['addEventListener'](FV(0x175),function(){const Z5=FV,Z=new URLSearchParams(window['location']['search']),N=Z[Z5(0x2a4)]('year'),T=Z['get'](Z5(0x219)),O=Z[Z5(0x2a4)](Z5(0xb4));if(document[Z5(0x18c)](Z5(0x275))){closePopup();return;}if(N&&T&&O)showIndividualResult(O,N,T);else{if(N&&T)loadGroup(N,T);else N?loadYear(N):location[Z5(0x1be)]();}});function createTopInstitutionsButton(){const Z6=FV,Z=document[Z6(0x341)]('resetFilterBtn');if(!Z)return;const N=document[Z6(0x269)]('button');N['id']=Z6(0x2d3),N[Z6(0x35a)]=Z6(0x1b4),N[Z6(0x251)]=Z6(0x244),N[Z6(0x259)][Z6(0x35b)]=Z6(0x344),N['onclick']=showTopInstitutions,Z[Z6(0x34b)](Z6(0x135),N);const T=document[Z6(0x269)]('button');T['id']=Z6(0x241),T[Z6(0x35a)]='<i\x20class=\x22ri-filter-3-line\x22\x20aria-hidden=\x22true\x22></i><span>Filter</span>',T['className']='btn-pill\x20btn-mobile-filter',T[Z6(0x259)][Z6(0x35b)]=Z6(0x10e),T[Z6(0x12f)](Z6(0x28c),openMobileFilter),N['insertAdjacentElement']('afterend',T),injectMobileFilterStyles(),ensureMobileFilterUI();}function injectMobileFilterStyles(){const Z7=FV;if(document[Z7(0x341)](Z7(0x163)))return;const Z=Z7(0x1f9),N=document['createElement'](Z7(0x259));N['id']=Z7(0x163),N[Z7(0x1af)]=Z,document[Z7(0x116)][Z7(0x126)](N);}function ensureMobileFilterUI(){const Z8=FV;if(document[Z8(0x341)](Z8(0x1f3)))return;const Z=document[Z8(0x269)]('div');Z['className']='mf-overlay',Z['id']=Z8(0x3b5);const N=document[Z8(0x269)]('aside');N[Z8(0x251)]=Z8(0x206),N['id']=Z8(0x1f3),N[Z8(0x35a)]=Z8(0x124),document[Z8(0x105)][Z8(0x126)](Z),document['body'][Z8(0x126)](N),document[Z8(0x341)](Z8(0x103))[Z8(0x12f)](Z8(0x28c),closeMobileFilter),document['getElementById'](Z8(0x3b5))?.['addEventListener'](Z8(0x28c),closeMobileFilter),document[Z8(0x341)](Z8(0x3ac))[Z8(0x12f)](Z8(0x28c),applyMobileFilters),document[Z8(0x341)](Z8(0x304))[Z8(0x12f)]('click',resetMobileFilters),document[Z8(0x341)](Z8(0x2dd))['addEventListener'](Z8(0x34f),filterSchoolList),populateMobileFilterOptions(),attachMobileFilterLiveListeners();}function openMobileFilter(){const Z9=FV;document[Z9(0x341)]('mfOverlay')?.[Z9(0x25a)][Z9(0x343)](Z9(0x358)),document['getElementById'](Z9(0x1f3))?.[Z9(0x25a)][Z9(0x343)](Z9(0x358));try{history[Z9(0x2ac)]({'mf':!![]},'',location[Z9(0x204)]);}catch(Z){}window['addEventListener'](Z9(0x175),mfPopCloseOnce,{'once':!![]});}function closeMobileFilter(){const ZF=FV;document[ZF(0x341)]('mfOverlay')?.[ZF(0x25a)][ZF(0x217)](ZF(0x358)),document[ZF(0x341)](ZF(0x1f3))?.[ZF(0x25a)]['remove']('open');}function mfPopCloseOnce(){closeMobileFilter();}function populateMobileFilterOptions(){const ZU=FV;if(!Array[ZU(0x34c)](allData)||!allData[ZU(0x2dc)])return;const Z=allData['map'](k=>parseInt(k[ZU(0x29b)]))[ZU(0x2ca)](k=>!isNaN(k)),N=Math[ZU(0x1bf)](...Z),T=Math[ZU(0x182)](...Z),O=document[ZU(0x341)](ZU(0xd2)),R=document[ZU(0x341)](ZU(0xb3)),c=document[ZU(0x341)]('mfTotalMin'),b=document['getElementById'](ZU(0x1a4));[O,R,c,b][ZU(0x119)](k=>{const ZZ=ZU;k[ZZ(0x1bf)]=N,k['max']=T;}),O[ZU(0x19b)]=c['value']=N,R[ZU(0x19b)]=b['value']=T;const y=()=>{const ZN=ZU;let k=Math['min'](parseInt(O[ZN(0x19b)]),parseInt(R[ZN(0x19b)])),x=Math[ZN(0x182)](parseInt(O['value']),parseInt(R[ZN(0x19b)]));O[ZN(0x19b)]=k,R[ZN(0x19b)]=x,c[ZN(0x19b)]=k,b[ZN(0x19b)]=x,q();},E=()=>{const ZT=ZU;let k=Math[ZT(0x182)](N,Math[ZT(0x1bf)](T,parseInt(c[ZT(0x19b)]||N))),x=Math['max'](N,Math[ZT(0x1bf)](T,parseInt(b['value']||T)));if(k>x)[k,x]=[x,k];O[ZT(0x19b)]=k,R['value']=x,q();};O[ZU(0x12f)]('input',y),R[ZU(0x12f)]('input',y),c[ZU(0x12f)](ZU(0x34f),E),b[ZU(0x12f)](ZU(0x34f),E);function q(){const ZO=ZU,k=document[ZO(0x341)](ZO(0xbe)),x=parseInt(O[ZO(0x1bf)]),B=parseInt(O[ZO(0x182)]),d=(parseInt(O[ZO(0x19b)])-x)/(B-x)*0x64,o=(parseInt(R[ZO(0x19b)])-x)/(B-x)*0x64;k[ZO(0x259)]['left']=d+'%',k[ZO(0x259)][ZO(0xe6)]=0x64-o+'%';}q();const z=Array[ZU(0x3b3)](new Set(allData[ZU(0x155)](k=>k[ZU(0x1b8)])[ZU(0x2ca)](k=>k!==undefined&&!isNaN(k))))[ZU(0x1e7)]((k,x)=>x-k),j=document[ZU(0x341)]('mfGpaChips');j[ZU(0x35a)]='',z[ZU(0x119)](k=>{const ZR=ZU,x=ZR(0x2f6)+String(k)[ZR(0x2b0)]('.','_'),B=document[ZR(0x269)](ZR(0x37b));B[ZR(0x251)]='mf-chip',B[ZR(0x35a)]=ZR(0x191)+k+'\x22><span>'+(k[ZR(0x1b5)]?k['toFixed'](0x2):k)+'</span>',j[ZR(0x126)](B);});const s=Array['from'](new Set(allData[ZU(0x155)](k=>(k[ZU(0x12c)]||'')[ZU(0x22c)]())[ZU(0x2ca)](Boolean)))[ZU(0x1e7)]((k,x)=>{const Ze=ZU,B=allData[Ze(0x172)](o=>(o[Ze(0x12c)]||'')['trim']()===k)?.[Ze(0x386)]||Infinity,d=allData['find'](o=>(o[Ze(0x12c)]||'')[Ze(0x22c)]()===x)?.['TopSchools']||Infinity;return B-d;}),w=document[ZU(0x341)](ZU(0x250));w[ZU(0x35a)]='',s[ZU(0x119)](k=>{const Zc=ZU,x=k['replace'](/"/g,Zc(0x35d)),B=document['createElement'](Zc(0x37b));B['className']=Zc(0x258),B[Zc(0x35a)]=Zc(0x11e)+x+Zc(0x108)+x+Zc(0x2b4),w[Zc(0x126)](B);});try{attachMobileFilterLiveListeners();}catch(k){}}function attachMobileFilterLiveListeners(){const Zb=FV,Z=debounce(applyMobileFilters,0x78);[Zb(0xd2),'mfRangeMax',Zb(0x130),'mfTotalMax'][Zb(0x119)](N=>{const Zy=Zb,T=document[Zy(0x341)](N);if(T)T[Zy(0x12f)](Zy(0x34f),Z);}),document[Zb(0x364)](Zb(0x15e))[Zb(0x119)](N=>{const ZE=Zb;N[ZE(0x12f)](ZE(0x110),Z);});}function attachMobileFilterLiveListeners(){const Zq=FV,Z=debounce(applyMobileFilters,0x78);[Zq(0xd2),Zq(0xb3),Zq(0x130),Zq(0x1a4)][Zq(0x119)](N=>{const Zz=Zq,T=document['getElementById'](N);if(T)T[Zz(0x12f)](Zz(0x34f),Z);}),document['querySelectorAll'](Zq(0x15e))[Zq(0x119)](N=>{const Zj=Zq;N[Zj(0x12f)](Zj(0x110),Z);});}function filterSchoolList(){const Zs=FV,Z=document[Zs(0x341)](Zs(0x2dd))[Zs(0x19b)][Zs(0x22c)]()[Zs(0xfc)]();document[Zs(0x364)](Zs(0x139))['forEach'](N=>{const Zw=Zs,T=N[Zw(0x1af)][Zw(0xfc)]();N[Zw(0x259)][Zw(0x1ff)]=T['includes'](Z)?Zw(0x27c):Zw(0x2da);});}function applyMobileFilters(){const Zk=FV,Z=parseInt(document['getElementById']('mfTotalMin')[Zk(0x19b)]),N=parseInt(document[Zk(0x341)]('mfTotalMax')[Zk(0x19b)]),T=Array[Zk(0x3b3)](document[Zk(0x364)](Zk(0x192)))[Zk(0x155)](E=>parseFloat(E[Zk(0x19b)])),O=Array[Zk(0x3b3)](document[Zk(0x364)](Zk(0x21e)))[Zk(0x155)](E=>E[Zk(0x19b)]),R=document[Zk(0x341)](Zk(0x349))?document[Zk(0x341)](Zk(0x349))[Zk(0x19b)][Zk(0x22c)]()[Zk(0xfc)]():'',c=document[Zk(0x341)]('searchRollInput')?document['getElementById']('searchRollInput')['value']['trim']():'',b=document[Zk(0x341)]('InstituationDropdown'),y=b&&b[Zk(0x19b)]?b['value']:'';filteredData=allData[Zk(0x2ca)](E=>{const Zx=Zk,q=!isNaN(E[Zx(0x29b)])&&E[Zx(0x29b)]>=Z&&E[Zx(0x29b)]<=N,z=T[Zx(0x2dc)]?T[Zx(0x1c9)](parseFloat(E['gpa'])):!![],j=O['length']?O[Zx(0x1c9)](E[Zx(0x12c)]):!![],w=R?String(E[Zx(0x334)])['toLowerCase']()[Zx(0x1c9)](R):!![],k=c?String(E[Zx(0xb4)])[Zx(0x1c9)](c):!![],x=y?(E[Zx(0x12c)]||'')[Zx(0x22c)]()[Zx(0xfc)]()===y['trim']()[Zx(0xfc)]():!![];return q&&z&&j&&w&&k&&x;}),currentPage=0x1,updatePage(),closeMobileFilter();}function resetMobileFilters(){const ZB=FV;document['querySelectorAll']('#mfGpaChips\x20input[type=checkbox],\x20#mfSchoolList\x20input[type=checkbox]')['forEach'](Z=>Z[ZB(0xaf)]=![]),populateMobileFilterOptions(),applyMobileFilters();}function showTopInstitutions(){const Za=FV,Z={};allData[Za(0x119)](O=>{const Zd=Za,R=O[Zd(0x12c)];!Z[R]&&(Z[R]={'gpa5Count':0x0,'totalMarks':0x0,'count':0x0,'top1000Count':0x0}),O[Zd(0x1b8)]===0x5&&(Z[R][Zd(0x229)]+=0x1),Z[R][Zd(0x16e)]+=O[Zd(0x29b)],Z[R][Zd(0x1e2)]+=0x1;}),allData['slice'](0x0,0x3e8)[Za(0x119)](O=>{const Zo=Za,R=O[Zo(0x12c)];Z[R]&&Z[R][Zo(0x1b6)]++;});const N=Object['entries'](Z)[Za(0x2ca)](([O,R])=>R[Za(0x1e2)]>=0x14)['map'](([O,R])=>{const Zg=Za,c=R[Zg(0x229)]/R[Zg(0x1e2)]*0x64;return{'name':O,'gpa5Percent':c[Zg(0x1b5)](0x2),'gpa5Count':R[Zg(0x229)],'avgTotal':(R[Zg(0x16e)]/R[Zg(0x1e2)])[Zg(0x1b5)](0x1),'top1000Count':R[Zg(0x1b6)],'studentCount':R['count']};});N[Za(0x1e7)]((O,R)=>{const Zv=Za,c=parseFloat(R[Zv(0x1b7)])-parseFloat(O[Zv(0x1b7)]);if(c!==0x0)return c;return parseFloat(R[Zv(0x26a)])-parseFloat(O[Zv(0x26a)]);});const T=N['slice'](0x0,0x64);contentDiv[Za(0x35a)]='\x0a\x20\x20\x20\x20\x20\x20<h2>\x20Top\x20100\x20Institutions\x20-\x20'+currentGroup[Za(0x1af)]+'\x20'+currentYear[Za(0x1af)]+Za(0x1fa)+currentYear[Za(0x1af)][Za(0x22c)]()+'\x27,\x20\x27'+currentGroup['textContent']['split']('\x20')[0x0]+Za(0xae)+T[Za(0x155)]((O,R)=>Za(0x214)+(R+0x1)+Za(0x398)+O['name']+Za(0x398)+O[Za(0x1b7)]+Za(0x2b8)+O[Za(0x229)]+Za(0x398)+O[Za(0x26a)]+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>'+O['top1000Count']+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>'+O[Za(0x233)]+Za(0x2e2))[Za(0x1f5)]('')+Za(0x104);}function enableInstitutionSearchDropdown(){const ZV=FV,Z=document[ZV(0x341)]('InstituationDropdown');Z[ZV(0x38a)]=ZV(0x346)+Array[ZV(0x3b3)](InstituationSet)['map'](N=>ZV(0x1dc)+N+'\x22>')[ZV(0x1f5)]('')+ZV(0x314);}const originalFetchData=fetchData;fetchData=function(Z,N){const Zt=FV;showLoadingIndicator();const T='data_'+Z+'_'+N[Zt(0xfc)]()+'.txt',O=Zt(0x117)+Z+'_'+N['toLowerCase']()+Zt(0x384);Promise[Zt(0x15f)]([fetchAndDecode(T,Zt(0xd8)),fetch(O)[Zt(0x3af)](R=>R[Zt(0x271)]())['catch'](()=>null)])[Zt(0x3af)](([R,c])=>{processData(R,c),populateInstituationDropdown(),enableInstitutionSearchDropdown(),createTopInstitutionsButton(),hideLoadingIndicator();})['catch'](R=>{const ZD=Zt;console['error']('Error\x20loading\x20data:',R),hideLoadingIndicator({'forceError':!![],'errorMessage':ZD(0x19c)}),noDataMessage[ZD(0x259)][ZD(0x1ff)]=ZD(0x173);});};function filterByInstituation(){const ZK=FV,Z=document['getElementById'](ZK(0x338))[ZK(0x19b)][ZK(0x22c)]();showSchoolRanking(Z);}function showFullRankingNote(Z){const Zr=FV,N=document[Zr(0x269)](Zr(0x280));N['className']=Zr(0x39f),N['innerHTML']='\x0a\x20\x20\x20\x20\x20\x20\x20\x20Showing\x20results\x20for\x20\x22<strong>'+Z+Zr(0x37c);const T=document[Zr(0x18c)](Zr(0x174));if(T)T[Zr(0x217)]();contentDiv['prepend'](N);}handleURLParams();function handleURLParams(){const ZL=FV,Z=new URLSearchParams(window['location'][ZL(0x35f)]),N=Z[ZL(0x2a4)](ZL(0x332)),T=Z[ZL(0x2a4)](ZL(0x219)),O=Z[ZL(0x2a4)](ZL(0xb4));if(N&&T){yearDropdown&&(yearDropdown[ZL(0x19b)]=N,yearDropdown[ZL(0x259)][ZL(0x1ff)]='none');document[ZL(0x341)](ZL(0x196))?.[ZL(0x217)](),document[ZL(0x364)]('.featured-box')[ZL(0x119)](c=>c[ZL(0x217)]()),currentYear['textContent']='\x20'+N,currentGroup[ZL(0x1af)]=T+ZL(0x38f),currentGroup[ZL(0x259)][ZL(0x1ff)]='inline',contentDiv['innerHTML']=ZL(0x112),printExamResultHeader(N),fetchData(N,T),setTimeout(attachSearchSuggestions,0x0);O&&setTimeout(()=>{showIndividualResult(O,N,T);},0x3e8);const R=Z[ZL(0x2a4)](ZL(0x387));R&&setTimeout(()=>{showSchoolRanking(R);},0x3e8);}else N?(loadYear(N),yearDropdown&&(yearDropdown[ZL(0x19b)]=N)):contentDiv[ZL(0x35a)]='';}function handleFeaturedClick(Z,N){const Zm=FV,T=N||document[Zm(0x18c)](Zm(0x169)+Z+'\x22]');if(!T)return;T[Zm(0x259)][Zm(0x25d)]=Zm(0x2bb),T[Zm(0x259)][Zm(0x102)]='0',T[Zm(0x259)]['transform']='scale(0.9)',setTimeout(()=>{const ZG=Zm;T[ZG(0x259)][ZG(0x1ff)]=ZG(0x2da);const O=document[ZG(0x341)](ZG(0x2fc));O&&(O[ZG(0x19b)]=Z,O[ZG(0x259)][ZG(0x1ff)]=ZG(0x2da)),loadYear(Z);},0x190);}function showSharePopup(){const ZP=FV;if(document[ZP(0x18c)](ZP(0x275)))return;const Z=document[ZP(0x269)]('div');Z[ZP(0x251)]=ZP(0xe2),Z[ZP(0x35a)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2>🚀Enjoying\x20this\x20amazing\x20website?</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Help\x20us\x20grow!\x20Share\x20this\x20website:</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20justify-content:\x20space-around;\x20flex-wrap:\x20wrap;\x20padding:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22https://wa.me/?text=https://boradrankctg.github.io/rank/\x22\x20target=\x22_blank\x22><img\x20src=\x22https://img.icons8.com/color/48/whatsapp.png\x22\x20alt=\x22WhatsApp\x22\x20width=\x2236\x22></a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22https://www.instagram.com/?url=https://boradrankctg.github.io/rank/\x22\x20target=\x22_blank\x22><img\x20src=\x22https://img.icons8.com/color/48/instagram-new.png\x22\x20alt=\x22Instagram\x22\x20width=\x2236\x22></a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22https://www.facebook.com/dialog/send?link=https://boradrankctg.github.io/rank/&app_id=YOUR_APP_ID&redirect_uri=https://boradrankctg.github.io/rank/\x22\x20target=\x22_blank\x22><img\x20src=\x22https://img.icons8.com/color/48/facebook-messenger.png\x22\x20alt=\x22Messenger\x22\x20width=\x2236\x22></a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22mailto:?subject=Check%20this%20awesome%20ranking%20site!&body=https://boradrankctg.github.io/rank/\x22\x20target=\x22_blank\x22><img\x20src=\x22https://img.icons8.com/color/48/gmail--v1.png\x22\x20alt=\x22Email\x22\x20width=\x2236\x22></a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<hr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20style=\x22margin-top:10px\x22>⭐\x20Rate\x20this\x20Website:</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22starContainer\x22\x20style=\x22font-size:\x201.8rem;\x20color:\x20gold;\x20cursor:\x20pointer;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20onclick=\x22rateSite(1)\x22>&#9734;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20onclick=\x22rateSite(2)\x22>&#9734;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20onclick=\x22rateSite(3)\x22>&#9734;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20onclick=\x22rateSite(4)\x22>&#9734;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20onclick=\x22rateSite(5)\x22>&#9734;</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<textarea\x20id=\x22reviewText\x22\x20placeholder=\x22Leave\x20your\x20feedback\x20here...\x22\x20rows=\x223\x22\x20style=\x22width:\x20100%;\x20margin-top:\x2010px;\x22></textarea>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22submitReview()\x22>Submit\x20Review</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20',document[ZP(0x105)][ZP(0x126)](Z),document['body'][ZP(0x25a)][ZP(0x343)](ZP(0x342));}!localStorage[FV(0x2a2)](FV(0x1ef))&&setTimeout(()=>{const Zf=FV;showSharePopup(),localStorage[Zf(0x137)](Zf(0x1ef),'1');},0x249f0);document[FV(0x341)](FV(0x232))[FV(0x12f)](FV(0x28c),showSharePopup);function rateSite(Z){const Zl=FV,N=document[Zl(0x341)](Zl(0x39c))['children'];for(let T=0x0;T<N[Zl(0x2dc)];T++){N[T][Zl(0x35a)]=T<Z?Zl(0x352):Zl(0x17e);}localStorage['setItem'](Zl(0x30f),Z);}function submitReview(){const ZM=FV,Z=localStorage[ZM(0x2a2)](ZM(0x30f))||0x0,N=document['getElementById'](ZM(0x1a5))['value'][ZM(0x22c)]();if(!N&&Z==0x0)return alert('Please\x20rate\x20or\x20write\x20something.');localStorage['setItem'](ZM(0x284),JSON['stringify']({'rating':Z,'comment':N})),window['location'][ZM(0x204)]='review.html';}function _br_normalizeName(Z){const ZS=FV;if(!Z&&Z!==0x0)return'';try{return String(Z)['normalize']?String(Z)['normalize'](ZS(0x2c6)):String(Z)[ZS(0x2b0)](/\s+/g,'\x20')[ZS(0x22c)]()[ZS(0xfc)]()[ZS(0x2b0)](/[^\p{L}\p{N}\s]/gu,'');}catch(N){return String(Z)['replace'](/\s+/g,'\x20')[ZS(0x22c)]()[ZS(0xfc)]()['replace'](/[^\w\s]/g,'');}}function _br_normalizeRoll(Z){const ZQ=FV;if(Z===undefined||Z===null)return'';return String(Z)['trim']()[ZQ(0x2b0)](/^0+/,'')||'0';}function _br_removeAllPopupsImmediate(){const ZX=FV,Z=document['querySelectorAll'](ZX(0x275));Z[ZX(0x119)](N=>N[ZX(0x217)]()),document['body'][ZX(0x25a)]['remove']('locked');}function _br_spinnerHtml(){const Zh=FV;return Zh(0x1e3);}function _br_showMessage(Z){const ZA=FV;_br_removeAllPopupsImmediate();const N=document[ZA(0x269)](ZA(0x280));N[ZA(0x251)]='popup',N[ZA(0x35a)]=ZA(0x158)+Z+ZA(0x142),document[ZA(0x105)][ZA(0x126)](N),document['body'][ZA(0x25a)][ZA(0x343)](ZA(0x342));}window[FV(0x25f)]=window[FV(0x25f)]||{};function _br_ensureSSCLoadedForHSCYear(Z){return new Promise(N=>{const Zn=U;try{const T=Number(Z)-0x2;if(!T||isNaN(T))return N(null);if(window[Zn(0x25f)][T])return N(window['__br_sscCache'][T]);const O=[Zn(0x10b),Zn(0xf3),Zn(0xeb)],R={'byName':new Map(),'byRoll':new Map()};let c=O['map'](b=>{const Zi=Zn,y=Zi(0x117)+T+'_'+b+Zi(0x2e0);return fetch(y)[Zi(0x3af)](E=>{const ZC=Zi;if(!E['ok'])throw new Error(ZC(0x1f6));return E[ZC(0x271)]();})[Zi(0x3af)](E=>{const ZI=Zi,q=E[ZI(0x22c)]()['split']('\x0a'),z=q[ZI(0x2dc)]&&q[0x0][ZI(0x1c9)]('\x09')&&q[0x0][ZI(0xfc)]()[ZI(0x1c9)](ZI(0x334))?0x1:0x0;for(let j=z;j<q['length'];j++){const s=q[j]['trim']();if(!s)continue;const w=s[ZI(0x188)]('\x09'),k=(w[0x1]||'')['trim'](),x=(w[0x2]||'')[ZI(0x22c)](),B=(w[0x5]||'')[ZI(0x22c)]();if(!k||!x)continue;const a=_br_normalizeName(k),d=_br_normalizeRoll(x),o={'roll':x,'rollNorm':d,'group':b[ZI(0x388)](0x0)['toUpperCase']()+b[ZI(0x348)](0x1),'nameRaw':k,'institution':B};if(!R[ZI(0x323)][ZI(0x2b2)](d))R[ZI(0x323)][ZI(0x2e1)](d,o);const v=R['byName'][ZI(0x2a4)](a)||[];if(!v[ZI(0x177)](V=>V['rollNorm']===o['rollNorm']&&V[ZI(0x219)]===o[ZI(0x219)]))v[ZI(0xb9)](o);R[ZI(0x382)]['set'](a,v);}})[Zi(0x141)](()=>{});});Promise[Zn(0x15f)](c)[Zn(0x3af)](()=>{const ZY=Zn;window[ZY(0x25f)][T]=R,N(R);})['catch'](()=>{const ZW=Zn;window[ZW(0x25f)][T]=R,N(R);});}catch(b){N(null);}});}function _br_getHscRollFromCurrentPopup(){const Zp=FV;try{const Z=document[Zp(0x18c)]('.popup\x20.popup-content');if(!Z)return null;const N=(Z[Zp(0x123)]||Z['textContent']||'')[Zp(0x2b0)](/\u00A0/g,'\x20'),T=N[Zp(0x16f)](/roll[:\s]*([0-9\-]+)/i);if(T&&T[0x1])return _br_normalizeRoll(T[0x1]);const O=Z[Zp(0x364)](Zp(0x18e));for(let R of O){const c=(R[Zp(0x1af)]||'')[Zp(0x22c)]();if(/roll[:\s]*[0-9]/i[Zp(0x120)](c)){const b=c['match'](/([0-9]+)/);if(b)return _br_normalizeRoll(b[0x0]);}}}catch(y){}return null;}function _br_saveLinkMapping(Z,N,T,O,R,c){const Zu=FV;try{if(!Z||!N)return;const b=Zu(0x166)+Z+':'+N,y={'sscYear':T,'sscRoll':O,'sscGroup':R,'matchedNameRaw':c,'savedAt':Date[Zu(0x230)]()};localStorage[Zu(0x137)](b,JSON[Zu(0x14e)](y));}catch(E){}}function _br_getLinkMapping(Z,N){const ZJ=FV;try{const T=ZJ(0x166)+Z+':'+N,O=localStorage['getItem'](T);if(!O)return null;return JSON[ZJ(0x2a9)](O);}catch(R){return null;}}function _br_showCandidatesModalAndHandle(Z,N,T){const ZH=FV,O=document[ZH(0x269)](ZH(0x280));O['className']=ZH(0xe2),O['innerHTML']=ZH(0x246),document['body'][ZH(0x126)](O),document[ZH(0x105)]['classList']['add']('locked');const R=O['querySelector'](ZH(0xef));Z[ZH(0x119)](c=>{const N0=ZH,b=document['createElement']('div');b[N0(0x259)]=N0(0xc6),b[N0(0x35a)]='<div\x20style=\x22flex:1;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-weight:bold\x22>'+c[N0(0x161)]+N0(0x32e)+c[N0(0x219)]+N0(0x371)+(c[N0(0x1db)]||'')+N0(0x289)+c[N0(0xb4)]+N0(0x2c3),R[N0(0x126)](b),b['querySelector'](N0(0x224))['addEventListener'](N0(0x28c),y=>{y['stopPropagation'](),_br_removeAllPopupsImmediate(),setTimeout(()=>T(c),0x3c);});}),O[ZH(0x18c)]('#br_ssc_roll_confirm')[ZH(0x12f)](ZH(0x28c),()=>{const N1=ZH,c=O[N1(0x18c)](N1(0x305))[N1(0x19b)][N1(0x22c)](),b=_br_normalizeRoll(c);if(!b){O[N1(0x18c)](N1(0x305))['style'][N1(0x26d)]='1px\x20solid\x20red';return;}const y=Z[N1(0x172)](E=>E[N1(0xbb)]===b);if(y)_br_removeAllPopupsImmediate(),setTimeout(()=>T(y),0x3c);else{const E=document[N1(0x269)]('div');E[N1(0x259)]=N1(0x29e),E[N1(0x1af)]='No\x20SSC\x20record\x20found\x20with\x20that\x20roll\x20among\x20the\x20candidates.',O[N1(0x18c)](N1(0x36f))[N1(0x126)](E),setTimeout(()=>E[N1(0x217)](),0xdac);}});}function showSSCResultFromHSC(Z,N){const N2=FV;try{const T=currentYear&&currentYear['textContent']?currentYear[N2(0x1af)][N2(0x22c)]():null;let O=null;if(T&&T['toLowerCase']()[N2(0x1c9)](N2(0x132))){const b=T[N2(0x16f)](/(\d{4})/);if(b)O=parseInt(b[0x1],0xa);}if(!O)try{const y=new URLSearchParams(window['location'][N2(0x35f)]),E=y['get']('year');if(E&&E[N2(0xfc)]()[N2(0x1c9)](N2(0x132))){const q=E[N2(0x16f)](/(\d{4})/);if(q)O=parseInt(q[0x1],0xa);}}catch(z){}if(!O)O=new Date()[N2(0x23d)]();const R=_br_getHscRollFromCurrentPopup();if(R){const j=_br_getLinkMapping(O,R);if(j&&j['sscYear']&&j[N2(0x138)]){_br_removeAllPopupsImmediate(),setTimeout(()=>{const N3=N2;showIndividualResult(j['sscRoll'],String(j['sscYear']),j[N3(0x2c4)]||N3(0x1ed));},0x3c);return;}}const c=document['createElement'](N2(0x280));c[N2(0x251)]=N2(0xe2),c[N2(0x35a)]=N2(0x231)+_br_spinnerHtml()+'</div>',document[N2(0x105)][N2(0x126)](c),document[N2(0x105)]['classList'][N2(0x343)](N2(0x342)),_br_ensureSSCLoadedForHSCYear(O)[N2(0x3af)](s=>{const N4=N2;try{c[N4(0x217)]();const w=_br_normalizeName(Z||''),k=O-0x2,x=s||window[N4(0x25f)][k]||{'byName':new Map(),'byRoll':new Map()},B=x[N4(0x382)][N4(0x2a4)](w)||[];if(!B||B[N4(0x2dc)]===0x0){_br_showMessage(N4(0x22e));return;}const a=[],d=new Set();B[N4(0x119)](o=>{const N5=N4,g=o['rollNorm']+'-'+o[N5(0x219)];!d[N5(0x2b2)](g)&&(d['add'](g),a[N5(0xb9)](o));});if(a[N4(0x2dc)]===0x1){const o=a[0x0];if(R)_br_saveLinkMapping(O,R,k,o['rollNorm'],o[N4(0x219)],o[N4(0x161)]);_br_removeAllPopupsImmediate(),setTimeout(()=>{const N6=N4;showIndividualResult(o['roll'],String(k),o[N6(0x219)]);},0x3c);return;}_br_showCandidatesModalAndHandle(a,k,g=>{const N7=N4;if(R)_br_saveLinkMapping(O,R,k,g[N7(0xbb)],g[N7(0x219)],g[N7(0x161)]);_br_removeAllPopupsImmediate(),setTimeout(()=>{const N8=N7;showIndividualResult(g['roll'],String(k),g[N8(0x219)]);},0x3c);});}catch(g){try{c[N4(0x217)]();}catch(v){}_br_showMessage(N4(0xea)),console[N4(0x2aa)](g);}})[N2(0x141)](s=>{const N9=N2;try{c[N9(0x217)]();}catch(w){}_br_showMessage('Error\x20while\x20loading\x20SSC\x20files.'),console[N9(0x2aa)](s);});}catch(s){console[N2(0x2aa)](N2(0x296),s),_br_showMessage(N2(0x32f));}}if(typeof fetchData==='function')try{const _origFetchData=fetchData;fetchData=function(Z,N){const NF=FV;try{_origFetchData(Z,N);}catch(T){console[NF(0x2aa)](NF(0x1d2),T);}try{if(typeof Z===NF(0x2f3)&&Z[NF(0xfc)]()[NF(0x1c9)](NF(0x132))){const O=Z[NF(0x16f)](/(\d{4})/),R=O?Number(O[0x1]):null;if(R&&!isNaN(R))_br_ensureSSCLoadedForHSCYear(R)[NF(0x141)](()=>{});}}catch(c){}};}catch(H){}function showErrorPopup(Z){const NU=FV,N=document[NU(0x269)]('div');N[NU(0x251)]='popup',N['innerHTML']=NU(0x2a6)+Z+NU(0x199),document[NU(0x105)][NU(0x126)](N),document[NU(0x105)][NU(0x25a)][NU(0x343)]('locked');}function downloadStudentPDF(Z){const NZ=FV,N=E=>String(E==null?'':E)[NZ(0x22c)](),T=Z&&Z[NZ(0x21b)]&&(Z[NZ(0x21b)]('.popup')||Z[NZ(0x21b)]('.popup-content'))||document[NZ(0x18c)](NZ(0xbf))||null;if(!T){alert(NZ(0x25b));return;}const O={'name':'','roll':'','institution':'','gpa':'','subjects':[]},R=Array[NZ(0x3b3)](T[NZ(0x364)](NZ(0x143)));R[NZ(0x119)](E=>{const NN=NZ,q=N(E[NN(0x1af)]);if(!q)return;const z=q[NN(0x16f)](/^([^:]{1,40})\s*[:\-]\s*(.+)$/);if(z){const j=z[0x1][NN(0xfc)](),s=z[0x2][NN(0x22c)]();if(j['includes']('name')&&!O['name'])O[NN(0x334)]=s;else{if(j['includes'](NN(0xb4))&&!O[NN(0xb4)])O[NN(0xb4)]=s;else{if((j['includes'](NN(0x1db))||j[NN(0x1c9)](NN(0x387))||j[NN(0x1c9)](NN(0x228)))&&!O[NN(0x1db)])O[NN(0x1db)]=s;else{if(j[NN(0x1c9)]('gpa')&&!j[NN(0x1c9)](NN(0x3ab))&&!O[NN(0x1b8)])O[NN(0x1b8)]=s;else!j[NN(0x1c9)](NN(0x319))&&O['subjects'][NN(0xb9)]({'name':z[0x1]['trim'](),'mark':s});}}}}}),O[NZ(0x378)]=O[NZ(0x378)]['filter'](E=>!/board\s*rank/i[NZ(0x120)](E['name']));function c(E,q){const NT=NZ,z=parseFloat(String(E)[NT(0x2b0)](/[^0-9.\-]/g,''));if(isNaN(z))return{'gp':'-','grade':'-'};const j=(q||'')[NT(0xfc)]();let s='';try{typeof currentYear!==NT(0x1a2)&&currentYear&&currentYear[NT(0x1af)]&&(s=String(currentYear[NT(0x1af)])[NT(0xfc)]());}catch(a){s='';}const w=(document[NT(0x18c)](NT(0xbf))?.['textContent']||'')[NT(0xfc)](),k=s[NT(0x1c9)](NT(0x132))||w[NT(0x1c9)]('hsc');let x;if(k){if(j[NT(0x1c9)]('ict'))x=0x64;else x=0xc8;}else{if(j[NT(0x1c9)](NT(0xcd))||j[NT(0x1c9)](NT(0x19e)))x=0x32;else{if(j[NT(0x1c9)](NT(0x1f7))||j[NT(0x1c9)](NT(0x300)))x=0xc8;else x=0x64;}}const B=z/x*0x64;if(B>=79.5)return{'gp':0x5,'grade':'A+'};if(B>=0x46)return{'gp':0x4,'grade':'A'};if(B>=0x3c)return{'gp':3.5,'grade':'A-'};if(B>=0x32)return{'gp':0x3,'grade':'B'};if(B>=0x28)return{'gp':0x2,'grade':'C'};if(B>=0x21)return{'gp':0x1,'grade':'D'};return{'gp':0x0,'grade':'F'};}const b=(O['name']||'marksheet')[NZ(0x2b0)](/[^\w\- ]/g,'')+'.pdf';function y(E){const NO=NZ;if(window[NO(0x2e6)]&&window['jspdf'][NO(0x156)])return E();const q=document[NO(0x269)]('script');q[NO(0x1fd)]=NO(0x210),q[NO(0x32a)]=E,document[NO(0x116)][NO(0x126)](q);}y(()=>{const NR=NZ,{jsPDF:E}=window['jspdf'],q=new E({'unit':'mm','format':'a4'}),z=q[NR(0x12a)][NR(0x399)][NR(0x2c0)](),j=0xf;let s=0x12;q[NR(0x13c)](0x12),q[NR(0x335)](undefined,'bold'),q[NR(0x271)](NR(0x257),j,s),s+=0xc;const w=z-j*0x2,k=w/0x4,B=0x14,a=[{'label':NR(0x39b),'value':O['name']||'-'},{'label':'Roll','value':O[NR(0xb4)]||'-'},{'label':NR(0xd7),'value':O[NR(0x1db)]||'-'},{'label':'GPA','value':O[NR(0x1b8)]||'-'}];q[NR(0x14b)](0.3),q[NR(0x363)](j,s,w,B);for(let t=0x0;t<a[NR(0x2dc)];t++){const D=j+t*k;q['rect'](D,s,k,B),q[NR(0x13c)](0x9),q[NR(0x271)](a[t][NR(0x37b)]+':',D+0x2,s+0x6),q[NR(0x335)](undefined,'bold');const K=q[NR(0x29d)](a[t][NR(0x19b)],k-0x4);q[NR(0x13c)](0xa);let r=s+0xc;K[NR(0x119)](L=>{const Ne=NR;q[Ne(0x271)](L,D+0x2,r),r+=0x4;}),q['setFont'](undefined,NR(0x345));}s+=B+0x8;const d=z-j*0x2,o=Math[NR(0x1df)](d*0.5*0x64)/0x64,g=Math[NR(0x1df)](d*0.25*0x64)/0x64,v=d-o-g,V=0x8;q[NR(0x127)](0xf0),q[NR(0x363)](j,s,o,V,'F'),q['rect'](j+o,s,g,V,'F'),q[NR(0x363)](j+o+g,s,v,V,'F'),q[NR(0x335)](undefined,NR(0x389)),q[NR(0x271)](NR(0x37d),j+0x2,s+0x6),q[NR(0x271)](NR(0x36c),j+o+g-0x2,s+0x6,{'align':NR(0xe6)}),q[NR(0x271)](NR(0x263),j+o+g+v-0x2,s+0x6,{'align':NR(0xe6)}),s+=V,q[NR(0x335)](undefined,'normal'),O[NR(0x378)][NR(0x119)](L=>{const Nc=NR,m=c(L[Nc(0x164)],L[Nc(0x334)]);q[Nc(0x363)](j,s,o,V),q[Nc(0x363)](j+o,s,g,V),q['rect'](j+o+g,s,v,V),q[Nc(0x271)](L[Nc(0x334)],j+0x2,s+0x5),q['text'](String(L[Nc(0x164)]),j+o+g-0x2,s+0x5,{'align':Nc(0xe6)}),q[Nc(0x271)](m['gp'][Nc(0x1b5)](0x2)+'\x20('+m['grade']+')',j+o+g+v-0x2,s+0x5,{'align':Nc(0xe6)}),s+=V;}),q[NR(0x13c)](0x9),q[NR(0x271)](NR(0x1c4)+new Date()[NR(0x152)](),j,0x11d),q[NR(0x271)](NR(0x15c),z-j,0x11d,{'align':NR(0xe6)}),q[NR(0x29f)](b),showToast(NR(0x1fb));});}function visitorInfoDenied(){const Nb=FV,Z=document['querySelector']('.popup');if(!Z)return;const N=Z[Nb(0x18c)](Nb(0xb8)),T=Z['querySelector'](Nb(0xfd));if(T)T[Nb(0x259)][Nb(0x1ff)]=Nb(0x2da);N&&(N['innerHTML']='\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22access-status\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22circle\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22status-text\x22>Processing...</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20',setTimeout(()=>{const Ny=Nb,O=N['querySelector'](Ny(0x30e));if(O)O[Ny(0x259)][Ny(0x1ff)]='none';N[Ny(0x35a)]=Ny(0x201);},0x320)),setTimeout(()=>{closePopup();},0x708);}(function(){const NE=FV,Z=Array['from'](new Set((allData||[])[NE(0x1d0)](N=>[N?.[NE(0x334)],N?.[NE(0x12c)]])['filter'](Boolean)));upsertMeta(NE(0x17b),Z[NE(0x1f5)](',\x20'));}());function attachSearchSuggestions(){const Nq=FV,Z=document[Nq(0x341)]('searchInput'),N=document['getElementById'](Nq(0x24a));if(!Z||!N)return;ensureSuggestBox(Z,Nq(0x2a7)),ensureSuggestBox(N,Nq(0x255)),Z[Nq(0x12f)](Nq(0x34f),renderNameSuggestions),N[Nq(0x12f)](Nq(0x34f),renderRollSuggestions),document[Nq(0x12f)]('click',T=>{const Nz=Nq;if(!T[Nz(0x197)][Nz(0x21b)](Nz(0xcb)))hideSuggestions();});}function ensureSuggestBox(Z,N){const Nj=FV;if(document[Nj(0x341)](N))return;const T=document[Nj(0x269)]('div');T['id']=N,T[Nj(0x251)]=Nj(0x36e),Z[Nj(0x34b)](Nj(0x135),T);}function hideSuggestions(){const Ns=FV,Z=document['querySelectorAll'](Ns(0xcb));Z[Ns(0x119)](N=>N[Ns(0x259)][Ns(0x1ff)]=Ns(0x2da));}function renderNameSuggestions(){const Nw=FV;try{const Z=document[Nw(0x341)](Nw(0x349)),N=document[Nw(0x341)](Nw(0x2a7));if(!Z||!N||!Array[Nw(0x34c)](allData)||allData[Nw(0x2dc)]===0x0)return;const T=Z[Nw(0x19b)][Nw(0x22c)]()[Nw(0xfc)]();if(!T)return N[Nw(0x259)]['display']=Nw(0x2da);const O=new Set(),R=allData[Nw(0x2ca)](c=>c[Nw(0x334)]&&c['name'][Nw(0xfc)]()['includes'](T))['filter'](c=>{const Nk=Nw,b=c['name']['toLowerCase']();if(O[Nk(0x2b2)](b))return![];return O['add'](b),!![];})[Nw(0x348)](0x0,0x8);N[Nw(0x35a)]=R[Nw(0x155)](c=>Nw(0x21d)+c[Nw(0x334)][Nw(0x2b0)](/"/g,'&quot;')+'\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-user-3-line\x22></i>\x20'+c[Nw(0x334)]+Nw(0x2d0)+(c[Nw(0x12c)]||'')+Nw(0x234))[Nw(0x1f5)]('')||Nw(0x288),N[Nw(0x259)]['display']=Nw(0x173),N[Nw(0x364)](Nw(0x350))[Nw(0x119)](c=>{const Nx=Nw;c[Nx(0x12f)](Nx(0x28c),()=>{const NB=Nx;Z[NB(0x19b)]=c[NB(0x11a)](NB(0x324)),handleSearchInput(),hideSuggestions();});});}catch(c){}}function renderRollSuggestions(){const Na=FV;try{const Z=document['getElementById'](Na(0x24a)),N=document[Na(0x341)]('rollSuggestBox');if(!Z||!N||!Array['isArray'](allData)||allData[Na(0x2dc)]===0x0)return;const T=Z[Na(0x19b)][Na(0x22c)]();if(!T)return N[Na(0x259)]['display']=Na(0x2da);const O=allData[Na(0x2ca)](R=>String(R['roll'])[Na(0x1c9)](T))[Na(0x348)](0x0,0x8);N['innerHTML']=O[Na(0x155)](R=>Na(0x1c5)+R[Na(0xb4)]+Na(0x2d8)+R[Na(0xb4)]+Na(0x2d0)+R[Na(0x334)]+Na(0x281)+(R[Na(0x12c)]||'')+Na(0x234))['join']('')||'<div\x20class=\x22suggest-empty\x22>No\x20matches</div>',N[Na(0x259)]['display']=Na(0x173),N[Na(0x364)](Na(0x350))[Na(0x119)](R=>{const Nd=Na;R[Nd(0x12f)](Nd(0x28c),()=>{const No=Nd;Z[No(0x19b)]=R['getAttribute'](No(0x122)),handleRollSearchInput(),hideSuggestions();});});}catch(R){}}function initThemeToggle(){const Ng=FV,Z=localStorage[Ng(0x2a2)](Ng(0x302))||(window[Ng(0x2ab)](Ng(0x159))[Ng(0x11c)]?Ng(0x322):Ng(0x276));document['body']['classList']['toggle'](Ng(0x355),Z==='dark');const N=document[Ng(0x341)](Ng(0x1b0));N&&(N[Ng(0xaf)]=Z==='dark',N[Ng(0x12f)](Ng(0x110),()=>{const Nv=Ng,T=N[Nv(0xaf)];document[Nv(0x105)][Nv(0x25a)]['toggle'](Nv(0x355),T),localStorage[Nv(0x137)](Nv(0x302),T?Nv(0x322):Nv(0x276));}));}function initNavToggle(){const NV=FV,Z=document[NV(0x341)](NV(0x125)),N=document[NV(0x341)](NV(0x2cc)),T=document[NV(0x341)](NV(0x194));if(!Z||!N)return;const O=()=>{const Nt=NV;N[Nt(0x25a)][Nt(0x343)](Nt(0x358)),T?.[Nt(0x25a)][Nt(0x343)](Nt(0x358)),Z[Nt(0x35e)](Nt(0x12e),Nt(0x1de));},R=()=>{const ND=NV;N[ND(0x25a)][ND(0x217)](ND(0x358)),T?.[ND(0x25a)][ND(0x217)]('open'),Z[ND(0x35e)](ND(0x12e),ND(0x1d3));},c=()=>{const NK=NV;if(N[NK(0x25a)][NK(0x27b)]('open'))R();else O();};Z[NV(0x12f)](NV(0x28c),c),T?.[NV(0x12f)](NV(0x28c),R),N['querySelectorAll']('a,\x20.linklike,\x20input[type=\x22checkbox\x22]')[NV(0x119)](b=>{const Nr=NV;b[Nr(0x12f)]('click',()=>{if(b['matches']('input[type=\x22checkbox\x22]'))return;R();});}),document[NV(0x12f)](NV(0x2e5),b=>{const NL=NV;if(b[NL(0x2ad)]==='Escape')R();}),window['addEventListener'](NV(0xfe),()=>{if(window['innerWidth']>0x35c)R();});}(function(){'use strict';const Nm=FV;const Z=F2=>document[Nm(0x341)](F2),N=(F2,F3=document)=>F3[Nm(0x18c)](F2),T=()=>matchMedia(Nm(0x36a))['matches'];let O={'expecting':null,'data':{}};function R(){const NG=Nm;if(!Z(NG(0x1dd))){const F5=document[NG(0x269)]('div');F5['id']=NG(0x1dd),F5['setAttribute'](NG(0x2c2),NG(0x307)),F5[NG(0x1eb)]='Need\x20help?',F5[NG(0x35a)]=NG(0x301),document['body'][NG(0x126)](F5);}if(!Z(NG(0x1f1))){const F6=document['createElement'](NG(0x280));F6['id']=NG(0x1f1),F6[NG(0x35e)](NG(0x1ae),'dialog'),F6[NG(0x35e)](NG(0x393),'true'),F6[NG(0x259)][NG(0x1ff)]=NG(0x2da),F6[NG(0x35a)]=NG(0x20d),document[NG(0x105)][NG(0x126)](F6);}const F2=N(NG(0x205));if(F2)F2[NG(0x1af)]='HAS9beta';const F3=N(NG(0xe3));if(F3)F3[NG(0x1af)]=NG(0x30c);const F4=N(NG(0x22f));if(F4)F4[NG(0x259)]['display']=NG(0x2da);}function c(F2,F3='bot'){const NP=Nm,F4=Z(NP(0x1a9));if(!F4)return;const F5=document[NP(0x269)](NP(0x280));return F5[NP(0x251)]=NP(0x293)+F3,F5['textContent']=typeof F2===NP(0x2f3)?F2:String(F2||''),F4[NP(0x126)](F5),F4[NP(0x2d7)]=F4[NP(0x1f0)],F5;}function b(F2){const Nf=Nm,F3=Z(Nf(0x1a9));if(!F3)return;const F4=document[Nf(0x269)]('div');return F4[Nf(0x251)]=Nf(0x115),F4[Nf(0x35a)]=F2,F3[Nf(0x126)](F4),F3[Nf(0x2d7)]=F3[Nf(0x1f0)],F4;}function y(F2){const Nl=Nm,F3=Z(Nl(0x1a9));if(!F3)return;const F4=F3[Nl(0x18c)](Nl(0x36b));if(F2&&!F4){const F5=document[Nl(0x269)]('div');F5['className']='hb-b\x20bot\x20typ',F5[Nl(0x1af)]='…',F3[Nl(0x126)](F5),F3[Nl(0x2d7)]=F3[Nl(0x1f0)];}!F2&&F4&&F4[Nl(0x217)]();}const E=F2=>String(F2||'')['toLowerCase']()[Nm(0x377)](Nm(0x299))[Nm(0x2b0)](/[\u0300-\u036f]/g,'')[Nm(0x2b0)](/[^a-z0-9\s]/g,'\x20')[Nm(0x2b0)](/\s+/g,'\x20')[Nm(0x22c)](),q=F2=>!F2?'':(F2=F2[Nm(0x22c)](),F2[Nm(0x388)](0x0)[Nm(0x286)]()+F2['slice'](0x1)[Nm(0xfc)]());function z(F2,F3){const NM=Nm;F2=E(F2),F3=E(F3);const F4=F2[NM(0x2dc)],F5=F3['length'],F6=Array[NM(0x3b3)]({'length':F4+0x1},()=>Array(F5+0x1)[NM(0x1fe)](0x0));for(let F7=0x0;F7<=F4;F7++)F6[F7][0x0]=F7;for(let F8=0x0;F8<=F5;F8++)F6[0x0][F8]=F8;for(let F9=0x1;F9<=F4;F9++){for(let FF=0x1;FF<=F5;FF++){const FU=F2[F9-0x1]===F3[FF-0x1]?0x0:0x1;F6[F9][FF]=Math[NM(0x1bf)](F6[F9-0x1][FF]+0x1,F6[F9][FF-0x1]+0x1,F6[F9-0x1][FF-0x1]+FU);}}return F6[F4][F5];}function j(F2,F3,F4=0x2){const F5=E(F2);let F6=null,F7=0x3b9aca00;for(const F8 of F3){const F9=z(F5,F8);F9<F7&&(F7=F9,F6=F8);}return F7<=F4?F6:null;}const s=['ssc',Nm(0x132),Nm(0x220),Nm(0x22b),Nm(0x2d6),'shc'];function w(F2){const NS=Nm,F3=j(F2,s,0x2);return F3&&F3[NS(0x1c9)]('h')?'hsc':NS(0x1d5);}const k={'Science':[Nm(0x10b),Nm(0x148),'sc','scn',Nm(0x2bc),Nm(0x195),Nm(0xf6),Nm(0x1ca)],'Commerce':[Nm(0xf3),Nm(0x2a5),Nm(0xda),Nm(0x20b),'comm',Nm(0xb2),Nm(0x1e5),'comercee'],'Arts':[Nm(0xeb),Nm(0x236),Nm(0x2ee),Nm(0x1c2),'humanity',Nm(0x145),Nm(0x200),'huminities']};function x(F2){const F3=E(F2);for(const [F4,F5]of Object['entries'](k)){const F6=j(F3,F5,0x2);if(F6)return F4;}return null;}const B={'bangla':[Nm(0x1f7),Nm(0x283),'bn'],'english':[Nm(0x300),'eng'],'math':[Nm(0x2f9),'maths',Nm(0x370),'mth',Nm(0x3b8)],'physics':[Nm(0x193),'phy',Nm(0x270),Nm(0x373)],'chemistry':['chemistry',Nm(0x121),Nm(0xd3),Nm(0x1fc)],'ict':[Nm(0xcd),Nm(0x312)],'bgs':[Nm(0x247),'social','social\x20science',Nm(0x361),'ss'],'religion':[Nm(0x186),'islam','hindu','religious',Nm(0x354)],'geography':[Nm(0x337),Nm(0x24b)],'civics':[Nm(0x2c8),Nm(0x31d)],'history':[Nm(0x134),Nm(0x39e)],'accounting':[Nm(0x2cf),'account','acct'],'finance':[Nm(0x331),'fin',Nm(0x1a3)],'business\x20studies':[Nm(0x2a5),'business\x20studies',Nm(0x2ba)]};function a(F2){const NQ=Nm,F3=E(F2);for(const [F4,F5]of Object[NQ(0x149)](B)){const F6=j(F3,F5,0x2);if(F6)return F4;}return null;}function d(F2,F3){const NX=Nm,F4=String(F3)[NX(0x22c)]();return F4[NX(0x2dc)]===0x2?F2===NX(0x132)?NX(0x1cc)+F4:'20'+F4:F2===NX(0x132)?NX(0x33c)+F4:F4;}function o(){const Nh=Nm,F2=(Z(Nh(0x2d2))?.[Nh(0x1af)]||'')[Nh(0x22c)]();if(F2)return F2;const F3=Z('yearDropdown');return F3?String(F3[Nh(0x19b)]||'')[Nh(0x22c)]():'';}function g(){const NA=Nm,F2=(Z(NA(0x2db))?.[NA(0x1af)]||'')[NA(0x22c)]();if(F2)return F2['split']('\x20')[0x0];const F3=N(NA(0x2e4))||N(NA(0x3ae));return F3?(F3['textContent']||'')[NA(0x22c)]():'';}function v(){const Nn=Nm,F2=Z(Nn(0x1dd));if(!F2)return null;let F3=F2[Nn(0x18c)]('.hb-badge');return!F3&&(F3=document[Nn(0x269)]('span'),F3['className']=Nn(0x107),F3['style']['cssText']='position:absolute;top:-4px;right:-4px;width:20px;height:20px;background:#ef4444;color:#fff;border-radius:50%;display:none;place-items:center;font-weight:900;font-size:12px;box-shadow:0\x202px\x206px\x20rgba(0,0,0,.3);',F3['textContent']='1',F2[Nn(0x126)](F3)),F3;}function V(){const Ni=Nm,F2=v();F2&&(F2['style'][Ni(0x1ff)]=Ni(0x1ad),F2[Ni(0x1af)]='1');}function t(){const NC=Nm,F2=v();F2&&(F2['style']['display']=NC(0x2da));}window[Nm(0x20a)]=function(F2){const NI=Nm;localStorage[NI(0x137)]('has9_welcome_name',F2||NI(0x222)),V();};function D(F2){const NY=Nm,F3=Z(NY(0x1f1));if(!F3)return;const F4=F2===undefined?F3[NY(0x259)][NY(0x1ff)]!=='block':!!F2;F3[NY(0x259)]['display']=F4?NY(0x173):NY(0x2da);F4&&T()&&(F3[NY(0x259)][NY(0x109)]=NY(0x344),F3[NY(0x259)][NY(0xe6)]=NY(0x344),F3[NY(0x259)][NY(0x1c6)]=NY(0x344),F3[NY(0x259)][NY(0x34a)]=NY(0x2b6));if(F4)document[NY(0x105)][NY(0x25a)][NY(0x343)](NY(0x39d));else document[NY(0x105)]['classList'][NY(0x217)](NY(0x39d));if(F4){r();const F5=localStorage[NY(0x2a2)]('has9_welcome_name');F5&&(t(),c(NY(0x1b1)+F5+NY(0x340)),localStorage['removeItem'](NY(0x268)));}}function K(F2){const NW=Nm,F3=String(F2||'')[NW(0x22c)]();if(!F3)return;c(F3,NW(0xc1));const F4=u(F3);if(F4){c(F4);return;}const F5=J(F3)||L();c(F5);}function r(){const Np=Nm;if(localStorage[Np(0x2a2)](Np(0x1ce))==='1')return;const F2='\x0a\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-weight:900;margin-bottom:4px;\x22>Welcome\x20to\x20HAS9beta</div>\x0a\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-weight:700;color:#374151;line-height:1.55\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20Type\x20naturally\x20—\x20I\x20handle\x20typos\x20like\x20\x22opne\x22,\x20\x22fnd\x22,\x20\x22scince\x22.\x0a\x20\x20\x20\x20\x20\x20\x20\x20Try\x20any\x20of\x20these:\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:grid;gap:6px;margin-top:8px\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22hb-mini\x22\x20data-cmd=\x22what\x20is\x20Diffusion\x22>what\x20is\x20Diffusion</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22hb-mini\x22\x20data-cmd=\x22who\x20is\x20Cristiano\x20Ronaldo\x22>who\x20is\x20Cristiano\x20Ronaldo</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22hb-mini\x22\x20data-cmd=\x22when\x20is\x20next\x20fifa\x20world\x20cup\x22>when\x20is\x20next\x20fifa\x20world\x20cup</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22hb-mini\x22\x20data-cmd=\x22where\x20is\x20chittagong\x22>where\x20is\x20chittagong</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22hb-mini\x22\x20data-cmd=\x22open\x20ssc\x2025\x20science\x22>open\x20ssc\x2025\x20science</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22hb-mini\x22\x20data-cmd=\x22open\x20100001\x20ssc\x2025\x20science\x22>open\x20100001\x20ssc\x2025\x20science</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22hb-mini\x22\x20data-cmd=\x22find\x20Nabil\x22>find\x20Nabil</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22hb-mini\x22\x20data-cmd=\x22top\x2010\x20physics\x20ssc\x2025\x22>top\x2010\x20physics\x20ssc\x2025</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22hb-mini\x22\x20data-cmd=\x22Tasin\x20english\x20score\x22>Tasin\x20english\x20score</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22hb-mini\x22\x20data-cmd=\x22fun\x20fact\x22>fun\x20fact</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22hb-mini\x22\x20data-cmd=\x22random\x22>random</button>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20<label\x20style=\x22display:flex;gap:8px;align-items:center;margin-top:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22has9NeverAgain\x22\x20type=\x22checkbox\x22>\x20Don’t\x20show\x20this\x20again\x0a\x20\x20\x20\x20\x20\x20</label>\x0a\x20\x20\x20\x20',F3=b(F2);F3?.[Np(0x364)](Np(0x29a))?.['forEach'](F4=>{const Nu=Np;F4[Nu(0x12f)](Nu(0x28c),()=>K(F4[Nu(0x11a)](Nu(0x131))));}),F3?.[Np(0x18c)]('#has9NeverAgain')?.['addEventListener'](Np(0x110),F4=>{const NJ=Np;localStorage[NJ(0x137)](NJ(0x1ce),F4[NJ(0x197)][NJ(0xaf)]?'1':'0');});}function L(){const NH=Nm;return NH(0x187);}async function m(F2,F3,F4){const T0=Nm,F5=d(F2,F3);(!window[T0(0xce)]||!window[T0(0xce)][T0(0x2dc)]||o()!==F5||g()!==F4)&&(loadYear(F5),await new Promise(F6=>setTimeout(F6,0x96)),loadGroup(F5,F4),await new Promise(F6=>setTimeout(F6,0x320)));}async function G(F2){const T1=Nm;try{if(typeof fetchAndDecode==='function')return await fetchAndDecode(F2,'MySecretKey123');}catch(F3){}try{return await(await fetch(F2))[T1(0x271)]();}catch(F4){return'';}}async function P(F2){const T2=Nm,F3=E(F2),F4=location[T2(0x1ac)][T2(0x2b0)](/[^/]+$/,''),F5=[[T2(0x1d5),T2(0x17d),T2(0x1ed)],[T2(0x1d5),T2(0x17d),T2(0x1bc)],[T2(0x1d5),T2(0x17d),'Arts'],[T2(0x1d5),'2024',T2(0x1ed)],['ssc',T2(0x2f0),'Commerce'],[T2(0x1d5),T2(0x2f0),T2(0x208)],[T2(0x1d5),T2(0x21a),T2(0x1ed)],[T2(0x1d5),'2023','Commerce'],['ssc',T2(0x21a),'Arts'],[T2(0x1d5),T2(0x1e0),T2(0x1ed)],[T2(0x1d5),T2(0x1e0),T2(0x1bc)],[T2(0x1d5),T2(0x1e0),'Arts'],['hsc','2024','Science'],[T2(0x132),'2024','Commerce'],[T2(0x132),'2024',T2(0x208)],[T2(0x132),'2023',T2(0x1ed)],[T2(0x132),T2(0x21a),T2(0x1bc)],['hsc',T2(0x21a),T2(0x208)]],F6=[],F7=new Set();for(const [FF,FU,FZ]of F5){try{const FN=d(FF,FU),FT=F4+T2(0x117)+FN+'_'+FZ[T2(0xfc)]()+T2(0x2e0),FO=await G(FT);if(!FO)continue;const FR=FO['trim']()['split']('\x0a'),Fe=FR[0x0]&&FR[0x0][T2(0xfc)]()[T2(0x1c9)]('serial')?0x1:0x0;for(let Fc=Fe;Fc<FR[T2(0x2dc)];Fc++){const Fb=FR[Fc][T2(0x188)]('\x09'),Fy=(Fb[0x1]||'')['trim'](),FE=(Fb[0x2]||'')[T2(0x22c)](),Fq=parseInt(Fb[0x4]||'0',0xa),Fz=(Fb[0x5]||'')[T2(0x22c)]();if(!Fy||!FE)continue;if(E(Fy)[T2(0x1c9)](F3)){const Fj=E(Fy)+'|'+FE+'|'+FF+'|'+FU+'|'+FZ;if(F7[T2(0x2b2)](Fj))continue;F7[T2(0x343)](Fj),F6[T2(0xb9)]({'name':Fy,'roll':FE,'inst':Fz,'exam':FF,'yr':FU,'grp':FZ,'total':Fq});if(F6[T2(0x2dc)]>=0x14)break;}}if(F6[T2(0x2dc)]>=0x14)break;}catch(Fs){}}if(!F6[T2(0x2dc)]){c(T2(0x396));return;}F6[T2(0x1e7)]((Fw,Fk)=>Fk[T2(0x29b)]-Fw['total']);const F8=T2(0x327)+F6[T2(0x348)](0x0,0x14)[T2(0x155)](Fw=>T2(0x111)+Fw[T2(0x211)]+'\x22\x20data-yr=\x22'+Fw['yr']+T2(0x3a5)+Fw[T2(0x1d4)]+'\x22\x20data-roll=\x22'+Fw[T2(0xb4)]+T2(0x267)+Fw[T2(0x334)]+T2(0x2f8)+Fw[T2(0xb4)]+T2(0xe4)+(Fw[T2(0xb7)]||'')+'\x20('+Fw['exam'][T2(0x286)]()+'\x20'+Fw['yr']+'\x20'+Fw['grp']+T2(0x16b))[T2(0x1f5)](''),F9=b(F8);F9?.['querySelectorAll'](T2(0x261))[T2(0x119)](Fw=>{const T3=T2;Fw[T3(0x12f)](T3(0x28c),()=>{const T4=T3,Fk=Fw[T4(0x266)]['ex'],Fx=Fw[T4(0x266)]['yr'],FB=Fw['dataset'][T4(0x1d4)],Fa=Fw[T4(0x266)]['roll'],Fd=d(Fk,Fx);loadYear(Fd),setTimeout(()=>loadGroup(Fd,FB),0x96),setTimeout(()=>showIndividualResultWithCheck(Fa,Fd,FB),0x258);});});}function f(F2,F3,F4){const T5=Nm,F5=String(F4||'')['toLowerCase']();if(F2==='ssc'){const F6={'bangla':0x1,'english':0x2,'math':0x3,'bgs':0x4,'religion':0x5,'physics':0x6,'chemistry':0x7,'compulsory':0x8,'ict':0x9,'optional':0xa,'physical':0xb,'career':0xc};return F6[F5]??null;}else{if(F5===T5(0x1f7))return 0x1;if(F5===T5(0x300))return 0x2;if(F5===T5(0xcd))return 0x3;if(F3===T5(0x1ed)){if(F5===T5(0x193))return 0x4;if(F5===T5(0x1b9))return 0x5;}if(F3==='Commerce'){if(F5===T5(0x2cf))return 0x4;if(F5==='finance')return 0x5;if(F5==='business\x20studies')return 0x6;}if(F3===T5(0x208)){if(F5===T5(0x337))return 0x4;if(F5===T5(0x2c8))return 0x5;if(F5===T5(0x134))return 0x6;}if(F5===T5(0x238))return 0x6;if(F5===T5(0x2fd))return 0x7;return null;}}async function l(F2,F3,F4){const T6=Nm,F5=d(F2,F3),F6=T6(0x117)+F5+'_'+F4[T6(0xfc)]()+T6(0x384),F7=await(await fetch(F6))[T6(0x271)](),F8=F7[T6(0x22c)]()[T6(0x188)]('\x0a'),F9=new Map();return F8[T6(0x119)](FF=>{const T7=T6,FU=FF[T7(0x188)]('\x09'),FZ=String(FU[0x0]||'')['replace'](/^0+/,'');F9[T7(0x2e1)](FZ,FU);}),F9;}async function M(F2,F3,F4,F5,F6){const T8=Nm;F2=w(F2),F4=q(F4),await m(F2,F3,F4);const F7=f(F2,F4,F5);if(F7==null){c(T8(0x27e)+F5+'\x22.');return;}const F8=await l(F2,F3,F4),F9=(window['allData']||[])[T8(0x155)](FZ=>{const T9=T8,FN=F8[T9(0x2a4)](String(FZ['roll'])),FT=FN?parseFloat(FN[F7]||'0'):NaN;return isNaN(FT)?null:{'name':FZ[T9(0x334)],'roll':FZ[T9(0xb4)],'inst':FZ[T9(0x12c)],'mark':FT};})[T8(0x2ca)](Boolean);F9[T8(0x1e7)]((FZ,FN)=>FN['mark']-FZ[T8(0x164)]);const FF=F9[T8(0x348)](0x0,F6);if(!FF[T8(0x2dc)]){c(T8(0x10c));return;}const FU=T8(0x140)+F6+T8(0xba)+q(F5)+'\x20('+F2['toUpperCase']()+'\x20'+F3+'\x20'+F4+T8(0xf7)+FF[T8(0x155)]((FZ,FN)=>'<div>'+(FN+0x1)+'.\x20'+FZ[T8(0x334)]+T8(0x2f8)+FZ[T8(0xb4)]+T8(0x281)+FZ['mark']+T8(0x1d7))['join']('');b(FU);}async function S(F2,F3,F4,F5){const TF=Nm;F2=w(F2),F4=q(F4),await m(F2,F3,F4);const F6=(window[TF(0xce)]||[])[TF(0x348)](0x0,F5)[TF(0x155)]((F7,F8)=>F8+0x1+'.\x20'+F7['name']+TF(0x2f8)+F7[TF(0xb4)]+TF(0x1d8)+F7['total']+'\x20(GPA\x20'+F7[TF(0x1b8)]+')');b(TF(0x140)+F5+'\x20('+F2[TF(0x286)]()+'\x20'+F3+'\x20'+F4+TF(0xf7)+F6[TF(0x1f5)](''));}async function X(F2,F3){const TU=Nm,F4=o(),F5=g();if(!F4||!F5){c(TU(0x146));return;}const F6=F4[TU(0x1c9)](TU(0x132))?TU(0x132):TU(0x1d5),F7=F4[TU(0x2b0)]('hsc_',''),F8=f(F6,q(F5),F3);if(F8==null){c(TU(0x27e)+F3+'\x22.');return;}const F9=await l(F6,F7,q(F5)),FF=(window['allData']||[])['find'](FZ=>E(FZ['name'])[TU(0x1c9)](E(F2)));if(!FF){c(TU(0x171));return;}const FU=F9['get'](String(FF[TU(0xb4)]));if(!FU){c(TU(0xc7));return;}c(FF['name']+'\x20—\x20'+q(F3)+':\x20'+FU[F8]);}function h(){const TZ=Nm,F2=window[TZ(0xce)]||[];if(!F2[TZ(0x2dc)]){c(TZ(0xad));return;}const F3=F2[Math[TZ(0x1ee)](Math[TZ(0x369)]()*F2[TZ(0x2dc)])];c('Random:\x20'+F3[TZ(0x334)]+TZ(0x2f8)+F3[TZ(0xb4)]+TZ(0x1d8)+F3[TZ(0x29b)]+TZ(0x13f)+F3[TZ(0x1b8)]+')');}async function A(){const TN=Nm;try{const F2=location[TN(0x1ac)][TN(0x2b0)](/[^/]+$/,''),F3=await fetch(F2+TN(0x291)),F4=await F3['json'](),F5=F4[0x0]||{'question':TN(0x2ce),'ans1_response':TN(0x19a),'ans2_response':TN(0x252),'none':TN(0x240)};let F6='Option\x201',F7=TN(0x100);const F8=(F5['question']||'')['split'](/ or /i);F8[TN(0x2dc)]===0x2&&(F6=F8[0x0]['trim']()[TN(0x2b0)](/\?+$/,''),F7=F8[0x1][TN(0x22c)]()[TN(0x2b0)](/\?+$/,''),F6=F6[TN(0x388)](0x0)['toUpperCase']()+F6[TN(0x348)](0x1),F7=F7[TN(0x388)](0x0)[TN(0x286)]()+F7[TN(0x348)](0x1));const F9=TN(0x360)+F5[TN(0x37f)]+TN(0x3a7)+F6+TN(0x277)+F7+'</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22hb-mini\x22\x20data-a=\x220\x22>Skip</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>',FF=b(F9);FF?.[TN(0x364)](TN(0x261))?.[TN(0x119)](FU=>{const TT=TN;FU[TT(0x12f)](TT(0x28c),()=>{const TO=TT,FZ=FU[TO(0x266)]['a'],FN=FZ==='1'?F5[TO(0xfb)]:FZ==='2'?F5[TO(0x351)]:F5[TO(0x2da)];c(FN);});});}catch(FU){c(TN(0x2af));}}async function n(){const TR=Nm;try{const F2=location[TR(0x1ac)][TR(0x2b0)](/[^/]+$/,''),F3=await(await fetch(F2+TR(0x38b)))[TR(0x271)](),F4=F3[TR(0x188)]('\x0a')[TR(0x155)](F7=>F7[TR(0x22c)]())['filter'](Boolean),F5=F4['map'](F7=>F7['replace'](/^\s*\d+\.\s*/,''))[TR(0x2ca)](Boolean);if(!F5[TR(0x2dc)])return c(TR(0x165));const F6=F5[Math[TR(0x1ee)](Math[TR(0x369)]()*F5['length'])];c(F6);}catch(F7){c('No\x20fun\x20facts\x20right\x20now.');}}function i(F2){const Te=Nm;return/\b(why|should|best|better|good|bad|worth|vs|versus|recommend|recommendation|opinion|review|compare|pros|cons)\b/[Te(0x120)](F2);}function C(F2){const Tc=Nm;if(/\b(how are you|how r u|how you doing)\b/[Tc(0x120)](F2))return![];return/^(what|who|when|where|which|how( many| much| long| old| far| tall| big| fast)?)\b/['test'](F2);}function I(F2){const Tb=Nm;let F3=E(F2);return F3=F3['replace'](/^(what|who|when|where|which)\s+(is|are|was|were|the)\s*/,'')[Tb(0x2b0)](/^how\s+(many|much|long|old|far|tall|big|fast)\s*/,'')['replace'](/\b(in|of|on|for|to)\s*$/,'')['trim'](),F3||E(F2);}async function Y(F2){const Ty=Nm;try{const F3='https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(F2)+Ty(0x357),F4=await fetch(F3);if(!F4['ok'])return null;const F5=await F4[Ty(0x176)]();if(!F5||!F5[Ty(0x1d6)]&&!F5['description'])return null;if(F5[Ty(0x22a)]===Ty(0xf8))return null;const F6=F5[Ty(0x1d6)]||F5[Ty(0x278)]||'',F7=F5['title']||F2,F8=F5[Ty(0x10a)]?.['desktop']?.[Ty(0x380)]||F5[Ty(0x10a)]?.['mobile']?.['page']||Ty(0x213)+encodeURIComponent(F7);return{'title':F7,'extract':F6,'url':F8};}catch(F9){return null;}}async function W(F2){const TE=Nm;try{const F3='https://api.duckduckgo.com/?q='+encodeURIComponent(F2)+TE(0x21c),F4=await fetch(F3);if(!F4['ok'])return null;const F5=await F4[TE(0x176)]();if(F5[TE(0xb1)])return{'title':F5[TE(0x24c)]||F2,'extract':F5['AbstractText'],'url':F5[TE(0x2b1)]||TE(0x237)+encodeURIComponent(F2)};const F6=Array[TE(0x34c)](F5[TE(0x185)])?F5[TE(0x185)][TE(0x172)](F7=>F7[TE(0x336)]&&F7[TE(0x1f4)]):null;if(F6)return{'title':F2,'extract':F6[TE(0x336)],'url':F6[TE(0x1f4)]};return null;}catch(F7){return null;}}async function p(F2){const Tq=Nm,F3=E(F2),F4=I(F2),F5=await Y(F4);if(F5){const F7=Tq(0x298)+F5[Tq(0x1eb)]+Tq(0x1da)+F5['extract']+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-top:6px\x22><a\x20href=\x22'+F5[Tq(0x225)]+Tq(0x189);b(F7);return;}const F6=await W(F4);if(F6){const F8=Tq(0x298)+F6[Tq(0x1eb)]+Tq(0x1da)+F6['extract']+Tq(0x10f)+F6['url']+Tq(0xdc);b(F8);return;}c(Tq(0x3b1));}function u(F2){const Tz=Nm,F3=String(F2||'')[Tz(0x22c)](),F4=E(F3);if(O[Tz(0x1c1)]===Tz(0x321)){const F5=O['data'][Tz(0xb4)],F6=F4[Tz(0x16f)](/\b(ssc|hsc)\b.*?(\d{2,4})(?:.*?\b([a-z ]+)\b)?/);if(!F6)return Tz(0x2a3);let F7=w(F6[0x1]),F8=F6[0x2],F9=F6[0x3]?x(F6[0x3]):null;const FF=d(F7,F8);if(!F9)return O[Tz(0x1c1)]=Tz(0x318),O['data']={'roll':F5,'yearToken':FF},Tz(0x333);return loadYear(FF),setTimeout(()=>loadGroup(FF,F9),0x96),setTimeout(()=>showIndividualResultWithCheck(F5,FF,F9),0x258),O[Tz(0x1c1)]=null,O[Tz(0x2d9)]={},'Opening\x20'+F7[Tz(0x286)]()+'\x20'+F8+'\x20'+F9+Tz(0xf9)+F5+'…';}if(O[Tz(0x1c1)]===Tz(0x318)){const FU=O[Tz(0x2d9)][Tz(0xb4)],FZ=O[Tz(0x2d9)][Tz(0x30b)],FN=x(F3)||q(F3);return loadYear(FZ),setTimeout(()=>loadGroup(FZ,FN),0x96),setTimeout(()=>showIndividualResultWithCheck(FU,FZ,FN),0x258),O[Tz(0x1c1)]=null,O[Tz(0x2d9)]={},Tz(0x218)+FU+Tz(0xba)+FN+'…';}if(O[Tz(0x1c1)]===Tz(0x316)){const FT=F3[Tz(0x2b0)](/\D/g,'');if(!FT)return'Need\x20a\x20roll\x20number.';return O[Tz(0x1c1)]='groupForRoll',O[Tz(0x2d9)]={'roll':FT},Tz(0x1c3);}if(O[Tz(0x1c1)]===Tz(0x1b3)){const FO=x(F3)||q(F3),FR=O[Tz(0x2d9)]['yearToken'];return loadYear(FR),setTimeout(()=>loadGroup(FR,FO),0x96),O[Tz(0x1c1)]=null,O['data']={},Tz(0x25c)+FR+Tz(0x281)+FO+'…';}return null;}function J(F2){const Tj=Nm,F3=String(F2||'')[Tj(0x22c)](),F4=E(F3);if(/\b(hi|hello|hey|salam|assalam|assalamu alaikum|yo|sup)\b/['test'](F4))return Tj(0x2e3);if(/\b(thanks|thank you|tnx|thx|appreciate)\b/[Tj(0x120)](F4))return'You’re\x20welcome!';if(/\b(bye|goodbye|see ya|see you|tata)\b/[Tj(0x120)](F4))return Tj(0x3b6);if(/\b(how are you|how r u|how you doing|whats up|what’s up|hows life|how’s life)\b/[Tj(0x120)](F4))return Tj(0x330);if(/\b(who (are|r) (you|u)|what (are|r) (you|u)|are you|r u|your name)\b/[Tj(0x120)](F4))return Tj(0x160);if(/\b(goal|mission|purpose|what.*for|why.*exist|why.*here)\b/[Tj(0x120)](F4))return Tj(0x23a);if(F4==='help'||F4==='?'||F4[Tj(0x1c9)](Tj(0x19f))||F4[Tj(0x1c9)](Tj(0xc4))||F4[Tj(0x1c9)](Tj(0x18a)))return[Tj(0x353),Tj(0x147),'•\x20who\x20is\x20Cristiano\x20Ronaldo',Tj(0x1e8),Tj(0xd4),Tj(0x2d1),Tj(0x31e),Tj(0x390),Tj(0x27f),Tj(0x347),'•\x20Tasin\x20english\x20score',Tj(0x153)][Tj(0x1f5)]('\x0a');if(C(F4)&&!i(F4))return p(F3),Tj(0x385);const F5=/\b(open|opn|opne|oppen|openup|show|display)\b/['test'](F4),F6=/\b(find|search|lookup|look up|seach|serach|finde|lookfor)\b/[Tj(0x120)](F4),F7=/\b(top|best|highest|leaders|leaderboard|toppers?)\b/['test'](F4),F8=/\b(fun ?fact|random ?fact|fact)\b/[Tj(0x120)](F4),F9=/\b(random|someone|anyone|surprise)\b/[Tj(0x120)](F4),FF=F3[Tj(0x16f)](/\b(\d{5,})\b/);if(/^play\s+(this|dis)\s+or\s+that$/[Tj(0x120)](F4))return A(),Tj(0x3a1);if(F8)return n(),Tj(0xdf);if(F9)return h(),Tj(0x317);if(F6){const FZ=F3['match'](/find\s+(.+)$/i)||F3['match'](/search\s+(.+)$/i)||F3[Tj(0x16f)](/lookup\s+(.+)$/i)||F3[Tj(0x16f)](/look up\s+(.+)$/i),FN=FZ?FZ[0x1]:F3[Tj(0x2b0)](/.*?(find|search|lookup|look up)\s*/i,'')['trim']();if(!FN)return Tj(0x20c);return P(FN),Tj(0x223);}if(F5||FF&&F4[Tj(0x1c9)](Tj(0xb4))||FF&&!F7&&!F6){const FT=FF?FF[0x1]:null,FO=F3[Tj(0x16f)](/\b(ssc|hsc)\b[^0-9]*(\d{2,4})[^a-z0-9]*([a-z ]+)?$/i);if(!FT&&FO){const FR=w(FO[0x1]),Fe=FO[0x2],Fc=x(FO[0x3]||Tj(0x1ed))||'Science',Fb=d(FR,Fe);return loadYear(Fb),setTimeout(()=>loadGroup(Fb,Fc),0x96),Tj(0x25c)+FR[Tj(0x286)]()+'\x20'+Fe+Tj(0x281)+Fc+'…';}if(FT){const Fy=F3[Tj(0x16f)](/\b(ssc|hsc)\b[^0-9]*(\d{2,4})/i),FE=F3[Tj(0x16f)](/\b(science|commerce|arts|business|humanities)\b/i);if(Fy){const Fq=w(Fy[0x1]),Fz=Fy[0x2],Fj=x(FE?FE[0x0]:Tj(0x1ed))||Tj(0x1ed),Fs=d(Fq,Fz);return loadYear(Fs),setTimeout(()=>loadGroup(Fs,Fj),0x96),setTimeout(()=>showIndividualResultWithCheck(FT,Fs,Fj),0x258),Tj(0x218)+FT+'\x20('+Fq[Tj(0x286)]()+'\x20'+Fz+'\x20'+Fj+')…';}return O[Tj(0x1c1)]=Tj(0x321),O[Tj(0x2d9)]={'roll':FT},'Write\x20group\x20(like:\x20SSC\x2025\x20Science)';}return'Say:\x20open\x20100000\x20ssc\x2025\x20science';}if(F7){const Fw=F3[Tj(0x16f)](/top\s+(\d+)\s+([a-z ]+).*?\b(ssc|hsc)\b.*?(\d{2,4})(?:.*?\b([a-z ]+)\b)?/i);if(Fw){const Fk=+Fw[0x1],Fx=Fw[0x2],FB=w(Fw[0x3]),Fa=Fw[0x4],Fd=x(Fw[0x5]||Tj(0x1ed))||Tj(0x1ed),Fo=a(Fx)||Fx[Tj(0x22c)]()[Tj(0x188)](/\s+/)[0x0];return M(FB,Fa,Fd,Fo,Fk),Tj(0xcc)+Fk+Tj(0xba)+Fo+'…';}}const FU=F3[Tj(0x16f)](/^(.+?)\s+(bangla|english|math|physics|chemistry|ict|bgs|religion)\s+score$/i);if(FU){const Fg=a(FU[0x2])||FU[0x2];return X(FU[0x1],Fg),Tj(0x315);}return Tj(0x1ec);}function F0(){const Ts=Nm,F2=Z(Ts(0xe5)),F3=F2?.[Ts(0x19b)]?.[Ts(0x22c)]();if(!F3)return;F2[Ts(0x19b)]='',c(F3,Ts(0xc1)),y(!![]),setTimeout(()=>{y(![]);const F4=u(F3);if(F4){c(F4);return;}const F5=J(F3)||L();c(F5);},0x8c);}function F1(){const Tw=Nm;R(),Z(Tw(0x1dd))?.[Tw(0x12f)]('click',F2=>{const Tk=Tw;F2[Tk(0x2ae)](),D();},{'passive':!![]}),Z(Tw(0xbd))?.[Tw(0x12f)](Tw(0x28c),F2=>{const Tx=Tw;F2[Tx(0x2ae)](),D(![]);},{'passive':!![]}),Z(Tw(0x2df))?.['addEventListener'](Tw(0x28c),F0),Z(Tw(0xe5))?.['addEventListener']('keydown',F2=>{const TB=Tw;if(F2[TB(0x2ad)]==='Enter')F0();}),document[Tw(0x12f)](Tw(0x28c),F2=>{const Ta=Tw,F3=Z(Ta(0x1f1));if(!F3||F3['style'][Ta(0x1ff)]!==Ta(0x173))return;if(!F3[Ta(0x27b)](F2[Ta(0x197)])&&F2[Ta(0x197)]!==Z(Ta(0x1dd)))D(![]);});}if(document[Nm(0x3a9)]!==Nm(0x328))F1();else document[Nm(0x12f)]('DOMContentLoaded',F1,{'once':!![]});}());
+const contentDiv = document.getElementById('content');
+const currentYear = document.getElementById('currentYear');
+const currentGroup = document.getElementById('currentGroup');
+const noDataMessage = document.getElementById('noDataMessage');
+const yearDropdown = document.getElementById('yearDropdown');
+
+
+/* ==== SEO/Share helpers ==== */
+function upsertMeta(name, content) {
+  let tag = document.querySelector(`meta[name="${name}"]`);
+  if (!tag) { tag = document.createElement('meta'); tag.setAttribute('name', name); document.head.appendChild(tag); }
+  tag.setAttribute('content', content);
+}
+function upsertProperty(property, content) {
+  let tag = document.querySelector(`meta[property="${property}"]`);
+  if (!tag) { tag = document.createElement('meta'); tag.setAttribute('property', property); document.head.appendChild(tag); }
+  tag.setAttribute('content', content);
+}
+function setCanonical(url) {
+  let link = document.querySelector('link[rel="canonical"]');
+  if (!link) { link = document.createElement('link'); link.setAttribute('rel','canonical'); document.head.appendChild(link); }
+  link.setAttribute('href', url);
+}
+function injectJSONLD(obj, id) {
+  // remove previous block with same id
+  if (id) document.querySelectorAll(`script[type="application/ld+json"][data-id="${id}"]`).forEach(n=>n.remove());
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  if (id) s.setAttribute('data-id', id);
+  s.text = JSON.stringify(obj);
+  document.head.appendChild(s);
+}
+
+/* Year+Group page: dynamic SEO */
+function updateSEOForYearGroup(year, group) {
+  const isHSC = String(year).includes('hsc');
+  const yr = String(year).replace('hsc_', '');
+  const exam = isHSC ? 'HSC' : 'SSC';
+
+  const title = `SSC Result Ranking ${yr} — ${exam === 'HSC' ? 'Chattogram Board (HSC archive)' : 'Chattogram Board'} ${group}`;
+  const desc  = `See ${exam} ${yr} ${group} rankings for Chattogram Board — GPA, total marks, top schools, and student comparisons. Fast and accurate.`;
+  const url   = `${location.origin}${location.pathname}?year=${encodeURIComponent(year)}&group=${encodeURIComponent(group)}`;
+
+  document.title = title;
+  upsertMeta('description', desc);
+  setCanonical(url);
+  upsertProperty('og:title', title);
+  upsertProperty('og:description', desc);
+  upsertProperty('og:url', url);
+  upsertProperty('og:type', 'website');
+  upsertMeta('twitter:title', title);
+  upsertMeta('twitter:description', desc);
+}
+
+/* School page: dynamic SEO */
+function updateSEOForSchool(year, group, schoolName) {
+
+  const yr = String(year).replace('hsc_', '');
+  const exam = String(year).includes('hsc') ? 'HSC' : 'SSC';
+  const title = `${schoolName} — ${exam} ${yr} Ranking (Chattogram Board)`;
+  const desc  = `Rank list for ${schoolName} — ${exam} ${yr}, ${group}. View GPA, totals, and student positions from Chattogram Board.`;
+  const url   = `${location.origin}${location.pathname}?year=${encodeURIComponent(year)}&group=${encodeURIComponent(group)}&school=${encodeURIComponent(schoolName)}`;
+
+  document.title = title;
+  upsertMeta('description', desc);
+  setCanonical(url);
+  upsertProperty('og:title', title);
+  upsertProperty('og:description', desc);
+  upsertProperty('og:url', url);
+  upsertMeta('twitter:title', title);
+  upsertMeta('twitter:description', desc);
+}
+function updateSEOForStudent(year, group, studentName, roll) {
+    const yr = String(year).replace('hsc_', '');
+    const exam = String(year).includes('hsc') ? 'HSC' : 'SSC';
+    const title = `${studentName} — ${exam} ${yr} Result (Chattogram Board) | Roll ${roll}`;
+    const desc  = `Subject-wise marks, GPA, total and rank for ${studentName} (${exam} ${yr}, ${group}) — Chattogram Board.`;
+    const pagePath = location.pathname.includes('entity.html') ? location.pathname : '/rank/entity.html';
+    const url   = `${location.origin}${pagePath}?year=${encodeURIComponent(year)}&group=${encodeURIComponent(group)}&roll=${encodeURIComponent(roll)}`;
+
+    document.title = title;
+    upsertMeta('description', desc);
+    setCanonical(url);
+    upsertProperty('og:title', title);
+    upsertProperty('og:description', desc);
+    upsertProperty('og:url', url);
+    upsertMeta('twitter:title', title);
+    upsertMeta('twitter:description', desc);
+
+    injectJSONLD({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": studentName,
+      "identifier": `${exam}-${yr}-${roll}`,
+      "affiliation": { "@type": "EducationalOrganization", "name": "Chattogram Education Board" }
+    }, 'student');
+  }
+/* Breadcrumbs JSON-LD */
+function injectBreadcrumbs(homeUrl, year, group, school) {
+  const items = [
+    { "@type":"ListItem", "position":1, "name":"Home", "item": homeUrl }
+  ];
+  if (year) items.push({ "@type":"ListItem", "position":2, "name": String(year).replace('hsc_','') });
+  if (group) items.push({ "@type":"ListItem", "position":3, "name": group });
+  if (school) items.push({ "@type":"ListItem", "position":4, "name": school });
+
+  injectJSONLD({
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement": items
+  }, 'breadcrumbs');
+}
+
+/* Dataset JSON-LD for a ranking table */
+function injectDatasetForYearGroup(year, group) {
+  const isHSC = String(year).includes('hsc');
+  const yr = String(year).replace('hsc_','');
+  const exam = isHSC ? 'HSC' : 'SSC';
+
+  injectJSONLD({
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": `${exam} ${yr} ${group} Result Ranking — Chattogram Board`,
+    "description": `Unofficial ${exam} ${yr} ${group} rankings for Chattogram Board including GPA, totals, school names and positions.`,
+    "creator": { "@type":"Organization", "name":"BoardRankCTG" },
+    "distribution": [
+      { "@type":"DataDownload", "encodingFormat":"text/tab-separated-values", "contentUrl": `${location.origin}${location.pathname.replace(/index\.html?$/,'')}data_${year}_${group.toLowerCase()}.txt` }
+    ],
+    "license": "https://creativecommons.org/licenses/by/4.0/"
+  }, 'dataset');
+}
+
+/* Dataset JSON-LD for a specific school's table */
+function injectDatasetForSchool(year, group, schoolName) {
+  const yr = String(year).replace('hsc_','');
+  const exam = String(year).includes('hsc') ? 'HSC' : 'SSC';
+  injectJSONLD({
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": `${schoolName} — ${exam} ${yr} Ranking (Chattogram Board)`,
+    "description": `Ranking table for ${schoolName} in ${exam} ${yr}, ${group} — GPA, totals and positions.`,
+    "creator": { "@type":"Organization", "name":"BoardRankCTG" }
+  }, 'dataset');
+}
+
+function xorDecrypt(dataBytes, key) {
+  const keyBytes = new TextEncoder().encode(key);
+  return dataBytes.map((b, i) => b ^ keyBytes[i % keyBytes.length]);
+}
+
+async function fetchAndDecode(url, key) {
+  const res = await fetch(url);
+  const encodedText = await res.text();
+  const decodedBase64 = atob(encodedText);
+  const decodedBytes = new Uint8Array(decodedBase64.split("").map(c => c.charCodeAt(0)));
+  const originalBytes = xorDecrypt(decodedBytes, key);
+  return new TextDecoder().decode(originalBytes);
+}
+
+
+function showRankTipsPopup() {
+  if (document.querySelector('.popup')) return;
+
+  const popup = document.createElement('div');
+  popup.className = 'popup';
+  popup.innerHTML = `
+    <div class="popup-content help-popup" style="max-width: 720px;">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2 style="margin-top:0;">How it works</h2>
+
+      <div class="help-grid">
+        <div class="help-item">
+          <div class="hi-title"><i class="ri-trophy-line"></i> Choose Year & Group</div>
+          <div class="hi-text">Pick SSC/HSC + year. Then you can search, filter, and open details.</div>
+        </div>
+
+        <div class="help-item">
+          <div class="hi-title"><i class="ri-search-line"></i> Instant Search</div>
+          <div class="hi-text">Filter by Name, Roll, or Institution. Type in both boxes to narrow.</div>
+        </div>
+
+        <div class="help-item">
+          <div class="hi-title"><i class="ri-open-arm-line"></i> Open Student Details</div>
+          <div class="hi-text">Click any Name or Roll to see marks, GPA, Board Rank, PDF/Copy/Link, and Compare.</div>
+        </div>
+
+        <div class="help-item">
+          <div class="hi-title"><i class="ri-building-4-line"></i> School-wise Ranking</div>
+          <div class="hi-text">Click a school name (or pick it from Institution) to see only that school’s list.</div>
+        </div>
+
+        <div class="help-item">
+          <div class="hi-title"><i class="ri-filter-3-line"></i> Mobile Filter Drawer</div>
+          <div class="hi-text">Tap Filter to set Total range, GPA chips, and multi‑select Schools, then Apply.</div>
+        </div>
+
+        <div class="help-item">
+          <div class="hi-title"><i class="ri-bar-chart-2-line"></i> Top 100 Institutions</div>
+          <div class="hi-text">Tap “Top Schools” to see Top 100 by GPA‑5% and overall performance.</div>
+        </div>
+
+        <div class="help-item">
+          <div class="hi-title"><i class="ri-external-link-line"></i> Share & Export</div>
+          <div class="hi-text">In a student’s popup: Copy Result, Copy Link, or Download PDF.</div>
+        </div>
+
+        <div class="help-item">
+          <div class="hi-title"><i class="ri-robot-2-line"></i> HAS9beta (smart helper)</div>
+          <div class="hi-text">
+            • Web answers: try “what is photosynthesis”, “who is sundar pichai”<br>
+            • Open: “open ssc 25 science”, “open 100000 ssc 25 science”<br>
+            • Find (global): “find Nafis”<br>
+            • Top lists: “top 10 math ssc 25”<br>
+            • Fun: “play this or that”, “fun fact”, “random”
+          </div>
+        </div>
+      </div>
+
+      <div class="help-actions">
+        <button class="help-chip" data-cmd="open ssc 25 science"><i class="ri-trophy-line"></i> open ssc 25 science</button>
+        <button class="help-chip" data-cmd="find Nafis"><i class="ri-search-line"></i> find Nafis</button>
+        <button class="help-chip" data-cmd="top 10 math ssc 25"><i class="ri-bar-chart-2-line"></i> top 10 math ssc 25</button>
+        <button class="help-chip" data-cmd="what is photosynthesis"><i class="ri-book-open-line"></i> what is photosynthesis</button>
+        <button class="help-chip" data-cmd="fun fact"><i class="ri-sparkling-2-line"></i> fun fact</button>
+      </div>
+
+      <p class="help-note">Note: This is an unofficial ranking made from publicly available data.</p>
+    </div>
+  `;
+  document.body.appendChild(popup);
+  document.body.classList.add('locked');
+
+  // Wire quick commands → open bot and send
+  popup.querySelectorAll('.help-chip').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const cmd = btn.getAttribute('data-cmd') || '';
+      const launcher = document.getElementById('hb-launcher');
+      const input = document.getElementById('hb-input');
+      const send = document.getElementById('hb-send');
+
+      // open bot panel
+      if (typeof togglePanel === 'function') togglePanel(true);
+      else launcher?.click();
+
+      setTimeout(()=>{
+        const i = document.getElementById('hb-input');
+        const s = document.getElementById('hb-send');
+        if (i && s) {
+          i.value = cmd;
+          s.click();
+        }
+      }, 180);
+    });
+  });
+}
+document.getElementById('helpBtn').addEventListener('click', showRankTipsPopup);
+
+function loadYear(year) {
+    if (year) {
+        document.getElementById("selectPrompt").style.display = "none";
+
+        document.querySelectorAll('.featured-box').forEach(b => b.remove());
+
+
+        const newUrl = `${location.pathname}?year=${year}`;
+        history.pushState({}, '', newUrl);
+    
+        currentYear.textContent = ` ${year}`;
+        currentGroup.style.display = 'none';
+        noDataMessage.style.display = 'none';
+        contentDiv.innerHTML = `
+            <p>Select your group:</p>
+            <div class="group-buttons">
+                <button onclick="loadGroup('${year}', 'Science')">
+                    <img src="sci.png" alt="Science Icon">Science
+                </button>
+                <button onclick="loadGroup('${year}', 'Commerce')">
+                    <img src="com.png" alt="Commerce Icon">Business
+                </button>
+                <button onclick="loadGroup('${year}', 'Arts')">
+                    <img src="hum.png" alt="Arts Icon">Humanities
+                </button>
+            </div>
+        `;
+    } else {
+        contentDiv.innerHTML = '';
+    }
+}
+
+
+function loadGroup(year, group) {
+    currentGroup.style.display = 'inline';
+    currentGroup.textContent = `${group} Group`;
+    // 🔹 Dynamically update page title for SEO
+let examType = year.includes('hsc') ? 'HSC' : 'SSC';
+let formattedYear = year.replace('hsc_', '');
+document.title = `BOARD RANK OF ${examType} ${formattedYear} of ${group}`;
+updateSEOForYearGroup(year, group);
+injectDatasetForYearGroup(year, group);
+injectBreadcrumbs(`${location.origin}${location.pathname}`, year, group, null);
+
+
+    yearDropdown.style.display = 'none';
+    contentDiv.innerHTML = `
+    
+        <h3 id="examResultHeader"></h3> 
+        <div class="search-container">
+            <label for="searchInput">Search by Name:</label>
+            <input type="text" id="searchInput" class="search-input" placeholder="Enter name" oninput="debounce(handleSearchInput, 300)()">
+        </div>
+        <div class="search-container">
+            <label for="searchRollInput">Search by Roll:</label>
+            <input type="text" id="searchRollInput" class="search-input" placeholder="Enter roll" oninput="debounce(handleRollSearchInput, 300)()">
+        </div>
+        <div class="search-container">
+            <label for="InstituationDropdown">Select Instituation:</label>
+            <select id="InstituationDropdown" onchange="filterByInstituation()"></select>
+        </div>
+        
+      <button id="resetFilterBtn" style="display: none;" onclick="resetFilter()">Reset Filter</button>
+<div class="loading-spinner" id="loadingSpinner" style="display: none;"></div>
+<p id="tableHint" style="margin-top: 20px; font-weight: bold;">
+    💡 Click on student names to see detailed result and on school names to see school BASED RANK
+</p>
+<table>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Serial</th>
+                    <th>Name</th>
+                    <th>Roll</th>
+                    <th>GPA</th>
+                    <th>Total</th>
+                    <th>Institution</th>
+                </tr>
+            </thead>
+            <tbody id="studentTableBody"></tbody>
+        </table>
+        <div class="pagination">
+            <button id="firstBtn" onclick="handleFirstButtonClick()">First</button>
+            <button id="prevBtn" onclick="handlePrevButtonClick()">Previous</button>
+            <span id="paginationInfo">Loading data...</span>
+            <button id="nextBtn" onclick="handleNextButtonClick()">Next</button>
+            <button id="lastBtn" onclick="handleLastButtonClick()">Last</button>
+        </div>
+    `;
+    const newUrl = `${location.pathname}?year=${year}&group=${group}`;
+    history.pushState({}, '', newUrl);
+
+    printExamResultHeader(year); 
+    fetchData(year, group);
+    setTimeout(attachSearchSuggestions, 0);
+
+}
+
+function printExamResultHeader(year) {
+    const headerElement = document.getElementById('examResultHeader');
+    if (headerElement) {
+        let examType = year.includes('hsc') ? 'HSC' : 'SSC';
+        let formattedYear = year.replace('hsc_', '');
+        headerElement.textContent = `${examType.toUpperCase()} ${formattedYear} Result`;
+    }
+}
+
+let allData = [];
+let filteredData = [];
+const studentsPerPage = 100;
+let currentPage = 1;
+const InstituationSet = new Set();
+window.InstituationSet = InstituationSet;
+
+
+function fetchData(year, group) {
+    showLoadingIndicator();
+
+    const mainDataUrl = `data_${year}_${group.toLowerCase()}.txt`;
+    const individualDataUrl = `data_${year}_${group.toLowerCase()}_individual.txt`;
+
+    // ✅ 1. Try to load from localStorage instantly
+    const cacheKey = `rankData_${year}_${group}`;
+    const cached = localStorage.getItem(cacheKey);
+    if (cached) {
+        try {
+            const { mainData, individualData } = JSON.parse(cached);
+            processData(mainData, individualData || null);
+            populateInstituationDropdown();
+            updateTableData();
+            hideLoadingIndicator();
+        } catch (err) {
+            console.warn('Cache parse failed', err);
+        }
+    }
+
+    // ✅ 2. Fetch fresh data in background and update cache
+    fetch(mainDataUrl)
+    .then(res => {
+        const reader = res.body.getReader();
+        const contentLength = +res.headers.get('Content-Length') || 0;
+        let loaded = 0;
+        return new Response(new ReadableStream({
+            start(controller) {
+                function push() {
+                    reader.read().then(({ done, value }) => {
+                        if (done) {
+                            controller.close();
+                            return;
+                        }
+                        loaded += value.length;
+                        step(loaded, contentLength);
+                        controller.enqueue(value);
+                        push();
+                    });
+                }
+                push();
+            }
+        })).text();
+    })
+
+}
+
+
+
+
+let visitorInfoCompleted = localStorage.getItem('visitorInfoGiven') === '1';
+
+function getDeviceDataAndFingerprint() {
+  const ua = navigator.userAgent || '';
+  const platform = navigator.platform || '';
+  const screenRes = `${screen.width}x${screen.height}`;
+  const deviceMemory = navigator.deviceMemory || null;
+  const cores = navigator.hardwareConcurrency || null;
+  const vendor = navigator.vendor || '';
+
+  let deviceModel = 'Unknown device';
+  if (/Android/i.test(ua)) {
+    const match = ua.match(/Android\s+[\d.]+;\s+([^)]+)/i);
+    if (match && match[1]) {
+      deviceModel = match[1].replace(/Build\/.+/, '').trim();
+    }
+  } else if (/iPhone/i.test(ua)) {
+    deviceModel = 'Apple iPhone';
+  } else if (/iPad/i.test(ua)) {
+    deviceModel = 'Apple iPad';
+  } else if (/Macintosh/i.test(ua)) {
+    deviceModel = 'Apple Mac';
+  } else if (/Windows/i.test(ua)) {
+    deviceModel = 'Windows PC';
+  } else if (/Linux/i.test(ua)) {
+    deviceModel = 'Linux Device';
+  }
+
+  const deviceData = {
+    ua,
+    platform,
+    screen: screenRes,
+    deviceMemory,
+    cores,
+    vendor,
+    deviceModel
+  };
+
+  const seed = `${ua}|${platform}|${screenRes}|${deviceMemory}|${cores}|${vendor}`;
+  let h = 5381;
+  for (let i = 0; i < seed.length; i++) {
+    h = ((h << 5) + h) + seed.charCodeAt(i);
+    h = h & 0xffffffff;
+  }
+  const fingerprint = (h >>> 0).toString(16);
+
+  return { deviceData, fingerprint };
+}
+function getOrCreateVisitorId() {
+  let id = localStorage.getItem('visitorIdV2');
+  if (!id) {
+    try { id = crypto.randomUUID(); }
+    catch { id = String(Date.now()) + Math.random().toString(36).slice(2); }
+    localStorage.setItem('visitorIdV2', id);
+  }
+  return id;
+}
+async function showIndividualResultWithCheck(roll, year, group) {
+  
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.has('roll') && params.get('roll') == roll) {
+    return showIndividualResult(roll, year, group);
+    
+  }
+let clickCount = parseInt(localStorage.getItem('detailedResultClickCount') || '0', 10);
+clickCount++;
+localStorage.setItem('detailedResultClickCount', clickCount);
+
+if (clickCount <= 2) { 
+  
+const visitorId = getOrCreateVisitorId();
+
+// If already verified on this device, allow immediately
+if (localStorage.getItem('visitorVerifiedV2') === '1') {
+  return showIndividualResult(roll, year, group);
+}
+
+try {
+  const dbLib = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
+  const { getDatabase, ref, get } = dbLib;
+  const dbv = getDatabase();
+  const snap = await get(ref(dbv, 'visitorsVerified/' + visitorId));
+  if (snap && snap.exists() && snap.val() === 1) {
+    localStorage.setItem('visitorVerifiedV2', '1');
+    return showIndividualResult(roll, year, group);
+  }
+} catch (e) {
+  // No blocking if check fails
+}
+  return showIndividualResult(roll, year, group);
+}
+
+  const { deviceData, fingerprint } = getDeviceDataAndFingerprint();
+
+  if (localStorage.getItem('visitorInfoGiven') === '1' &&
+      localStorage.getItem('visitorFingerprint') === fingerprint) {
+    visitorInfoCompleted = true;
+    return showIndividualResult(roll, year, group);
+    
+  }
+
+  try {
+    const dbLib = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
+    const { getDatabase, ref, get, query, orderByChild, equalTo } = dbLib;
+    const dbv = getDatabase();
+    const q = query(ref(dbv, 'visitors'), orderByChild('fingerprint'), equalTo(fingerprint));
+    const snap = await get(q);
+    if (snap && snap.exists()) {
+      localStorage.setItem('visitorInfoGiven', '1');
+      localStorage.setItem('visitorFingerprint', fingerprint);
+      visitorInfoCompleted = true;
+      return showIndividualResult(roll, year, group);
+    }
+  } catch (err) {
+    // If the query fails (offline or permission), just continue to show the form.
+    console.warn('Fingerprint check failed (ignoring):', err);
+  }
+
+  // Show improved visitor form popup
+  if (document.querySelector('.popup')) return; // avoid duplicates
+  const popup = document.createElement('div');
+  popup.classList.add('popup');
+  popup.innerHTML = `
+  <div class="popup-content">
+<div class="popup-header" style="
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+">
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <img src="https://img.icons8.com/color/48/verified-badge.png" alt="Icon" style="width: 28px; height: 28px;">
+    <span>Quick Verification</span>
+  </div>
+  <button class="close-btn" onclick="visitorInfoDenied()" style="
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+  ">&times;</button>
+</div>
+
+    <div class="popup-body">
+      <p style="color:#555;">Please tell us a bit about yourself so we can improve our service. We store basic device info so you won't see this again on the same device.</p>
+      
+      <label>Name</label>
+      <input id="visitorName" type="text" placeholder="Your name" />
+
+      <label>Institution (school / college)</label>
+      <input id="visitorInstitution" type="text" placeholder="Institution name" />
+
+      <label>Type</label>
+      <select id="visitorType">
+        <option value="">Select ...</option>
+        <option>SSC</option>
+        <option>HSC</option>
+        <option>Others</option>
+      </select>
+
+      <label>How did you find us?</label>
+      <select id="visitorSource">
+        <option value="">Select ...</option>
+        <option>WhatsApp group</option>
+        <option>Facebook group</option>
+        <option>Friend / Classmate</option>
+        <option>Facebook post</option>
+        <option>Instagram</option>
+        <option>YouTube</option>
+        <option>Google Search</option>
+        <option>School notice board</option>
+        <option>Teacher</option>
+        <option>Relatives</option>
+        <option>Other social media</option>
+        <option>Others</option>
+      </select>
+
+      <label>Experience so far</label>
+      <select id="visitorExperience">
+        <option value="">Select ...</option>
+        <option value="worst">😖 Worst</option>
+        <option value="bad">😞 Bad</option>
+        <option value="average">😐 Average</option>
+        <option value="good">🙂 Good</option>
+        <option value="best">🤩 Best</option>
+      </select>
+
+
+      <label>Leave a Message (optional)</label>
+<textarea id="visitorMessage" placeholder="Write something..." style="min-height:60px;"></textarea>
+
+    </div>
+    <div class="popup-footer">
+      <button class="secondary-btn" onclick="visitorInfoDenied()">Cancel</button>
+
+      <button id="submitVisitorInfo" class="primary-btn">Submit</button>
+    </div>
+  </div>
+`;
+
+  document.body.appendChild(popup);
+  document.body.classList.add('locked');
+  function looksFakeName(name) {
+    if (!name) return true;
+    const cleaned = name.trim();
+
+    if (cleaned.length < 3 || cleaned.length > 40) return true;
+
+    if (!/^[a-zA-Z\s]+$/.test(cleaned)) return true;
+
+    const vowelCount = (cleaned.match(/[aeiouAEIOU]/g) || []).length;
+    if (vowelCount < 2) return true;
+
+    if (/(.)\1{3,}/.test(cleaned)) return true;
+
+    return false;
+}
+
+  document.getElementById('submitVisitorInfo').addEventListener('click', async () => {
+    const name = document.getElementById('visitorName').value.trim();
+    const institution = document.getElementById('visitorInstitution').value.trim();
+    const type = document.getElementById('visitorType').value;
+    const source = document.getElementById('visitorSource').value;
+    const experience = document.getElementById('visitorExperience').value;
+    const messageVal = document.getElementById('visitorMessage').value.trim(); 
+    if (experience === "worst" || experience === "bad") {
+      const body = popup.querySelector('.popup-body');
+      const footer = popup.querySelector('.popup-footer');
+      if (footer) footer.style.display = 'none';
+  
+      body.innerHTML = `
+          <div style="text-align:center; padding:20px;">
+              <div class="access-status">
+                  <div class="circle" style="
+                      border: 4px solid #ccc;
+                      border-top: 4px solid #1976d2;
+                      border-radius: 50%;
+                      width: 40px;
+                      height: 40px;
+                      margin: auto;
+                      animation: spin 1s linear infinite;
+                  "></div>
+                  <div style="margin-top: 10px; font-size: 0.95rem;">Checking your feedback…</div>
+              </div>
+          </div>
+          <style>
+              @keyframes spin { to { transform: rotate(360deg); } }
+          </style>
+      `;
+  
+      setTimeout(() => {
+          body.innerHTML = `
+              <div style="text-align:center; padding:20px;">
+                  <h3 style="color:#b91c1c;">🚫 Access Not Granted</h3>
+                  <p style="margin:10px 0; font-size:0.95rem;">
+                      Looks like this feature isn’t available with that feedback.  
+                      Maybe try again later.
+                  </p>
+                  <p style="color:#666; font-size:0.85rem;">
+                      We’re always working to improve — your opinion is noted.
+                  </p>
+                  <button onclick="visitorInfoDenied()" class="secondary-btn" style="margin-top:15px;">
+                      Close
+                  </button>
+              </div>
+          `;
+      }, 1500);
+  
+      return;
+  }
+  if (looksFakeName(name)) {
+    const body = popup.querySelector('.popup-body');
+    const footer = popup.querySelector('.popup-footer');
+    if (footer) footer.style.display = 'none';
+
+    body.innerHTML = `
+        <div style="text-align:center; padding:20px;">
+            <div class="circle" style="
+                border: 4px solid #ccc;
+                border-top: 4px solid #1976d2;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                margin: auto;
+                animation: spin 1s linear infinite;
+            "></div>
+            <div style="margin-top: 10px; font-size: 0.95rem;">Verifying name…</div>
+        </div>
+        <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+    `;
+
+    setTimeout(() => {
+        body.innerHTML = `
+            <div style="text-align:center; padding:20px;">
+                <h3 style="color:#b91c1c;">🚫 Access Not Granted</h3>
+                <p style="margin:10px 0; font-size:0.95rem;">
+                    The name provided doesn’t seem valid.  
+                    Please use your real name to continue.
+                </p>
+                <button onclick="visitorInfoDenied()" class="secondary-btn" style="margin-top:15px;">
+                    Close
+                </button>
+            </div>
+        `;
+    }, 1500);
+
+    return;
+}
+
+    if (!name || name.length < 4) {
+        alert('Name must contain at least 4 characters.');
+        return;
+    }
+    if (!institution || institution.length < 3) {
+        alert('Institution name must contain at least 3 characters.');
+        return;
+    }
+    if (!type || !source) {
+        alert('Please fill all required fields.');
+        return;
+    }
+
+    const body = popup.querySelector('.popup-body');
+    const footer = popup.querySelector('.popup-footer');
+    const originalFormHTML = body.innerHTML;
+    if (footer) footer.style.display = 'none';
+
+    body.innerHTML = `
+        <div style="text-align:center; padding:20px;">
+            <h3 style="color:#d97706; margin-bottom:8px;">⚠ Confirm Your Name</h3>
+            <p>Are you sure your name is <b>"${name}"</b>?</p>
+            <p style="font-size:0.9rem; color:#555;">
+                If you use a fake name, this form will appear again every time you visit.
+                Please enter real details to avoid repeated verification.
+            </p>
+            <div style="margin-top:15px; display:flex; justify-content:center; gap:12px;">
+                <button id="confirmNameBtn" class="primary-btn">Confirm</button>
+                <button id="editNameBtn" class="secondary-btn">Edit Name</button>
+            </div>
+        </div>
+    `;
+
+   
+    document.getElementById('confirmNameBtn').addEventListener('click', async () => {
+        localStorage.setItem('visitorInfoGiven', '1');
+        localStorage.setItem('visitorFingerprint', fingerprint);
+        visitorInfoCompleted = true;
+
+        try {
+            const dbLib = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
+            const { getDatabase, ref, push, set } = dbLib;
+            const dbv = getDatabase();
+            const visitorRef = push(ref(dbv, "visitors"));
+            await set(visitorRef, {
+              
+              name,
+              institution,
+              type,
+              source,
+              experience,
+              message: messageVal,
+              fingerprint,
+              deviceData,
+              timestamp: Date.now()
+              
+          });
+          try {
+            const verRef = ref(dbv, "visitorsVerified/" + getOrCreateVisitorId());
+            await set(verRef, 1);
+            localStorage.setItem('visitorVerifiedV2', '1');
+          } catch (e) {}
+          
+          try { window.__HAS9_notify(name); } catch (e) {}
+
+          
+        } catch (err) {
+            console.error('Error saving visitor info:', err);
+        }
+
+        // Spinner → success
+        body.innerHTML = `
+            <div class="access-status">
+                <div class="circle"></div>
+                <div class="status-text">Processing...</div>
+            </div>
+        `;
+        setTimeout(() => {
+            body.innerHTML = `
+                <div class="access-status">
+                    <div class="tick">✅</div>
+                    <div class="status-text" style="color:#16a34a;">Full Access Granted</div>
+                </div>
+            `;
+            setTimeout(() => {
+                closePopup();
+                showIndividualResult(roll, year, group);
+            }, 1500);
+        }, 1000);
+    });
+
+    document.getElementById('editNameBtn').addEventListener('click', () => {
+     
+      body.innerHTML = originalFormHTML;
+      footer.style.display = 'flex';
+  
+
+      document.getElementById('visitorName').value = name;
+      document.getElementById('visitorInstitution').value = institution;
+      document.getElementById('visitorType').value = type;
+      document.getElementById('visitorSource').value = source;
+      document.getElementById('visitorExperience').value = experience;
+  
+
+      document.getElementById('submitVisitorInfo').addEventListener('click', submitHandler);
+  });
+  
+  
+});
+
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const userId = localStorage.getItem("userId");
+  if (userId !== "admin1234") {
+    document.getElementById("visitorsLink")?.remove();
+  }
+  // both Help buttons point to same handler
+  document.getElementById('helpBtnHero')?.addEventListener('click', showRankTipsPopup);
+  initThemeToggle();
+  initNavToggle();
+});
+
+function processData(mainData, individualData) {
+    const rows = mainData.trim().split('\n').slice(1);
+    const individualScores = parseIndividualData(individualData);
+    allData = rows.map(row => {
+        const [serial, name, roll, gpa, total, Instituation] = row.split('\t');
+        const individual = individualScores[roll] || {};
+        InstituationSet.add((Instituation || '').trim());
+        return {
+            serial: parseInt(serial),
+            name,
+            roll: parseInt(roll),
+            gpa: parseFloat(gpa),
+            total: parseInt(total),
+            Instituation: (Instituation || '').trim(),
+            ...individual
+        };
+    });
+    console.log('Processed data:', allData);
+    allData = allData.filter(student => !isNaN(student.gpa) && !isNaN(student.total));
+    allData.sort(compareStudents);
+    console.log('Sorted data:', allData);
+    filteredData = [...allData];
+    updateTableData();
+    try {
+      window.allData = allData;
+      window.filteredData = filteredData;
+      document.dispatchEvent(new CustomEvent('rank:data-ready'));
+    } catch(e){}
+    
+}
+
+function parseIndividualData(data) {
+    if (!data) return {};
+    const rows = data.trim().split('\n');
+    const scores = {};
+    rows.forEach(row => {
+        const [roll, , , , , , phy, chem, math] = row.split('\t');
+        scores[roll] = { phy: parseInt(phy), chem: parseInt(chem), math: parseInt(math) };
+    });
+    console.log('Parsed individual scores:', scores);
+    return scores;
+}
+
+function compareStudents(a, b) {
+    if (a.gpa !== b.gpa) return b.gpa - a.gpa;
+    if (a.total !== b.total) return b.total - a.total;
+    if (a.phy !== b.phy) return b.phy - a.phy;
+    if (a.chem !== b.chem) return b.chem - a.chem;
+    return b.math - a.math;
+}
+
+function makeSchoolNamesClickable() {
+    const schoolNames = document.querySelectorAll('td:nth-child(6)'); 
+    schoolNames.forEach(schoolName => {
+        schoolName.style.cursor = 'pointer';
+        schoolName.style.color = 'blue';
+        schoolName.addEventListener('click', () => showSchoolRanking(schoolName.textContent.trim()));
+    });
+}
+
+
+
+function showSchoolRanking(encodedSchoolName) {
+    scrollToTop();
+    const schoolName = (()=>{ try{return decodeURIComponent(encodedSchoolName);}catch(e){return encodedSchoolName;} })();
+try {
+  const params = new URLSearchParams(window.location.search);
+  const y = params.get('year') || (document.getElementById('currentYear')?.textContent || '').trim();
+  const examType = (y && y.includes('hsc')) ? 'HSC' : 'SSC';
+  const formattedYear = (y || '').replace('hsc_', '');
+  document.title = `${schoolName} | ${formattedYear} ${examType}`;
+const yr = params.get('year'); 
+const grp = params.get('group');
+updateSEOForSchool(yr, grp, schoolName);
+injectDatasetForSchool(yr, grp, schoolName);
+injectBreadcrumbs(`${location.origin}${location.pathname}`, yr, grp, schoolName);
+
+} catch (e) { /* no-op */ }
+
+try {
+  const params = new URLSearchParams(window.location.search);
+  params.set('school', schoolName);
+  history.pushState({}, '', `${location.pathname}?${params.toString()}`);
+} catch (e) {
+  console.error('Error updating URL for school:', e);
+}
+
+const schoolData = allData.filter(student => (student.Instituation || '').trim().toLowerCase() === schoolName.trim().toLowerCase());
+schoolData.sort(compareStudents);
+
+    if (schoolData.length === 0) {
+        contentDiv.innerHTML = `<h2>No data found for "${schoolName}"</h2>`;
+    } else {
+        contentDiv.innerHTML = `
+            <h2>Showing rank of "${schoolName}"</h2>
+            <button onclick="resetSchoolRanking()">Back</button>
+                <button onclick="openEntityPage('school', '${currentYear.textContent.trim()}', '${currentGroup.textContent.split(' ')[0]}', '${schoolName.replace(/'/g,"\\'")}')">Open as Page</button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serial</th>
+                        <th>Name</th>
+                        <th>Roll</th>
+                        <th>GPA</th>
+                        <th>Total</th>
+                        <th>Institution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${schoolData.map((student, index) => `
+                        <tr>
+                            <td>${index + 1}</td>
+                           <td class="student-name" onclick="
+  (function(){
+    if (window.incrementClickCount) incrementClickCount(${student.roll});
+    showIndividualResultWithCheck(${student.roll}, '${currentYear.textContent.split(' ')[1]}', '${currentGroup.textContent.split(' ')[0]}');
+  })()
+">${student.name}</td>
+
+<td class="student-roll" onclick="
+  (function(){
+    if (window.incrementClickCount) incrementClickCount(${student.roll});
+    showIndividualResultWithCheck(${student.roll}, '${currentYear.textContent.split(' ')[1]}', '${currentGroup.textContent.split(' ')[0]}');
+  })()
+">${student.roll}</td>
+
+                            <td>${student.gpa}</td>
+                            <td>${student.total}</td>
+                            <td class="student-school">${student.Instituation}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        `;
+    }
+}
+
+function resetSchoolRanking() {
+   
+    loadGroup(currentYear.textContent.trim(), currentGroup.textContent.split(' ')[0]);
+}
+
+
+function updateTableData() {
+  try { window.filteredData = filteredData; } catch(e){}
+
+    const startIndex = (currentPage - 1) * studentsPerPage;
+    const endIndex = Math.min(startIndex + studentsPerPage, filteredData.length);
+    const dataToShow = filteredData.slice(startIndex, endIndex);
+    const tableBody = document.getElementById('studentTableBody');
+    tableBody.innerHTML = '';
+    dataToShow.forEach((student, index) => {
+        const row = document.createElement('tr');
+        
+// inside updateTableData(), for each student (replace the old row.innerHTML / listeners)
+const nameId = `name-${student.roll}`;
+const isAdmin = (localStorage.getItem('userId') === 'admin1234'); // matches your existing check
+
+row.innerHTML = `
+  <td>${allData.findIndex(s => s.roll === student.roll) + 1}</td>
+
+  <td class="student-name" id="${nameId}">
+    <h3 itemprop="name">${student.name}</h3>
+    ${isAdmin ? `<span>[${(window.clickCountsCache && window.clickCountsCache[student.roll]) || 0}]</span>` : ''}
+  </td>
+
+  <td class="student-roll">${student.roll}</td>
+  <td>${student.gpa}</td>
+  <td>${student.total}</td>
+
+  <td class="student-school">
+    <h4 itemprop="affiliation">${student.Instituation}</h4>
+  </td>
+`;
+
+
+// name click -> increment counter (if helper available) then open popup (with existing check)
+const nameCell = row.querySelector('.student-name');
+nameCell.addEventListener('click', () => {
+  if (typeof window.incrementClickCount === 'function') {
+    try { window.incrementClickCount(student.roll); } catch(e){ console.error(e); }
+  }
+  showIndividualResultWithCheck(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
+});
+
+// roll cell should behave same as before
+row.querySelector('.student-roll').addEventListener('click', () => {
+  if (typeof window.incrementClickCount === 'function') {
+    try { window.incrementClickCount(student.roll); } catch(e){ console.error(e); }
+  }
+  showIndividualResultWithCheck(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
+});
+
+// update school click as before
+row.querySelector('.student-school').addEventListener('click', () => {
+  showSchoolRanking(student.Instituation.trim());
+});
+
+// if admin, attach a real-time listener once so the [count] updates live
+if (isAdmin && typeof window.listenClickCount === 'function' && !window._br_clickListenerSet.has(student.roll)) {
+  window._br_clickListenerSet.add(student.roll);
+  window.listenClickCount(student.roll, (val) => {
+    const el = document.getElementById(nameId);
+    if (el) el.textContent = `${student.name} [${val}]`;
+  });
+}
+
+
+        tableBody.appendChild(row);
+    });
+
+    document.getElementById('paginationInfo').textContent = `Showing ${startIndex + 1}-${endIndex} of ${filteredData.length} students`;
+    updatePaginationButtons();
+}
+
+
+function filterByInstituation(InstituationName = null, fromTable = false) {
+    const InstituationDropdown = document.getElementById('InstituationDropdown');
+    if (fromTable) {
+        InstituationDropdown.value = InstituationName;
+        const event = new Event('change');
+        InstituationDropdown.dispatchEvent(event);
+    } else {
+        InstituationName = InstituationDropdown.value;
+    }
+
+    if (InstituationName) {
+      filteredData = allData.filter(student => (student.Instituation || '').trim().toLowerCase() === (InstituationName || '').trim().toLowerCase());
+      document.getElementById('resetFilterBtn').style.display = 'block';
+    } else {
+        resetFilter();
+    }
+    currentPage = 1;
+    updatePage();
+}
+
+function resetFilter() {
+    filteredData = [...allData];
+    currentPage = 1;
+    document.getElementById('resetFilterBtn').style.display = 'none';
+    updatePage();
+}
+
+function updatePage() {
+    updateTableData();
+    updatePaginationButtons();
+}
+
+function handlePrevButtonClick() {
+    if (currentPage > 1) {
+        currentPage--;
+        updatePage();
+    }
+}
+function handleFirstButtonClick() {
+    if (currentPage > 1) {
+        currentPage = 1;
+        updatePage();
+    }
+}
+function handleLastButtonClick() {
+    const maxPage = Math.ceil(filteredData.length / studentsPerPage);
+    if (currentPage < maxPage) {
+        currentPage = maxPage;
+        updatePage();
+    }
+}
+
+
+function handleNextButtonClick() {
+    const maxPage = Math.ceil(filteredData.length / studentsPerPage);
+    if (currentPage < maxPage) {
+        currentPage++;
+        updatePage();
+    }
+}
+
+function updatePaginationButtons() {
+    document.getElementById('prevBtn').disabled = currentPage === 1;
+    document.getElementById('nextBtn').disabled = currentPage === Math.ceil(filteredData.length / studentsPerPage) || filteredData.length === 0;
+}
+
+function handleSearchInput() {
+    const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+    filteredData = allData.filter(student => student.name.toLowerCase().includes(searchTerm));
+    currentPage = 1;
+    updatePage();
+}
+
+function handleRollSearchInput() {
+    const rollSearchTerm = document.getElementById('searchRollInput').value.trim();
+    filteredData = allData.filter(student => student.roll.toString().includes(rollSearchTerm));
+    currentPage = 1;
+    updatePage();
+}
+
+function debounce(func, delay) {
+    let debounceTimer;
+    return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => func.apply(context, args), delay);
+    };
+}
+
+function populateInstituationDropdown() {
+    const InstituationDropdown = document.getElementById('InstituationDropdown');
+    InstituationDropdown.innerHTML = '<option value="">Select Instituation</option>';
+    InstituationSet.forEach(Instituation => {
+        const option = document.createElement('option');
+        option.value = Instituation;
+        option.textContent = Instituation;
+        InstituationDropdown.appendChild(option);
+    });
+}
+
+
+(function(){
+  const STYLE_ID = 'br-loader-styles';
+  function ensureLoaderStyles() {
+    if (document.getElementById(STYLE_ID)) return;
+    const s = document.createElement('style');
+    s.id = STYLE_ID;
+    s.textContent = `
+#dataLoaderOverlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 10050;
+  display: flex; align-items: center; justify-content: center;
+}
+#dataLoaderOverlay .loader-box {
+  background: #fff;
+  padding: 20px 28px;
+  border-radius: 12px;
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+#dataLoaderOverlay .rings {
+  width: 96px; height: 96px; margin: 0 auto; position: relative;
+}
+#dataLoaderOverlay .ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 6px solid transparent;
+  border-top-color: #1976d2;
+  animation: spin 1s linear infinite;
+}
+#dataLoaderOverlay .ring.r2 {
+  width: 64px; height: 64px;
+  top: 16px; left: 16px;
+  border-top-color: #ff8f00;
+  animation-duration: 1.4s;
+}
+#dataLoaderOverlay .ring.r3 {
+  width: 40px; height: 40px;
+  top: 28px; left: 28px;
+  border-top-color: #6a1b9a;
+  animation-duration: 1.85s;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#dataLoaderOverlay .percent {
+  font-size: 22px; font-weight: bold; margin-top: 8px;
+}
+#dataLoaderOverlay .subtext {
+  font-size: 13px; color: #555; margin-top: 4px;
+}
+#dataLoaderOverlay button {
+  margin-top: 12px; padding: 6px 14px;
+  border-radius: 6px; background: #1976d2; color: #fff;
+  border: none; cursor: pointer;
+}
+    `;
+    document.head.appendChild(s);
+  }
+
+  window.showLoadingIndicator = function() {
+    if (document.getElementById('dataLoaderOverlay')) return;
+    ensureLoaderStyles();
+  
+    const overlay = document.createElement('div');
+    overlay.id = 'dataLoaderOverlay';
+    overlay.innerHTML = `
+      <div class="loader-box">
+        <div class="rings">
+          <div class="ring r1" style="width:96px;height:96px;"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+        </div>
+        <div id="brLoaderPercent" class="percent">1%</div>
+        <div id="brLoaderSub" class="subtext">Preparing files…</div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+  
+    const percentEl = document.getElementById('brLoaderPercent');
+    const subEl = document.getElementById('brLoaderSub');
+  
+    // Super-fast fake progress to 99%
+    window.__br_fakeP = 1;
+    clearInterval(window.__br_fakeTimer);
+    window.__br_fakeTimer = setInterval(() => {
+      if (!document.getElementById('dataLoaderOverlay')) { clearInterval(window.__br_fakeTimer); return; }
+      if (window.__br_fakeP < 99) {
+        window.__br_fakeP += 1;
+        percentEl.textContent = window.__br_fakeP + '%';
+        if (window.__br_fakeP < 20) subEl.textContent = 'Connecting to server…';
+        else if (window.__br_fakeP < 50) subEl.textContent = 'Downloading result files…';
+        else if (window.__br_fakeP < 80) subEl.textContent = 'Processing student data…';
+        else subEl.textContent = 'Almost done…';
+      } else {
+        clearInterval(window.__br_fakeTimer);
+      }
+    }, 8); // 0→99 in ~0.8s
+  
+    // Optional: keep streaming updates only for the subtitle (safeguard for code that calls step)
+    window.step = function(loaded, total) {
+      if (!document.getElementById('dataLoaderOverlay')) return;
+      if (!total || !loaded) return;
+      const ratio = loaded / total;
+      if (ratio < 0.2) subEl.textContent = 'Connecting to server…';
+      else if (ratio < 0.5) subEl.textContent = 'Downloading result files…';
+      else if (ratio < 0.8) subEl.textContent = 'Processing student data…';
+      else subEl.textContent = 'Almost done…';
+      // We intentionally do NOT bump percent here. It stays racing to 99% via the timer.
+    };
+  };
+
+  window.hideLoadingIndicator = function(opts = {}) {
+    const overlay = document.getElementById('dataLoaderOverlay');
+    if (!overlay) return;
+  
+    const percentEl = document.getElementById('brLoaderPercent');
+    const subEl = document.getElementById('brLoaderSub');
+  
+    clearInterval(window.__br_fakeTimer);
+  
+    const noData = opts.forceError === true ||
+                   (typeof filteredData !== 'undefined' && Array.isArray(filteredData) && filteredData.length === 0);
+  
+    if (noData) {
+      overlay.querySelector('.loader-box').innerHTML = `
+        <h2 style="color:#fca5a5; margin:6px 0;">❗ Data NOT FOUND</h2>
+        <p style="color:#e5e7eb; margin-bottom: 10px;">
+          ${opts.errorMessage || 'This selected results are not yet available.'}
+        </p>
+        <button onclick="window.location.href='index.html'">Go Back</button>
+      `;
+      return; // keep overlay to show the error UI
+    }
+  
+    if (percentEl) percentEl.textContent = '100%';
+    if (subEl) subEl.textContent = 'Done';
+  
+    // Remove immediately; no artificial delay
+    requestAnimationFrame(() => overlay.remove());
+  };
+  
+})();
+
+
+function getProgressBarHtml(score, totalMark) {
+  const percentage = (parseFloat(score) / totalMark) * 100;
+  const barId = `pb_${Math.random().toString(36).substr(2, 9)}`;
+  const numId = `num_${Math.random().toString(36).substr(2, 9)}`;
+
+  setTimeout(() => {
+      animateProgressBar(barId, percentage);
+      animateNumber(numId, score); 
+  }, 100);
+
+  return `
+      <span id="${numId}">0</span>
+      <div class="progress-bar-container">
+          <div id="${barId}" class="progress-bar">0%</div>
+      </div>
+  `;
+}
+
+
+function animateProgressBar(id, targetPercentage) {
+    const bar = document.getElementById(id);
+    let current = 0;
+
+    function update() {
+        current += 1;
+        if (current > targetPercentage) current = targetPercentage;
+
+        let color = 'red';
+        let additionalClass = '';
+        if (current >= 95) {
+            color = 'indigo';
+        } else if (current >= 90) {
+            color = 'blue';
+        } else if (current >= 80) {
+            color = 'green';
+        } else if (current >= 70) {
+            color = 'yellow';
+            additionalClass = 'yellow';
+        } else if (current >= 34) {
+            color = 'orange';
+        }
+
+        bar.style.width = `${current}%`;
+        bar.style.backgroundColor = color;
+        bar.textContent = `${current.toFixed(0)}%`;
+
+        if (current < targetPercentage) {
+            requestAnimationFrame(update);
+        } else {
+            bar.style.width = `${targetPercentage}%`;
+            bar.textContent = `${targetPercentage.toFixed(2)}%`;
+        }
+    }
+
+    update();
+}
+
+function animateNumber(elementId, targetNumber) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  let current = 0;
+  const duration = 1000; // ms, match your progress bar animation speed
+  const stepTime = Math.max(Math.floor(duration / targetNumber), 10);
+
+  const timer = setInterval(() => {
+      current += 1;
+      if (current >= targetNumber) {
+          current = targetNumber;
+          clearInterval(timer);
+      }
+      el.textContent = current;
+  }, stepTime);
+}
+
+function showIndividualResult(roll, year, group) {
+    if (document.querySelector('.popup')) return; // Prevent multiple popups
+
+    const fileName = `data_${year}_${group.toLowerCase()}_individual.txt`;
+    const isHSC = fileName.includes("hsc");
+    const newUrl = `${location.pathname}?year=${year}&group=${group}&roll=${roll}`;
+    history.pushState({}, '', newUrl);
+
+    fetch(fileName)
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.trim().split('\n');
+            const individualData = rows.find(row => row.split('\t')[0].replace(/^0+/, '') === roll.toString().replace(/^0+/, ''));
+
+
+            let popupContent;
+            if (individualData) {
+                const parts = individualData.split('\t');
+                let subject1Name, subject2Name, subject3Name;
+
+                if (group === 'Commerce') {
+                    subject1Name = 'Science';
+                    subject2Name = 'Accounting';
+                    subject3Name = 'Finance';
+                } else if (group === 'Arts') {
+                    subject1Name = 'Science';
+                    subject2Name = 'Geography';
+                    subject3Name = 'Civics';
+                } else {
+                    subject1Name = 'BGS';
+                    subject2Name = 'Physics';
+                    subject3Name = 'Chemistry';
+                }
+
+                if (isHSC) {
+                    if (parts.length < 8) {
+                        popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
+                    } else {
+                        const [roll, bangla, english, ICT, physics, chemistry, compulsory, optional] = parts;
+                        const student = allData.find(student => student.roll === parseInt(roll));
+                        try { updateSEOForStudent(year, group, student.name, roll); } catch(e) {}
+              
+                        const combinedRank = allData.findIndex(student => student.roll === parseInt(roll)) + 1;
+try {
+  const examType = (year && year.includes('hsc')) ? 'HSC' : 'SSC';
+  const formattedYear = (year || '').replace('hsc_', '');
+  document.title = `${student.name} | ${formattedYear} ${examType}`;
+} catch (e) { /* no-op */ }
+
+                        popupContent = `
+                            <div class="popup-content">
+                                <span class="close-btn" onclick="closePopup()">&times;</span>
+                                <p>Name: ${student.name}</p>
+                                <p>Institution: ${student.Instituation}</p>
+                                <p>Roll: ${roll}</p>
+                                <p>GPA: ${student.gpa}</p>
+                                <p>Board Rank: ${combinedRank}</p>
+<p>Total Marks: ${student.total}</p>
+
+<p>Bangla: ${getProgressBarHtml(bangla, 200)}</p>
+<p>English: ${getProgressBarHtml(english, 200)}</p>
+<p>ICT: ${getProgressBarHtml(ICT, 100)}</p>
+<p>Physics: ${getProgressBarHtml(physics, 200)}</p>
+<p>Chemistry: ${getProgressBarHtml(chemistry, 200)}</p>
+<p>Compulsory: ${getProgressBarHtml(compulsory, 200)}</p>
+<p>Optional: ${getProgressBarHtml(optional, 200)}</p>
+
+                                <button onclick='promptComparison(${student.roll}, "${year}", "${group}")'>Compare with Other Student</button>
+
+                                <button onclick="showSSCResultFromHSC('${student.name}', '${group.toLowerCase()}')">Watch SSC Result</button>
+     <button onclick="openEntityPage('student', '${year}', '${group}', '${roll}')">Open as Page</button>
+
+<div class="popup-footer">
+  <button onclick="copyFullResult(this)" class="icon-btn footer-btn" title="Copy Result">
+    <i class="fas fa-copy"></i>
+  </button>
+  <button onclick="closePopup()" class="icon-btn footer-btn" title="Close">
+    <i class="fas fa-times"></i>
+  </button>
+  <button onclick="copyStudentResultLink(this)" class="icon-btn footer-btn" title="Copy Link">
+    <i class="fas fa-link"></i>
+  </button>
+   <button onclick="downloadStudentPDF(this)" class="icon-btn footer-btn" title="Download PDF">
+  <i class="fas fa-file-pdf"></i>
+</button>
+          
+</div>
+
+                        `;
+                    }
+                } else {
+                    if (parts.length < 13) {
+                        popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
+                    } else {
+                        const [roll, bangla, english, math, bgs, religion, physics, chemistry, Compulsory, ICT, Optional, Physical, Career] = parts;
+                        const student = allData.find(student => student.roll === parseInt(roll));
+                        try { updateSEOForStudent(year, group, student.name, roll); } catch(e) {}
+                        const combinedRank = allData.findIndex(student => student.roll === parseInt(roll)) + 1;
+try {
+  const examType = (year && year.includes('hsc')) ? 'HSC' : 'SSC';
+  const formattedYear = (year || '').replace('hsc_', '');
+  document.title = `${student.name} | ${formattedYear} ${examType}`;
+} catch (e) { /* no-op */ }
+
+                        popupContent = `
+                            <div class="popup-content">
+                                <span class="close-btn" onclick="closePopup()">&times;</span>
+                                <p>Name: ${student.name}</p>
+                                <p>Institution: ${student.Instituation}</p>
+                                <p>Roll: ${roll}</p>
+                                <p>GPA: ${student.gpa}</p>
+                                <p>Board Rank: ${combinedRank}</p>
+<p>Total Marks: ${student.total}</p>
+
+                                <p>Bangla: ${getProgressBarHtml(bangla, 200)}</p>
+<p>English: ${getProgressBarHtml(english, 200)}</p>
+<p>Mathematics: ${getProgressBarHtml(math, 100)}</p>
+<p>${subject1Name}: ${getProgressBarHtml(bgs, 100)}</p>
+<p>Religion: ${getProgressBarHtml(religion, 100)}</p>
+<p>${subject2Name}: ${getProgressBarHtml(physics, 100)}</p>
+<p>${subject3Name}: ${getProgressBarHtml(chemistry, 100)}</p>
+<p>Compulsory: ${getProgressBarHtml(Compulsory, 100)}</p>
+<p>ICT: ${getProgressBarHtml(ICT, 50)}</p>
+<p>Optional: ${getProgressBarHtml(Optional, 100)}</p>
+<p>Physical: ${getProgressBarHtml(Physical, 100)}</p>
+<p>Career: ${getProgressBarHtml(Career, 50)}</p>
+
+                              <button onclick='promptComparison(${student.roll}, "${year}", "${group}")'>Compare with Other Student</button>
+                                   <button onclick="openEntityPage('student', '${year}', '${group}', '${roll}')">Open as Page</button>
+
+
+<div class="popup-footer">
+  <button onclick="copyFullResult(this)" class="icon-btn footer-btn" title="Copy Result">
+    <i class="fas fa-copy"></i>
+  </button>
+  <button onclick="closePopup()" class="icon-btn footer-btn" title="Close">
+    <i class="fas fa-times"></i>
+  </button>
+  <button onclick="copyStudentResultLink(this)" class="icon-btn footer-btn" title="Copy Link">
+    <i class="fas fa-link"></i>
+  </button>
+  <button onclick="downloadStudentPDF(this)" class="icon-btn footer-btn" title="Download PDF">
+  <i class="fas fa-file-pdf"></i>
+</button>
+
+</div>
+
+                            
+                        `;
+                    }
+                }
+            } else {
+                popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
+            }
+            const popup = document.createElement('div');
+            popup.classList.add('popup');
+            popup.innerHTML = popupContent;
+            document.body.appendChild(popup);
+            document.body.classList.add('locked');
+        })
+        .catch(error => {
+            console.error('Error loading individual data:', error);
+            const popup = document.createElement('div');
+            popup.classList.add('popup');
+            popup.innerHTML = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
+            document.body.appendChild(popup);
+            document.body.classList.add('locked'); 
+        });
+}
+function copyFullResult(btn) {
+    const popup = btn.closest('.popup-content');
+    if (!popup) return;
+  
+    let text = '';
+    const fields = popup.querySelectorAll('p'); 
+  
+    fields.forEach(p => {
+      if (p.querySelector('.progress-bar')) return;
+  
+      const clean = p.textContent.trim();
+      if (clean) text += `${clean}\n`;
+    });
+  
+    navigator.clipboard.writeText(text).then(() => {
+      showToast("📋 Result copied to clipboard");
+    }).catch(() => {
+      const input = document.createElement('textarea');
+      input.value = text;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      showToast("📋 Result copied (fallback)");
+    });
+  }
+  
+  
+  function copyStudentResultLink(btn) {
+    const popup = btn.closest('.popup-content');
+    const roll = popup?.innerHTML.match(/Roll:\s*(\d+)/)?.[1];
+    const year = currentYear?.textContent?.trim();
+    const group = currentGroup?.textContent?.split(' ')[0];
+    const url = `https://boradrankctg.github.io/rank/entity.html?year=${year}&group=${encodeURIComponent(group)}&roll=${roll}`;
+  
+    navigator.clipboard.writeText(url).then(() => {
+      showToast("🔗 Link copied");
+    }).catch(() => {
+      const input = document.createElement('input');
+      input.value = url;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      showToast("🔗 Link copied (fallback)");
+    });
+  }
+  function openEntityPage(type, year, group, value) {
+    if (type === 'student') {
+      location.href = `entity.html?year=${encodeURIComponent(year)}&group=${encodeURIComponent(group)}&roll=${encodeURIComponent(value)}`;
+    } else {
+      location.href = `entity.html?year=${encodeURIComponent(year)}&group=${encodeURIComponent(group)}&school=${encodeURIComponent(value)}`;
+    }
+  }
+  function showToast(message) {
+    const toast = document.createElement('div');
+    toast.textContent = message;
+    toast.style = `
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      color: #fff;
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      z-index: 9999;
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 2500);
+  }
+  
+
+function promptComparison(roll, year, group) {
+    const baseStudent = allData.find(s => s.roll === roll);
+    if (!baseStudent) return alert("Base student not found.");
+  
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+    popup.innerHTML = `
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <p>Compare <b>${baseStudent.name}</b> with another student</p>
+            <input type="text" id="compareRollInput" placeholder="Enter roll number to compare" style="width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #000;">
+            <button onclick="startComparison(${baseStudent.roll}, '${year}', '${group}')">Compare</button>
+        </div>
+    `;
+    document.body.appendChild(popup);
+    document.body.classList.add('locked');
+}
+function startComparison(roll1, year, group) {
+    const roll2 = document.getElementById("compareRollInput").value.trim();
+    if (!roll2) return alert("Enter roll number");
+
+    const dataFile = `data_${year}_${group.toLowerCase()}_individual.txt`;
+
+    fetch(dataFile)
+        .then(res => res.text())
+        .then(text => {
+            const lines = text.trim().split('\n');
+            const row1 = lines.find(r => r.split('\t')[0] === roll1.toString());
+            const row2 = lines.find(r => r.split('\t')[0] === roll2.toString());
+            
+            if (!row2) return alert("Second roll not found.");
+
+            const parts1 = row1.split('\t');
+            const parts2 = row2.split('\t');
+
+            const student1 = allData.find(s => s.roll === parseInt(roll1));
+            const student2 = allData.find(s => s.roll === parseInt(roll2));
+
+            if (!student1 || !student2) return alert("Student data not found.");
+
+            let labels = [];
+const isHSC = year.includes("hsc");
+
+if (isHSC) {
+  if (group === "Science") {
+    labels = ["Bangla", "English", "ICT", "Physics", "Chemistry", "Compulsory", "Optional"];
+  } else if (group === "Commerce") {
+    labels = ["Bangla", "English", "ICT", "Accounting", "Finance", "Business Studies", "Optional"];
+  } else if (group === "Arts") {
+    labels = ["Bangla", "English", "ICT", "Geography", "Civics", "History", "Optional"];
+  }
+} else {
+  // SSC logic
+  if (group === "Science") {
+    labels = ["Bangla", "English", "Math", "BGS", "Religion", "Physics", "Chemistry", "Compulsory", "ICT", "Optional", "Physical", "Career"];
+  } else if (group === "Commerce") {
+    labels = ["Bangla", "English", "Math", "Science", "Religion", "Accounting", "Finance", "Compulsory", "ICT", "Optional", "Physical", "Career"];
+  } else if (group === "Arts") {
+    labels = ["Bangla", "English", "Math", "Science", "Religion", "Geography", "Civics", "Compulsory", "ICT", "Optional", "Physical", "Career"];
+  }
+}
+
+            let rows = `
+            <h2 style="text-align:center; margin-top: 10px;">🎯 Student Comparison</h2>
+            <p style="text-align:center; font-weight:bold;">${student1.name} <span style="color:green;">vs</span> ${student2.name}</p>
+           <div class="compare-table-container">
+            <table class="compare-table">
+
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>${student1.name}</th>
+                            <th>${student2.name}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>GPA</td><td>${student1.gpa}</td><td>${student2.gpa}</td></tr>
+                        <tr><td>Total Marks</td><td>${student1.total}</td><td>${student2.total}</td></tr>
+        `;
+        
+
+            for (let i = 1; i < Math.min(parts1.length, parts2.length); i++) {
+                const label = labels[i - 1] || `Subject ${i}`;
+                rows += `<tr><td>${label}</td><td>${parts1[i]}</td><td>${parts2[i]}</td></tr>`;
+            }
+
+            rows += `
+                        </tbody>
+                    </table>
+                </div>
+                <button class="back-button" onclick="closePopup()">Close</button>
+            `;
+
+            closePopup(); // Close input popup
+            const popup = document.createElement('div');
+            popup.classList.add('popup');
+            popup.innerHTML = `<div class="popup-content"><span class="close-btn" onclick="closePopup()">&times;</span>${rows}</div>`;
+            document.body.appendChild(popup);
+            document.body.classList.add('locked');
+        });
+}
+
+
+function handleSearchInput() {
+    const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+    const rollSearchTerm = document.getElementById('searchRollInput').value.trim();
+    const selectedInstituation = document.getElementById('InstituationDropdown').value;
+    filteredData = allData.filter(student => {
+        const matchesName = student.name.toLowerCase().includes(searchTerm);
+        const matchesRoll = student.roll.toString().includes(rollSearchTerm);
+        const matchesInstituation = selectedInstituation ? (student.Instituation || '').trim().toLowerCase() === selectedInstituation.trim().toLowerCase() : true;
+        return matchesName && matchesRoll && matchesInstituation;
+    });
+    currentPage = 1;
+    updatePage();
+}
+
+function handleRollSearchInput() {
+    handleSearchInput();
+}
+
+function filterByInstituation() {
+    handleSearchInput();
+}
+
+
+function navigateTo(page) {
+    window.location.href = page;
+}
+
+
+
+function closePopup() {
+  const popup = document.querySelector('.popup');
+  if (popup) {
+      popup.classList.add('pop-out');
+      setTimeout(() => {
+          popup.remove();
+          document.body.classList.remove('locked');
+      }, 500); 
+  }
+}
+
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+      closePopup();
+  }
+});
+
+
+window.addEventListener('popstate', function() {
+  closePopup();
+});
+
+
+function openPopup(contentHTML) {
+  const popup = document.createElement('div');
+  popup.className = 'popup';
+  popup.innerHTML = contentHTML;
+  document.body.appendChild(popup);
+  document.body.classList.add('locked');
+
+  // Add animation class if needed
+  popup.classList.add('pop-in');
+
+  // Push a new state to enable back button closing
+  history.pushState({ popupOpen: true }, '');
+}
+
+
+var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+    scrollToTopBtn.style.display = "block";
+  } else {
+    scrollToTopBtn.style.display = "none";
+  }
+}
+
+function scrollToTop() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
+}
+
+window.addEventListener('popstate', function () {
+  const params = new URLSearchParams(window.location.search);
+  const year = params.get('year');
+  const group = params.get('group');
+  const roll = params.get('roll');
+
+
+  if (document.querySelector('.popup')) {
+      closePopup();
+      return;
+  }
+
+  // If roll present → show individual result
+  if (year && group && roll) {
+      showIndividualResult(roll, year, group);
+  }
+  // If year & group present → load that table
+  else if (year && group) {
+      loadGroup(year, group);
+  }
+  // If only year present → load group selection
+  else if (year) {
+      loadYear(year);
+  }
+  // No params → go to home/default
+  else {
+      location.reload(); // or your home view loader
+  }
+});
+
+
+function createTopInstitutionsButton() {
+  const resetBtn = document.getElementById('resetFilterBtn');
+  if (!resetBtn) return;
+
+  const topBtn = document.createElement('button');
+  topBtn.id = 'topSchoolsBtn';
+  topBtn.innerHTML = '<i class="ri-trophy-line" aria-hidden="true"></i><span>Top Schools</span>';
+  topBtn.className = 'btn-pill btn-top-schools';
+  topBtn.style.marginLeft = '10px';
+  topBtn.onclick = showTopInstitutions;
+  resetBtn.insertAdjacentElement('afterend', topBtn);
+
+  const filterBtn = document.createElement('button');
+  filterBtn.id = 'mobileFilterBtn';
+  filterBtn.innerHTML = '<i class="ri-filter-3-line" aria-hidden="true"></i><span>Filter</span>';
+  filterBtn.className = 'btn-pill btn-mobile-filter';
+  filterBtn.style.marginLeft = '8px';
+  filterBtn.addEventListener('click', openMobileFilter);
+  topBtn.insertAdjacentElement('afterend', filterBtn);
+
+  injectMobileFilterStyles();
+  ensureMobileFilterUI();
+}
+
+  /* === Mobile Filter Drawer (total, gpa, school) === */
+function injectMobileFilterStyles() {
+  if (document.getElementById('mfStyle')) return;
+  const css = `
+  `;
+  const el = document.createElement('style'); el.id='mfStyle'; el.textContent = css; document.head.appendChild(el);
+}
+
+function ensureMobileFilterUI() {
+  if (document.getElementById('mfDrawer')) return;
+  const overlay = document.createElement('div'); overlay.className='mf-overlay'; overlay.id='mfOverlay';
+  const drawer = document.createElement('aside'); drawer.className='mf-drawer'; drawer.id='mfDrawer';
+  drawer.innerHTML = `
+    <div class="mf-head">
+      <div class="mf-title">Filter</div>
+      <button class="mf-close" id="mfCloseBtn" aria-label="Close">✕</button>
+    </div>
+    <div class="mf-body">
+      <div class="mf-section" id="mfTotal">
+        <h4>Total</h4>
+        <div class="mf-range">
+          <div class="mf-dual">
+            <div class="mf-track"></div>
+            <div class="mf-track-fill" id="mfTrackFill"></div>
+            <input id="mfRangeMin" type="range">
+            <input id="mfRangeMax" type="range">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <input id="mfTotalMin" type="number" placeholder="Min">
+            <input id="mfTotalMax" type="number" placeholder="Max">
+          </div>
+        </div>
+      </div>
+      <div class="mf-section" id="mfGpa">
+        <h4>GPA</h4>
+        <div class="mf-chips" id="mfGpaChips"></div>
+      </div>
+      <div class="mf-section" id="mfSchool">
+        <h4>School</h4>
+        <div class="mf-search"><input id="mfSchoolSearch" type="text" placeholder="Search school"></div>
+        <div class="mf-list" id="mfSchoolList"></div>
+      </div>
+    </div>
+    <div class="mf-foot">
+      <button class="mf-reset" id="mfResetBtn">Reset</button>
+      <button class="mf-apply" id="mfApplyBtn">Apply</button>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  document.body.appendChild(drawer);
+
+  document.getElementById('mfCloseBtn').addEventListener('click', closeMobileFilter);
+  document.getElementById('mfOverlay')?.addEventListener('click', closeMobileFilter);
+  document.getElementById('mfApplyBtn').addEventListener('click', applyMobileFilters);
+  document.getElementById('mfResetBtn').addEventListener('click', resetMobileFilters);
+  document.getElementById('mfSchoolSearch').addEventListener('input', filterSchoolList);
+
+  populateMobileFilterOptions();
+  attachMobileFilterLiveListeners();
+
+}
+
+function openMobileFilter() {
+  document.getElementById('mfOverlay')?.classList.add('open');
+  document.getElementById('mfDrawer')?.classList.add('open');
+  try { history.pushState({ mf:true }, '', location.href); } catch(e){}
+  window.addEventListener('popstate', mfPopCloseOnce, { once:true });
+}
+
+function closeMobileFilter() {
+  document.getElementById('mfOverlay')?.classList.remove('open');
+  document.getElementById('mfDrawer')?.classList.remove('open');
+}
+
+function mfPopCloseOnce() { closeMobileFilter(); }
+
+function populateMobileFilterOptions() {
+  if (!Array.isArray(allData) || !allData.length) return;
+
+  const totals = allData.map(s=>parseInt(s.total)).filter(n=>!isNaN(n));
+  const minT = Math.min(...totals), maxT = Math.max(...totals);
+
+  const rMin = document.getElementById('mfRangeMin');
+  const rMax = document.getElementById('mfRangeMax');
+  const nMin = document.getElementById('mfTotalMin');
+  const nMax = document.getElementById('mfTotalMax');
+  [rMin,rMax,nMin,nMax].forEach(el=>{ el.min=minT; el.max=maxT; });
+  rMin.value = nMin.value = minT;
+  rMax.value = nMax.value = maxT;
+  const clamp = () => {
+    let a = Math.min(parseInt(rMin.value), parseInt(rMax.value));
+    let b = Math.max(parseInt(rMin.value), parseInt(rMax.value));
+    rMin.value = a; rMax.value = b; nMin.value = a; nMax.value = b; drawTrackFill();
+  };
+  const syncFromNum = () => {
+    let a = Math.max(minT, Math.min(maxT, parseInt(nMin.value||minT)));
+    let b = Math.max(minT, Math.min(maxT, parseInt(nMax.value||maxT)));
+    if (a>b) [a,b] = [b,a];
+    rMin.value = a; rMax.value = b; drawTrackFill();
+  };
+
+  
+  rMin.addEventListener('input', clamp);
+  rMax.addEventListener('input', clamp);
+  nMin.addEventListener('input', syncFromNum);
+  nMax.addEventListener('input', syncFromNum);
+
+  function drawTrackFill(){
+    const fill = document.getElementById('mfTrackFill');
+    const min = parseInt(rMin.min), max = parseInt(rMin.max);
+    const a = (parseInt(rMin.value)-min)/(max-min)*100;
+    const b = (parseInt(rMax.value)-min)/(max-min)*100;
+    fill.style.left = a+'%';
+    fill.style.right = (100-b)+'%';
+  }
+
+
+  drawTrackFill();
+
+  const gpas = Array.from(new Set(allData.map(s=>s.gpa).filter(x=>x!==undefined && !isNaN(x)))).sort((a,b)=>b-a);
+  const gWrap = document.getElementById('mfGpaChips'); gWrap.innerHTML='';
+  gpas.forEach(val=>{
+    const id = 'mfGpa_'+String(val).replace('.','_');
+    const div = document.createElement('label'); div.className='mf-chip';
+    div.innerHTML = `<input type="checkbox" name="mfGpa" value="${val}"><span>${val.toFixed ? val.toFixed(2) : val}</span>`;
+    gWrap.appendChild(div);
+  });
+
+  const schools = Array.from(new Set(allData.map(s => (s.Instituation || '').trim()).filter(Boolean)))
+  .sort((a, b) => {
+    const rankA = allData.find(s => (s.Instituation || '').trim() === a)?.TopSchools || Infinity;
+    const rankB = allData.find(s => (s.Instituation || '').trim() === b)?.TopSchools || Infinity;
+    return rankA - rankB; // Lower number = higher rank
+  });
+
+  const sWrap = document.getElementById('mfSchoolList'); sWrap.innerHTML='';
+  schools.forEach(name=>{
+    const safe = name.replace(/"/g,'&quot;');
+    const div = document.createElement('label'); div.className='mf-item';
+    div.innerHTML = `<input type="checkbox" name="mfSchool" value="${safe}"><span>${safe}</span>`;
+    sWrap.appendChild(div);
+  });
+  try { attachMobileFilterLiveListeners(); } catch(e){}
+}
+function attachMobileFilterLiveListeners() {
+  const liveApply = debounce(applyMobileFilters, 120);
+  ['mfRangeMin','mfRangeMax','mfTotalMin','mfTotalMax'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', liveApply);
+  });
+  document.querySelectorAll('#mfGpaChips input[type=checkbox], #mfSchoolList input[type=checkbox]').forEach(cb => {
+    cb.addEventListener('change', liveApply);
+  });
+}
+
+
+  function attachMobileFilterLiveListeners() {
+    const liveApply = debounce(applyMobileFilters, 120);
+    ['mfRangeMin','mfRangeMax','mfTotalMin','mfTotalMax'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', liveApply);
+    });
+    document.querySelectorAll('#mfGpaChips input[type=checkbox], #mfSchoolList input[type=checkbox]').forEach(cb => {
+      cb.addEventListener('change', liveApply);
+    });
+  }
+
+
+function filterSchoolList(){
+  const q = document.getElementById('mfSchoolSearch').value.trim().toLowerCase();
+  document.querySelectorAll('#mfSchoolList .mf-item').forEach(el=>{
+    const txt = el.textContent.toLowerCase();
+    el.style.display = txt.includes(q)?'flex':'none';
+  });
+}
+
+function applyMobileFilters(){
+  const nMin = parseInt(document.getElementById('mfTotalMin').value);
+  const nMax = parseInt(document.getElementById('mfTotalMax').value);
+  const gpaVals = Array.from(document.querySelectorAll('input[name="mfGpa"]:checked')).map(x=>parseFloat(x.value));
+  const schoolVals = Array.from(document.querySelectorAll('input[name="mfSchool"]:checked')).map(x=>x.value);
+
+  const nameQ = document.getElementById('searchInput') ? document.getElementById('searchInput').value.trim().toLowerCase() : '';
+  const rollQ = document.getElementById('searchRollInput') ? document.getElementById('searchRollInput').value.trim() : '';
+  const instSelEl = document.getElementById('InstituationDropdown');
+  const instSel = instSelEl && instSelEl.value ? instSelEl.value : '';
+
+  filteredData = allData.filter(s=>{
+    const totOK = !isNaN(s.total) && s.total>=nMin && s.total<=nMax;
+    const gpaOK = gpaVals.length? gpaVals.includes(parseFloat(s.gpa)) : true;
+    const schOK = schoolVals.length? schoolVals.includes(s.Instituation) : true;
+    const nameOK = nameQ ? String(s.name).toLowerCase().includes(nameQ) : true;
+    const rollOK = rollQ ? String(s.roll).includes(rollQ) : true;
+    const instOK = instSel ? (s.Instituation || '').trim().toLowerCase() === instSel.trim().toLowerCase() : true;
+    return totOK && gpaOK && schOK && nameOK && rollOK && instOK;
+  });
+
+  currentPage = 1;
+  updatePage();
+  closeMobileFilter();
+}
+
+function resetMobileFilters(){
+  document.querySelectorAll('#mfGpaChips input[type=checkbox], #mfSchoolList input[type=checkbox]').forEach(cb=>cb.checked=false);
+  populateMobileFilterOptions();
+  // keep existing name/roll/institution search in place
+  applyMobileFilters();
+}
+
+  function showTopInstitutions() {
+    const topSchools = {};
+  
+    allData.forEach(student => {
+      const school = student.Instituation;
+      if (!topSchools[school]) {
+        topSchools[school] = {
+          gpa5Count: 0,
+          totalMarks: 0,
+          count: 0,
+          top1000Count: 0
+        };
+      }
+      if (student.gpa === 5.0) {
+        topSchools[school].gpa5Count += 1;
+      }
+      topSchools[school].totalMarks += student.total;
+      topSchools[school].count += 1;
+    });
+  
+    allData.slice(0, 1000).forEach(student => {
+      const school = student.Instituation;
+      if (topSchools[school]) {
+        topSchools[school].top1000Count++;
+      }
+    });
+  
+    const schoolArray = Object.entries(topSchools)
+      .filter(([_, stats]) => stats.count >= 20)
+      .map(([name, stats]) => {
+        const gpa5Percent = (stats.gpa5Count / stats.count) * 100;
+        return {
+          name,
+          gpa5Percent: gpa5Percent.toFixed(2),
+          gpa5Count: stats.gpa5Count,
+          avgTotal: (stats.totalMarks / stats.count).toFixed(1),
+          top1000Count: stats.top1000Count,
+          studentCount: stats.count
+        };
+      });
+  
+    // Sort by GPA 5% descending, then average total descending
+    schoolArray.sort((a, b) => {
+      const percentDiff = parseFloat(b.gpa5Percent) - parseFloat(a.gpa5Percent);
+      if (percentDiff !== 0) return percentDiff;
+      return parseFloat(b.avgTotal) - parseFloat(a.avgTotal);
+    });
+  
+    const top100 = schoolArray.slice(0, 100);
+  
+    contentDiv.innerHTML = `
+      <h2> Top 100 Institutions - ${currentGroup.textContent} ${currentYear.textContent}</h2>
+      <button onclick="loadGroup('${currentYear.textContent.trim()}', '${currentGroup.textContent.split(' ')[0]}')">Back</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Institution</th>
+            <th>GPA 5.00 %</th>
+            <th>Total GPA 5.00</th>
+            <th>Avg Total</th>
+            <th>Top 1000 Students</th>
+            <th>Total Students</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${top100.map((school, i) => `
+            <tr>
+              <td>${i + 1}</td>
+              <td>${school.name}</td>
+              <td>${school.gpa5Percent}%</td>
+              <td>${school.gpa5Count}</td>
+              <td>${school.avgTotal}</td>
+              <td>${school.top1000Count}</td>
+              <td>${school.studentCount}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    `;
+  }
+  
+  
+  function enableInstitutionSearchDropdown() {
+    const dropdown = document.getElementById('InstituationDropdown');
+    dropdown.outerHTML = `
+    <input list="institutionList" id="InstituationDropdown" placeholder="Type school name..." class="search-input" onchange="filterByInstituation()">
+
+
+      <datalist id="institutionList">
+        ${Array.from(InstituationSet).map(inst => `<option value="${inst}">`).join('')}
+      </datalist>
+    `;
+  }
+  
+
+  const originalFetchData = fetchData;
+  fetchData = function(year, group) {
+    showLoadingIndicator();
+    const mainDataUrl = `data_${year}_${group.toLowerCase()}.txt`;
+    const individualDataUrl = `data_${year}_${group.toLowerCase()}_individual.txt`;
+  
+    Promise.all([
+      fetchAndDecode(mainDataUrl, "MySecretKey123")
+,
+      fetch(individualDataUrl).then(response => response.text()).catch(() => null)
+    ]).then(([mainData, individualData]) => {
+      processData(mainData, individualData);
+      populateInstituationDropdown();
+      enableInstitutionSearchDropdown();
+      createTopInstitutionsButton();
+      hideLoadingIndicator();
+    }).catch(error => {
+      console.error('Error loading data:', error);
+      hideLoadingIndicator({ forceError: true, errorMessage: 'Unable to load files — check your connection.' });
+      noDataMessage.style.display = 'block';
+  });
+  
+  };
+  function filterByInstituation() {
+    const input = document.getElementById('InstituationDropdown').value.trim();
+    showSchoolRanking(input); // ← reuse the same function used on click
+  }
+  
+function showFullRankingNote(schoolName) {
+    const note = document.createElement('div');
+    note.className = 'filter-note';
+    note.innerHTML = `
+        Showing results for "<strong>${schoolName}</strong>" —
+        <button onclick="resetFilter()">Show Full Ranking</button>
+    `;
+    const oldNote = document.querySelector('.filter-note');
+    if (oldNote) oldNote.remove();
+    contentDiv.prepend(note);
+}
+handleURLParams();
+function handleURLParams() {
+    const params = new URLSearchParams(window.location.search);
+    const year = params.get('year');
+    const group = params.get('group');
+    const roll = params.get('roll');
+
+    if (year && group) {
+        
+        if (yearDropdown) {
+            yearDropdown.value = year;
+            yearDropdown.style.display = 'none';
+        }
+
+   
+        document.getElementById("selectPrompt")?.remove();
+        document.querySelectorAll('.featured-box').forEach(b => b.remove());
+
+
+        currentYear.textContent = ` ${year}`;
+        currentGroup.textContent = `${group} Group`;
+        currentGroup.style.display = 'inline';
+
+        contentDiv.innerHTML = `
+            <h3 id="examResultHeader"></h3>
+            <div class="search-container">
+                <label for="searchInput">Search by Name:</label>
+                <input type="text" id="searchInput" class="search-input" placeholder="Enter name" oninput="debounce(handleSearchInput, 300)()">
+            </div>
+            <div class="search-container">
+                <label for="searchRollInput">Search by Roll:</label>
+                <input type="text" id="searchRollInput" class="search-input" placeholder="Enter roll" oninput="debounce(handleRollSearchInput, 300)()">
+            </div>
+            <div class="search-container">
+                <label for="InstituationDropdown">Select Institution:</label>
+                <select id="InstituationDropdown" onchange="filterByInstituation()"></select>
+            </div>
+            <button id="resetFilterBtn" style="display: none;" onclick="resetFilter()">Reset Filter</button>
+            <div class="loading-spinner" id="loadingSpinner" style="display: none;"></div>
+            <p id="tableHint" style="margin-top: 20px; font-weight: bold;">
+                💡 Click on student names to see detailed result and on school names to see school BASED RANK
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serial</th>
+                        <th>Name</th>
+                        <th>Roll</th>
+                        <th>GPA</th>
+                        <th>Total</th>
+                        <th>Institution</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody"></tbody>
+            </table>
+            <div class="pagination">
+                <button id="firstBtn" onclick="handleFirstButtonClick()">First</button>
+                <button id="prevBtn" onclick="handlePrevButtonClick()">Previous</button>
+                <span id="paginationInfo">Loading data...</span>
+                <button id="nextBtn" onclick="handleNextButtonClick()">Next</button>
+                <button id="lastBtn" onclick="handleLastButtonClick()">Last</button>
+            </div>
+        `;
+
+
+        printExamResultHeader(year);
+        fetchData(year, group);
+        setTimeout(attachSearchSuggestions, 0);
+
+
+
+     
+        if (roll) {
+            setTimeout(() => {
+                showIndividualResult(roll, year, group);
+            }, 1000);
+        }
+        const school = params.get('school');
+        if (school) {
+          // wait a little so fetchData(year, group) finishes and DOM is ready
+          setTimeout(() => {
+            showSchoolRanking(school);
+          }, 1000);
+        }
+        
+    } else if (year) {
+    
+        loadYear(year);
+        if (yearDropdown) {
+            yearDropdown.value = year;
+        }
+    } else {
+ 
+        contentDiv.innerHTML = '';
+    }
+}
+
+
+function handleFeaturedClick(yearValue, el) {
+    const box = el || document.querySelector(`.featured-box[data-value="${yearValue}"]`);
+    if (!box) return;
+  
+    box.style.transition = "all 0.4s ease";
+    box.style.opacity = "0";
+    box.style.transform = "scale(0.9)";
+  
+    setTimeout(() => {
+      box.style.display = "none";
+  
+      const dropdown = document.getElementById("yearDropdown");
+      if (dropdown) {
+        dropdown.value = yearValue;
+        dropdown.style.display = 'none';
+      }
+      loadYear(yearValue);
+    }, 400);
+  }
+  
+
+  function showSharePopup() {
+    if (document.querySelector('.popup')) return; 
+
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.innerHTML = `
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2>🚀Enjoying this amazing website?</h2>
+            <p>Help us grow! Share this website:</p>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; padding: 10px;">
+                <a href="https://wa.me/?text=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp.png" alt="WhatsApp" width="36"></a>
+                <a href="https://www.instagram.com/?url=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/instagram-new.png" alt="Instagram" width="36"></a>
+                <a href="https://www.facebook.com/dialog/send?link=https://boradrankctg.github.io/rank/&app_id=YOUR_APP_ID&redirect_uri=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/facebook-messenger.png" alt="Messenger" width="36"></a>
+                <a href="mailto:?subject=Check%20this%20awesome%20ranking%20site!&body=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/gmail--v1.png" alt="Email" width="36"></a>
+            </div>
+            <hr>
+            <h3 style="margin-top:10px">⭐ Rate this Website:</h3>
+            <div id="starContainer" style="font-size: 1.8rem; color: gold; cursor: pointer;">
+                <span onclick="rateSite(1)">&#9734;</span>
+                <span onclick="rateSite(2)">&#9734;</span>
+                <span onclick="rateSite(3)">&#9734;</span>
+                <span onclick="rateSite(4)">&#9734;</span>
+                <span onclick="rateSite(5)">&#9734;</span>
+            </div>
+            <textarea id="reviewText" placeholder="Leave your feedback here..." rows="3" style="width: 100%; margin-top: 10px;"></textarea>
+            <button onclick="submitReview()">Submit Review</button>
+        </div>
+    `;
+
+    document.body.appendChild(popup);
+    document.body.classList.add('locked');
+}
+if (!localStorage.getItem('sharePopupShown')) {
+    setTimeout(() => {
+        showSharePopup();
+        localStorage.setItem('sharePopupShown', '1');
+    }, 150000);
+}
+
+document.getElementById('shareBtn').addEventListener('click', showSharePopup);
+
+
+function rateSite(rating) {
+    const stars = document.getElementById('starContainer').children;
+    for (let i = 0; i < stars.length; i++) {
+        stars[i].innerHTML = i < rating ? '&#9733;' : '&#9734;';
+    }
+    localStorage.setItem('userRating', rating);
+}
+
+function submitReview() {
+    const rating = localStorage.getItem('userRating') || 0;
+    const comment = document.getElementById('reviewText').value.trim();
+
+    if (!comment && rating == 0) return alert('Please rate or write something.');
+
+    localStorage.setItem('pendingReview', JSON.stringify({ rating, comment }));
+
+    window.location.href = 'review.html';
+}
+
+function _br_normalizeName(s) {
+    if (!s && s !== 0) return '';
+    try {
+      return String(s)
+        .normalize ? String(s).normalize('NFKC') : String(s)
+        .replace(/\s+/g, ' ')
+        .trim()
+        .toLowerCase()
+        .replace(/[^\p{L}\p{N}\s]/gu, '');
+    } catch (e) {
+      return String(s).replace(/\s+/g, ' ').trim().toLowerCase().replace(/[^\w\s]/g, '');
+    }
+  }
+  
+  function _br_normalizeRoll(r) {
+    if (r === undefined || r === null) return '';
+    return String(r).trim().replace(/^0+/, '') || '0';
+  }
+  
+  function _br_removeAllPopupsImmediate() {
+    const popups = document.querySelectorAll('.popup');
+    popups.forEach(p => p.remove());
+    document.body.classList.remove('locked');
+  }
+  
+  function _br_spinnerHtml() {
+    return `<div style="display:flex;align-items:center;gap:10px;">
+              <div class="loading-spinner" style="width:18px;height:18px;border-top-width:4px"></div>
+              <div style="font-weight:bold">Searching SSC records...</div>
+            </div>`;
+  }
+  
+  function _br_showMessage(msg) {
+    _br_removeAllPopupsImmediate();
+  
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.innerHTML = `
+      <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <p>${msg}</p>
+        <button class="back-button" onclick="closePopup()">OK</button>
+      </div>
+    `;
+    document.body.appendChild(popup);
+    document.body.classList.add('locked');
+  }
+  
+
+
+  window.__br_sscCache = window.__br_sscCache || {};
+  
+  function _br_ensureSSCLoadedForHSCYear(hscYearNum) {
+    return new Promise((resolve) => {
+      try {
+        const sscYearNum = Number(hscYearNum) - 2;
+        if (!sscYearNum || isNaN(sscYearNum)) return resolve(null);
+  
+        if (window.__br_sscCache[sscYearNum]) return resolve(window.__br_sscCache[sscYearNum]);
+  
+        const groups = ['science', 'commerce', 'arts'];
+        const cache = { byName: new Map(), byRoll: new Map() };
+        let fetchPromises = groups.map(g => {
+          const fileMain = `data_${sscYearNum}_${g}.txt`;
+          return fetch(fileMain).then(r => {
+            if (!r.ok) throw new Error('no file');
+            return r.text();
+          }).then(text => {
+            const rows = text.trim().split('\n');
+            const start = rows.length && rows[0].includes('\t') && rows[0].toLowerCase().includes('name') ? 1 : 0;
+            for (let i = start; i < rows.length; i++) {
+              const row = rows[i].trim();
+              if (!row) continue;
+              const cols = row.split('\t');
+              const nameRaw = (cols[1] || '').trim();
+              const rollRaw = (cols[2] || '').trim();
+              const institution = (cols[5] || '').trim();
+              if (!nameRaw || !rollRaw) continue;
+              const nName = _br_normalizeName(nameRaw);
+              const nRoll = _br_normalizeRoll(rollRaw);
+              const obj = { roll: rollRaw, rollNorm: nRoll, group: g.charAt(0).toUpperCase() + g.slice(1), nameRaw, institution };
+                if (!cache.byRoll.has(nRoll)) cache.byRoll.set(nRoll, obj);
+                const arr = cache.byName.get(nName) || [];
+              if (!arr.some(x => x.rollNorm === obj.rollNorm && x.group === obj.group)) arr.push(obj);
+              cache.byName.set(nName, arr);
+            }
+          }).catch(() => {
+          });
+        });
+  
+        Promise.all(fetchPromises).then(() => {
+          window.__br_sscCache[sscYearNum] = cache;
+          resolve(cache);
+        }).catch(() => {
+          window.__br_sscCache[sscYearNum] = cache;
+          resolve(cache);
+        });
+      } catch (err) {
+        resolve(null);
+      }
+    });
+  }
+  
+  function _br_getHscRollFromCurrentPopup() {
+    try {
+      const popupContent = document.querySelector('.popup .popup-content');
+      if (!popupContent) return null;
+      const txt = (popupContent.innerText || popupContent.textContent || '').replace(/\u00A0/g, ' ');
+      const m = txt.match(/roll[:\s]*([0-9\-]+)/i);
+      if (m && m[1]) return _br_normalizeRoll(m[1]);
+      const nodes = popupContent.querySelectorAll('p,div,span');
+      for (let n of nodes) {
+        const t = (n.textContent || '').trim();
+        if (/roll[:\s]*[0-9]/i.test(t)) {
+          const mm = t.match(/([0-9]+)/);
+          if (mm) return _br_normalizeRoll(mm[0]);
+        }
+      }
+    } catch (e) {}
+    return null;
+  }
+  
+  function _br_saveLinkMapping(hscYearNum, hscRollNorm, sscYearNum, sscRollNorm, sscGroup, matchedNameRaw) {
+    try {
+      if (!hscYearNum || !hscRollNorm) return;
+      const key = `br_hsc2ssc:${hscYearNum}:${hscRollNorm}`;
+      const obj = { sscYear: sscYearNum, sscRoll: sscRollNorm, sscGroup, matchedNameRaw, savedAt: Date.now() };
+      localStorage.setItem(key, JSON.stringify(obj));
+    } catch (e) {}
+  }
+  
+  function _br_getLinkMapping(hscYearNum, hscRollNorm) {
+    try {
+      const key = `br_hsc2ssc:${hscYearNum}:${hscRollNorm}`;
+      const raw = localStorage.getItem(key);
+      if (!raw) return null;
+      return JSON.parse(raw);
+    } catch (e) { return null; }
+  }
+  
+  function _br_showCandidatesModalAndHandle(matches, sscYearNum, onSelect) {
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.innerHTML = `
+      <div class="popup-content" style="max-width:520px;">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2>Multiple SSC records found</h2>
+        <p>Please confirm the SSC roll or pick the correct record below.</p>
+        <div id="br_candidates_list" style="max-height:180px;overflow:auto;margin-bottom:0.75rem;border:1px solid #ddd;padding:6px;border-radius:4px;"></div>
+        <div style="display:flex;gap:8px;align-items:center;margin-top:8px;">
+          <input id="br_ssc_roll_input" placeholder="Enter SSC roll (or pick above)" style="flex:1;padding:8px;border:1px solid #0061FE;border-radius:4px;">
+          <button id="br_ssc_roll_confirm" class="back-button" style="padding:8px 12px;">Confirm</button>
+        </div>
+        <p style="font-size:0.9rem;color:#444;margin-top:10px;">Tip: Click a row to open that SSC result directly.</p>
+      </div>
+    `;
+    document.body.appendChild(popup);
+    document.body.classList.add('locked');
+  
+    const listDiv = popup.querySelector('#br_candidates_list');
+    matches.forEach(m => {
+      const item = document.createElement('div');
+      item.style = 'padding:8px;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;justify-content:space-between;align-items:center;gap:8px;';
+      item.innerHTML = `<div style="flex:1;">
+                          <div style="font-weight:bold">${m.nameRaw} <span style="color:#666;font-weight:normal">(${m.group})</span></div>
+                          <div style="font-size:0.9rem;color:#666">${m.institution || ''}</div>
+                        </div>
+                        <div style="text-align:right">
+                          <div style="font-weight:bold">Roll: ${m.roll}</div>
+                          <button class="br_open_btn" style="margin-top:6px;padding:6px 8px;border-radius:4px;border:0;background:#000;color:#fff;cursor:pointer">Open</button>
+                        </div>`;
+      listDiv.appendChild(item);
+  
+      item.querySelector('.br_open_btn').addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        _br_removeAllPopupsImmediate();
+        setTimeout(() => onSelect(m), 60);
+      });
+    });
+  
+    popup.querySelector('#br_ssc_roll_confirm').addEventListener('click', () => {
+      const val = popup.querySelector('#br_ssc_roll_input').value.trim();
+      const norm = _br_normalizeRoll(val);
+      if (!norm) {
+        popup.querySelector('#br_ssc_roll_input').style.border = '1px solid red';
+        return;
+      }
+      const found = matches.find(mm => mm.rollNorm === norm);
+      if (found) {
+        _br_removeAllPopupsImmediate();
+        setTimeout(() => onSelect(found), 60);
+      } else {
+        const err = document.createElement('div');
+        err.style = 'color:#b71c1c;margin-top:8px;font-weight:bold';
+        err.textContent = 'No SSC record found with that roll among the candidates.';
+        popup.querySelector('.popup-content').appendChild(err);
+        setTimeout(() => err.remove(), 3500);
+      }
+    });
+  }
+  
+  function showSSCResultFromHSC(name, hscGroupLower) {
+    try {
+      const yearLabel = (currentYear && currentYear.textContent) ? currentYear.textContent.trim() : null;
+      let hscYearNum = null;
+      if (yearLabel && yearLabel.toLowerCase().includes('hsc')) {
+        const m = yearLabel.match(/(\d{4})/);
+        if (m) hscYearNum = parseInt(m[1], 10);
+      }
+  
+      if (!hscYearNum) {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const yr = params.get('year');
+          if (yr && yr.toLowerCase().includes('hsc')) {
+            const mm = yr.match(/(\d{4})/);
+            if (mm) hscYearNum = parseInt(mm[1], 10);
+          }
+        } catch (e) {}
+      }
+  
+      if (!hscYearNum) hscYearNum = (new Date()).getFullYear();
+  
+      const currentHscRoll = _br_getHscRollFromCurrentPopup(); 
+  
+ 
+      if (currentHscRoll) {
+        const mapping = _br_getLinkMapping(hscYearNum, currentHscRoll);
+        if (mapping && mapping.sscYear && mapping.sscRoll) {
+         
+          _br_removeAllPopupsImmediate();
+          setTimeout(() => {
+            
+            showIndividualResult(mapping.sscRoll, String(mapping.sscYear), mapping.sscGroup || 'Science');
+          }, 60);
+          return;
+        }
+      }
+  
+      const loaderPopup = document.createElement('div');
+      loaderPopup.className = 'popup';
+      loaderPopup.innerHTML = `<div class="popup-content">${_br_spinnerHtml()}</div>`;
+      document.body.appendChild(loaderPopup);
+      document.body.classList.add('locked');
+  
+      _br_ensureSSCLoadedForHSCYear(hscYearNum).then(cache => {
+        try {
+          loaderPopup.remove();
+          const nName = _br_normalizeName(name || '');
+          const sscYearNum = hscYearNum - 2;
+          const sscCache = cache || window.__br_sscCache[sscYearNum] || { byName: new Map(), byRoll: new Map() };
+  
+          const rawMatches = sscCache.byName.get(nName) || [];
+  
+          if (!rawMatches || rawMatches.length === 0) {
+            _br_showMessage("Couldn’t find SSC result. Name mismatch or stream change may be the cause.");
+            return;
+          }
+  
+          const uniq = [];
+          const seen = new Set();
+          rawMatches.forEach(m => {
+            const key = `${m.rollNorm}-${m.group}`;
+            if (!seen.has(key)) {
+              seen.add(key);
+              uniq.push(m);
+            }
+          });
+  
+          if (uniq.length === 1) {
+            const chosen = uniq[0];
+            if (currentHscRoll) _br_saveLinkMapping(hscYearNum, currentHscRoll, sscYearNum, chosen.rollNorm, chosen.group, chosen.nameRaw);
+  
+            _br_removeAllPopupsImmediate();
+            setTimeout(() => {
+              showIndividualResult(chosen.roll, String(sscYearNum), chosen.group);
+            }, 60);
+            return;
+          }
+  
+          _br_showCandidatesModalAndHandle(uniq, sscYearNum, (chosen) => {
+            if (currentHscRoll) _br_saveLinkMapping(hscYearNum, currentHscRoll, sscYearNum, chosen.rollNorm, chosen.group, chosen.nameRaw);
+            _br_removeAllPopupsImmediate();
+            setTimeout(() => {
+              showIndividualResult(chosen.roll, String(sscYearNum), chosen.group);
+            }, 60);
+          });
+  
+        } catch (err) {
+          try { loaderPopup.remove(); } catch(e) {}
+          _br_showMessage("Error while searching SSC records.");
+          console.error(err);
+        }
+      }).catch(err => {
+        try { loaderPopup.remove(); } catch(e) {}
+        _br_showMessage("Error while loading SSC files.");
+        console.error(err);
+      });
+  
+    } catch (e) {
+      console.error('showSSCResultFromHSC error', e);
+      _br_showMessage("Unexpected error occurred.");
+    }
+  }
+
+  if (typeof fetchData === 'function') {
+    try {
+      const _origFetchData = fetchData;
+      fetchData = function(year, group) {
+        try {
+
+          _origFetchData(year, group);
+        } catch (e) {
+          console.error('wrapped fetchData original error', e);
+        }
+        try {
+  
+          if (typeof year === 'string' && year.toLowerCase().includes('hsc')) {
+            const m = year.match(/(\d{4})/);
+            const yh = m ? Number(m[1]) : null;
+            if (yh && !isNaN(yh)) _br_ensureSSCLoadedForHSCYear(yh).catch(()=>{});
+          }
+        } catch (e) {}
+      };
+    } catch (e) {}
+  }
+  function showErrorPopup(message) {
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.innerHTML = `
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <p style="font-weight:bold;color:#b71c1c;">${message}</p>
+            <button class="back-button" onclick="closePopup()">OK</button>
+        </div>
+    `;
+    document.body.appendChild(popup);
+    document.body.classList.add('locked');
+}
+
+
+
+function downloadStudentPDF(btn) {
+  const safe = s => String(s == null ? '' : s).trim();
+
+  const popup = (btn && btn.closest && (btn.closest('.popup') || btn.closest('.popup-content'))) || 
+                document.querySelector('.popup .popup-content') || null;
+  if (!popup) {
+    alert('No result popup found.');
+    return;
+  }
+
+  const data = { name: '', roll: '', institution: '', gpa: '', subjects: [] };
+
+
+  const els = Array.from(popup.querySelectorAll('p,div,span,li,td'));
+  els.forEach(el => {
+    const txt = safe(el.textContent);
+    if (!txt) return;
+    const colon = txt.match(/^([^:]{1,40})\s*[:\-]\s*(.+)$/);
+    if (colon) {
+      const key = colon[1].toLowerCase();
+      const val = colon[2].trim();
+      if (key.includes('name') && !data.name) data.name = val;
+      else if (key.includes('roll') && !data.roll) data.roll = val;
+      else if ((key.includes('institution') || key.includes('school') || key.includes('college')) && !data.institution) data.institution = val;
+      else if (key.includes('gpa') && !key.includes('subject') && !data.gpa) data.gpa = val;
+      else if (!key.includes('board rank')) {
+        data.subjects.push({ name: colon[1].trim(), mark: val });
+      }
+    }
+  });
+
+
+  data.subjects = data.subjects.filter(s => !/board\s*rank/i.test(s.name));
+
+  function markToGrade(markStr, subjectName) {
+    const m = parseFloat(String(markStr).replace(/[^0-9.\-]/g, ''));
+    if (isNaN(m)) return { gp: '-', grade: '-' };
+  
+    const nameLower = (subjectName || '').toLowerCase();
+  
+
+    let yearText = '';
+    try {
+      if (typeof currentYear !== 'undefined' && currentYear && currentYear.textContent) {
+        yearText = String(currentYear.textContent).toLowerCase();
+      }
+    } catch (e) { yearText = ''; }
+    const popupText = (document.querySelector('.popup .popup-content')?.textContent || '').toLowerCase();
+    const isHSC = (yearText.includes('hsc') || popupText.includes('hsc'));
+  
+
+    let totalMarks;
+    if (isHSC) {
+    
+      if (nameLower.includes('ict')) totalMarks = 100;
+      else totalMarks = 200;
+    } else {
+      
+      if (nameLower.includes('ict') || nameLower.includes('career')) totalMarks = 50;
+      else if (nameLower.includes('bangla') || nameLower.includes('english')) totalMarks = 200;
+      else totalMarks = 100;
+    }
+  
+
+    const percentage = (m / totalMarks) * 100;
+  
+    if (percentage >= 79.5) return { gp: 5.00, grade: 'A+' };
+    if (percentage >= 70) return { gp: 4.00, grade: 'A' };
+    if (percentage >= 60) return { gp: 3.50, grade: 'A-' };
+    if (percentage >= 50) return { gp: 3.00, grade: 'B' };
+    if (percentage >= 40) return { gp: 2.00, grade: 'C' };
+    if (percentage >= 33) return { gp: 1.00, grade: 'D' };
+    return { gp: 0.00, grade: 'F' };
+  }
+  
+
+  const filename = `${(data.name || 'marksheet').replace(/[^\w\- ]/g, '')}.pdf`;
+
+  function loadJsPdf(cb) {
+    if (window.jspdf && window.jspdf.jsPDF) return cb();
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+    s.onload = cb;
+    document.head.appendChild(s);
+  }
+
+  loadJsPdf(() => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+    const pageW = doc.internal.pageSize.getWidth();
+    const margin = 15;
+    let y = 18;
+
+    doc.setFontSize(18);
+    doc.setFont(undefined, 'bold');
+    doc.text('SSC 2025 Board Rank of Chittagong', margin, y);
+    y += 12;
+
+
+const infoW = pageW - margin * 2;
+const colW = infoW / 4;
+const infoH = 20;
+const fields = [
+  { label: 'Name', value: data.name || '-' },
+  { label: 'Roll', value: data.roll || '-' },
+  { label: 'Institution', value: data.institution || '-' },
+  { label: 'GPA', value: data.gpa || '-' }
+];
+doc.setLineWidth(0.3);
+doc.rect(margin, y, infoW, infoH);
+for (let i = 0; i < fields.length; i++) {
+  const x = margin + i * colW;
+  doc.rect(x, y, colW, infoH);
+  doc.setFontSize(9);
+  doc.text(fields[i].label + ':', x + 2, y + 6);
+
+  doc.setFont(undefined, 'bold');
+
+  const wrapped = doc.splitTextToSize(fields[i].value, colW - 4);
+  doc.setFontSize(10);
+  let textY = y + 12;
+  wrapped.forEach(line => {
+    doc.text(line, x + 2, textY);
+    textY += 4; 
+  });
+  doc.setFont(undefined, 'normal');
+}
+y += infoH + 8;
+
+
+    const tblW = pageW - margin * 2;
+    const col1 = Math.round(tblW * 0.5 * 100) / 100; 
+    const col2 = Math.round(tblW * 0.25 * 100) / 100; 
+    const col3 = tblW - col1 - col2; 
+    const rowH = 8;
+
+    doc.setFillColor(240);
+    doc.rect(margin, y, col1, rowH, 'F');
+    doc.rect(margin + col1, y, col2, rowH, 'F');
+    doc.rect(margin + col1 + col2, y, col3, rowH, 'F');
+    doc.setFont(undefined, 'bold');
+    doc.text('Subject', margin + 2, y + 6);
+    doc.text('Marks', margin + col1 + col2 - 2, y + 6, { align: 'right' });
+    doc.text('GPA', margin + col1 + col2 + col3 - 2, y + 6, { align: 'right' });
+    y += rowH;
+    doc.setFont(undefined, 'normal');
+
+  
+    data.subjects.forEach(row => {
+      const g = markToGrade(row.mark, row.name);
+
+      doc.rect(margin, y, col1, rowH);
+      doc.rect(margin + col1, y, col2, rowH);
+      doc.rect(margin + col1 + col2, y, col3, rowH);
+
+      doc.text(row.name, margin + 2, y + 5);
+      doc.text(String(row.mark), margin + col1 + col2 - 2, y + 5, { align: 'right' });
+      doc.text(`${g.gp.toFixed(2)} (${g.grade})`, margin + col1 + col2 + col3 - 2, y + 5, { align: 'right' });
+      y += rowH;
+    });
+
+    
+    doc.setFontSize(9);
+    doc.text(`Generated on ${new Date().toLocaleString()}`, margin, 285);
+    doc.text('Unofficial printable copy', pageW - margin, 285, { align: 'right' });
+
+    doc.save(filename);
+    showToast("📥 Download started");
+  });
+}
+function visitorInfoDenied() {
+  const popup = document.querySelector('.popup');
+  if (!popup) return;
+
+  const body = popup.querySelector('.popup-body');
+  const footer = popup.querySelector('.popup-footer');
+
+  if (footer) footer.style.display = 'none';
+
+
+  if (body) {
+    body.innerHTML = `
+      <div class="access-status">
+        <div class="circle"></div>
+        <div class="status-text">Processing...</div>
+      </div>
+    `;
+
+    setTimeout(() => {
+      const circleEl = body.querySelector('.circle');
+      if (circleEl) circleEl.style.display = 'none';
+
+      body.innerHTML = `
+        <div class="access-status">
+          <div class="cross">❌</div>
+          <div class="status-text" style="color:#dc2626;">Access Denied — Please try again</div>
+        </div>
+      `;
+    }, 800); 
+  }
+
+  setTimeout(() => {
+    closePopup();
+  }, 1800);
+}
+
+(function(){
+  const words = Array.from(new Set((allData || []).flatMap(s => [
+    s?.name, s?.Instituation
+  ]).filter(Boolean)));
+  upsertMeta('keywords', words.join(', '));
+})();
+// === Smart suggestions ===
+function attachSearchSuggestions() {
+  const nameInput = document.getElementById('searchInput');
+  const rollInput = document.getElementById('searchRollInput');
+  if (!nameInput || !rollInput) return;
+
+  ensureSuggestBox(nameInput, 'nameSuggestBox');
+  ensureSuggestBox(rollInput, 'rollSuggestBox');
+
+  nameInput.addEventListener('input', renderNameSuggestions);
+  rollInput.addEventListener('input', renderRollSuggestions);
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.suggest-box')) hideSuggestions();
+  });
+}
+
+function ensureSuggestBox(inputEl, id) {
+  if (document.getElementById(id)) return;
+  const box = document.createElement('div');
+  box.id = id;
+  box.className = 'suggest-box';
+  inputEl.insertAdjacentElement('afterend', box);
+}
+
+function hideSuggestions() {
+  const boxes = document.querySelectorAll('.suggest-box');
+  boxes.forEach(b => b.style.display = 'none');
+}
+
+function renderNameSuggestions() {
+  try {
+    const input = document.getElementById('searchInput');
+    const box = document.getElementById('nameSuggestBox');
+    if (!input || !box || !Array.isArray(allData) || allData.length === 0) return;
+
+    const q = input.value.trim().toLowerCase();
+    if (!q) return (box.style.display = 'none');
+
+    const seen = new Set();
+    const matches = allData
+      .filter(s => s.name && s.name.toLowerCase().includes(q))
+      .filter(s => {
+        const key = s.name.toLowerCase();
+        if (seen.has(key)) return false;
+        seen.add(key); return true;
+      })
+      .slice(0, 8);
+
+    box.innerHTML = matches.map(s => 
+      `<div class="suggest-item" data-name="${s.name.replace(/"/g,'&quot;')}">
+         <i class="ri-user-3-line"></i> ${s.name} <small>• ${s.Instituation || ''}</small>
+       </div>`).join('') || '<div class="suggest-empty">No matches</div>';
+
+    box.style.display = 'block';
+    box.querySelectorAll('.suggest-item').forEach(it => {
+      it.addEventListener('click', () => {
+        input.value = it.getAttribute('data-name');
+        handleSearchInput();
+        hideSuggestions();
+      });
+    });
+  } catch(e){}
+}
+
+function renderRollSuggestions() {
+  try {
+    const input = document.getElementById('searchRollInput');
+    const box = document.getElementById('rollSuggestBox');
+    if (!input || !box || !Array.isArray(allData) || allData.length === 0) return;
+
+    const q = input.value.trim();
+    if (!q) return (box.style.display = 'none');
+
+    const matches = allData
+      .filter(s => String(s.roll).includes(q))
+      .slice(0, 8);
+
+    box.innerHTML = matches.map(s => 
+      `<div class="suggest-item" data-roll="${s.roll}">
+         <i class="ri-hashtag"></i> ${s.roll} <small>• ${s.name} — ${s.Instituation || ''}</small>
+       </div>`).join('') || '<div class="suggest-empty">No matches</div>';
+
+    box.style.display = 'block';
+    box.querySelectorAll('.suggest-item').forEach(it => {
+      it.addEventListener('click', () => {
+        input.value = it.getAttribute('data-roll');
+        handleRollSearchInput();
+        hideSuggestions();
+      });
+    });
+  } catch(e){}
+}
+function initThemeToggle() {
+  const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.body.classList.toggle('dark-mode', saved === 'dark');
+  const t = document.getElementById('themeToggle');
+  if (t) {
+    t.checked = saved === 'dark';
+    t.addEventListener('change', () => {
+      const isDark = t.checked;
+      document.body.classList.toggle('dark-mode', isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  }
+}
+
+function initNavToggle() {
+    const btn = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    const overlay = document.getElementById('navOverlay');
+    if (!btn || !links) return;
+  
+    const openNav = () => {
+      links.classList.add('open');
+      overlay?.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    };
+    const closeNav = () => {
+      links.classList.remove('open');
+      overlay?.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    };
+    const toggleNav = () => {
+      if (links.classList.contains('open')) closeNav(); else openNav();
+    };
+  
+    btn.addEventListener('click', toggleNav);
+    overlay?.addEventListener('click', closeNav);
+  
+    // Close when a menu item is chosen
+    links.querySelectorAll('a, .linklike, input[type="checkbox"]').forEach(el => {
+      el.addEventListener('click', () => {
+        // Don’t auto-close when toggling dark mode; close on navigation/actions
+        if (el.matches('input[type="checkbox"]')) return;
+        closeNav();
+      });
+    });
+  
+    // ESC to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+  
+    // If resized to desktop, close sheet
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 860) closeNav();
+    });
+  }
+
+
+
+
+
+
