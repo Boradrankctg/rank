@@ -299,21 +299,7 @@
     </div>
   </div>
 </section>
-<script>
-  // If admin stats already load in your script, you can re-use the values.
-  // Lightweight listener for total visits (optional, safe no-op if db not init yet).
-  (function(){
-    try {
-      if (window.db && window.firebase) {
-        const { ref, onValue } = window.firebase.database;
-        onValue(ref(window.db, "siteStats/totalVisits"), (snap) => {
-          const v = snap.val() || 0;
-          const n = document.getElementById('liveVisits'); if (n) n.textContent = v.toLocaleString();
-        });
-      }
-    } catch (e){}
-  })();
-</script>
+
 
 <section id="action" class="container" style="margin: 20px auto 0; text-align:center;">
   <a class="btn btn-primary" href="#yearDropdown"><i class="ri-trophy-line"></i>Choose Year & Group</a>
@@ -354,7 +340,31 @@
 
 window.db = db; 
 
+// Total Visits — live (visible to everyone)
+(function(){
+try {
+const liveEl = document.getElementById('liveVisits');
+if (!liveEl) return;
 
+// Live updates
+onValue(ref(db, "siteStats/totalVisits"), (snap) => {
+  const v = Number(snap.val() || 0);
+  liveEl.textContent = v.toLocaleString();
+}, (err) => {
+  console.error('TotalVisits listener error', err);
+});
+
+// Fallback (one-time read) in case rules/network block the live listener
+get(ref(db, "siteStats/totalVisits")).then((snap) => {
+  const v = Number(snap.val() || 0);
+  if (liveEl.textContent === '—' || liveEl.textContent === '') {
+    liveEl.textContent = v.toLocaleString();
+  }
+}).catch(()=>{});
+} catch(e) {
+console.error('TotalVisits setup error', e);
+}
+})();
 window.clickCountsCache = {};
 window._br_clickListenerSet = new Set();
 
