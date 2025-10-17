@@ -275,7 +275,8 @@
 
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-        import { getDatabase, ref, runTransaction, set, onValue, get, update } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+        import { getDatabase, ref, runTransaction, set, onValue, get, update, remove } 
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
         const firebaseConfig = {
           apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
           authDomain: "boardrankctg.firebaseapp.com",
@@ -291,6 +292,25 @@
         const db = getDatabase(app);
 
 window.db = db; 
+// === Hidden students helpers ===
+window.__br_listenHidden = function(year, group, handler) {
+  try {
+    onValue(ref(db, 'hiddenStudents/' + year + '/' + group), (snap) => {
+      handler(snap.val() || {});
+    });
+  } catch (e) { console.error('listenHidden err', e); }
+};
+window.__br_hideStudent = function(year, group, rollNorm) {
+  try {
+    return set(ref(db, `hiddenStudents/${year}/${group}/${rollNorm}`), 1);
+  } catch (e) { return Promise.reject(e); }
+};
+window.__br_unhideStudent = function(year, group, rollNorm) {
+  try {
+    return remove(ref(db, `hiddenStudents/${year}/${group}/${rollNorm}`));
+  } catch (e) { return Promise.reject(e); }
+};
+
 
 // Total Visits — live (visible to everyone)
 (function(){
