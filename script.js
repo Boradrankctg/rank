@@ -350,6 +350,7 @@ injectBreadcrumbs(`${location.origin}${location.pathname}`, year, group, null);
 
     printExamResultHeader(year); 
     fetchData(year, group);
+    initHiddenFor(year, group);
     setTimeout(attachSearchSuggestions, 0);
 
 }
@@ -369,6 +370,31 @@ const studentsPerPage = 100;
 let currentPage = 1;
 const InstituationSet = new Set();
 window.InstituationSet = InstituationSet;
+window.__hiddenSet = new Set();
+window.isRollHidden = function(roll){
+  try { return window.__hiddenSet.has(_br_normalizeRoll(roll)); } catch(e){ return false; }
+};
+function initHiddenFor(year, group){
+  if (typeof window.__br_listenHidden !== 'function') return;
+  window.__br_listenHidden(year, group, (obj)=>{
+    try {
+      const keys = Object.keys(obj || {});
+      window.__hiddenSet = new Set(keys.map(_br_normalizeRoll));
+    } catch(e){ window.__hiddenSet = new Set(); }
+    // Re-render with hidden applied
+    if (typeof updatePage === 'function') updatePage();
+  });
+}
+function applyHiddenFilterNow(){
+  try {
+    if (!Array.isArray(window.filteredData)) return;
+    if (!window.__hiddenSet || window.__hiddenSet.size === 0) return;
+    window.filteredData = window.filteredData.filter(
+      s => !(window.isRollHidden && window.isRollHidden(s.roll))
+    );
+  } catch(e){}
+}
+
 
 
 function fetchData(year, group) {
@@ -1067,6 +1093,50 @@ if (isAdmin && typeof window.listenClickCount === 'function' && !window._br_clic
     if (el) el.textContent = `${student.name} [${val}]`;
   });
 }
+(function addEyeButton(){
+  const isAdminNow = (localStorage.getItem('userId') === 'admin1234') ||
+                     (localStorage.getItem('br:isAdmin') === '1');
+  if (!isAdminNow) return;
+
+  const rollCell = row.querySelector('.student-roll');
+  if (!rollCell) return;
+
+  const hiddenNow = (typeof window.isRollHidden === 'function') &&
+                    window.isRollHidden(student.roll);
+
+  const btn = document.createElement('button');
+  btn.className = 'hide-eye';
+  btn.title = hiddenNow ? 'Unhide for all' : 'Hide for all';
+  btn.textContent = hiddenNow ? '🙈' : '👁️';
+  btn.style.marginLeft = '6px';
+  btn.style.border = '1px solid #e5e7eb';
+  btn.style.background = '#fff';
+  btn.style.borderRadius = '6px';
+  btn.style.padding = '2px 6px';
+  btn.style.cursor = 'pointer';
+
+  btn.addEventListener('click', async (ev) => {
+    ev.stopPropagation();
+    const y = (currentYear.textContent || '').trim();
+    const g = (currentGroup.textContent || '').split(' ')[0];
+    const rn = _br_normalizeRoll(student.roll);
+
+    try {
+      if (hiddenNow) {
+        await unhideStudentForAll(y, g, rn);
+        showToast('✅ Unhidden');
+      } else {
+        if (!confirm('Hide this student for everyone?')) return;
+        await hideStudentForAll(y, g, rn);
+        showToast('👁️ Hidden');
+      }
+    } catch (e) {
+      alert('Failed: ' + (e && (e.message || e)));
+    }
+  });
+
+  rollCell.appendChild(btn);
+})();
 
 
         tableBody.appendChild(row);
@@ -1108,6 +1178,14 @@ function updatePage() {
     updateTableData();
     updatePaginationButtons();
 }
+(function(){
+  const __origUpdatePage = window.updatePage;
+  window.updatePage = function(){
+    applyHiddenFilterNow(); // filter just in time
+    return __origUpdatePage();
+  };
+})();
+
 
 function handlePrevButtonClick() {
     if (currentPage > 1) {
@@ -1639,6 +1717,15 @@ function copyFullResult(btn) {
     document.body.appendChild(toast);
     setTimeout(() => toast.remove(), 2500);
   }
+  window.hideStudentForAll = function(year, group, rollNorm) {
+    if (typeof window.__br_hideStudent !== 'function') { alert('DB not ready'); return Promise.reject('db'); }
+    return window.__br_hideStudent(year, group, rollNorm);
+  };
+  window.unhideStudentForAll = function(year, group, rollNorm) {
+    if (typeof window.__br_unhideStudent !== 'function') { alert('DB not ready'); return Promise.reject('db'); }
+    return window.__br_unhideStudent(year, group, rollNorm);
+  };
+  
   
 
 function promptComparison(roll, year, group) {
@@ -3118,3 +3205,7 @@ function initNavToggle() {
 
 
 
+  document.addEventListener('rank:data-ready', () => {
+    if (typeof updatePage === 'function') updatePage();
+  });
+  
