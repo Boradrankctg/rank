@@ -147,13 +147,23 @@ main.insertAdjacentHTML('afterbegin', loginHtml);
   
     onAuthStateChanged(auth, user => {
       if (user && user.uid === ADMIN_UID) {
-    document.getElementById('adminLoginBox').style.display = 'none';
-    initAnnouncementPanel();
-    loadVisitors();
-      } else {
-        document.getElementById('adminLoginBox').style.display = 'block';
-        container.innerHTML = `<tr><td colspan="10" style="text-align:center;color:#b71c1c;">Admin access required. Please login.</td></tr>`;
-      }
+  document.getElementById('adminLoginBox').style.display = 'none';
+  initAnnouncementPanel();
+  loadVisitors();
+
+  // 🟩 ADD THIS
+  localStorage.setItem('br:isAdmin','1');
+
+} else {
+  document.getElementById('adminLoginBox').style.display = 'block';
+  container.innerHTML = `<tr><td colspan="10" style="text-align:center;color:#b71c1c;">
+    Admin access required. Please login.
+  </td></tr>`;
+
+  // 🟥 ADD THIS
+  localStorage.removeItem('br:isAdmin');
+}
+
     });
   
     loginBtn.addEventListener('click', async () => {
@@ -174,9 +184,11 @@ main.insertAdjacentHTML('afterbegin', loginHtml);
     });
   
     logoutBtn.addEventListener('click', async () => {
-      await signOut(auth);
-      location.reload();
-    });
+  localStorage.removeItem('br:isAdmin'); // 🟩 ADD THIS
+  await signOut(auth);
+  location.reload();
+});
+
   
     function loadVisitors() {
       const visitorsRef = ref(db, "visitors");
