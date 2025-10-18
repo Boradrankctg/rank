@@ -151,6 +151,8 @@ main.insertAdjacentHTML('afterbegin', loginHtml);
     initAnnouncementPanel();
 initDisplayControlsPanel();
 loadVisitors();
+initPollPanel();
+
 
       } else {
         document.getElementById('adminLoginBox').style.display = 'block';
@@ -328,6 +330,14 @@ tr.innerHTML = `
   document.getElementById('optShowRolls').addEventListener('change', e => update(dRef, { showRolls: e.target.checked, updatedAt: Date.now() }));
 }
 
+
+
+
+
+
+
+
+
      // Parse duration like "30m", "2h", "3d", "1w" or "forever"
   window.parseBanDuration = function(str) {
     if (!str) return null;
@@ -383,6 +393,146 @@ tr.innerHTML = `
       alert('Unban failed: ' + (e.message || e.code));
     }
   };
+  function initPollPanel() {
+  if (document.getElementById('pollPanel')) return;
+  const html = `
+    <section id="pollPanel" style="max-width:900px;margin:12px auto;padding:12px;border:2px solid #7c3aed;border-radius:10px;background:#faf5ff;">
+      <h3 style="margin:6px 0;">📊 Site Poll</h3>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+        <label><input type="checkbox" id="pollActive"> Active</label>
+        <label><input type="checkbox" id="pollRequired"> Compulsory (Required)</label>
+      </div>
+      <input id="pollQ" placeholder="Poll question..." style="width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin-top:8px;">
+      <div id="pollOpts" style="margin-top:8px;display:grid;gap:8px;"></div>
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;">
+        <button id="pollAddOpt">+ Add option</button>
+        <button id="pollSave">Publish / Update</button>
+        <button id="pollClear" style="background:#e5e7eb;color:#111;border:1px solid #d1d5db;">Clear config</button>
+        <button id="pollReset" style="background:#fee2e2;color:#7f1d1d;border:1px solid #fecaca;">Reset votes</button>
+      </div>
+      <div id="pollStatus" style="margin-top:6px;color:#065f46;font-weight:800;"></div>
+      <div id="pollStats" style="margin-top:10px;"></div>
+    </section>
+  `;
+  document.querySelector('main').insertAdjacentHTML('afterbegin', html);
+
+  const optsWrap = document.getElementById('pollOpts');
+  const addOpt = (val='') => {
+    const row = document.createElement('div');
+    row.style = 'display:flex;gap:8px;align-items:center;';
+    row.innerHTML = `
+      <input class="pollOpt" placeholder="Option..." value="${String(val).replace(/"/g,'&quot;')}"
+             style="flex:1;padding:10px;border:1px solid #ddd;border-radius:8px;">
+      <button class="rm">×</button>
+    `;
+    row.querySelector('.rm').addEventListener('click', ()=> row.remove());
+    optsWrap.appendChild(row);
+  };
+
+  document.getElementById('pollAddOpt').addEventListener('click', ()=> addOpt());
+
+  // Load current config + live results
+  onValue(ref(db, 'polls/global'), (snap) => {
+    const v = snap.val() || {};
+    document.getElementById('pollActive').checked = !!v.active;
+    document.getElementById('pollRequired').checked = !!v.required;
+    document.getElementById('pollQ').value = v.question || '';
+    optsWrap.innerHTML = '';
+    (Array.isArray(v.options) ? v.options : []).forEach(o => addOpt(o));
+
+    // Live vote counts (admin sees exact numbers)
+    const pid = v.id || 'global';
+    onValue(ref(db, 'pollVotes/' + pid), (vs) => {
+      const votes = vs.val() || {};
+      const counts = (Array.isArray(v.options) ? v.options : []).map(()=>0);
+      Object.values(votes).forEach(rec => {
+        const i = Number(rec?.opt);
+        if (!isNaN(i) && counts[i] !== undefined) counts[i] += 1;
+      });
+      const total = counts.reduce((a,b)=>a+b,0);
+      const rows = (v.options || []).map((o,i) => {
+        const c = counts[i] || 0;
+        const pct = total ? Math.round(c*100/total) : 0;
+        return `
+          <tr>
+            <td>${i+1}</td>
+            <td>${o}</td>
+            <td><b>${c}</b></td>
+            <td>${pct}%</td>
+          </tr>
+        `;
+      }).join('');
+      document.getElementById('pollStats').innerHTML = `
+        <h4 style="margin:6px 0;">Live results</h4>
+        <table border="1" style="width:100%;border-collapse:collapse;">
+          <thead>
+            <tr><th>#</th><th>Option</th><th>Votes</th><th>%</th></tr>
+          </thead>
+          <tbody>${rows}</tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2" style="text-align:right;font-weight:900;">Total</td>
+              <td><b>${total}</b></td>
+              <td>${total ? '100%' : '—'}</td>
+            </tr>
+          </tfoot>
+        </table>
+      `;
+    });
+  });
+
+  // Save config
+  document.getElementById('pollSave').addEventListener('click', async () => {
+    const active = document.getElementById('pollActive').checked;
+    const required = document.getElementById('pollRequired').checked;
+    const question = document.getElementById('pollQ').value.trim();
+    const options = Array.from(document.querySelectorAll('.pollOpt'))
+      .map(i=>i.value.trim()).filter(Boolean);
+    if (!question || options.length < 2) {
+      alert('Enter a question and at least 2 options.');
+      return;
+    }
+    const cur = (await get(ref(db, 'polls/global'))).val() || {};
+    const cfg = {
+      id: cur.id || ('poll_' + Date.now()),
+      active, required, question, options,
+      updatedAt: Date.now()
+    };
+    try {
+      await set(ref(db, 'polls/global'), cfg);
+      document.getElementById('pollStatus').textContent = 'Saved. Poll is live.';
+      setTimeout(()=> document.getElementById('pollStatus').textContent = '', 1800);
+    } catch (e) {
+      alert('Save failed: ' + (e.message || e.code));
+    }
+  });
+
+  // Clear config
+  document.getElementById('pollClear').addEventListener('click', async () => {
+    try {
+      await set(ref(db, 'polls/global'), { active:false, required:false, question:'', options:[], updatedAt: Date.now() });
+      document.getElementById('pollStatus').textContent = 'Cleared.';
+      setTimeout(()=> document.getElementById('pollStatus').textContent = '', 1500);
+    } catch (e) {
+      alert('Clear failed: ' + (e.message || e.code));
+    }
+  });
+
+  // Reset votes only (keep question/options)
+  document.getElementById('pollReset').addEventListener('click', async () => {
+    try {
+      const cur = (await get(ref(db, 'polls/global'))).val() || {};
+      if (!cur.id) return alert('No active poll to reset.');
+      if (!confirm('Reset all poll votes?')) return;
+      await remove(ref(db, 'pollVotes/' + cur.id));
+      document.getElementById('pollStatus').textContent = 'Votes reset.';
+      setTimeout(()=> document.getElementById('pollStatus').textContent = '', 1500);
+    } catch (e) {
+      alert('Reset failed: ' + (e.message || e.code));
+    }
+  });
+}
+
   </script>
   <!-- Local Script -->
   <script src="script.js"></script>
