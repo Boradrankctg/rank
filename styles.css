@@ -720,3 +720,49 @@ table.busy{pointer-events:none;opacity:.7;transition:opacity .2s;}
   transition:transform 0.1s ease;
 }
 .hide-eye:hover { transform:translateY(-1px); }
+/* Hidden result (admin-only blur) */
+.popup-content { position: relative; }
+.popup-content.admin-blur { filter: blur(3px); }
+.admin-hidebar {
+  display: none;
+  background: #111; color: #fff; border-radius: 8px;
+  padding: 6px 10px; font-weight: 800;
+}
+body.dark-mode .admin-hidebar {
+  background: #0b1220; color: #e5e7eb;
+}
+/* === Poll popup UI === */
+.poll-box { padding-top: 16px; }
+.poll-head { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.poll-emoji { font-size:1.6rem; }
+.poll-title { font-weight:900; font-size:1.1rem; }
+
+.poll-optgrid { display:grid; gap:10px; margin-top:8px; }
+.poll-chip {
+  display:flex; align-items:center; gap:10px;
+  padding:10px 12px; border:1px solid var(--border-strong); border-radius:10px;
+  cursor:pointer; transition:transform .12s ease, background .15s ease, border-color .15s ease;
+  user-select:none;
+}
+.poll-chip:hover { transform:translateY(-1px); background:#f8fafc; }
+.poll-chip.active { border-color:#2563eb; background:#eef2ff; }
+.poll-chip input { display:none; }
+
+.poll-actions { display:flex; gap:8px; justify-content:center; margin-top:12px; }
+
+.poll-stats { margin-top:12px; }
+.poll-results { border:1px solid var(--border-strong); border-radius:10px; padding:10px; }
+.poll-results-title { font-weight:900; margin-bottom:8px; }
+.poll-row { display:grid; grid-template-columns: 1fr 1fr auto; align-items:center; gap:8px; margin:6px 0; }
+.poll-row-text { font-weight:800; }
+.poll-bar { height:12px; background:#e5e7eb; border-radius:999px; overflow:hidden; }
+.poll-bar-fill { height:100%; background:linear-gradient(90deg, #2563eb, #38bdf8); }
+.poll-pct { font-weight:900; min-width:44px; text-align:right; }
+.poll-total { margin-top:8px; font-size:.9rem; color:#555; }
+
+body.dark-mode .poll-chip { background:#0b1220; border-color:#2b3544; }
+body.dark-mode .poll-chip:hover { background:#0f172a; }
+body.dark-mode .poll-chip.active { background:#0f172a; border-color:#2563eb; }
+body.dark-mode .poll-bar { background:#1f2937; }
+body.dark-mode .poll-bar-fill { background:linear-gradient(90deg, #2563eb, #38bdf8); }
+body.dark-mode .poll-results { border-color:#334155; }
