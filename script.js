@@ -350,7 +350,6 @@ injectBreadcrumbs(`${location.origin}${location.pathname}`, year, group, null);
 
     printExamResultHeader(year); 
     fetchData(year, group);
-    initHiddenFor(year, group);
     setTimeout(attachSearchSuggestions, 0);
 
 }
@@ -370,31 +369,6 @@ const studentsPerPage = 100;
 let currentPage = 1;
 const InstituationSet = new Set();
 window.InstituationSet = InstituationSet;
-window.__hiddenSet = new Set();
-window.isRollHidden = function(roll){
-  try { return window.__hiddenSet.has(_br_normalizeRoll(roll)); } catch(e){ return false; }
-};
-function initHiddenFor(year, group){
-  if (typeof window.__br_listenHidden !== 'function') return;
-  window.__br_listenHidden(year, group, (obj)=>{
-    try {
-      const keys = Object.keys(obj || {});
-      window.__hiddenSet = new Set(keys.map(_br_normalizeRoll));
-    } catch(e){ window.__hiddenSet = new Set(); }
-    // Re-render with hidden applied
-    if (typeof updatePage === 'function') updatePage();
-  });
-}
-function applyHiddenFilterNow(){
-  try {
-    if (!Array.isArray(window.filteredData)) return;
-    if (!window.__hiddenSet || window.__hiddenSet.size === 0) return;
-    window.filteredData = window.filteredData.filter(
-      s => !(window.isRollHidden && window.isRollHidden(s.roll))
-    );
-  } catch(e){}
-}
-
 
 
 function fetchData(year, group) {
@@ -1093,50 +1067,6 @@ if (isAdmin && typeof window.listenClickCount === 'function' && !window._br_clic
     if (el) el.textContent = `${student.name} [${val}]`;
   });
 }
-(function addEyeButton(){
-  const isAdminNow = (localStorage.getItem('userId') === 'admin1234') ||
-                     (localStorage.getItem('br:isAdmin') === '1');
-  if (!isAdminNow) return;
-
-  const rollCell = row.querySelector('.student-roll');
-  if (!rollCell) return;
-
-  const hiddenNow = (typeof window.isRollHidden === 'function') &&
-                    window.isRollHidden(student.roll);
-
-  const btn = document.createElement('button');
-  btn.className = 'hide-eye';
-  btn.title = hiddenNow ? 'Unhide for all' : 'Hide for all';
-  btn.textContent = hiddenNow ? '🙈' : '👁️';
-  btn.style.marginLeft = '6px';
-  btn.style.border = '1px solid #e5e7eb';
-  btn.style.background = '#fff';
-  btn.style.borderRadius = '6px';
-  btn.style.padding = '2px 6px';
-  btn.style.cursor = 'pointer';
-
-  btn.addEventListener('click', async (ev) => {
-    ev.stopPropagation();
-    const y = (currentYear.textContent || '').trim();
-    const g = (currentGroup.textContent || '').split(' ')[0];
-    const rn = _br_normalizeRoll(student.roll);
-
-    try {
-      if (hiddenNow) {
-        await unhideStudentForAll(y, g, rn);
-        showToast('✅ Unhidden');
-      } else {
-        if (!confirm('Hide this student for everyone?')) return;
-        await hideStudentForAll(y, g, rn);
-        showToast('👁️ Hidden');
-      }
-    } catch (e) {
-      alert('Failed: ' + (e && (e.message || e)));
-    }
-  });
-
-  rollCell.appendChild(btn);
-})();
 
 
         tableBody.appendChild(row);
@@ -1178,14 +1108,6 @@ function updatePage() {
     updateTableData();
     updatePaginationButtons();
 }
-(function(){
-  const __origUpdatePage = window.updatePage;
-  window.updatePage = function(){
-    applyHiddenFilterNow(); // filter just in time
-    return __origUpdatePage();
-  };
-})();
-
 
 function handlePrevButtonClick() {
     if (currentPage > 1) {
@@ -1717,15 +1639,6 @@ function copyFullResult(btn) {
     document.body.appendChild(toast);
     setTimeout(() => toast.remove(), 2500);
   }
-  window.hideStudentForAll = function(year, group, rollNorm) {
-    if (typeof window.__br_hideStudent !== 'function') { alert('DB not ready'); return Promise.reject('db'); }
-    return window.__br_hideStudent(year, group, rollNorm);
-  };
-  window.unhideStudentForAll = function(year, group, rollNorm) {
-    if (typeof window.__br_unhideStudent !== 'function') { alert('DB not ready'); return Promise.reject('db'); }
-    return window.__br_unhideStudent(year, group, rollNorm);
-  };
-  
   
 
 function promptComparison(roll, year, group) {
@@ -3203,9 +3116,155 @@ function initNavToggle() {
 
 
 
-
-
-  document.addEventListener('rank:data-ready', () => {
-    if (typeof updatePage === 'function') updatePage();
-  });
+  (function(){
+    // Guard to avoid re-entrancy
+    window.__br_applying = window.__br_applying || false;
+  
+    // ======================
+    // A. Helpers
+    // ======================
+    function maskWord(w){
+      const s = String(w || '');
+      if (s.length <= 2) return s.replace(/.(?=.)/g, '*');
+      return s[0] + '*'.repeat(s.length - 2) + s[s.length - 1];
+    }
+  
+    function maskName(full){
+      return String(full || '').split(/\s+/).map(maskWord).join(' ');
+    }
+  
+    function maskRollStr(r){
+      const s = String(r || '').trim();
+      if (s.length <= 2) return s.replace(/.(?=.)/g, '*');
+      return s[0] + '*'.repeat(Math.max(0, s.length - 2)) + s[s.length - 1]; // e.g. 1**9
+    }
+  
+    function safeSetText(el, val){
+      if (el && el.textContent !== val) el.textContent = val;
+    }
+  
+    // ======================
+    // B. Apply to table (names, rolls)
+    // ======================
+    function applyToTable(){
+      const ds = window.__br_displaySettings || {};
+      const showNames = (ds.showNames !== false);
+      const showRolls = (ds.showRolls !== false);
+  
+      document.querySelectorAll('.student-name h3').forEach(el=>{
+        if (!el.dataset.originalText) el.dataset.originalText = el.textContent || '';
+        const newVal = showNames ? el.dataset.originalText : maskName(el.dataset.originalText);
+        safeSetText(el, newVal);
+      });
+  
+      document.querySelectorAll('.student-roll').forEach(el=>{
+        if (!el.dataset.originalRoll) el.dataset.originalRoll = (el.textContent || '').trim();
+        const newVal = showRolls ? el.dataset.originalRoll : maskRollStr(el.dataset.originalRoll);
+        safeSetText(el, newVal);
+      });
+    }
+  
+    // ======================
+    // C. Apply to popup content (name, roll)
+    // ======================
+    function applyToPopup(){
+      const ds = window.__br_displaySettings || {};
+      const showNames = (ds.showNames !== false);
+      const showRolls = (ds.showRolls !== false);
+  
+      const pop = document.querySelector('.popup .popup-content');
+      if (!pop) return;
+  
+      pop.querySelectorAll('p').forEach(p=>{
+        const t = p.textContent || '';
+        if (/^Name:\s*/i.test(t)) {
+          const cur = t.replace(/^Name:\s*/i, '').trim();
+          if (!p.dataset.originalText) p.dataset.originalText = cur;
+          const newVal = 'Name: ' + (showNames ? p.dataset.originalText : maskName(p.dataset.originalText));
+          safeSetText(p, newVal);
+        } else if (/^Roll:\s*/i.test(t)) {
+          const cur = t.replace(/^Roll:\s*/i, '').trim();
+          if (!p.dataset.originalRoll) p.dataset.originalRoll = cur;
+          const newVal = 'Roll: ' + (showRolls ? p.dataset.originalRoll : maskRollStr(p.dataset.originalRoll));
+          safeSetText(p, newVal);
+        }
+      });
+    }
+  
+    // ======================
+    // D. Enable/disable Name Search
+    // ======================
+    function applyNameSearchToggle(){
+      const ds = window.__br_displaySettings || {};
+      const enableNameSearch = (ds.nameSearch !== false);
+      const nameInput = document.getElementById('searchInput');
+  
+      if (nameInput) {
+        nameInput.disabled = !enableNameSearch;
+        nameInput.placeholder = enableNameSearch ? 'Enter name' : 'Name search is disabled for now';
+        if (!enableNameSearch) {
+          nameInput.value = '';
+        }
+      }
+    }
+  
+    // ======================
+    // E. Expose single hook
+    // ======================
+    window.applyDisplaySettingsToDOM = function(){
+      if (window.__br_applying) return;
+      window.__br_applying = true;
+      try {
+        applyToTable();
+        applyToPopup();
+        applyNameSearchToggle();
+      } catch (e) {
+        console.error('applyDisplaySettingsToDOM error:', e);
+      } finally {
+        window.__br_applying = false;
+      }
+    };
+  
+    // ======================
+    // F. Re-apply after table or school rebuild
+    // ======================
+    if (typeof updateTableData === 'function' && !window.__br_wrap_updateTableData_v2) {
+      window.__br_wrap_updateTableData_v2 = true;
+      const _orig = updateTableData;
+      window.updateTableData = function(){
+        const r = _orig.apply(this, arguments);
+        setTimeout(()=>window.applyDisplaySettingsToDOM(), 0);
+        return r;
+      };
+    }
+  
+    if (typeof showSchoolRanking === 'function' && !window.__br_wrap_showSchoolRanking_v2) {
+      window.__br_wrap_showSchoolRanking_v2 = true;
+      const _orig2 = showSchoolRanking;
+      window.showSchoolRanking = function(){
+        const r = _orig2.apply(this, arguments);
+        setTimeout(()=>window.applyDisplaySettingsToDOM(), 0);
+        return r;
+      };
+    }
+  
+    // ======================
+    // G. Watch DOM for popups ONLY
+    // ======================
+    const obs = new MutationObserver((muts)=>{
+      let addedPopup = false;
+      for (const m of muts) {
+        for (const n of m.addedNodes) {
+          if (n.nodeType === 1 && (n.matches?.('.popup') || n.querySelector?.('.popup'))) {
+            addedPopup = true;
+            break;
+          }
+        }
+        if (addedPopup) break;
+      }
+      if (addedPopup) setTimeout(()=>window.applyDisplaySettingsToDOM(), 0);
+    });
+  
+    obs.observe(document.body, { childList:true, subtree:true });
+  })();
   
