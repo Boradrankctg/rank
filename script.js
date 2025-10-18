@@ -1,4 +1,6 @@
 const contentDiv = document.getElementById('content');
+function isAdmin(){ return localStorage.getItem('userId') === 'admin1234'; }
+
 const currentYear = document.getElementById('currentYear');
 const currentGroup = document.getElementById('currentGroup');
 const noDataMessage = document.getElementById('noDataMessage');
@@ -229,6 +231,37 @@ function showRankTipsPopup() {
   `;
   document.body.appendChild(popup);
   document.body.classList.add('locked');
+  (function(){
+    const pc = popup.querySelector('.popup-content');
+    if (!pc) return;
+    const r = String(roll);
+  
+    if (isAdmin()) {
+      const bar = document.createElement('div');
+      bar.className = 'admin-hidebar';
+      bar.innerHTML = `
+        <span>Admin</span>
+        <button id="hrHideBtn" class="btn-secondary" style="margin-left:8px;">Hide</button>
+        <button id="hrUnhideBtn" class="btn-secondary" style="margin-left:6px;display:none;">Unhide</button>
+      `;
+      pc.appendChild(bar);
+  
+      const applyState = () => {
+        const hidden = window.__br_hiddenRolls?.has(r);
+        pc.classList.toggle('admin-blur', hidden);
+        bar.querySelector('#hrHideBtn').style.display = hidden ? 'none' : 'inline-block';
+        bar.querySelector('#hrUnhideBtn').style.display = hidden ? 'inline-block' : 'none';
+      };
+      applyState();
+  
+      bar.querySelector('#hrHideBtn')?.addEventListener('click', async ()=>{ await window.hideResultRoll?.(r); applyState(); });
+      bar.querySelector('#hrUnhideBtn')?.addEventListener('click', async ()=>{ await window.unhideResultRoll?.(r); applyState(); });
+    } else if (window.__br_hiddenRolls?.has(r)) {
+      closePopup();
+      showErrorPopup("This result has been hidden by admin.");
+    }
+  })();
+  
 
   // Wire quick commands → open bot and send
   popup.querySelectorAll('.help-chip').forEach(btn=>{
@@ -631,6 +664,7 @@ try {
 
   document.body.appendChild(popup);
   document.body.classList.add('locked');
+  
   function looksFakeName(name) {
     if (!name) return true;
     const cleaned = name.trim();
@@ -947,7 +981,9 @@ try {
   console.error('Error updating URL for school:', e);
 }
 
-const schoolData = allData.filter(student => (student.Instituation || '').trim().toLowerCase() === schoolName.trim().toLowerCase());
+const schoolData = allData
+  .filter(student => (student.Instituation || '').trim().toLowerCase() === schoolName.trim().toLowerCase())
+  .filter(student => isAdmin() || !((window.__br_hiddenRolls || new Set()).has(String(student.roll))));
 schoolData.sort(compareStudents);
 
     if (schoolData.length === 0) {
@@ -1003,77 +1039,71 @@ function resetSchoolRanking() {
     loadGroup(currentYear.textContent.trim(), currentGroup.textContent.split(' ')[0]);
 }
 
-
 function updateTableData() {
   try { window.filteredData = filteredData; } catch(e){}
+  const hidden = window.__br_hiddenRolls || new Set();
+  const view = isAdmin() ? filteredData : filteredData.filter(s => !hidden.has(String(s.roll)));
 
-    const startIndex = (currentPage - 1) * studentsPerPage;
-    const endIndex = Math.min(startIndex + studentsPerPage, filteredData.length);
-    const dataToShow = filteredData.slice(startIndex, endIndex);
-    const tableBody = document.getElementById('studentTableBody');
-    tableBody.innerHTML = '';
-    dataToShow.forEach((student, index) => {
-        const row = document.createElement('tr');
-        
-// inside updateTableData(), for each student (replace the old row.innerHTML / listeners)
-const nameId = `name-${student.roll}`;
-const isAdmin = (localStorage.getItem('userId') === 'admin1234'); // matches your existing check
+  const startIndex = (currentPage - 1) * studentsPerPage;
+  const endIndex = Math.min(startIndex + studentsPerPage, view.length);
+  const dataToShow = view.slice(startIndex, endIndex);
 
-row.innerHTML = `
-  <td>${allData.findIndex(s => s.roll === student.roll) + 1}</td>
+  const tableBody = document.getElementById('studentTableBody');
+  tableBody.innerHTML = '';
 
-  <td class="student-name" id="${nameId}">
-    <h3 itemprop="name">${student.name}</h3>
-    ${isAdmin ? `<span>[${(window.clickCountsCache && window.clickCountsCache[student.roll]) || 0}]</span>` : ''}
-  </td>
+  dataToShow.forEach((student) => {
+    const row = document.createElement('tr');
+    const nameId = `name-${student.roll}`;
+    const adminView = isAdmin();
 
-  <td class="student-roll">${student.roll}</td>
-  <td>${student.gpa}</td>
-  <td>${student.total}</td>
+    row.innerHTML = `
+      <td>${allData.findIndex(s => s.roll === student.roll) + 1}</td>
+      <td class="student-name" id="${nameId}">
+        <h3 itemprop="name">${student.name}</h3>
+        ${adminView ? `<span class="hide-eye" data-roll="${student.roll}" title="Hide/Unhide">👁️</span>` : ''}
+        ${adminView && window.__br_hiddenRolls?.has(String(student.roll)) ? `<span class="click-count" style="color:#b91c1c;font-weight:900;margin-left:6px;">HIDDEN</span>` : ''}
+      </td>
+      <td class="student-roll">${student.roll}</td>
+      <td>${student.gpa}</td>
+      <td>${student.total}</td>
+      <td class="student-school"><h4 itemprop="affiliation">${student.Instituation}</h4></td>
+    `;
 
-  <td class="student-school">
-    <h4 itemprop="affiliation">${student.Instituation}</h4>
-  </td>
-`;
-
-
-// name click -> increment counter (if helper available) then open popup (with existing check)
-const nameCell = row.querySelector('.student-name');
-nameCell.addEventListener('click', () => {
-  if (typeof window.incrementClickCount === 'function') {
-    try { window.incrementClickCount(student.roll); } catch(e){ console.error(e); }
-  }
-  showIndividualResultWithCheck(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
-});
-
-// roll cell should behave same as before
-row.querySelector('.student-roll').addEventListener('click', () => {
-  if (typeof window.incrementClickCount === 'function') {
-    try { window.incrementClickCount(student.roll); } catch(e){ console.error(e); }
-  }
-  showIndividualResultWithCheck(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
-});
-
-// update school click as before
-row.querySelector('.student-school').addEventListener('click', () => {
-  showSchoolRanking(student.Instituation.trim());
-});
-
-// if admin, attach a real-time listener once so the [count] updates live
-if (isAdmin && typeof window.listenClickCount === 'function' && !window._br_clickListenerSet.has(student.roll)) {
-  window._br_clickListenerSet.add(student.roll);
-  window.listenClickCount(student.roll, (val) => {
-    const el = document.getElementById(nameId);
-    if (el) el.textContent = `${student.name} [${val}]`;
-  });
-}
-
-
-        tableBody.appendChild(row);
+    const nameCell = row.querySelector('.student-name');
+    nameCell.addEventListener('click', (e) => {
+      if (e.target.classList.contains('hide-eye')) return;
+      if (typeof window.incrementClickCount === 'function') window.incrementClickCount(student.roll);
+      showIndividualResultWithCheck(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
     });
 
-    document.getElementById('paginationInfo').textContent = `Showing ${startIndex + 1}-${endIndex} of ${filteredData.length} students`;
-    updatePaginationButtons();
+    if (adminView) {
+      const eye = row.querySelector('.hide-eye');
+      if (eye) {
+        eye.addEventListener('click', async (ev) => {
+          ev.stopPropagation();
+          const r = String(ev.currentTarget.dataset.roll || student.roll);
+          const hiddenNow = window.__br_hiddenRolls?.has(r);
+          if (hiddenNow) await window.unhideResultRoll?.(r);
+          else await window.hideResultRoll?.(r);
+        });
+      }
+    }
+
+    row.querySelector('.student-roll').addEventListener('click', () => {
+      if (typeof window.incrementClickCount === 'function') window.incrementClickCount(student.roll);
+      showIndividualResultWithCheck(student.roll, currentYear.textContent.split(' ')[1], currentGroup.textContent.split(' ')[0]);
+    });
+
+    row.querySelector('.student-school').addEventListener('click', () => {
+      showSchoolRanking(student.Instituation.trim());
+    });
+
+    tableBody.appendChild(row);
+  });
+
+  const info = document.getElementById('paginationInfo');
+  info.textContent = `Showing ${view.length ? (startIndex + 1) : 0}-${endIndex} of ${view.length} students`;
+  updatePaginationButtons();
 }
 
 
@@ -1138,9 +1168,15 @@ function handleNextButtonClick() {
     }
 }
 
+function getVisibleLength() {
+  const hidden = window.__br_hiddenRolls || new Set();
+  return isAdmin() ? filteredData.length : filteredData.filter(s => !hidden.has(String(s.roll))).length;
+}
 function updatePaginationButtons() {
-    document.getElementById('prevBtn').disabled = currentPage === 1;
-    document.getElementById('nextBtn').disabled = currentPage === Math.ceil(filteredData.length / studentsPerPage) || filteredData.length === 0;
+  const visibleLen = getVisibleLength();
+  const maxPage = Math.ceil(visibleLen / studentsPerPage) || 1;
+  document.getElementById('prevBtn').disabled = currentPage === 1;
+  document.getElementById('nextBtn').disabled = currentPage >= maxPage || visibleLen === 0;
 }
 
 function handleSearchInput() {
@@ -1399,6 +1435,11 @@ function animateNumber(elementId, targetNumber) {
 }
 
 function showIndividualResult(roll, year, group) {
+  if (!isAdmin() && window.__br_hiddenRolls?.has(String(roll))) {
+    showErrorPopup("This result has been hidden by admin.");
+    return;
+  }
+
     if (document.querySelector('.popup')) return; // Prevent multiple popups
 
     const fileName = `data_${year}_${group.toLowerCase()}_individual.txt`;
@@ -1557,6 +1598,37 @@ try {
             popup.innerHTML = popupContent;
             document.body.appendChild(popup);
             document.body.classList.add('locked');
+            (function(){
+              const pc = popup.querySelector('.popup-content');
+              if (!pc) return;
+              const r = String(roll);
+            
+              if (isAdmin()) {
+                const bar = document.createElement('div');
+                bar.className = 'admin-hidebar';
+                bar.innerHTML = `
+                  <span>Admin</span>
+                  <button id="hrHideBtn" class="btn-secondary" style="margin-left:8px;">Hide</button>
+                  <button id="hrUnhideBtn" class="btn-secondary" style="margin-left:6px;display:none;">Unhide</button>
+                `;
+                pc.appendChild(bar);
+            
+                const applyState = () => {
+                  const hidden = window.__br_hiddenRolls?.has(r);
+                  pc.classList.toggle('admin-blur', hidden);
+                  bar.querySelector('#hrHideBtn').style.display = hidden ? 'none' : 'inline-block';
+                  bar.querySelector('#hrUnhideBtn').style.display = hidden ? 'inline-block' : 'none';
+                };
+                applyState();
+            
+                bar.querySelector('#hrHideBtn')?.addEventListener('click', async ()=>{ await window.hideResultRoll?.(r); applyState(); });
+                bar.querySelector('#hrUnhideBtn')?.addEventListener('click', async ()=>{ await window.unhideResultRoll?.(r); applyState(); });
+              } else if (window.__br_hiddenRolls?.has(r)) {
+                closePopup();
+                showErrorPopup("This result has been hidden by admin.");
+              }
+            })();
+            
         })
         .catch(error => {
             console.error('Error loading individual data:', error);
