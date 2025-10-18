@@ -147,23 +147,15 @@ main.insertAdjacentHTML('afterbegin', loginHtml);
   
     onAuthStateChanged(auth, user => {
       if (user && user.uid === ADMIN_UID) {
-  document.getElementById('adminLoginBox').style.display = 'none';
-  initAnnouncementPanel();
-  loadVisitors();
+    document.getElementById('adminLoginBox').style.display = 'none';
+    initAnnouncementPanel();
+initDisplayControlsPanel();
+loadVisitors();
 
-  // 🟩 ADD THIS
-  localStorage.setItem('br:isAdmin','1');
-
-} else {
-  document.getElementById('adminLoginBox').style.display = 'block';
-  container.innerHTML = `<tr><td colspan="10" style="text-align:center;color:#b71c1c;">
-    Admin access required. Please login.
-  </td></tr>`;
-
-  // 🟥 ADD THIS
-  localStorage.removeItem('br:isAdmin');
-}
-
+      } else {
+        document.getElementById('adminLoginBox').style.display = 'block';
+        container.innerHTML = `<tr><td colspan="10" style="text-align:center;color:#b71c1c;">Admin access required. Please login.</td></tr>`;
+      }
     });
   
     loginBtn.addEventListener('click', async () => {
@@ -184,11 +176,9 @@ main.insertAdjacentHTML('afterbegin', loginHtml);
     });
   
     logoutBtn.addEventListener('click', async () => {
-  localStorage.removeItem('br:isAdmin'); // 🟩 ADD THIS
-  await signOut(auth);
-  location.reload();
-});
-
+      await signOut(auth);
+      location.reload();
+    });
   
     function loadVisitors() {
       const visitorsRef = ref(db, "visitors");
@@ -309,6 +299,34 @@ tr.innerHTML = `
       });
     };
 
+    function initDisplayControlsPanel() {
+  if (document.getElementById('displayControls')) return;
+  const html = `
+    <section id="displayControls" style="max-width:900px;margin:12px auto;padding:12px;border:2px solid #334155;border-radius:10px;background:#f8fafc;">
+      <h3 style="margin:6px 0;">🛠️ Display Controls (Global)</h3>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+        <label><input type="checkbox" id="optNameSearch" checked /> Name Search</label>
+        <label><input type="checkbox" id="optShowNames" checked /> Show Name</label>
+        <label><input type="checkbox" id="optShowRolls" checked /> Show Roll</label>
+      </div>
+      <small style="display:block;margin-top:6px;color:#555;">Changes apply for everyone in real-time.</small>
+    </section>
+  `;
+  const ann = document.getElementById('annPanel');
+  (ann ? ann : document.querySelector('main')).insertAdjacentHTML('afterend', html);
+
+  const dRef = ref(db, 'displaySettings');
+  onValue(dRef, (snap) => {
+    const v = snap.val() || {};
+    document.getElementById('optNameSearch').checked = (v.nameSearch !== false);
+    document.getElementById('optShowNames').checked = (v.showNames !== false);
+    document.getElementById('optShowRolls').checked = (v.showRolls !== false);
+  });
+
+  document.getElementById('optNameSearch').addEventListener('change', e => update(dRef, { nameSearch: e.target.checked, updatedAt: Date.now() }));
+  document.getElementById('optShowNames').addEventListener('change', e => update(dRef, { showNames: e.target.checked, updatedAt: Date.now() }));
+  document.getElementById('optShowRolls').addEventListener('change', e => update(dRef, { showRolls: e.target.checked, updatedAt: Date.now() }));
+}
 
      // Parse duration like "30m", "2h", "3d", "1w" or "forever"
   window.parseBanDuration = function(str) {
