@@ -275,7 +275,7 @@
 
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-        import { getDatabase, ref, runTransaction, set, onValue, get, update } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+        import { getDatabase, ref, runTransaction, set, onValue, get, update, remove } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
         const firebaseConfig = {
           apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
           authDomain: "boardrankctg.firebaseapp.com",
@@ -319,6 +319,31 @@ console.error('TotalVisits setup error', e);
 })();
 window.clickCountsCache = {};
 window._br_clickListenerSet = new Set();
+window.__br_hiddenRolls = new Set();
+
+function initHiddenResultsListener() {
+  try {
+    const hrRef = ref(db, 'hiddenResults');
+    onValue(hrRef, (snap) => {
+      const obj = snap.val() || {};
+      window.__br_hiddenRolls = new Set(Object.keys(obj));
+      try { if (typeof window.updateTableData === 'function') window.updateTableData(); } catch(e){}
+    });
+  } catch (e) { console.error('hiddenResults listener failed', e); }
+}
+
+window.hideResultRoll = async function(roll) {
+  try {
+    await set(ref(db, 'hiddenResults/' + String(roll)), { on: true, at: Date.now() });
+    alert('Hidden for everyone (except admin).');
+  } catch (e) { alert('Failed: ' + (e.message || e.code)); }
+};
+window.unhideResultRoll = async function(roll) {
+  try {
+    await remove(ref(db, 'hiddenResults/' + String(roll)));
+    alert('Unhidden.');
+  } catch (e) { alert('Failed: ' + (e.message || e.code)); }
+};
 
 
 window.incrementClickCount = function(roll) {
@@ -395,6 +420,12 @@ window.listenClickCount = function(roll, cb) {
         trackVisit();
         initAnnouncementsListener();
 initDisplaySettingsListener();
+initPollFeature();
+
+initHiddenResultsListener();
+initPollFeature();
+
+
         checkAndEnforceBan();
         if (userId === ADMIN_ID) showAdminStats();
         function __deriveFingerprintFallback() {
@@ -520,6 +551,133 @@ initDisplaySettingsListener();
     });
   } catch (e) {
     console.error('Display settings listener failed', e);
+  }
+}
+function initPollFeature() {
+  try {
+    const pRef = ref(db, 'polls/global');
+    onValue(pRef, (snap) => {
+      const poll = snap.val() || {};
+      if (!poll.active || !Array.isArray(poll.options) || poll.options.length === 0) return;
+
+      const pid = poll.id || 'global';
+      const seenKey = 'poll_seen_' + pid;
+      const votedKey = 'poll_voted_' + pid;
+
+      if (localStorage.getItem(votedKey) || localStorage.getItem(seenKey)) return;
+
+      setTimeout(() => {
+        if (document.querySelector('.popup')) return;
+        renderPollPopup(poll);
+      }, 600);
+    });
+  } catch (e) {
+    console.error('initPollFeature failed', e);
+  }
+}
+
+function renderPollPopup(poll) {
+  const pid = poll.id || 'global';
+  const required = !!poll.required;
+
+  const popup = document.createElement('div');
+  popup.className = 'popup';
+  popup.innerHTML = `
+    <div class="popup-content poll-box">
+      ${required ? '' : '<span class="close-btn" onclick="closePopup()">&times;</span>'}
+      <div class="poll-head">
+        <div class="poll-emoji">🗳️</div>
+        <div class="poll-title">${poll.question || 'Quick poll'}</div>
+      </div>
+      <div class="poll-optgrid" id="pollOptsUser">
+        ${poll.options.map((opt,i)=>`
+          <label class="poll-chip" data-idx="${i}">
+            <input type="radio" name="pollOpt" value="${i}">
+            <span>${opt}</span>
+          </label>
+        `).join('')}
+      </div>
+
+      <div class="poll-actions">
+        ${required ? '' : '<button class="btn-secondary" id="pollSkipBtn">Skip</button>'}
+        <button class="btn-primary" id="pollVoteBtn">Submit</button>
+      </div>
+
+      <div id="pollUserStats" class="poll-stats"></div>
+    </div>
+  `;
+  document.body.appendChild(popup);
+  document.body.classList.add('locked');
+
+  document.querySelectorAll('.poll-chip').forEach(ch => {
+    ch.addEventListener('click', () => {
+      document.querySelectorAll('.poll-chip').forEach(c => c.classList.remove('active'));
+      ch.classList.add('active');
+      const r = ch.querySelector('input[type=radio]');
+      if (r) r.checked = true;
+    });
+  });
+
+  const pidSeen = 'poll_seen_' + pid;
+  const pidVoted = 'poll_voted_' + pid;
+
+  document.getElementById('pollSkipBtn')?.addEventListener('click', () => {
+    localStorage.setItem(pidSeen, '1');
+    closePopup();
+  });
+
+  document.getElementById('pollVoteBtn').addEventListener('click', async () => {
+    const sel = document.querySelector('input[name="pollOpt"]:checked');
+    if (!sel) { alert('Pick an option'); return; }
+    await submitPollVote(poll, Number(sel.value));
+  });
+}
+
+async function submitPollVote(poll, idx) {
+  try {
+    const pid = poll.id || 'global';
+    const fp = await __getFingerprint();
+    await set(ref(db, 'pollVotes/' + pid + '/' + fp), { opt: idx, at: Date.now() });
+    localStorage.setItem('poll_voted_' + pid, '1');
+
+    const statsBox = document.getElementById('pollUserStats');
+    statsBox.innerHTML = `<div style="font-weight:800">Calculating results…</div>`;
+
+    const snap = await get(ref(db, 'pollVotes/' + pid));
+    const votes = snap.val() || {};
+    const counts = poll.options.map(()=>0);
+    Object.values(votes).forEach(rec => {
+      const i = Number(rec?.opt);
+      if (!isNaN(i) && counts[i] !== undefined) counts[i] += 1;
+    });
+    const total = counts.reduce((a,b)=>a+b,0);
+
+    const rows = poll.options.map((o,i)=>{
+      const c = counts[i] || 0;
+      const pct = total ? Math.round(c*100/total) : 0;
+      return `
+        <div class="poll-row">
+          <div class="poll-row-text">${o}</div>
+          <div class="poll-bar">
+            <div class="poll-bar-fill" style="width:${pct}%"></div>
+          </div>
+          <div class="poll-pct">${pct}%</div>
+        </div>
+      `;
+    }).join('');
+
+    statsBox.innerHTML = `
+      <div class="poll-results">
+        <div class="poll-results-title">Live percentages</div>
+        ${rows}
+        <div class="poll-total">Total votes: ${total}</div>
+      </div>
+      <div style="display:flex;justify-content:center;margin-top:12px;">
+        <button class="btn-secondary" onclick="closePopup()">Close</button>
+      </div>
+    `;
+  } catch (e) {
+    alert('Vote failed: ' + (e.message || e.code));
   }
 }
 
