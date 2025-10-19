@@ -396,26 +396,27 @@ window.listenClickCount = function(roll, cb) {
       
 
         function showAdminStats() {
-          const box = document.createElement("div");
-          box.style = "max-width: 600px; margin: 30px auto; padding: 12px; border: 2px solid #333; background: #f8f8f8;";
-          box.innerHTML = `<h3>📊 Site Stats (Admin Only)</h3><div id="visitStats">Loading...</div>`;
-          document.body.appendChild(box);
-      
-          const statsRef = ref(db, "siteStats");
-      
-          onValue(statsRef, (snapshot) => {
-            const data = snapshot.val() || {};
-            const total = data.totalVisits || 0;
-            const active = data.activeUsers || {};
-            const now = Date.now();
-            const live = Object.values(active).filter(ts => now - ts < 5 * 60 * 1000).length;
-      
-            document.getElementById("visitStats").innerHTML = `
-              👁️ Total Visits: <strong>${total}</strong><br />
-              🟢 Live Visitors (past 5 min): <strong>${live}</strong>
-            `;
-          });
-        }
+  const box = document.createElement("div");
+  box.className = "admin-stats-box"; // use a class instead of inline bg
+  box.innerHTML = `<h3>📊 Site Stats (Admin Only)</h3><div id="visitStats">Loading...</div>`;
+  document.body.appendChild(box);
+
+  const statsRef = ref(db, "siteStats");
+
+  onValue(statsRef, (snapshot) => {
+    const data = snapshot.val() || {};
+    const total = data.totalVisits || 0;
+    const active = data.activeUsers || {};
+    const now = Date.now();
+    const live = Object.values(active).filter(ts => now - ts < 5 * 60 * 1000).length;
+
+    document.getElementById("visitStats").innerHTML = `
+      👁️ Total Visits: <strong>${total}</strong><br />
+      🟢 Live Visitors (past 5 min): <strong>${live}</strong>
+    `;
+  });
+}
+
       
         trackVisit();
         initAnnouncementsListener();
