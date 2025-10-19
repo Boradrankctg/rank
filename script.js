@@ -402,6 +402,8 @@ const studentsPerPage = 100;
 let currentPage = 1;
 const InstituationSet = new Set();
 window.InstituationSet = InstituationSet;
+window._br_clickListenerSet = window._br_clickListenerSet || new Set();
+
 
 
 function fetchData(year, group) {
@@ -1058,11 +1060,13 @@ function updateTableData() {
 
     row.innerHTML = `
       <td>${allData.findIndex(s => s.roll === student.roll) + 1}</td>
-      <td class="student-name" id="${nameId}">
-        <h3 itemprop="name">${student.name}</h3>
-        ${adminView ? `<span class="hide-eye" data-roll="${student.roll}" title="Hide/Unhide">👁️</span>` : ''}
-        ${adminView && window.__br_hiddenRolls?.has(String(student.roll)) ? `<span class="click-count" style="color:#b91c1c;font-weight:900;margin-left:6px;">HIDDEN</span>` : ''}
-      </td>
+ <td class="student-name" id="${nameId}"> 
+  <h3 itemprop="name">${student.name}</h3> 
+  ${adminView ? `<span class="click-count" data-roll="${student.roll}" title="Opens count" style="margin-left:6px;color:#64748b;font-weight:600;">[${(window.clickCountsCache && window.clickCountsCache[student.roll]) || 0}]</span>` : ''} 
+  ${adminView ? `<span class="hide-eye" data-roll="${student.roll}" title="Hide/Unhide">👁️</span>` : ''} 
+  ${adminView && window.__br_hiddenRolls?.has(String(student.roll)) ? `<span class="click-count" style="color:#b91c1c;font-weight:900;margin-left:6px;">HIDDEN</span>` : ''} 
+</td>
+
       <td class="student-roll">${student.roll}</td>
       <td>${student.gpa}</td>
       <td>${student.total}</td>
@@ -1098,7 +1102,20 @@ function updateTableData() {
       showSchoolRanking(student.Instituation.trim());
     });
 
+  
     tableBody.appendChild(row);
+    if (adminView && typeof window.listenClickCount === 'function') {
+      const r = student.roll;
+      window._br_clickListenerSet = window._br_clickListenerSet || new Set();
+      if (!window._br_clickListenerSet.has(r)) {
+        window._br_clickListenerSet.add(r);
+        window.listenClickCount(r, (val) => {
+          const span = document.querySelector(`.student-name .click-count[data-roll="${r}"]`);
+          if (span) span.textContent = `[${val}]`;
+        });
+      }
+    }
+    
   });
 
   const info = document.getElementById('paginationInfo');
