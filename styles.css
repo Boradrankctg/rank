@@ -766,3 +766,54 @@ body.dark-mode .poll-chip.active { background:#0f172a; border-color:#2563eb; }
 body.dark-mode .poll-bar { background:#1f2937; }
 body.dark-mode .poll-bar-fill { background:linear-gradient(90deg, #2563eb, #38bdf8); }
 body.dark-mode .poll-results { border-color:#334155; }
+/* GPA shine when all subjects ≥ 79.5% */
+.gpa-shine {
+  font-weight: 900;
+  color: #facc15; /* gold tone */
+  text-shadow:
+    0 0 6px rgba(250, 204, 21, 0.8),
+    0 0 12px rgba(245, 158, 11, 0.7),
+    0 0 18px rgba(250, 204, 21, 0.5);
+  animation: glowPulse 2s ease-in-out infinite alternate;
+}
+
+body.dark-mode .gpa-shine {
+  color: #fde68a; /* lighter gold for contrast */
+  text-shadow:
+    0 0 8px rgba(253, 224, 71, 0.9),
+    0 0 16px rgba(245, 158, 11, 0.8),
+    0 0 24px rgba(250, 204, 21, 0.6);
+}
+
+/* smooth pulsing glow animation */
+@keyframes glowPulse {
+  0% {
+    text-shadow:
+      0 0 4px rgba(250, 204, 21, 0.5),
+      0 0 8px rgba(245, 158, 11, 0.4),
+      0 0 12px rgba(250, 204, 21, 0.3);
+    transform: scale(1);
+  }
+  100% {
+    text-shadow:
+      0 0 8px rgba(250, 204, 21, 0.9),
+      0 0 16px rgba(245, 158, 11, 0.8),
+      0 0 24px rgba(250, 204, 21, 0.6);
+    transform: scale(1.05);
+  }
+}
+.admin-stats-box {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 12px;
+  border: 2px solid #333;
+  background: #f8f8f8;
+  color: #111;
+}
+
+/* Dark mode */
+body.dark-mode .admin-stats-box {
+  background: #111;
+  color: #eee;
+  border-color: #444;
+}
