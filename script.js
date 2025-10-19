@@ -928,16 +928,63 @@ function processData(mainData, individualData) {
 }
 
 function parseIndividualData(data) {
-    if (!data) return {};
-    const rows = data.trim().split('\n');
-    const scores = {};
-    rows.forEach(row => {
-        const [roll, , , , , , phy, chem, math] = row.split('\t');
-        scores[roll] = { phy: parseInt(phy), chem: parseInt(chem), math: parseInt(math) };
-    });
-    console.log('Parsed individual scores:', scores);
-    return scores;
+  if (!data) return {};
+  const meta = (window.__br_currentDatasetMeta || {});
+  const rows = data.trim().split('\n');
+  const scores = {};
+
+  rows.forEach(row => {
+      const cols = row.split('\t');
+      const roll = (cols[0] || '').trim();
+
+      // Keep existing tie-break fields so nothing breaks
+      // These indexes match your old code:
+      const phy = parseInt(cols[6]);
+      const chem = parseInt(cols[7]);
+      const math = parseInt(cols[8]); // same as your old destructuring
+
+      // Detect exam type for totals (HSC rows are shorter)
+      const isHSC = (String(meta.year || '').includes('hsc')) || (cols.length <= 8);
+
+      // Subject totals map (by column index)
+      let subjectIdxTotals;
+      if (isHSC) {
+        // HSC: roll + 7 subjects => [1..7]
+        // 200: Bangla, English, Physics, Chemistry, Compulsory, Optional
+        // 100: ICT
+        subjectIdxTotals = [
+          [1,200],[2,200],[3,100],[4,200],[5,200],[6,200],[7,200]
+        ];
+      } else {
+        // SSC: roll + 12 subjects => [1..12]
+        // 200: Bangla, English
+        // 100: Math, BGS, Religion, Physics, Chemistry, Compulsory, Optional, Physical
+        // 50:  ICT, Career
+        subjectIdxTotals = [
+          [1,200],[2,200],[3,100],[4,100],[5,100],[6,100],
+          [7,100],[8,100],[9,50],[10,100],[11,100],[12,50]
+        ];
+      }
+
+      const allAPlus = subjectIdxTotals.every(([idx, total]) => {
+        const m = parseFloat(cols[idx]);
+        if (isNaN(m)) return false; // missing mark => not all A+
+        const pct = (m / total) * 100;
+        return pct >= 79.5;
+      });
+
+      scores[roll] = {
+        phy: isNaN(phy) ? undefined : phy,
+        chem: isNaN(chem) ? undefined : chem,
+        math: isNaN(math) ? undefined : math,
+        allAPlus
+      };
+  });
+
+  console.log('Parsed individual scores (with allAPlus):', scores);
+  return scores;
 }
+
 
 function compareStudents(a, b) {
     if (a.gpa !== b.gpa) return b.gpa - a.gpa;
@@ -1025,7 +1072,7 @@ schoolData.sort(compareStudents);
   })()
 ">${student.roll}</td>
 
-                            <td>${student.gpa}</td>
+<td><span class="${student.allAPlus ? 'gpa-shine' : ''}" title="${student.allAPlus ? 'All subjects ≥ 79.5%' : ''}">${student.gpa}</span></td>
                             <td>${student.total}</td>
                             <td class="student-school">${student.Instituation}</td>
                         </tr>
@@ -1068,7 +1115,7 @@ function updateTableData() {
 </td>
 
       <td class="student-roll">${student.roll}</td>
-      <td>${student.gpa}</td>
+<td><span class="${student.allAPlus ? 'gpa-shine' : ''}" title="${student.allAPlus ? 'All subjects ≥ 79.5%' : ''}">${student.gpa}</span></td>
       <td>${student.total}</td>
       <td class="student-school"><h4 itemprop="affiliation">${student.Instituation}</h4></td>
     `;
@@ -1495,6 +1542,7 @@ function showIndividualResult(roll, year, group) {
                         popupContent = `<div class="popup-content"><p>Result not found</p><button class="back-button" onclick="closePopup()">Back</button></div>`;
                     } else {
                         const [roll, bangla, english, ICT, physics, chemistry, compulsory, optional] = parts;
+                        
                         const student = allData.find(student => student.roll === parseInt(roll));
                         try { updateSEOForStudent(year, group, student.name, roll); } catch(e) {}
               
@@ -2289,6 +2337,8 @@ function resetMobileFilters(){
 ,
       fetch(individualDataUrl).then(response => response.text()).catch(() => null)
     ]).then(([mainData, individualData]) => {
+      window.__br_currentDatasetMeta = { year, group };
+
       processData(mainData, individualData);
       populateInstituationDropdown();
       enableInstitutionSearchDropdown();
@@ -2560,6 +2610,7 @@ function _br_normalizeName(s) {
   
         const groups = ['science', 'commerce', 'arts'];
         const cache = { byName: new Map(), byRoll: new Map() };
+        
         let fetchPromises = groups.map(g => {
           const fileMain = `data_${sscYearNum}_${g}.txt`;
           return fetch(fileMain).then(r => {
