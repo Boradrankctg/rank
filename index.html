@@ -1,714 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-    <title>SSC & HSC Board Rank — Chittagong Board (Unofficial)</title>
-    <meta name="description" content="View unofficial SSC & HSC rankings for Chattogram/Chittagong Board with marks list. Fast, easy, with GPA, total marks, and school comparisons.">
-    <meta name="keywords" content="SSC 2025, SSC Result 2025, Board Rank, Chittagong Board Rank, Bangladesh SSC Rank, SSC 2025 Rank, HSC 2024 Result, SSC 2024 Result, Board-wise Rank, CTG Board Result, GPA Rank Bangladesh">
-    <meta name="author" content="Hasnyne" />
-    <meta name="robots" content="index, follow" />
-    <meta name="google-site-verification" content="siNtiPjvsyElA07czENYNNvVQicPoBsDL_dU5cwSVQ0" />
-  
-    <link rel="canonical" href="https://boradrankctg.github.io/rank/" />
-  
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="SSC & HSC Board Rank — Chittagong Board (Unofficial)" />
-    <meta property="og:description" content="Unofficial SSC 2025 rankings for Chittagong Board and Bangladesh. Search by roll number, compare schools, view GPA, marks, and ranks easily." />
-    <meta property="og:url" content="https://boradrankctg.github.io/rank/" />
-    <meta property="og:type" content="website" />
-    <!-- Default OG image -->
-    <meta property="og:image" content="https://og-playground.vercel.app/api/og?title=BoardRankCTG&subtitle=SSC%20%26%20HSC%20Rankings%20%E2%80%94%20Chattogram%20Board" />
-    <meta name="twitter:card" content="summary_large_image" />
-  
-    <!-- Stylesheets -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
-  
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
-    <!-- html2canvas for Share as Image -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-f7n3GfUINp0dF2kIgwTQ5Q/NFOTdI1N3r2rOeGd8GvK7m9VB6g8lO6D8Dq/7Hc5VQsr6QyQGHTpM4RwFgq3GEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
-    <!-- Favicons -->
-    <link rel="icon" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/icons/trophy-line.svg" type="image/svg+xml" />
-    <!-- PWA / Manifest -->
-    <link rel="manifest" href="/rank/manifest.json">
-    <link rel="apple-touch-icon" href="/rank/icons/icon-192.png">
-    <meta name="theme-color" content="#2563eb">
-    <!-- Sitemap (optional) -->
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/rank/sitemap.xml">
-    <!-- CSP (Report-Only) -->
-    <meta http-equiv="Content-Security-Policy-Report-Only" content="default-src 'self' https://boradrankctg.github.io; script-src 'self' https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app https://www.gstatic.com https://firebaseinstallations.googleapis.com https://firebasestorage.googleapis.com; worker-src 'self'; frame-ancestors 'self'; upgrade-insecure-requests">
-  </head>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SSC & HSC Board Rank — Chittagong Board (Unofficial)</title>
+<meta name="description" content="View unofficial SSC & HSC rankings for Chattogram/Chittagong Board with marks list. Fast, easy, with GPA, total marks, and school comparisons.">
+<meta name="keywords" content="SSC 2025, SSC Result 2025, Board Rank, Chittagong Board Rank, Bangladesh SSC Rank, SSC 2025 Rank, HSC 2024 Result, SSC 2024 Result, Board-wise Rank, CTG Board Result, GPA Rank Bangladesh">
+<meta name="author" content="Hasnyne" />
+<meta name="robots" content="index, follow" />
+<meta name="google-site-verification" content="siNtiPjvsyElA07czENYNNvVQicPoBsDL_dU5cwSVQ0" />
+<link rel="canonical" href="https://boradrankctg.github.io/rank/" />
+<meta property="og:title" content="SSC & HSC Board Rank — Chittagong Board (Unofficial)" />
+<meta property="og:description" content="Unofficial SSC 2025 rankings for Chittagong Board and Bangladesh. Search by roll number, compare schools, view GPA, marks, and ranks easily." />
+<meta property="og:url" content="https://boradrankctg.github.io/rank/" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://og-playground.vercel.app/api/og?title=BoardRankCTG&subtitle=SSC%20%26%20HSC%20Rankings%20%E2%80%94%20Chattogram%20Board" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-f7n3GfUINp0dF2kIgwTQ5Q/NFOTdI1N3r2rOeGd8GvK7m9VB6g8lO6D8Dq/7Hc5VQsr6QyQGHTpM4RwFgq3GEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="icon" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/icons/trophy-line.svg" type="image/svg+xml" />
+<link rel="manifest" href="/rank/manifest.json">
+<link rel="apple-touch-icon" href="/rank/icons/icon-192.png">
+<meta name="theme-color" content="#2563eb">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/rank/sitemap.xml">
+<meta http-equiv="Content-Security-Policy-Report-Only" content="default-src 'self' https://boradrankctg.github.io; script-src 'self' https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app https://www.gstatic.com https://firebaseinstallations.googleapis.com https://firebasestorage.googleapis.com; worker-src 'self'; frame-ancestors 'self'; upgrade-insecure-requests">
+</head>
 
-  <body>
-    <!-- New Pro Hero -->
-    <section class="hero hero-pro" aria-label="BoardRank Hero">
-      <div class="hero-bg">
-        <span class="blob b1"></span>
-        <span class="blob b2"></span>
-        <span class="blob b3"></span>
-        <span class="grid-lines"></span>
-      </div>
-
-      <div class="hero-inner">
-        <div class="hero-grid">
-          <div class="hero-left">
-            <div class="hero-eyebrow">
-              <i class="ri-shield-star-line"></i> Chattogram Board • Hasnyne
-            </div>
-
-            <h1>
-              SSC & HSC Board Rankings
-            </h1>
-
-            <p class="hero-sub">
-              All SSC AND HSC students ranking since 2022
-            </p>
-
-    
-
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <nav aria-label="breadcrumb">
-        <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#" id="currentYear">Year</a></li>
-            <li id="currentGroup" style="display:none;"></li>
-        </ul>
-    </nav>
-
-    <nav class="app-nav" role="navigation">
-      <div class="nav-inner">
-        <a class="brand" href="index.html">🎓 BoardRankCTG</a>
-    
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-          <i class="ri-menu-line"></i>
-        </button>
-    
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html"><i class="fas fa-house-chimney"></i> Home</a></li>
-          <li><a href="about.html"><i class="fas fa-user-tie"></i> About</a></li>
-          <li><a href="review.html"><i class="fas fa-star-half-stroke"></i> Reviews</a></li>
-          <li><a href="contactus.html"><i class="fas fa-envelope-open-text"></i> Contact</a></li>
-    
-          <li><button id="helpBtn" class="linklike"><i class="fas fa-question-circle"></i> Help</button></li>
-          <li><button id="shareBtn" class="linklike"><i class="ri-share-line"></i> Share</button></li>
-          <li><a href="visitors.html" id="visitorsLink"><i class="fas fa-users"></i> Visitors</a></li>
-    
-          <li class="divider"></li>
-          <li>
-            <label class="theme-switch" title="Toggle theme">
-              <input type="checkbox" id="themeToggle" />
-              <span class="slider" aria-hidden="true"></span>
-              <span class="label">Dark mode</span>
-            </label>
-          </li>
-        </ul>
-      </div>
-    
-      <div class="nav-overlay" id="navOverlay"></div>
-    </nav>
-    
-    <div id="customBanner" class="info-banner">
-      ⚠️ This is not an official rank. It's prepared based on publicly available data.
-    </div>
-    <div id="annBanner" class="ann-banner type-info" style="display:none;">
-      <div class="ann-inner">
-        <div class="ann-text" id="annText"></div>
-        <a id="annBtn" class="ann-btn" href="#" target="_blank" rel="noopener" style="display:none;">Learn more</a>
-      </div>
-    </div>
-
-    
-    <main>
-        <section>
-    
-          <p id="selectPrompt">
-            PLEASE SELECT EXAM AND YEAR <i class="fas fa-arrow-down down-arrow"></i>
-          </p>
-          
-          
-          <div class="year-dropdown">
-                          <select id="yearDropdown" onchange="loadYear(this.value)">
-                    <option value=""><strong> Year and Exam</strong></option>
-                    <option value="hsc_2025">HSC 2025</option>
-                    <option value="2025">SSC 2025</option>
-                    <option value="2024">SSC 2024</option>
-                    <option value="2023">SSC 2023</option>
-                    <option value="2022">SSC 2022</option>
-                    <option value="hsc_2024">HSC 2024</option>
-                    <option value="hsc_2023">HSC 2023</option>
-                </select>
-            </div>
-            <div id="content"></div>
-            
-            <div id="noDataMessage" style="display:none;">Oops! No data found.</div>
-        </section>
-
-        <div class="featured-box" data-value="hsc_2025" onclick="handleFeaturedClick('hsc_2025', this)">
-          <div class="new-ribbon">New</div>
-          <div class="featured-text">
-            <div class="ssc-line">HSC</div>
-            <div class="year-line">25</div>
-          </div>
-        </div>
-
-  <div class="featured-box" data-value="2025" onclick="handleFeaturedClick('2025', this)">
-    <div class="new-ribbon"><span style="position: relative; left: -14px;">RECHECK</span></div>
-
-    <div class="featured-text">
-      <div class="ssc-line">SSC</div>
-      <div class="year-line">25</div>
-    </div>
-  </div>
-  
-
-  <div class="featured-box" data-value="2024" onclick="handleFeaturedClick('2024', this)">
-    <div class="featured-text">
-      <div class="ssc-line">SSC</div>
-      <div class="year-line">24</div>
-    </div>
-  </div>
-
-  <div class="featured-box" data-value="2023" onclick="handleFeaturedClick('2023', this)">
-    <div class="featured-text">
-      <div class="new-ribbon">HOT</div>
-      <div class="ssc-line">SSC</div>
-      <div class="year-line">23</div>
-    </div>
-  </div>
-
-  <div class="featured-box" data-value="2022" onclick="handleFeaturedClick('2022', this)">
-    
-    <div class="featured-text">
-    
-      <div class="ssc-line">SSC</div>
-      <div class="year-line">22</div>
-    </div>
-  </div>
-
-
-  <div class="featured-box" data-value="hsc_2024" onclick="handleFeaturedClick('hsc_2024', this)">
-    <div class="featured-text">
-      <div class="ssc-line">HSC</div>
-      <div class="year-line">24</div>
-    </div>
-  </div>
-
-  <div class="featured-box" data-value="hsc_2023" onclick="handleFeaturedClick('hsc_2023', this)">
-    <div class="featured-text">
-      <div class="ssc-line">HSC</div>
-      <div class="year-line">23</div>
-    </div>
-  </div>
+<body>
+<section class="hero hero-pro" aria-label="BoardRank Hero">
+<div class="hero-bg">
+<span class="blob b1"></span>
+<span class="blob b2"></span>
+<span class="blob b3"></span>
+<span class="grid-lines"></span>
 </div>
-<section id="seo-blurb">
-  <div class="seo-container">
-    <h2><strong></strong>SSC Result Rankings — CHITTAGONG Board </strong></h2>
-    <p>BoardRankCTG provides <strong>SSC Result Rankings</strong> for the <strong>Chattogram Education Board</strong>, covering <strong>Science</strong>, <strong>Business Studies</strong>, and <strong>Humanities</strong> for 2025, 2024, 2023, and earlier years. Our rankings are accurate, fast, and easy to use.</p>
-
-    <p>Search instantly by student name, roll number, or school, compare scores, and explore the <em>Top 100 institutions</em>. View GPA, total marks, and rank for each student, with shareable links and downloadable data.</p>
-
-    <p>Our platform offers complete year-wise SSC rankings for all streams, including Science, Business Studies, and Humanities. Users can quickly find results using instant search and stream-based filters, making navigation effortless. The dedicated <em>Top 100 Schools</em> view highlights the best-performing institutions in the Chattogram Board area. Every ranking table is fully mobile-friendly and optimized for fast loading, ensuring smooth access on any device. All data can be freely downloaded for offline use, and every record is based on accurate results from verified public sources.</p>
-    
-
-    <p>From <strong>SSC 2025</strong> results to historical rankings, BoardRankCTG is the go-to platform for students, educators, and institutions in the Chattogram Board area.</p>
-  </div>
+<div class="hero-inner">
+<div class="hero-grid">
+<div class="hero-left">
+<div class="hero-eyebrow">
+<i class="ri-shield-star-line"></i> Chattogram Board • Hasnyne
+</div>
+<h1>SSC & HSC Board Rankings</h1>
+<p class="hero-sub">All SSC AND HSC students ranking since 2022</p>
+</div>
+</div>
+</div>
 </section>
+
+<nav aria-label="breadcrumb">
+<ul class="breadcrumb">
+<li><a href="index.html">Home</a></li>
+<li><a href="#" id="currentYear">Year</a></li>
+<li id="currentGroup" style="display:none;"></li>
+</ul>
+</nav>
+
+<nav class="app-nav" role="navigation">
+<div class="nav-inner">
+<a class="brand" href="index.html">🎓 BoardRankCTG</a>
+<button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+<i class="ri-menu-line"></i>
+</button>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html"><i class="fas fa-house-chimney"></i> Home</a></li>
+<li><a href="about.html"><i class="fas fa-user-tie"></i> About</a></li>
+<li><a href="review.html"><i class="fas fa-star-half-stroke"></i> Reviews</a></li>
+<li><a href="contactus.html"><i class="fas fa-envelope-open-text"></i> Contact</a></li>
+<li><button id="helpBtn" class="linklike"><i class="fas fa-question-circle"></i> Help</button></li>
+<li><button id="shareBtn" class="linklike"><i class="ri-share-line"></i> Share</button></li>
+<li><a href="visitors.html" id="visitorsLink"><i class="fas fa-users"></i> Visitors</a></li>
+<li class="divider"></li>
+<li>
+<label class="theme-switch">
+<input type="checkbox" id="themeToggle" />
+<span class="slider"></span>
+<span class="label">Dark mode</span>
+</label>
+</li>
+</ul>
+</div>
+<div class="nav-overlay" id="navOverlay"></div>
+</nav>
+
+<div id="customBanner" class="info-banner">⚠️ This is not an official rank. It's prepared based on publicly available data.</div>
+<div id="annBanner" class="ann-banner type-info" style="display:none;">
+<div class="ann-inner">
+<div class="ann-text" id="annText"></div>
+<a id="annBtn" class="ann-btn" href="#" target="_blank" rel="noopener" style="display:none;">Learn more</a>
+</div>
+</div>
+
+<main>
+<section>
+<p id="selectPrompt">PLEASE SELECT EXAM AND YEAR <i class="fas fa-arrow-down down-arrow"></i></p>
+<div class="year-dropdown">
+<select id="yearDropdown" onchange="loadYear(this.value)">
+<option value=""> Year and Exam</option>
+<option value="hsc_2025">HSC 2025</option>
+<option value="2025">SSC 2025</option>
+<option value="2024">SSC 2024</option>
+<option value="2023">SSC 2023</option>
+<option value="2022">SSC 2022</option>
+<option value="hsc_2024">HSC 2024</option>
+<option value="hsc_2023">HSC 2023</option>
+</select>
+</div>
+<div id="content"></div>
+<div id="noDataMessage" style="display:none;">Oops! No data found.</div>
+</section>
+
+<div class="featured-box" data-value="hsc_2025" onclick="handleFeaturedClick('hsc_2025', this)">
+<div class="new-ribbon">New</div>
+<div class="featured-text">
+<div class="ssc-line">HSC</div>
+<div class="year-line">25</div>
+</div>
+</div>
+
+<div class="featured-box" data-value="2025" onclick="handleFeaturedClick('2025', this)">
+<div class="new-ribbon"><span style="left: -14px; position: relative;">RECHECK</span></div>
+<div class="featured-text">
+<div class="ssc-line">SSC</div>
+<div class="year-line">25</div>
+</div>
+</div>
+
+<div class="featured-box" data-value="2024" onclick="handleFeaturedClick('2024', this)">
+<div class="featured-text">
+<div class="ssc-line">SSC</div>
+<div class="year-line">24</div>
+</div>
+</div>
+
+<div class="featured-box" data-value="2023" onclick="handleFeaturedClick('2023', this)">
+<div class="featured-text">
+<div class="new-ribbon">HOT</div>
+<div class="ssc-line">SSC</div>
+<div class="year-line">23</div>
+</div>
+</div>
+
+<div class="featured-box" data-value="2022" onclick="handleFeaturedClick('2022', this)">
+<div class="featured-text">
+<div class="ssc-line">SSC</div>
+<div class="year-line">22</div>
+</div>
+</div>
+
+<div class="featured-box" data-value="hsc_2024" onclick="handleFeaturedClick('hsc_2024', this)">
+<div class="featured-text">
+<div class="ssc-line">HSC</div>
+<div class="year-line">24</div>
+</div>
+</div>
+
+<div class="featured-box" data-value="hsc_2023" onclick="handleFeaturedClick('hsc_2023', this)">
+<div class="featured-text">
+<div class="ssc-line">HSC</div>
+<div class="year-line">23</div>
+</div>
+</div>
+
+<section id="seo-blurb">
+<div class="seo-container">
+<h2>SSC Result Rankings — CHITTAGONG Board</h2>
+<p>BoardRankCTG provides <strong>SSC Result Rankings</strong> for the <strong>Chattogram Education Board</strong>, covering <strong>Science</strong>, <strong>Business Studies</strong>, and <strong>Humanities</strong> for 2025, 2024, 2023, and earlier years. Our rankings are accurate, fast, and easy to use.</p>
+<p>Search instantly by student name, roll number, or school, compare scores, and explore the <em>Top 100 institutions</em>. View GPA, total marks, and rank for each student, with shareable links and downloadable data.</p>
+<p>Our platform offers complete year-wise SSC rankings for all streams, including Science, Business Studies, and Humanities. Users can quickly find results using instant search and stream-based filters, making navigation effortless. The dedicated <em>Top 100 Schools</em> view highlights the best-performing institutions in the Chattogram Board area. Every ranking table is fully mobile-friendly and optimized for fast loading, ensuring smooth access on any device. All data can be freely downloaded for offline use, and every record is based on accurate results from verified public sources.</p>
+<p>From <strong>SSC 2025</strong> results to historical rankings, BoardRankCTG is the go-to platform for students, educators, and institutions in the Chattogram Board area.</p>
+</div>
+</section>
+
 <section id="story" class="container" style="margin-top: 10px;">
-  <div class="info-banner">⚠️ This is not an official rank. Built from publicly available data.</div>
-
-
+<div class="info-banner">⚠️ This is not an official rank. Built from publicly available data.</div>
+</section>
 
 <section id="proof" class="container" style="margin-top: 16px;">
-  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
-    <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; text-align:center;">
-      <div style="font-size:2rem; font-weight:900; color:var(--primary)">⚡</div>
-      <div style="font-size:1.5rem; font-weight:900;" id="liveVisits">—</div>
-      <div style="color:var(--text-muted); font-weight:800;">Total Visits</div>
-    </div>
-    <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; text-align:center;">
-      <div style="font-size:2rem; font-weight:900; color:#22c55e">✅</div>
-      <div style="font-size:1.5rem; font-weight:900;">Fast & Mobile</div>
-      <div style="color:var(--text-muted); font-weight:800;">Optimized for any device</div>
-    </div>
-    <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; text-align:center;">
-      <div style="font-size:2rem; font-weight:900; color:#f59e0b">🏆</div>
-      <div style="font-size:1.5rem; font-weight:900;">Top 100 Schools</div>
-      <div style="color:var(--text-muted); font-weight:800;">Updated per selection</div>
-    </div>
-  </div>
+<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+<div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; text-align:center;">
+<div style="font-size:2rem; font-weight:900; color:var(--primary)">⚡</div>
+<div style="font-size:1.5rem; font-weight:900;" id="liveVisits">—</div>
+<div style="color:var(--text-muted); font-weight:800;">Total Visits</div>
 </section>
-
 
 <section id="action" class="container" style="margin: 20px auto 0; text-align:center;">
-  <a class="btn btn-primary" href="#yearDropdown"><i class="ri-trophy-line"></i>Choose Year & Group</a>
+<a class="btn btn-primary" href="#yearDropdown"><i class="ri-trophy-line"></i>Choose Year & Group</a>
 </section>
-          
-    </main>
+</main>
 
+<div id="popupWindow" style="display:none;">
+<button id="closePopup" class="close-btn">&times;</button>
+<div class="popup-content" id="popupContent"></div>
+</div>
 
-    
-    <div id="popupWindow" style="display:none;">
-        <button id="closePopup" class="close-btn">&times;</button>
-        <div class="popup-content" id="popupContent"></div>
-    </div>
+<button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">
+<img src="asset/arrow-up.png" alt="Scroll to top">
+</button>
 
-    <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">
-        <img src="arrow-up.png" alt="Scroll to top">
-    </button>
+  <script src="scripts/1-core.js" defer></script>
+  <script src="scripts/2-data-table.js" defer></script>
+  <script src="scripts/3A-popups-core.js" defer></script>
+  <script src="scripts/3B-popups-verify-share.js" defer></script>
+  <script src="scripts/4-routing-data-ui.js" defer></script>
+  <script type="module" src="scripts/app.js"></script>
 
-    
-    <script type="module">
+<footer>&copy; 2025 BoardRankCTG — Made by Hasnyne</footer>
 
-
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-        import { getDatabase, ref, runTransaction, set, onValue, get, update, remove } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
-        const firebaseConfig = {
-          apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
-          authDomain: "boardrankctg.firebaseapp.com",
-          databaseURL: "https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app",
-          projectId: "boardrankctg",
-          storageBucket: "boardrankctg.firebasestorage.app",
-          messagingSenderId: "751761229963",
-          appId: "1:751761229963:web:43f9dbf71feef6dc9cec8e",
-          measurementId: "G-3Y6J44NWNH"
-        };
-      
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
-
-window.db = db; 
-
-// Total Visits — live (visible to everyone)
-(function(){
-try {
-const liveEl = document.getElementById('liveVisits');
-if (!liveEl) return;
-
-// Live updates
-onValue(ref(db, "siteStats/totalVisits"), (snap) => {
-  const v = Number(snap.val() || 0);
-  liveEl.textContent = v.toLocaleString();
-}, (err) => {
-  console.error('TotalVisits listener error', err);
-});
-
-// Fallback (one-time read) in case rules/network block the live listener
-get(ref(db, "siteStats/totalVisits")).then((snap) => {
-  const v = Number(snap.val() || 0);
-  if (liveEl.textContent === '—' || liveEl.textContent === '') {
-    liveEl.textContent = v.toLocaleString();
-  }
-}).catch(()=>{});
-} catch(e) {
-console.error('TotalVisits setup error', e);
-}
-})();
-window.clickCountsCache = {};
-window._br_clickListenerSet = new Set();
-window.__br_hiddenRolls = new Set();
-
-function initHiddenResultsListener() {
-  try {
-    const hrRef = ref(db, 'hiddenResults');
-    onValue(hrRef, (snap) => {
-      const obj = snap.val() || {};
-      window.__br_hiddenRolls = new Set(Object.keys(obj));
-      try { if (typeof window.updateTableData === 'function') window.updateTableData(); } catch(e){}
-    });
-  } catch (e) { console.error('hiddenResults listener failed', e); }
-}
-
-window.hideResultRoll = async function(roll) {
-  try {
-    await set(ref(db, 'hiddenResults/' + String(roll)), { on: true, at: Date.now() });
-    alert('Hidden for everyone (except admin).');
-  } catch (e) { alert('Failed: ' + (e.message || e.code)); }
-};
-window.unhideResultRoll = async function(roll) {
-  try {
-    await remove(ref(db, 'hiddenResults/' + String(roll)));
-    alert('Unhidden.');
-  } catch (e) { alert('Failed: ' + (e.message || e.code)); }
-};
-
-
-window.incrementClickCount = function(roll) {
-  if (!window.db) {
-    console.error("DB not ready for incrementClickCount");
-    return;
-  }
-  try {
-    const clickRef = ref(window.db, `clickCounts/${roll}`);
-    runTransaction(clickRef, (count) => {
-      return (count || 0) + 1;
-    }).catch(err => console.error('incrementClickCount error', err));
-  } catch (e) {
-    console.error('incrementClickCount exception', e);
-  }
-};
-
-window.listenClickCount = function(roll, cb) {
-  if (!window.db) {
-    console.error("DB not ready for listenClickCount");
-    cb(0);
-    return;
-  }
-  try {
-    const clickRef = ref(window.db, `clickCounts/${roll}`);
-    onValue(clickRef, (snap) => {
-      const val = snap.val() || 0;
-      window.clickCountsCache[roll] = val;
-      cb(val);
-    });
-  } catch (e) {
-    console.error('listenClickCount exception', e);
-    cb(0);
-  }
-};
-
-      
-        let userId = localStorage.getItem("userId");
-        if (!userId) {
-          userId = crypto.randomUUID();
-          localStorage.setItem("userId", userId);
-        }
-      
-        const ADMIN_ID = "admin1234";
-      
-        function trackVisit() {
-          runTransaction(ref(db, "siteStats/totalVisits"), (count) => (count || 0) + 1);
-          set(ref(db, `siteStats/activeUsers/${userId}`), Date.now());
-        }
-      
-
-        function showAdminStats() {
-  const box = document.createElement("div");
-  box.className = "admin-stats-box"; // use a class instead of inline bg
-  box.innerHTML = `<h3>📊 Site Stats (Admin Only)</h3><div id="visitStats">Loading...</div>`;
-  document.body.appendChild(box);
-
-  const statsRef = ref(db, "siteStats");
-
-  onValue(statsRef, (snapshot) => {
-    const data = snapshot.val() || {};
-    const total = data.totalVisits || 0;
-    const active = data.activeUsers || {};
-    const now = Date.now();
-    const live = Object.values(active).filter(ts => now - ts < 5 * 60 * 1000).length;
-
-    document.getElementById("visitStats").innerHTML = `
-      👁️ Total Visits: <strong>${total}</strong><br />
-      🟢 Live Visitors (past 5 min): <strong>${live}</strong>
-    `;
-  });
-}
-
-      
-        trackVisit();
-        initAnnouncementsListener();
-initDisplaySettingsListener();
-initPollFeature();
-
-initHiddenResultsListener();
-initPollFeature();
-
-
-        checkAndEnforceBan();
-        if (userId === ADMIN_ID) showAdminStats();
-        function __deriveFingerprintFallback() {
-    // Same seed parts you used elsewhere (UA + platform + screen + memory + cores + vendor)
-    const ua = navigator.userAgent || '';
-    const platform = navigator.platform || '';
-    const screenRes = `${screen.width}x${screen.height}`;
-    const deviceMemory = navigator.deviceMemory || '';
-    const cores = navigator.hardwareConcurrency || '';
-    const vendor = navigator.vendor || '';
-    const seed = `${ua}|${platform}|${screenRes}|${deviceMemory}|${cores}|${vendor}`;
-    // djb2-style hash to hex
-    let h = 5381;
-    for (let i = 0; i < seed.length; i++) {
-      h = ((h << 5) + h) + seed.charCodeAt(i);
-      h = h & 0xffffffff;
-    }
-    return (h >>> 0).toString(16);
-  }
-
-  async function __getFingerprint() {
-    try {
-      if (typeof getDeviceDataAndFingerprint === 'function') {
-        const v = getDeviceDataAndFingerprint();
-        if (v && v.fingerprint) return v.fingerprint;
-      }
-    } catch (e) {}
-    return __deriveFingerprintFallback();
-  }
-
-  function startBanCountdown(until) {
-    const timer = document.getElementById('banTimer');
-    if (!timer) return;
-    clearInterval(window.__banTick);
-    if (until === -1) {
-      timer.textContent = 'Permanent ban';
-      return;
-    }
-    function tick() {
-      const ms = until - Date.now();
-      if (ms <= 0) {
-        timer.textContent = 'Ban expired. Reloading...';
-        setTimeout(() => location.reload(), 1200);
-        clearInterval(window.__banTick);
-        return;
-      }
-      const s = Math.floor(ms / 1000);
-      const d = Math.floor(s / 86400);
-      const h = Math.floor((s % 86400) / 3600);
-      const m = Math.floor((s % 3600) / 60);
-      const ss = s % 60;
-      timer.textContent = `Time left: ${d}d ${h}h ${m}m ${ss}s`;
-    }
-    tick();
-    window.__banTick = setInterval(tick, 1000);
-  }
-
-  function initAnnouncementsListener() {
-    const annRef = ref(db, 'announcements/global');
-    onValue(annRef, (snap) => {
-      const v = snap.val() || {};
-      const banner = document.getElementById('annBanner');
-      if (!banner) return;
-
-      if (v.active && v.message) {
-        banner.style.display = 'block';
-        banner.className = `ann-banner type-${v.type || 'info'}`;
-        const textEl = document.getElementById('annText');
-        const btnEl = document.getElementById('annBtn');
-        textEl.textContent = v.message || '';
-        if (v.buttonText && v.buttonUrl) {
-          btnEl.style.display = 'inline-block';
-          btnEl.textContent = v.buttonText;
-          btnEl.href = v.buttonUrl;
-        } else {
-          btnEl.style.display = 'none';
-        }
-      } else {
-        banner.style.display = 'none';
-      }
-    });
-  }
-
-  async function checkAndEnforceBan() {
-    const fp = await __getFingerprint();
-    const bRef = ref(db, 'bannedDevices/' + fp);
-    onValue(bRef, (snap) => {
-      const ban = snap.val();
-      const overlay = document.getElementById('banOverlay');
-      if (!overlay) return;
-
-      const active = ban && (ban.until === -1 || Number(ban.until) > Date.now());
-      if (active) {
-        overlay.style.display = 'flex';
-        document.body.classList.add('ban-locked');
-        const reason = ban.reason || '—';
-        const until = Number(ban.until);
-        document.getElementById('banReason').textContent = `Reason: ${reason}`;
-        document.getElementById('banUntil').textContent = (until === -1)
-          ? 'Until: Permanent'
-          : 'Until: ' + new Date(until).toLocaleString();
-        startBanCountdown(until);
-
-        // Swallow input so it cannot be closed via keyboard/mouse
-        const stopper = (e) => { e.stopPropagation(); e.preventDefault(); };
-        window.addEventListener('keydown', stopper, { capture: true });
-        window.addEventListener('click', stopper, { capture: true });
-      } else {
-        overlay.style.display = 'none';
-        document.body.classList.remove('ban-locked');
-        clearInterval(window.__banTick);
-      }
-    });
-  }
-  function initDisplaySettingsListener() {
-  try {
-    const dRef = ref(db, 'displaySettings');
-    onValue(dRef, (snap) => {
-      window.__br_displaySettings = snap.val() || {};
-      if (typeof window.applyDisplaySettingsToDOM === 'function') {
-        window.applyDisplaySettingsToDOM();
-      }
-    });
-  } catch (e) {
-    console.error('Display settings listener failed', e);
-  }
-}
-function initPollFeature() {
-  try {
-    const pRef = ref(db, 'polls/global');
-    onValue(pRef, (snap) => {
-      const poll = snap.val() || {};
-      if (!poll.active || !Array.isArray(poll.options) || poll.options.length === 0) return;
-
-      const pid = poll.id || 'global';
-      const seenKey = 'poll_seen_' + pid;
-      const votedKey = 'poll_voted_' + pid;
-
-      if (localStorage.getItem(votedKey) || localStorage.getItem(seenKey)) return;
-
-      setTimeout(() => {
-        if (document.querySelector('.popup')) return;
-        renderPollPopup(poll);
-      }, 600);
-    });
-  } catch (e) {
-    console.error('initPollFeature failed', e);
-  }
-}
-
-function renderPollPopup(poll) {
-  const pid = poll.id || 'global';
-  const required = !!poll.required;
-
-  const popup = document.createElement('div');
-  popup.className = 'popup';
-  popup.innerHTML = `
-    <div class="popup-content poll-box">
-      ${required ? '' : '<span class="close-btn" onclick="closePopup()">&times;</span>'}
-      <div class="poll-head">
-        <div class="poll-emoji">🗳️</div>
-        <div class="poll-title">${poll.question || 'Quick poll'}</div>
-      </div>
-      <div class="poll-optgrid" id="pollOptsUser">
-        ${poll.options.map((opt,i)=>`
-          <label class="poll-chip" data-idx="${i}">
-            <input type="radio" name="pollOpt" value="${i}">
-            <span>${opt}</span>
-          </label>
-        `).join('')}
-      </div>
-
-      <div class="poll-actions">
-        ${required ? '' : '<button class="btn-secondary" id="pollSkipBtn">Skip</button>'}
-        <button class="btn-primary" id="pollVoteBtn">Submit</button>
-      </div>
-
-      <div id="pollUserStats" class="poll-stats"></div>
-    </div>
-  `;
-  document.body.appendChild(popup);
-  document.body.classList.add('locked');
-
-  document.querySelectorAll('.poll-chip').forEach(ch => {
-    ch.addEventListener('click', () => {
-      document.querySelectorAll('.poll-chip').forEach(c => c.classList.remove('active'));
-      ch.classList.add('active');
-      const r = ch.querySelector('input[type=radio]');
-      if (r) r.checked = true;
-    });
-  });
-
-  const pidSeen = 'poll_seen_' + pid;
-  const pidVoted = 'poll_voted_' + pid;
-
-  document.getElementById('pollSkipBtn')?.addEventListener('click', () => {
-    localStorage.setItem(pidSeen, '1');
-    closePopup();
-  });
-
-  document.getElementById('pollVoteBtn').addEventListener('click', async () => {
-    const sel = document.querySelector('input[name="pollOpt"]:checked');
-    if (!sel) { alert('Pick an option'); return; }
-    await submitPollVote(poll, Number(sel.value));
-  });
-}
-
-async function submitPollVote(poll, idx) {
-  try {
-    const pid = poll.id || 'global';
-    const fp = await __getFingerprint();
-    await set(ref(db, 'pollVotes/' + pid + '/' + fp), { opt: idx, at: Date.now() });
-    localStorage.setItem('poll_voted_' + pid, '1');
-
-    const statsBox = document.getElementById('pollUserStats');
-    statsBox.innerHTML = `<div style="font-weight:800">Calculating results…</div>`;
-
-    const snap = await get(ref(db, 'pollVotes/' + pid));
-    const votes = snap.val() || {};
-    const counts = poll.options.map(()=>0);
-    Object.values(votes).forEach(rec => {
-      const i = Number(rec?.opt);
-      if (!isNaN(i) && counts[i] !== undefined) counts[i] += 1;
-    });
-    const total = counts.reduce((a,b)=>a+b,0);
-
-    const rows = poll.options.map((o,i)=>{
-      const c = counts[i] || 0;
-      const pct = total ? Math.round(c*100/total) : 0;
-      return `
-        <div class="poll-row">
-          <div class="poll-row-text">${o}</div>
-          <div class="poll-bar">
-            <div class="poll-bar-fill" style="width:${pct}%"></div>
-          </div>
-          <div class="poll-pct">${pct}%</div>
-        </div>
-      `;
-    }).join('');
-
-    statsBox.innerHTML = `
-      <div class="poll-results">
-        <div class="poll-results-title">Live percentages</div>
-        ${rows}
-        <div class="poll-total">Total votes: ${total}</div>
-      </div>
-      <div style="display:flex;justify-content:center;margin-top:12px;">
-        <button class="btn-secondary" onclick="closePopup()">Close</button>
-      </div>
-    `;
-  } catch (e) {
-    alert('Vote failed: ' + (e.message || e.code));
-  }
-}
-
-
-      </script>
-      
-    <script src="script.js"></script>
-
-    <footer>
-      &copy; 2025 BoardRankCTG — Made by Hasnyne
-    </footer>
-    
-
-    <div id="banOverlay">
-      <div class="ban-card">
-        <h3>  🚫 Access Restricted</h3>
-        <p id="banReason">Reason: —</p>
-        <p id="banUntil">Until: —</p>
-        <div id="banTimer" style="font-weight:800;margin-top:6px;"></div>
-        <p style="margin-top:12px;font-size:.9rem;">If you think this is a mistake, contact the admin.</p>
-      </div>
-    </div>
-
-
-    
-
-
+<div id="banOverlay">
+<div class="ban-card">
+<h3>🚫 Access Restricted</h3>
+<p id="banReason">Reason: —</p>
+<p id="banUntil">Until: —</p>
+<div id="banTimer" style="font-weight:800;margin-top:6px;"></div>
+<p style="margin-top:12px;font-size:.9rem;">If you think this is a mistake, contact the admin.</p>
+</div>
+</div>
 </body>
-
-   
-  
 </html>
-

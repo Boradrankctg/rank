@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,75 +103,12 @@
     </div>
   </div>
 
-  <!-- Optional: HAS9beta launcher/panel (script can also inject) -->
-  <div id="hb-launcher" aria-label="Open HAS9beta" title="Need help?">
-    <div class="has9-split">
-      <img class="half half-boy" src="https://img.icons8.com/color/96/administrator-male--v1.png" alt="human">
-      <img class="half half-ai" src="https://img.icons8.com/color/96/robot-2.png" alt="ai">
-    </div>
-    <span class="hb-badge" style="display:none">1</span>
-    <span class="hb-ping"></span>
-  </div>
-
-  <div id="hb-panel" role="dialog" aria-modal="true" aria-label="HAS9beta" style="display:none;">
-    <div class="hb-head">
-      <div class="hb-title">
-        <div class="has9-split small">
-          <img class="half half-boy" src="https://img.icons8.com/color/96/administrator-male--v1.png" alt="human">
-          <img class="half half-ai" src="https://img.icons8.com/color/96/robot-2.png" alt="ai">
-        </div>
-        <div>
-          <div class="hb-name">HAS9beta</div>
-          <div class="hb-sub">assistant • beta</div>
-        </div>
-      </div>
-      <button id="hb-close" aria-label="Close" type="button">×</button>
-    </div>
-    <div class="hb-body" id="hb-chat" aria-live="polite"></div>
-    <div class="hb-actions">
-      <div class="hb-ask">
-        <input id="hb-input" type="text" placeholder='try: what is photosynthesis • find Nafis • open ssc 25 science • top 10 math ssc 25 • fun fact' aria-label="Ask">
-        <button id="hb-send" type="button">Send</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Page script: contact actions -->
-  <script>
-    function composeMessage() {
-      const name = (document.getElementById("userName").value || "").trim();
-      const message = (document.getElementById("userMessage").value || "").trim();
-      return { name, message, full: name && message ? `Hi, I'm ${name}. ${message}` : "" };
-    }
-
-    document.getElementById("btnWhatsapp").addEventListener("click", () => {
-      const { name, message, full } = composeMessage();
-      if (!name || !message) return alert("Please fill in both your name and message.");
-      const url = `https://wa.me/8801788481222?text=${encodeURIComponent(full)}`;
-      window.open(url, "_blank", "noopener");
-    });
 
 
-    document.getElementById("btnCopy").addEventListener("click", async () => {
-      const { name, message, full } = composeMessage();
-      if (!name || !message) return alert("Please fill in both your name and message.");
-      try {
-        await navigator.clipboard.writeText(full);
-        alert("Message copied to clipboard.");
-      } catch {
-        const t = document.createElement("textarea");
-        t.value = full;
-        document.body.appendChild(t);
-        t.select();
-        document.execCommand("copy");
-        document.body.removeChild(t);
-        alert("Message copied to clipboard.");
-      }
-    });
-  </script>
-
-  <!-- Site-wide script (nav, theme, help/share, bot, etc.) -->
-  <script src="script.js"></script>
+ <script src="scripts/1-core.js" defer></script>
+  <script src="scripts/2-data-table.js" defer></script>
+  <script src="scripts/3A-popups-core.js" defer></script>
+  <script src="scripts/3B-popups-verify-share.js" defer></script>
+  <script src="scripts/4-routing-data-ui.js" defer></script>  <script src="scripts/contact.js"></script>
 </body>
 </html>
-
