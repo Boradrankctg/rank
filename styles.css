@@ -870,3 +870,72 @@ body.dark-mode #featuredBox{
 .reply-like-btn:hover{background:#f3f4f6;}
 .reply-del-btn{color:#b91c1c;}
 .reply-del-btn:hover{background:#fee2e2;}
+/* Dark mode fixes for removal request page */
+body.dark-mode .review-box {
+  background: #0f172a;
+  border-color: #334155;
+  color: #e5e7eb;
+}
+
+body.dark-mode .review-box strong {
+  color: #f3f4f6;
+}
+
+/* Fix admin note background and text */
+body.dark-mode .review-box div[style*="background:#f3f4f6"] {
+  background: #1f2937 !important;
+  color: #e5e7eb !important;
+}
+
+/* Fix header text */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #e5e7eb !important;
+}
+
+/* Fix form labels */
+body.dark-mode label {
+  color: #cbd5e1;
+}
+
+/* Fix select dropdowns and inputs */
+body.dark-mode select,
+body.dark-mode input[type="text"],
+body.dark-mode textarea {
+  background: #0b1220;
+  color: #e5e7eb;
+  border: 1px solid #334155;
+}
+
+/* Fix table headers and cells */
+body.dark-mode #adminRequestsTable th {
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+body.dark-mode #adminRequestsTable td {
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+/* Fix status display */
+body.dark-mode #statusDisplay {
+  color: #e5e7eb;
+}
+
+body.dark-mode #statusMessage {
+  color: #94a3b8 !important;
+}
+
+/* Fix popup-content in dark mode */
+body.dark-mode .popup-content {
+  background: #0f172a;
+  border-color: #334155;
+  color: #e5e7eb;
+}
+
+body.dark-mode .popup-content h2 {
+  color: #f3f4f6;
+  border-bottom-color: #334155;
+}
