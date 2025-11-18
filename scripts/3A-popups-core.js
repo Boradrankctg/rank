@@ -26,59 +26,8 @@ function showRankTipsPopup() {
 
       <div class="help-grid">
         <div class="help-item">
-          <div class="hi-title"><i class="ri-trophy-line"></i> Choose Year & Group</div>
           <div class="hi-text">Pick SSC/HSC + year. Then you can search, filter, and open details.</div>
         </div>
-
-        <div class="help-item">
-          <div class="hi-title"><i class="ri-search-line"></i> Instant Search</div>
-          <div class="hi-text">Filter by Name, Roll, or Institution. Type in both boxes to narrow.</div>
-        </div>
-
-        <div class="help-item">
-          <div class="hi-title"><i class="ri-open-arm-line"></i> Open Student Details</div>
-          <div class="hi-text">Click any Name or Roll to see marks, GPA, Board Rank, PDF/Copy/Link, and Compare.</div>
-        </div>
-
-        <div class="help-item">
-          <div class="hi-title"><i class="ri-building-4-line"></i> School-wise Ranking</div>
-          <div class="hi-text">Click a school name (or pick it from Institution) to see only that school’s list.</div>
-        </div>
-
-        <div class="help-item">
-          <div class="hi-title"><i class="ri-filter-3-line"></i> Mobile Filter Drawer</div>
-          <div class="hi-text">Tap Filter to set Total range, GPA chips, and multi‑select Schools, then Apply.</div>
-        </div>
-
-        <div class="help-item">
-          <div class="hi-title"><i class="ri-bar-chart-2-line"></i> Top 100 Institutions</div>
-          <div class="hi-text">Tap “Top Schools” to see Top 100 by GPA‑5% and overall performance.</div>
-        </div>
-
-        <div class="help-item">
-          <div class="hi-title"><i class="ri-external-link-line"></i> Share & Export</div>
-          <div class="hi-text">In a student’s popup: Copy Result, Copy Link, or Download PDF.</div>
-        </div>
-
-        <div class="help-item">
-          <div class="hi-title"><i class="ri-robot-2-line"></i> HAS9beta (smart helper)</div>
-          <div class="hi-text">
-            • Web answers: try “what is photosynthesis”, “who is sundar pichai”<br>
-            • Open: “open ssc 25 science”, “open 100000 ssc 25 science”<br>
-            • Find (global): “find Nafis”<br>
-            • Top lists: “top 10 math ssc 25”<br>
-            • Fun: “play this or that”, “fun fact”, “random”
-          </div>
-        </div>
-      </div>
-
-      <div class="help-actions">
-        <button class="help-chip" data-cmd="open ssc 25 science"><i class="ri-trophy-line"></i> open ssc 25 science</button>
-        <button class="help-chip" data-cmd="find Nafis"><i class="ri-search-line"></i> find Nafis</button>
-        <button class="help-chip" data-cmd="top 10 math ssc 25"><i class="ri-bar-chart-2-line"></i> top 10 math ssc 25</button>
-        <button class="help-chip" data-cmd="what is photosynthesis"><i class="ri-book-open-line"></i> what is photosynthesis</button>
-        <button class="help-chip" data-cmd="fun fact"><i class="ri-sparkling-2-line"></i> fun fact</button>
-      </div>
 
       <p class="help-note">Note: This is an unofficial ranking made from publicly available data.</p>
     </div>
