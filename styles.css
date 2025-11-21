@@ -177,6 +177,7 @@ input#InstituationDropdown[list] {
   border: 1px solid var(--primary);
   border-radius: 4px;
   margin-bottom: 1rem;
+  background: url('asset/search.png') no-repeat 10px center;
 }
 
 button {

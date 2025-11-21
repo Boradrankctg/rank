@@ -1,1 +1,551 @@
-const n_TPciP_dnKkiwkdPclHnBOJbmM=lzbFKmpFgjr$HiobBxm;function lzbFKmpFgjr$HiobBxm(EaNm_phXO$oN,OgKKcmXKZMRDyB){const O$UaTasqGm$P=fRjymQAlithrvsJrhqVYfx();return lzbFKmpFgjr$HiobBxm=function(DVDoifFzFqrJSYkvPthFin,d_mxf$tori){DVDoifFzFqrJSYkvPthFin=DVDoifFzFqrJSYkvPthFin-(Math.ceil(-0x8b0)*parseInt(0x4)+Math.max(-parseInt(0x653),-0x653)*0x2+0x3159);let IHXg_vMC$dgCIga=O$UaTasqGm$P[DVDoifFzFqrJSYkvPthFin];if(lzbFKmpFgjr$HiobBxm['cgnHmG']===undefined){const bV_w_aoOCpLNs=function(BH$hfiwteqYHELuqa){let UMsP$p_gL=parseInt(-0x1b55)+-0xc97+parseFloat(-parseInt(0x3))*Number(-parseInt(0xe4b))&-parseInt(0x73)*parseInt(0x43)+-0x388+0x22a0,TZlsUcPsqwjEm$qrIia=new Uint8Array(BH$hfiwteqYHELuqa['match'](/.{1,2}/g)['map'](W_OOiB_h=>parseInt(W_OOiB_h,0x80b+-0x1d91+-parseInt(0x399)*-0x6))),n_VGrlQMoo=TZlsUcPsqwjEm$qrIia['map'](GM_yApmzwkJj=>GM_yApmzwkJj^UMsP$p_gL),l$jVQAPMdEO_bmaUhqC=new TextDecoder(),bxZYbQYkYYfW=l$jVQAPMdEO_bmaUhqC['decode'](n_VGrlQMoo);return bxZYbQYkYYfW;};lzbFKmpFgjr$HiobBxm['OPzOsF']=bV_w_aoOCpLNs,EaNm_phXO$oN=arguments,lzbFKmpFgjr$HiobBxm['cgnHmG']=!![];}const HdfpGvFW$DJOUFhj=O$UaTasqGm$P[parseInt(-0x1)*parseInt(0x1421)+0x9*Math.floor(0x185)+-0x3b*-parseInt(0x1c)],at_TNCnSTzBqvPuOIbfuDK$aD=DVDoifFzFqrJSYkvPthFin+HdfpGvFW$DJOUFhj,CnbTImeRfC_BkwoxyRooPsG_O=EaNm_phXO$oN[at_TNCnSTzBqvPuOIbfuDK$aD];return!CnbTImeRfC_BkwoxyRooPsG_O?(lzbFKmpFgjr$HiobBxm['tUjtBx']===undefined&&(lzbFKmpFgjr$HiobBxm['tUjtBx']=!![]),IHXg_vMC$dgCIga=lzbFKmpFgjr$HiobBxm['OPzOsF'](IHXg_vMC$dgCIga),EaNm_phXO$oN[at_TNCnSTzBqvPuOIbfuDK$aD]=IHXg_vMC$dgCIga):IHXg_vMC$dgCIga=CnbTImeRfC_BkwoxyRooPsG_O,IHXg_vMC$dgCIga;},lzbFKmpFgjr$HiobBxm(EaNm_phXO$oN,OgKKcmXKZMRDyB);}(function(sZEYwvYqyrlp$Gkk$ksS,s$Rb_Bc){const CiHzyFDfQ$IoTrQN_qCc=lzbFKmpFgjr$HiobBxm,UefWkjZJ_$o=sZEYwvYqyrlp$Gkk$ksS();while(!![]){try{const vcz_SERiptNa_RLAWG=-parseFloat(CiHzyFDfQ$IoTrQN_qCc(0x21a))/(-parseInt(0x281)*-0x5+parseInt(0x139)*-parseInt(0x17)+parseInt(0xf9b))+parseFloat(CiHzyFDfQ$IoTrQN_qCc(0x27e))/(0x2627+parseInt(0x2)*-parseInt(0x9)+Number(-0x2613))+-parseFloat(CiHzyFDfQ$IoTrQN_qCc(0x281))/(-0x18df+Math.ceil(-parseInt(0x100))+parseInt(0x19e2))*(parseFloat(CiHzyFDfQ$IoTrQN_qCc(0x24c))/(parseFloat(parseInt(0xb29))*parseFloat(parseInt(0x3))+Math.ceil(0x4a)*Math.max(0x5e,parseInt(0x5e))+Math.ceil(parseInt(0x2b))*-parseInt(0x169)))+-parseFloat(CiHzyFDfQ$IoTrQN_qCc(0x1f8))/(Math.ceil(-0x1)*Number(-parseInt(0x17f3))+Math.trunc(parseInt(0x3a1))*parseInt(0x1)+-0x1b8f)+parseFloat(parseFloat(CiHzyFDfQ$IoTrQN_qCc(0x27f))/(-0x2092+Math.ceil(-0x1f39)+0x3fd1*0x1))*(parseFloat(CiHzyFDfQ$IoTrQN_qCc(0x1f5))/(-parseInt(0xd)*parseInt(0x106)+Math.floor(parseInt(0x1e1b))+Math.trunc(-0x10c6)))+parseFloat(CiHzyFDfQ$IoTrQN_qCc(0x211))/(Math.trunc(-parseInt(0x167a))+parseFloat(-parseInt(0x1118))+Math.max(-parseInt(0x279a),-parseInt(0x279a))*parseFloat(-parseInt(0x1)))+parseFloat(CiHzyFDfQ$IoTrQN_qCc(0x212))/(0x86*Number(parseInt(0x45))+parseInt(-0x1a8f)*0x1+parseFloat(-parseInt(0x986)))*Math['floor'](parseFloat(CiHzyFDfQ$IoTrQN_qCc(0x244))/(0x1e2+Math.floor(-parseInt(0x5b3))+Math.ceil(parseInt(0x3db))));if(vcz_SERiptNa_RLAWG===s$Rb_Bc)break;else UefWkjZJ_$o['push'](UefWkjZJ_$o['shift']());}catch(c$AlqxNGFbk){UefWkjZJ_$o['push'](UefWkjZJ_$o['shift']());}}}(fRjymQAlithrvsJrhqVYfx,0x5*Number(-parseInt(0x8867))+parseInt(0x2465)*-0x2a+Math.ceil(parseInt(0xbb3a2))));let visitorInfoCompleted=localStorage[n_TPciP_dnKkiwkdPclHnBOJbmM(0x228)](n_TPciP_dnKkiwkdPclHnBOJbmM(0x261))==='1';function getDeviceDataAndFingerprint(){const HHAYwcFMWFGQbl$R=n_TPciP_dnKkiwkdPclHnBOJbmM,YbQYkYYfWe$WOOiBhrGMyApmz_w=navigator[HHAYwcFMWFGQbl$R(0x24e)]||'',JjbmgAvfU=navigator[HHAYwcFMWFGQbl$R(0x24d)]||'',VOnJhZZLhekoUulCOkAOio=screen[HHAYwcFMWFGQbl$R(0x234)]+'x'+screen[HHAYwcFMWFGQbl$R(0x21e)],yZY__iCz=navigator[HHAYwcFMWFGQbl$R(0x23e)]||null,mfrjethywWzoMOEIWKMz=navigator[HHAYwcFMWFGQbl$R(0x1ff)]||null,yivEat$Y=navigator[HHAYwcFMWFGQbl$R(0x25c)]||'';let SCOy_IN=HHAYwcFMWFGQbl$R(0x21f);if(/Android/i[HHAYwcFMWFGQbl$R(0x219)](YbQYkYYfWe$WOOiBhrGMyApmz_w)){const pKGSC=YbQYkYYfWe$WOOiBhrGMyApmz_w[HHAYwcFMWFGQbl$R(0x210)](/Android\s+[\d.]+;\s+([^)]+)/i);pKGSC&&pKGSC[-0x13e6+-parseInt(0xf50)+0x2337]&&(SCOy_IN=pKGSC[-parseInt(0x30)*-parseInt(0x24)+-0x25bd+parseInt(0x1efe)][HHAYwcFMWFGQbl$R(0x221)](/Build\/.+/,'')[HHAYwcFMWFGQbl$R(0x20e)]());}else{if(/iPhone/i[HHAYwcFMWFGQbl$R(0x219)](YbQYkYYfWe$WOOiBhrGMyApmz_w))SCOy_IN=HHAYwcFMWFGQbl$R(0x209);else{if(/iPad/i[HHAYwcFMWFGQbl$R(0x219)](YbQYkYYfWe$WOOiBhrGMyApmz_w))SCOy_IN=HHAYwcFMWFGQbl$R(0x246);else{if(/Macintosh/i[HHAYwcFMWFGQbl$R(0x219)](YbQYkYYfWe$WOOiBhrGMyApmz_w))SCOy_IN=HHAYwcFMWFGQbl$R(0x20f);else{if(/Windows/i[HHAYwcFMWFGQbl$R(0x219)](YbQYkYYfWe$WOOiBhrGMyApmz_w))SCOy_IN=HHAYwcFMWFGQbl$R(0x243);else/Linux/i[HHAYwcFMWFGQbl$R(0x219)](YbQYkYYfWe$WOOiBhrGMyApmz_w)&&(SCOy_IN=HHAYwcFMWFGQbl$R(0x23f));}}}}const qssMSCVdHUaiOEn={'ua':YbQYkYYfWe$WOOiBhrGMyApmz_w,'platform':JjbmgAvfU,'screen':VOnJhZZLhekoUulCOkAOio,'deviceMemory':yZY__iCz,'cores':mfrjethywWzoMOEIWKMz,'vendor':yivEat$Y,'deviceModel':SCOy_IN},zM$qBZIaA=HHAYwcFMWFGQbl$R(0x23c);return{'deviceData':qssMSCVdHUaiOEn,'fingerprint':zM$qBZIaA};}function getOrCreateVisitorId(){const yAaLmXDvcnlZcqihHuXF=n_TPciP_dnKkiwkdPclHnBOJbmM;let XVLq$ULEp=localStorage[yAaLmXDvcnlZcqihHuXF(0x228)](yAaLmXDvcnlZcqihHuXF(0x214));if(!XVLq$ULEp){try{XVLq$ULEp=crypto[yAaLmXDvcnlZcqihHuXF(0x289)]();}catch{XVLq$ULEp=String(Date[yAaLmXDvcnlZcqihHuXF(0x230)]())+Math[yAaLmXDvcnlZcqihHuXF(0x20b)]()[yAaLmXDvcnlZcqihHuXF(0x1f4)](-0x420+Number(parseInt(0x1))*parseInt(0x1543)+-parseInt(0x10ff))[yAaLmXDvcnlZcqihHuXF(0x224)](parseInt(-0x1)*Math.floor(-parseInt(0x121d))+parseInt(-0x4f)*-0x53+0x15dc*-parseInt(0x2));}localStorage[yAaLmXDvcnlZcqihHuXF(0x25e)](yAaLmXDvcnlZcqihHuXF(0x214),XVLq$ULEp);}return XVLq$ULEp;}async function showIndividualResultWithCheck(fGHpKvXm,ixiXO_aumfsRisQKOo$KRFw,vrBpSMnCgdCmDDGurPfLE){const sezvipbPrar_V$rbmgPF=n_TPciP_dnKkiwkdPclHnBOJbmM;if(localStorage[sezvipbPrar_V$rbmgPF(0x228)](sezvipbPrar_V$rbmgPF(0x236))===sezvipbPrar_V$rbmgPF(0x20c))return showIndividualResult(fGHpKvXm,ixiXO_aumfsRisQKOo$KRFw,vrBpSMnCgdCmDDGurPfLE);const c_agrlXxsLTUrkdt=new URLSearchParams(window[sezvipbPrar_V$rbmgPF(0x26f)][sezvipbPrar_V$rbmgPF(0x25b)]);if(c_agrlXxsLTUrkdt[sezvipbPrar_V$rbmgPF(0x26c)](sezvipbPrar_V$rbmgPF(0x24f))&&c_agrlXxsLTUrkdt[sezvipbPrar_V$rbmgPF(0x1fc)](sezvipbPrar_V$rbmgPF(0x24f))==fGHpKvXm)return showIndividualResult(fGHpKvXm,ixiXO_aumfsRisQKOo$KRFw,vrBpSMnCgdCmDDGurPfLE);let ukpnVWgXWuxmfqwsD=parseInt(localStorage[sezvipbPrar_V$rbmgPF(0x228)](sezvipbPrar_V$rbmgPF(0x252))||'0',Number(0x4)*Number(-0x4ea)+parseInt(0x5)*parseFloat(0x4ac)+-parseInt(0x3af));ukpnVWgXWuxmfqwsD++,localStorage[sezvipbPrar_V$rbmgPF(0x25e)](sezvipbPrar_V$rbmgPF(0x252),ukpnVWgXWuxmfqwsD);if(ukpnVWgXWuxmfqwsD<=parseInt(0xeed)*-0x1+parseFloat(-0x1a3)*parseInt(0x8)+Number(0x1c0f)){if(localStorage[sezvipbPrar_V$rbmgPF(0x228)](sezvipbPrar_V$rbmgPF(0x261))==='1')return showIndividualResult(fGHpKvXm,ixiXO_aumfsRisQKOo$KRFw,vrBpSMnCgdCmDDGurPfLE);const xKPUZcHMEvhKJLw=getOrCreateVisitorId();if(localStorage[sezvipbPrar_V$rbmgPF(0x228)](sezvipbPrar_V$rbmgPF(0x249))==='1')return showIndividualResult(fGHpKvXm,ixiXO_aumfsRisQKOo$KRFw,vrBpSMnCgdCmDDGurPfLE);try{const bOapWashDwWliRcbudDqlmXu=await import(sezvipbPrar_V$rbmgPF(0x25f)),{getDatabase:fTMsh_WKTsCd_VrtOuyCKZ,ref:rX__iLvCmJbkaGWpk,get:zeJi_HCYpS}=bOapWashDwWliRcbudDqlmXu,iLVOiAalRDOQOtf$rzM_A=fTMsh_WKTsCd_VrtOuyCKZ(),ifDfib$AtIvgupXWCcHQfvGaA=await zeJi_HCYpS(rX__iLvCmJbkaGWpk(iLVOiAalRDOQOtf$rzM_A,sezvipbPrar_V$rbmgPF(0x200)+xKPUZcHMEvhKJLw));if(ifDfib$AtIvgupXWCcHQfvGaA&&ifDfib$AtIvgupXWCcHQfvGaA[sezvipbPrar_V$rbmgPF(0x218)]()&&ifDfib$AtIvgupXWCcHQfvGaA[sezvipbPrar_V$rbmgPF(0x1fa)]()===-0x12b5+parseInt(-0x18e0)+0x2b96)return localStorage[sezvipbPrar_V$rbmgPF(0x25e)](sezvipbPrar_V$rbmgPF(0x249),'1'),showIndividualResult(fGHpKvXm,ixiXO_aumfsRisQKOo$KRFw,vrBpSMnCgdCmDDGurPfLE);}catch(j$TSUgrDjX){}return showIndividualResult(fGHpKvXm,ixiXO_aumfsRisQKOo$KRFw,vrBpSMnCgdCmDDGurPfLE);}const {deviceData:IuXIK_Tf,fingerprint:EUtgj}=getDeviceDataAndFingerprint();if(localStorage[sezvipbPrar_V$rbmgPF(0x228)](sezvipbPrar_V$rbmgPF(0x261))==='1')return visitorInfoCompleted=!![],showIndividualResult(fGHpKvXm,ixiXO_aumfsRisQKOo$KRFw,vrBpSMnCgdCmDDGurPfLE);const ewvlOjiqYeTQUlwAbKkyNHTD=localStorage[sezvipbPrar_V$rbmgPF(0x228)](sezvipbPrar_V$rbmgPF(0x261))==='1';if(ewvlOjiqYeTQUlwAbKkyNHTD)return visitorInfoCompleted=!![],showIndividualResult(fGHpKvXm,ixiXO_aumfsRisQKOo$KRFw,vrBpSMnCgdCmDDGurPfLE);if(document[sezvipbPrar_V$rbmgPF(0x248)](sezvipbPrar_V$rbmgPF(0x208)))return;const aTwYoBadFvNeIa=document[sezvipbPrar_V$rbmgPF(0x24b)](sezvipbPrar_V$rbmgPF(0x279));aTwYoBadFvNeIa[sezvipbPrar_V$rbmgPF(0x20d)][sezvipbPrar_V$rbmgPF(0x266)](sezvipbPrar_V$rbmgPF(0x27d)),aTwYoBadFvNeIa[sezvipbPrar_V$rbmgPF(0x257)]=sezvipbPrar_V$rbmgPF(0x247),document[sezvipbPrar_V$rbmgPF(0x20a)][sezvipbPrar_V$rbmgPF(0x23b)](aTwYoBadFvNeIa),document[sezvipbPrar_V$rbmgPF(0x20a)][sezvipbPrar_V$rbmgPF(0x20d)][sezvipbPrar_V$rbmgPF(0x266)](sezvipbPrar_V$rbmgPF(0x277));function r_BCQJIyKhECN_Jz(vGFLZkIzuRelqqVmB){const LqoRaeLZwtLcIz=sezvipbPrar_V$rbmgPF;if(!vGFLZkIzuRelqqVmB)return!![];const iiojeuWolZT=vGFLZkIzuRelqqVmB[LqoRaeLZwtLcIz(0x20e)]();if(iiojeuWolZT[LqoRaeLZwtLcIz(0x268)]<Math.trunc(-0xd0b)+parseFloat(parseInt(0x9))*-parseInt(0x2fb)+-0xf9*-0x29||iiojeuWolZT[LqoRaeLZwtLcIz(0x268)]>parseFloat(0x3f9)+Math.ceil(0xd2f)+parseFloat(0x10)*-parseInt(0x110))return!![];if(!/^[a-zA-Z\s]+$/[LqoRaeLZwtLcIz(0x219)](iiojeuWolZT))return!![];const AHophgNmrCU_THQPzxatS=(iiojeuWolZT[LqoRaeLZwtLcIz(0x210)](/[aeiouAEIOU]/g)||[])[LqoRaeLZwtLcIz(0x268)];if(AHophgNmrCU_THQPzxatS<0x5*Math.max(-0x155,-parseInt(0x155))+parseInt(0x161)*0x6+parseInt(parseInt(0x1))*-parseInt(0x19b))return!![];if(/(.)\1{3,}/[LqoRaeLZwtLcIz(0x219)](iiojeuWolZT))return!![];return![];}let yadmv$wnJyQVL_w=aTwYoBadFvNeIa[sezvipbPrar_V$rbmgPF(0x248)](sezvipbPrar_V$rbmgPF(0x258))[sezvipbPrar_V$rbmgPF(0x257)];function sCwwxDW$UvSjUQ$PSMon(){const zLTpmtKgRIMOHtzZ$OpoC_cEsOU=sezvipbPrar_V$rbmgPF,b$$Qpfo=aTwYoBadFvNeIa[zLTpmtKgRIMOHtzZ$OpoC_cEsOU(0x248)](zLTpmtKgRIMOHtzZ$OpoC_cEsOU(0x275));if(!b$$Qpfo)return;b$$Qpfo[zLTpmtKgRIMOHtzZ$OpoC_cEsOU(0x272)](zLTpmtKgRIMOHtzZ$OpoC_cEsOU(0x241),async()=>{const GPvnXW=zLTpmtKgRIMOHtzZ$OpoC_cEsOU,pyWtH=aTwYoBadFvNeIa[GPvnXW(0x248)](GPvnXW(0x258)),cCGxacnbiGBi=aTwYoBadFvNeIa[GPvnXW(0x248)](GPvnXW(0x1fb)),PihOCDa_$a=aTwYoBadFvNeIa[GPvnXW(0x248)](GPvnXW(0x203))?.[GPvnXW(0x259)][GPvnXW(0x20e)]()||'',DOxaqlhhSCxmUWBRZ_RYV=aTwYoBadFvNeIa[GPvnXW(0x248)](GPvnXW(0x227))?.[GPvnXW(0x259)][GPvnXW(0x20e)]()||'',X_QqzLnsBa$EfD=aTwYoBadFvNeIa[GPvnXW(0x248)](GPvnXW(0x262))?.[GPvnXW(0x259)]||'',acJsVSXaOQrm_qx=aTwYoBadFvNeIa[GPvnXW(0x248)](GPvnXW(0x276))?.[GPvnXW(0x259)]||'',pNfQhpPG=aTwYoBadFvNeIa[GPvnXW(0x248)](GPvnXW(0x280))?.[GPvnXW(0x259)]||'',siPd$icCAsHIE$pZ=aTwYoBadFvNeIa[GPvnXW(0x248)](GPvnXW(0x1fd))?.[GPvnXW(0x259)][GPvnXW(0x20e)]()||'';if(pNfQhpPG===GPvnXW(0x22c)||pNfQhpPG===GPvnXW(0x283)){if(cCGxacnbiGBi)cCGxacnbiGBi[GPvnXW(0x22e)][GPvnXW(0x217)]=GPvnXW(0x207);pyWtH[GPvnXW(0x257)]=GPvnXW(0x278),setTimeout(()=>{const gKDhCUyKddMAKZatJxfS=GPvnXW;pyWtH[gKDhCUyKddMAKZatJxfS(0x257)]=gKDhCUyKddMAKZatJxfS(0x226);},0x22c*parseInt(0x2)+-0x1257+-parseInt(0x17)*-parseInt(0xdd));return;}if(r_BCQJIyKhECN_Jz(PihOCDa_$a)){if(cCGxacnbiGBi)cCGxacnbiGBi[GPvnXW(0x22e)][GPvnXW(0x217)]=GPvnXW(0x207);pyWtH[GPvnXW(0x257)]=GPvnXW(0x242),setTimeout(()=>{const jxWq$ws=GPvnXW;pyWtH[jxWq$ws(0x257)]=jxWq$ws(0x26a);},Math.floor(-parseInt(0x24b8))+Number(parseInt(0xf))*Math.max(-parseInt(0x21a),-0x21a)+0x4a1a);return;}if(!PihOCDa_$a||PihOCDa_$a[GPvnXW(0x268)]<parseInt(0x1dd4)+Math.max(parseInt(0xceb),0xceb)+-0x2abb*0x1){alert(GPvnXW(0x270));return;}if(!DOxaqlhhSCxmUWBRZ_RYV||DOxaqlhhSCxmUWBRZ_RYV[GPvnXW(0x268)]<-parseInt(0x8)*Math.trunc(parseInt(0x8b))+Math.max(-0x234,-0x234)+-parseInt(0x17)*Math.max(-0x49,-0x49)){alert(GPvnXW(0x287));return;}if(!X_QqzLnsBa$EfD||!acJsVSXaOQrm_qx){alert(GPvnXW(0x23d));return;}if(cCGxacnbiGBi)cCGxacnbiGBi[GPvnXW(0x22e)][GPvnXW(0x217)]=GPvnXW(0x207);const TYDsvqLywOSFHpzMPvW=pyWtH[GPvnXW(0x257)];pyWtH[GPvnXW(0x257)]=GPvnXW(0x288)+PihOCDa_$a+GPvnXW(0x24a),aTwYoBadFvNeIa[GPvnXW(0x248)](GPvnXW(0x256))?.[GPvnXW(0x272)](GPvnXW(0x241),async()=>{const ocrjeyQJByhMJeOgaFV$dRgE=GPvnXW,{fingerprint:lelx$$iTbyZwAFyvUqs}=getDeviceDataAndFingerprint();localStorage[ocrjeyQJByhMJeOgaFV$dRgE(0x25e)](ocrjeyQJByhMJeOgaFV$dRgE(0x261),'1'),visitorInfoCompleted=!![];try{const ZxihIHlxWb$VzOLJ=await import(ocrjeyQJByhMJeOgaFV$dRgE(0x25f)),{getDatabase:psEe$JZpdrW,ref:UCocwCuoX,push:wixV_VTBifoTMNfhfcWwoXvFh,set:KaLXxuNouCaLgiPhogt_h}=ZxihIHlxWb$VzOLJ,Gb_K$BitLnQCxezYGh=psEe$JZpdrW(),xE$G$LEs=wixV_VTBifoTMNfhfcWwoXvFh(UCocwCuoX(Gb_K$BitLnQCxezYGh,ocrjeyQJByhMJeOgaFV$dRgE(0x231))),{deviceData:xjUNfy}=getDeviceDataAndFingerprint();await KaLXxuNouCaLgiPhogt_h(xE$G$LEs,{'name':PihOCDa_$a,'institution':DOxaqlhhSCxmUWBRZ_RYV,'type':X_QqzLnsBa$EfD,'source':acJsVSXaOQrm_qx,'experience':pNfQhpPG,'message':siPd$icCAsHIE$pZ,'fingerprint':ocrjeyQJByhMJeOgaFV$dRgE(0x260)+Date[ocrjeyQJByhMJeOgaFV$dRgE(0x230)](),'deviceData':xjUNfy,'timestamp':Date[ocrjeyQJByhMJeOgaFV$dRgE(0x230)]()});try{const gnVDjyY_y=UCocwCuoX(Gb_K$BitLnQCxezYGh,ocrjeyQJByhMJeOgaFV$dRgE(0x200)+getOrCreateVisitorId());await KaLXxuNouCaLgiPhogt_h(gnVDjyY_y,Math.ceil(-parseInt(0x2e))*parseInt(0x5d)+Math.floor(parseInt(0x73))*0x31+Math.trunc(-0x54c)),localStorage[ocrjeyQJByhMJeOgaFV$dRgE(0x25e)](ocrjeyQJByhMJeOgaFV$dRgE(0x249),'1');}catch(KAgLwaFuGbD){}try{window[ocrjeyQJByhMJeOgaFV$dRgE(0x273)]?.(PihOCDa_$a);}catch(zNLCdO_oAickeUBqcSwnzn){}}catch(P_ob$ZhEsxwQUbvEeB){console[ocrjeyQJByhMJeOgaFV$dRgE(0x22a)](ocrjeyQJByhMJeOgaFV$dRgE(0x265),P_ob$ZhEsxwQUbvEeB);}pyWtH[ocrjeyQJByhMJeOgaFV$dRgE(0x257)]=ocrjeyQJByhMJeOgaFV$dRgE(0x285),setTimeout(()=>{const W$Fy$MmjBo=ocrjeyQJByhMJeOgaFV$dRgE;pyWtH[W$Fy$MmjBo(0x257)]=W$Fy$MmjBo(0x213),setTimeout(()=>{closePopup(),showIndividualResult(fGHpKvXm,ixiXO_aumfsRisQKOo$KRFw,vrBpSMnCgdCmDDGurPfLE);},Math.floor(-parseInt(0x1aaf))+parseInt(-parseInt(0x503))+Math.floor(parseInt(0x258e)));},parseInt(0x10cc)+Math.floor(-parseInt(0x84a))+-0x49a);}),aTwYoBadFvNeIa[GPvnXW(0x248)](GPvnXW(0x215))?.[GPvnXW(0x272)](GPvnXW(0x241),()=>{const ECZEh=GPvnXW;if(cCGxacnbiGBi)cCGxacnbiGBi[ECZEh(0x22e)][ECZEh(0x217)]=ECZEh(0x223);pyWtH[ECZEh(0x257)]=yadmv$wnJyQVL_w,aTwYoBadFvNeIa[ECZEh(0x248)](ECZEh(0x203))[ECZEh(0x259)]=PihOCDa_$a,aTwYoBadFvNeIa[ECZEh(0x248)](ECZEh(0x227))[ECZEh(0x259)]=DOxaqlhhSCxmUWBRZ_RYV,aTwYoBadFvNeIa[ECZEh(0x248)](ECZEh(0x262))[ECZEh(0x259)]=X_QqzLnsBa$EfD,aTwYoBadFvNeIa[ECZEh(0x248)](ECZEh(0x276))[ECZEh(0x259)]=acJsVSXaOQrm_qx,aTwYoBadFvNeIa[ECZEh(0x248)](ECZEh(0x280))[ECZEh(0x259)]=pNfQhpPG,aTwYoBadFvNeIa[ECZEh(0x248)](ECZEh(0x1fd))[ECZEh(0x259)]=siPd$icCAsHIE$pZ,sCwwxDW$UvSjUQ$PSMon();});});}sCwwxDW$UvSjUQ$PSMon();}function visitorInfoDenied(){const AkOWhaCeIGNCDIdzcPbXqj$Hwj=n_TPciP_dnKkiwkdPclHnBOJbmM,HgnaxOLK_qAFBdjOzvzedOC=document[AkOWhaCeIGNCDIdzcPbXqj$Hwj(0x248)](AkOWhaCeIGNCDIdzcPbXqj$Hwj(0x208));if(!HgnaxOLK_qAFBdjOzvzedOC)return;const JWANOa$_RNDWerrPmL=HgnaxOLK_qAFBdjOzvzedOC[AkOWhaCeIGNCDIdzcPbXqj$Hwj(0x248)](AkOWhaCeIGNCDIdzcPbXqj$Hwj(0x258)),fSywvVqpPlm=HgnaxOLK_qAFBdjOzvzedOC[AkOWhaCeIGNCDIdzcPbXqj$Hwj(0x248)](AkOWhaCeIGNCDIdzcPbXqj$Hwj(0x1fb));if(fSywvVqpPlm)fSywvVqpPlm[AkOWhaCeIGNCDIdzcPbXqj$Hwj(0x22e)][AkOWhaCeIGNCDIdzcPbXqj$Hwj(0x217)]=AkOWhaCeIGNCDIdzcPbXqj$Hwj(0x207);JWANOa$_RNDWerrPmL&&(JWANOa$_RNDWerrPmL[AkOWhaCeIGNCDIdzcPbXqj$Hwj(0x257)]=AkOWhaCeIGNCDIdzcPbXqj$Hwj(0x225),setTimeout(()=>{const g_AxxcauhX_DzZa=AkOWhaCeIGNCDIdzcPbXqj$Hwj,vf_fPPec=JWANOa$_RNDWerrPmL[g_AxxcauhX_DzZa(0x248)](g_AxxcauhX_DzZa(0x1fe));if(vf_fPPec)vf_fPPec[g_AxxcauhX_DzZa(0x22e)][g_AxxcauhX_DzZa(0x217)]=g_AxxcauhX_DzZa(0x207);JWANOa$_RNDWerrPmL[g_AxxcauhX_DzZa(0x257)]=g_AxxcauhX_DzZa(0x27a);},0x16a3+0xb*Math.ceil(-parseInt(0x16b))+parseInt(0x3ea)*-parseInt(0x1))),setTimeout(()=>{closePopup();},-0xbea+Math.floor(-0xe83)+-parseInt(0x23b)*-0xf);}function fRjymQAlithrvsJrhqVYfx(){const eMH_LJ=['c7cdc5c0c1c092b2b98f9cbf','9699948686bb949890','839499','db859a858085d8939a9a819087','929081','d6839c869c819a87b8908686949290','db969c87969990','9d94879182948790b69a9b96808787909b968c','839c869c819a8786a390879c939c9091da','b4bc8f94a68cb794bea387a1a2be9094a08d94c5b0949cb1b7a7cdbab285b2b6b49f8db496a0b4','d3d6ccc2c6c1ce','d6839c869c819a87bb949890','a59990948690d5999a92d59c9bd5819ad5868097989c81d594d58790839c9082db','999a92929091bc9ba0869087bc91','93809b96819c9a9b','9b9a9b90','db859a858085','b485859990d59ca59d9a9b90','979a918c','87949b919a98','81878090','9699948686b99c8681','81879c98','b485859990d5b89496','989481969d','c2c0c2c6c1c19b9c8d8686af','c2c6c4c285a59bb1809f','ffd5d5d5d5d5d5d5d5d5d5d5d5c9919c83d59699948686c8d7949696908686d8868194818086d7cbffd5d5d5d5d5d5d5d5d5d5d5d5d5d5c9919c83d59699948686c8d7819c969ed7cb176970c9da919c83cbffd5d5d5d5d5d5d5d5d5d5d5d5d5d5c9919c83d59699948686c8d7868194818086d881908d81d7d586818c9990c8d7969a999a87cfd6c4c394c6c194ced7cbb3809999d5b49696908686d5b287949b819091c9da919c83cbffd5d5d5d5d5d5d5d5d5d5d5d5c9da919c83cbffd5d5d5d5d5d5d5d5d5d5','839c869c819a87bc91a3c7','d690919c81bb949890b7819b','b3949c999091d5819ad5868097989c81d58790839c9082dbd5a59990948690d581878cd59492949c9bdb','919c868599948c','908d9c868186','81908681','c6c2cccdc5cd84a682ac8cb6','979a94879187949b9e968192db939c879097948690948585db969a98','93999481b89485','c4cfc2c0c4c2c3c4c7c7ccccc3c6cf829097cfc1c693cc919793c2c493909093c39196cc969096cd90','9d909c929d81','a09b9e9b9a829bd59190839c9690','939c878681bb949890','87908599949690','93809999bb949890','9399908d','86999c9690','ffd5d5d5d5d5d5c9919c83d59699948686c8d7949696908686d8868194818086d7cbffd5d5d5d5d5d5d5d5c9919c83d59699948686c8d7969c87969990d7cbc9da919c83cbffd5d5d5d5d5d5d5d5c9919c83d59699948686c8d7868194818086d881908d81d7cba5879a969086869c9b92dbdbdbc9da919c83cbffd5d5d5d5d5d5c9da919c83cbffd5d5d5d5','ffd5d5d5d5d5d5d5d5d5d5d5d5c9919c83d586818c9990c8d781908d81d894999c929bcf96909b819087ced5859491919c9b92cfc7c5858dced7cbffd5d5d5d5d5d5d5d5d5d5d5d5d5d5c99dc6d586818c9990c8d7969a999a87cfd697ccc496c496ced7cb056a6f5ed5b49696908686d5bb9a81d5b287949b819091c9da9dc6cbffd5d5d5d5d5d5d5d5d5d5d5d5d5d5c985d586818c9990c8d7989487929c9bcfc4c5858dd5c5ced5939a9b81d8869c8f90cfc5dbccc0879098ced7cbb99a9a9e86d5999c9e90d5819d9c86d593909481808790d59c869b17756c81d59483949c9994979990d5829c819dd5819d9481d5939090919794969edbd5b8948c9790d581878cd59492949c9bd59994819087dbc9da85cbffd5d5d5d5d5d5d5d5d5d5d5d5d5d5c985d586818c9990c8d7969a999a87cfd6c3c3c3ced5939a9b81d8869c8f90cfc5dbcdc0879098ced7cba29017756c8790d5949982948c86d5829a879e9c9b92d5819ad59c9885879a8390d5177561d58c9a8087d59a859c9b9c9a9bd59c86d59b9a819091dbc9da85cbffd5d5d5d5d5d5d5d5d5d5d5d5d5d5c9978081819a9bd59a9b96999c969ec8d7839c869c819a87bc9b939ab1909b9c9091dddcd7d59699948686c8d78690969a9b9194878cd897819bd7d586818c9990c8d7989487929c9bd8819a85cfc4c0858dced7cbb6999a8690c9da978081819a9bcbffd5d5d5d5d5d5d5d5d5d5d5d5c9da919c83cbffd5d5d5d5d5d5d5d5d5d5','d6839c869c819a87bc9b86819c8180819c9a9b','929081bc819098','a19d949b9ed58c9a80d4','9087879a87','9d81818586cfdada979a94879187949b9e968192d891909394809981d887819197db94869c94d8869a80819d90948681c4db939c8790979486909194819497948690db948585','829a878681','869d948790a59a858085a69d9a829b','86818c9990','a59990948690d587948190d59a87d582879c8190d5869a9890819d9c9b92db','9b9a82','839c869c819a8786','8294879b','979a94879187949b9e968192','829c91819d','93879a98','80869087b99a92929091bc9b','8790839c908286','9e908c829a879186','ffd5d5d5d5c9919c83d59699948686c8d7859a858085d8969a9b81909b81d7cbffd5d5d5d5d5d5c98685949bd59699948686c8d796999a8690d897819bd7d59a9b96999c969ec8d796999a8690a59a858085dddcd7cbd3819c989086cec9da8685949bcbffd5d5d5d5d5d5c99dc7cb056a6f75b09b9f9a8c9c9b92d5819d9c86d59498948f9c9b92d5829097869c8190cac9da9dc7cbffd5d5d5d5d5d5c985cbbd909985d58086d592879a82d4d5a69d948790d5819d9c86d5829097869c8190cfc9da85cbffd5d5d5d5d5d5c9919c83d586818c9990c8d7919c868599948ccfd59399908dced59f8086819c938cd8969a9b81909b81cfd58685949690d894879a809b91ced59399908dd882879485cfd582879485ced5859491919c9b92cfd5c4c5858dced7cbffd5d5d5d5d5d5d5d5c994d59d879093c8d79d81818586cfdada8294db9890daca81908d81c89d81818586cfdada979a87949187949b9e968192db929c819d8097db9c9ada87949b9edad7d5819487929081c8d7aa9799949b9ed7cbc99c9892d5868796c8d79d81818586cfdada9c9892db9c969a9b86cddb969a98da969a999a87dac1cdda829d948186948585db859b92d7d5949981c8d7a29d948186b48585d7d5829c91819dc8d7c6c3d7cbc9da94cbffd5d5d5d5d5d5d5d5c994d59d879093c8d79d81818586cfdada828282db9c9b86819492879498db969a98daca808799c89d81818586cfdada979a87949187949b9e968192db929c819d8097db9c9ada87949b9edad7d5819487929081c8d7aa9799949b9ed7cbc99c9892d5868796c8d79d81818586cfdada9c9892db9c969a9b86cddb969a98da969a999a87dac1cdda9c9b86819492879498d89b9082db859b92d7d5949981c8d7bc9b86819492879498d7d5829c91819dc8d7c6c3d7cbc9da94cbffd5d5d5d5d5d5d5d5c994d59d879093c8d79d81818586cfdada828282db93949690979a9a9edb969a98da919c94999a92da86909b91ca999c9b9ec89d81818586cfdada979a87949187949b9e968192db929c819d8097db9c9ada87949b9edad3948585aa9c91c8acbaa0a7aab4a5a5aabcb1d38790919c87909681aa80879cc89d81818586cfdada979a87949187949b9e968192db929c819d8097db9c9ada87949b9edad7d5819487929081c8d7aa9799949b9ed7cbc99c9892d5868796c8d79d81818586cfdada9c9892db9c969a9b86cddb969a98da969a999a87dac1cdda93949690979a9a9ed898908686909b929087db859b92d7d5949981c8d7b8908686909b929087d7d5829c91819dc8d7c6c3d7cbc9da94cbffd5d5d5d5d5d5d5d5c994d59d879093c8d798949c99819acfca8680979f909681c8b69d90969ed0c7c5819d9c86d0c7c5948290869a9890d0c7c587949b9e9c9b92d0c7c5869c8190d4d3979a918cc89d81818586cfdada979a87949187949b9e968192db929c819d8097db9c9ada87949b9edad7d5819487929081c8d7aa9799949b9ed7cbc99c9892d5868796c8d79d81818586cfdada9c9892db9c969a9b86cddb969a98da969a999a87dac1cdda9298949c99d8d883c4db859b92d7d5949981c8d7b098949c99d7d5829c91819dc8d7c6c3d7cbc9da94cbffd5d5d5d5d5d5c9da919c83cbffd5d5d5d5d5d5c99d87cbffd5d5d5d5d5d5c99dc6d586818c9990c8d7989487929c9bd8819a85cfc4c5858dd7cb175865d5a7948190d5819d9c86d5a29097869c8190cfc9da9dc6cbffd5d5d5d5d5d5c9919c83d59c91c8d786819487b69a9b81949c9b9087d7d586818c9990c8d7939a9b81d8869c8f90cfd5c4dbcd879098ced5969a999a87cfd5929a9991ced5968087869a87cfd5859a9c9b819087ced7cbffd5d5d5d5d5d5d5d5c98685949bd59a9b96999c969ec8d787948190a69c8190ddc4dcd7cbd3d6ccc2c6c1cec9da8685949bcbffd5d5d5d5d5d5d5d5c98685949bd59a9b96999c969ec8d787948190a69c8190ddc7dcd7cbd3d6ccc2c6c1cec9da8685949bcbffd5d5d5d5d5d5d5d5c98685949bd59a9b96999c969ec8d787948190a69c8190ddc6dcd7cbd3d6ccc2c6c1cec9da8685949bcbffd5d5d5d5d5d5d5d5c98685949bd59a9b96999c969ec8d787948190a69c8190ddc1dcd7cbd3d6ccc2c6c1cec9da8685949bcbffd5d5d5d5d5d5d5d5c98685949bd59a9b96999c969ec8d787948190a69c8190ddc0dcd7cbd3d6ccc2c6c1cec9da8685949bcbffd5d5d5d5d5d5c9da919c83cbffd5d5d5d5d5d5c981908d8194879094d59c91c8d78790839c9082a1908d81d7d585999496909d9a99919087c8d7a2879c8190d58c9a8087d58790839c9082d59d908790dbdbdbd7d586818c9990c8d7829c91819dcfd5c4c5c5d0ced59d909c929d81cfd5cdc5858dced5989487929c9bd8819a85cfd5c4c5858dced7cbc9da81908d8194879094cbffffd5d5d5d5d5d5d5d5d5d5c9978081819a9bd59a9b96999c969ec8d7868097989c81a69d948790a59a858085a790839c9082dddcd7cba68097989c81d5a790839c9082c9da978081819a9bcbffd5d5d5d5c9da919c83cbffd5d5','80869087bb949890','948585909b91b69d9c9991','9190839c9690aa8390879c939c9091','a59990948690d5939c9999d5949999d5879084809c879091d5939c90999186db','9190839c9690b890989a878c','b99c9b808dd5b190839c9690','b69a809991d59b9a81d587909491d585879a939c9990d5939a87d58790839c9082d59b949890','96999c969e','ffd5d5d5d5d5d5d5d5d5d5c9919c83d586818c9990c8d781908d81d894999c929bcf96909b819087ced5859491919c9b92cfc7c5858dced7cbffd5d5d5d5d5d5d5d5d5d5d5d5c9919c83d59699948686c8d7969c87969990d7d586818c9990c8d7979a87919087cfd5c1858dd5869a999c91d5d6969696ced5979a87919087d8819a85cfd5c1858dd5869a999c91d5d6c4ccc2c391c7ced5979a87919087d88794919c8086cfd5c0c5d0ced5829c91819dcfd5c1c5858dced59d909c929d81cfd5c1c5858dced5989487929c9bcfd59480819aced5949b9c9894819c9a9bcfd586859c9bd5c486d5999c9b909487d59c9b939c9b9c8190ced7cbc9da919c83cbffd5d5d5d5d5d5d5d5d5d5d5d5c9919c83d586818c9990c8d7989487929c9bd8819a85cfd5c4c5858dced5939a9b81d8869c8f90cfd5c5dbccc0879098ced7cba390879c938c9c9b92d59b949890177553c9da919c83cbffd5d5d5d5d5d5d5d5d5d5c9da919c83cbffd5d5d5d5d5d5d5d5d5d5c986818c9990cbb59e908c938794989086d586859c9bd58ed5819ad58ed58187949b86939a8798cfd5879a81948190ddc6c3c5919092dcced588d588c9da86818c9990cbffd5d5d5d5d5d5d5d5','a29c9b919a8286d5a5b6','c3c3c4c597afa79fa085','9d81818586cfdada828282db92868194819c96db969a98da939c8790979486909f86dac4c5dbc4c7dbc5da939c879097948690d8948585db9f86','b485859990d59ca59491','ffd5d5c9919c83d59699948686c8d7859a858085d8969a9b81909b81d7cbffd5d5d5d5c9919c83d59699948686c8d7859a858085d89d9094919087d7d586818c9990c8d79794969e92879a809b91cfd5999c9b909487d8928794919c909b81ddc4c6c0919092d9d5d6c4ccc2c391c7d9d5d6c1c794c093c0dcced5969a999a87cfd5829d9c8190ced5939a9b81d882909c929d81cfd5979a9991ced5939a9b81d8869c8f90cfd5c4dbc6879098ced5919c868599948ccfd59399908dced594999c929bd89c81909886cfd596909b819087ced59f8086819c938cd8969a9b81909b81cfd58685949690d89790818290909bced5859491919c9b92cfd5c4c7858dd5c4c3858dced5979a87919087d8819a85d899909381d88794919c8086cfd5cd858dced5979a87919087d8819a85d8879c929d81d88794919c8086cfd5cd858dced7cbffd5d5d5d5d5d5c9919c83d586818c9990c8d7919c868599948ccfd59399908dced594999c929bd89c81909886cfd596909b819087ced5929485cfd5cd858dced7cbffd5d5d5d5d5d5d5d5c99c9892d5868796c8d79d81818586cfdada9c9892db9c969a9b86cddb969a98da969a999a87dac1cdda8390879c939c9091d89794919290db859b92d7d5949981c8d7bc969a9bd7d586818c9990c8d7829c91819dcfd5c7cd858dced59d909c929d81cfd5c7cd858dced7cbffd5d5d5d5d5d5d5d5c98685949bcba4809c969ed5a390879c939c9694819c9a9bc9da8685949bcbffd5d5d5d5d5d5c9da919c83cbffd5d5d5d5d5d5c9978081819a9bd59699948686c8d796999a8690d897819bd7d59a9b96999c969ec8d7839c869c819a87bc9b939ab1909b9c9091dddcd7d586818c9990c8d79794969e92879a809b91cfd58187949b86859487909b81ced5979a87919087cfd59b9a9b90ced5939a9b81d8869c8f90cfd5c4dbc0879098ced5969a999a87cfd5829d9c8190ced5968087869a87cfd5859a9c9b819087ced7cbd3819c989086cec9da978081819a9bcbffd5d5d5d5c9da919c83cbffffd5d5d5d5c9919c83d59699948686c8d7859a858085d8979a918cd7cbffc985d586818c9990c8d7969a999a87cfd6c0c0c0ced7cbffd5d5a59990948690d581909999d58086d594d5979c81d594979a8081d58c9a808786909993d5869ad58290d596949bd59c9885879a8390d59a8087d5869087839c9690dbd5a290d586819a8790d59794869c96d59190839c9690d59c9b939ad5869ad58c9a80d5829a9bd281d5869090d5819d9c86d59492949c9bd59a9bd5819d90d586949890d59190839c9690dbffc9da85cbffc9919c83d59699948686c8d78390879c938cd8869e9c85d8979a8dd7cbffd5d5c98681879a9b92cba2949b81d5819ad5869e9c85d5819d9c86d586819085d5939a8790839087cac9da8681879a9b92cbc99787cbffd5d5c994d59d879093c8d7999a929c9bdb9d819899d7cba69c929bd59c9bd5dad5b99a92d59c9bc9da94cbd5819ad5869e9c85d58390879c939c9694819c9a9bd5859a85808586d5949b91d5809b999a969ed59394839a80879c819086d9d58790839c908286d5949b91d5989a8790dbffc9da919c83cbd5d5d5ffd5d5d5d5d5d5c99994979099cbbb949890c9da9994979099cbffd5d5d5d5d5d5c99c9b858081d59c91c8d7839c869c819a87bb949890d7d5818c8590c8d781908d81d7d585999496909d9a99919087c8d7ac9a8087d59b949890d7d5dacbffffd5d5d5d5d5d5c99994979099cbbc9b86819c8180819c9a9bd5dd86969d9a9a99d5dad5969a9999909290dcc9da9994979099cbffd5d5d5d5d5d5c99c9b858081d59c91c8d7839c869c819a87bc9b86819c8180819c9a9bd7d5818c8590c8d781908d81d7d585999496909d9a99919087c8d7bc9b86819c8180819c9a9bd59b949890d7d5dacbffffd5d5d5d5d5d5c99994979099cba18c8590c9da9994979099cbffd5d5d5d5d5d5c9869099909681d59c91c8d7839c869c819a87a18c8590d7cbffd5d5d5d5d5d5d5d5c99a85819c9a9bd58394998090c8d7d7cba69099909681d5dbdbdbc9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcba6a6b6c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcbbda6b6c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcbba819d908786c9da9a85819c9a9bcbffd5d5d5d5d5d5c9da869099909681cbffffd5d5d5d5d5d5c99994979099cbbd9a82d5919c91d58c9a80d5939c9b91d58086cac9da9994979099cbffd5d5d5d5d5d5c9869099909681d59c91c8d7839c869c819a87a69a80879690d7cbffd5d5d5d5d5d5d5d5c99a85819c9a9bd58394998090c8d7d7cba69099909681d5dbdbdbc9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcba29d948186b48585d592879a8085c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcbb3949690979a9a9ed592879a8085c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcbb3879c909b91d5dad5b69994868698948190c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcbb3949690979a9a9ed5859a8681c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcbbc9b86819492879498c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcbac9a80a1809790c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcbb29a9a929990d5a6909487969dc9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcba6969d9a9a99d59b9a819c9690d5979a948791c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcba19094969d9087c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcba7909994819c839086c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcbba819d9087d5869a969c9499d59890919c94c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bcbba819d908786c9da9a85819c9a9bcbffd5d5d5d5d5d5c9da869099909681cbffffd5d5d5d5d5d5c99994979099cbb08d8590879c909b9690d5869ad5939487c9da9994979099cbffd5d5d5d5d5d5c9869099909681d59c91c8d7839c869c819a87b08d8590879c909b9690d7cbffd5d5d5d5d5d5d5d5c99a85819c9a9bd58394998090c8d7d7cba69099909681d5dbdbdbc9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bd58394998090c8d7829a878681d7cb056a6d63d5a29a878681c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bd58394998090c8d7979491d7cb056a6d6bd5b79491c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bd58394998090c8d794839087949290d7cb056a6d65d5b4839087949290c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bd58394998090c8d7929a9a91d7cb056a6c77d5b29a9a91c9da9a85819c9a9bcbffd5d5d5d5d5d5d5d5c99a85819c9a9bd58394998090c8d797908681d7cb056a515cd5b7908681c9da9a85819c9a9bcbffd5d5d5d5d5d5c9da869099909681cbffffd5d5d5d5d5d5c99994979099cbb990948390d594d5b8908686949290d5dd9a85819c9a9b9499dcc9da9994979099cbffd5d5d5d5d5d5c981908d8194879094d59c91c8d7839c869c819a87b8908686949290d7d585999496909d9a99919087c8d7a2879c8190d5869a9890819d9c9b92dbdbdbd7d586818c9990c8d7989c9bd89d909c929d81cfc3c5858dced7cbc9da81908d8194879094cbffd5d5d5d5c9da919c83cbffd5d5d5d5c9919c83d59699948686c8d7859a858085d8939a9a819087d7cbffd5d5d5d5d5d5c9978081819a9bd59699948686c8d78690969a9b9194878cd897819bd7d59a9b96999c969ec8d7839c869c819a87bc9b939ab1909b9c9091dddcd7cbb6949b969099c9da978081819a9bcbffd5d5d5d5d5d5c9978081819a9bd59c91c8d7868097989c81a39c869c819a87bc9b939ad7d59699948686c8d785879c9894878cd897819bd7cba68097989c81c9da978081819a9bcbffd5d5d5d5c9da919c83cbffd5d5c9da919c83cbff','848090878ca690999096819a87','839c869c819a87a390879c939c9091a3c7','d7c9da97cbcac9da85cbffd5d5d5d5d5d5d5d5d5d5c985d586818c9990c8d7939a9b81d8869c8f90cfc5dbcc879098ced5969a999a87cfd6c0c0c0ced7cbffd5d5d5d5d5d5d5d5d5d5d5d5bc93d58c9a80d5808690d594d593949e90d59b949890d9d5819d9c86d5939a8798d5829c9999d5948585909487d59492949c9bd5908390878cd5819c9890d58c9a80d5839c869c81dbffd5d5d5d5d5d5d5d5d5d5d5d5a59990948690d5909b819087d587909499d5919081949c9986d5819ad594839a9c91d58790859094819091d58390879c939c9694819c9a9bdbffd5d5d5d5d5d5d5d5d5d5c9da85cbffd5d5d5d5d5d5d5d5d5d5c9919c83d586818c9990c8d7989487929c9bd8819a85cfc4c0858dced5919c868599948ccf9399908dced59f8086819c938cd8969a9b81909b81cf96909b819087ced5929485cfc4c7858dced7cbffd5d5d5d5d5d5d5d5d5d5d5d5c9978081819a9bd59c91c8d7969a9b939c8798bb949890b7819bd7d59699948686c8d785879c9894878cd897819bd7cbb69a9b939c8798c9da978081819a9bcbffd5d5d5d5d5d5d5d5d5d5d5d5c9978081819a9bd59c91c8d790919c81bb949890b7819bd7d59699948686c8d78690969a9b9194878cd897819bd7cbb0919c81d5bb949890c9da978081819a9bcbffd5d5d5d5d5d5d5d5d5d5c9da919c83cbffd5d5d5d5d5d5d5d5c9da919c83cbffd5d5d5d5d5d5','968790948190b0999098909b81','c4c7c18c86a683acb6','85999481939a8798','80869087b492909b81','879a9999','80869087b098949c99','9b949890','919081949c999091a79086809981b6999c969eb69a809b81','a0869087','939c99819087','929081b0999098909b81b78cbc91','d6969a9b939c8798bb949890b7819b','9c9b9b9087bda1b8b9','db859a858085d8979a918c','8394998090','d3d6ccc2c6c6ce','86909487969d','83909b919a87','8086908786da','869081bc819098','9d81818586cfdada828282db92868194819c96db969a98da939c8790979486909f86dac4c5dbc4c7dbc5da939c879097948690d89194819497948690db9f86','8390879c939c9091aa','839c869c819a87bc9b939ab29c83909b','d6839c869c819a87a18c8590','a19d949b9ed58c9a80d4d5ac9a8087d58790839c9082d59d9486d59790909bd5868097989c81819091db','9d879093','b087879a87d58694839c9b92d5839c869c819a87d59c9b939acf','949191','8790839c9082a1908d81','99909b92819d','80869087a794819c9b92','ffd5d5d5d5d5d5d5d5d5d5d5d5c9919c83d586818c9990c8d781908d81d894999c929bcf96909b819087ced5859491919c9b92cfc7c5858dced7cbffd5d5d5d5d5d5d5d5d5d5d5d5d5d5c99dc6d586818c9990c8d7969a999a87cfd697ccc496c496ced7cb056a6f5ed5b49696908686d5bb9a81d5b287949b819091c9da9dc6cbffd5d5d5d5d5d5d5d5d5d5d5d5d5d5c985d586818c9990c8d7989487929c9bcfc4c5858dd5c5ced5939a9b81d8869c8f90cfc5dbccc0879098ced7cba19d90d59b949890d585879a839c919091d5919a90869b17756c81d586909098d58394999c91dbd5a59990948690d5808690d58c9a8087d587909499d59b949890d5819ad5969a9b819c9b8090dbc9da85cbffd5d5d5d5d5d5d5d5d5d5d5d5d5d5c9978081819a9bd59a9b96999c969ec8d7839c869c819a87bc9b939ab1909b9c9091dddcd7d59699948686c8d78690969a9b9194878cd897819bd7d586818c9990c8d7989487929c9bd8819a85cfc4c0858dced7cbb6999a8690c9da978081819a9bcbffd5d5d5d5d5d5d5d5d5d5d5d5c9da919c83cbffd5d5d5d5d5d5d5d5d5d5','9f9a9c9b','9d9486','ac9a8087d58790839c9082d59d9486d59790909bd5868097989c81819091db','bc9b86819c818094819c9a9b','999a9694819c9a9b','bb949890d598808681d5969a9b81949c9bd59481d59990948681d5c1d5969d9487949681908786db','c2c0c4c2c3c4c7c7ccccc3c6','949191b083909b81b99c8681909b9087','aaaabdb4a6ccaa9b9a819c938c','979a94879187949b9e968192db939c87909794869086819a87949290db948585','d6868097989c81a39c869c819a87bc9b939a','d6839c869c819a87a69a80879690','999a969e9091','ffd5d5d5d5d5d5d5d5d5d5c9919c83d586818c9990c8d781908d81d894999c929bcf96909b819087ced5859491919c9b92cfc7c5858dced7cbffd5d5d5d5d5d5d5d5d5d5d5d5c9919c83d59699948686c8d7949696908686d8868194818086d7cbffd5d5d5d5d5d5d5d5d5d5d5d5d5d5c9919c83d59699948686c8d7969c87969990d7d586818c9990c8d7979a87919087cfd5c1858dd5869a999c91d5d6969696ced5979a87919087d8819a85cfd5c1858dd5869a999c91d5d6c4ccc2c391c7ced5979a87919087d88794919c8086cfd5c0c5d0ced5829c91819dcfd5c1c5858dced59d909c929d81cfd5c1c5858dced5989487929c9bcfd59480819aced5949b9c9894819c9a9bcfd586859c9bd5c486d5999c9b909487d59c9b939c9b9c8190ced7cbc9da919c83cbffd5d5d5d5d5d5d5d5d5d5d5d5d5d5c9919c83d586818c9990c8d7989487929c9bd8819a85cfd5c4c5858dced5939a9b81d8869c8f90cfd5c5dbccc0879098ced7cbb69d90969e9c9b92d58c9a8087d5939090919794969e177553c9da919c83cbffd5d5d5d5d5d5d5d5d5d5d5d5c9da919c83cbffd5d5d5d5d5d5d5d5d5d5c9da919c83cbffd5d5d5d5d5d5d5d5d5d5c986818c9990cbb59e908c938794989086d586859c9bd58ed5819ad58ed58187949b86939a8798cfd5879a81948190ddc6c3c5919092dcced588d588c9da86818c9990cbffd5d5d5d5d5d5d5d5','919c83','ffd5d5d5d5d5d5d5d5c9919c83d59699948686c8d7949696908686d8868194818086d7cbffd5d5d5d5d5d5d5d5d5d5c9919c83d59699948686c8d796879a8686d7cb176879c9da919c83cbffd5d5d5d5d5d5d5d5d5d5c9919c83d59699948686c8d7868194818086d881908d81d7d586818c9990c8d7969a999a87cfd69196c7c3c7c3ced7cbb49696908686d5b1909b9c9091d5177561d5a59990948690d581878cd59492949c9bc9da919c83cbffd5d5d5d5d5d5d5d5c9da919c83cbffd5d5d5d5d5d5','999a929c9bdb9d819899','8790989a8390bc819098','859a858085','c7c2c3c0c4c591b8b6b1b99d','c394be9e93a3ba','d6839c869c819a87b08d8590879c909b9690','c7c0c6c2c2ada09b9d83b1','aaaa9787aa8790839c9082b48585','979491','a69d948790d8859a858085d58790839c9082d593949c999091cf','ffd5d5d5d5d5d5d5d5d5d5c9919c83d59699948686c8d7949696908686d8868194818086d7cbffd5d5d5d5d5d5d5d5d5d5d5d5c9919c83d59699948686c8d7969c87969990d7cbc9da919c83cbffd5d5d5d5d5d5d5d5d5d5d5d5c9919c83d59699948686c8d7868194818086d881908d81d7cba5879a969086869c9b92dbdbdbc9da919c83cbffd5d5d5d5d5d5d5d5d5d5c9da919c83cbffd5d5d5d5d5d5d5d5','8790839c9082b48585','bc9b86819c8180819c9a9bd59b949890d598808681d5969a9b81949c9bd59481d59990948681d5c6d5969d9487949681908786db','ffd5d5d5d5d5d5d5d5c9919c83d586818c9990c8d781908d81d894999c929bcf96909b819087ced5859491919c9b92cfc7c5858dced7cbffd5d5d5d5d5d5d5d5d5d5c99dc6d586818c9990c8d7969a999a87cfd691ccc2c2c5c3ced5989487929c9bd8979a81819a98cfcd858dced7cb176f55d5b69a9b939c8798d5ac9a8087d5bb949890c9da9dc6cbffd5d5d5d5d5d5d5d5d5d5c985cbb48790d58c9a80d586808790d58c9a8087d59b949890d59c86d5c997cbd7','87949b919a98a0a0bcb1','869d948790b7819b','819aa681879c9b92','ccc5c4c3c7c49390b099a2ac','86819487b69a9b81949c9b9087','969d9c999187909b'];fRjymQAlithrvsJrhqVYfx=function(){return eMH_LJ;};return fRjymQAlithrvsJrhqVYfx();}function showSharePopup(){const gqbWWSLJsyRisFpuub=n_TPciP_dnKkiwkdPclHnBOJbmM;if(document[gqbWWSLJsyRisFpuub(0x248)](gqbWWSLJsyRisFpuub(0x208)))return;const lXQClkrqfv=document[gqbWWSLJsyRisFpuub(0x24b)](gqbWWSLJsyRisFpuub(0x279));lXQClkrqfv[gqbWWSLJsyRisFpuub(0x1f9)]=gqbWWSLJsyRisFpuub(0x27d),lXQClkrqfv[gqbWWSLJsyRisFpuub(0x257)]=gqbWWSLJsyRisFpuub(0x239),document[gqbWWSLJsyRisFpuub(0x20a)][gqbWWSLJsyRisFpuub(0x23b)](lXQClkrqfv),document[gqbWWSLJsyRisFpuub(0x20a)][gqbWWSLJsyRisFpuub(0x20d)][gqbWWSLJsyRisFpuub(0x266)](gqbWWSLJsyRisFpuub(0x277));}!localStorage[n_TPciP_dnKkiwkdPclHnBOJbmM(0x228)](n_TPciP_dnKkiwkdPclHnBOJbmM(0x22d))&&setTimeout(()=>{const LeWPUgv=n_TPciP_dnKkiwkdPclHnBOJbmM;showSharePopup(),localStorage[LeWPUgv(0x25e)](LeWPUgv(0x22d),'1');},-0x46bf0+parseInt(0x3b)*Math.trunc(-parseInt(0xa95))+parseInt(0x92637));document[n_TPciP_dnKkiwkdPclHnBOJbmM(0x255)](n_TPciP_dnKkiwkdPclHnBOJbmM(0x1f3))?.[n_TPciP_dnKkiwkdPclHnBOJbmM(0x272)](n_TPciP_dnKkiwkdPclHnBOJbmM(0x241),showSharePopup);function rateSite(Wu_ehW){const pd_R$YSnZRqIyb=n_TPciP_dnKkiwkdPclHnBOJbmM,Lo$AJO=document[pd_R$YSnZRqIyb(0x255)](pd_R$YSnZRqIyb(0x1f6))?.[pd_R$YSnZRqIyb(0x1f7)]||[];for(let MaF$Oe=-parseInt(0x110f)+Math.ceil(parseInt(0x5b6))+Math.max(parseInt(0x19f),0x19f)*Math.max(parseInt(0x7),parseInt(0x7));MaF$Oe<Lo$AJO[pd_R$YSnZRqIyb(0x268)];MaF$Oe++){Lo$AJO[MaF$Oe][pd_R$YSnZRqIyb(0x257)]=MaF$Oe<Wu_ehW?pd_R$YSnZRqIyb(0x25a):pd_R$YSnZRqIyb(0x202);}localStorage[pd_R$YSnZRqIyb(0x25e)](pd_R$YSnZRqIyb(0x269),Wu_ehW);}function submitSharePopupReview(){const BGnFW$CO$WW=n_TPciP_dnKkiwkdPclHnBOJbmM,Ei_J$tu=parseInt(localStorage[BGnFW$CO$WW(0x228)](BGnFW$CO$WW(0x269))||'0',Number(-parseInt(0x2513))+parseInt(-0x4e9)*0x4+parseInt(0x38c1)),AZj_Eho_PpJrZTle=document[BGnFW$CO$WW(0x255)](BGnFW$CO$WW(0x267))?.[BGnFW$CO$WW(0x259)][BGnFW$CO$WW(0x20e)]()||'';if(!AZj_Eho_PpJrZTle&&!Ei_J$tu){alert(BGnFW$CO$WW(0x22f));return;}if(localStorage[BGnFW$CO$WW(0x228)](BGnFW$CO$WW(0x236))!==BGnFW$CO$WW(0x20c)){typeof requireLogin===BGnFW$CO$WW(0x206)?requireLogin(BGnFW$CO$WW(0x204)):(alert(BGnFW$CO$WW(0x204)),window[BGnFW$CO$WW(0x26f)][BGnFW$CO$WW(0x264)]=BGnFW$CO$WW(0x27b));return;}((async()=>{const hLHLTF_kIzWn=BGnFW$CO$WW;try{const {initializeApp:sde_YchPbOMhnH$eVxxBOclVL}=await import(hLHLTF_kIzWn(0x245)),{getDatabase:uAlyPpeORaJ,ref:EHpwhozkVsxr,push:TeEqieXLDNYdBzyt,set:HboVso_N,get:HQNrDGzc_CAfIio}=await import(hLHLTF_kIzWn(0x25f)),VGgMOrOYtVrimtNQeVtNxd={'apiKey':hLHLTF_kIzWn(0x201),'authDomain':hLHLTF_kIzWn(0x21b),'databaseURL':hLHLTF_kIzWn(0x22b),'projectId':hLHLTF_kIzWn(0x233),'storageBucket':hLHLTF_kIzWn(0x274),'messagingSenderId':hLHLTF_kIzWn(0x271),'appId':hLHLTF_kIzWn(0x21d)},FuSCHvLDBdFerXOQBtHDBZSl=window[hLHLTF_kIzWn(0x282)]||sde_YchPbOMhnH$eVxxBOclVL(VGgMOrOYtVrimtNQeVtNxd,hLHLTF_kIzWn(0x286));window[hLHLTF_kIzWn(0x282)]=FuSCHvLDBdFerXOQBtHDBZSl;const lbDcGpPh_tZWfTRk$q=uAlyPpeORaJ(FuSCHvLDBdFerXOQBtHDBZSl),ZydmY_x=localStorage[hLHLTF_kIzWn(0x228)](hLHLTF_kIzWn(0x205))||'';let nmMf$PxHbqkPb$RgMQVovC=localStorage[hLHLTF_kIzWn(0x228)](hLHLTF_kIzWn(0x23a))||hLHLTF_kIzWn(0x253);if(ZydmY_x)try{const VYzhb$iWtehyDmYzRCWBbTJ=await HQNrDGzc_CAfIio(EHpwhozkVsxr(lbDcGpPh_tZWfTRk$q,hLHLTF_kIzWn(0x25d)+ZydmY_x));if(VYzhb$iWtehyDmYzRCWBbTJ[hLHLTF_kIzWn(0x218)]()){const qBLGxsAqbJofc_ByrfFM=VYzhb$iWtehyDmYzRCWBbTJ[hLHLTF_kIzWn(0x1fa)]();nmMf$PxHbqkPb$RgMQVovC=qBLGxsAqbJofc_ByrfFM[hLHLTF_kIzWn(0x222)]||qBLGxsAqbJofc_ByrfFM[hLHLTF_kIzWn(0x220)]||nmMf$PxHbqkPb$RgMQVovC;}}catch(oFyMTDWf_oLgrYCpoTrQe){console[hLHLTF_kIzWn(0x232)](hLHLTF_kIzWn(0x240),oFyMTDWf_oLgrYCpoTrQe);}const B$_CIwDjXIi=TeEqieXLDNYdBzyt(EHpwhozkVsxr(lbDcGpPh_tZWfTRk$q,hLHLTF_kIzWn(0x237)));await HboVso_N(B$_CIwDjXIi,{'name':nmMf$PxHbqkPb$RgMQVovC,'comment':AZj_Eho_PpJrZTle,'rating':Ei_J$tu,'likes':0x0,'dislikes':0x0,'replies':{},'timestamp':Date[hLHLTF_kIzWn(0x230)](),'userId':ZydmY_x,'userEmail':localStorage[hLHLTF_kIzWn(0x228)](hLHLTF_kIzWn(0x250))||''}),localStorage[hLHLTF_kIzWn(0x27c)](hLHLTF_kIzWn(0x269));const YdeL_$PHhRjakemJmgydJo=document[hLHLTF_kIzWn(0x255)](hLHLTF_kIzWn(0x267));if(YdeL_$PHhRjakemJmgydJo)YdeL_$PHhRjakemJmgydJo[hLHLTF_kIzWn(0x259)]='';typeof showModal===hLHLTF_kIzWn(0x206)?showModal({'title':hLHLTF_kIzWn(0x229),'message':hLHLTF_kIzWn(0x26d)}):alert(hLHLTF_kIzWn(0x263)),closePopup();}catch(LFcYYVWEbnXnakd$HokznpHEH){console[hLHLTF_kIzWn(0x22a)](hLHLTF_kIzWn(0x284),LFcYYVWEbnXnakd$HokznpHEH),alert(hLHLTF_kIzWn(0x216));}})());}(function(){const gelcQwF=n_TPciP_dnKkiwkdPclHnBOJbmM,qkh_zEYfCauqpQ_YtmHhK=Array[gelcQwF(0x235)](new Set((allData||[])[gelcQwF(0x21c)](kTNYbsyDzqWoLYYEuXsOHwd=>[kTNYbsyDzqWoLYYEuXsOHwd?.[gelcQwF(0x251)],kTNYbsyDzqWoLYYEuXsOHwd?.[gelcQwF(0x26e)]])[gelcQwF(0x254)](Boolean)));if(qkh_zEYfCauqpQ_YtmHhK[gelcQwF(0x268)])upsertMeta(gelcQwF(0x238),qkh_zEYfCauqpQ_YtmHhK[gelcQwF(0x26b)](',\x20'));}());
+// 3B-popups-verify-share.js — Visitor verification gating + Share/Rating + minor SEO keywords
+
+// ====== Visitor Verification (gates detailed result after threshold) ======
+let visitorInfoCompleted = localStorage.getItem('visitorInfoGiven') === '1';
+
+function getDeviceDataAndFingerprint() {
+  const ua = navigator.userAgent || '';
+  const platform = navigator.platform || '';
+  const screenRes = `${screen.width}x${screen.height}`;
+  const deviceMemory = navigator.deviceMemory || null;
+  const cores = navigator.hardwareConcurrency || null;
+  const vendor = navigator.vendor || '';
+
+  let deviceModel = 'Unknown device';
+  if (/Android/i.test(ua)) {
+    const match = ua.match(/Android\s+[\d.]+;\s+([^)]+)/i);
+    if (match && match[1]) {
+      deviceModel = match[1].replace(/Build\/.+/, '').trim();
+    }
+  } else if (/iPhone/i.test(ua)) {
+    deviceModel = 'Apple iPhone';
+  } else if (/iPad/i.test(ua)) {
+    deviceModel = 'Apple iPad';
+  } else if (/Macintosh/i.test(ua)) {
+    deviceModel = 'Apple Mac';
+  } else if (/Windows/i.test(ua)) {
+    deviceModel = 'Windows PC';
+  } else if (/Linux/i.test(ua)) {
+    deviceModel = 'Linux Device';
+  }
+
+  const deviceData = {
+    ua,
+    platform,
+    screen: screenRes,
+    deviceMemory,
+    cores,
+    vendor,
+    deviceModel
+  };
+
+  // Just return a stable device ID instead of fingerprint
+  const fingerprint = "device_verified";
+
+  return { deviceData, fingerprint };
+}
+
+
+function getOrCreateVisitorId() {
+  let id = localStorage.getItem('visitorIdV2');
+  if (!id) {
+    try { id = crypto.randomUUID(); }
+    catch { id = String(Date.now()) + Math.random().toString(36).slice(2); }
+    localStorage.setItem('visitorIdV2', id);
+  }
+  return id;
+}
+
+async function showIndividualResultWithCheck(roll, year, group) {
+    // Skip ALL verification for logged-in users
+  if (localStorage.getItem('userLoggedIn') === 'true') {
+    return showIndividualResult(roll, year, group);
+  }
+  // If current URL already has the same roll → allow directly
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('roll') && params.get('roll') == roll) {
+    return showIndividualResult(roll, year, group);
+  }
+
+  // Count attempts and allow first 10 freely
+  let clickCount = parseInt(localStorage.getItem('detailedResultClickCount') || '0', 5);
+  clickCount++;
+  localStorage.setItem('detailedResultClickCount', clickCount);
+
+  if (clickCount <= 10) {
+  if (localStorage.getItem('visitorInfoGiven') === '1') {
+    return showIndividualResult(roll, year, group);
+  }
+
+    const visitorId = getOrCreateVisitorId();
+
+    if (localStorage.getItem('visitorVerifiedV2') === '1') {
+      return showIndividualResult(roll, year, group);
+    }
+
+    try {
+      const dbLib = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
+      const { getDatabase, ref, get } = dbLib;
+      const dbv = getDatabase();
+      const snap = await get(ref(dbv, 'visitorsVerified/' + visitorId));
+      if (snap && snap.exists() && snap.val() === 1) {
+        localStorage.setItem('visitorVerifiedV2', '1');
+        return showIndividualResult(roll, year, group);
+      }
+    } catch (e) {
+      // Non-blocking if verification check fails
+    }
+    return showIndividualResult(roll, year, group);
+  }
+
+  // Past free threshold → device/fingerprint check
+  const { deviceData, fingerprint } = getDeviceDataAndFingerprint();
+
+  // Previously verified on this device?
+  if (localStorage.getItem('visitorInfoGiven') === '1') {
+
+    visitorInfoCompleted = true;
+    return showIndividualResult(roll, year, group);
+  }
+
+  // Skip Firebase fingerprint check - just use localStorage
+  const alreadyVerified = localStorage.getItem('visitorInfoGiven') === '1';
+  if (alreadyVerified) {
+    visitorInfoCompleted = true;
+    return showIndividualResult(roll, year, group);
+  }
+
+
+  // Build verification popup
+  if (document.querySelector('.popup')) return; // avoid duplicates
+  const popup = document.createElement('div');
+  popup.classList.add('popup');
+  popup.innerHTML = `
+  <div class="popup-content">
+    <div class="popup-header" style="background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; font-weight: bold; font-size: 1.3rem; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="https://img.icons8.com/color/48/verified-badge.png" alt="Icon" style="width: 28px; height: 28px;">
+        <span>Quick Verification</span>
+      </div>
+      <button class="close-btn" onclick="visitorInfoDenied()" style="background: transparent; border: none; font-size: 1.5rem; color: white; cursor: pointer;">&times;</button>
+    </div>
+
+    <div class="popup-body">
+<p style="color:#555;">
+  Please tell us a bit about yourself so we can improve our service. We store basic device info so you won't see this again on the same device.
+</p>
+<div class="verify-skip-box">
+  <strong>Want to skip this step forever?</strong><br>
+  <a href="login.html">Sign in / Log in</a> to skip verification popups and unlock favourites, reviews and more.
+</div>   
+      <label>Name</label>
+      <input id="visitorName" type="text" placeholder="Your name" />
+
+      <label>Institution (school / college)</label>
+      <input id="visitorInstitution" type="text" placeholder="Institution name" />
+
+      <label>Type</label>
+      <select id="visitorType">
+        <option value="">Select ...</option>
+        <option>SSC</option>
+        <option>HSC</option>
+        <option>Others</option>
+      </select>
+
+      <label>How did you find us?</label>
+      <select id="visitorSource">
+        <option value="">Select ...</option>
+        <option>WhatsApp group</option>
+        <option>Facebook group</option>
+        <option>Friend / Classmate</option>
+        <option>Facebook post</option>
+        <option>Instagram</option>
+        <option>YouTube</option>
+        <option>Google Search</option>
+        <option>School notice board</option>
+        <option>Teacher</option>
+        <option>Relatives</option>
+        <option>Other social media</option>
+        <option>Others</option>
+      </select>
+
+      <label>Experience so far</label>
+      <select id="visitorExperience">
+        <option value="">Select ...</option>
+        <option value="worst">😖 Worst</option>
+        <option value="bad">😞 Bad</option>
+        <option value="average">😐 Average</option>
+        <option value="good">🙂 Good</option>
+        <option value="best">🤩 Best</option>
+      </select>
+
+      <label>Leave a Message (optional)</label>
+      <textarea id="visitorMessage" placeholder="Write something..." style="min-height:60px;"></textarea>
+    </div>
+    <div class="popup-footer">
+      <button class="secondary-btn" onclick="visitorInfoDenied()">Cancel</button>
+      <button id="submitVisitorInfo" class="primary-btn">Submit</button>
+    </div>
+  </div>
+`;
+
+  document.body.appendChild(popup);
+  document.body.classList.add('locked');
+
+  // Helpers
+  function looksFakeName(name) {
+    if (!name) return true;
+    const cleaned = name.trim();
+    if (cleaned.length < 3 || cleaned.length > 40) return true;
+    if (!/^[a-zA-Z\s]+$/.test(cleaned)) return true;
+    const vowelCount = (cleaned.match(/[aeiouAEIOU]/g) || []).length;
+    if (vowelCount < 2) return true;
+    if (/(.)\1{3,}/.test(cleaned)) return true;
+    return false;
+  }
+
+  let originalFormHTML = popup.querySelector('.popup-body').innerHTML;
+
+  function bindSubmit() {
+    const submitBtn = popup.querySelector('#submitVisitorInfo');
+    if (!submitBtn) return;
+
+    submitBtn.addEventListener('click', async () => {
+      const body = popup.querySelector('.popup-body');
+      const footer = popup.querySelector('.popup-footer');
+
+      const name = popup.querySelector('#visitorName')?.value.trim() || '';
+      const institution = popup.querySelector('#visitorInstitution')?.value.trim() || '';
+      const type = popup.querySelector('#visitorType')?.value || '';
+      const source = popup.querySelector('#visitorSource')?.value || '';
+      const experience = popup.querySelector('#visitorExperience')?.value || '';
+      const messageVal = popup.querySelector('#visitorMessage')?.value.trim() || '';
+
+      // Deny on worst/bad
+      if (experience === "worst" || experience === "bad") {
+        if (footer) footer.style.display = 'none';
+        body.innerHTML = `
+          <div style="text-align:center; padding:20px;">
+            <div class="access-status">
+              <div class="circle" style="border: 4px solid #ccc; border-top: 4px solid #1976d2; border-radius: 50%; width: 40px; height: 40px; margin: auto; animation: spin 1s linear infinite;"></div>
+              <div style="margin-top: 10px; font-size: 0.95rem;">Checking your feedback…</div>
+            </div>
+          </div>
+          <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+        `;
+        setTimeout(() => {
+          body.innerHTML = `
+            <div style="text-align:center; padding:20px;">
+              <h3 style="color:#b91c1c;">🚫 Access Not Granted</h3>
+              <p style="margin:10px 0; font-size:0.95rem;">Looks like this feature isn’t available with that feedback. Maybe try again later.</p>
+              <p style="color:#666; font-size:0.85rem;">We’re always working to improve — your opinion is noted.</p>
+              <button onclick="visitorInfoDenied()" class="secondary-btn" style="margin-top:15px;">Close</button>
+            </div>
+          `;
+        }, 1500);
+        return;
+      }
+
+      // Basic validation & fake name detection
+      if (looksFakeName(name)) {
+        if (footer) footer.style.display = 'none';
+        body.innerHTML = `
+          <div style="text-align:center; padding:20px;">
+            <div class="circle" style="border: 4px solid #ccc; border-top: 4px solid #1976d2; border-radius: 50%; width: 40px; height: 40px; margin: auto; animation: spin 1s linear infinite;"></div>
+            <div style="margin-top: 10px; font-size: 0.95rem;">Verifying name…</div>
+          </div>
+          <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+        `;
+        setTimeout(() => {
+          body.innerHTML = `
+            <div style="text-align:center; padding:20px;">
+              <h3 style="color:#b91c1c;">🚫 Access Not Granted</h3>
+              <p style="margin:10px 0; font-size:0.95rem;">The name provided doesn’t seem valid. Please use your real name to continue.</p>
+              <button onclick="visitorInfoDenied()" class="secondary-btn" style="margin-top:15px;">Close</button>
+            </div>
+          `;
+        }, 1500);
+        return;
+      }
+
+      if (!name || name.length < 4) { alert('Name must contain at least 4 characters.'); return; }
+      if (!institution || institution.length < 3) { alert('Institution name must contain at least 3 characters.'); return; }
+      if (!type || !source) { alert('Please fill all required fields.'); return; }
+
+      // Confirm name step
+      if (footer) footer.style.display = 'none';
+      const prev = body.innerHTML;
+      body.innerHTML = `
+        <div style="text-align:center; padding:20px;">
+          <h3 style="color:#d97706; margin-bottom:8px;">⚠ Confirm Your Name</h3>
+          <p>Are you sure your name is <b>"${name}"</b>?</p>
+          <p style="font-size:0.9rem; color:#555;">
+            If you use a fake name, this form will appear again every time you visit.
+            Please enter real details to avoid repeated verification.
+          </p>
+          <div style="margin-top:15px; display:flex; justify-content:center; gap:12px;">
+            <button id="confirmNameBtn" class="primary-btn">Confirm</button>
+            <button id="editNameBtn" class="secondary-btn">Edit Name</button>
+          </div>
+        </div>
+      `;
+
+      popup.querySelector('#confirmNameBtn')?.addEventListener('click', async () => {
+        const { fingerprint } = getDeviceDataAndFingerprint();
+        localStorage.setItem('visitorInfoGiven', '1');
+        visitorInfoCompleted = true;
+
+        try {
+          const dbLib = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
+          const { getDatabase, ref, push, set } = dbLib;
+          const dbv = getDatabase();
+          const visitorRef = push(ref(dbv, "visitors"));
+          const { deviceData } = getDeviceDataAndFingerprint();
+
+     await set(visitorRef, {
+  name,
+  institution,
+  type,
+  source,
+  experience,
+  message: messageVal,
+  fingerprint: "verified_" + Date.now(), // Unique ID instead of device fingerprint
+  deviceData,
+  timestamp: Date.now()
+});
+
+
+          try {
+            const verRef = ref(dbv, "visitorsVerified/" + getOrCreateVisitorId());
+            await set(verRef, 1);
+            localStorage.setItem('visitorVerifiedV2', '1');
+          } catch (e) {}
+
+          try { window.__HAS9_notify?.(name); } catch (e) {}
+        } catch (err) {
+          console.error('Error saving visitor info:', err);
+        }
+
+        body.innerHTML = `
+          <div class="access-status">
+            <div class="circle"></div>
+            <div class="status-text">Processing...</div>
+          </div>
+        `;
+        setTimeout(() => {
+          body.innerHTML = `
+            <div class="access-status">
+              <div class="tick">✅</div>
+              <div class="status-text" style="color:#16a34a;">Full Access Granted</div>
+            </div>
+          `;
+          setTimeout(() => {
+            closePopup();
+            showIndividualResult(roll, year, group);
+          }, 1500);
+        }, 1000);
+      });
+
+      popup.querySelector('#editNameBtn')?.addEventListener('click', () => {
+        if (footer) footer.style.display = 'flex';
+        body.innerHTML = originalFormHTML;
+
+        // restore values
+        popup.querySelector('#visitorName').value = name;
+        popup.querySelector('#visitorInstitution').value = institution;
+        popup.querySelector('#visitorType').value = type;
+        popup.querySelector('#visitorSource').value = source;
+        popup.querySelector('#visitorExperience').value = experience;
+        popup.querySelector('#visitorMessage').value = messageVal;
+
+        bindSubmit(); // rebind handler after DOM reset
+      });
+    });
+  }
+
+  bindSubmit();
+}
+
+function visitorInfoDenied() {
+  const popup = document.querySelector('.popup');
+  if (!popup) return;
+
+  const body = popup.querySelector('.popup-body');
+  const footer = popup.querySelector('.popup-footer');
+
+  if (footer) footer.style.display = 'none';
+
+  if (body) {
+    body.innerHTML = `
+      <div class="access-status">
+        <div class="circle"></div>
+        <div class="status-text">Processing...</div>
+      </div>
+    `;
+
+    setTimeout(() => {
+      const circleEl = body.querySelector('.circle');
+      if (circleEl) circleEl.style.display = 'none';
+
+      body.innerHTML = `
+        <div class="access-status">
+          <div class="cross">❌</div>
+          <div class="status-text" style="color:#dc2626;">Access Denied — Please try again</div>
+        </div>
+      `;
+    }, 800);
+  }
+
+  setTimeout(() => {
+    closePopup();
+  }, 1800);
+}
+
+
+// ====== Share popup + rating ======
+function showSharePopup() {
+  if (document.querySelector('.popup')) return; 
+
+  const popup = document.createElement('div');
+  popup.className = 'popup';
+  popup.innerHTML = `
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>🚀Enjoying this amazing website?</h2>
+      <p>Help us grow! Share this website:</p>
+      <div style="display: flex; justify-content: space-around; flex-wrap: wrap; padding: 10px;">
+        <a href="https://wa.me/?text=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp.png" alt="WhatsApp" width="36"></a>
+        <a href="https://www.instagram.com/?url=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/instagram-new.png" alt="Instagram" width="36"></a>
+        <a href="https://www.facebook.com/dialog/send?link=https://boradrankctg.github.io/rank/&app_id=YOUR_APP_ID&redirect_uri=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/facebook-messenger.png" alt="Messenger" width="36"></a>
+        <a href="mailto:?subject=Check%20this%20awesome%20ranking%20site!&body=https://boradrankctg.github.io/rank/" target="_blank"><img src="https://img.icons8.com/color/48/gmail--v1.png" alt="Email" width="36"></a>
+      </div>
+      <hr>
+      <h3 style="margin-top:10px">⭐ Rate this Website:</h3>
+      <div id="starContainer" style="font-size: 1.8rem; color: gold; cursor: pointer;">
+        <span onclick="rateSite(1)">&#9734;</span>
+        <span onclick="rateSite(2)">&#9734;</span>
+        <span onclick="rateSite(3)">&#9734;</span>
+        <span onclick="rateSite(4)">&#9734;</span>
+        <span onclick="rateSite(5)">&#9734;</span>
+      </div>
+      <textarea id="reviewText" placeholder="Write your review here..." style="width: 100%; height: 80px; margin-top: 10px;"></textarea>
+
+          <button onclick="submitSharePopupReview()">Submit Review</button>
+    </div>
+  `;
+
+  document.body.appendChild(popup);
+  document.body.classList.add('locked');
+}
+
+// Auto show share popup once per device after ~2.5 minutes
+if (!localStorage.getItem('sharePopupShown')) {
+  setTimeout(() => {
+    showSharePopup();
+    localStorage.setItem('sharePopupShown', '1');
+  }, 150000);
+}
+
+// Hook share button (safe)
+document.getElementById('shareBtn')?.addEventListener('click', showSharePopup);
+
+function rateSite(rating) {
+  const stars = document.getElementById('starContainer')?.children || [];
+  for (let i = 0; i < stars.length; i++) {
+    stars[i].innerHTML = i < rating ? '&#9733;' : '&#9734;';
+  }
+  localStorage.setItem('userRating', rating);
+}
+
+function submitSharePopupReview() {
+  const rating = parseInt(localStorage.getItem('userRating') || '0', 10);
+  const comment = document.getElementById('reviewText')?.value.trim() || '';
+
+  if (!comment && !rating) {
+    alert('Please rate or write something.');
+    return;
+  }
+
+  // If not logged in, ask to log in instead of redirecting
+  if (localStorage.getItem('userLoggedIn') !== 'true') {
+    if (typeof requireLogin === 'function') {
+      requireLogin('Please log in to submit a review.');
+    } else {
+      alert('Please log in to submit a review.');
+      window.location.href = 'login.html';
+    }
+    return;
+  }
+
+  // Logged-in: submit directly to Firebase
+  (async () => {
+    try {
+      const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js');
+      const { getDatabase, ref, push, set, get } = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js');
+
+      const cfg = {
+        apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
+        authDomain: "boardrankctg.firebaseapp.com",
+        databaseURL: "https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "boardrankctg",
+        storageBucket: "boardrankctg.firebasestorage.app",
+        messagingSenderId: "751761229963",
+        appId: "1:751761229963:web:43f9dbf71feef6dc9cec8e"
+      };
+
+      const app = window.__br_reviewApp || initializeApp(cfg, 'reviewApp');
+      window.__br_reviewApp = app;
+      const db = getDatabase(app);
+
+      const uid = localStorage.getItem('loggedInUserId') || '';
+      let name = localStorage.getItem('userName') || 'User';
+
+      if (uid) {
+        try {
+          const snap = await get(ref(db, 'users/' + uid));
+          if (snap.exists()) {
+            const u = snap.val();
+            name = u.fullName || u.firstName || name;
+          }
+        } catch (e) {
+          console.warn('Could not read profile for review name', e);
+        }
+      }
+
+      const newRef = push(ref(db, 'reviews'));
+      await set(newRef, {
+        name,
+        comment,
+        rating,
+        likes: 0,
+        dislikes: 0,
+        replies: {},
+        timestamp: Date.now(),
+        userId: uid,
+        userEmail: localStorage.getItem('userEmail') || ''
+      });
+
+      // Reset UI
+      localStorage.removeItem('userRating');
+      const ta = document.getElementById('reviewText');
+      if (ta) ta.value = '';
+
+      if (typeof showModal === 'function') {
+        showModal({ title: 'Thank you!', message: 'Your review has been submitted.' });
+      } else {
+        alert('Thank you! Your review has been submitted.');
+      }
+      closePopup();
+    } catch (err) {
+      console.error('Share-popup review failed:', err);
+      alert('Failed to submit review. Please try again.');
+    }
+  })();
+}
+
+
+// ====== Minor SEO enhancement (keywords from current data) ======
+(function(){
+  const words = Array.from(new Set((allData || []).flatMap(s => [ s?.name, s?.Instituation ]).filter(Boolean)));
+  if (words.length) upsertMeta('keywords', words.join(', '));
+})();
