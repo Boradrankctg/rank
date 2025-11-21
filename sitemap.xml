@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://boradrankctg.github.io/rank/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- SSC -->
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=2025&amp;group=Science</loc></url>
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=2025&amp;group=Commerce</loc></url>
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=2025&amp;group=Arts</loc></url>
+
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=2024&amp;group=Science</loc></url>
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=2024&amp;group=Commerce</loc></url>
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=2024&amp;group=Arts</loc></url>
+
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=2023&amp;group=Science</loc></url>
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=2023&amp;group=Commerce</loc></url>
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=2023&amp;group=Arts</loc></url>
+
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=2022&amp;group=Science</loc></url>
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=2022&amp;group=Commerce</loc></url>
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=2022&amp;group=Arts</loc></url>
+
+  <!-- HSC -->
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=hsc_2025&amp;group=Science</loc></url>
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=hsc_2025&amp;group=Commerce</loc></url>
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=hsc_2025&amp;group=Arts</loc></url>
+
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=hsc_2024&amp;group=Science</loc></url>
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=hsc_2024&amp;group=Commerce</loc></url>
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=hsc_2024&amp;group=Arts</loc></url>
+
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=hsc_2023&amp;group=Science</loc></url>
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=hsc_2023&amp;group=Commerce</loc></url>
+  <url><loc>https://boradrankctg.github.io/rank/index.html?year=hsc_2023&amp;group=Arts</loc></url>
+
+</urlset>
