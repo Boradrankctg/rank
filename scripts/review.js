@@ -1,1 +1,463 @@
-const DckEMKlOIJjJ$kT=oMkJDk$OPRHnPYK;(function(TDuniFzxYLgH_FN,d$gWCMxIzx_C){const jDTM_YQObbhZhpMHY=oMkJDk$OPRHnPYK,qgBhhUJXCEoBbfE=TDuniFzxYLgH_FN();while(!![]){try{const AFj_PNzAYAbMKTdNW=parseFloat(jDTM_YQObbhZhpMHY(0x157))/(-0x61f*parseFloat(parseInt(0x2))+-parseInt(0x2)*-0xf1+Math.floor(parseInt(0xa5d)))*(-parseFloat(jDTM_YQObbhZhpMHY(0x14d))/(-0x1*0xddf+parseInt(0x39)+Number(parseInt(0xda8))))+parseFloat(jDTM_YQObbhZhpMHY(0x131))/(-parseInt(0x13)*parseInt(0x1)+-0xa*parseInt(0x26b)+Number(0x2)*0xc22)*(-parseFloat(jDTM_YQObbhZhpMHY(0x1a1))/(Math.floor(0x2)*0x41e+Number(-0x123)+parseInt(0x1)*Number(-0x715)))+Number(-parseFloat(jDTM_YQObbhZhpMHY(0x1b9))/(parseInt(0x927)*Math.floor(-0x3)+parseInt(parseInt(0x209))*-0x1+0x1d83))*(parseFloat(jDTM_YQObbhZhpMHY(0x114))/(parseInt(0x2)*Math.trunc(0x124a)+0x1497+0x3925*Math.floor(-0x1)))+-parseFloat(jDTM_YQObbhZhpMHY(0x19f))/(Math.floor(0x160c)+parseInt(0x1)*0x1516+-parseInt(0x2b1b))+Math['floor'](parseFloat(jDTM_YQObbhZhpMHY(0x1bb))/(Math.trunc(-parseInt(0x1691))+-parseInt(0x8b)*-0x22+0x1*0x423))+Number(-parseFloat(jDTM_YQObbhZhpMHY(0x11e))/(-0x782*0x5+-0x2b*Math.trunc(-parseInt(0x90))+parseInt(0xd63)))*(-parseFloat(jDTM_YQObbhZhpMHY(0x1ab))/(parseInt(0x139)*parseInt(-parseInt(0x3))+parseInt(0x1)*Math.trunc(parseInt(0x1a7a))+Number(-0x16c5)))+-parseFloat(jDTM_YQObbhZhpMHY(0x17c))/(Math.ceil(parseInt(0x14e2))*-0x1+-0x2577+Number(0x3a64))*(-parseFloat(jDTM_YQObbhZhpMHY(0x1cc))/(-parseInt(0x5c9)+0x14f+0x243*0x2));if(AFj_PNzAYAbMKTdNW===d$gWCMxIzx_C)break;else qgBhhUJXCEoBbfE['push'](qgBhhUJXCEoBbfE['shift']());}catch(BEcXJZMBlAYHcAP){qgBhhUJXCEoBbfE['push'](qgBhhUJXCEoBbfE['shift']());}}}(UW_mKPWkuFQvWwQscsJ_ZVF,-parseInt(0x2db77)+Math.trunc(-0x2831)*parseInt(-0x1e)+0x197c7));import{initializeApp}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';function oMkJDk$OPRHnPYK(XKSVDTvSfNjWqolYLKnZmlaS,cVg_LGJ){const HtLDOOGxhxFd$_nIym=UW_mKPWkuFQvWwQscsJ_ZVF();return oMkJDk$OPRHnPYK=function(yyRHdmz_SNOeigC,loEafpJNwzxbHAVEvZRgnO$bMg){yyRHdmz_SNOeigC=yyRHdmz_SNOeigC-(Math.max(parseInt(0x1426),0x1426)*0x1+-parseInt(0xd3)*Math.max(parseInt(0x12),0x12)+parseInt(0x10f)*-0x4);let bTYiWHgz_Rf=HtLDOOGxhxFd$_nIym[yyRHdmz_SNOeigC];if(oMkJDk$OPRHnPYK['clxhVV']===undefined){const fwErUXVIqRQ$H_U=function(NInZ$ZQZVooenYp_WhcbVlL){let QNtEeBuJrawpmpygo_sRFndS=Math.floor(parseInt(0x187b))+-parseInt(0xbef)+Math.max(0xc0b,0xc0b)*-parseInt(0x1)&-0xe2*parseInt(0x1a)+parseInt(0xef9)*parseInt(0x1)+0x3*parseInt(0x2fe),YpVtacTbzlDbIx=new Uint8Array(NInZ$ZQZVooenYp_WhcbVlL['match'](/.{1,2}/g)['map'](DhMH_v=>parseInt(DhMH_v,-0x95*-parseInt(0x17)+Math.ceil(-0x24ad)+Math.ceil(0x175a)))),kVheyJbUIrNWJfv_WnFO=YpVtacTbzlDbIx['map'](l$pi_xInf=>l$pi_xInf^QNtEeBuJrawpmpygo_sRFndS),NwafXiWOc=new TextDecoder(),wFKvQDXLMIhaRjyU=NwafXiWOc['decode'](kVheyJbUIrNWJfv_WnFO);return wFKvQDXLMIhaRjyU;};oMkJDk$OPRHnPYK['BiRRGA']=fwErUXVIqRQ$H_U,XKSVDTvSfNjWqolYLKnZmlaS=arguments,oMkJDk$OPRHnPYK['clxhVV']=!![];}const ve_UJLk=HtLDOOGxhxFd$_nIym[Math.ceil(0xf95)+parseInt(0x133)*0x1d+Math.trunc(-0x325c)],uU_mHppZTQ=yyRHdmz_SNOeigC+ve_UJLk,rvs_egpaBgJX_blZpxpJTjeHku=XKSVDTvSfNjWqolYLKnZmlaS[uU_mHppZTQ];return!rvs_egpaBgJX_blZpxpJTjeHku?(oMkJDk$OPRHnPYK['CHVErK']===undefined&&(oMkJDk$OPRHnPYK['CHVErK']=!![]),bTYiWHgz_Rf=oMkJDk$OPRHnPYK['BiRRGA'](bTYiWHgz_Rf),XKSVDTvSfNjWqolYLKnZmlaS[uU_mHppZTQ]=bTYiWHgz_Rf):bTYiWHgz_Rf=rvs_egpaBgJX_blZpxpJTjeHku,bTYiWHgz_Rf;},oMkJDk$OPRHnPYK(XKSVDTvSfNjWqolYLKnZmlaS,cVg_LGJ);}import{getDatabase,ref,push,set,get,onValue,runTransaction,remove}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';function UW_mKPWkuFQvWwQscsJ_ZVF(){const AVFBcHKG_GEudRRO_BctjH=['aef3e4f1ede8e4f2ae','e0efeeefd4f2e4f3c8e5','c0efeeeff8eceef4f2a1d4f2e4f3','aef3e4f1ede8e4f2','afefe0f7acede8efeaf2a1e0dae9f3e4e7bca3','b3b4d3d6eaced8d9','a7a2b1b2b8ba','b2b2b1b3b0b6b7d9c0c3d6c2e9','f3e4f1ede8e4f2','f4f2e4f3c4ece0e8ed','f5e4f9f5c2eeeff5e4eff5','c4f3f3eef3a1f2f4e3ece8f5f5e8efe6a1f3e4f7e8e4f6bb','e4f3f3eef3','a1bdf2f5f3eeefe6bf','f5eecdeef6e4f3c2e0f2e4','f0f4e4f3f8d2e4ede4e2f5eef3','edeee6e8efafe9f5eced','bdaee3f4f5f5eeefbf8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1','f3e4f7e8e4f6c7eef3eccdeee6e6e4e5c8ef','ece0f1','e2f3f8f1f5ee','bdf2f1e0efa1e2ede0f2f2bca3e3e0e5e6e4ace0e5ece8efa3bfdac0c5ccc8cfdcbdaef2f1e0efbf','d2f4e3ece8f5a1d3e4f7e8e4f6','afedeee6e6e4e5aceef4f5aceeefedf8','b0b3d3f7cce3c9c0','b0bbb6b4b0b6b7b0b3b3b8b8b7b2bbf6e4e3bbb5b2e7b8e5e3e7b6b0e7e4e4e7b7e5e2b8e2e4e2b9e4','e5e8f2e0e3ede4e5','f4f2e4f3cfe0ece4','efeef6','a6a8a3bf711e16106e390ea1c5e4ede4f5e4bdaee3f4f5f5eeefbf','f2f5e0f3c2eeeff5e0e8efe4f3','f2ede8e2e4','e5e4ede4f5e4d3e4f1edf8','b4b0b7b5b1b9c3e0f7dbc4f3','8ba1a1a1a1a1a1a1a1a1a1bde5e8f7a1e2ede0f2f2bca3f3e4f7e8e4f6ace3eef9a3bf8ba1a1a1a1a1a1a1a1a1a1a1a1bde5e8f7bf8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1bdf2f5f3eeefe6bf','a6ada1a6e5e8f2ede8eae4a6a8a3bf711e100fa1','c5e4ede4f5e4a1e7e0e8ede4e5','f3e4f1ede0e2e4','f3e4f7e8e4f6d7eef5e4de','f3e4eceef7e4c8f5e4ec','e2eeecece4eff5c4f3f3eef3','c2eef4ede5ef630118f5a1f2f4e3ece8f5a1f3e4f1edf8','edeee6e8efd1f3eeecf1f5','b2b0b5b2b6eff3ecfbf6fb','e3eee0f3e5f3e0efeae2f5e6afe7e8f3e4e3e0f2e4f2f5eef3e0e6e4afe0f1f1','a6a8a3bfd3e4f1edf8bdaee3f4f5f5eeefbf','e7e0f7eef3e8f5e4afe9f5eced','e0e5e5c4f7e4eff5cde8f2f5e4efe4f3','d1ede4e0f2e4a1f2e4ede4e2f5a1e0a1f3e0f5e8efe6','d1ede4e0f2e4a1edeee6a1e8efa1f5eea1e0e2e2e4f2f2a1f8eef4f3a1f1f3eee7e8ede4aee7e0f7eef4f3e8f5e4f2af','f4f2e4f3f2ae','f2f4e3ece8f5d3e4f7e8e4f6','d1ede4e0f2e4a1f5f3f8a1e0e6e0e8efaf','f3e0efe5eeecd4d4c8c5','f3e0f5e8efe6','e5eecdeee6eef4f5','ece8ef','e9e0f2eff8efe4b3b1b1b6c1e6ece0e8edafe2eeec','a7f0f4eef5ba','f3e4f7e8e4f6e8efe6c0f2cfe0ece4','c2eef4ede5ef630118f5a1f2f4e3ece8f5','f2f5e0f3c4f3f3eef3','b3b6b6b4f4ccd5dbeecf','e2ede4e0f3','e3edeee2ea','f3e4f7e8e4f6f2','e5e8f2ede8eae4f2','bdf1a1f2f5f8ede4bca3f5e4f9f5ace0ede8e6efbbe2e4eff5e4f3bae2eeedeef3bba2b7b5b6b5b9e3baf1e0e5e5e8efe6bbb3b1f1f9baa3bfcdeee0e5e8efe6a1f3e4f7e8e4f6f2630127bdaef1bf','e7eef3c4e0e2e9','edeee2e0f5e8eeef','e3eee0f3e5f3e0efeae2f5e6','e8efefe4f3c9d5cccd','d1ede4e0f2e4a1f2e8e6efa1e8efa1f5eea1f2f4e3ece8f5a1e0a1f3e4f7e8e4f6af','f5e4f9f5','e5e4ede4f5e4d3e4f7e8e4f6','e7f4ededcfe0ece4','c5e4ede4f5e4a1f5e9e8f2a1f3e4f1edf8be','eee3ebe4e2f5','bde8eff1f4f5a1f5f8f1e4bca3f5e4f9f5a3a1f1ede0e2e4e9eeede5e4f3bca3d6f3e8f5e4a1e0a1f3e4f1edf8afafafa3a1e8e5bca3f3e4f1edf8ac','f3e4f1e4e0f5','d5e9e0efeaa1f8eef4a0','a6ada6','e2e9e8ede5f3e4ef','f2f4e3ece8f5d3e4f1edf8','f3e0efe5eeec','e2e9e0efe6e4','8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1bdaef2f1e0efbf8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1bdaee5e8f7bf8ba1a1a1a1a1a1a1a1a1a1a1a1','e6e4f5c4ede4ece4eff5c3f8c8e5','efe0ece4','e2ede8e2ea','b0b4b9d4fbd1e5d0e6','f7e0ed','e9f5f5f1f2bbaeaee3eee0f3e5f3e0efeae2f5e6ace5e4e7e0f4edf5acf3f5e5e3afe0f2e8e0acf2eef4f5e9e4e0f2f5b0afe7e8f3e4e3e0f2e4e5e0f5e0e3e0f2e4afe0f1f1','edeee0e5cceef3e4c3f5ef','e6e4f5c8f5e4ec','f4f2e4f3c8e5','f2e8f5e4d2f5e0f5f2aee0e2f5e8f7e4d4f2e4f3f2ae','f5f3f4e4','e4eff5f3e8e4f2','c5ceccc2eeeff5e4eff5cdeee0e5e4e5','b4b9b2c0cbd1cdd1f9','a6a8a3bf711e100cbdaee3f4f5f5eeefbf8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1bdf2f1e0efa1e2ede0f2f2bca3f3e4f1edf8acede8eae4ace2eef4eff5a3a1f2f5f8ede4bca3e7eeeff5acf6e4e8e6e9f5bbb9b1b1baa3bf','bde0a1e9f3e4e7bca3edeee6e8efafe9f5eceda3a1f2f5f8ede4bca3ece0f3e6e8efacede4e7f5bbb0b1f1f9baa1e2eeedeef3bba2b1b3b9b5e2b6baa3bfd2e8e6efa1e8efa1f5eea1f3e4f1edf8bdaee0bf','e8efede8efe4ace3edeee2ea','f3e4f7e8e4f6d5e4f9f5','a6a8a3bf711e16106e390ebdaee3f4f5f5eeefbf','f5eef1','d8eef4f3a1f3e4f7e8e4f6a1e9e0f2a1e3e4e4efa1f2f4e3ece8f5f5e4e5af','e2edeef2e4f2f5','e7f4efe2f5e8eeef','c7e0e8ede4e5a1f5eea1e5e4ede4f5e4a1f3e4f7e8e4f6af','f2f5f8ede4','d1ede4e0f2e4a1f6f3e8f5e4a1f8eef4f3a1e7e4e4e5e3e0e2ea','f5eed2f5f3e8efe6','c4f3f3eef3a1f2f4e3ece8f5f5e8efe6a1f3e4f1edf8bb','f2e4f5c8f5e4ec','c0efeeeff8eceef4f2','f5eecdeee2e0ede4d2f5f3e8efe6','ede8eae4d3e4f1edf8','c0f3e4a1f8eef4a1f2f4f3e4a1f8eef4a1f6e0eff5a1f5eea1e5e4ede4f5e4a1f5e9e8f2a1f3e4f7e8e4f6be','ede8eae4f2','f3e4f7e8e4f6f2c2eeeff5e0e8efe4f3','e2eeecece4eff5','ebeee8ef','bdaee5e8f7bf8ba1a1a1a1a1a1a1a1a1a1a1a1bde5e8f7a1f2f5f8ede4bca3ece0f3e6e8efacf5eef1bbb0b1f1f9baa3bf8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1bde3f4f5f5eeefa1eeefe2ede8e2eabca3f7eef5e4d3e4f7e8e4f6a9a6','bde3f4f5f5eeefa1eeefe2ede8e2eabca3e5e4ede4f5e4d3e4f7e8e4f6a9a6','f7eef5e4d3e4f7e8e4f6','8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1bde5e8f7a1e2ede0f2f2bca3f3e4f1edf8ace3eef9a3bf8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a163072b6e390ea1','f3e4f7e8e4f6f2ae','e4f9e8f2f5f2','bdaee5e8f7bf8ba1a1a1a1a1a1a1a1a1a1a1a1bdaee5e8f7bf8ba1a1a1a1a1a1a1a1a1a1a1a1bde5e8f7a1e2ede0f2f2bca3f3e4f7e8e4f6ace2eeecece4eff5a3bf','f2f4e3ece8f5d3e4f7e8e4f6c3f5ef','bdaee3f4f5f5eeefbf8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1bde3f4f5f5eeefa1eeefe2ede8e2eabca3f7eef5e4d3e4f7e8e4f6a9a6','afedeee6e6e4e5ace8efaceeefedf8','bdaef2f1e0efbf8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1','edeee0e5d3e4f7e8e4f6f2','f3e4f1edf8ac','b6b7b3b5b0b7b7f2f8ece4efe2','f2eef3f5d2e4ede4e2f5','bbbdaef2f5f3eeefe6bfa1','f3e4f0f4e8f3e4cdeee6e8ef','bdaef2f5f3eeefe6bf8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1bdf2ece0ededa1e2ede0f2f2bca3ecf4f5e4e5a3a1f2f5f8ede4bca3ece0f3e6e8efacede4e7f5bba1b0b1f1f9baa3bf','e9f3e4e7','8ba1a1a1a1a1a1a1a1a1a1a1a1bdaee5e8f7bf8ba1a1a1a1a1a1a1a1a1a1a1a1','f5e0f3e6e4f5','e7e8f3f2f5cfe0ece4','efeeefe4','f3e0f5e4d2e8f5e4','d2e9eef6e8efe6a1','c7e0e8ede4e5a1f5eea1e5e4ede4f5e4a1f3e4f1edf8af','a7e0ecf1ba','a7e6f5ba','bdaef2ece0ededbf8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1bde5e8f7bf632c11a1','b6b4b0b6b7b0b3b3b8b8b7b2','d1ede4e0f2e4a1f2e8e6efa1e8efa1f5eea1f3e4f1edf8a1f5eea1f3e4f7e8e4f6f2af','8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1bdf2f1e0efa1e2ede0f2f2bca3f3e4f1edf8ace0e2f5e8eeeff2a3bf8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1bde3f4f5f5eeefa1e2ede0f2f2bca3f3e4f1edf8acede8eae4ace3f5efa3a1eeefe2ede8e2eabca3ede8eae4d3e4f1edf8a9a6','f5e8ece4f2f5e0ecf1','edeee6e6e4e5c8efd4f2e4f3c8e5','d1ede4e0f2e4a1edeee6a1e8efa1f5eea1e2eeeff5e8eff4e4af','ece0f9','bdf1a1f2f5f8ede4bca3f5e4f9f5ace0ede8e6efbbe2e4eff5e4f3baa1e2eeedeef3bba2b7b5b6b5b9e3baa1f1e0e5e5e8efe6bbb3b1f1f9baa3bfcfeea1f3e4f7e8e4f6f2a1f8e4f5afa1c3e4a1f5e9e4a1e7e8f3f2f5a1f5eea1f3e4f7e8e4f6a0bdaef1bf','a1eee7a1','f2eef3f5','c0c8fbe0d2f8c3e0cad7f3d5d6cae4e0d4f9e0b1c4e0e8c5c3d3b9cec6f1c6c2c0ebf9c0e2d4c0','ede8eae4','8ba1a1a1a1a1a1a1a1a1a1bdaee5e8f7bf8ba1a1a1a1a1a1a1a1','c7e0e8ede4e5a1f5eea1f2f4e3ece8f5a1f3e4f7e8e4f6afa1d1ede4e0f2e4a1f5f3f8a1e0e6e0e8efaf','8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1','aeede8eae4f2','f1f3e4f7e4eff5c5e4e7e0f4edf5','d2f4e3ece8f5f5e8efe6afafaf','f4f2e4f3cdeee6e6e4e5c8ef','b2b0b4b8b3b8b7c0eaf0d3e2d1','a3a1f2f5f8ede4bca3f6e8e5f5e9bba1b7b1a4baa1ece0f3e6e8efacede4e7f5bbb0b1f1f9baa3a1aebf8ba1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1bde3f4f5f5eeefa1eeefe2ede8e2eabca3f2f4e3ece8f5d3e4f1edf8a9a6','b0b3b5b5eccceaefe6f9','e8f2c0e5ece8ef','f1f3eee7e8ede4afe9f5eced','ede4efe6f5e9','f7e0edf4e4','e5e8f2f1ede0f8','d4f2e4f3','a7edf5ba','e3eee0f3e5f3e0efeae2f5e6afe7e8f3e4e3e0f2e4e0f1f1afe2eeec','bde3f4f5f5eeefa1e2ede0f2f2bca3f3e4f1edf8ace5e4edace3f5efa3a1eeefe2ede8e2eabca3e5e4ede4f5e4d3e4f1edf8a9a6','b8b7b1f8f9d7cbc8f8','f2e8f5e4d2f5e0f5f2aef5eef5e0edd7e8f2e8f5f2','a6ada1a6ede8eae4a6a8a3bf711e100ca1','f4f2e4f3d3e0f5e8efe6','c6acb2d8b7cbb5b5cfd6cfc9','f3e4f1edf8cde8eae4de','f5f3e8ec','f0f4e4f3f8d2e4ede4e2f5eef3c0eded','f3e4f7e8e4f6f2c2eef4eff5'];UW_mKPWkuFQvWwQscsJ_ZVF=function(){return AVFBcHKG_GEudRRO_BctjH;};return UW_mKPWkuFQvWwQscsJ_ZVF();}const firebaseConfig={'apiKey':DckEMKlOIJjJ$kT(0x196),'authDomain':DckEMKlOIJjJ$kT(0x1a9),'databaseURL':DckEMKlOIJjJ$kT(0x14f),'projectId':DckEMKlOIJjJ$kT(0x139),'storageBucket':DckEMKlOIJjJ$kT(0x11f),'messagingSenderId':DckEMKlOIJjJ$kT(0x18c),'appId':DckEMKlOIJjJ$kT(0x1cd),'measurementId':DckEMKlOIJjJ$kT(0x1af)},app=initializeApp(firebaseConfig),db=getDatabase(app),ADMIN_EMAIL=DckEMKlOIJjJ$kT(0x12c),PAGE_SIZE=Math.max(-parseInt(0x2398),-parseInt(0x2398))+Math.floor(-0x2)*parseInt(0xafb)+Math.trunc(parseInt(0x3998));let allReviewsEntries=[],currentSort=DckEMKlOIJjJ$kT(0x15d),visibleCount=PAGE_SIZE;function getOrCreateAnonId(){const lPx_ilY=DckEMKlOIJjJ$kT;let PBUeaQIJFqhGUswm_Z_A=localStorage[lPx_ilY(0x151)](lPx_ilY(0x1b5));return!PBUeaQIJFqhGUswm_Z_A&&(PBUeaQIJFqhGUswm_Z_A=self[lPx_ilY(0x1c8)]?.[lPx_ilY(0x128)]?.()||'u_'+Math[lPx_ilY(0x147)]()[lPx_ilY(0x164)](parseInt(-parseInt(0x1))*Math.trunc(parseInt(0x11fb))+-parseInt(0x17ce)+Math.ceil(parseInt(0x29ed))*Math.ceil(parseInt(0x1)))[lPx_ilY(0x1d3)](-0x6ae+Math.max(-0xc5,-parseInt(0xc5))*-parseInt(0x25)+-parseInt(0x21)*0xa9),localStorage[lPx_ilY(0x166)](lPx_ilY(0x1b5),PBUeaQIJFqhGUswm_Z_A)),PBUeaQIJFqhGUswm_Z_A;}const anonUserId=getOrCreateAnonId();function isLoggedIn(){const HL_GEiVAPMaolv_knwFqFHPIz=DckEMKlOIJjJ$kT;return localStorage[HL_GEiVAPMaolv_knwFqFHPIz(0x151)](HL_GEiVAPMaolv_knwFqFHPIz(0x19e))===HL_GEiVAPMaolv_knwFqFHPIz(0x154);}function currentUserId(){const tQl_IS$y=DckEMKlOIJjJ$kT;return localStorage[tQl_IS$y(0x151)](tQl_IS$y(0x190))||anonUserId;}function currentUserEmail(){const uu_okk=DckEMKlOIJjJ$kT;return(localStorage[uu_okk(0x151)](uu_okk(0x1bd))||'')[uu_okk(0x1c2)]();}function isAdmin(){const WOx_fbBSdS_eRI=DckEMKlOIJjJ$kT;return currentUserEmail()===ADMIN_EMAIL[WOx_fbBSdS_eRI(0x1c2)]();}function esc(iBFUyoJ_RtJOcaEJXdrSMLuHYG){const KnhVRBW$$PZ=DckEMKlOIJjJ$kT;return String(iBFUyoJ_RtJOcaEJXdrSMLuHYG||'')[KnhVRBW$$PZ(0x118)](/&/g,KnhVRBW$$PZ(0x189))[KnhVRBW$$PZ(0x118)](/</g,KnhVRBW$$PZ(0x1a8))[KnhVRBW$$PZ(0x118)](/>/g,KnhVRBW$$PZ(0x18a))[KnhVRBW$$PZ(0x118)](/"/g,KnhVRBW$$PZ(0x12d))[KnhVRBW$$PZ(0x118)](/'/g,KnhVRBW$$PZ(0x1ba));}window[DckEMKlOIJjJ$kT(0x17f)]=window[DckEMKlOIJjJ$kT(0x17f)]||function(V$ipiHwFWSBh){const oEWTJJBLGxNvavFNWYkJPsemz=DckEMKlOIJjJ$kT;alert(V$ipiHwFWSBh||oEWTJJBLGxNvavFNWYkJPsemz(0x191)),window[oEWTJJBLGxNvavFNWYkJPsemz(0x138)][oEWTJJBLGxNvavFNWYkJPsemz(0x181)]=oEWTJJBLGxNvavFNWYkJPsemz(0x1c4);};function checkLoginStatus(){const NJaMO=DckEMKlOIJjJ$kT,UQE_cOr=document[NJaMO(0x14a)](NJaMO(0x1c6)),VdjWOXZ=document[NJaMO(0x14a)](NJaMO(0x11d));if(isLoggedIn()){UQE_cOr[NJaMO(0x162)][NJaMO(0x1a6)]=NJaMO(0x133),VdjWOXZ[NJaMO(0x162)][NJaMO(0x1a6)]=NJaMO(0x185);const pai_AtSoPbKZJIYzUpoK_oTLfH=localStorage[NJaMO(0x151)](NJaMO(0x1cf))||NJaMO(0x1a7),CewLTGbMRRAJjDZZsifSLyrF$G=document[NJaMO(0x14a)](NJaMO(0x12e));if(CewLTGbMRRAJjDZZsifSLyrF$G)CewLTGbMRRAJjDZZsifSLyrF$G[NJaMO(0x1be)]=pai_AtSoPbKZJIYzUpoK_oTLfH;document[NJaMO(0x1b2)](NJaMO(0x178))[NJaMO(0x137)](C_PQrm=>C_PQrm[NJaMO(0x162)][NJaMO(0x1a6)]=NJaMO(0x133)),document[NJaMO(0x1b2)](NJaMO(0x1cb))[NJaMO(0x137)](JNekr$LIy$mwCnnQUjUfSSut=>JNekr$LIy$mwCnnQUjUfSSut[NJaMO(0x162)][NJaMO(0x1a6)]=NJaMO(0x185));}else UQE_cOr[NJaMO(0x162)][NJaMO(0x1a6)]=NJaMO(0x185),VdjWOXZ[NJaMO(0x162)][NJaMO(0x1a6)]=NJaMO(0x133),document[NJaMO(0x1b2)](NJaMO(0x178))[NJaMO(0x137)](MEPzTL$zUHCnZC=>MEPzTL$zUHCnZC[NJaMO(0x162)][NJaMO(0x1a6)]=NJaMO(0x185)),document[NJaMO(0x1b2)](NJaMO(0x1cb))[NJaMO(0x137)](ZXrOXTPrU=>ZXrOXTPrU[NJaMO(0x162)][NJaMO(0x1a6)]=NJaMO(0x133));}function rateSite(LoTfvJXB$kuWQaxkEhxShdiT){const sBozfUlTwzhD=DckEMKlOIJjJ$kT,vmjtfxoPLbtTpUcd$ZT$y=document[sBozfUlTwzhD(0x14a)](sBozfUlTwzhD(0x1d2));if(!vmjtfxoPLbtTpUcd$ZT$y)return;const F$ZabHIQGo=vmjtfxoPLbtTpUcd$ZT$y[sBozfUlTwzhD(0x145)];for(let oIighprAYyXjyMgsdJg_i_F=0x2698+-parseInt(0x143f)+-0x1259*Math.ceil(parseInt(0x1));oIighprAYyXjyMgsdJg_i_F<F$ZabHIQGo[sBozfUlTwzhD(0x1a4)];oIighprAYyXjyMgsdJg_i_F++){F$ZabHIQGo[oIighprAYyXjyMgsdJg_i_F][sBozfUlTwzhD(0x1be)]=oIighprAYyXjyMgsdJg_i_F<LoTfvJXB$kuWQaxkEhxShdiT?'★':'☆';}localStorage[sBozfUlTwzhD(0x166)](sBozfUlTwzhD(0x1ae),String(LoTfvJXB$kuWQaxkEhxShdiT));}window[DckEMKlOIJjJ$kT(0x186)]=rateSite;let isSubmittingReview=![];async function submitReview(QDtUed$$Y){const trikH_KQmGVVzp_Av=DckEMKlOIJjJ$kT;if(QDtUed$$Y&&typeof QDtUed$$Y[trikH_KQmGVVzp_Av(0x19c)]===trikH_KQmGVVzp_Av(0x160))QDtUed$$Y[trikH_KQmGVVzp_Av(0x19c)]();if(!isLoggedIn())return requireLogin(trikH_KQmGVVzp_Av(0x13b));if(isSubmittingReview)return;const FdtHXF=document[trikH_KQmGVVzp_Av(0x14a)](trikH_KQmGVVzp_Av(0x176)),mtGpBcveNxhTVRCxxNuR=document[trikH_KQmGVVzp_Av(0x14a)](trikH_KQmGVVzp_Av(0x15b)),GjXouhliBMeTuHUgBMV=(mtGpBcveNxhTVRCxxNuR?.[trikH_KQmGVVzp_Av(0x1a5)]||'')[trikH_KQmGVVzp_Av(0x1b1)](),UchasT$JOgbp=parseInt(localStorage[trikH_KQmGVVzp_Av(0x151)](trikH_KQmGVVzp_Av(0x1ae))||'0',Math.max(parseInt(0x2),parseInt(0x2))*parseInt(parseInt(0x493))+0xe76+Math.floor(0x2)*-0xbc9),vxBxLEdMc$JXB=document[trikH_KQmGVVzp_Av(0x14a)](trikH_KQmGVVzp_Av(0x130)),KhKgVJFhI$dDuFEJlxLUlqid=document[trikH_KQmGVVzp_Av(0x14a)](trikH_KQmGVVzp_Av(0x11b));if(vxBxLEdMc$JXB)vxBxLEdMc$JXB[trikH_KQmGVVzp_Av(0x1be)]='';if(KhKgVJFhI$dDuFEJlxLUlqid)KhKgVJFhI$dDuFEJlxLUlqid[trikH_KQmGVVzp_Av(0x1be)]='';let OAfpQpCiBxhpjpbgXvymB=![];if(!UchasT$JOgbp||UchasT$JOgbp<Math.ceil(0x803)+parseInt(-0x1)*0x212c+parseInt(0x192a)||UchasT$JOgbp>parseInt(0xbf3)+parseFloat(-0x21e1)+parseFloat(0x751)*parseInt(0x3)){if(vxBxLEdMc$JXB)vxBxLEdMc$JXB[trikH_KQmGVVzp_Av(0x1be)]=trikH_KQmGVVzp_Av(0x123);OAfpQpCiBxhpjpbgXvymB=!![];}if(!GjXouhliBMeTuHUgBMV){if(KhKgVJFhI$dDuFEJlxLUlqid)KhKgVJFhI$dDuFEJlxLUlqid[trikH_KQmGVVzp_Av(0x1be)]=trikH_KQmGVVzp_Av(0x163);OAfpQpCiBxhpjpbgXvymB=!![];}if(OAfpQpCiBxhpjpbgXvymB)return;try{isSubmittingReview=!![];FdtHXF&&(FdtHXF[trikH_KQmGVVzp_Av(0x1ce)]=!![],FdtHXF[trikH_KQmGVVzp_Av(0x1be)]=trikH_KQmGVVzp_Av(0x19d));const NXUwqfrHZ=currentUserId();let bOd_H$GJge=localStorage[trikH_KQmGVVzp_Av(0x151)](trikH_KQmGVVzp_Av(0x1cf))||trikH_KQmGVVzp_Av(0x1b6);if(isLoggedIn()&&NXUwqfrHZ)try{const jhyfyXnOFHXQPWWYznVE=await get(ref(db,trikH_KQmGVVzp_Av(0x125)+NXUwqfrHZ));if(jhyfyXnOFHXQPWWYznVE[trikH_KQmGVVzp_Av(0x174)]()){const ZPkXuFw=jhyfyXnOFHXQPWWYznVE[trikH_KQmGVVzp_Av(0x14e)]();bOd_H$GJge=ZPkXuFw[trikH_KQmGVVzp_Av(0x13e)]||ZPkXuFw[trikH_KQmGVVzp_Av(0x184)]||bOd_H$GJge;}}catch(elbsenzEWLWQNbkm$Rqa){}const UPYODlIjPzWgrIwEGVsy=push(ref(db,trikH_KQmGVVzp_Av(0x134)));await set(UPYODlIjPzWgrIwEGVsy,{'name':bOd_H$GJge,'comment':GjXouhliBMeTuHUgBMV,'rating':UchasT$JOgbp,'likes':0x0,'dislikes':0x0,'replies':{},'timestamp':Date[trikH_KQmGVVzp_Av(0x1d0)](),'userId':NXUwqfrHZ,'userEmail':localStorage[trikH_KQmGVVzp_Av(0x151)](trikH_KQmGVVzp_Av(0x1bd))||''});if(mtGpBcveNxhTVRCxxNuR)mtGpBcveNxhTVRCxxNuR[trikH_KQmGVVzp_Av(0x1a5)]='';rateSite(0x378+Math.ceil(0x239b)+-parseInt(0x2713)*parseInt(0x1)),localStorage[trikH_KQmGVVzp_Av(0x11a)](trikH_KQmGVVzp_Av(0x1ae)),showModal({'title':trikH_KQmGVVzp_Av(0x143),'message':trikH_KQmGVVzp_Av(0x15e)});}catch(HZbN_IkTY){console[trikH_KQmGVVzp_Av(0x1c0)](trikH_KQmGVVzp_Av(0x1bf),HZbN_IkTY),showModal({'title':trikH_KQmGVVzp_Av(0x12f),'message':trikH_KQmGVVzp_Av(0x199)});}finally{isSubmittingReview=![],FdtHXF&&(FdtHXF[trikH_KQmGVVzp_Av(0x1ce)]=![],FdtHXF[trikH_KQmGVVzp_Av(0x1be)]=trikH_KQmGVVzp_Av(0x1ca));}}window[DckEMKlOIJjJ$kT(0x126)]=submitReview,window[DckEMKlOIJjJ$kT(0x146)]=async function(LEzbzPWNJNPeeFdq_bKAxCdZ_D){const a_BPqhraW_Bj=DckEMKlOIJjJ$kT;if(!isLoggedIn())return requireLogin(a_BPqhraW_Bj(0x18d));const tDactOZ$fU_whleUpHNsLzeKYHR=document[a_BPqhraW_Bj(0x14a)](a_BPqhraW_Bj(0x17b)+LEzbzPWNJNPeeFdq_bKAxCdZ_D),MUic_GVjrxwMbdX=(tDactOZ$fU_whleUpHNsLzeKYHR?.[a_BPqhraW_Bj(0x1a5)]||'')[a_BPqhraW_Bj(0x1b1)]();if(!MUic_GVjrxwMbdX)return;try{const GM$RqZYSUEj=currentUserId();let IbkGDCKvodWEeuwZ=localStorage[a_BPqhraW_Bj(0x151)](a_BPqhraW_Bj(0x1cf))||a_BPqhraW_Bj(0x1a7);if(GM$RqZYSUEj)try{const OPsraG_iE_iYJNPrOfYtJC=await get(ref(db,a_BPqhraW_Bj(0x125)+GM$RqZYSUEj));if(OPsraG_iE_iYJNPrOfYtJC[a_BPqhraW_Bj(0x174)]()){const BTyuXe$lHEGeajcjnaEO=OPsraG_iE_iYJNPrOfYtJC[a_BPqhraW_Bj(0x14e)]();IbkGDCKvodWEeuwZ=BTyuXe$lHEGeajcjnaEO[a_BPqhraW_Bj(0x13e)]||BTyuXe$lHEGeajcjnaEO[a_BPqhraW_Bj(0x184)]||IbkGDCKvodWEeuwZ;}}catch(jqfZirkHVBQ_HXkGopc$dbp){}const CUyuZ$dyk=push(ref(db,a_BPqhraW_Bj(0x173)+LEzbzPWNJNPeeFdq_bKAxCdZ_D+a_BPqhraW_Bj(0x1b7)));await set(CUyuZ$dyk,{'text':MUic_GVjrxwMbdX,'name':IbkGDCKvodWEeuwZ,'isAdmin':isAdmin(),'userId':GM$RqZYSUEj,'likes':0x0,'timestamp':Date[a_BPqhraW_Bj(0x1d0)]()});if(tDactOZ$fU_whleUpHNsLzeKYHR)tDactOZ$fU_whleUpHNsLzeKYHR[a_BPqhraW_Bj(0x1a5)]='';}catch(zQSPi){console[a_BPqhraW_Bj(0x1c0)](a_BPqhraW_Bj(0x165),zQSPi),showModal({'title':a_BPqhraW_Bj(0x11c),'message':a_BPqhraW_Bj(0x127)});}},window[DckEMKlOIJjJ$kT(0x13d)]=async function(IzLqLtg){const vCGuSpLjlnzmDOVjI_iuU=DckEMKlOIJjJ$kT;if(!confirm(vCGuSpLjlnzmDOVjI_iuU(0x16a)))return;try{await remove(ref(db,vCGuSpLjlnzmDOVjI_iuU(0x173)+IzLqLtg));}catch(vnqqfxuttwwDWr){console[vCGuSpLjlnzmDOVjI_iuU(0x1c0)](vnqqfxuttwwDWr),showModal({'title':vCGuSpLjlnzmDOVjI_iuU(0x117),'message':vCGuSpLjlnzmDOVjI_iuU(0x161)});}},window[DckEMKlOIJjJ$kT(0x1d4)]=async function(UWPWQdK_fJuP,LwbmepRsjte$wwiKD_dG){const OBhcMyGZvCu$JRDaWPKul=DckEMKlOIJjJ$kT;if(!confirm(OBhcMyGZvCu$JRDaWPKul(0x13f)))return;try{await remove(ref(db,OBhcMyGZvCu$JRDaWPKul(0x173)+UWPWQdK_fJuP+OBhcMyGZvCu$JRDaWPKul(0x1b4)+LwbmepRsjte$wwiKD_dG));}catch(ZqkMQjKHFpvZpBEDktNizn){console[OBhcMyGZvCu$JRDaWPKul(0x1c0)](ZqkMQjKHFpvZpBEDktNizn),showModal({'title':OBhcMyGZvCu$JRDaWPKul(0x117),'message':OBhcMyGZvCu$JRDaWPKul(0x188)});}},window[DckEMKlOIJjJ$kT(0x169)]=function(xNW$Jo_pRE,RNiargegYUVklijT){const yt$$NHyBHoPjxv=DckEMKlOIJjJ$kT,phpObHPTdf_mRofetJFg=yt$$NHyBHoPjxv(0x1b0)+xNW$Jo_pRE+'_'+RNiargegYUVklijT;if(localStorage[yt$$NHyBHoPjxv(0x151)](phpObHPTdf_mRofetJFg)==='1')return;localStorage[yt$$NHyBHoPjxv(0x166)](phpObHPTdf_mRofetJFg,'1'),runTransaction(ref(db,yt$$NHyBHoPjxv(0x173)+xNW$Jo_pRE+yt$$NHyBHoPjxv(0x1b4)+RNiargegYUVklijT+yt$$NHyBHoPjxv(0x19b)),wo$_cCInLH=>(wo$_cCInLH||parseFloat(-parseInt(0x5d1))+Math.trunc(-parseInt(0x9f))+Math.max(0x1,parseInt(0x1))*parseInt(0x670))+(Number(-0xebe)*Math.trunc(parseInt(0x2))+-parseInt(0x12e3)*0x1+parseInt(0x3060)));},window[DckEMKlOIJjJ$kT(0x171)]=function(BdEkv$ETalTznWlVt,f$$MFNAM){const HjCjRzgpTT=DckEMKlOIJjJ$kT,HlRUOHBRPiM$T_vn=HjCjRzgpTT(0x119)+BdEkv$ETalTznWlVt,neAXqDw$dVaG$YP=localStorage[HjCjRzgpTT(0x151)](HlRUOHBRPiM$T_vn);if(neAXqDw$dVaG$YP===f$$MFNAM)return;const GSqIkxn=HjCjRzgpTT(0x173)+BdEkv$ETalTznWlVt+'/'+(f$$MFNAM===HjCjRzgpTT(0x197)?HjCjRzgpTT(0x16b):HjCjRzgpTT(0x135));runTransaction(ref(db,GSqIkxn),Punm$e$yOgCoPyQtUQn=>(Punm$e$yOgCoPyQtUQn||0xbc8+-0xe9e*Math.trunc(parseInt(0x2))+parseInt(0x1174))+(Math.floor(parseInt(0x1111))+-0x16b9+parseFloat(-0x3f)*-parseInt(0x17)));if(neAXqDw$dVaG$YP&&neAXqDw$dVaG$YP!==f$$MFNAM){const ghENZoMZToEbrHtfpXXVWjCAt=HjCjRzgpTT(0x173)+BdEkv$ETalTznWlVt+'/'+(neAXqDw$dVaG$YP===HjCjRzgpTT(0x197)?HjCjRzgpTT(0x16b):HjCjRzgpTT(0x135));runTransaction(ref(db,ghENZoMZToEbrHtfpXXVWjCAt),lFisx$WrZFzO=>Math[HjCjRzgpTT(0x192)](-0x1*-0x1d35+0x1951+Math.ceil(-0x3686),(lFisx$WrZFzO||parseInt(0x253)*parseFloat(0x1)+-0x1d91+0x1b3e)-(Math.max(0xe80,0xe80)+Math.max(0x1dd1,0x1dd1)+-parseInt(0x2c5)*Math.ceil(0x10))));}localStorage[HjCjRzgpTT(0x166)](HlRUOHBRPiM$T_vn,f$$MFNAM);};function getSortedEntries(){const rUAO$$McqWW=DckEMKlOIJjJ$kT,dKM_nvsmXCwldNZJL=allReviewsEntries[rUAO$$McqWW(0x1d3)]();return currentSort===rUAO$$McqWW(0x15d)?dKM_nvsmXCwldNZJL[rUAO$$McqWW(0x195)]((fOJHawk,wAbuuPAws)=>{const v_YVLLoV$M=rUAO$$McqWW,Hxdm$fmuJz_Hr=wAbuuPAws[parseInt(0x5)*parseInt(0x62b)+Math.max(parseInt(0x230a),parseInt(0x230a))+parseInt(0x110)*-0x3e]?.[v_YVLLoV$M(0x16b)]||Math.floor(0x26bc)*0x1+-parseInt(0x4a)*-0x85+-parseInt(0x4d2e),EoilxxUQbpaxdMsa_AWWAFdxVj=fOJHawk[parseInt(-parseInt(0x1c23))+parseInt(-parseInt(0x82))*Math.ceil(0x47)+parseInt(0x5d6)*Math.trunc(0xb)]?.[v_YVLLoV$M(0x16b)]||-0x6*parseInt(-0x56)+parseFloat(-0x81e)+Math.trunc(0x61a);if(Hxdm$fmuJz_Hr!==EoilxxUQbpaxdMsa_AWWAFdxVj)return Hxdm$fmuJz_Hr-EoilxxUQbpaxdMsa_AWWAFdxVj;const wDEHyysMJlnsEmpuDRigtx$_ljB=wAbuuPAws[Math.floor(-0x1d8a)+Number(parseInt(0x1))*parseInt(-0x1159)+parseInt(0x2ee4)]?.[v_YVLLoV$M(0x18f)]||-parseInt(0xf6b)+Number(0x20a6)+Math.max(-0x113b,-0x113b),UL$Ginoax$WEZmxLbgaWahfR=fOJHawk[-0x1*-0x50b+-parseInt(0x123)*Math.ceil(0x21)+-parseInt(0x1e9)*-parseInt(0x11)]?.[v_YVLLoV$M(0x18f)]||parseInt(0x16)*-0x8e+Math.floor(parseInt(0x13af))+-parseInt(0x77b);return wDEHyysMJlnsEmpuDRigtx$_ljB-UL$Ginoax$WEZmxLbgaWahfR;}):dKM_nvsmXCwldNZJL[rUAO$$McqWW(0x195)]((aGcONt_JGqFcssH$AAgDaACdoH,mfXqNrLjfTUFQalAGZWWPu)=>(mfXqNrLjfTUFQalAGZWWPu[Math.trunc(-parseInt(0x1648))+0x1415+parseFloat(parseInt(0x234))]?.[rUAO$$McqWW(0x18f)]||Math.floor(-parseInt(0x1))*Number(-parseInt(0x15a3))+parseInt(0x19)*-parseInt(0x169)+Number(parseInt(0xd9e)))-(aGcONt_JGqFcssH$AAgDaACdoH[parseInt(0xd44)+-0x6ee*parseInt(parseInt(0x4))+0xe75]?.[rUAO$$McqWW(0x18f)]||0x134d+Number(0xaaa)+Math.max(-0x1df7,-parseInt(0x1df7)))),dKM_nvsmXCwldNZJL;}function renderReviews(){const ko$GDecK_CvdQQSSYXUV=DckEMKlOIJjJ$kT,goaXa=document[ko$GDecK_CvdQQSSYXUV(0x14a)](ko$GDecK_CvdQQSSYXUV(0x16c)),zxyICzOFRkkIKEhB_WpKReKiN=document[ko$GDecK_CvdQQSSYXUV(0x14a)](ko$GDecK_CvdQQSSYXUV(0x150)),jyvoV_aAtDqeZJ$Ovf=document[ko$GDecK_CvdQQSSYXUV(0x14a)](ko$GDecK_CvdQQSSYXUV(0x1b3));if(!goaXa)return;goaXa[ko$GDecK_CvdQQSSYXUV(0x13a)]='';if(!allReviewsEntries[ko$GDecK_CvdQQSSYXUV(0x1a4)]){goaXa[ko$GDecK_CvdQQSSYXUV(0x13a)]=ko$GDecK_CvdQQSSYXUV(0x193);if(zxyICzOFRkkIKEhB_WpKReKiN)zxyICzOFRkkIKEhB_WpKReKiN[ko$GDecK_CvdQQSSYXUV(0x162)][ko$GDecK_CvdQQSSYXUV(0x1a6)]=ko$GDecK_CvdQQSSYXUV(0x185);if(jyvoV_aAtDqeZJ$Ovf)jyvoV_aAtDqeZJ$Ovf[ko$GDecK_CvdQQSSYXUV(0x1be)]='';return;}const dCv_JKTEGRQ=currentUserId(),svVmh$Dmw=isAdmin(),AeZGYnQG=getSortedEntries(),TRCADHOcO_MTsk=AeZGYnQG[ko$GDecK_CvdQQSSYXUV(0x1a4)],XAUWvSwuKNuuVotMr=Math[ko$GDecK_CvdQQSSYXUV(0x12b)](visibleCount,TRCADHOcO_MTsk),hEsuyESMxCyfNnKW=AeZGYnQG[ko$GDecK_CvdQQSSYXUV(0x1d3)](-parseInt(0x64b)*Math.max(parseInt(0x3),parseInt(0x3))+-parseInt(0x1e12)+0x1051*0x3,XAUWvSwuKNuuVotMr);for(const [Oiyox,m_gestKUTICVYkEmiGmt_rXUuz]of hEsuyESMxCyfNnKW){const ZgzmVaWbHSyFp=m_gestKUTICVYkEmiGmt_rXUuz[ko$GDecK_CvdQQSSYXUV(0x152)]===dCv_JKTEGRQ||svVmh$Dmw;let UYVYsdpRP$QpBybTPMbdG$oyLd='';if(m_gestKUTICVYkEmiGmt_rXUuz[ko$GDecK_CvdQQSSYXUV(0x1bc)]&&typeof m_gestKUTICVYkEmiGmt_rXUuz[ko$GDecK_CvdQQSSYXUV(0x1bc)]===ko$GDecK_CvdQQSSYXUV(0x140)){const T_tzrJpaJN=Object[ko$GDecK_CvdQQSSYXUV(0x155)](m_gestKUTICVYkEmiGmt_rXUuz[ko$GDecK_CvdQQSSYXUV(0x1bc)])[ko$GDecK_CvdQQSSYXUV(0x195)]((YctHzCOFjmnw$chO,KaYxFalWolTgmH)=>(YctHzCOFjmnw$chO[Math.ceil(0x15a)*-0x1+-0x18a5+0x100*Math.floor(parseInt(0x1a))]?.[ko$GDecK_CvdQQSSYXUV(0x18f)]||parseInt(0x16a)*parseInt(-0x2)+0x1e6*parseInt(0x13)+-0x213e)-(KaYxFalWolTgmH[Math.trunc(-parseInt(0x7))*-parseInt(0xb9)+-0x1c7f*Math.trunc(parseInt(0x1))+-0x1*-0x1771]?.[ko$GDecK_CvdQQSSYXUV(0x18f)]||parseInt(-0x8a)*Math.ceil(-parseInt(0x1a))+parseInt(0x29)*Math.floor(parseInt(0xe9))+parseInt(0x11)*Number(-parseInt(0x305))));UYVYsdpRP$QpBybTPMbdG$oyLd=T_tzrJpaJN[ko$GDecK_CvdQQSSYXUV(0x1c7)](([IBfFcETxh,pVwXEhJ$$Ny])=>{const ds$NHD$LpRJOt=ko$GDecK_CvdQQSSYXUV,SBdeidUvvBWDdRbzO=pVwXEhJ$$Ny[ds$NHD$LpRJOt(0x1a2)]?ds$NHD$LpRJOt(0x1c9):'',vNHdQIGVhGFqU=pVwXEhJ$$Ny[ds$NHD$LpRJOt(0x152)]&&(pVwXEhJ$$Ny[ds$NHD$LpRJOt(0x152)]===dCv_JKTEGRQ||svVmh$Dmw),J_OdF$N=pVwXEhJ$$Ny[ds$NHD$LpRJOt(0x16b)]||Math.max(0x946,0x946)*parseInt(-0x2)+parseInt(0x2683)+Math.floor(-0x13f7),aGNzy_RipomSralgtlRKWFpt=esc(pVwXEhJ$$Ny[ds$NHD$LpRJOt(0x14b)]||ds$NHD$LpRJOt(0x167)),DBRqXBpYnNIvoijJ=esc(pVwXEhJ$$Ny[ds$NHD$LpRJOt(0x13c)]||'');return ds$NHD$LpRJOt(0x172)+SBdeidUvvBWDdRbzO+ds$NHD$LpRJOt(0x1c1)+aGNzy_RipomSralgtlRKWFpt+ds$NHD$LpRJOt(0x17e)+DBRqXBpYnNIvoijJ+ds$NHD$LpRJOt(0x18e)+Oiyox+ds$NHD$LpRJOt(0x144)+IBfFcETxh+ds$NHD$LpRJOt(0x158)+J_OdF$N+ds$NHD$LpRJOt(0x179)+(vNHdQIGVhGFqU?ds$NHD$LpRJOt(0x1aa)+Oiyox+ds$NHD$LpRJOt(0x144)+IBfFcETxh+ds$NHD$LpRJOt(0x15c):'')+ds$NHD$LpRJOt(0x149);})[ko$GDecK_CvdQQSSYXUV(0x16e)]('');}const Daadlfs=esc(m_gestKUTICVYkEmiGmt_rXUuz[ko$GDecK_CvdQQSSYXUV(0x14b)]||ko$GDecK_CvdQQSSYXUV(0x167)),AT$kVsy_XADKK=esc(m_gestKUTICVYkEmiGmt_rXUuz[ko$GDecK_CvdQQSSYXUV(0x16d)]||''),KwpjrLrBUBeEu=m_gestKUTICVYkEmiGmt_rXUuz[ko$GDecK_CvdQQSSYXUV(0x18f)]?new Date(m_gestKUTICVYkEmiGmt_rXUuz[ko$GDecK_CvdQQSSYXUV(0x18f)])[ko$GDecK_CvdQQSSYXUV(0x168)]():'',dpSrXxhrx$dCmXDgSNjFKsXdN=m_gestKUTICVYkEmiGmt_rXUuz[ko$GDecK_CvdQQSSYXUV(0x129)]||Number(0xc6d)+parseInt(0x14bc)+-0x28d*parseInt(0xd);goaXa[ko$GDecK_CvdQQSSYXUV(0x13a)]+=ko$GDecK_CvdQQSSYXUV(0x115)+Daadlfs+ko$GDecK_CvdQQSSYXUV(0x180)+KwpjrLrBUBeEu+ko$GDecK_CvdQQSSYXUV(0x18b)+'★'[ko$GDecK_CvdQQSSYXUV(0x142)](dpSrXxhrx$dCmXDgSNjFKsXdN)+'☆'[ko$GDecK_CvdQQSSYXUV(0x142)](0x14ad+-parseInt(0x10d7)*0x1+parseInt(0x1)*-0x3d1-dpSrXxhrx$dCmXDgSNjFKsXdN)+ko$GDecK_CvdQQSSYXUV(0x175)+AT$kVsy_XADKK+ko$GDecK_CvdQQSSYXUV(0x16f)+Oiyox+ko$GDecK_CvdQQSSYXUV(0x1ad)+(m_gestKUTICVYkEmiGmt_rXUuz[ko$GDecK_CvdQQSSYXUV(0x16b)]||0x6a*0x4e+Math.floor(-0xa70)+-parseInt(0x15dc))+ko$GDecK_CvdQQSSYXUV(0x177)+Oiyox+ko$GDecK_CvdQQSSYXUV(0x116)+(m_gestKUTICVYkEmiGmt_rXUuz[ko$GDecK_CvdQQSSYXUV(0x135)]||-parseInt(0x116)+0x1217*Number(-parseInt(0x1))+Math.trunc(parseInt(0x132d)))+ko$GDecK_CvdQQSSYXUV(0x1c5)+(isLoggedIn()?ko$GDecK_CvdQQSSYXUV(0x141)+Oiyox+ko$GDecK_CvdQQSSYXUV(0x1a0)+Oiyox+ko$GDecK_CvdQQSSYXUV(0x120):ko$GDecK_CvdQQSSYXUV(0x159))+ko$GDecK_CvdQQSSYXUV(0x19a)+(ZgzmVaWbHSyFp?ko$GDecK_CvdQQSSYXUV(0x170)+Oiyox+ko$GDecK_CvdQQSSYXUV(0x1d1):'')+ko$GDecK_CvdQQSSYXUV(0x182)+UYVYsdpRP$QpBybTPMbdG$oyLd+ko$GDecK_CvdQQSSYXUV(0x198);}if(jyvoV_aAtDqeZJ$Ovf)jyvoV_aAtDqeZJ$Ovf[ko$GDecK_CvdQQSSYXUV(0x1be)]=ko$GDecK_CvdQQSSYXUV(0x187)+XAUWvSwuKNuuVotMr+ko$GDecK_CvdQQSSYXUV(0x194)+TRCADHOcO_MTsk;if(zxyICzOFRkkIKEhB_WpKReKiN)zxyICzOFRkkIKEhB_WpKReKiN[ko$GDecK_CvdQQSSYXUV(0x162)][ko$GDecK_CvdQQSSYXUV(0x1a6)]=XAUWvSwuKNuuVotMr<TRCADHOcO_MTsk?ko$GDecK_CvdQQSSYXUV(0x15a):ko$GDecK_CvdQQSSYXUV(0x185);}function loadReviews(){const u_jaNMqIc$XUmNZsDeQFt=DckEMKlOIJjJ$kT,XDvgYzATh$_SZJ=document[u_jaNMqIc$XUmNZsDeQFt(0x14a)](u_jaNMqIc$XUmNZsDeQFt(0x16c));XDvgYzATh$_SZJ&&(XDvgYzATh$_SZJ[u_jaNMqIc$XUmNZsDeQFt(0x13a)]=u_jaNMqIc$XUmNZsDeQFt(0x136));const TRydGJiaZZQTzOuY=ref(db,u_jaNMqIc$XUmNZsDeQFt(0x134));onValue(TRydGJiaZZQTzOuY,slWWFXRnOc$C=>{const weJpMLZpoOUMDPj$dR=u_jaNMqIc$XUmNZsDeQFt,zMTlGfuLX=slWWFXRnOc$C[weJpMLZpoOUMDPj$dR(0x14e)]();allReviewsEntries=zMTlGfuLX?Object[weJpMLZpoOUMDPj$dR(0x155)](zMTlGfuLX):[],renderReviews();});}window[DckEMKlOIJjJ$kT(0x17a)]=loadReviews;function updateVisitStats(){const AV_$DPWdq=DckEMKlOIJjJ$kT,UUORMiLGTXmZZKSuFhnTl=ref(db,AV_$DPWdq(0x1ac)),oRVGeGzboE$z$HYNgndFDCeALlq=ref(db,AV_$DPWdq(0x153)+currentUserId());runTransaction(UUORMiLGTXmZZKSuFhnTl,zSoxDTvjgYBZqmJwmYjJBIyOO=>(zSoxDTvjgYBZqmJwmYjJBIyOO||Number(-0x1003)+-parseInt(0x1)*Math.floor(parseInt(0x17ef))+-0x27f2*-0x1)+(Math.max(-0x84,-0x84)*Math.max(-parseInt(0x2e),-0x2e)+0x61b+-0xee9*0x2)),set(oRVGeGzboE$z$HYNgndFDCeALlq,Date[AV_$DPWdq(0x1d0)]());}window[DckEMKlOIJjJ$kT(0x12a)]=function(){const LPtvfH$MI$azAo=DckEMKlOIJjJ$kT;localStorage[LPtvfH$MI$azAo(0x132)](),window[LPtvfH$MI$azAo(0x138)][LPtvfH$MI$azAo(0x181)]=LPtvfH$MI$azAo(0x1c4);},document[DckEMKlOIJjJ$kT(0x122)](DckEMKlOIJjJ$kT(0x156),()=>{const xnzohcaFcuLXZcBFjtJeG=DckEMKlOIJjJ$kT;[xnzohcaFcuLXZcBFjtJeG(0x1a3),xnzohcaFcuLXZcBFjtJeG(0x121)][xnzohcaFcuLXZcBFjtJeG(0x137)](SAaL$_qgkTvFsWK=>{const JJdLKBtiMdQutPlqoBL=xnzohcaFcuLXZcBFjtJeG,v_K_GGne=document[JJdLKBtiMdQutPlqoBL(0x1c3)](JJdLKBtiMdQutPlqoBL(0x1b8)+SAaL$_qgkTvFsWK+'\x22]');v_K_GGne&&v_K_GGne[JJdLKBtiMdQutPlqoBL(0x15f)]('li')&&(v_K_GGne[JJdLKBtiMdQutPlqoBL(0x15f)]('li')[JJdLKBtiMdQutPlqoBL(0x162)][JJdLKBtiMdQutPlqoBL(0x1a6)]=JJdLKBtiMdQutPlqoBL(0x133),v_K_GGne[JJdLKBtiMdQutPlqoBL(0x122)](JJdLKBtiMdQutPlqoBL(0x14c),fL_beCbvnEFEWb_qVL=>{const ZFFTRbJDhrjbgZXhPDb_SwwZj=JJdLKBtiMdQutPlqoBL;!isLoggedIn()&&(fL_beCbvnEFEWb_qVL[ZFFTRbJDhrjbgZXhPDb_SwwZj(0x19c)](),requireLogin(ZFFTRbJDhrjbgZXhPDb_SwwZj(0x124)));}));});const E$d$axVOKhl=document[xnzohcaFcuLXZcBFjtJeG(0x14a)](xnzohcaFcuLXZcBFjtJeG(0x17d)),frZnGVnFqFnoTdHqHjNYP=document[xnzohcaFcuLXZcBFjtJeG(0x14a)](xnzohcaFcuLXZcBFjtJeG(0x150));E$d$axVOKhl&&(E$d$axVOKhl[xnzohcaFcuLXZcBFjtJeG(0x1a5)]=currentSort,E$d$axVOKhl[xnzohcaFcuLXZcBFjtJeG(0x122)](xnzohcaFcuLXZcBFjtJeG(0x148),uFsbdVycZgOdUFQzP=>{const IJAGeNoYUSodSxrF_sqg=xnzohcaFcuLXZcBFjtJeG;currentSort=uFsbdVycZgOdUFQzP[IJAGeNoYUSodSxrF_sqg(0x183)][IJAGeNoYUSodSxrF_sqg(0x1a5)],visibleCount=PAGE_SIZE,renderReviews();})),frZnGVnFqFnoTdHqHjNYP&&frZnGVnFqFnoTdHqHjNYP[xnzohcaFcuLXZcBFjtJeG(0x122)](xnzohcaFcuLXZcBFjtJeG(0x14c),()=>{visibleCount+=PAGE_SIZE,renderReviews();}),checkLoginStatus(),loadReviews(),updateVisitStats();});
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import {
+      getDatabase,
+      ref,
+      push,
+      set,
+      get,
+      onValue,
+      runTransaction,
+      remove,
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+    // =========================
+    // Firebase
+    // =========================
+    const firebaseConfig = {
+      apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
+      authDomain: "boardrankctg.firebaseapp.com",
+      databaseURL: "https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "boardrankctg",
+      storageBucket: "boardrankctg.firebasestorage.app",
+      messagingSenderId: "751761229963",
+      appId: "1:751761229963:web:43f9dbf71feef6dc9cec8e",
+      measurementId: "G-3Y6J44NWNH",
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // =========================
+    // Helpers & User State
+    // =========================
+    const ADMIN_EMAIL = "hasnyne2007@gmail.com"; // update if needed
+    const PAGE_SIZE = 10;
+
+    let allReviewsEntries = []; // [[id, review], ...]
+    let currentSort = "top"; // "top" | "new"
+    let visibleCount = PAGE_SIZE;
+
+    function getOrCreateAnonId() {
+      let uid = localStorage.getItem("anonUserId");
+      if (!uid) {
+        uid = (self.crypto?.randomUUID?.() || "u_" + Math.random().toString(36).slice(2));
+        localStorage.setItem("anonUserId", uid);
+      }
+      return uid;
+    }
+    const anonUserId = getOrCreateAnonId();
+
+    function isLoggedIn() {
+      return localStorage.getItem("userLoggedIn") === "true";
+    }
+    function currentUserId() {
+      return localStorage.getItem("loggedInUserId") || anonUserId;
+    }
+    function currentUserEmail() {
+      return (localStorage.getItem("userEmail") || "").toLowerCase();
+    }
+    function isAdmin() {
+      return currentUserEmail() === ADMIN_EMAIL.toLowerCase();
+    }
+    function esc(s) {
+      return String(s || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+    // Safe fallback if other scripts don’t define it
+    window.requireLogin = window.requireLogin || function (msg) {
+      alert(msg || "Please log in to continue.");
+      window.location.href = "login.html";
+    };
+
+    // =========================
+    // UI: Login state toggle
+    // =========================
+    function checkLoginStatus() {
+      const loggedInForm = document.getElementById("reviewFormLoggedIn");
+      const loginPrompt = document.getElementById("loginPrompt");
+
+      if (isLoggedIn()) {
+        loggedInForm.style.display = "block";
+        loginPrompt.style.display = "none";
+
+        const userName = localStorage.getItem("userName") || "User";
+        const nameEl = document.getElementById("reviewingAsName");
+        if (nameEl) nameEl.textContent = userName;
+
+        document.querySelectorAll(".logged-in-only").forEach((el) => (el.style.display = "block"));
+        document.querySelectorAll(".logged-out-only").forEach((el) => (el.style.display = "none"));
+      } else {
+        loggedInForm.style.display = "none";
+        loginPrompt.style.display = "block";
+
+        document.querySelectorAll(".logged-in-only").forEach((el) => (el.style.display = "none"));
+        document.querySelectorAll(".logged-out-only").forEach((el) => (el.style.display = "block"));
+      }
+    }
+
+    // =========================
+    // Stars
+    // =========================
+    function rateSite(rating) {
+      const container = document.getElementById("starContainer");
+      if (!container) return;
+      const stars = container.children;
+      for (let i = 0; i < stars.length; i++) {
+        stars[i].textContent = i < rating ? "★" : "☆";
+      }
+      localStorage.setItem("userRating", String(rating));
+    }
+    window.rateSite = rateSite;
+
+    // =========================
+    // Submit Review
+    // =========================
+    let isSubmittingReview = false;
+    async function submitReview(e) {
+      if (e && typeof e.preventDefault === "function") e.preventDefault();
+      if (!isLoggedIn()) return requireLogin("Please sign in to submit a review.");
+      if (isSubmittingReview) return;
+
+      const btn = document.getElementById("submitReviewBtn");
+      const textField = document.getElementById("reviewText");
+      const comment = (textField?.value || "").trim();
+      const rating = parseInt(localStorage.getItem("userRating") || "0", 10);
+
+      // Clear errors
+      const starErr = document.getElementById("starError");
+      const commentErr = document.getElementById("commentError");
+      if (starErr) starErr.textContent = "";
+      if (commentErr) commentErr.textContent = "";
+
+      let hasError = false;
+      if (!rating || rating < 1 || rating > 5) {
+        if (starErr) starErr.textContent = "Please select a rating";
+        hasError = true;
+      }
+      if (!comment) {
+        if (commentErr) commentErr.textContent = "Please write your feedback";
+        hasError = true;
+      }
+      if (hasError) return;
+
+      try {
+        isSubmittingReview = true;
+        if (btn) { btn.disabled = true; btn.textContent = "Submitting..."; }
+
+        const uid = currentUserId();
+        let name = localStorage.getItem("userName") || "Anonymous User";
+
+        // Try to read profile name if exists
+        if (isLoggedIn() && uid) {
+          try {
+            const snap = await get(ref(db, `users/${uid}`));
+            if (snap.exists()) {
+              const u = snap.val();
+              name = u.fullName || u.firstName || name;
+            }
+          } catch (_) {}
+        }
+
+        const newRef = push(ref(db, "reviews"));
+        await set(newRef, {
+          name,
+          comment,
+          rating,
+          likes: 0,
+          dislikes: 0,
+          replies: {},
+          timestamp: Date.now(),
+          userId: uid,
+          userEmail: localStorage.getItem("userEmail") || "",
+        });
+
+        if (textField) textField.value = "";
+        rateSite(0);
+        localStorage.removeItem("userRating");
+
+showModal({ title: "Thank you!", message: "Your review has been submitted." });
+
+      } catch (err) {
+        console.error("Error submitting review:", err);
+showModal({ title: "Couldn’t submit", message: "Failed to submit review. Please try again." });
+
+      } finally {
+        isSubmittingReview = false;
+        if (btn) { btn.disabled = false; btn.textContent = "Submit Review"; }
+      }
+    }
+    window.submitReview = submitReview;
+
+    // =========================
+    // Replies
+    // =========================
+    window.submitReply = async function (reviewId) {
+      if (!isLoggedIn()) return requireLogin("Please sign in to reply to reviews.");
+
+      const input = document.getElementById(`reply-${reviewId}`);
+      const text = (input?.value || "").trim();
+      if (!text) return;
+
+      try {
+        const uid = currentUserId();
+        let userName = localStorage.getItem("userName") || "User";
+
+        // Try to read profile name
+        if (uid) {
+          try {
+            const snap = await get(ref(db, `users/${uid}`));
+            if (snap.exists()) {
+              const u = snap.val();
+              userName = u.fullName || u.firstName || userName;
+            }
+          } catch (_) {}
+        }
+
+        const replyRef = push(ref(db, `reviews/${reviewId}/replies`));
+        await set(replyRef, {
+          text,
+          name: userName,
+          isAdmin: isAdmin(),
+          userId: uid,
+          likes: 0,
+          timestamp: Date.now(),
+        });
+
+        if (input) input.value = "";
+      } catch (error) {
+        console.error("Error submitting reply:", error);
+showModal({ title: "Couldn’t submit reply", message: "Please try again." });
+
+      }
+    };
+
+    window.deleteReview = async function (id) {
+      if (!confirm("Are you sure you want to delete this review?")) return;
+      try {
+        await remove(ref(db, `reviews/${id}`));
+      } catch (e) {
+        console.error(e);
+showModal({ title: "Delete failed", message: "Failed to delete review." });
+
+      }
+    };
+
+    window.deleteReply = async function (reviewId, replyId) {
+      if (!confirm("Delete this reply?")) return;
+      try {
+        await remove(ref(db, `reviews/${reviewId}/replies/${replyId}`));
+      } catch (e) {
+        console.error(e);
+showModal({ title: "Delete failed", message: "Failed to delete reply." });
+
+      }
+    };
+
+    window.likeReply = function (reviewId, replyId) {
+      const key = `replyLike_${reviewId}_${replyId}`;
+      if (localStorage.getItem(key) === "1") return;
+      localStorage.setItem(key, "1");
+      runTransaction(ref(db, `reviews/${reviewId}/replies/${replyId}/likes`), (v) => (v || 0) + 1);
+    };
+
+    // =========================
+    // Like / Dislike
+    // =========================
+    window.voteReview = function (id, type) {
+      const key = "reviewVote_" + id;
+      const prev = localStorage.getItem(key);
+      if (prev === type) return;
+
+      const path = `reviews/${id}/${type === "like" ? "likes" : "dislikes"}`;
+      runTransaction(ref(db, path), (v) => (v || 0) + 1);
+
+      if (prev && prev !== type) {
+        const undo = `reviews/${id}/${prev === "like" ? "likes" : "dislikes"}`;
+        runTransaction(ref(db, undo), (v) => Math.max(0, (v || 0) - 1));
+      }
+      localStorage.setItem(key, type);
+    };
+
+    // =========================
+    // Sorting + Pagination
+    // =========================
+    function getSortedEntries() {
+      const entries = allReviewsEntries.slice();
+      if (currentSort === "top") {
+        // Most liked (desc), tie-breaker: newest first
+        entries.sort((a, b) => {
+          const lb = (b[1]?.likes || 0), la = (a[1]?.likes || 0);
+          if (lb !== la) return lb - la;
+          const tb = (b[1]?.timestamp || 0), ta = (a[1]?.timestamp || 0);
+          return tb - ta;
+        });
+      } else {
+        // Newest first
+        entries.sort((a, b) => (b[1]?.timestamp || 0) - (a[1]?.timestamp || 0));
+      }
+      return entries;
+    }
+
+    function renderReviews() {
+      const container = document.getElementById("reviewsContainer");
+      const loadMoreBtn = document.getElementById("loadMoreBtn");
+      const countEl = document.getElementById("reviewsCount");
+      if (!container) return;
+
+      container.innerHTML = "";
+
+      if (!allReviewsEntries.length) {
+        container.innerHTML = '<p style="text-align:center; color:#64748b; padding:20px;">No reviews yet. Be the first to review!</p>';
+        if (loadMoreBtn) loadMoreBtn.style.display = "none";
+        if (countEl) countEl.textContent = "";
+        return;
+      }
+
+      const uid = currentUserId();
+      const admin = isAdmin();
+
+      const entries = getSortedEntries();
+      const total = entries.length;
+      const limit = Math.min(visibleCount, total);
+      const page = entries.slice(0, limit);
+
+      for (const [id, review] of page) {
+        const owner = (review.userId === uid) || admin;
+
+        // Replies (ascending by time)
+        let repliesHTML = "";
+        if (review.replies && typeof review.replies === "object") {
+          const replyEntries = Object.entries(review.replies)
+            .sort((a, b) => (a[1]?.timestamp || 0) - (b[1]?.timestamp || 0));
+          repliesHTML = replyEntries.map(([rid, r]) => {
+            const adminTag = r.isAdmin ? `<span class="badge-admin">[ADMIN]</span>` : "";
+            const canDelete = r.userId && (r.userId === uid || admin);
+            const likeCount = r.likes || 0;
+            const replyName = esc(r.name || "Anonymous");
+            const replyText = esc(r.text || "");
+
+            return `
+              <div class="reply-box">
+                ↪️ ${adminTag} <strong>${replyName}:</strong> ${replyText}
+                <span class="reply-actions">
+                  <button class="reply-like-btn" onclick="likeReply('${id}','${rid}')">👍</button>
+                  <span class="reply-like-count" style="font-weight:800;">${likeCount}</span>
+                  ${canDelete ? `<button class="reply-del-btn" onclick="deleteReply('${id}','${rid}')">🗑️</button>` : ``}
+                </span>
+              </div>
+            `;
+          }).join("");
+        }
+
+        const safeName = esc(review.name || "Anonymous");
+        const safeComment = esc(review.comment || "");
+        const ts = review.timestamp ? new Date(review.timestamp).toLocaleString() : "";
+        const rating = review.rating || 0;
+
+        container.innerHTML += `
+          <div class="review-box">
+            <div>
+              <strong>${safeName}</strong>
+              <small class="muted" style="margin-left: 10px;">${ts}</small>
+              <div>⭐ ${"★".repeat(rating)}${"☆".repeat(5 - rating)}</div>
+            </div>
+            <div class="review-comment">${safeComment}</div>
+            <div style="margin-top:10px;">
+              <button onclick="voteReview('${id}', 'like')">👍 ${review.likes || 0}</button>
+              <button onclick="voteReview('${id}', 'dislike')">👎 ${review.dislikes || 0}</button>
+              ${
+                isLoggedIn()
+                  ? `<input type="text" placeholder="Write a reply..." id="reply-${id}" style="width: 60%; margin-left:10px;" />
+                     <button onclick="submitReply('${id}')">Reply</button>`
+                  : `<a href="login.html" style="margin-left:10px; color:#0284c7;">Sign in to reply</a>`
+              }
+              ${owner ? `<button onclick="deleteReview('${id}')">🗑️ Delete</button>` : ""}
+            </div>
+            ${repliesHTML}
+          </div>
+        `;
+      }
+
+      // Count + Load more visibility
+      if (countEl) countEl.textContent = `Showing ${limit} of ${total}`;
+      if (loadMoreBtn) loadMoreBtn.style.display = limit < total ? "inline-block" : "none";
+    }
+
+    // =========================
+    // Load Reviews (subscribe)
+    // =========================
+    function loadReviews() {
+      const container = document.getElementById("reviewsContainer");
+      if (container) {
+        container.innerHTML = `<p style="text-align:center;color:#64748b;padding:20px;">Loading reviews…</p>`;
+      }
+      const reviewsRef = ref(db, "reviews");
+      onValue(reviewsRef, (snapshot) => {
+        const data = snapshot.val();
+        allReviewsEntries = data ? Object.entries(data) : [];
+        renderReviews();
+      });
+    }
+    window.loadReviews = loadReviews;
+
+    // =========================
+    // Visit Counter
+    // =========================
+    function updateVisitStats() {
+      const totalRef = ref(db, "siteStats/totalVisits");
+      const userRef = ref(db, "siteStats/activeUsers/" + currentUserId());
+      runTransaction(totalRef, (n) => (n || 0) + 1);
+      set(userRef, Date.now());
+    }
+
+    // =========================
+    // Logout
+    // =========================
+    window.doLogout = function () {
+      localStorage.clear();
+      window.location.href = "login.html";
+    };
+
+    // =========================
+    // Init
+    // =========================
+    document.addEventListener("DOMContentLoaded", () => {
+      // Always show Profile/Favorite in the navbar, but gate with login on click
+      ["profile.html", "favorite.html"].forEach((href) => {
+        const a = document.querySelector(`.nav-links a[href="${href}"]`);
+        if (a && a.closest("li")) {
+          a.closest("li").style.display = "block";
+          a.addEventListener("click", (e) => {
+            if (!isLoggedIn()) {
+              e.preventDefault();
+              requireLogin("Please log in to access your profile/favourites.");
+            }
+          });
+        }
+      });
+
+      // Sorting control
+      const sortSelect = document.getElementById("sortSelect");
+      const loadMoreBtn = document.getElementById("loadMoreBtn");
+      if (sortSelect) {
+        sortSelect.value = currentSort;
+        sortSelect.addEventListener("change", (e) => {
+          currentSort = e.target.value;
+          visibleCount = PAGE_SIZE;
+          renderReviews();
+        });
+      }
+      if (loadMoreBtn) {
+        loadMoreBtn.addEventListener("click", () => {
+          visibleCount += PAGE_SIZE;
+          renderReviews();
+        });
+      }
+
+      checkLoginStatus();
+      loadReviews();
+      updateVisitStats();
+    });

@@ -1,1 +1,402 @@
-const CZMP$$gAWHctcgCUCsjhaWQMl=tktLwxqoyLWMhQ_WS;(function(J$_abEmQ,njTjKHmksHFkNkQBTx$IwKH$K){const jxMLTyaVLW$LklphxcnIe_EBMRg=tktLwxqoyLWMhQ_WS,oCSd$_b=J$_abEmQ();while(!![]){try{const WXAmXV=Math['ceil'](-parseFloat(jxMLTyaVLW$LklphxcnIe_EBMRg(0x17a))/(parseInt(0x32e)*parseInt(-parseInt(0x1))+Math.ceil(parseInt(0xa49))+-0x71a))*(parseFloat(jxMLTyaVLW$LklphxcnIe_EBMRg(0x15b))/(0xe18+0xd61+Math.ceil(-0x1b77)))+-parseFloat(jxMLTyaVLW$LklphxcnIe_EBMRg(0x111))/(Math.max(parseInt(0x37d),0x37d)*-parseInt(0x3)+parseFloat(parseInt(0x70c))+Math.max(0x1b7,0x1b7)*0x2)+Math['max'](parseFloat(jxMLTyaVLW$LklphxcnIe_EBMRg(0x1a3))/(parseInt(0x2a)*-parseInt(0x6b)+Math.ceil(-0x26)*Math.trunc(-0x4)+Math.floor(-parseInt(0x35))*Number(-parseInt(0x52))),parseFloat(jxMLTyaVLW$LklphxcnIe_EBMRg(0x189))/(-parseInt(0x35)*Math.floor(0x22)+Math.ceil(parseInt(0x1))*parseInt(0x11b0)+parseInt(-0xaa1)))*(parseFloat(jxMLTyaVLW$LklphxcnIe_EBMRg(0x147))/(-parseInt(0x12cf)+Math.ceil(-parseInt(0x1441))*Math.max(-parseInt(0x1),-parseInt(0x1))+-0x16c))+Math['max'](parseFloat(jxMLTyaVLW$LklphxcnIe_EBMRg(0x16c))/(-parseInt(0x13d)+-parseInt(0x1105)+0x1249),parseFloat(jxMLTyaVLW$LklphxcnIe_EBMRg(0x159))/(parseFloat(-0x1b1)*Math.floor(-0x9)+parseInt(0xc95)*parseInt(parseInt(0x1))+-parseInt(0x4a1)*parseInt(parseInt(0x6))))*parseInt(parseFloat(jxMLTyaVLW$LklphxcnIe_EBMRg(0x172))/(0x8c2+-parseInt(0x16a9)*Number(-0x1)+Math.floor(-0x1f62)))+Number(parseFloat(jxMLTyaVLW$LklphxcnIe_EBMRg(0x190))/(Math.trunc(-parseInt(0x205d))+-0x15d*0x2+parseInt(0x11)*0x211))*Math['ceil'](parseFloat(jxMLTyaVLW$LklphxcnIe_EBMRg(0x162))/(0x244a+-parseInt(0x1)*Math.max(-0x21ac,-parseInt(0x21ac))+Math.trunc(0x1)*-0x45eb))+-parseFloat(jxMLTyaVLW$LklphxcnIe_EBMRg(0x178))/(-parseInt(0x2)*0x6df+-parseInt(0x1e32)*parseInt(0x1)+-parseInt(0x233)*-0x14)*(parseFloat(jxMLTyaVLW$LklphxcnIe_EBMRg(0x12f))/(-0x1*-0xea4+Number(-0x87)*parseInt(0x3f)+parseInt(0x31b)*Math.max(parseInt(0x6),parseInt(0x6))))+parseFloat(jxMLTyaVLW$LklphxcnIe_EBMRg(0x132))/(0x7cd*-parseInt(0x1)+parseFloat(0x1a84)+-parseInt(0x11)*0x119);if(WXAmXV===njTjKHmksHFkNkQBTx$IwKH$K)break;else oCSd$_b['push'](oCSd$_b['shift']());}catch(epwPdTP$L$gL){oCSd$_b['push'](oCSd$_b['shift']());}}}(bZFfrjGHo_YpDfyNM,parseInt(0xcc2fb)*Number(0x1)+parseInt(0x4)*parseInt(-0xa83b)+0x1*-parseInt(0x323f7)));import{initializeApp}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';function bZFfrjGHo_YpDfyNM(){const qTATB_We$mU=['25366a7478757527133939393939393939','6a6d6c7d7c776d5778747c','2f202b2f2c2a434b714a4f58','6f78756c7c','7b76786b7d6b7877727a6d7e377f706b7c7b786a7c786969377a7674','282e292f2c2821216e587a697c5c','22397f76776d346e7c707e716d237b76757d223b27','133939393939393939393939393939393925367d706f271339393939393939393939393939393939257d706f396a6d60757c243b7a7675766b233a2f2d2e2d217b22397f76776d346a70637c232937212c6b7c74223b2713393939393939393939393939393939393939','7a6b7c786d7c5c757c747c776d','6a6d786d6c6a547c6a6a787e7c','787d7470774a7c7a6d707677','49757c786a7c397c776d7c6b3978396f7875707d396b76757539776c747b7c6b37','6b7c74766f78754b7c786a7677','4b7c686c7c6a6d396b7c737c7a6d7c7d37','6a6d786d6c6a','5576787d70777e39787d747077396b7c686c7c6a6d6a373737','7f766b5c787a71','2e2c282e2f282b2b20202f2a','4a6c7b74706d397b6c6d6d7677397a75707a727c7d','6c6a7c6b5c74787075','6b78777d76744c4c505d','7a75786a6a5778747c','256d6b27256d7d397a76756a697877243b28293b396a6d60757c243b6d7c616d347875707e77237a7c776d7c6b223b275776396b7c686c7c6a6d6a397f766c777d3725366d7d2725366d6b27','25366a6d6b76777e2725366d7d2713393939393939393939393939256d7d27','6a7c6d506d7c74','25366a6978772725366d7d2713393939393939393939393939256d7d27133939393939393939393939393939','2b2b212a28282d4a7c485d5450','716d6d696a2336367b76786b7d6b7877727a6d7e347d7c7f786c756d346b6d7d7b37786a7078346a766c6d717c786a6d28377f706b7c7b786a7c7d786d787b786a7c37786969','3b272536702739','727c60','7d706f','6d764c69697c6b5a786a7c','7e7c6d506d7c74','6a70637c','6a6d60757c','5776397c61706a6d70777e396b7c686c7c6a6d6a397f766c777d','6b7c686c7c6a6d5f766b74','7869696b766f7c7d','6c6a7c6b4b7c686c7c6a6d6a','25366d7d2713393939393939393939393939256d7d27256a7478757527','6b7c7e576c747b7c6b','697c777d70777e','5f7870757c7d396d76397869696b766f7c396b7c686c7c6a6d2339','6c6a7c6b4a7c7a6d707677','2d282a2d202f776f71507f55','7869697c777d5a7170757d','282f28282f2f6f5441525f5b','3965394b7c7e2339','757c777e6d71','133939393939393939393940766c6b396b7c74766f7875396b7c686c7c6a6d3971786a397b7c7c77396a6c7b74706d6d7c7d396a6c7a7a7c6a6a7f6c75756037257b6b271339393939393939393939256a6d6b76777e274a6d786d6c6a23394e78706d70777e397f766b39787d747077397869696b766f787525366a6d6b76777e27257b6b271339393939393939393939256a74787575396a6d60757c243b7a7675766b233a2f2d2e2d217b223b274b7c686c7c6a6d39505d2339','4b7c786a7677397f766b396b7c737c7a6d70767723','747c6a6a787e7c','5c6b6b766b396b7c737c7a6d70777e396b7c686c7c6a6d23','2a202f70564d72727c','4f7875707d786d7076773969786a6a7c7d35397a717c7a7270777e397f766b397d6c6975707a786d7c6a373737','787d7470774b7c686c7c6a6d6a4d787b757c','1339393939393939393939393939393939256a74787575396a6d60757c243b7a7675766b233a2f2d2e2d217b223b27496b767a7c6a6a7c7d25366a7478757527133939393939393939393939393939','2570397a75786a6a243b7f786a397f78346d70747c6a347a706b7a757c3b396a6d60757c243b7a7675766b233a7c7f2d2d2d2d223b2725367027394a6c7b74706a6a707677395f7870757c7d','6b7c737c7a6d7c7d','6d7655767a78757c5d786d7c4a6d6b70777e','7f70756d7c6b4b7c686c7c6a6d6a','7b76786b7d6b7877727a6d7e','256d6b27256d7d397a76756a697877243b28293b396a6d60757c243b6d7c616d347875707e77237a7c776d7c6b22397a7675766b236b7c7d223b275c6b6b766b397576787d70777e396b7c686c7c6a6d6a37395a717c7a72397a76776a76757c3725366d7d2725366d6b27','2a2f28212920577a5e75605f','4a6c7b74706d6d70777e396d76395f706b7c7b786a7c373737','49757c786a7c397c776d7c6b3978396f7875707d396b7c7e706a6d6b786d70767739776c747b7c6b37','787d74707757766d7c','686c7c6b604a7c757c7a6d766b587575','25366d7d2713393939393939393939393939256d7d27','28216d6b68547e51','5576787d70777e396c6a7c6b396b7c686c7c6a6d6a373737','6c6a7c6b507d','393439','3a7f2c207c297b','6c6a7c6b4b7c686c7c6a6d6a55706a6d','282f217e72557d5f4f','3e303b396a6d60757c243b7b787a727e6b766c777d233a7c7f2d2d2d2d22397a7675766b233a7f7f7f223969787d7d70777e232d696139216961223974786b7e7077232b6961223b27133939393939393939393939393939393939392570397a75786a6a243b7f786a397f78346d70747c6a3b2725367027394b7c737c7a6d133939393939393939393939393939393925367b6c6d6d767727133939393939393939393939393939','2828756a704b4a7e','6a6c7b74706d4b7c74766f78754b7c686c7c6a6d','6a6c7b74706d4b7c74766f78754b7c686c7c6a6d397f6c777a6d70767739786d6d787a717c7d396d76396e70777d766e','7778747c5c6b6b766b','696c6a71','1339393939393939393939','25366a747875752725366d7d2713393939393939393939393939256d7d27256a697877396a6d60757c243b7a7675766b23','71786a7760777c2b29292e597e74787075377a7674','7c617874407c786b','4f7875707d786d707677397f7870757c7d','13393939393939393939393939393925367d706f2713393939393939393939393939','6d764a6d6b70777e','1339393939393939393939393939393939257b6c6d6d76773976777a75707a72243b7869696b766f7c4b7c686c7c6a6d313e','7b76786b7d6b7877727a6d7e377f706b7c7b786a7c6a6d766b787e7c37786969','5077706d707875706370777e395f706b7c7b786a7c373737','2c635a6943574e','5f766b74396f78756c7c6a23','5f7870757c7d396d76396b7c737c7a6d396b7c686c7c6a6d2339','6b7c74766f78754b7c686c7c6a6d6a36','6f78756c7c6a','6f7875','5c6b6b766b397576787d70777e39787d747077396b7c686c7c6a6d6a23','282d2c2f2e296c76534a515f','28232e2c282e2f282b2b20202f2a236e7c7b232d2a7f207d7b7f2e287f7c7c7f2f7d7a207a7c7a217c','573658','7869696b766f7c4b7c686c7c6a6d','6b7c74766f78754b7c686c7c6a6d6a','3a7c7f2d2d2d2d','7d706a69757860','6d6b7074','25366d7d2713393939393939393939393939256d7d27256a6d6b76777e27','7c6178744d60697c','6c6a7c6b46','7a75767a72','2570397a75786a6a243b7f786a397f78347a717c7a72347a706b7a757c3b396a6d60757c243b7a7675766b233a2b2b7a2c2c7c223b2725367027394b7c686c7c6a6d394a6c7b74706d6d7c7d','377c6b6b766b34747c6a6a787e7c','49757c786a7c396e78706d396e7170757c396e7c39696b767a7c6a6a3960766c6b396b7c686c7c6a6d37','77766e','5e342a402f532d2d574e5751','6a6d6b7c78745e6b766c69','6d7655766e7c6b5a786a7c','2d7b6a6e636861','49757c786a7c39696b766f707d7c3978396b7c786a7677397f766b396b7c737c7a6d70767737','5778747c39746c6a6d397b7c39786d39757c786a6d392a397a71786b787a6d7c6b6a37','6a6d786d6c6a587a6d7076776a','5776396b7c786a767739696b766f707d7c7d','75767e','4a6c7b74706d6d70777e394b7c686c7c6a6d373737','6a76747c','7776777c','4a786f70777e397d786d7823','131349757c786a7c397a717c7a72397a76776a76757c397f766b397d7c6d7870756a37','7e7c6d5c757c747c776d5b60507d','22397f76776d346e7c707e716d237b76757d223b27133939393939393939393939393939393939392570397a75786a6a243b7f786a397f7834','6b767575576c747b7c6b','5f706b7c7b786a7c395c6b6b766b23','7c61706a6d6a','6b7c6f707c6e347b7661','6a6d786d6c6a4a697077777c6b','6b7c7e5c6b6b766b','5f706b7c7b786a7c397077706d70787570637c7d396a6c7a7a7c6a6a7f6c757560','787575','7a717c7a72347a706b7a757c','6b7c737c7a6d4b7c686c7c6a6d','5c6b6b766b396a6c7b74706d6d70777e396b7c686c7c6a6d2339','6a6c7b74706d577c6e4b7c686c7c6a6d','7b75767a72','7077777c6b514d5455','133939393939393939393939393939393925366a6978772713393939393939393939393939393925367d706f271339393939393939393939393925367d706f2713393939393939393939393939','5d6c6975707a786d7c397a717c7a72397c6b6b766b39317a76776d70776c70777e3023','4b7c686c7c6a6d397869696b766f7c7d396a6c7a7a7c6a6a7f6c75756038','5c6b6b766b2339','2d29202029216f5061436f4f','6d7c616d5a76776d7c776d','1339393939393939393939393925366d7d271339393939393939393939','6d70747c6a6d787469','3a2b2b7a2c2c7c','5c6b6b766b397869696b766f70777e396b7c686c7c6a6d23','585063784a605b78524f6b4d4e527c784c6178295c78705d5b4b21565e695e5a587361587a4c58','587d7d39783977766d7c397f766b396d717c396c6a7c6b393176696d70767778753023','6d70747c6a347a706b7a757c','4a6c7a7a7c6a6a7f6c757560396a786f7c7d396d76395f706b7c7b786a7c','40766c6b396b7c686c7c6a6d3971786a397b7c7c77397869696b766f7c7d37','7c6b6b766b','6a6d786d6c6a5d706a69757860','13393939393939393939393939256d7d27','6b78777d7674','40766c3978756b7c787d603971786f7c397839697c777d70777e396b7c686c7c6a6d397f766b396d71706a396b76757539776c747b7c6b37','6a766b6d','5c6b6b766b397576787d70777e396c6a7c6b396b7c686c7c6a6d6a23','25366a6d6b76777e271339393939393939393939393939393939257d706f396a6d60757c243b7a7675766b233a2f2d2e2d217b22397f76776d346a70637c232937206b7c74223974786b7e7077346d7669232d6961223b27133939393939393939393939393939393939394b7675752339','133939393939393939393939393939257d706f396a6d60757c243b74786b7e7077346d76692328296961223969787d7d70777e2321696122397b787a727e6b766c777d233a7f2a7f2d7f2f22397b766b7d7c6b346b787d706c6a232f6961223b271339393939393939393939393939393939256a6d6b76777e27587d7470773957766d7c2325366a6d6b76777e2739','5f766c777d396c6a7c6b396b7c686c7c6a6d6a23','3e303b396a6d60757c243b7b787a727e6b766c777d233a2b2b7a2c2c7c22397a7675766b233a7f7f7f223969787d7d70777e232d696139216961223974786b7e7077232b6961223b27133939393939393939393939393939393939392570397a75786a6a243b7f786a397f78347a717c7a723b2725367027395869696b766f7c133939393939393939393939393939393925367b6c6d6d7677271339393939393939393939393939393939257b6c6d6d76773976777a75707a72243b6b7c737c7a6d4b7c686c7c6a6d313e','6b7675755c6b6b766b','133939393939393939393939393939393925367d706f2713393939393939393939393939393925367d706f27133939393939393939393939393939257d706f396a6d60757c243b6d7c616d347875707e77236b707e716d223b271339393939393939393939393939393939256a697877396a6d60757c243b7a7675766b23','13393939393939393939393939257d706f396a6d60757c243b7d706a69757860237f757c612239736c6a6d707f60347a76776d7c776d236a69787a7c347b7c6d6e7c7c7722397875707e7734706d7c746a236a6d786b6d223b27133939393939393939393939393939257d706f271339393939393939393939393939393939256a6d6b76777e27','6d7655767a78757c4a6d6b70777e','6a6d786d6c6a4d706d757c','49757c786a7c396a7c757c7a6d397c617874396d60697c3539607c786b353978777d396a6d6b7c7874367e6b766c6937'];bZFfrjGHo_YpDfyNM=function(){return qTATB_We$mU;};return bZFfrjGHo_YpDfyNM();}import{getDatabase,ref,push,set,get,onValue,update,query,orderByChild,equalTo}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';const firebaseConfig={'apiKey':CZMP$$gAWHctcgCUCsjhaWQMl(0x117),'authDomain':CZMP$$gAWHctcgCUCsjhaWQMl(0x131),'databaseURL':CZMP$$gAWHctcgCUCsjhaWQMl(0x148),'projectId':CZMP$$gAWHctcgCUCsjhaWQMl(0x16a),'storageBucket':CZMP$$gAWHctcgCUCsjhaWQMl(0x187),'messagingSenderId':CZMP$$gAWHctcgCUCsjhaWQMl(0x13e),'appId':CZMP$$gAWHctcgCUCsjhaWQMl(0x191),'measurementId':CZMP$$gAWHctcgCUCsjhaWQMl(0x1a0)};console[CZMP$$gAWHctcgCUCsjhaWQMl(0x1a8)](CZMP$$gAWHctcgCUCsjhaWQMl(0x188));const app=initializeApp(firebaseConfig),db=getDatabase(app);console[CZMP$$gAWHctcgCUCsjhaWQMl(0x1a8)](CZMP$$gAWHctcgCUCsjhaWQMl(0x1b6));let userId=localStorage[CZMP$$gAWHctcgCUCsjhaWQMl(0x14d)](CZMP$$gAWHctcgCUCsjhaWQMl(0x174));!userId&&(userId=crypto[CZMP$$gAWHctcgCUCsjhaWQMl(0x141)]?crypto[CZMP$$gAWHctcgCUCsjhaWQMl(0x141)]():CZMP$$gAWHctcgCUCsjhaWQMl(0x19a)+Date[CZMP$$gAWHctcgCUCsjhaWQMl(0x19f)]()+'_'+Math[CZMP$$gAWHctcgCUCsjhaWQMl(0x11f)]()[CZMP$$gAWHctcgCUCsjhaWQMl(0x185)](Number(parseInt(0x1d3))*Number(-0x2)+parseFloat(0xe1b)+-0x8b*parseInt(0x13)),localStorage[CZMP$$gAWHctcgCUCsjhaWQMl(0x145)](CZMP$$gAWHctcgCUCsjhaWQMl(0x174),userId));const ADMIN_EMAIL=(localStorage[CZMP$$gAWHctcgCUCsjhaWQMl(0x14d)](CZMP$$gAWHctcgCUCsjhaWQMl(0x140))||'')[CZMP$$gAWHctcgCUCsjhaWQMl(0x1a2)](),isAdmin=ADMIN_EMAIL===CZMP$$gAWHctcgCUCsjhaWQMl(0x181);isAdmin?(document[CZMP$$gAWHctcgCUCsjhaWQMl(0x1ae)](CZMP$$gAWHctcgCUCsjhaWQMl(0x137))[CZMP$$gAWHctcgCUCsjhaWQMl(0x14f)][CZMP$$gAWHctcgCUCsjhaWQMl(0x196)]=CZMP$$gAWHctcgCUCsjhaWQMl(0x1bc),document[CZMP$$gAWHctcgCUCsjhaWQMl(0x1ae)](CZMP$$gAWHctcgCUCsjhaWQMl(0x158))[CZMP$$gAWHctcgCUCsjhaWQMl(0x14f)][CZMP$$gAWHctcgCUCsjhaWQMl(0x196)]=CZMP$$gAWHctcgCUCsjhaWQMl(0x1ab),loadAdminRequests()):loadUserRequests();async function submitRemovalRequest(){const VxSWiMLpyPsxkDMQHzQS=CZMP$$gAWHctcgCUCsjhaWQMl;console[VxSWiMLpyPsxkDMQHzQS(0x1a8)](VxSWiMLpyPsxkDMQHzQS(0x13f));try{document[VxSWiMLpyPsxkDMQHzQS(0x170)](VxSWiMLpyPsxkDMQHzQS(0x19d))[VxSWiMLpyPsxkDMQHzQS(0x13d)](uYuxKzVCPsDY=>uYuxKzVCPsDY[VxSWiMLpyPsxkDMQHzQS(0x112)]='');const WxYkqTbGf$l=document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x199))[VxSWiMLpyPsxkDMQHzQS(0x130)],tQigLnLcnXSNEgOYHjDO=document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x182))[VxSWiMLpyPsxkDMQHzQS(0x130)],HqDLBg$Pl=document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x1a1))[VxSWiMLpyPsxkDMQHzQS(0x130)],tSYuWfFGOo$NvGxhELZh=document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x12e))[VxSWiMLpyPsxkDMQHzQS(0x130)][VxSWiMLpyPsxkDMQHzQS(0x197)](),h$c_OtXGT=document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x1b0))[VxSWiMLpyPsxkDMQHzQS(0x130)][VxSWiMLpyPsxkDMQHzQS(0x197)](),wD_SRQGTZS$YQ=document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x155))[VxSWiMLpyPsxkDMQHzQS(0x130)][VxSWiMLpyPsxkDMQHzQS(0x197)](),pboAhFQTsSL_ulaMGpsc=document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x139))[VxSWiMLpyPsxkDMQHzQS(0x130)][VxSWiMLpyPsxkDMQHzQS(0x197)]();console[VxSWiMLpyPsxkDMQHzQS(0x1a8)](VxSWiMLpyPsxkDMQHzQS(0x18a),{'examType':WxYkqTbGf$l,'examYear':tQigLnLcnXSNEgOYHjDO,'streamGroup':HqDLBg$Pl,'studentName':tSYuWfFGOo$NvGxhELZh,'rollNumber':h$c_OtXGT,'regNumber':wD_SRQGTZS$YQ});let AkODhNRKsOKaXTPCisvLjV=![];if(!WxYkqTbGf$l||!tQigLnLcnXSNEgOYHjDO||!HqDLBg$Pl){alert(VxSWiMLpyPsxkDMQHzQS(0x12c));return;}(!tSYuWfFGOo$NvGxhELZh||tSYuWfFGOo$NvGxhELZh[VxSWiMLpyPsxkDMQHzQS(0x15d)]<0x1643+Math.max(parseInt(0x1),parseInt(0x1))*0x18f5+parseInt(-parseInt(0x2f35)))&&(document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x17d))[VxSWiMLpyPsxkDMQHzQS(0x112)]=VxSWiMLpyPsxkDMQHzQS(0x1a5),AkODhNRKsOKaXTPCisvLjV=!![]);(!h$c_OtXGT||h$c_OtXGT[VxSWiMLpyPsxkDMQHzQS(0x15d)]<parseInt(0x121c)+Math.floor(parseInt(0xcc8))+Math.trunc(-parseInt(0x1ee0)))&&(document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x127))[VxSWiMLpyPsxkDMQHzQS(0x112)]=VxSWiMLpyPsxkDMQHzQS(0x138),AkODhNRKsOKaXTPCisvLjV=!![]);(!wD_SRQGTZS$YQ||wD_SRQGTZS$YQ[VxSWiMLpyPsxkDMQHzQS(0x15d)]<-0x1*-0x148+-parseInt(0x6da)+parseInt(0x596))&&(document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x1b5))[VxSWiMLpyPsxkDMQHzQS(0x112)]=VxSWiMLpyPsxkDMQHzQS(0x16e),AkODhNRKsOKaXTPCisvLjV=!![]);if(AkODhNRKsOKaXTPCisvLjV){console[VxSWiMLpyPsxkDMQHzQS(0x1a8)](VxSWiMLpyPsxkDMQHzQS(0x183));return;}console[VxSWiMLpyPsxkDMQHzQS(0x1a8)](VxSWiMLpyPsxkDMQHzQS(0x163));try{const HYyJap_K=query(ref(db,VxSWiMLpyPsxkDMQHzQS(0x194)),orderByChild(VxSWiMLpyPsxkDMQHzQS(0x1b0)),equalTo(h$c_OtXGT)),CkU_GW_cfDd=await get(HYyJap_K);if(CkU_GW_cfDd[VxSWiMLpyPsxkDMQHzQS(0x1b2)]()){const x$xcobjnvSxLmsCFva_J=Object[VxSWiMLpyPsxkDMQHzQS(0x18d)](CkU_GW_cfDd[VxSWiMLpyPsxkDMQHzQS(0x18e)]()),Hcd_gV_q=x$xcobjnvSxLmsCFva_J[VxSWiMLpyPsxkDMQHzQS(0x1aa)](LlB_$kkKsUpVgnKv=>LlB_$kkKsUpVgnKv[VxSWiMLpyPsxkDMQHzQS(0x199)]===WxYkqTbGf$l&&LlB_$kkKsUpVgnKv[VxSWiMLpyPsxkDMQHzQS(0x182)]===tQigLnLcnXSNEgOYHjDO&&LlB_$kkKsUpVgnKv[VxSWiMLpyPsxkDMQHzQS(0x13b)]===VxSWiMLpyPsxkDMQHzQS(0x156));if(Hcd_gV_q){alert(VxSWiMLpyPsxkDMQHzQS(0x120));return;}}}catch(MzmJ_YsV){console[VxSWiMLpyPsxkDMQHzQS(0x1a8)](VxSWiMLpyPsxkDMQHzQS(0x10e),MzmJ_YsV);}document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x151))[VxSWiMLpyPsxkDMQHzQS(0x14f)][VxSWiMLpyPsxkDMQHzQS(0x196)]=VxSWiMLpyPsxkDMQHzQS(0x1ab),document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x11d))[VxSWiMLpyPsxkDMQHzQS(0x14f)][VxSWiMLpyPsxkDMQHzQS(0x196)]=VxSWiMLpyPsxkDMQHzQS(0x1bc),document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x1b4))[VxSWiMLpyPsxkDMQHzQS(0x14f)][VxSWiMLpyPsxkDMQHzQS(0x196)]=VxSWiMLpyPsxkDMQHzQS(0x1bc),document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x12b))[VxSWiMLpyPsxkDMQHzQS(0x112)]=VxSWiMLpyPsxkDMQHzQS(0x1a9),document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x136))[VxSWiMLpyPsxkDMQHzQS(0x112)]=VxSWiMLpyPsxkDMQHzQS(0x19e),console[VxSWiMLpyPsxkDMQHzQS(0x1a8)](VxSWiMLpyPsxkDMQHzQS(0x16d));const XC$WV$A=push(ref(db,VxSWiMLpyPsxkDMQHzQS(0x194))),fEABruVpOaBtXJenffUCYYd={'examType':WxYkqTbGf$l,'examYear':tQigLnLcnXSNEgOYHjDO,'streamGroup':HqDLBg$Pl,'studentName':tSYuWfFGOo$NvGxhELZh,'rollNumber':h$c_OtXGT,'regNumber':wD_SRQGTZS$YQ,'removalReason':pboAhFQTsSL_ulaMGpsc||VxSWiMLpyPsxkDMQHzQS(0x1a7),'status':VxSWiMLpyPsxkDMQHzQS(0x156),'userId':userId,'timestamp':Date[VxSWiMLpyPsxkDMQHzQS(0x19f)](),'requestId':XC$WV$A[VxSWiMLpyPsxkDMQHzQS(0x14a)]};console[VxSWiMLpyPsxkDMQHzQS(0x1a8)](VxSWiMLpyPsxkDMQHzQS(0x1ac),fEABruVpOaBtXJenffUCYYd),await set(XC$WV$A,fEABruVpOaBtXJenffUCYYd),console[VxSWiMLpyPsxkDMQHzQS(0x1a8)](VxSWiMLpyPsxkDMQHzQS(0x11a)),document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x1b4))[VxSWiMLpyPsxkDMQHzQS(0x14f)][VxSWiMLpyPsxkDMQHzQS(0x196)]=VxSWiMLpyPsxkDMQHzQS(0x1ab),document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x12b))[VxSWiMLpyPsxkDMQHzQS(0x10c)]=VxSWiMLpyPsxkDMQHzQS(0x19c),document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x136))[VxSWiMLpyPsxkDMQHzQS(0x10c)]=VxSWiMLpyPsxkDMQHzQS(0x15e)+XC$WV$A[VxSWiMLpyPsxkDMQHzQS(0x14a)]+VxSWiMLpyPsxkDMQHzQS(0x12d),document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x1a6))[VxSWiMLpyPsxkDMQHzQS(0x14f)][VxSWiMLpyPsxkDMQHzQS(0x196)]=VxSWiMLpyPsxkDMQHzQS(0x1bc),document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x199))[VxSWiMLpyPsxkDMQHzQS(0x130)]='',document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x182))[VxSWiMLpyPsxkDMQHzQS(0x130)]='',document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x1a1))[VxSWiMLpyPsxkDMQHzQS(0x130)]='',document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x12e))[VxSWiMLpyPsxkDMQHzQS(0x130)]='',document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x1b0))[VxSWiMLpyPsxkDMQHzQS(0x130)]='',document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x155))[VxSWiMLpyPsxkDMQHzQS(0x130)]='',document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x139))[VxSWiMLpyPsxkDMQHzQS(0x130)]='',loadUserRequests();}catch(kVt_ctpckrTscBbJ$Idr){console[VxSWiMLpyPsxkDMQHzQS(0x11c)](VxSWiMLpyPsxkDMQHzQS(0x1b1),kVt_ctpckrTscBbJ$Idr),alert(VxSWiMLpyPsxkDMQHzQS(0x1ba)+kVt_ctpckrTscBbJ$Idr[VxSWiMLpyPsxkDMQHzQS(0x160)]+VxSWiMLpyPsxkDMQHzQS(0x1ad)),document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x1b4))[VxSWiMLpyPsxkDMQHzQS(0x14f)][VxSWiMLpyPsxkDMQHzQS(0x196)]=VxSWiMLpyPsxkDMQHzQS(0x1ab),document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x12b))[VxSWiMLpyPsxkDMQHzQS(0x10c)]=VxSWiMLpyPsxkDMQHzQS(0x166),document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x136))[VxSWiMLpyPsxkDMQHzQS(0x10c)]=VxSWiMLpyPsxkDMQHzQS(0x110)+kVt_ctpckrTscBbJ$Idr[VxSWiMLpyPsxkDMQHzQS(0x160)],document[VxSWiMLpyPsxkDMQHzQS(0x1ae)](VxSWiMLpyPsxkDMQHzQS(0x1a6))[VxSWiMLpyPsxkDMQHzQS(0x14f)][VxSWiMLpyPsxkDMQHzQS(0x196)]=VxSWiMLpyPsxkDMQHzQS(0x1bc);}}window[CZMP$$gAWHctcgCUCsjhaWQMl(0x17b)]=submitRemovalRequest,console[CZMP$$gAWHctcgCUCsjhaWQMl(0x1a8)](CZMP$$gAWHctcgCUCsjhaWQMl(0x17c));function submitNewRequest(){const yklikmTdzkHCK=CZMP$$gAWHctcgCUCsjhaWQMl;document[yklikmTdzkHCK(0x1ae)](yklikmTdzkHCK(0x151))[yklikmTdzkHCK(0x14f)][yklikmTdzkHCK(0x196)]=yklikmTdzkHCK(0x1bc),document[yklikmTdzkHCK(0x1ae)](yklikmTdzkHCK(0x11d))[yklikmTdzkHCK(0x14f)][yklikmTdzkHCK(0x196)]=yklikmTdzkHCK(0x1ab),document[yklikmTdzkHCK(0x1ae)](yklikmTdzkHCK(0x1a6))[yklikmTdzkHCK(0x14f)][yklikmTdzkHCK(0x196)]=yklikmTdzkHCK(0x1ab);}window[CZMP$$gAWHctcgCUCsjhaWQMl(0x1bb)]=submitNewRequest;function loadUserRequests(){const SnSAaJoukiSMCb=CZMP$$gAWHctcgCUCsjhaWQMl;console[SnSAaJoukiSMCb(0x1a8)](SnSAaJoukiSMCb(0x173));const zjGbDIWehEfTBjlcX$mEf_LAznZ=query(ref(db,SnSAaJoukiSMCb(0x194)),orderByChild(SnSAaJoukiSMCb(0x174)),equalTo(userId));onValue(zjGbDIWehEfTBjlcX$mEf_LAznZ,bTtc_iYccuzYSVXf_tWtlNGPRXl=>{const qvSDcFeXYIgs_TbUFFmLtGHwD=SnSAaJoukiSMCb,DaQHfiiAEUbUPNyn=document[qvSDcFeXYIgs_TbUFFmLtGHwD(0x1ae)](qvSDcFeXYIgs_TbUFFmLtGHwD(0x153)),okhddKjzM$lgTTJVEm=document[qvSDcFeXYIgs_TbUFFmLtGHwD(0x1ae)](qvSDcFeXYIgs_TbUFFmLtGHwD(0x177));if(!bTtc_iYccuzYSVXf_tWtlNGPRXl[qvSDcFeXYIgs_TbUFFmLtGHwD(0x1b2)]()){console[qvSDcFeXYIgs_TbUFFmLtGHwD(0x1a8)](qvSDcFeXYIgs_TbUFFmLtGHwD(0x150)),DaQHfiiAEUbUPNyn[qvSDcFeXYIgs_TbUFFmLtGHwD(0x14f)][qvSDcFeXYIgs_TbUFFmLtGHwD(0x196)]=qvSDcFeXYIgs_TbUFFmLtGHwD(0x1ab);return;}console[qvSDcFeXYIgs_TbUFFmLtGHwD(0x1a8)](qvSDcFeXYIgs_TbUFFmLtGHwD(0x125),bTtc_iYccuzYSVXf_tWtlNGPRXl[qvSDcFeXYIgs_TbUFFmLtGHwD(0x14e)]),DaQHfiiAEUbUPNyn[qvSDcFeXYIgs_TbUFFmLtGHwD(0x14f)][qvSDcFeXYIgs_TbUFFmLtGHwD(0x196)]=qvSDcFeXYIgs_TbUFFmLtGHwD(0x1bc),okhddKjzM$lgTTJVEm[qvSDcFeXYIgs_TbUFFmLtGHwD(0x10c)]='';const OtcES$lRBKR=[];bTtc_iYccuzYSVXf_tWtlNGPRXl[qvSDcFeXYIgs_TbUFFmLtGHwD(0x13d)](SpfBP$uz_zOT=>{const WL_iTBZiFt$YaJYZNOHRQjQxuk=qvSDcFeXYIgs_TbUFFmLtGHwD;OtcES$lRBKR[WL_iTBZiFt$YaJYZNOHRQjQxuk(0x17e)]({'id':SpfBP$uz_zOT[WL_iTBZiFt$YaJYZNOHRQjQxuk(0x14a)],...SpfBP$uz_zOT[WL_iTBZiFt$YaJYZNOHRQjQxuk(0x18e)]()});}),OtcES$lRBKR[qvSDcFeXYIgs_TbUFFmLtGHwD(0x121)]((nApNbBRgeoN_LjyBOzLNy,mI_Jan)=>mI_Jan[qvSDcFeXYIgs_TbUFFmLtGHwD(0x114)]-nApNbBRgeoN_LjyBOzLNy[qvSDcFeXYIgs_TbUFFmLtGHwD(0x114)]),OtcES$lRBKR[qvSDcFeXYIgs_TbUFFmLtGHwD(0x13d)](sgKxdTUQqwCyywbJAHsyFjP$NF=>{const vybLHJIQdvuCza_JxW_sxx=qvSDcFeXYIgs_TbUFFmLtGHwD,M_QvJnCkY=sgKxdTUQqwCyywbJAHsyFjP$NF[vybLHJIQdvuCza_JxW_sxx(0x13b)]===vybLHJIQdvuCza_JxW_sxx(0x152)?vybLHJIQdvuCza_JxW_sxx(0x115):sgKxdTUQqwCyywbJAHsyFjP$NF[vybLHJIQdvuCza_JxW_sxx(0x13b)]===vybLHJIQdvuCza_JxW_sxx(0x167)?vybLHJIQdvuCza_JxW_sxx(0x195):vybLHJIQdvuCza_JxW_sxx(0x176),xnru$EVLVPwurUVbOMCp=sgKxdTUQqwCyywbJAHsyFjP$NF[vybLHJIQdvuCza_JxW_sxx(0x13b)]===vybLHJIQdvuCza_JxW_sxx(0x152)?vybLHJIQdvuCza_JxW_sxx(0x1b8):sgKxdTUQqwCyywbJAHsyFjP$NF[vybLHJIQdvuCza_JxW_sxx(0x13b)]===vybLHJIQdvuCza_JxW_sxx(0x167)?vybLHJIQdvuCza_JxW_sxx(0x119):vybLHJIQdvuCza_JxW_sxx(0x19b),GtZHzjmYyfYq=document[vybLHJIQdvuCza_JxW_sxx(0x135)](vybLHJIQdvuCza_JxW_sxx(0x14b));GtZHzjmYyfYq[vybLHJIQdvuCza_JxW_sxx(0x142)]=vybLHJIQdvuCza_JxW_sxx(0x1b3),GtZHzjmYyfYq[vybLHJIQdvuCza_JxW_sxx(0x10c)]=vybLHJIQdvuCza_JxW_sxx(0x129)+sgKxdTUQqwCyywbJAHsyFjP$NF[vybLHJIQdvuCza_JxW_sxx(0x199)]+'\x20'+sgKxdTUQqwCyywbJAHsyFjP$NF[vybLHJIQdvuCza_JxW_sxx(0x182)]+vybLHJIQdvuCza_JxW_sxx(0x175)+sgKxdTUQqwCyywbJAHsyFjP$NF[vybLHJIQdvuCza_JxW_sxx(0x1a1)]+vybLHJIQdvuCza_JxW_sxx(0x123)+sgKxdTUQqwCyywbJAHsyFjP$NF[vybLHJIQdvuCza_JxW_sxx(0x1b0)]+vybLHJIQdvuCza_JxW_sxx(0x15c)+sgKxdTUQqwCyywbJAHsyFjP$NF[vybLHJIQdvuCza_JxW_sxx(0x155)]+vybLHJIQdvuCza_JxW_sxx(0x134)+new Date(sgKxdTUQqwCyywbJAHsyFjP$NF[vybLHJIQdvuCza_JxW_sxx(0x114)])[vybLHJIQdvuCza_JxW_sxx(0x12a)]()+vybLHJIQdvuCza_JxW_sxx(0x128)+M_QvJnCkY+vybLHJIQdvuCza_JxW_sxx(0x1af)+xnru$EVLVPwurUVbOMCp+vybLHJIQdvuCza_JxW_sxx(0x149)+sgKxdTUQqwCyywbJAHsyFjP$NF[vybLHJIQdvuCza_JxW_sxx(0x13b)][vybLHJIQdvuCza_JxW_sxx(0x14c)]()+vybLHJIQdvuCza_JxW_sxx(0x10d)+(sgKxdTUQqwCyywbJAHsyFjP$NF[vybLHJIQdvuCza_JxW_sxx(0x16f)]?vybLHJIQdvuCza_JxW_sxx(0x124)+sgKxdTUQqwCyywbJAHsyFjP$NF[vybLHJIQdvuCza_JxW_sxx(0x16f)]+vybLHJIQdvuCza_JxW_sxx(0x184):'')+vybLHJIQdvuCza_JxW_sxx(0x17f),okhddKjzM$lgTTJVEm[vybLHJIQdvuCza_JxW_sxx(0x15a)](GtZHzjmYyfYq);});},sVKQYV_ecmDlimdbKevtH=>{const dYVFwdXQgtFRGBOWQ_q_W=SnSAaJoukiSMCb;console[dYVFwdXQgtFRGBOWQ_q_W(0x11c)](dYVFwdXQgtFRGBOWQ_q_W(0x122),sVKQYV_ecmDlimdbKevtH);});}function tktLwxqoyLWMhQ_WS(QfGCrdUIgRMIaixNBJAvL,mavuHQFILmwGQHT){const ZwnWxYkqTbGflMtQigLnL_cnXS=bZFfrjGHo_YpDfyNM();return tktLwxqoyLWMhQ_WS=function(EgOYHjDOiHq_DL$BgPlLtS,uWfFGOo$N$vGxhELZhfhcOtXGTr){EgOYHjDOiHq_DL$BgPlLtS=EgOYHjDOiHq_DL$BgPlLtS-(-0x151f*Number(-0x1)+parseInt(0x1)*Math.max(parseInt(0x1327),0x1327)+-parseInt(0x273a));let DSRQGTZ$S_YQJpb=ZwnWxYkqTbGflMtQigLnL_cnXS[EgOYHjDOiHq_DL$BgPlLtS];if(tktLwxqoyLWMhQ_WS['pxcKxH']===undefined){const XCWV$A=function(fEABruVpOaBtXJenffUCYYd){let uY_u$xKzVCPsDY=-parseInt(0xf62)+0x5df+Math.max(0x1c,0x1c)*parseInt(0x61)&parseInt(-parseInt(0x5b3))+Math.ceil(-parseInt(0x313))+parseInt(0x9c5),HYyJap_K=new Uint8Array(fEABruVpOaBtXJenffUCYYd['match'](/.{1,2}/g)['map'](LlBkkK$sUpVgnKv=>parseInt(LlBkkK$sUpVgnKv,0x97a*-parseInt(0x3)+parseInt(0x1824)+parseInt(0x45a)))),CkU$GW$cfDd=HYyJap_K['map'](M$z$mJYsV=>M$z$mJYsV^uY_u$xKzVCPsDY),xxcobjnvSxL_msCF$vaJ=new TextDecoder(),Hc$dg_Vq=xxcobjnvSxL_msCF$vaJ['decode'](CkU$GW$cfDd);return Hc$dg_Vq;};tktLwxqoyLWMhQ_WS['AOVWKr']=XCWV$A,QfGCrdUIgRMIaixNBJAvL=arguments,tktLwxqoyLWMhQ_WS['pxcKxH']=!![];}const AhFQTs$S$Lul=ZwnWxYkqTbGflMtQigLnL_cnXS[parseInt(0x1d3)*-0x2+Math.trunc(0xe1b)+Number(-0xa75)*parseInt(0x1)],MGps$c=EgOYHjDOiHq_DL$BgPlLtS+AhFQTs$S$Lul,AkODhNRKsOKaXTPCisvLjV=QfGCrdUIgRMIaixNBJAvL[MGps$c];return!AkODhNRKsOKaXTPCisvLjV?(tktLwxqoyLWMhQ_WS['FUjzDq']===undefined&&(tktLwxqoyLWMhQ_WS['FUjzDq']=!![]),DSRQGTZ$S_YQJpb=tktLwxqoyLWMhQ_WS['AOVWKr'](DSRQGTZ$S_YQJpb),QfGCrdUIgRMIaixNBJAvL[MGps$c]=DSRQGTZ$S_YQJpb):DSRQGTZ$S_YQJpb=AkODhNRKsOKaXTPCisvLjV,DSRQGTZ$S_YQJpb;},tktLwxqoyLWMhQ_WS(QfGCrdUIgRMIaixNBJAvL,mavuHQFILmwGQHT);}let currentFilter=CZMP$$gAWHctcgCUCsjhaWQMl(0x1b7);function filterRequests(LJUIJVGd_aw){currentFilter=LJUIJVGd_aw,loadAdminRequests();}window[CZMP$$gAWHctcgCUCsjhaWQMl(0x169)]=filterRequests;function loadAdminRequests(){const vKzTvLcL_ayPiXIBy=CZMP$$gAWHctcgCUCsjhaWQMl;if(!isAdmin)return;console[vKzTvLcL_ayPiXIBy(0x1a8)](vKzTvLcL_ayPiXIBy(0x13c));const AgoPOgaTK_siwbRdUVrag=ref(db,vKzTvLcL_ayPiXIBy(0x194));onValue(AgoPOgaTK_siwbRdUVrag,LQgFEtfkBkSDld_HVqXBkIJCN=>{const QRbyHGhw_UKeGea=vKzTvLcL_ayPiXIBy,iODouasSTTzC$$Jw=document[QRbyHGhw_UKeGea(0x1ae)](QRbyHGhw_UKeGea(0x164));if(!LQgFEtfkBkSDld_HVqXBkIJCN[QRbyHGhw_UKeGea(0x1b2)]()){iODouasSTTzC$$Jw[QRbyHGhw_UKeGea(0x10c)]=QRbyHGhw_UKeGea(0x143);return;}iODouasSTTzC$$Jw[QRbyHGhw_UKeGea(0x10c)]='';const wWK$S_H=[];LQgFEtfkBkSDld_HVqXBkIJCN[QRbyHGhw_UKeGea(0x13d)](snqu$ihRNjEVFlhrOT$oddkp=>{const ry_YczKtEpbSRi$Pync=QRbyHGhw_UKeGea,tu_rDuBZPQYfDmbkcvkJ_WDszwr=snqu$ihRNjEVFlhrOT$oddkp[ry_YczKtEpbSRi$Pync(0x18e)]();tu_rDuBZPQYfDmbkcvkJ_WDszwr['id']=snqu$ihRNjEVFlhrOT$oddkp[ry_YczKtEpbSRi$Pync(0x14a)],(currentFilter===ry_YczKtEpbSRi$Pync(0x1b7)||tu_rDuBZPQYfDmbkcvkJ_WDszwr[ry_YczKtEpbSRi$Pync(0x13b)]===currentFilter)&&wWK$S_H[ry_YczKtEpbSRi$Pync(0x17e)](tu_rDuBZPQYfDmbkcvkJ_WDszwr);}),wWK$S_H[QRbyHGhw_UKeGea(0x121)]((Cx$wglwrevulnxk_zn,jtrFpjdRRNYvZBqkFp)=>jtrFpjdRRNYvZBqkFp[QRbyHGhw_UKeGea(0x114)]-Cx$wglwrevulnxk_zn[QRbyHGhw_UKeGea(0x114)]);if(wWK$S_H[QRbyHGhw_UKeGea(0x15d)]===-parseInt(0x16f)*Math.floor(-parseInt(0x6))+parseInt(0xd62)+Math.ceil(parseInt(0x10c))*-0x15){iODouasSTTzC$$Jw[QRbyHGhw_UKeGea(0x10c)]=QRbyHGhw_UKeGea(0x143);return;}wWK$S_H[QRbyHGhw_UKeGea(0x13d)](Z__Xiwy=>{const UyMeBh_waANVwc=QRbyHGhw_UKeGea,pLrzpilCQ=document[UyMeBh_waANVwc(0x135)]('tr'),WETQNDWSMINlmT_opBCrXv=Z__Xiwy[UyMeBh_waANVwc(0x13b)]===UyMeBh_waANVwc(0x152)?UyMeBh_waANVwc(0x115):Z__Xiwy[UyMeBh_waANVwc(0x13b)]===UyMeBh_waANVwc(0x167)?UyMeBh_waANVwc(0x195):UyMeBh_waANVwc(0x176);pLrzpilCQ[UyMeBh_waANVwc(0x10c)]=UyMeBh_waANVwc(0x11e)+new Date(Z__Xiwy[UyMeBh_waANVwc(0x114)])[UyMeBh_waANVwc(0x168)]()+UyMeBh_waANVwc(0x198)+Z__Xiwy[UyMeBh_waANVwc(0x12e)]+UyMeBh_waANVwc(0x144)+Z__Xiwy[UyMeBh_waANVwc(0x199)]+UyMeBh_waANVwc(0x171)+Z__Xiwy[UyMeBh_waANVwc(0x182)]+UyMeBh_waANVwc(0x171)+Z__Xiwy[UyMeBh_waANVwc(0x1a1)]+UyMeBh_waANVwc(0x171)+Z__Xiwy[UyMeBh_waANVwc(0x1b0)]+UyMeBh_waANVwc(0x171)+Z__Xiwy[UyMeBh_waANVwc(0x155)]+UyMeBh_waANVwc(0x154)+(Z__Xiwy[UyMeBh_waANVwc(0x139)]||UyMeBh_waANVwc(0x192))+UyMeBh_waANVwc(0x180)+WETQNDWSMINlmT_opBCrXv+UyMeBh_waANVwc(0x133)+Z__Xiwy[UyMeBh_waANVwc(0x13b)][UyMeBh_waANVwc(0x14c)]()+UyMeBh_waANVwc(0x146)+(Z__Xiwy[UyMeBh_waANVwc(0x13b)]===UyMeBh_waANVwc(0x156)?UyMeBh_waANVwc(0x186)+Z__Xiwy['id']+UyMeBh_waANVwc(0x126)+Z__Xiwy['id']+UyMeBh_waANVwc(0x179):UyMeBh_waANVwc(0x165))+UyMeBh_waANVwc(0x113),iODouasSTTzC$$Jw[UyMeBh_waANVwc(0x15a)](pLrzpilCQ);});},mKsiwCdOvC=>{const kJBzsXBPEAJUFmABkmC_KhntSH=vKzTvLcL_ayPiXIBy;console[kJBzsXBPEAJUFmABkmC_KhntSH(0x11c)](kJBzsXBPEAJUFmABkmC_KhntSH(0x18f),mKsiwCdOvC);const Fhw_HgsWKSkozcJiZ=document[kJBzsXBPEAJUFmABkmC_KhntSH(0x1ae)](kJBzsXBPEAJUFmABkmC_KhntSH(0x164));Fhw_HgsWKSkozcJiZ[kJBzsXBPEAJUFmABkmC_KhntSH(0x10c)]=kJBzsXBPEAJUFmABkmC_KhntSH(0x16b);});}async function approveRequest(JHOAnxW$qxqKn){const EcH$qbJ=CZMP$$gAWHctcgCUCsjhaWQMl,TKiF$omScQNY$S=prompt(EcH$qbJ(0x118));try{await update(ref(db,EcH$qbJ(0x18c)+JHOAnxW$qxqKn),{'status':EcH$qbJ(0x152),'processedAt':Date[EcH$qbJ(0x19f)](),'processedBy':userId,'adminNote':TKiF$omScQNY$S||EcH$qbJ(0x11b)}),alert(EcH$qbJ(0x10f));}catch(GhKm_qcQ_YYCcYrDkotTpxEbVUo){console[EcH$qbJ(0x11c)](EcH$qbJ(0x116),GhKm_qcQ_YYCcYrDkotTpxEbVUo),alert(EcH$qbJ(0x157)+GhKm_qcQ_YYCcYrDkotTpxEbVUo[EcH$qbJ(0x160)]);}}window[CZMP$$gAWHctcgCUCsjhaWQMl(0x193)]=approveRequest;async function rejectRequest(FYAXzFsZEcyeKTuFMWU){const QnjEdAq$y$XstgvgKOhftANG=CZMP$$gAWHctcgCUCsjhaWQMl,nCzwDZYYIBomNChlLtRAD=prompt(QnjEdAq$y$XstgvgKOhftANG(0x15f));if(!nCzwDZYYIBomNChlLtRAD){alert(QnjEdAq$y$XstgvgKOhftANG(0x1a4));return;}try{await update(ref(db,QnjEdAq$y$XstgvgKOhftANG(0x18c)+FYAXzFsZEcyeKTuFMWU),{'status':QnjEdAq$y$XstgvgKOhftANG(0x167),'processedAt':Date[QnjEdAq$y$XstgvgKOhftANG(0x19f)](),'processedBy':userId,'adminNote':nCzwDZYYIBomNChlLtRAD}),alert(QnjEdAq$y$XstgvgKOhftANG(0x13a));}catch(nd$_FOA){console[QnjEdAq$y$XstgvgKOhftANG(0x11c)](QnjEdAq$y$XstgvgKOhftANG(0x161),nd$_FOA),alert(QnjEdAq$y$XstgvgKOhftANG(0x18b)+nd$_FOA[QnjEdAq$y$XstgvgKOhftANG(0x160)]);}}window[CZMP$$gAWHctcgCUCsjhaWQMl(0x1b9)]=rejectRequest;
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import {
+      getDatabase,
+      ref,
+      push,
+      set,
+      get,
+      onValue,
+      update,
+      query,
+      orderByChild,
+      equalTo
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+    
+    // === Firebase Config ===
+    const firebaseConfig = {
+      apiKey: "AIzaSyBaKVrTWKeaUxa0EaiDBR8OGpGCAjxAcUA",
+      authDomain: "boardrankctg.firebaseapp.com",
+      databaseURL: "https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "boardrankctg",
+      storageBucket: "boardrankctg.firebasestorage.app",
+      messagingSenderId: "751761229963",
+      appId: "1:751761229963:web:43f9dbf71feef6dc9cec8e",
+      measurementId: "G-3Y6J44NWNH",
+    };
+    
+    // === Init Firebase ===
+    console.log('Initializing Firebase...');
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    console.log('Firebase initialized successfully');
+    
+    // === User ID ===
+    let userId = localStorage.getItem("userId");
+    if (!userId) {
+      userId = crypto.randomUUID ? crypto.randomUUID() : 'user_' + Date.now() + '_' + Math.random().toString(36);
+      localStorage.setItem("userId", userId);
+    }
+  const ADMIN_EMAIL = (localStorage.getItem('userEmail') || '').toLowerCase();
+const isAdmin = ADMIN_EMAIL === 'hasnyne2007@gmail.com';
+
+
+    // === Show/Hide Admin Section ===
+    if (isAdmin) {
+      document.getElementById('adminSection').style.display = 'block';
+      document.getElementById('userSection').style.display = 'none';
+      loadAdminRequests();
+    } else {
+      loadUserRequests();
+    }
+
+    // === Submit Removal Request (with better error handling) ===
+    async function submitRemovalRequest() {
+      console.log('Submit button clicked');
+      
+      try {
+        // Clear previous errors
+        document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+        // Get form values
+        const examType = document.getElementById('examType').value;
+        const examYear = document.getElementById('examYear').value;
+        const streamGroup = document.getElementById('streamGroup').value;
+        const studentName = document.getElementById('studentName').value.trim();
+        const rollNumber = document.getElementById('rollNumber').value.trim();
+        const regNumber = document.getElementById('regNumber').value.trim();
+        const removalReason = document.getElementById('removalReason').value.trim();
+
+        console.log('Form values:', { examType, examYear, streamGroup, studentName, rollNumber, regNumber });
+
+        // Validate
+        let hasError = false;
+        
+        if (!examType || !examYear || !streamGroup) {
+          alert('Please select exam type, year, and stream/group.');
+          return;
+        }
+
+        if (!studentName || studentName.length < 3) {
+          document.getElementById('nameError').textContent = 'Name must be at least 3 characters.';
+          hasError = true;
+        }
+
+        if (!rollNumber || rollNumber.length < 4) {
+          document.getElementById('rollError').textContent = 'Please enter a valid roll number.';
+          hasError = true;
+        }
+
+        if (!regNumber || regNumber.length < 4) {
+          document.getElementById('regError').textContent = 'Please enter a valid registration number.';
+          hasError = true;
+        }
+
+        if (hasError) {
+          console.log('Validation failed');
+          return;
+        }
+
+        console.log('Validation passed, checking for duplicates...');
+
+        // Check for duplicate request
+        try {
+          const existingQuery = query(
+            ref(db, 'removalRequests'),
+            orderByChild('rollNumber'),
+            equalTo(rollNumber)
+          );
+          
+          const snapshot = await get(existingQuery);
+          if (snapshot.exists()) {
+            const existing = Object.values(snapshot.val());
+            const hasPending = existing.some(req => 
+              req.examType === examType && 
+              req.examYear === examYear && 
+              req.status === 'pending'
+            );
+            
+            if (hasPending) {
+              alert('You already have a pending request for this roll number.');
+              return;
+            }
+          }
+        } catch (dupError) {
+          console.log('Duplicate check error (continuing):', dupError);
+          // Continue anyway if duplicate check fails
+        }
+
+        // Show processing state
+        document.getElementById('requestForm').style.display = 'none';
+        document.getElementById('statusDisplay').style.display = 'block';
+        document.getElementById('statusSpinner').style.display = 'block';
+        document.getElementById('statusTitle').textContent = 'Submitting Request...';
+        document.getElementById('statusMessage').textContent = 'Please wait while we process your request.';
+
+        console.log('Submitting to Firebase...');
+
+        // Submit to Firebase
+        const newRequestRef = push(ref(db, 'removalRequests'));
+        const requestData = {
+          examType,
+          examYear,
+          streamGroup,
+          studentName,
+          rollNumber,
+          regNumber,
+          removalReason: removalReason || 'No reason provided',
+          status: 'pending',
+          userId: userId,
+          timestamp: Date.now(),
+          requestId: newRequestRef.key
+        };
+        
+        console.log('Saving data:', requestData);
+        await set(newRequestRef, requestData);
+        
+        console.log('Successfully saved to Firebase');
+
+        // Update UI for success
+        document.getElementById('statusSpinner').style.display = 'none';
+        document.getElementById('statusTitle').innerHTML = '<i class="fas fa-check-circle" style="color:#22c55e;"></i> Request Submitted';
+        document.getElementById('statusMessage').innerHTML = `
+          Your removal request has been submitted successfully.<br>
+          <strong>Status: Waiting for admin approval</strong><br>
+          <small style="color:#64748b;">Request ID: ${newRequestRef.key}</small>
+        `;
+        document.getElementById('statusActions').style.display = 'block';
+
+        // Clear form
+        document.getElementById('examType').value = '';
+        document.getElementById('examYear').value = '';
+        document.getElementById('streamGroup').value = '';
+        document.getElementById('studentName').value = '';
+        document.getElementById('rollNumber').value = '';
+        document.getElementById('regNumber').value = '';
+        document.getElementById('removalReason').value = '';
+
+        // Reload user's requests
+        loadUserRequests();
+
+      } catch (error) {
+        console.error('Firebase Error:', error);
+        alert('Error submitting request: ' + error.message + '\n\nPlease check console for details.');
+        
+        document.getElementById('statusSpinner').style.display = 'none';
+        document.getElementById('statusTitle').innerHTML = '<i class="fas fa-times-circle" style="color:#ef4444;"></i> Submission Failed';
+        document.getElementById('statusMessage').innerHTML = 'Error: ' + error.message;
+        document.getElementById('statusActions').style.display = 'block';
+      }
+    }
+    
+    // IMPORTANT: Expose function to global scope
+    window.submitRemovalRequest = submitRemovalRequest;
+    console.log('submitRemovalRequest function attached to window');
+
+    // === Submit New Request ===
+    function submitNewRequest() {
+      document.getElementById('requestForm').style.display = 'block';
+      document.getElementById('statusDisplay').style.display = 'none';
+      document.getElementById('statusActions').style.display = 'none';
+    }
+    window.submitNewRequest = submitNewRequest;
+
+    // === Load User's Requests ===
+    function loadUserRequests() {
+      console.log('Loading user requests...');
+      const userRequestsRef = query(
+        ref(db, 'removalRequests'),
+        orderByChild('userId'),
+        equalTo(userId)
+      );
+
+      onValue(userRequestsRef, (snapshot) => {
+        const container = document.getElementById('userRequests');
+        const listContainer = document.getElementById('userRequestsList');
+        
+        if (!snapshot.exists()) {
+          console.log('No existing requests found');
+          container.style.display = 'none';
+          return;
+        }
+
+        console.log('Found user requests:', snapshot.size);
+        container.style.display = 'block';
+        listContainer.innerHTML = '';
+
+        const requests = [];
+        snapshot.forEach((child) => {
+          requests.push({ id: child.key, ...child.val() });
+        });
+
+        // Sort by timestamp (newest first)
+        requests.sort((a, b) => b.timestamp - a.timestamp);
+
+        requests.forEach(req => {
+          const statusColor = 
+            req.status === 'approved' ? '#22c55e' :
+            req.status === 'rejected' ? '#ef4444' :
+            '#f59e0b';
+
+          const statusIcon = 
+            req.status === 'approved' ? 'check-circle' :
+            req.status === 'rejected' ? 'times-circle' :
+            'clock';
+
+          const requestCard = document.createElement('div');
+          requestCard.className = 'review-box';
+          requestCard.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:start;">
+              <div>
+                <strong>${req.examType} ${req.examYear} - ${req.streamGroup}</strong>
+                <div style="color:#64748b; font-size:0.9rem; margin-top:4px;">
+                  Roll: ${req.rollNumber} | Reg: ${req.regNumber}
+                </div>
+                <div style="color:#64748b; font-size:0.85rem;">
+                  ${new Date(req.timestamp).toLocaleString()}
+                </div>
+              </div>
+              <div style="text-align:right;">
+                <span style="color:${statusColor}; font-weight:bold;">
+                  <i class="fas fa-${statusIcon}"></i> ${req.status.toUpperCase()}
+                </span>
+              </div>
+            </div>
+            ${req.adminNote ? `
+              <div style="margin-top:10px; padding:8px; background:#f3f4f6; border-radius:6px;">
+                <strong>Admin Note:</strong> ${req.adminNote}
+              </div>
+            ` : ''}
+          `;
+          listContainer.appendChild(requestCard);
+        });
+      }, (error) => {
+        console.error('Error loading user requests:', error);
+      });
+    }
+
+    // === Admin Functions ===
+    let currentFilter = 'all';
+
+    function filterRequests(status) {
+      currentFilter = status;
+      loadAdminRequests();
+    }
+    window.filterRequests = filterRequests;
+
+    function loadAdminRequests() {
+      if (!isAdmin) return;
+      
+      console.log('Loading admin requests...');
+      const requestsRef = ref(db, 'removalRequests');
+      
+      onValue(requestsRef, (snapshot) => {
+        const tbody = document.getElementById('adminRequestsTable');
+        
+        if (!snapshot.exists()) {
+          tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;">No requests found.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = '';
+        const allRequests = [];
+
+        snapshot.forEach((child) => {
+          const req = child.val();
+          req.id = child.key;
+          
+          if (currentFilter === 'all' || req.status === currentFilter) {
+            allRequests.push(req);
+          }
+        });
+
+        // Sort by timestamp (newest first)
+        allRequests.sort((a, b) => b.timestamp - a.timestamp);
+
+        if (allRequests.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;">No requests found.</td></tr>';
+          return;
+        }
+
+        allRequests.forEach(req => {
+          const row = document.createElement('tr');
+          const statusColor = 
+            req.status === 'approved' ? '#22c55e' :
+            req.status === 'rejected' ? '#ef4444' :
+            '#f59e0b';
+
+          row.innerHTML = `
+            <td>${new Date(req.timestamp).toLocaleDateString()}</td>
+            <td><strong>${req.studentName}</strong></td>
+            <td>${req.examType}</td>
+            <td>${req.examYear}</td>
+            <td>${req.streamGroup}</td>
+            <td>${req.rollNumber}</td>
+            <td>${req.regNumber}</td>
+            <td><small>${req.removalReason || 'N/A'}</small></td>
+            <td><span style="color:${statusColor}; font-weight:bold;">${req.status.toUpperCase()}</span></td>
+            <td>
+              ${req.status === 'pending' ? `
+                <button onclick="approveRequest('${req.id}')" style="background:#22c55e; color:#fff; padding:4px 8px; margin:2px;">
+                  <i class="fas fa-check"></i> Approve
+                </button>
+                <button onclick="rejectRequest('${req.id}')" style="background:#ef4444; color:#fff; padding:4px 8px; margin:2px;">
+                  <i class="fas fa-times"></i> Reject
+                </button>
+              ` : `
+                <small style="color:#64748b;">Processed</small>
+              `}
+            </td>
+          `;
+          tbody.appendChild(row);
+        });
+      }, (error) => {
+        console.error('Error loading admin requests:', error);
+        const tbody = document.getElementById('adminRequestsTable');
+        tbody.innerHTML = '<tr><td colspan="10" style="text-align:center; color:red;">Error loading requests. Check console.</td></tr>';
+      });
+    }
+
+    // === Approve Request ===
+    async function approveRequest(requestId) {
+      const note = prompt('Add a note for the user (optional):');
+      
+      try {
+        await update(ref(db, `removalRequests/${requestId}`), {
+          status: 'approved',
+          processedAt: Date.now(),
+          processedBy: userId,
+          adminNote: note || 'Your request has been approved.'
+        });
+        
+        alert('Request approved successfully!');
+      } catch (error) {
+        console.error('Error approving request:', error);
+        alert('Failed to approve request: ' + error.message);
+      }
+    }
+    window.approveRequest = approveRequest;
+
+    // === Reject Request ===
+    async function rejectRequest(requestId) {
+      const note = prompt('Reason for rejection:');
+      
+      if (!note) {
+        alert('Please provide a reason for rejection.');
+        return;
+      }
+      
+      try {
+        await update(ref(db, `removalRequests/${requestId}`), {
+          status: 'rejected',
+          processedAt: Date.now(),
+          processedBy: userId,
+          adminNote: note
+        });
+        
+        alert('Request rejected.');
+      } catch (error) {
+        console.error('Error rejecting request:', error);
+        alert('Failed to reject request: ' + error.message);
+      }
+    }
+    window.rejectRequest = rejectRequest;

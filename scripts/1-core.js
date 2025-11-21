@@ -1,1 +1,484 @@
-const W=j;(function(x,Y){const M=j,y=x();while(!![]){try{const l=-parseInt(M(0x162))/0x1*(parseInt(M(0xbf))/0x2)+-parseInt(M(0x126))/0x3*(parseInt(M(0x10a))/0x4)+parseInt(M(0x155))/0x5*(-parseInt(M(0xb1))/0x6)+parseInt(M(0xdb))/0x7+-parseInt(M(0xc2))/0x8*(-parseInt(M(0xf1))/0x9)+parseInt(M(0xc4))/0xa*(-parseInt(M(0xae))/0xb)+parseInt(M(0x151))/0xc;if(l===Y)break;else y['push'](y['shift']());}catch(z){y['push'](y['shift']());}}}(e,0x3b003),window[W(0xa4)]=function(x){const L=W,Y=typeof x==='string'?{'title':L(0x127),'message':String(x)}:x||{},y=Y['title']||L(0x127),l=Y[L(0x134)]||'',z=Array[L(0x146)](Y[L(0xea)])&&Y[L(0xea)][L(0xd7)]?Y['buttons']:[{'text':'OK','variant':L(0x142),'onClick':()=>closePopup()}],k=z['map']((q,R)=>L(0x11b)+(q[L(0x148)]===L(0x14a)?'btn-secondary':L(0x144))+L(0x123)+R+L(0x11d)+q[L(0x13e)]+'\x0a\x20\x20\x20\x20</button>\x0a\x20\x20')['join']('');openPopup(L(0xe1)+y+L(0xdf)+l+L(0xd1)+k+'\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20');const Z=document['querySelectorAll']('.popup\x20.popup-content'),r=Z[Z[L(0xd7)]-0x1];r&&r[L(0xba)](L(0xf0))['forEach'](q=>{const F=L;q[F(0xe8)](F(0x157),()=>{const o=F,R=Number(q[o(0xc7)](o(0xbb))),v=z[R];try{v[o(0x12b)]&&v[o(0x12b)]();}catch(B){}if(!v||v[o(0x121)]!==![])closePopup();});});},window[W(0xe9)]=function(x=W(0x129),Y='login.html'){const S=W;showModal({'title':S(0xb8),'message':x,'buttons':[{'text':S(0x110),'onClick':()=>{const s=S;window[s(0xdd)][s(0x137)]=Y;}},{'text':S(0x131),'variant':'secondary'}]});},window[W(0xca)]=function({title:title=W(0xc6),message:message='Are\x20you\x20sure?',okText:okText=W(0xa8),cancelText:cancelText='No'}={}){return new Promise(x=>{const w=j;showModal({'title':title,'message':message,'buttons':[{'text':cancelText,'variant':w(0x14a),'onClick':()=>x(![])},{'text':okText,'variant':w(0x142),'onClick':()=>x(!![])}]});});},window[W(0x10f)]=function(x){const H=W;window[H(0xe9)]=function(Y=H(0x129),y=H(0xb0)){const U=H;showModal({'title':U(0xb8),'message':Y,'buttons':[{'text':U(0x110),'onClick':()=>{const N=U;window[N(0xdd)][N(0x137)]=y;}},{'text':U(0x131),'variant':U(0x14a)}]});},showModal({'title':H(0x127),'message':String(x),'buttons':[{'text':'OK'}]});});const contentDiv=document[W(0xc8)](W(0xc0));function isAdmin(){const b=W;return(localStorage[b(0x153)](b(0x14d))||'')['toLowerCase']()===b(0xf4);}const currentYear=document[W(0xc8)](W(0x133)),currentGroup=document[W(0xc8)](W(0xa1)),noDataMessage=document[W(0xc8)](W(0x10c)),yearDropdown=document[W(0xc8)](W(0xcb));function j(x,Y){const y=e();return j=function(l,z){l=l-0x9b;let k=y[l];return k;},j(x,Y);}async function doLogout(){const X=W,x=await confirmModal({'title':X(0x154),'message':X(0xcc),'okText':X(0x9b),'cancelText':'Cancel'});if(!x)return;localStorage[X(0x143)](),window[X(0xdd)]['href']=X(0x102);}window['doLogout']=doLogout,window[W(0x106)]=doLogout,window[W(0x106)]=doLogout;function upsertMeta(x,Y){const d=W;let y=document['querySelector'](d(0x152)+x+'\x22]');!y&&(y=document[d(0x114)](d(0xd4)),y[d(0x160)](d(0xd5),x),document['head'][d(0xa2)](y)),y[d(0x160)]('content',Y);}function upsertProperty(x,Y){const i=W;let y=document[i(0xfc)](i(0xad)+x+'\x22]');!y&&(y=document[i(0x114)](i(0xd4)),y['setAttribute']('property',x),document[i(0x13a)]['appendChild'](y)),y['setAttribute'](i(0xc0),Y);}function setCanonical(x){const Q=W;let Y=document[Q(0xfc)]('link[rel=\x22canonical\x22]');!Y&&(Y=document[Q(0x114)](Q(0x13c)),Y[Q(0x160)]('rel',Q(0x13b)),document['head'][Q(0xa2)](Y)),Y['setAttribute'](Q(0x137),x);}function injectJSONLD(x,Y){const D=W;if(Y)document[D(0xba)](D(0xb3)+Y+'\x22]')[D(0xcd)](l=>l['remove']());const y=document[D(0x114)](D(0xd0));y[D(0xfe)]=D(0x101);if(Y)y[D(0x160)](D(0xb7),Y);y[D(0x13e)]=JSON[D(0x14c)](x),document['head'][D(0xa2)](y);}function updateSEOForYearGroup(x,Y){const f=W,y=String(x)[f(0xbc)](f(0xa0)),l=String(x)[f(0x11e)]('hsc_',''),z=y?'HSC':f(0xa9),k=f(0x120)+l+f(0xe4)+(z===f(0x12a)?f(0x15f):f(0xc3))+'\x20'+Y,Z=f(0xac)+z+'\x20'+l+'\x20'+Y+'\x20rankings\x20for\x20Chattogram\x20Board\x20—\x20GPA,\x20total\x20marks,\x20top\x20schools,\x20and\x20student\x20comparisons.\x20Fast\x20and\x20accurate.',r=''+location[f(0x156)]+location[f(0xf7)]+'?year='+encodeURIComponent(x)+f(0xee)+encodeURIComponent(Y);document['title']=k,upsertMeta(f(0xfb),Z),setCanonical(r),upsertProperty(f(0xf2),k),upsertProperty(f(0xb2),Z),upsertProperty('og:url',r),upsertProperty('og:type',f(0x140)),upsertMeta(f(0x11a),k),upsertMeta(f(0xfd),Z);}function updateSEOForSchool(x,Y,y){const A=W,l=String(x)[A(0x11e)](A(0x159),''),z=String(x)['includes'](A(0xa0))?A(0x12a):A(0xa9),k=y+'\x20—\x20'+z+'\x20'+l+A(0xaf),Z=A(0x135)+y+A(0xe4)+z+'\x20'+l+',\x20'+Y+A(0x149),r=''+location[A(0x156)]+location[A(0xf7)]+A(0xc9)+encodeURIComponent(x)+A(0xee)+encodeURIComponent(Y)+A(0x100)+encodeURIComponent(y);document[A(0x13f)]=k,upsertMeta(A(0xfb),Z),setCanonical(r),upsertProperty(A(0xf2),k),upsertProperty(A(0xb2),Z),upsertProperty(A(0xbe),r),upsertMeta(A(0x11a),k),upsertMeta(A(0xfd),Z);}function updateSEOForStudent(x,Y,y,l){const u=W,z=String(x)[u(0x11e)](u(0x159),''),k=String(x)[u(0xbc)]('hsc')?u(0x12a):u(0xa9),Z=y+u(0xe4)+k+'\x20'+z+u(0xfa)+l,r=u(0xb5)+y+'\x20('+k+'\x20'+z+',\x20'+Y+u(0x9e),q=location[u(0xf7)]['includes']('entity.html')?location[u(0xf7)]:u(0xda),R=''+location[u(0x156)]+q+'?year='+encodeURIComponent(x)+u(0xee)+encodeURIComponent(Y)+'&roll='+encodeURIComponent(l);document[u(0x13f)]=Z,upsertMeta(u(0xfb),r),setCanonical(R),upsertProperty('og:title',Z),upsertProperty(u(0xb2),r),upsertProperty(u(0xbe),R),upsertMeta(u(0x11a),Z),upsertMeta(u(0xfd),r),injectJSONLD({'@context':'https://schema.org','@type':u(0xb6),'name':y,'identifier':k+'-'+z+'-'+l,'affiliation':{'@type':u(0x109),'name':'Chattogram\x20Education\x20Board'}},u(0xec));}function injectBreadcrumbs(x,Y,y,l){const T=W,z=[{'@type':'ListItem','position':0x1,'name':T(0x128),'item':x}];if(Y)z[T(0x112)]({'@type':T(0x11f),'position':0x2,'name':String(Y)[T(0x11e)]('hsc_','')});if(y)z['push']({'@type':T(0x11f),'position':0x3,'name':y});if(l)z[T(0x112)]({'@type':T(0x11f),'position':0x4,'name':l});injectJSONLD({'@context':T(0x15a),'@type':'BreadcrumbList','itemListElement':z},T(0x13d));}function injectDatasetForYearGroup(x,Y){const I=W,y=String(x)[I(0xbc)](I(0xa0)),l=String(x)[I(0x11e)](I(0x159),''),z=y?I(0x12a):'SSC';injectJSONLD({'@context':I(0x15a),'@type':I(0xef),'name':z+'\x20'+l+'\x20'+Y+I(0x15d),'description':I(0xdc)+z+'\x20'+l+'\x20'+Y+I(0x15b),'creator':{'@type':I(0xed),'name':I(0xd9)},'distribution':[{'@type':I(0xe6),'encodingFormat':I(0x11c),'contentUrl':''+location[I(0x156)]+location['pathname']['replace'](/index\.html?$/,'')+I(0x12f)+x+'_'+Y[I(0x122)]()+'.txt'}],'license':I(0xb9)},I(0xa5));}function injectDatasetForSchool(x,Y,y){const V=W,l=String(x)['replace'](V(0x159),''),z=String(x)[V(0xbc)]('hsc')?V(0x12a):V(0xa9);injectJSONLD({'@context':'https://schema.org','@type':V(0xef),'name':y+V(0xe4)+z+'\x20'+l+V(0xaf),'description':V(0x103)+y+'\x20in\x20'+z+'\x20'+l+',\x20'+Y+V(0x138),'creator':{'@type':V(0xed),'name':V(0xd9)}},V(0xa5));}function xorDecrypt(x,Y){const J=W,y=new TextEncoder()[J(0x125)](Y);return x[J(0x15c)]((l,z)=>l^y[z%y[J(0xd7)]]);}async function fetchAndDecode(x,Y){const C=W,y=await fetch(x),l=await y[C(0x13e)](),z=atob(l),k=new Uint8Array(z[C(0x132)]('')[C(0x15c)](r=>r[C(0xe5)](0x0))),Z=xorDecrypt(k,Y);return new TextDecoder()[C(0x14e)](Z);}function debounce(x,Y){let y;return function(){const l=this,z=arguments;clearTimeout(y),y=setTimeout(()=>x['apply'](l,z),Y);};}function openPopup(x){const t=W,Y=document[t(0x114)](t(0xf9));Y['className']=t(0x9f),Y['innerHTML']=x,document['body']['appendChild'](Y),document[t(0xf5)][t(0x10e)]['add']('locked'),Y['classList'][t(0x136)](t(0xa7)),history[t(0xe2)]({'popupOpen':!![]},'');}function closePopup(){const m=W,x=document[m(0xba)](m(0x9c)),Y=x[x[m(0xd7)]-0x1];Y&&(Y[m(0x10e)][m(0x136)](m(0x150)),setTimeout(()=>{const O=m;Y['remove'](),!document['querySelector'](O(0x9c))&&document['body'][O(0x10e)][O(0xf6)](O(0x111));},0x1f4));}function showToast(x){const p=W,Y=document['createElement']('div');Y[p(0x107)]=x,Y['style']=p(0xe0),document[p(0xf5)]['appendChild'](Y),setTimeout(()=>Y[p(0xf6)](),0x9c4);}(function(){const P=W,x=P(0x10d);function Y(){const h=P;if(document[h(0xc8)](x))return;const y=document[h(0x114)]('style');y['id']=x,y[h(0x107)]=h(0xe3),document[h(0x13a)][h(0xa2)](y);}window[P(0xab)]=function(){const K=P;if(document[K(0xc8)](K(0x9d)))return;Y();const y=document[K(0x114)](K(0xf9));y['id']=K(0x9d),y[K(0x116)]='\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22loader-box\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22rings\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22ring\x20r1\x22\x20style=\x22width:96px;height:96px;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22ring\x20r2\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22ring\x20r3\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22brLoaderPercent\x22\x20class=\x22percent\x22>1%</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22brLoaderSub\x22\x20class=\x22subtext\x22>Preparing\x20files…</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20',document[K(0xf5)][K(0xa2)](y);const l=document['getElementById'](K(0x158)),z=document[K(0xc8)](K(0xd6));window[K(0x145)]=0x1,clearInterval(window['__br_fakeTimer']),window['__br_fakeTimer']=setInterval(()=>{const G=K;if(!document['getElementById']('dataLoaderOverlay')){clearInterval(window[G(0x117)]);return;}if(window['__br_fakeP']<0x63){window[G(0x145)]+=0x1,l[G(0x107)]=window[G(0x145)]+'%';if(window[G(0x145)]<0x14)z['textContent']=G(0x115);else{if(window[G(0x145)]<0x32)z[G(0x107)]=G(0x118);else{if(window[G(0x145)]<0x50)z[G(0x107)]='Processing\x20student\x20data…';else z['textContent']=G(0xd8);}}}else clearInterval(window[G(0x117)]);},0x8),window[K(0x12d)]=function(k,Z){const E=K;if(!document[E(0xc8)]('dataLoaderOverlay'))return;if(!Z||!k)return;const r=k/Z;if(r<0.2)z[E(0x107)]='Connecting\x20to\x20server…';else{if(r<0.5)z[E(0x107)]=E(0x118);else{if(r<0.8)z['textContent']='Processing\x20student\x20data…';else z[E(0x107)]=E(0xd8);}}};},window['hideLoadingIndicator']=function(y={}){const a=P,l=document[a(0xc8)](a(0x9d));if(!l)return;const z=document[a(0xc8)](a(0x158)),k=document['getElementById']('brLoaderSub');clearInterval(window[a(0x117)]);const Z=y[a(0xeb)]===!![]||typeof filteredData!==a(0xc1)&&Array['isArray'](filteredData)&&filteredData[a(0xd7)]===0x0;if(Z){l[a(0xfc)]('.loader-box')[a(0x116)]=a(0xce)+(y[a(0x12c)]||a(0xb4))+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22window.location.href=\x27index.html\x27\x22>Go\x20Back</button>\x0a\x20\x20\x20\x20\x20\x20';return;}if(z)z[a(0x107)]=a(0x105);if(k)k[a(0x107)]=a(0xd2);requestAnimationFrame(()=>l[a(0xf6)]());};}());function initThemeToggle(){const c=W,x=localStorage[c(0x153)](c(0x119))||(window[c(0xa3)]('(prefers-color-scheme:\x20dark)')[c(0xf8)]?'dark':c(0xe7));document[c(0xf5)][c(0x10e)][c(0x141)](c(0xbd),x===c(0x10b));const Y=document[c(0xc8)](c(0x130));Y&&(Y['checked']=x===c(0x10b),Y[c(0xe8)](c(0x14b),()=>{const g=c,y=Y[g(0x147)];document['body'][g(0x10e)]['toggle'](g(0xbd),y),localStorage['setItem'](g(0x119),y?g(0x10b):g(0xe7));}));}function initNavToggle(){const n=W,x=document[n(0xc8)](n(0xd3)),Y=document['getElementById'](n(0x124)),y=document[n(0xc8)](n(0x161));if(!x||!Y)return;const l=()=>{const e0=n;Y[e0(0x10e)][e0(0x136)](e0(0xa6)),y?.['classList']['add'](e0(0xa6)),x['setAttribute'](e0(0xcf),e0(0x113));},z=()=>{const e1=n;Y['classList']['remove']('open'),y?.['classList'][e1(0xf6)]('open'),x[e1(0x160)](e1(0xcf),e1(0xde));},k=()=>{if(Y['classList']['contains']('open'))z();else l();};x[n(0xe8)](n(0x157),k),y?.['addEventListener'](n(0x157),z),Y['querySelectorAll'](n(0xf3))[n(0xcd)](Z=>{const e2=n;Z['addEventListener'](e2(0x157),()=>{const e3=e2;if(Z[e3(0xf8)]('input[type=\x22checkbox\x22]'))return;z();});}),document['addEventListener'](n(0x12e),Z=>{const e4=n;if(Z['key']===e4(0xaa))z();}),window[n(0xe8)](n(0x108),()=>{const e5=n;if(window[e5(0xc5)]>0x35c)z();});}function e(){const e8=['showLoadingIndicator','See\x20','meta[property=\x22','42163vaVznw','\x20Ranking\x20(Chattogram\x20Board)','login.html','120BCXpMA','og:description','script[type=\x22application/ld+json\x22][data-id=\x22','This\x20selected\x20results\x20are\x20not\x20yet\x20available.','Subject-wise\x20marks,\x20GPA,\x20total\x20and\x20rank\x20for\x20','Person','data-id','Login\x20required','https://creativecommons.org/licenses/by/4.0/','querySelectorAll','data-idx','includes','dark-mode','og:url','2UlKZXo','content','undefined','117136oMWjqE','Chattogram\x20Board','730ocnyop','innerWidth','Confirm','getAttribute','getElementById','?year=','confirmModal','yearDropdown','Do\x20you\x20really\x20want\x20to\x20sign\x20out?','forEach','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22color:#fca5a5;\x20margin:6px\x200;\x22>❗\x20Data\x20NOT\x20FOUND</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22color:#e5e7eb;\x20margin-bottom:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','aria-expanded','script','</p>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22popup-footer\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','Done','navToggle','meta','name','brLoaderSub','length','Almost\x20done…','BoardRankCTG','/rank/entity.html','1759121QogAIL','Unofficial\x20','location','false','</h2>\x0a\x20\x20\x20\x20\x20\x20<p>','\x0a\x20\x20\x20\x20position:\x20fixed;\x0a\x20\x20\x20\x20bottom:\x2030px;\x0a\x20\x20\x20\x20left:\x2050%;\x0a\x20\x20\x20\x20transform:\x20translateX(-50%);\x0a\x20\x20\x20\x20background:\x20#222;\x0a\x20\x20\x20\x20color:\x20#fff;\x0a\x20\x20\x20\x20padding:\x2010px\x2016px;\x0a\x20\x20\x20\x20font-size:\x2014px;\x0a\x20\x20\x20\x20border-radius:\x206px;\x0a\x20\x20\x20\x20z-index:\x209999;\x0a\x20\x20','\x0a\x20\x20\x20\x20<div\x20class=\x22popup-content\x22>\x0a\x20\x20\x20\x20\x20\x20<span\x20class=\x22close-btn\x22\x20onclick=\x22closePopup()\x22>&times;</span>\x0a\x20\x20\x20\x20\x20\x20<h2>','pushState','\x0a#dataLoaderOverlay\x20{\x20position:\x20fixed;\x20inset:\x200;\x20background:\x20rgba(0,0,0,0.45);\x20z-index:\x2010050;\x20display:\x20flex;\x20align-items:\x20center;\x20justify-content:\x20center;\x20}\x0a#dataLoaderOverlay\x20.loader-box\x20{\x20background:\x20#fff;\x20padding:\x2020px\x2028px;\x20border-radius:\x2012px;\x20max-width:\x20320px;\x20width:\x2090%;\x20text-align:\x20center;\x20box-shadow:\x200\x2010px\x2030px\x20rgba(0,0,0,0.35);\x20}\x0a#dataLoaderOverlay\x20.rings\x20{\x20width:\x2096px;\x20height:\x2096px;\x20margin:\x200\x20auto;\x20position:\x20relative;\x20}\x0a#dataLoaderOverlay\x20.ring\x20{\x20position:\x20absolute;\x20border-radius:\x2050%;\x20border:\x206px\x20solid\x20transparent;\x20border-top-color:\x20#1976d2;\x20animation:\x20spin\x201s\x20linear\x20infinite;\x20}\x0a#dataLoaderOverlay\x20.ring.r2\x20{\x20width:\x2064px;\x20height:\x2064px;\x20top:\x2016px;\x20left:\x2016px;\x20border-top-color:\x20#ff8f00;\x20animation-duration:\x201.4s;\x20}\x0a#dataLoaderOverlay\x20.ring.r3\x20{\x20width:\x2040px;\x20height:\x2040px;\x20top:\x2028px;\x20left:\x2028px;\x20border-top-color:\x20#6a1b9a;\x20animation-duration:\x201.85s;\x20}\x0a@keyframes\x20spin\x20{\x20to\x20{\x20transform:\x20rotate(360deg);\x20}\x20}\x0a#dataLoaderOverlay\x20.percent\x20{\x20font-size:\x2022px;\x20font-weight:\x20bold;\x20margin-top:\x208px;\x20}\x0a#dataLoaderOverlay\x20.subtext\x20{\x20font-size:\x2013px;\x20color:\x20#555;\x20margin-top:\x204px;\x20}\x0a#dataLoaderOverlay\x20button\x20{\x20margin-top:\x2012px;\x20padding:\x206px\x2014px;\x20border-radius:\x206px;\x20background:\x20#1976d2;\x20color:\x20#fff;\x20border:\x20none;\x20cursor:\x20pointer;\x20}\x0a\x20\x20\x20\x20','\x20—\x20','charCodeAt','DataDownload','light','addEventListener','requireLogin','buttons','forceError','student','Organization','&group=','Dataset','.popup-footer\x20button','261UAXmKQ','og:title','a,\x20.linklike,\x20input[type=\x22checkbox\x22]','hasnyne2007@gmail.com','body','remove','pathname','matches','div','\x20Result\x20(Chattogram\x20Board)\x20|\x20Roll\x20','description','querySelector','twitter:description','type','shiftKey','&school=','application/ld+json','index.html','Ranking\x20table\x20for\x20','stopPropagation','100%','doLogout','textContent','resize','EducationalOrganization','60TUahPf','dark','noDataMessage','br-loader-styles','classList','alert','Go\x20to\x20login','locked','push','true','createElement','Connecting\x20to\x20server…','innerHTML','__br_fakeTimer','Downloading\x20result\x20files…','theme','twitter:title','\x0a\x20\x20\x20\x20<button\x20class=\x22','text/tab-separated-values','\x22>\x0a\x20\x20\x20\x20\x20\x20','replace','ListItem','SSC\x20Result\x20Ranking\x20','autoClose','toLowerCase','\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20data-idx=\x22','navLinks','encode','51402YhscMg','Notice','Home','Please\x20log\x20in\x20to\x20access\x20this\x20feature.','HSC','onClick','errorMessage','step','keydown','data_','themeToggle','Cancel','split','currentYear','message','Rank\x20list\x20for\x20','add','href','\x20—\x20GPA,\x20totals\x20and\x20positions.','ctrlKey','head','canonical','link','breadcrumbs','text','title','website','toggle','primary','clear','btn-primary','__br_fakeP','isArray','checked','variant','.\x20View\x20GPA,\x20totals,\x20and\x20student\x20positions\x20from\x20Chattogram\x20Board.','secondary','change','stringify','userEmail','decode','key','pop-out','4215408pvHkAT','meta[name=\x22','getItem','Sign\x20out?','58105BXTKbF','origin','click','brLoaderPercent','hsc_','https://schema.org','\x20rankings\x20for\x20Chattogram\x20Board\x20including\x20GPA,\x20totals,\x20school\x20names\x20and\x20positions.','map','\x20Result\x20Ranking\x20—\x20Chattogram\x20Board','preventDefault','Chattogram\x20Board\x20(HSC\x20archive)','setAttribute','navOverlay','16299ackPqb','Sign\x20out','.popup','dataLoaderOverlay',')\x20—\x20Chattogram\x20Board.','popup','hsc','currentGroup','appendChild','matchMedia','showModal','dataset','open','pop-in','Yes','SSC','Escape'];e=function(){return e8;};return e();}document[W(0xe8)]('contextmenu',function(x){const e6=W;x[e6(0x15e)]();}),document[W(0xe8)](W(0x12e),function(x){const e7=W;x[e7(0x14f)]==='F12'&&(x[e7(0x15e)](),x[e7(0x104)]()),x[e7(0x139)]&&x[e7(0xff)]&&(x[e7(0x14f)]==='I'||x[e7(0x14f)]==='J')&&(x['preventDefault'](),x['stopPropagation']()),x[e7(0x139)]&&!x[e7(0xff)]&&(x[e7(0x14f)]==='U'||x[e7(0x14f)]==='u')&&(x['preventDefault'](),x[e7(0x104)]());});
+// 1-core.js — Core globals, SEO helpers, JSON-LD, crypto/decode, utilities, loader, theme/nav
+/* ===== Modal helpers (global) ===== */
+window.showModal = function(opts) {
+  const cfg = typeof opts === 'string'
+    ? { title: 'Notice', message: String(opts) }
+    : (opts || {});
+  const title = cfg.title || 'Notice';
+  const message = cfg.message || '';
+  const buttons = Array.isArray(cfg.buttons) && cfg.buttons.length
+    ? cfg.buttons
+    : [{ text: 'OK', variant: 'primary', onClick: () => closePopup() }];
+
+  const btnHtml = buttons.map((b, i) => `
+    <button class="${b.variant === 'secondary' ? 'btn-secondary' : 'btn-primary'}"
+            data-idx="${i}">
+      ${b.text}
+    </button>
+  `).join('');
+
+  openPopup(`
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>${title}</h2>
+      <p>${message}</p>
+      <div class="popup-footer">
+        ${btnHtml}
+      </div>
+    </div>
+  `);
+
+  // bind button callbacks on the most recently created popup
+  const popupContents = document.querySelectorAll('.popup .popup-content');
+  const lastPopup = popupContents[popupContents.length - 1];
+  if (lastPopup) {
+    lastPopup.querySelectorAll('.popup-footer button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.getAttribute('data-idx'));
+        const b = buttons[idx];
+        try { b.onClick && b.onClick(); } catch (e) {}
+        if (!b || b.autoClose !== false) closePopup();
+      });
+    });
+  }
+};
+// Always-available login gate helper (global)
+window.requireLogin = function(message = 'Please log in to access this feature.', redirect = 'login.html') {
+  showModal({
+    title: 'Login required',
+    message,
+    buttons: [
+      { text: 'Go to login', onClick: () => { window.location.href = redirect; } },
+      { text: 'Cancel', variant: 'secondary' }
+    ]
+  });
+};
+// Promise-based confirm modal
+window.confirmModal = function({ title='Confirm', message='Are you sure?', okText='Yes', cancelText='No' } = {}) {
+  return new Promise((resolve) => {
+    showModal({
+      title, message,
+      buttons: [
+        { text: cancelText, variant: 'secondary', onClick: () => resolve(false) },
+        { text: okText, variant: 'primary', onClick: () => resolve(true) }
+      ]
+    });
+  });
+};
+
+// Auto-upgrade native alerts to modals
+window.alert = function(msg) {
+  // Require-login helper for gated features
+window.requireLogin = function(message = 'Please log in to access this feature.', redirect = 'login.html') {
+  showModal({
+    title: 'Login required',
+    message,
+    buttons: [
+      { text: 'Go to login', onClick: () => { window.location.href = redirect; } },
+      { text: 'Cancel', variant: 'secondary' }
+    ]
+  });
+};
+
+  showModal({ title: 'Notice', message: String(msg), buttons:[{ text:'OK' }] });
+};
+
+// ===== Global DOM refs + admin helper =====
+const contentDiv = document.getElementById('content');
+function isAdmin(){
+  return (localStorage.getItem('userEmail') || '').toLowerCase() === 'hasnyne2007@gmail.com';
+}
+
+const currentYear = document.getElementById('currentYear');
+const currentGroup = document.getElementById('currentGroup');
+const noDataMessage = document.getElementById('noDataMessage');
+const yearDropdown = document.getElementById('yearDropdown');
+
+// Logout function
+async function doLogout() {
+  const yes = await confirmModal({
+    title: 'Sign out?',
+    message: 'Do you really want to sign out?',
+    okText: 'Sign out',
+    cancelText: 'Cancel'
+  });
+  if (!yes) return;
+  localStorage.clear();
+  window.location.href = 'index.html';
+}
+window.doLogout = doLogout;
+
+window.doLogout = doLogout;
+
+window.doLogout = doLogout;
+// ===== SEO/Share helpers =====
+function upsertMeta(name, content) {
+  let tag = document.querySelector(`meta[name="${name}"]`);
+  if (!tag) { tag = document.createElement('meta'); tag.setAttribute('name', name); document.head.appendChild(tag); }
+  tag.setAttribute('content', content);
+}
+
+function upsertProperty(property, content) {
+  let tag = document.querySelector(`meta[property="${property}"]`);
+  if (!tag) { tag = document.createElement('meta'); tag.setAttribute('property', property); document.head.appendChild(tag); }
+  tag.setAttribute('content', content);
+}
+
+function setCanonical(url) {
+  let link = document.querySelector('link[rel="canonical"]');
+  if (!link) { link = document.createElement('link'); link.setAttribute('rel','canonical'); document.head.appendChild(link); }
+  link.setAttribute('href', url);
+}
+
+function injectJSONLD(obj, id) {
+  // remove previous block with same id
+  if (id) document.querySelectorAll(`script[type="application/ld+json"][data-id="${id}"]`).forEach(n=>n.remove());
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  if (id) s.setAttribute('data-id', id);
+  s.text = JSON.stringify(obj);
+  document.head.appendChild(s);
+}
+
+
+// ===== Dynamic SEO (Year+Group / School / Student) =====
+function updateSEOForYearGroup(year, group) {
+  const isHSC = String(year).includes('hsc');
+  const yr = String(year).replace('hsc_', '');
+  const exam = isHSC ? 'HSC' : 'SSC';
+
+  const title = `SSC Result Ranking ${yr} — ${exam === 'HSC' ? 'Chattogram Board (HSC archive)' : 'Chattogram Board'} ${group}`;
+  const desc  = `See ${exam} ${yr} ${group} rankings for Chattogram Board — GPA, total marks, top schools, and student comparisons. Fast and accurate.`;
+  const url   = `${location.origin}${location.pathname}?year=${encodeURIComponent(year)}&group=${encodeURIComponent(group)}`;
+
+  document.title = title;
+  upsertMeta('description', desc);
+  setCanonical(url);
+  upsertProperty('og:title', title);
+  upsertProperty('og:description', desc);
+  upsertProperty('og:url', url);
+  upsertProperty('og:type', 'website');
+  upsertMeta('twitter:title', title);
+  upsertMeta('twitter:description', desc);
+}
+
+function updateSEOForSchool(year, group, schoolName) {
+  const yr = String(year).replace('hsc_', '');
+  const exam = String(year).includes('hsc') ? 'HSC' : 'SSC';
+  const title = `${schoolName} — ${exam} ${yr} Ranking (Chattogram Board)`;
+  const desc  = `Rank list for ${schoolName} — ${exam} ${yr}, ${group}. View GPA, totals, and student positions from Chattogram Board.`;
+  const url   = `${location.origin}${location.pathname}?year=${encodeURIComponent(year)}&group=${encodeURIComponent(group)}&school=${encodeURIComponent(schoolName)}`;
+
+  document.title = title;
+  upsertMeta('description', desc);
+  setCanonical(url);
+  upsertProperty('og:title', title);
+  upsertProperty('og:description', desc);
+  upsertProperty('og:url', url);
+  upsertMeta('twitter:title', title);
+  upsertMeta('twitter:description', desc);
+}
+
+function updateSEOForStudent(year, group, studentName, roll) {
+  const yr = String(year).replace('hsc_', '');
+  const exam = String(year).includes('hsc') ? 'HSC' : 'SSC';
+  const title = `${studentName} — ${exam} ${yr} Result (Chattogram Board) | Roll ${roll}`;
+  const desc  = `Subject-wise marks, GPA, total and rank for ${studentName} (${exam} ${yr}, ${group}) — Chattogram Board.`;
+  const pagePath = location.pathname.includes('entity.html') ? location.pathname : '/rank/entity.html';
+  const url   = `${location.origin}${pagePath}?year=${encodeURIComponent(year)}&group=${encodeURIComponent(group)}&roll=${encodeURIComponent(roll)}`;
+
+  document.title = title;
+  upsertMeta('description', desc);
+  setCanonical(url);
+  upsertProperty('og:title', title);
+  upsertProperty('og:description', desc);
+  upsertProperty('og:url', url);
+  upsertMeta('twitter:title', title);
+  upsertMeta('twitter:description', desc);
+
+  injectJSONLD({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": studentName,
+    "identifier": `${exam}-${yr}-${roll}`,
+    "affiliation": { "@type": "EducationalOrganization", "name": "Chattogram Education Board" }
+  }, 'student');
+}
+
+
+// ===== JSON-LD: breadcrumbs + dataset =====
+function injectBreadcrumbs(homeUrl, year, group, school) {
+  const items = [
+    { "@type":"ListItem", "position":1, "name":"Home", "item": homeUrl }
+  ];
+  if (year) items.push({ "@type":"ListItem", "position":2, "name": String(year).replace('hsc_','') });
+  if (group) items.push({ "@type":"ListItem", "position":3, "name": group });
+  if (school) items.push({ "@type":"ListItem", "position":4, "name": school });
+
+  injectJSONLD({
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement": items
+  }, 'breadcrumbs');
+}
+
+function injectDatasetForYearGroup(year, group) {
+  const isHSC = String(year).includes('hsc');
+  const yr = String(year).replace('hsc_','');
+  const exam = isHSC ? 'HSC' : 'SSC';
+
+  injectJSONLD({
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": `${exam} ${yr} ${group} Result Ranking — Chattogram Board`,
+    "description": `Unofficial ${exam} ${yr} ${group} rankings for Chattogram Board including GPA, totals, school names and positions.`,
+    "creator": { "@type":"Organization", "name":"BoardRankCTG" },
+    "distribution": [
+      { "@type":"DataDownload", "encodingFormat":"text/tab-separated-values", "contentUrl": `${location.origin}${location.pathname.replace(/index\.html?$/,'')}data_${year}_${group.toLowerCase()}.txt` }
+    ],
+    "license": "https://creativecommons.org/licenses/by/4.0/"
+  }, 'dataset');
+}
+
+function injectDatasetForSchool(year, group, schoolName) {
+  const yr = String(year).replace('hsc_','');
+  const exam = String(year).includes('hsc') ? 'HSC' : 'SSC';
+  injectJSONLD({
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": `${schoolName} — ${exam} ${yr} Ranking (Chattogram Board)`,
+    "description": `Ranking table for ${schoolName} in ${exam} ${yr}, ${group} — GPA, totals and positions.`,
+    "creator": { "@type":"Organization", "name":"BoardRankCTG" }
+  }, 'dataset');
+}
+
+
+// ===== Crypto helpers (XOR + base64 wrapper fetch) =====
+function xorDecrypt(dataBytes, key) {
+  const keyBytes = new TextEncoder().encode(key);
+  return dataBytes.map((b, i) => b ^ keyBytes[i % keyBytes.length]);
+}
+
+async function fetchAndDecode(url, key) {
+  const res = await fetch(url);
+  const encodedText = await res.text();
+  const decodedBase64 = atob(encodedText);
+  const decodedBytes = new Uint8Array(decodedBase64.split("").map(c => c.charCodeAt(0)));
+  const originalBytes = xorDecrypt(decodedBytes, key);
+  return new TextDecoder().decode(originalBytes);
+}
+
+
+// ===== Utilities: debounce, popup, toast =====
+function debounce(func, delay) {
+  let debounceTimer;
+  return function() {
+    const context = this;
+    const args = arguments;
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => func.apply(context, args), delay);
+  };
+}
+
+function openPopup(contentHTML) {
+  const popup = document.createElement('div');
+  popup.className = 'popup';
+  popup.innerHTML = contentHTML;
+  document.body.appendChild(popup);
+  document.body.classList.add('locked');
+  popup.classList.add('pop-in');
+  history.pushState({ popupOpen: true }, '');
+}
+function closePopup() {
+  // Close the top-most popup (last .popup in the DOM)
+  const popups = document.querySelectorAll('.popup');
+  const popup = popups[popups.length - 1];
+  if (popup) {
+    popup.classList.add('pop-out');
+    setTimeout(() => {
+      popup.remove();
+      // Only unlock body if no other popups remain
+      if (!document.querySelector('.popup')) {
+        document.body.classList.remove('locked');
+      }
+    }, 500);
+  }
+}
+
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.textContent = message;
+  toast.style = `
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #222;
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 6px;
+    z-index: 9999;
+  `;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 2500);
+}
+
+
+// ===== Loader overlay (global: window.showLoadingIndicator / window.hideLoadingIndicator) =====
+(function(){
+  const STYLE_ID = 'br-loader-styles';
+  function ensureLoaderStyles() {
+    if (document.getElementById(STYLE_ID)) return;
+    const s = document.createElement('style');
+    s.id = STYLE_ID;
+    s.textContent = `
+#dataLoaderOverlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 10050; display: flex; align-items: center; justify-content: center; }
+#dataLoaderOverlay .loader-box { background: #fff; padding: 20px 28px; border-radius: 12px; max-width: 320px; width: 90%; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+#dataLoaderOverlay .rings { width: 96px; height: 96px; margin: 0 auto; position: relative; }
+#dataLoaderOverlay .ring { position: absolute; border-radius: 50%; border: 6px solid transparent; border-top-color: #1976d2; animation: spin 1s linear infinite; }
+#dataLoaderOverlay .ring.r2 { width: 64px; height: 64px; top: 16px; left: 16px; border-top-color: #ff8f00; animation-duration: 1.4s; }
+#dataLoaderOverlay .ring.r3 { width: 40px; height: 40px; top: 28px; left: 28px; border-top-color: #6a1b9a; animation-duration: 1.85s; }
+@keyframes spin { to { transform: rotate(360deg); } }
+#dataLoaderOverlay .percent { font-size: 22px; font-weight: bold; margin-top: 8px; }
+#dataLoaderOverlay .subtext { font-size: 13px; color: #555; margin-top: 4px; }
+#dataLoaderOverlay button { margin-top: 12px; padding: 6px 14px; border-radius: 6px; background: #1976d2; color: #fff; border: none; cursor: pointer; }
+    `;
+    document.head.appendChild(s);
+  }
+
+  window.showLoadingIndicator = function() {
+    if (document.getElementById('dataLoaderOverlay')) return;
+    ensureLoaderStyles();
+
+    const overlay = document.createElement('div');
+    overlay.id = 'dataLoaderOverlay';
+    overlay.innerHTML = `
+      <div class="loader-box">
+        <div class="rings">
+          <div class="ring r1" style="width:96px;height:96px;"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+        </div>
+        <div id="brLoaderPercent" class="percent">1%</div>
+        <div id="brLoaderSub" class="subtext">Preparing files…</div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+
+    const percentEl = document.getElementById('brLoaderPercent');
+    const subEl = document.getElementById('brLoaderSub');
+
+    // Super-fast fake progress to 99%
+    window.__br_fakeP = 1;
+    clearInterval(window.__br_fakeTimer);
+    window.__br_fakeTimer = setInterval(() => {
+      if (!document.getElementById('dataLoaderOverlay')) { clearInterval(window.__br_fakeTimer); return; }
+      if (window.__br_fakeP < 99) {
+        window.__br_fakeP += 1;
+        percentEl.textContent = window.__br_fakeP + '%';
+        if (window.__br_fakeP < 20) subEl.textContent = 'Connecting to server…';
+        else if (window.__br_fakeP < 50) subEl.textContent = 'Downloading result files…';
+        else if (window.__br_fakeP < 80) subEl.textContent = 'Processing student data…';
+        else subEl.textContent = 'Almost done…';
+      } else {
+        clearInterval(window.__br_fakeTimer);
+      }
+    }, 8);
+
+    // Streaming update hook (subtitle only)
+    window.step = function(loaded, total) {
+      if (!document.getElementById('dataLoaderOverlay')) return;
+      if (!total || !loaded) return;
+      const ratio = loaded / total;
+      if (ratio < 0.2) subEl.textContent = 'Connecting to server…';
+      else if (ratio < 0.5) subEl.textContent = 'Downloading result files…';
+      else if (ratio < 0.8) subEl.textContent = 'Processing student data…';
+      else subEl.textContent = 'Almost done…';
+    };
+  };
+
+  window.hideLoadingIndicator = function(opts = {}) {
+    const overlay = document.getElementById('dataLoaderOverlay');
+    if (!overlay) return;
+
+    const percentEl = document.getElementById('brLoaderPercent');
+    const subEl = document.getElementById('brLoaderSub');
+
+    clearInterval(window.__br_fakeTimer);
+
+    const noData = opts.forceError === true ||
+                   (typeof filteredData !== 'undefined' && Array.isArray(filteredData) && filteredData.length === 0);
+
+    if (noData) {
+      overlay.querySelector('.loader-box').innerHTML = `
+        <h2 style="color:#fca5a5; margin:6px 0;">❗ Data NOT FOUND</h2>
+        <p style="color:#e5e7eb; margin-bottom: 10px;">
+          ${opts.errorMessage || 'This selected results are not yet available.'}
+        </p>
+        <button onclick="window.location.href='index.html'">Go Back</button>
+      `;
+      return; // keep overlay to show the error UI
+    }
+
+    if (percentEl) percentEl.textContent = '100%';
+    if (subEl) subEl.textContent = 'Done';
+
+    requestAnimationFrame(() => overlay.remove());
+  };
+})();
+
+
+// ===== Theme + Nav toggles (just the functions; wire them elsewhere) =====
+function initThemeToggle() {
+  const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.body.classList.toggle('dark-mode', saved === 'dark');
+  const t = document.getElementById('themeToggle');
+  if (t) {
+    t.checked = saved === 'dark';
+    t.addEventListener('change', () => {
+      const isDark = t.checked;
+      document.body.classList.toggle('dark-mode', isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  }
+}
+
+function initNavToggle() {
+  const btn = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  const overlay = document.getElementById('navOverlay');
+  if (!btn || !links) return;
+
+  const openNav = () => {
+    links.classList.add('open');
+    overlay?.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  };
+  const closeNav = () => {
+    links.classList.remove('open');
+    overlay?.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  };
+  const toggleNav = () => {
+    if (links.classList.contains('open')) closeNav(); else openNav();
+  };
+
+  btn.addEventListener('click', toggleNav);
+  overlay?.addEventListener('click', closeNav);
+
+  links.querySelectorAll('a, .linklike, input[type="checkbox"]').forEach(el => {
+    el.addEventListener('click', () => {
+      if (el.matches('input[type="checkbox"]')) return;
+      closeNav();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeNav();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) closeNav();
+  });
+} 
