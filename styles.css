@@ -1,16 +1,12 @@
 :root{
-    --featured-bg-light:#f0fcff;
+    --featured-bg-light:#acf8ff;
      --featured-bg-dark:#0f172a;
-    /* Brand */
     --primary:#2563eb;
-    /* Trust: Blue = main brand */
     --primary-600:#1d4ed8;
     --primary-700:#1e40af;
     --secondary:#14b8a6;
-    /* Support: Teal */
     --accent:#f59e0b;
-    /* Highlight: Amber for emphasis (notifications/Rank) */
-    /* Surfaces */
+   
     --bg:#f5f7fb;
     --surface:#ffffff;
     --surface-muted:#f1f5f9;

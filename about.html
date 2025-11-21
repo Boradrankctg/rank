@@ -4,18 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>About — BoardRankCTG (Unofficial)</title>
-  <meta name="description" content="About BoardRankCTG — unofficial SSC & HSC rankings for Chattogram Board. Learn the purpose, method, and who built it." />
-  <meta name="keywords" content="About BoardRankCTG, Chittagong Board, SSC ranking, HSC ranking, Chattogram Education Board" />
+  <title>Reviews — BoardRankCTG (Unofficial)</title>
+  <meta name="description" content="Read and submit reviews for BoardRankCTG. Share your experience about SSC & HSC rankings for Chattogram Board." />
+  <meta name="keywords" content="BoardRankCTG reviews, feedback, SSC HSC reviews, Chattogram Board reviews">
   <meta name="author" content="Hasnyne" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://boradrankctg.github.io/rank/about.html" />
+  <link rel="canonical" href="https://boradrankctg.github.io/rank/review.html" />
 
-  <meta property="og:title" content="About — BoardRankCTG" />
-  <meta property="og:description" content="Unofficial SSC & HSC rankings for Chattogram Board — purpose, approach, and team." />
-  <meta property="og:url" content="https://boradrankctg.github.io/rank/about.html" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Reviews — BoardRankCTG" />
+  <meta property="og:description" content="Share your experience with BoardRankCTG. Read and submit reviews." />
+  <meta property="og:url" content="https://boradrankctg.github.io/rank/review.html" />
   <meta property="og:type" content="website" />
 
+  <!-- Fonts + Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
@@ -23,73 +25,45 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
 
+  <!-- Fav -->
   <link rel="icon" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/icons/trophy-line.svg" type="image/svg+xml" />
 
   <style>
-    .about-main {
-      max-width: 960px; width: 95%;
-      background: #fff; margin: 24px auto; padding: 32px 24px 40px;
-      border-radius: 12px; border: 2px solid #000; box-sizing: border-box; text-align: left;
-      box-shadow: 4px 4px 15px rgba(0,179,122,0.3), -4px -4px 15px rgba(0,179,122,0.2);
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; color: #222;
+    .review-box {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 14px;
+      margin: 12px 0;
+      background: #fff;
     }
-    .about-main h1 {
-      font-size: 2.1rem; font-weight: 900; margin-bottom: 18px; color: #00b37a;
-      text-align: center; text-shadow: 0 0 6px #00b37a88;
+    .review-comment { margin-top: 8px; white-space: pre-wrap; }
+    .badge-admin {
+      color: #fff; background: #d00; padding: 2px 6px;
+      border-radius: 4px; font-size: 12px; margin-right: 5px;
     }
-    .about-main h2 {
-      font-size: 1.35rem; margin-top: 28px; margin-bottom: 12px; color: #00764f; font-weight: 800;
-      border-left: 5px solid #00b37a; padding-left: 12px; letter-spacing: .02em; text-shadow: 0 0 4px #00b37a66;
+    .reply-box {
+      padding: 8px 10px;
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      margin: 8px 0 0 0;
     }
-    .about-main p, .about-main li {
-      font-size: 1.04rem; line-height: 1.7; color: #333; font-weight: 600; margin-bottom: 12px;
-    }
-    .about-main ul, .about-main ol { padding-left: 26px; margin-bottom: 20px; }
-    .about-main li::marker { color: #00b37a; font-weight: 700; }
-    .about-main strong { color: #00764f; font-weight: 900; }
-    .about-main .green { color: #00b37a; font-weight: 700; }
-
-    .about-main .contact {
-      background: #e8f7f1; border: 2px dashed #00b37a;
-      padding: 18px 18px 22px; border-radius: 12px; margin-top: 24px;
-      box-shadow: 0 0 10px #00b37a33;
-    }
-    .about-main .contact h2 { color: #009e6b; margin-bottom: 10px; font-weight: 900; letter-spacing: .04em; }
-    .about-main .contact p { margin: 8px 0; font-size: 1rem; }
-    .about-main .contact a { color: #00764f; font-weight: 700; text-decoration: none; }
-    .about-main .contact a:hover { text-decoration: underline; color: #004d32; }
-
-    .about-main .special-thanks {
-      margin-top: 26px; padding: 14px 16px; background: #f0fff9; border-left: 5px solid #00b37a;
-      border-radius: 8px; font-size: 1.05rem; font-weight: 700; color: #00764f; text-align: center;
-      box-shadow: 0 0 12px #00b37a44;
-    }
-
-    @media (max-width: 600px) {
-      .about-main { padding: 22px 16px 30px; margin: 18px auto; }
-      .about-main h1 { font-size: 1.6rem; }
-      .about-main h2 { font-size: 1.15rem; padding-left: 10px; }
-      .about-main p, .about-main li { font-size: .98rem; }
-      .about-main .special-thanks { font-size: .98rem; padding: 12px; }
-    }
-
-    body.dark-mode .about-main {
-      background: #121a12; border-color: #00ff99;
-      box-shadow: 4px 4px 15px #004d2044, -4px -4px 15px #00764f55; color: #cce5cc;
-    }
-    body.dark-mode .about-main h1 { color: #00ff99; text-shadow: 0 0 8px #00ff9955; }
-    body.dark-mode .about-main h2 { color: #00cc77; border-left-color: #00ff99; text-shadow: 0 0 6px #00ff9966; }
-    body.dark-mode .about-main p, body.dark-mode .about-main li { color: #b0e6b0; }
-    body.dark-mode .about-main strong { color: #00cc77; }
-    body.dark-mode .about-main .green { color: #00ff99; }
-    body.dark-mode .about-main .contact { background: #002d00; border-color: #00ff99; box-shadow: 0 0 12px #00ff9933; }
-    body.dark-mode .about-main .contact a { color: #00ff99; }
-    body.dark-mode .about-main .special-thanks { background: #003a00; border-left-color: #00ff99; color: #00ff99; box-shadow: 0 0 15px #00ff9966; }
+    .reply-actions{display:inline-flex;gap:8px;align-items:center;margin-left:8px;}
+    .reply-like-btn,.reply-del-btn{padding:2px 8px;border-radius:6px;border:1px solid #e5e7eb;background:#fff;cursor:pointer;font-weight:800;}
+    .reply-like-btn:hover{background:#f3f4f6;}
+    .reply-del-btn{color:#b91c1c;}
+    .reply-del-btn:hover{background:#fee2e2;}
+    .error-message { color: #dc2626; font-size: 0.9rem; margin-top: 4px; }
+    .btn { display: inline-block; border-radius: 10px; border: 1px solid #e5e7eb; background:#fff; cursor:pointer; }
+    .btn-primary { background: #0284c7; color: #fff; border-color:#0284c7; }
+    .linklike { background: none; border: none; color: inherit; cursor: pointer; }
+    .reviews-toolbar { display:flex; align-items:center; justify-content: space-between; gap:8px; margin: 6px 0 12px; }
+    .muted { color:#64748b; }
   </style>
 </head>
 <body>
 
-    <nav class="app-nav" role="navigation">
+  <nav class="app-nav" role="navigation">
     <div class="nav-inner">
       <a class="brand" href="index.html">🎓 BoardRankCTG</a>
 
@@ -132,41 +106,61 @@
     </div>
   </div>
 
-  <main class="about-main">
-    <h1><i class="fas fa-info-circle"></i> About This Project</h1>
-    <p>Hi! I'm <strong>Hasnyne</strong>, an ex-student of <strong>Chittagong College</strong>. I built this site to help <span class="green">SSC students</span> find out where they stand — and where they can go next.</p>
+  <main class="container" style="padding-top: 16px;">
+    <h1 style="color:#111; margin:8px 0;">Reviews</h1>
+    <p class="info-banner">Tell us what you think. Your feedback helps improve the experience.</p>
 
-    <h2><i class="fas fa-bullseye"></i> Purpose</h2>
-    <ul>
-      <li>🔎 See your <span class="green">position</span> in the merit list</li>
-      <li>🏫 Know which <span class="green">colleges</span> are within your range</li>
-      <li>📅 Browse <span class="green">group-wise</span> and <span class="green">year-wise</span> rankings</li>
-      <li>📊 Filter by <strong>roll</strong>, <strong>marks</strong>, or <strong>college</strong></li>
-      <li>📈 View <span class="green">cutoff trends</span> from previous years</li>
-      <li>⚡ Fast, mobile-friendly, and zero ads</li>
-    </ul>
+    <section id="reviewFormLoggedIn" class="popup-content" style="max-width: 700px; margin: 14px auto; display:none;">
+      <h2>Leave a Review</h2>
+      
+     <div class="reviewing-as-badge"> <strong>Reviewing as:</strong> <span id="reviewingAsName">User</span> </div>
 
-    <h2><i class="fas fa-cogs"></i> Ranking Formula</h2>
-    <ol>
-      <li><strong>GPA</strong> – main filter</li>
-      <li><strong>Total Marks</strong> – for finer sort</li>
-      <li><strong>PCM Total</strong> – Physics + Chemistry + Compulsory, as tie-breaker</li>
-    </ol>
-    <p>This isn't from the board — it's a <strong>personal project</strong> based on <span class="green">publicly available data</span>.</p>
+      <div id="starContainer" style="font-size: 1.5rem; color: gold; cursor: pointer; margin-top: 6px;">
+        <span onclick="rateSite(1)">☆</span>
+        <span onclick="rateSite(2)">☆</span>
+        <span onclick="rateSite(3)">☆</span>
+        <span onclick="rateSite(4)">☆</span>
+        <span onclick="rateSite(5)">☆</span>
+      </div>
+      <div id="starError" class="error-message"></div>
 
-    <h2><i class="fas fa-exclamation-triangle"></i> Notes</h2>
-    <p>I’m <strong>not a pro developer</strong>. This site was made with the help of AI tools — so you might find a few bugs, issues, or missing info. If you spot something broken or want your name removed, just <span class="green">reach out</span> — I got you.</p>
+      <textarea id="reviewText" rows="3" placeholder="Write your feedback…" style="margin-top:10px;"></textarea>
+      <div id="commentError" class="error-message"></div>
 
-    <div class="special-thanks">
-      <i class="fas fa-hands-helping"></i> Special thanks to <strong>Tasin (Pre-Buetian)</strong> for making this possible.
-    </div>
+      <button id="submitReviewBtn" type="button" onclick="submitReview(event)" style="margin-top:10px;">Submit Review</button>
+    </section>
 
-    <div class="contact">
-      <h2><i class="fas fa-envelope"></i> Contact Me</h2>
-      <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:hasnyne2007@gmail.com">hasnyne2007@gmail.com</a></p>
-      <p><i class="fab fa-facebook"></i> <strong>Facebook:</strong> <a href="https://www.facebook.com/hasnyne.mostafa" target="_blank" rel="noopener">hasnyne.mostafa</a></p>
-      <p><i class="fab fa-instagram"></i> <strong>Instagram:</strong> <a href="https://www.instagram.com/hasnyne.01/" target="_blank" rel="noopener">@hasnyne.01</a></p>
-    </div>
+    <section id="loginPrompt" class="popup-content" style="max-width: 700px; margin: 14px auto; display:none;">
+      <div style="text-align: center; padding: 30px;">
+        <h2><i class="fas fa-lock"></i> Sign In to Review</h2>
+        <p class="muted" style="margin: 20px 0;">
+          Join our community to share your feedback and interact with other users.
+        </p>
+    <div class="benefits-box"> <h3 style="color: #0284c7; margin-bottom: 15px;">Benefits of signing in:</h3> <ul style="text-align: left; list-style: none; padding: 0;"> <li style="margin: 8px 0;"><i class="fas fa-check" style="color: #22c55e; margin-right: 8px;"></i> Submit and manage your reviews</li> <li style="margin: 8px 0;"><i class="fas fa-check" style="color: #22c55e; margin-right: 8px;"></i> Reply to other reviews</li> <li style="margin: 8px 0;"><i class="fas fa-check" style="color: #22c55e; margin-right: 8px;"></i> No verification popups</li> <li style="margin: 8px 0;"><i class="fas fa-check" style="color: #22c55e; margin-right: 8px;"></i> Save favorite results</li> </ul> </div>
+        <a href="login.html" class="btn btn-primary" style="padding: 12px 30px; font-size: 16px;">
+          <i class="fas fa-sign-in-alt"></i> Sign In Now
+        </a>
+      </div>
+    </section>
+
+    <section style="max-width: 900px; margin: 20px auto;">
+      <div class="reviews-toolbar">
+        <div>
+          <label for="sortSelect" class="muted" style="margin-right:8px;">Sort by:</label>
+          <select id="sortSelect" class="btn" style="padding:6px 10px;">
+            <option value="top" selected>Most liked</option>
+            <option value="new">Newest</option>
+          </select>
+        </div>
+        <div class="muted" id="reviewsCount" aria-live="polite"></div>
+      </div>
+
+      <div id="reviewsContainer"></div>
+
+      <div style="text-align:center; margin-top: 12px;">
+        <button id="loadMoreBtn" class="btn" style="padding:8px 16px; display:none; color: #000;">Load more</button>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -183,9 +177,11 @@
     </div>
   </div>
 
- <script src="scripts/1-core.js" defer></script>
+  <script type="module" src="scripts/review.js"> </script>
+   <script src="scripts/1-core.js" defer></script>
   <script src="scripts/2-data-table.js" defer></script>
   <script src="scripts/3A-popups-core.js" defer></script>
   <script src="scripts/3B-popups-verify-share.js" defer></script>
-  <script src="scripts/4-routing-data-ui.js" defer></script></body>
+  <script src="scripts/4-routing-data-ui.js" defer></script>
+</body>
 </html>
