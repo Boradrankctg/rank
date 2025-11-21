@@ -1,0 +1,251 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SSC & HSC Board Rank — Chittagong Board (Unofficial)</title>
+<meta name="description" content="View unofficial SSC & HSC rankings for Chattogram/Chittagong Board with marks list. Fast, easy, with GPA, total marks, and school comparisons.">
+<meta name="keywords" content="SSC 2025, SSC Result 2025, Board Rank, Chittagong Board Rank, Bangladesh SSC Rank, SSC 2025 Rank, HSC 2024 Result, SSC 2024 Result, Board-wise Rank, CTG Board Result, GPA Rank Bangladesh">
+<meta name="author" content="Hasnyne" />
+<meta name="robots" content="index, follow" />
+<meta name="google-site-verification" content="siNtiPjvsyElA07czENYNNvVQicPoBsDL_dU5cwSVQ0" />
+<link rel="canonical" href="https://boradrankctg.github.io/rank/" />
+<meta property="og:title" content="SSC & HSC Board Rank — Chittagong Board (Unofficial)" />
+<meta property="og:description" content="Unofficial SSC 2025 rankings for Chittagong Board and Bangladesh. Search by roll number, compare schools, view GPA, marks, and ranks easily." />
+<meta property="og:url" content="https://boradrankctg.github.io/rank/" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://og-playground.vercel.app/api/og?title=BoardRankCTG&subtitle=SSC%20%26%20HSC%20Rankings%20%E2%80%94%20Chattogram%20Board" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-f7n3GfUINp0dF2kIgwTQ5Q/NFOTdI1N3r2rOeGd8GvK7m9VB6g8lO6D8Dq/7Hc5VQsr6QyQGHTpM4RwFgq3GEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="icon" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/icons/trophy-line.svg" type="image/svg+xml" />
+<link rel="manifest" href="/rank/manifest.json">
+<link rel="apple-touch-icon" href="/rank/icons/icon-192.png">
+<meta name="theme-color" content="#2563eb">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/rank/sitemap.xml">
+<meta http-equiv="Content-Security-Policy-Report-Only" content="default-src 'self' https://boradrankctg.github.io; script-src 'self' https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://boardrankctg-default-rtdb.asia-southeast1.firebasedatabase.app https://www.gstatic.com https://firebaseinstallations.googleapis.com https://firebasestorage.googleapis.com; worker-src 'self'; frame-ancestors 'self'; upgrade-insecure-requests">
+</head>
+
+<body>
+<section class="hero hero-pro" aria-label="BoardRank Hero">
+<div class="hero-bg">
+<span class="blob b1"></span>
+<span class="blob b2"></span>
+<span class="blob b3"></span>
+<span class="grid-lines"></span>
+</div>
+<div class="hero-inner">
+<div class="hero-grid">
+<div class="hero-left">
+<div class="hero-eyebrow">
+<i class="ri-shield-star-line"></i> Chattogram Board • Hasnyne
+</div>
+<h1>SSC & HSC Board Rankings</h1>
+<p class="hero-sub">All SSC AND HSC students ranking since 2022</p>
+</div>
+</div>
+</div>
+</section>
+
+<nav aria-label="breadcrumb">
+<ul class="breadcrumb">
+<li><a href="index.html">Home</a></li>
+<li><a href="#" id="currentYear">Year</a></li>
+<li id="currentGroup" style="display:none;"></li>
+</ul>
+</nav>
+
+<nav class="app-nav" role="navigation">
+<div class="nav-inner">
+<a class="brand" href="index.html">🎓 BoardRankCTG</a>
+<button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+<i class="ri-menu-line"></i>
+</button>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html"><i class="fas fa-house-chimney"></i> Home</a></li>
+<li><a href="about.html"><i class="fas fa-user-tie"></i> About</a></li>
+<li><a href="review.html"><i class="fas fa-star-half-stroke"></i> Reviews</a></li>
+<li><a href="contactus.html"><i class="fas fa-envelope-open-text"></i> Contact</a></li>
+<li class="logged-in-only" style="display:none;"><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+<li class="logged-in-only" style="display:none;"><a href="favorite.html"><i class="fas fa-heart"></i> Favorites</a></li>
+<li class="logged-out-only"><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+<li class="logged-in-only" style="display:none;"><button class="linklike" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+<li><button id="helpBtn" class="linklike"><i class="fas fa-question-circle"></i> Help</button></li>
+<li><button id="shareBtn" class="linklike"><i class="ri-share-line"></i> Share</button></li>
+<li><a href="visitors.html" id="visitorsLink"><i class="fas fa-users"></i> Visitors</a></li>
+<li>
+<label class="theme-switch">
+<input type="checkbox" id="themeToggle" />
+<span class="slider"></span>
+<span class="label">Dark mode</span>
+</label>
+</li>
+</ul>
+</div>
+<div class="nav-overlay" id="navOverlay"></div>
+</nav>
+
+<div id="customBanner" class="info-banner">⚠️ This is not an official rank. It's prepared based on publicly available data.</div>
+<div id="annBanner" class="ann-banner type-info" style="display:none;">
+<div class="ann-inner">
+<div class="ann-text" id="annText"></div>
+<a id="annBtn" class="ann-btn" href="#" target="_blank" rel="noopener" style="display:none;">Learn more</a>
+</div>
+</div>
+
+<main>
+<section>
+<p id="selectPrompt">PLEASE SELECT EXAM AND YEAR <i class="fas fa-arrow-down down-arrow"></i></p>
+<div class="year-dropdown">
+<select id="yearDropdown" onchange="loadYear(this.value)">
+<option value=""> Year and Exam</option>
+<option value="hsc_2025">HSC 2025</option>
+<option value="2025">SSC 2025</option>
+<option value="2024">SSC 2024</option>
+<option value="2023">SSC 2023</option>
+<option value="2022">SSC 2022</option>
+<option value="hsc_2024">HSC 2024</option>
+<option value="hsc_2023">HSC 2023</option>
+</select>
+</div>
+<div id="content"></div>
+<div id="noDataMessage" style="display:none;">Oops! No data found.</div>
+</section>
+
+<div class="featured-box" data-value="hsc_2025" onclick="handleFeaturedClick('hsc_2025', this)">
+<div class="new-ribbon"><span style="left: -14px; position: relative;">RECHECK</span></div>
+<div class="featured-text">
+<div class="ssc-line">HSC</div>
+<div class="year-line">25</div>
+</div>
+</div>
+
+<div class="featured-box" data-value="2025" onclick="handleFeaturedClick('2025', this)">
+<div class="new-ribbon"><span style="left: -14px; position: relative;">RECHECK</span></div>
+<div class="featured-text">
+<div class="ssc-line">SSC</div>
+<div class="year-line">25</div>
+</div>
+</div>
+
+<div class="featured-box" data-value="2024" onclick="handleFeaturedClick('2024', this)">
+<div class="featured-text">
+<div class="ssc-line">SSC</div>
+<div class="year-line">24</div>
+</div>
+</div>
+
+<div class="featured-box" data-value="2023" onclick="handleFeaturedClick('2023', this)">
+<div class="featured-text">
+<div class="new-ribbon">HOT</div>
+<div class="ssc-line">SSC</div>
+<div class="year-line">23</div>
+</div>
+</div>
+
+<div class="featured-box" data-value="2022" onclick="handleFeaturedClick('2022', this)">
+<div class="featured-text">
+<div class="ssc-line">SSC</div>
+<div class="year-line">22</div>
+</div>
+</div>
+
+<div class="featured-box" data-value="hsc_2024" onclick="handleFeaturedClick('hsc_2024', this)">
+<div class="featured-text">
+<div class="ssc-line">HSC</div>
+<div class="year-line">24</div>
+</div>
+</div>
+
+<div class="featured-box" data-value="hsc_2023" onclick="handleFeaturedClick('hsc_2023', this)">
+<div class="featured-text">
+<div class="ssc-line">HSC</div>
+<div class="year-line">23</div>
+</div>
+</div>
+
+<!-- AD BLOCK 1 -->
+<div style="text-align:center; margin:20px 0;">
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'b6547c47c5251d6ddf897101ab29a8b5',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="https://www.highperformanceformat.com/b6547c47c5251d6ddf897101ab29a8b5/invoke.js"></script>
+</div>
+
+<!-- AD BLOCK 2 -->
+<div id="container-a18c15a8b5eced98b921013320da3182" style="text-align:center; margin:20px 0;"></div>
+<script async="async" data-cfasync="false" src="https://pl28076253.effectivegatecpm.com/a18c15a8b5eced98b921013320da3182/invoke.js"></script>
+
+<!-- AD BLOCK 3 -->
+<div style="text-align:center; margin:20px 0;">
+<script type='text/javascript' src='https://pl28076405.effectivegatecpm.com/ef/64/80/ef64806886906380891e0ba17d72a92b.js'></script>
+</div>
+
+<section id="seo-blurb">
+<div class="seo-container">
+<h2>SSC Result Rankings — CHITTAGONG Board</h2>
+<p>BoardRankCTG provides <strong>SSC Result Rankings</strong> for the <strong>Chattogram Education Board</strong>, covering <strong>Science</strong>, <strong>Business Studies</strong>, and <strong>Humanities</strong> for 2025, 2024, 2023, and earlier years. Our rankings are accurate, fast, and easy to use.</p>
+<p>Search instantly by student name, roll number, or school, compare scores, and explore the <em>Top 100 institutions</em>. View GPA, total marks, and rank for each student, with shareable links and downloadable data.</p>
+<p>Our platform offers complete year-wise SSC rankings for all streams, including Science, Business Studies, and Humanities. Users can quickly find results using instant search and stream-based filters, making navigation effortless. The dedicated <em>Top 100 Schools</em> view highlights the best-performing institutions in the Chattogram Board area. Every ranking table is fully mobile-friendly and optimized for fast loading, ensuring smooth access on any device. All data can be freely downloaded for offline use, and every record is based on accurate results from verified public sources.</p>
+<p>From <strong>SSC 2025</strong> results to historical rankings, BoardRankCTG is the go-to platform for students, educators, and institutions in the Chattogram Board area.</p>
+</div>
+</section>
+
+<section id="story" class="container" style="margin-top: 10px;">
+<div class="info-banner">⚠️ This is not an official rank. Built from publicly available data.</div>
+</section>
+
+<section id="proof" class="container" style="margin-top: 16px;">
+<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+<div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; text-align:center;">
+<div style="font-size:2rem; font-weight:900; color:var(--primary)">⚡</div>
+<div style="font-size:1.5rem; font-weight:900;" id="liveVisits">—</div>
+<div style="color:var(--text-muted); font-weight:800;">Total Visits</div>
+</section>
+
+<section id="action" class="container" style="margin: 20px auto 0; text-align:center;">
+<a class="btn btn-primary" href="#yearDropdown"><i class="ri-trophy-line"></i>Choose Year & Group</a>
+</section>
+</main>
+
+<div id="popupWindow" style="display:none;">
+<button id="closePopup" class="close-btn">&times;</button>
+<div class="popup-content" id="popupContent"></div>
+</div>
+
+<button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">
+<img src="asset/arrow-up.png" alt="Scroll to top">
+</button>
+
+<script src="scripts/1-core.js" defer></script>
+<script src="scripts/2-data-table.js" defer></script>
+<script src="scripts/3A-popups-core.js" defer></script>
+<script src="scripts/3B-popups-verify-share.js" defer></script>
+<script src="scripts/4-routing-data-ui.js" defer></script>
+<script type="module" src="scripts/app.js"></script>
+
+<footer>&copy; 2025 BoardRankCTG — Made by Hasnyne</footer>
+
+<div id="banOverlay">
+<div class="ban-card">
+<h3>🚫 Access Restricted</h3>
+<p id="banReason">Reason: —</p>
+<p id="banUntil">Until: —</p>
+<div id="banTimer" style="font-weight:800;margin-top:6px;"></div>
+<p style="margin-top:12px;font-size:.9rem;">If you think this is a mistake, contact the admin.</p>
+</div>
+</div>
+</body>
+</html>

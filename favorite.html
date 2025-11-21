@@ -1,0 +1,69 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Favorites — BoardRankCTG</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="icon" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/icons/trophy-line.svg" type="image/svg+xml" />
+  </head>
+  <body>
+  <nav class="app-nav" role="navigation">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">🎓 BoardRankCTG</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <i class="ri-menu-line"></i>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"><i class="fas fa-house-chimney"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-user-tie"></i> About</a></li>
+        <li><a href="review.html"><i class="fas fa-star-half-stroke"></i> Reviews</a></li>
+        <li><a href="contactus.html"><i class="fas fa-envelope-open-text"></i> Contact</a></li>
+
+        <li class="logged-in-only" style="display:none;"><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+        <li class="logged-in-only" style="display:none;"><a href="favorite.html"><i class="fas fa-heart"></i> Favorites</a></li>
+        <li class="logged-out-only"><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        <li class="logged-in-only" style="display:none;"><button class="linklike" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+
+        <li><button id="helpBtn" class="linklike"><i class="fas fa-question-circle"></i> Help</button></li>
+        <li><button id="shareBtn" class="linklike"><i class="ri-share-line"></i> Share</button></li>
+        <li><a href="visitors.html" id="visitorsLink"><i class="fas fa-users"></i> Visitors</a></li>
+
+        <li class="divider"></li>
+        <li>
+          <label class="theme-switch" title="Toggle theme">
+            <input type="checkbox" id="themeToggle" />
+            <span class="slider" aria-hidden="true"></span>
+            <span class="label">Dark mode</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+  </nav>
+
+
+    <main class="container" style="padding: 20px;">
+      <h1 style="color: var(--text);">My Favorite Results</h1>
+      <p class="info-banner">All your saved results in one place</p>
+      
+      <div id="favoritesContainer" style="margin-top: 20px;">
+        <div class="loading-spinner" style="margin: 50px auto;"></div>
+      </div>
+    </main>
+
+    <script type="module" src="scripts/favorite.js"></script>
+  <script src="scripts/1-core.js" defer></script>
+    <script src="scripts/2-data-table.js" defer></script>
+    <script src="scripts/3A-popups-core.js" defer></script>
+    <script src="scripts/3B-popups-verify-share.js" defer></script>
+    <script src="scripts/4-routing-data-ui.js" defer></script></body>
+  </html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — BoardRankCTG</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="icon" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/icons/trophy-line.svg" type="image/svg+xml" />
+
+  <style  >
+    
+  
+  .login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: var(--gradient-primary);
+  }
+  .login-box {
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: var(--shadow-strong);
+    width: 100%;
+    max-width: 460px;
+    padding: 28px;
+    border: 1px solid var(--border-strong);
+  }
+  .login-logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .login-logo h1 {
+    color: var(--text);
+    font-size: 28px;
+    font-weight: 900;
+    margin: 8px 0 2px;
+  }
+  .login-logo p {
+    color: var(--text-muted);
+    font-weight: 700;
+    margin: 0;
+  }
+  .login-benefits {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+  .login-benefits h3 {
+    color: var(--primary);
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 900;
+  }
+  .login-benefits ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--text-muted);
+  }
+  .login-benefits li {
+    margin: 6px 0;
+    font-weight: 700;
+  }
+  .login-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .login-tab {
+    flex: 1;
+    padding: 10px;
+    background: var(--surface-muted);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-weight: 800;
+    cursor: pointer;
+    color: var(--text);
+  }
+  .login-tab.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+  .login-input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    background: white;
+  }
+  .login-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: var(--focus-ring);
+  }
+  .login-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .login-btn:hover { background: var(--primary-600); }
+  .message-div {
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    text-align: center;
+    font-weight: 800;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .message-div.error {
+    background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5;
+  }
+  .message-div.success {
+    background: #dcfce7; color: #166534; border: 1px solid #86efac;
+  }
+  .divider { text-align: center; margin: 16px 0; color: #6b7280; font-weight: 800; position: relative; }
+  .divider:before,.divider:after {
+    content: ''; position: absolute; top: 50%; width: 42%; height: 1px; background: var(--border);
+  }
+  .divider:before { left: 0; }
+  .divider:after { right: 0; }
+  .google-btn {
+    width: 100%; padding: 12px; background: white; color: var(--text);
+    border: 1px solid var(--border); border-radius: 10px; font-weight: 900; display: flex;
+    align-items: center; justify-content: center; gap: 10px; cursor: pointer; transition: all .2s;
+  }
+  .google-btn:hover { background: #f9fafb; border-color: var(--primary); }
+  .forgot-wrap {
+    display: flex; justify-content: space-between; align-items: center; margin: 6px 0 14px;
+  }
+  .forgot-wrap a { font-weight: 800; color: var(--primary); text-decoration: none; }
+  .forgot-wrap a:hover { text-decoration: underline; }
+  body.dark-mode .login-box { background: var(--surface); border: 1px solid var(--border-strong); }
+  body.dark-mode .login-benefits { background: #0b1220; border-color: #334155; }
+  body.dark-mode .login-input, body.dark-mode .google-btn { background: #0b1220; color: var(--text); border-color: var(--border-strong); }
+</style>
+
+  </style>
+</head>
+
+
+
+<body>
+    <nav class="app-nav" role="navigation">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">🎓 BoardRankCTG</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <i class="ri-menu-line"></i>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"><i class="fas fa-house-chimney"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-user-tie"></i> About</a></li>
+        <li><a href="review.html"><i class="fas fa-star-half-stroke"></i> Reviews</a></li>
+        <li><a href="contactus.html"><i class="fas fa-envelope-open-text"></i> Contact</a></li>
+
+        <li class="logged-in-only" style="display:none;"><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+        <li class="logged-in-only" style="display:none;"><a href="favorite.html"><i class="fas fa-heart"></i> Favorites</a></li>
+        <li class="logged-out-only"><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        <li class="logged-in-only" style="display:none;"><button class="linklike" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+
+        <li><button id="helpBtn" class="linklike"><i class="fas fa-question-circle"></i> Help</button></li>
+        <li><button id="shareBtn" class="linklike"><i class="ri-share-line"></i> Share</button></li>
+        <li><a href="visitors.html" id="visitorsLink"><i class="fas fa-users"></i> Visitors</a></li>
+
+        <li class="divider"></li>
+        <li>
+          <label class="theme-switch" title="Toggle theme">
+            <input type="checkbox" id="themeToggle" />
+            <span class="slider" aria-hidden="true"></span>
+            <span class="label">Dark mode</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+  </nav>
+
+  <div class="login-container">
+    <div class="login-box">
+      <div class="login-logo">
+        <div style="font-size: 48px;">🎓</div>
+        <h1>BoardRankCTG</h1>
+        <p style="color: #6b7280; font-weight: 700;">Welcome back</p>
+      </div>
+
+      <div class="login-benefits">
+        <h3>✨ Why Sign In?</h3>
+        <ul>
+          <li>No more verification popups - ever!</li>
+          <li>Save favorite results</li>
+          <li>Submit and reply to reviews</li>
+          <li>Personal profile page</li>
+          <li>Access from any device</li>
+          <li>Compare Students</li>
+<li>Top Schools view</li>
+<li>Advanced mobile filters</li>
+<li>Create custom lists (save any people you want)</li>
+
+        </ul>
+      </div>
+
+      <div class="login-tabs">
+        <button class="login-tab active" id="signInTabBtn">Sign In</button>
+        <button class="login-tab" id="signUpTabBtn">Sign Up</button>
+      </div>
+
+      <!-- Message divs -->
+      <div id="signInMessage" class="message-div"></div>
+      <div id="signUpMessage" class="message-div"></div>
+
+      <!-- Sign In Form -->
+      <div id="signInForm">
+        
+        <input type="email" id="email" class="login-input" placeholder="Email address" />
+        <input type="password" id="password" class="login-input" placeholder="Password" type="password" />
+        <div class="forgot-wrap">
+  <span></span>
+  <a href="reset.html">Forgot password?</a>
+</div>
+        <button class="login-btn" id="submitSignIn">Sign In</button>
+      </div>
+
+      <!-- Sign Up Form -->
+      <div id="signUpForm" style="display: none;">
+        <input type="text" id="fName" class="login-input" placeholder="First name" />
+        <input type="text" id="lName" class="login-input" placeholder="Last name (optional)" />
+        <input type="email" id="rEmail" class="login-input" placeholder="Email address" />
+        <input type="password" id="rPassword" class="login-input" placeholder="Password (min 6 characters)" type="password" />
+        <button class="login-btn" id="submitSignUp">Create Account</button>
+      </div>
+
+      <div class="divider">or</div>
+
+      <button class="google-btn" id="googleSignIn">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="20" alt="Google" />
+        Continue with Google
+      </button>
+
+      <p style="text-align: center; margin-top: 20px; font-weight: 700;">
+        <a href="index.html" style="color: var(--primary);">← Back to Home</a> | 
+        <a href="index.html" style="color: #6b7280;">Skip for now</a>
+      </p>
+    </div>
+  </div>
+
+  <script type="module" src="scripts/login.js"></script>
+   <script src="scripts/1-core.js" defer></script>
+  <script src="scripts/2-data-table.js" defer></script>
+  <script src="scripts/3A-popups-core.js" defer></script>
+  <script src="scripts/3B-popups-verify-share.js" defer></script>
+  <script src="scripts/4-routing-data-ui.js" defer></script></body>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Password Reset — BoardRankCTG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/icons/trophy-line.svg" type="image/svg+xml" />
+</head>
+
+<body>
+  <nav class="app-nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">🎓 BoardRankCTG</a>
+    </div>
+  </nav>
+
+  <main class="container" style="max-width: 520px;">
+    <div class="popup-content">
+      <h2>Reset your password</h2>
+      <p>Enter your account email. We’ll send you a reset link. (check spam folder) </p>
+
+      <input 
+        id="resetEmail" 
+        type="email" 
+        placeholder="Email address" 
+        autocomplete="email"
+      />
+
+      <button id="sendResetBtn" class="btn-primary">
+        Send reset link
+      </button>
+
+      <p style="margin-top: 10px;">
+        Remember now? <a href="login.html">Back to login</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- Firebase Password Reset Logic -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+    import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+
+    const authConfig = {
+      apiKey: "AIzaSyAIsOwpONfGwTDFEbfdno8O3sm2G8GObiU",
+      authDomain: "loginforme-f4886.firebaseapp.com",
+      projectId: "loginforme-f4886",
+      appId: "1:634439962888:web:72b9c573e76c8719f9dcbd"
+    };
+
+    const app = initializeApp(authConfig);
+    const auth = getAuth(app);
+
+    document.getElementById('sendResetBtn').addEventListener('click', async () => {
+      const email = (document.getElementById('resetEmail').value || '').trim();
+
+      if (!email) {
+        alert('Please enter your email');
+        return;
+      }
+
+      try {
+        await sendPasswordResetEmail(auth, email, {
+          url: 'https://boradrankctg.github.io/rank/reset-password.html',
+          handleCodeInApp: false
+        });
+
+        alert('Password reset email sent. Please check your inbox.');
+      } catch (e) {
+        console.error(e);
+
+        if (e.code === 'auth/user-not-found') {
+          alert('No account exists with this email.');
+        } else if (e.code === 'auth/invalid-email') {
+          alert('Invalid email format.');
+        } else {
+          alert('Failed to send reset email. Try again later.');
+        }
+      }
+    });
+  </script>
+    <script src="scripts/1-core.js" defer></script>
+
+
+</body>
+</html>
